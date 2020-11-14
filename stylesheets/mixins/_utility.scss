@@ -1,0 +1,74 @@
+// =======================================
+// Utilities
+// =======================================
+
+//
+// Strip units
+//
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+//
+// Convert pixels to em's
+//
+@function em($pixels, $context: $fontSize) {
+  @return #{strip-unit($pixels) / strip-unit($context)}em;
+}
+
+//
+// Convert pixels to rem's
+//
+@function rem($pixels) {
+  @return #{strip-unit($pixels) / strip-unit($fontSize)}rem;
+}
+
+//
+// Check if number is even
+//
+@function even($number) {
+  @return strip-unit($number) % 2 == 0;
+}
+
+//
+// Capitalize string
+//
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+//
+// Return whether `$value` is contained in `$list`
+//
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}
+
+//
+// Camelize string
+//
+@function camelize($string) {
+  $progress: $string;
+  $result: "";
+  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
+
+  @while str-length($progress) > 0 {
+    $char: str-slice($progress, 1, 1);
+
+    @if contain($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+ }
+
+  @return $result;
+}
+
+//
+// Pascalize string
+//
+@function pascalize($string) {
+  @return capitalize(camelize($string));
+}

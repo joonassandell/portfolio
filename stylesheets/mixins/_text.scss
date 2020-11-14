@@ -1,0 +1,76 @@
+// =======================================
+// Text related mixins
+// =======================================
+
+
+// ======
+// Text sizes & styles
+// ======
+
+@mixin text($size: null, $style: null) {
+  @if $size == 'xl' {
+    @include fontSizeFluid($fontSize, $fontSize-xl, $lineHeight, $lineHeight-xl);
+  } @else if $size == 'l' {
+    @include fontSizeFluid($fontSize-l, $fontSize-xl, $lineHeight, $lineHeight-l);
+  } @else if $size == 'm' {
+    @include fontSize($fontSize, $lineHeight);
+  } @else if $size == 's' {
+    @include fontSize($fontSize-s, $lineHeight-s);
+  } @else if $size == 'xs' {
+    @include fontSize($fontSize-xs, $lineHeight-xs);
+  }
+
+  @if $style == 'meta' {
+    color: $textLight;
+  } 
+}
+
+// ======
+// Truncate text
+// ======
+//
+// Force overly long spans of text to truncate
+// e.g. @include truncate(80%);
+// Where $truncation-boundary is a united measurement.
+// 1. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
+
+@mixin textTruncate($truncation-boundary: 100%, $important: null) {
+  @if $important { $important: !important; }
+
+  max-width: $truncation-boundary $important;
+  overflow: hidden $important;
+  text-overflow: ellipsis $important;
+  white-space: nowrap $important;
+  word-wrap: normal $important; // [1.]
+}
+
+
+// ======
+// Image replacement / text hiding
+// ======
+
+@mixin textHide($important: null) {
+  @if $important { $important: !important; }
+
+  overflow: hidden $important;
+  text-indent: 1000% $important;
+  white-space: nowrap $important;
+}
+
+
+// ======
+// Enables font kerning in all browsers.
+// http://blog.typekit.com/2014/02/05/kerning-on-the-web/
+// ======
+//
+// 1. Chrome (not Windows), Firefox, IE 10+
+// 2. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+// 3. Safari 7 and future browsers
+
+@mixin textKern($important: null) {
+  @if $important { $important: !important; }
+
+  font-feature-settings: 'kern' 1 $important; // [1.]
+  text-rendering: optimizeLegibility $important; // [2.]
+  font-kerning: normal $important; // [3.]
+}

@@ -1,0 +1,32 @@
+// =======================================
+// Various Mixins
+// =======================================
+
+//
+// List reset
+//
+@mixin resetList() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+//
+// Disabled
+//
+@mixin disabled() {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+//
+// Clear fix
+//
+@mixin clearfix() {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}

@@ -1,0 +1,38 @@
+@mixin fontSizeFluid($minFontSize: $fontSize, $maxFontSize: $fontSize-xl, $lineHeight: null, $maxLineHeight: null, $lineHeightMin: null, $maxMq: 'xxxl', $minMq: 0px) {
+  $minMqValue: null;
+  $maxMqValue: null;
+
+  @if map-get($mq-breakpoints, $minMq) {
+    $minMqValue: mq-get-breakpoint-width($minMq);
+  } @else {
+    @include mq-add-breakpoint($minMq, $minMq);
+    $minMqValue: $minMq;
+  }
+
+  @if map-get($mq-breakpoints, $maxMq) {
+    $maxMqValue: mq-get-breakpoint-width($maxMq);
+  } @else {
+    @include mq-add-breakpoint($maxMq, $maxMq);
+    $maxMqValue: $maxMq;
+  }
+
+  & {
+    font-size: $minFontSize;
+
+    @include mq($minMq) {
+      font-size: calc(#{$minFontSize} + #{strip-unit($maxFontSize - $minFontSize)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
+
+      @if ($lineHeight) {
+        line-height: calc(#{$lineHeight} + #{strip-unit($maxLineHeight - $lineHeight)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
+      }
+    }
+
+    @include mq($maxMq) {
+      font-size: $maxFontSize;
+
+      @if ($maxLineHeight) {
+        line-height: $maxLineHeight;
+      }
+    }
+  }
+}

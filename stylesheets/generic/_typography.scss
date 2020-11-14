@@ -1,0 +1,65 @@
+/* =======================================
+ * Typography
+ * ======================================= */
+
+p {
+  margin: 0 0 rem($space);
+}
+
+b,
+strong {
+  font-weight: $fontWeightStrong;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $border;
+  display: block;
+  height: 1px;
+  margin-bottom: rem($space);
+  margin-top: 0;
+  padding: 0;
+}
+
+hgroup {
+  > *:not(:last-child) {
+    margin-bottom: rem($space / 2);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading;
+  font-family: $headingFontFamily;
+  font-weight: $headingFontWeight;
+  margin: 0 0 rem($space);
+}
+
+h1, .h1, %h1 {
+  @include fontSizeFluid($h6FontSize, $h1FontSize, $lineHeight, $h1LineHeight);
+}
+
+h2, .h2, %h2 {
+  @include fontSizeFluid($h6FontSize, $h2FontSize, $lineHeight, $h2LineHeight);
+}
+
+h3, .h3, %h3 {
+  @include fontSizeFluid($h6FontSize, $h3FontSize, $h6LineHeight, $h3LineHeight);
+}
+
+h4, .h4, %h4 {
+  @include fontSizeFluid($h6FontSize, $h4FontSize, $h6LineHeight, $h4LineHeight);
+}
+
+h5, .h5, %h5 {
+  @include fontSizeFluid($h6FontSize, $h5FontSize, $h6LineHeight, $h5LineHeight);
+}
+
+h6, .h6, %h6 {
+  @include fontSizeFluid($fontSize, $h6FontSize);
+  @include TextSubtitle();
+}

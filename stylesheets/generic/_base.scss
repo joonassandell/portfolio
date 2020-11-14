@@ -1,0 +1,103 @@
+/* =======================================
+ * Base
+ * ======================================= */
+
+:root {
+  // @include fontSizeFluid($fontSize, $fontSize-l);
+  background-color: $bgLightest;
+  color: $text;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  line-height: $lineHeight / $fontSize;
+  min-width: 300px;
+  scroll-behavior: smooth;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  tap-highlight-color: transparent;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+hgroup,
+blockquote,
+address,
+table,
+fieldset,
+figure,
+pre,
+ul,
+ol,
+dl {
+  margin: 0 0 rem($space);
+}
+
+ul,
+ol,
+dl {
+  padding: 0 0 0 rem($space);
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+
+  &:active {
+    color: $link;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus:not(:hover) {
+    outline: 1px dotted $black;
+  }
+
+  &:hover {
+    color: $linkHover;
+  }
+}
+
+::-moz-selection {
+  background: $primary;
+  color: $white;
+}
+
+::selection {
+  background: $primary;
+  color: $white;
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}
+
+img,
+embed,
+object,
+iframe,
+video {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  vertical-align: middle;
+}
+
+dialog[open] {
+  display: block;
+}

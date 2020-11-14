@@ -1,0 +1,29 @@
+// =======================================
+// Heading
+// =======================================
+
+
+// ======
+// Heading sizes & styles
+// ======
+
+@mixin heading($size: null) {
+  color: $heading;
+  font-family: $headingFontFamily;
+  font-weight: $headingFontWeight;
+  margin: 0 0 rem($space);
+
+  @if $size == 'h1' {
+    @include fontSizeFluid($h6FontSize, $h1FontSize, $lineHeight, $h1LineHeight);
+  } @else if $size == 'h2' {
+    @include fontSizeFluid($h6FontSize, $h2FontSize, $lineHeight, $h2LineHeight);
+  } @else if $size == 'h3' {
+    @include fontSizeFluid($h6FontSize, $h3FontSize, $h6LineHeight, $h3LineHeight);
+  } @else if $size == 'h4' {
+    @include fontSizeFluid($h6FontSize, $h4FontSize, $h6LineHeight, $h4LineHeight);
+  } @else if $size == 'h5' {
+    @include fontSizeFluid($h6FontSize, $h5FontSize, $h6LineHeight, $h5LineHeight);
+  } @else if $size == 'h6' {
+    @include fontSizeFluid($fontSize, $h6FontSize);
+  }
+}

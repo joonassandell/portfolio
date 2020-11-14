@@ -1,0 +1,31 @@
+/* =======================================
+ * Home (Selected works)
+ * ======================================= */
+
+@import '../../../stylesheets/config';
+@import '../../../stylesheets/mixins';
+
+.Home {}
+
+.Home-project {}
+
+
+/* ======
+ * Oras
+ * ====== */
+
+.Home-project--oras {}
+
+.Home-oras {}
+
+.Home-oras-figure {
+  position: absolute;
+  width: 33.333vw;
+}
+
+.Home-oras-bg {
+  // background-color: #E9E9E9;
+  background-image: radial-gradient(50% 100%, #FFFFFF 50%, #E9E9E9 100%);
+  height: 100vh;
+  width: 100vw;
+}

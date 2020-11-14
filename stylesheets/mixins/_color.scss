@@ -1,0 +1,10 @@
+// =======================================
+// Placeholder text color
+// =======================================
+
+@mixin colorPlaceholder($color: $colorGrayLight) {
+  &:-moz-placeholder            { color: $color; }
+  &::-moz-placeholder           { color: $color; }
+  &:-ms-input-placeholder       { color: $color; }
+  &::-webkit-input-placeholder  { color: $color; }
+}

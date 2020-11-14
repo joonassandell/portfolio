@@ -1,0 +1,47 @@
+/* =======================================
+ * Header
+ * ======================================= */
+
+@import '../../stylesheets/config';
+@import '../../stylesheets/mixins';
+
+.Header {
+  padding-top: rem($space * 1.5);
+  position: absolute;
+  z-index: 1;
+}
+
+.Header-wrap {
+  display: flex;
+}
+
+.Header-name, .Header-nav-button {
+  @include heading('h5');
+  margin: 0;
+}
+
+.Header-name {
+  display: flex;
+  margin-right: rem($space * 2.25);
+  position: relative;
+
+  &:after {
+    background: $black;
+    content: '';
+    display: block;
+    height: 2px;
+    right: rem($space * -1.75);
+    position: absolute;
+    top: calc(50% - 2px);
+    width: rem($space * 1.25);
+  }
+}
+
+.Header-nav-button {}
+
+.Header-nav-button-active {}
+
+.Header-nav-list {
+  position: absolute;
+  width: 100%;
+}

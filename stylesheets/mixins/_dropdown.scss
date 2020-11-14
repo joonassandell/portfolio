@@ -1,0 +1,60 @@
+// =======================================
+// Dropdown
+// =======================================
+
+@mixin dropdown($align: 'left', $arrow: true, $arrowColor: lighten(#000000, 85),
+  $backgroundColor: #ffffff, $borderRadius: $borderRadius, $default: true, $min-width: 240px,
+  $padding: rem($space / 1.5) rem($space / 1.5), $boxShadow: (0 -1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1)), $state: false) {
+
+  @if $state == false and $default  {
+    background-color: $backgroundColor;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    min-width: $min-width;
+    opacity: 0;
+    padding: $padding;
+    position: absolute;
+    top: 100%;
+    transition: opacity ($transitionDuration * 2);
+    visibility: hidden;
+    z-index: 999;
+  }
+
+  @if $state == 'is-open' {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /**
+   * Caret
+   */
+  @if $arrow and $state == false {
+    &:before {
+      @include shapeTriangle(8px, 8px, 'up',  $arrowColor);
+      content: "";
+      left: $space;
+      margin-left: rem(-4px);
+      position: absolute;
+      top: rem(-8px);
+    }
+  }
+
+  /**
+   * Aligning
+   */
+  @if $align == 'right' {
+    left: auto;
+    right: 0;
+
+    /**
+     * Caret align
+     */
+    &:before {
+      left: auto;
+      right: $space / 2;
+    }
+  }
+}
