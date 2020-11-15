@@ -4,7 +4,7 @@
 
 :root {
   // @include fontSizeFluid($fontSize, $fontSize-l);
-  background-color: $bgLightest;
+  background-color: var(--bgColor);
   color: $text;
   font-family: $fontFamily;
   font-size: $fontSize;
@@ -17,9 +17,16 @@
   -webkit-touch-callout: none;
   -webkit-font-smoothing: antialiased;
   tap-highlight-color: transparent;
+
+  --vh: 1vh;
+  --vw: 1vw;
+  --vpW: 100vw;
+  --vpH: 100vh;
+  --bgColor: $bgLightest;
 }
 
 * {
+
   &,
   &:before,
   &:after {

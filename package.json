@@ -1,5 +1,5 @@
 {
-  "name": "joonassandell",
+  "name": "joonassandell-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "framer-motion": "^2.9.4",
-    "next": "10.0.1",
+    "next": "^10.0.2-canary.11",
     "normalize.css": "^8.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"

@@ -8,7 +8,7 @@
 .Header {
   padding-top: rem($space * 1.5);
   position: absolute;
-  z-index: 1;
+  z-index: 99;
 }
 
 .Header-wrap {
@@ -42,6 +42,7 @@
 .Header-nav-button-active {}
 
 .Header-nav-list {
+  // opacity: 0;
   position: absolute;
   width: 100%;
 }

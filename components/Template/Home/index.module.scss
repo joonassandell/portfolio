@@ -14,18 +14,115 @@
  * Oras
  * ====== */
 
-.Home-project--oras {}
+.Home-oras {
+  // transform: scale(0.9, 0.9);
+  // transform-origin: top right;
+  height: 100vh;
+  // max-height: 80vh;
+  max-height: rem($space * 30);
+  max-height: 60vw;
+  
+  position: relative;
+  width: 100vw;
 
-.Home-oras {}
-
-.Home-oras-figure {
-  position: absolute;
-  width: 33.333vw;
+  &.-compact {}
+  &.-initial {}
 }
 
-.Home-oras-bg {
-  // background-color: #E9E9E9;
-  background-image: radial-gradient(50% 100%, #FFFFFF 50%, #E9E9E9 100%);
-  height: 100vh;
-  width: 100vw;
+.Home-oras-wrap {
+  position: absolute;
+  z-index: 2;
+}
+
+.Home-oras-wrap--bg {
+  z-index: 0;
+}
+
+.Home-oras-figure {
+  height: 35vw;
+  position: relative;
+  max-width: rem($space * 20);
+}
+
+.Home-oras-figure-bg {
+  background-color: #E9E9E9;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+
+  .Home-oras.-compact & {
+    // height: rem($space * 17);
+    // height: 100vh;
+    // transform: scale(1, 2);
+    // transform: translate3d(0, 100vw, 0);
+  }
+}
+
+.Home-oras-figure-img {
+  display: block;
+  top: 0;
+  // bottom: -45%;
+  margin-left: rem($space * -3);
+  // margin-top: rem($space * 4);
+  max-width: 120%;
+  position: absolute; 
+  // top: auto;
+  top: 45%;
+  bottom: auto;
+  z-index: 1;
+}
+
+// .Home-oras-bg {
+//   height: 100vw;
+//   height: 0;
+//   top: 0;
+//   overflow: hidden;
+//   position: absolute;
+//   width: 100vw;
+//   transition: 1s;  
+// }
+
+.Home-oras-drop {
+  mix-blend-mode: darken;
+  position: absolute;
+  height: auto;
+  min-width: rem($space * 4);
+  max-width: rem($space * 12);
+
+  &.-drop--1 {
+    left: 18vw;
+    top: 20%;
+  }
+
+  &.-drop--2 {
+    left: 35vw;
+    top: 70%;
+    width: rem($space * 3);
+  }
+
+  &.-drop--3 {
+    left: rem($space * -1.5);
+    top: rem($space * -2);
+    width: rem($space * 4);
+  }
+}
+
+.Home-oras-headline {
+  @include fontSizeFluid($h6FontSize, 520px, $lineHeight, $h1LineHeight);
+  bottom: -25%;
+  height: 25%;
+  left: rem($space * -1);
+  // top: 100%;
+  font-weight: $headingFontWeightLight;
+  white-space: nowrap;
+  margin-left: $wrapSpaceEdgeLeft-l;
+  // overflow: hidden;
+  position: absolute;
+  // transform: translate3d(0, 100%, 0);
+  z-index: 1;
+}
+
+.Home-oras-headline-inner {
+  
 }

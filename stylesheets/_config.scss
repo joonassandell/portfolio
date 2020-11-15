@@ -31,6 +31,7 @@ $fontWeightStrong: bolder;
 
 $headingFontFamily: inherit;
 $headingFontWeight: 400;
+$headingFontWeightLight: 100;
 
 $h1FontSize: 64px;
 $h1LineHeight: 68px;
@@ -74,6 +75,8 @@ $mq-breakpoints: (
   xl: 1140px,
   xxl: 1280px,
   xxxl: 1528px,
+  xxxxl: 1920px,
+  xxxxxl: 2560px,
   wrapWidth: $wrapWidth,
   wrapMaxWidth: $wrapMaxWidth,
 );
