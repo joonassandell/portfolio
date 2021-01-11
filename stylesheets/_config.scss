@@ -51,13 +51,27 @@ $h6LineHeight: 24px;
 // Spacing & Sizing
 // =========
 
-$space: $lineHeight;
-$spaceEdge: 6.25%;
-$wrapSpaceEdge: $spaceEdge;
-$wrapSpaceEdgeLeft-l: $space * 4;
-$wrapSpaceEdgeRight-l: $space * 2;
-$wrapWidth: 1280px;
-$wrapMaxWidth: $wrapWidth + ($wrapSpaceEdgeLeft-l + $wrapSpaceEdgeRight-l);
+$space: 16px;
+
+
+// =========
+// App Spacing, Wrap & Grid settings
+// =========
+
+$App-asideSpaceLeft: $space * 2;
+$App-asideSpaceRight: $space * 2;
+$App-asideWidth: $space * 10;
+$App-asideWidth-xl: $space * 11;
+$App-wrapSpaceLeft: 6.25%;
+$App-wrapMaxWidth: 1584px;
+
+$wrap-spaceLeft: 6.25%;
+$wrap-spaceRight: 6.25%;
+$wrap-spaceLeft-m: $space * 4;
+$wrap-spaceRight-m: $space * 2;
+
+$grid-columns: 12;
+$grid-gap: $space * 1.5;
 
 
 // =========
@@ -77,8 +91,8 @@ $mq-breakpoints: (
   xxxl: 1528px,
   xxxxl: 1920px,
   xxxxxl: 2560px,
-  wrapWidth: $wrapWidth,
-  wrapMaxWidth: $wrapMaxWidth,
+  // wrapWidth: $wrapWidth,
+  // wrapMaxWidth: $wrapMaxWidth,
 );
 
 

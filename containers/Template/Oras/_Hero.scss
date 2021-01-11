@@ -2,16 +2,13 @@
  * Oras hero
  * ======================================= */
 
-@import '../../../stylesheets/config';
-@import '../../../stylesheets/mixins';
-
-.Home-oras {
+.Oras-hero {
   // transform: scale(0.9, 0.9);
   // transform-origin: top right;
   height: 100vh;
   // max-height: 80vh;
-  max-height: rem($space * 30);
-  max-height: 60vw;
+  max-height: rem($space * 45);
+  max-height: 70vw;
   
   position: relative;
   width: 100vw;
@@ -22,29 +19,33 @@
   &.-initial {}
 }
 
-.Home-oras-wrap {
+.Oras-hero-wrap {
   position: absolute;
   z-index: 2;
 }
 
-.Home-oras-wrap--bg {
+.Oras-hero-wrap--bg {
   z-index: 0;
 }
 
-.Home-oras-figure {
+.Oras-hero-figure {
   height: 35vw;
   position: relative;
-  max-width: rem($space * 20);
+  // max-width: rem($space * 30);
 }
 
-.Home-oras-figure-bg {
-  background-color: #E9E9E9;
-  height: 100%;
+.Oras-hero-figure-bg {
+  // background-color: #E9E9E9;
+  // background: linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%);
+  // background: #000;
+  height: 110%;
   position: absolute;
+  margin-left: -5%;
+  // right: 0;
   width: 100%;
   z-index: 0;
 
-  .Home-oras.-compact & {
+  .Oras-hero.-compact & {
     // height: rem($space * 17);
     // height: 100vh;
     // transform: scale(1, 2);
@@ -52,21 +53,22 @@
   }
 }
 
-.Home-oras-figure-img {
+.Oras-hero-figure-img {
   display: block;
   top: 0;
   // bottom: -45%;
-  margin-left: rem($space * -3);
+  // margin-left: rem($space * -4.5);
+  margin-left: -10vw;
   // margin-top: rem($space * 4);
-  max-width: 120%;
+  max-width: 140%;
   position: absolute; 
   // top: auto;
-  top: 45%;
+  top: 10vw;
   bottom: auto;
   z-index: 1;
 }
 
-// .Home-oras-bg {
+// .Oras-hero-bg {
 //   height: 100vw;
 //   height: 0;
 //   top: 0;
@@ -76,46 +78,53 @@
 //   transition: 1s;  
 // }
 
-.Home-oras-drop {
+.Oras-hero-drop {
   mix-blend-mode: darken;
   position: absolute;
   height: auto;
-  min-width: rem($space * 4);
-  max-width: rem($space * 12);
+  // min-width: rem($space * 6);
+  max-width: rem($space * 18);
 
   &.-drop--1 {
-    left: 18vw;
-    top: 20%;
+    left: 15vw;
+    top: 23%;
+    width: rem($space * 7);
   }
 
   &.-drop--2 {
     left: 35vw;
-    top: 70%;
-    width: rem($space * 3);
+    top: 75%;
+    width: rem($space * 5);
   }
 
   &.-drop--3 {
-    left: rem($space * -1.5);
-    top: rem($space * -2);
-    width: rem($space * 4);
+    left: rem($space * -2.25);
+    top: rem($space * -3);
+    width: rem($space * 6);
   }
 }
 
-.Home-oras-headline {
+.Oras-hero-headline {
   @include fontSizeFluid($h6FontSize, 520px, $lineHeight, $h1LineHeight);
-  bottom: -25%;
+  bottom: 0;
+  // bottom: -25%;
+  bottom: 0;
   height: 25%;
-  left: rem($space * -1);
+  align-items: flex-end;
+  display: flex;
+  left: rem($space * -1.5);
+  margin: 0;
   // top: 100%;
   font-weight: $headingFontWeightLight;
   white-space: nowrap;
-  margin-left: $wrapSpaceEdgeLeft-l;
+  margin-left: var(--wrap-spaceLeft);
+  // bottom: 0;
   // overflow: hidden;
   position: absolute;
   // transform: translate3d(0, 100%, 0);
   z-index: 1;
 }
 
-.Home-oras-headline-inner {
+.Oras-hero-headline-inner {
   
 }

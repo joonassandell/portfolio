@@ -25,10 +25,10 @@
 %Text--subtitle,
 .Text--subtitle {
   @include fontSize($fontSize-s, $lineHeight-s);
-  @include TextSubtitle();
+  @include text($style: 'subtitle');
 }
 
 %Text--lead,
 .Text--lead {
-  @include TextLead();
+  @include text($style: 'lead');
 }

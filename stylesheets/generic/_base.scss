@@ -18,11 +18,23 @@
   -webkit-font-smoothing: antialiased;
   tap-highlight-color: transparent;
 
+  &.has-js {
+    overflow: hidden;
+  }
+
   --vh: 1vh;
   --vw: 1vw;
   --vpW: 100vw;
   --vpH: 100vh;
   --bgColor: $bgLightest;
+
+  --wrap-spaceLeft: #{$wrap-spaceLeft};
+  --wrap-spaceRight: #{$wrap-spaceRight};
+
+  @include mq(m) {
+    --wrap-spaceLeft: #{$wrap-spaceLeft-m};
+    --wrap-spaceRight: #{$wrap-spaceRight-m};
+  }
 }
 
 * {

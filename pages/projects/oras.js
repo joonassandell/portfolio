@@ -1,12 +1,10 @@
-import Head from 'next/head';
+import Title from '../../components/Title';
 import { motion } from 'framer-motion';
 
 export default function Oras() {
   return (
     <>
-      <Head>
-        <title>Joonas Sandell — Oras</title>
-      </Head>
+      <Title title="Oras" />
       <motion.div
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

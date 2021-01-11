@@ -1,6 +1,6 @@
 import '../stylesheets/index.scss';
-import Header from '../components/Header';
-import App from '../layouts/App';
+import Header from '../containers/Header';
+import App from '../containers/App';
 import { AnimatePresence } from 'framer-motion';
 
 function NextApp({ Component, pageProps, router }) {
@@ -15,4 +15,5 @@ function NextApp({ Component, pageProps, router }) {
     </App>
   )
 }
+
 export default NextApp;

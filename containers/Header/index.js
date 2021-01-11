@@ -17,7 +17,6 @@ export default function Header(props) {
       </li>
     )
   }
-  
 
   return (
     <header className={s.Header}>
@@ -31,7 +30,7 @@ export default function Header(props) {
           y: -24,
         }}
       >
-      <div className={`${s['Header-wrap']} Wrap`}>
+      <div className={`${s['Header-wrap']} wrap`}>
         <div className={`${s['Header-name']}`}>
           Joonas Sandell
         </div>

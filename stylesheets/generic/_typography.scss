@@ -61,5 +61,5 @@ h5, .h5, %h5 {
 
 h6, .h6, %h6 {
   @include fontSizeFluid($fontSize, $h6FontSize);
-  @include TextSubtitle();
+  @include text('subtitle');
 }

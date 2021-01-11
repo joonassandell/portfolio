@@ -10,6 +10,8 @@
 
 // Vendors
 @import 'normalize.css/normalize';
+@import 'locomotive-scroll/src/styles/base';
+@import 'locomotive-scroll/src/styles/scrollbar';
 
 // Generic
 @import 'stylesheets/generic/base';
@@ -17,10 +19,17 @@
 @import 'stylesheets/generic/typography';
 
 // Helpers
-@import 'helpers/helper';
 @import 'helpers/display';
+@import 'helpers/grid';
+@import 'helpers/helper';
+@import 'helpers/wrap';
 
 // CSS Components
-@import 'components/Container';
-@import 'components/Grid';
-@import 'components/Wrap';
+@import 'components/Text';
+
+// Containers
+@import '../containers/App';
+@import '../containers/Template/Oras';
+
+// Components
+// ...
