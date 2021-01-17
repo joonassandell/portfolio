@@ -11,7 +11,7 @@
     "classnames": "^2.2.6",
     "framer-motion": "^2.9.4",
     "locomotive-scroll": "^4.0.6",
-    "next": "^10.0.2-canary.11",
+    "next": "^10.0.1",
     "normalize.css": "^8.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"

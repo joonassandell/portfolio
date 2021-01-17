@@ -1,19 +1,21 @@
-import '../stylesheets/index.scss';
-import Header from '../containers/Header';
-import App from '../containers/App';
-import { AnimatePresence } from 'framer-motion';
+import "../stylesheets/index.scss";
+import Header from "../containers/Header";
+import App from "../containers/App";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 function NextApp({ Component, pageProps, router }) {
-  console.log(pageProps, router);
+  console.log(Component, pageProps, router);
 
   return (
     <App>
-      <Header navTitle={pageProps.navTitle} />      
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      <Header navTitle={pageProps.navTitle} />
+      <AnimateSharedLayout>
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </App>
-  )
+  );
 }
 
 export default NextApp;

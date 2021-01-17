@@ -1,24 +1,21 @@
-import Title from '../../components/Title';
-import { motion } from 'framer-motion';
+import {
+  SmoothScrollProvider,
+  SmoothScrollContext,
+} from "../../lib/SmoothScroll";
+import Oras from "../../src/pages/Oras.page.js";
 
-export default function Oras() {
+export default function OrasPage() {
   return (
-    <>
-      <Title title="Oras" />
-      <motion.div
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <h2>oras</h2>
-      </motion.div>
-    </>
-  )
+    <SmoothScrollProvider options={{ smooth: true }}>
+      <Oras />
+    </SmoothScrollProvider>
+  );
 }
 
 export async function getStaticProps(context) {
   return {
     props: {
-      navTitle: 'Oras'
-    }, 
-  }
+      navTitle: "Oras",
+    },
+  };
 }

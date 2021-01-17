@@ -3,20 +3,12 @@
  * ======================================= */
 
 .Oras-hero {
-  // transform: scale(0.9, 0.9);
-  // transform-origin: top right;
   height: 100vh;
-  // max-height: 80vh;
+  min-height: rem($space * 40);
   max-height: rem($space * 45);
-  max-height: 70vw;
-  
+  // max-height: 70vw;
   position: relative;
   width: 100vw;
-
-  &.-compact {
-    // border: red;
-  }
-  &.-initial {}
 }
 
 .Oras-hero-wrap {
@@ -31,58 +23,34 @@
 .Oras-hero-figure {
   height: 35vw;
   position: relative;
-  // max-width: rem($space * 30);
-}
-
-.Oras-hero-figure-bg {
-  // background-color: #E9E9E9;
-  // background: linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%);
-  // background: #000;
-  height: 110%;
-  position: absolute;
-  margin-left: -5%;
-  // right: 0;
-  width: 100%;
-  z-index: 0;
-
-  .Oras-hero.-compact & {
-    // height: rem($space * 17);
-    // height: 100vh;
-    // transform: scale(1, 2);
-    // transform: translate3d(0, 100vw, 0);
-  }
 }
 
 .Oras-hero-figure-img {
-  display: block;
-  top: 0;
-  // bottom: -45%;
-  // margin-left: rem($space * -4.5);
   margin-left: -10vw;
-  // margin-top: rem($space * 4);
-  max-width: 140%;
-  position: absolute; 
-  // top: auto;
+  min-width: 140%;
   top: 10vw;
-  bottom: auto;
-  z-index: 1;
+  position: absolute;
+  display: block;
+  transform: translateZ(0);
+  margin-bottom: 0;
 }
 
-// .Oras-hero-bg {
-//   height: 100vw;
-//   height: 0;
-//   top: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   width: 100vw;
-//   transition: 1s;  
-// }
+.Oras-hero-figure-bg {
+  background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
+  height: 100vh;
+  margin-left: -5%;
+  width: 100%;
+  z-index: 0;
+  
+  .Oras-hero.-preAnimation & {
+    height: 110%;
+  }
+}
 
 .Oras-hero-drop {
   mix-blend-mode: darken;
   position: absolute;
   height: auto;
-  // min-width: rem($space * 6);
   max-width: rem($space * 18);
 
   &.-drop--1 {
@@ -107,22 +75,22 @@
 .Oras-hero-headline {
   @include fontSizeFluid($h6FontSize, 520px, $lineHeight, $h1LineHeight);
   bottom: 0;
-  // bottom: -25%;
   bottom: 0;
   height: 25%;
   align-items: flex-end;
   display: flex;
   left: rem($space * -1.5);
   margin: 0;
-  // top: 100%;
   font-weight: $headingFontWeightLight;
   white-space: nowrap;
   margin-left: var(--wrap-spaceLeft);
-  // bottom: 0;
-  // overflow: hidden;
   position: absolute;
-  // transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, -200%,0);
   z-index: 1;
+
+  .Oras-hero.-preAnimation & {
+    transform: translate3d(0,0,0);
+  }
 }
 
 .Oras-hero-headline-inner {
