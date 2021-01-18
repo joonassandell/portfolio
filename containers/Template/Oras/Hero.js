@@ -158,7 +158,7 @@ export default function OrasHero({
         src="/images/oras/drop.png"
         aria-hidden="true"
         // layoutId="drop-2"
-        key="drop-2"
+        // key="drop-2"
         // exit={
         //   initial && {
         //     opacity: 0,
@@ -174,12 +174,7 @@ export default function OrasHero({
         <span className="hideVisually">Oras project</span>
       </a>
       <motion.h2 animate={headline} className={"Oras-hero-headline Headline"}>
-        <div
-          data-scroll
-          data-scroll-speed="1"
-          data-scroll-position="top"
-          // data-scroll-delay="0.1"
-        >
+        <div data-scroll data-scroll-speed="1" data-scroll-position="top">
           Oras—2016
         </div>
       </motion.h2>

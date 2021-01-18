@@ -1,9 +1,11 @@
 import { SmoothScrollProvider, SmoothScrollContext } from "../lib/SmoothScroll";
-import Home from "../src/pages/Home.page.js";
+import Home from "../containers/Template/Home";
+import Title from "../components/Title";
 
 export default function HomePage() {
   return (
-    <SmoothScrollProvider options={{ smooth: true }}>
+    <SmoothScrollProvider>
+      <Title />
       <Home />
     </SmoothScrollProvider>
   );

@@ -3,7 +3,7 @@
  * ======================================= */
 
 :root {
-  // @include fontSizeFluid($fontSize, $fontSize-l);
+  @include fontSizeFluid($fontSize, $fontSize-l);
   background-color: var(--bgColor);
   color: $text;
   font-family: $fontFamily;
@@ -22,12 +22,7 @@
     overflow: hidden;
   }
 
-  --vh: 1vh;
-  --vw: 1vw;
-  --vpW: 100vw;
-  --vpH: 100vh;
   --bgColor: $bgLightest;
-
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
@@ -38,7 +33,6 @@
 }
 
 * {
-
   &,
   &:before,
   &:after {
@@ -107,8 +101,4 @@ video {
 img {
   height: auto;
   vertical-align: middle;
-}
-
-dialog[open] {
-  display: block;
 }

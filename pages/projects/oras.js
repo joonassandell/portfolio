@@ -2,11 +2,13 @@ import {
   SmoothScrollProvider,
   SmoothScrollContext,
 } from "../../lib/SmoothScroll";
-import Oras from "../../src/pages/Oras.page.js";
+import Oras from "../../containers/Template/Oras";
+import Title from "../../components/Title";
 
 export default function OrasPage() {
   return (
-    <SmoothScrollProvider options={{ smooth: true }}>
+    <SmoothScrollProvider>
+      <Title title="Oras" />
       <Oras />
     </SmoothScrollProvider>
   );

@@ -1,0 +1,120 @@
+/* =======================================
+ * Header
+ * ======================================= */
+
+.Header {
+  padding-top: rem($space * 3);
+  position: absolute;
+  z-index: 99;
+}
+
+.Header-wrap {
+  // display: flex;
+}
+
+.Header-name, .Header-nav-button {
+  @include heading('h5');
+  margin: 0;
+}
+
+.Header-nav-ctrl {
+  // background: $white;
+  // box-shadow: 0 0 30px rgba($black, 0.15);
+  // align-items: baseline;
+  display: flex;
+  position: relative;
+  line-height: 0;
+  // padding: rem($space) rem($space * 2);
+  // border-radius: 8px;
+}
+
+.Header-name {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  height: rem($space * 2);
+  line-height: rem($space * 2);
+  margin-right: rem($space * 2.25);
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    background: $black;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    right: rem($space * -1.75);
+    top: calc(50% - 2px);
+    width: rem($space * 1.25);
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.Header-name-reveal {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Header-nav-button {
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.Header-nav-button-active {}
+
+.Header-nav-button-icon {
+  // box-shadow: 0 5px 9px 0 rgba(0,0,0,0.08), 
+  //             0 1px 3px 0 rgba(0,0,0,0.05), 
+  //             0 -1px 1px 0 rgba(0,0,0,0.1);
+  align-items: center;
+  border-radius: 60px;
+  background-color: rgba($black, 0);
+  display: flex;
+  margin-left: rem($space / 3);
+  overflow: hidden;
+  position: relative;
+  padding: rem($space / 4);
+  top: rem(-4px);
+  transition: $trans-duration-medium;
+  
+  .Icon {
+    top: rem(6px);
+    transition: $trans-duration-medium + 0.1;
+  }
+
+  &:hover {
+    background-color: rgba($black, 1);
+    background-color: $bgLight;
+    
+    .Icon {
+      // color: white;
+    }
+  }
+}
+
+.Header-nav-list {
+  // display: none;
+  // opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vw;
+  background: black;
+  z-index: 98;
+}

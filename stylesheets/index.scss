@@ -29,7 +29,8 @@
 
 // Containers
 @import '../containers/App';
+@import '../containers/Header';
 @import '../containers/Template/Oras';
 
 // Components
-// ...
+@import '../components/Icon';

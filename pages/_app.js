@@ -4,16 +4,18 @@ import App from "../containers/App";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 function NextApp({ Component, pageProps, router }) {
-  console.log(Component, pageProps, router);
+  console.log(pageProps, router);
 
   return (
     <App>
       <Header navTitle={pageProps.navTitle} />
-      <AnimateSharedLayout>
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </AnimateSharedLayout>
+      {/* <AnimateSharedLayout> */}
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <div className="App-main" data-scroll-container>
+        <Component {...pageProps} key={router.route} />
+      </div>
+      {/* </AnimatePresence>
+      </AnimateSharedLayout> */}
     </App>
   );
 }

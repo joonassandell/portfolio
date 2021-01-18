@@ -3,5 +3,10 @@
  * ======================================= */
 
 .App {
-  // overflow: hidden;
+  overflow: hidden;
+}
+
+.App-main {
+  position: relative;
+  z-index: 0;
 }

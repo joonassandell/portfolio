@@ -1,8 +1,8 @@
-import Title from "../../components/Title";
-import OrasHero from "../../containers/Template/Oras/Hero.js";
+import Title from "../../../components/Title";
+import OrasHero from "../Oras/Hero.js";
 import { useState, useContext } from "react";
-import { SmoothScrollContext } from "../../lib/SmoothScroll";
-import { easing } from "../../lib/config";
+import { SmoothScrollContext } from "../../../lib/SmoothScroll";
+import { easing, scrollToDuration } from "../../../lib/config";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
     setCurrentHero(id);
     scroll &&
       scroll.scrollTo(`#${id}`, {
-        duration: 500,
+        duration: scrollToDuration,
         easing: easing,
         callback: () => {
           setAnimation(true);
@@ -27,8 +27,7 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Title title="Portfolio" />
+    <motion.main exit={{ opacity: 1 }} className="Template--home">
       <motion.div exit={{ opacity: 1 }}>
         <OrasHero
           animationStart={currentHero === "oras" && animation}
@@ -42,8 +41,8 @@ export default function Home() {
       <div
         data-id="mummu"
         onClick={handleClick}
-        style={{ height: "200vh", background: "red" }}
+        style={{ height: "200vh", background: "white" }}
       ></div>
-    </>
+    </motion.main>
   );
 }

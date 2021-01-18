@@ -18,9 +18,7 @@ export default function App(props) {
           }}
         />
       </Head>
-      <main data-scroll-container className="App">
-        {props.children}
-      </main>
+      <div className="App">{props.children}</div>
     </>
   );
 }
