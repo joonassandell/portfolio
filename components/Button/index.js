@@ -1,7 +1,7 @@
 /* =======================================
- * Footer
+ * Button - Arrow
  * ======================================= */
 
-.Footer {
-  background-color: $bg-10;
-}
+import ButtonArrow from "./ButtonArrow";
+
+export { ButtonArrow };

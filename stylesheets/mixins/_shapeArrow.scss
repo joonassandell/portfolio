@@ -2,7 +2,7 @@
 // CSS arrow shape
 // =======================================
 
-@mixin shapeArrow($direction: 'up', $color: $textLight, $thickness: 2px,
+@mixin shapeArrow($direction: 'up', $color: $text-400, $thickness: 2px,
   $caretWidth: 8px, $line: false, $lineHeight: 16px, $size: 1, $scale: null) {
   display: inline-block;
   position: relative;

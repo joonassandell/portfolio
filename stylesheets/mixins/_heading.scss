@@ -9,21 +9,21 @@
 
 @mixin heading($size: null) {
   color: $heading;
-  font-family: $headingFontFamily;
-  font-weight: $headingFontWeight;
+  font-family: $heading-fontFamily;
+  font-weight: $heading-fontWeight;
   margin: 0 0 rem($space);
 
   @if $size == 'h1' {
-    @include fontSizeFluid($h6FontSize, $h1FontSize, $lineHeight, $h1LineHeight);
+    @include fontSizeFluid($h6-fontSize, $h1-fontSize, $lineHeight, $h1-lineHeight);
   } @else if $size == 'h2' {
-    @include fontSizeFluid($h6FontSize, $h2FontSize, $lineHeight, $h2LineHeight);
+    @include fontSizeFluid($h6-fontSize, $h2-fontSize, $lineHeight, $h2-lineHeight);
   } @else if $size == 'h3' {
-    @include fontSizeFluid($h6FontSize, $h3FontSize, $h6LineHeight, $h3LineHeight);
+    @include fontSizeFluid($h6-fontSize, $h3-fontSize, $h6-lineHeight, $h3-lineHeight);
   } @else if $size == 'h4' {
-    @include fontSizeFluid($h6FontSize, $h4FontSize, $h6LineHeight, $h4LineHeight);
+    @include fontSizeFluid($h6-fontSize, $h4-fontSize, $h6-lineHeight, $h4-lineHeight);
   } @else if $size == 'h5' {
-    @include fontSizeFluid($h6FontSize, $h5FontSize, $h6LineHeight, $h5LineHeight);
+    @include fontSizeFluid($h6-fontSize, $h5-fontSize, $h6-lineHeight, $h5-lineHeight);
   } @else if $size == 'h6' {
-    @include fontSizeFluid($fontSize, $h6FontSize);
+    @include fontSizeFluid($font-size, $h6-fontSize);
   }
 }

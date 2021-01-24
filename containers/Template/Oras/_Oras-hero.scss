@@ -73,7 +73,7 @@
 }
 
 .Oras-hero-headline {
-  @include fontSizeFluid($h6FontSize, 520px, $lineHeight, $h1LineHeight);
+  @include fontSizeFluid($h6-fontSize, 520px, $lineHeight, $h1-lineHeight);
   bottom: 0;
   bottom: 0;
   height: 25%;
@@ -81,7 +81,7 @@
   display: flex;
   left: rem($space * -1.5);
   margin: 0;
-  font-weight: $headingFontWeightLight;
+  font-weight: $heading-fontWeightLight;
   white-space: nowrap;
   margin-left: var(--wrap-spaceLeft);
   position: absolute;

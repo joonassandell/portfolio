@@ -3,13 +3,13 @@
 // =======================================
 
 @mixin dropdown($align: 'left', $arrow: true, $arrowColor: lighten(#000000, 85),
-  $backgroundColor: #ffffff, $borderRadius: $borderRadius, $default: true, $min-width: 240px,
+  $backgroundColor: #ffffff, $border-radius: $border-radius, $default: true, $min-width: 240px,
   $padding: rem($space / 1.5) rem($space / 1.5), $boxShadow: (0 -1px 2px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1)), $state: false) {
 
   @if $state == false and $default  {
     background-color: $backgroundColor;
     box-shadow: $boxShadow;
-    border-radius: $borderRadius;
+    border-radius: $border-radius;
     left: 0;
     list-style: none;
     margin: 0;

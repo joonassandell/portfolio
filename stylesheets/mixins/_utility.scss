@@ -12,7 +12,7 @@
 //
 // Convert pixels to em's
 //
-@function em($pixels, $context: $fontSize) {
+@function em($pixels, $context: $font-size) {
   @return #{strip-unit($pixels) / strip-unit($context)}em;
 }
 
@@ -20,7 +20,7 @@
 // Convert pixels to rem's
 //
 @function rem($pixels) {
-  @return #{strip-unit($pixels) / strip-unit($fontSize)}rem;
+  @return #{strip-unit($pixels) / strip-unit($font-size)}rem;
 }
 
 //

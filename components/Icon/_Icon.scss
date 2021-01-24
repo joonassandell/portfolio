@@ -3,12 +3,14 @@
  * ======================================= */
 
 .Icon {
+  fill: currentColor;
+  
   svg {
     fill: currentColor;
   }
 }
 
-.Icon--arrowDown {
+.Icon--arrowDownLong {
   align-items: center;
   display: flex;
   height: $Icon-size;

@@ -1,0 +1,48 @@
+/* =======================================
+ * Button - Arrow
+ * ======================================= */
+
+.Button--arrow {
+  align-items: center;
+  // background-color: $bg-10;
+  box-shadow: 0 0 0 1px rgba($white, 0.1),
+              0 5px 9px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 60px;
+  border: 0;
+  color: $text-700;
+  flex-direction: column;
+  height: rem($space * 3);
+  justify-content: center;
+  margin-left: rem($space);
+  overflow: hidden;
+  padding: 0;
+  width: rem($space * 3);
+  
+  .Button-icon {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .Button-icon--in {
+    z-index: 1;
+  }
+
+  .Button-icon--cross {
+    color: $text-10;
+  }
+
+  .Button-bg {
+    background-color: $bg-700;
+    border-radius: 50%;
+    display: block;
+    height: 200%;
+    // left: -75%;
+    left: 0;
+    position: absolute;
+    top: -50%;
+    transform: translateY(77%);
+    width: 100%;
+    // width: 250%;
+    z-index: 0;
+  }
+}

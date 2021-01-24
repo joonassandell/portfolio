@@ -3,12 +3,12 @@
  * ======================================= */
 
 :root {
-  @include fontSizeFluid($fontSize, $fontSize-l);
+  @include fontSizeFluid($font-size, $font-size-l);
   background-color: var(--bgColor);
-  color: $text;
-  font-family: $fontFamily;
-  font-size: $fontSize;
-  line-height: $lineHeight / $fontSize;
+  color: $text-700;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $lineHeight / $font-size;
   min-width: 300px;
   scroll-behavior: smooth;
 
@@ -22,7 +22,7 @@
     overflow: hidden;
   }
 
-  --bgColor: $bgLightest;
+  --bgColor: $bg-10;
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
@@ -68,7 +68,7 @@ a {
   }
 
   &:hover {
-    color: $linkHover;
+    color: $link-hover;
   }
 }
 

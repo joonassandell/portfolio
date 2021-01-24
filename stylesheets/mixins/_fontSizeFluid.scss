@@ -1,4 +1,4 @@
-@mixin fontSizeFluid($minFontSize: $fontSize, $maxFontSize: $fontSize-xl, $lineHeight: null, $maxLineHeight: null, $lineHeightMin: null, $maxMq: 'xxxxxl', $minMq: 0px) {
+@mixin fontSizeFluid($minFontSize: $font-size, $maxFontSize: $font-size-xl, $lineHeight: null, $maxLineHeight: null, $lineHeightMin: null, $maxMq: 'xxxxxl', $minMq: 0px) {
   $minMqValue: null;
   $maxMqValue: null;
 

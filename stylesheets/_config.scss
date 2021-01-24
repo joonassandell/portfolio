@@ -7,44 +7,44 @@
 // Typography
 // =========
 
-$fontSize: 16px;
+$font-size: 16px;
 $lineHeight: 24px;
 
-$fontSize-xl: 24px;
+$font-size-xl: 24px;
 $lineHeight-xl: 32px;
 
-$fontSize-l: 18px;
+$font-size-l: 18px;
 $lineHeight-l: 26px;
 
-$fontSize-s: 14px;
+$font-size-s: 14px;
 $lineHeight-s: 20px;
 
-$fontSize-xs: 12px;
+$font-size-xs: 12px;
 $lineHeight-xs: 18px;
 
-$fontFamilySans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$fontFamilyMono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$fontFamilySerif: serif;
-$fontFamily: $fontFamilySans;
-$fontWeight: 400;
-$fontWeightStrong: bolder;
+$font-familySans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-familyMono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-familySerif: serif;
+$font-family: $font-familySans;
+$font-weight: 400;
+$font-weightStrong: bolder;
 
-$headingFontFamily: inherit;
-$headingFontWeight: 400;
-$headingFontWeightLight: 100;
+$heading-fontFamily: inherit;
+$heading-fontWeight: 400;
+$heading-fontWeightLight: 100;
 
-$h1FontSize: 64px;
-$h1LineHeight: 68px;
-$h2FontSize: 48px;
-$h2LineHeight: 56px;
-$h3FontSize: 40px;
-$h3LineHeight: 48px;
-$h4FontSize: 32px;
-$h4LineHeight: 40px;
-$h5FontSize: 28px;
-$h5LineHeight: 36px;
-$h6FontSize: 20px;
-$h6LineHeight: 24px;
+$h1-fontSize: 64px;
+$h1-lineHeight: 68px;
+$h2-fontSize: 48px;
+$h2-lineHeight: 56px;
+$h3-fontSize: 40px;
+$h3-lineHeight: 48px;
+$h4-fontSize: 32px;
+$h4-lineHeight: 40px;
+$h5-fontSize: 28px;
+$h5-lineHeight: 36px;
+$h6-fontSize: 20px;
+$h6-lineHeight: 24px;
 
 
 // =========
@@ -55,15 +55,8 @@ $space: 16px;
 
 
 // =========
-// App Spacing, Wrap & Grid settings
+// Wrap & Grid settings
 // =========
-
-$App-asideSpaceLeft: $space * 2;
-$App-asideSpaceRight: $space * 2;
-$App-asideWidth: $space * 10;
-$App-asideWidth-xl: $space * 11;
-$App-wrapSpaceLeft: 6.25%;
-$App-wrapMaxWidth: 1584px;
 
 $wrap-spaceLeft: 6.25%;
 $wrap-spaceRight: 6.25%;
@@ -108,24 +101,26 @@ $black: #000000;
 $white: #ffffff;
 
 // Background colors
-$bgLight: darken(#ffffff, 10);
-$bgLighter: darken(#ffffff, 3);
-$bgLightest: #ffffff;
-$bgDark: $black;
+$bg-700: $black;
+$bg-100: darken(#ffffff, 10);
+$bg-50: darken(#ffffff, 3);
+$bg-10: #ffffff;
 
 // Text colors
-$text: #000000;
-$textLight: lighten($text, 30);
+$text-700: #000000;
+$text-400: lighten($text-700, 30);
+$text-10: #ffffff;
 
 // Heading color
 $heading: inherit;
 
 // Link colors
 $link: #4d4dff;
-$linkHover: darken($link, 15%);
+$link-hover: darken($link, 15%);
 
 // Border colors
 $border: rgba(#000000, 0.12);
+$border-500: #323232;
 
 // State colors
 $success: #5cb85c;
@@ -138,7 +133,7 @@ $info: #5bc0de;
 // Various Global Settings
 // =========
 
-$borderRadius: 3px;
+$border-radius: 0;
 $trans-duration: 1s;
 $trans-duration-medium: 0.6s;
 $trans-duration-fast: 0.3s;
@@ -178,3 +173,23 @@ $ease-inOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // =======================================
 
 $Icon-size: 32px;
+
+
+// =======================================
+// Button - Config
+// =======================================
+
+$Button-borderWidth: 1px;
+
+$Button-fontSize: $font-size-xs;
+$Button-lineHeight: $lineHeight-xs;
+$Button-fontWeight: $font-weight;
+$Button-minHeight: $space * 2;
+$Button-spaceY: $space / 1.33;
+$Button-spaceX: $space * 1.25;
+
+$Button-fontSize-s: $font-size-xs;
+$Button-lineHeight-s: $lineHeight-xs;
+$Button-minHeight-s: $space * 2.5;
+$Button-spaceY-s: $space / 2;
+$Button-spaceX-s: $space;

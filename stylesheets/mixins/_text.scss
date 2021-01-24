@@ -9,19 +9,19 @@
 
 @mixin text($size: null, $style: null) {
   @if $size == 'xl' {
-    @include fontSizeFluid($fontSize, $fontSize-xl, $lineHeight, $lineHeight-xl);
+    @include fontSizeFluid($font-size, $font-size-xl, $lineHeight, $lineHeight-xl);
   } @else if $size == 'l' {
-    @include fontSizeFluid($fontSize-l, $fontSize-xl, $lineHeight, $lineHeight-l);
+    @include fontSizeFluid($font-size-l, $font-size-xl, $lineHeight, $lineHeight-l);
   } @else if $size == 'm' {
-    @include fontSize($fontSize, $lineHeight);
+    @include fontSize($font-size, $lineHeight);
   } @else if $size == 's' {
-    @include fontSize($fontSize-s, $lineHeight-s);
+    @include fontSize($font-size-s, $lineHeight-s);
   } @else if $size == 'xs' {
-    @include fontSize($fontSize-xs, $lineHeight-xs);
+    @include fontSize($font-size-xs, $lineHeight-xs);
   }
 
   @if $style == 'meta' {
-    color: $textLight;
+    color: $text-400;
   } 
 }
 

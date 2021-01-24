@@ -1,3 +1,15 @@
 /* =======================================
  * Global uncategorized helpers
  * ======================================= */
+
+.resetButton {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}

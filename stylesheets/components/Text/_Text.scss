@@ -11,10 +11,10 @@
 
 %Text,
 .Text {
-  &.-xl { @include fontSize($fontSize-xl, $lineHeight-xl);       }
-  &.-l  { @include fontSize($fontSize-l, $lineHeight-l);         }
-  &.-s  { @include fontSize($fontSize-s, $lineHeight-s, true);   }
-  &.-xs { @include fontSize($fontSize-xs, $lineHeight-xs, true); }
+  &.-xl { @include fontSize($font-size-xl, $lineHeight-xl);       }
+  &.-l  { @include fontSize($font-size-l, $lineHeight-l);         }
+  &.-s  { @include fontSize($font-size-s, $lineHeight-s, true);   }
+  &.-xs { @include fontSize($font-size-xs, $lineHeight-xs, true); }
 }
 
 
@@ -24,7 +24,7 @@
 
 %Text--subtitle,
 .Text--subtitle {
-  @include fontSize($fontSize-s, $lineHeight-s);
+  @include fontSize($font-size-s, $lineHeight-s);
   @include text($style: 'subtitle');
 }
 

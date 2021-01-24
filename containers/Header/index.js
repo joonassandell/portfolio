@@ -9,7 +9,7 @@ import {
   easing,
 } from "../../lib/config";
 import { motion, AnimatePresence, useCycle } from "framer-motion";
-import { ArrowDown } from "../../components/Icon";
+import { ButtonArrow } from "../../components/Button";
 import { useState } from "react";
 
 const anim = {
@@ -80,12 +80,14 @@ const sidebar = {
 
 const ctrlVariants = {
   open: {
-    transition: { staggerChildren: 0, delayChildren: 0.2 },
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.3,
+    },
   },
   closed: {
     transition: {
       staggerChildren: 0.05,
-      staggerDirection: -1,
       delayChildren: 0.3,
     },
   },
@@ -130,7 +132,9 @@ const NavItem = (props) => {
 export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
+  const [hover, setHover] = useState(false);
   const [displayReveal, setDisplayReveal] = useState(false);
+  // console.log(hover === "start");
 
   return (
     <>
@@ -162,20 +166,42 @@ export default function Header(props) {
                   </motion.span>
                 )}
               </motion.div>
-              <div
+              <motion.button
                 key={router.route}
-                className="Header-nav-button"
+                className="Header-nav-button resetButton"
+                onHoverEnd={() => setHover("end")}
+                onHoverStart={() => setHover("start")}
                 // {...anim.navButton}
                 onClick={() => {
                   setOpen();
                   setDisplayReveal(true);
                 }}
               >
-                <div className="Header-nav-button-text">{props.navTitle}</div>
-                <motion.div className="Header-nav-button-icon">
-                  <ArrowDown />
-                </motion.div>
-              </div>
+                {/* <div className="Header-nav-button-text">
+                  {props.navTitle}
+                </div> */}
+                <div className="Header-nav-button-text">
+                  <motion.span variants={ctrlItemOutVariants} initial={false}>
+                    {props.navTitle}
+                  </motion.span>
+                  {displayReveal && (
+                    <motion.span
+                      variants={ctrlItemInVariants}
+                      initial={false}
+                      className="Header-nav-button-text-reveal"
+                    >
+                      {props.navTitle}
+                    </motion.span>
+                  )}
+                </div>
+                <ButtonArrow
+                  className="Header-nav-button-icon"
+                  active={isOpen}
+                  // activeEnd={!isOpen}
+                  hoverStart={hover === "start" ? true : false}
+                  hoverEnd={hover === "end" ? true : false}
+                />
+              </motion.button>
             </motion.div>
 
             {/* </AnimatePresence> */}
