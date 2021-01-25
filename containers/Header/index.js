@@ -6,6 +6,7 @@ import {
   transPrimaryFast,
   transSecondary,
   transSecondaryFast,
+  transSecondaryFastest,
 } from "../../lib/config";
 import { motion, useCycle } from "framer-motion";
 import { ButtonArrow } from "../../components/Button";
@@ -46,9 +47,9 @@ const navItemVariant = {
     transition: transPrimaryFast,
   },
   closed: {
-    y: 48,
+    y: 64,
     opacity: 0,
-    transition: transPrimaryFast,
+    transition: transSecondaryFast,
   },
 };
 
@@ -105,7 +106,7 @@ const NavItem = (props) => {
   return (
     <motion.li
       variants={navItemVariant}
-      className={c("Header-main-item", {
+      className={c("Header-nav-item", {
         "is-active": router.pathname === props.href,
       })}
     >
@@ -123,7 +124,9 @@ export default function Header(props) {
   const [arrowIconPosition, setArrowIconPosition] = useState({ y: 0, x: 0 });
 
   useEffect(() => {
-    // Hmm, why timeout needed, some mounting/loading thing?
+    /**
+     * Hmm, why timeout needed, some mounting/loading thing?
+     */
     setTimeout(() => {
       setArrowIconPosition({
         y: arrowIcon.current.offsetTop + arrowIcon.current.offsetHeight / 2,
@@ -143,90 +146,99 @@ export default function Header(props) {
     return () => {
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [props.navTitle]);
 
   return (
-    <>
-      <header
-        className={c("Header", {
-          "is-negative": isOpen,
-        })}
-      >
-        <motion.div
-          initial={false}
-          animate={isOpen ? "open" : "closed"}
-          className={`Header-main Header-wrap wrap ${arrowIconPosition.x} ${arrowIconPosition.y}`}
-          onAnimationComplete={() => !isOpen && setOpenReveal(false)}
-        >
-          {/* <AnimatePresence initial={false} exitBeforeEnter> */}
-          <motion.div variants={ctrlVariant} className="Header-ctrl">
-            <motion.div className="Header-logo">
-              <motion.div variants={ctrlItemOutVariant} initial={false}>
+    <motion.header
+      animate={isOpen ? "open" : "closed"}
+      className={c("Header", {
+        "is-negative": isOpen,
+      })}
+      onAnimationComplete={() => !isOpen && setOpenReveal(false)}
+    >
+      <div className="Header-main wrap">
+        {/* <AnimatePresence initial={false} exitBeforeEnter> */}
+        <motion.div variants={ctrlVariant} className="Header-ctrl">
+          <div className="Header-logo">
+            <motion.div variants={ctrlItemOutVariant} initial={false}>
+              <Link href="/">Joonas Sandell</Link>
+            </motion.div>
+            {openReveal && (
+              <motion.div
+                className="Header-logo-reveal"
+                initial={{ y: 36 }}
+                variants={ctrlItemInVariant}
+              >
                 <Link href="/">Joonas Sandell</Link>
               </motion.div>
+            )}
+          </div>
+          <div className="Header-separator">
+            <motion.div
+              className="Header-separator-line"
+              initial={false}
+              variants={ctrlItemOutVariant}
+            />
+            {openReveal && (
+              <motion.div
+                className="Header-separator-line Header-separator-line--reveal"
+                initial={{ y: 36 }}
+                variants={ctrlItemInVariant}
+              ></motion.div>
+            )}
+          </div>
+          <motion.button
+            className="Header-button resetButton"
+            onClick={() => {
+              setOpen();
+              setOpenReveal(true);
+            }}
+            onHoverStart={() => setHover("start")}
+            onHoverEnd={() => {
+              setHover("end");
+              setTimeout(() => setHover(false), 100);
+            }}
+            key={router.route}
+            // {...anim.navButton}
+          >
+            <div className="Header-button-text Header-button-text--mobile">
+              <span>Menu</span>
               {openReveal && (
                 <motion.div
-                  className="Header-logo-reveal"
+                  className="Header-button-text-reveal"
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
                 >
-                  <Link href="/">Joonas Sandell</Link>
+                  <span>Menu</span>
                 </motion.div>
               )}
-            </motion.div>
-            <motion.div className="Header-separator">
-              <motion.div
-                className="Header-separator-line"
-                initial={false}
-                variants={ctrlItemOutVariant}
-              />
+            </div>
+            <div className="Header-button-text">
+              <motion.div variants={ctrlItemOutVariant} initial={false}>
+                <span>{props.navTitle}</span>
+              </motion.div>
               {openReveal && (
                 <motion.div
-                  className="Header-separator-line Header-separator-line--reveal"
+                  className="Header-button-text-reveal"
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
-                ></motion.div>
-              )}
-            </motion.div>
-            <motion.button
-              className="Header-button resetButton"
-              onClick={() => {
-                setOpen();
-                setOpenReveal(true);
-              }}
-              onHoverStart={() => setHover("start")}
-              onHoverEnd={() => setHover("end")}
-              key={router.route}
-
-              // {...anim.navButton}
-            >
-              <div className="Header-button-text-mobile">Menu</div>
-              <div className="Header-button-text">
-                <motion.div variants={ctrlItemOutVariant} initial={false}>
+                >
                   <span>{props.navTitle}</span>
                 </motion.div>
-                {openReveal && (
-                  <motion.div
-                    className="Header-button-text-reveal"
-                    initial={{ y: 36 }}
-                    variants={ctrlItemInVariant}
-                  >
-                    <span>{props.navTitle}</span>
-                  </motion.div>
-                )}
-              </div>
-              <ButtonArrow
-                active={isOpen}
-                className="Header-button-arrow"
-                hoverEnd={hover === "end" ? true : false}
-                hoverStart={hover === "start" ? true : false}
-                innerRef={arrowIcon}
-              />
-            </motion.button>
-          </motion.div>
+              )}
+            </div>
+            <ButtonArrow
+              active={isOpen}
+              className="Header-button-arrow"
+              hoverEnd={hover === "end" ? true : false}
+              hoverStart={hover === "start" ? true : false}
+              innerRef={arrowIcon}
+            />
+          </motion.button>
+        </motion.div>
 
-          {/* </AnimatePresence> */}
-          {/* <AnimatePresence initial={false} exitBeforeEnter>
+        {/* </AnimatePresence> */}
+        {/* <AnimatePresence initial={false} exitBeforeEnter>
             <motion.div
               key={router.route}
               className="Header-button"
@@ -239,14 +251,13 @@ export default function Header(props) {
               </motion.div>
             </motion.div>
           </AnimatePresence> */}
-          <motion.nav variants={navVariant} className="Header-nav">
+        {/* <motion.nav variants={navVariant} className="Header-nav">
             <ul>
               <NavItem i={0} key={0} name="Selected works" href="/" />
               <NavItem i={1} key={1} name="Oras" href="/projects/oras" />
             </ul>
-          </motion.nav>
-        </motion.div>
-      </header>
+          </motion.nav> */}
+      </div>
       {/* 
         Currently the clipPath animates on mount
       */}
@@ -254,19 +265,55 @@ export default function Header(props) {
         animate={
           isOpen
             ? {
-                clipPath: `circle(1100px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                clipPath: `circle(150% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
                 transition: transPrimary,
               }
             : {
-                clipPath: `circle(0px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
-                transition: { ...transSecondary, delay: 0.2 },
+                clipPath: `circle(0% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                transition: { ...transSecondary, duration: 1.2, delay: 0 },
               }
         }
-        className="Header-bg"
+        className="Header-mask"
         style={{
-          clipPath: `circle(0px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+          clipPath: `circle(0% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
         }}
-      />
-    </>
+      >
+        <div className="wrap">
+          <motion.nav variants={navVariant} className="Header-nav">
+            <ul>
+              <NavItem i={1} key={1} name="Oras" href="/projects/oras" />
+              <NavItem i={2} key={2} name="Biocode" href="/projects/biocode" />
+              <NavItem i={3} key={3} name="Omoroi" href="/projects/omoroi" />
+              <NavItem
+                i={4}
+                key={4}
+                name="Mediasignal"
+                href="/projects/mediasignal"
+              />
+              <NavItem
+                i={5}
+                key={5}
+                name="Hankkija"
+                href="/projects/hankkija"
+              />
+              <NavItem i={6} key={6} name="Hukka" href="/projects/hukka" />
+              <NavItem
+                i={7}
+                key={7}
+                name="HW-Company"
+                href="/projects/hw-company"
+              />
+              <NavItem
+                i={8}
+                key={8}
+                name="Dribbbles"
+                href="/projects/dribbbles"
+              />
+              <NavItem i={0} key={0} name="Browse all" href="/" />
+            </ul>
+          </motion.nav>
+        </div>
+      </motion.div>
+    </motion.header>
   );
 }

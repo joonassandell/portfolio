@@ -59,6 +59,10 @@ dl {
   padding: 0 0 0 rem($space);
 }
 
+nav ul {
+  @include resetList();
+}
+
 a {
   color: $link;
   text-decoration: none;

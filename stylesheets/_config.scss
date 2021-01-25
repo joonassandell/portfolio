@@ -33,19 +33,18 @@ $heading-fontFamily: inherit;
 $heading-fontWeight: 400;
 $heading-fontWeightLight: 100;
 
-$h1-fontSize: 64px;
-$h1-lineHeight: 68px;
-$h2-fontSize: 48px;
-$h2-lineHeight: 56px;
+$h1-fontSize: 104px;
+$h1-lineHeight: 112px;
+$h2-fontSize: 64px;
+$h2-lineHeight: 80px;
 $h3-fontSize: 40px;
 $h3-lineHeight: 48px;
-$h4-fontSize: 32px;
-$h4-lineHeight: 40px;
-$h5-fontSize: 28px;
+$h4-fontSize: 30px;
+$h4-lineHeight: 36px;
+$h5-fontSize: 26px;
 $h5-lineHeight: 36px;
 $h6-fontSize: 20px;
 $h6-lineHeight: 24px;
-
 
 // =========
 // Spacing & Sizing
@@ -58,8 +57,8 @@ $space: 16px;
 // Wrap & Grid settings
 // =========
 
-$wrap-spaceLeft: 6.25%;
-$wrap-spaceRight: 6.25%;
+$wrap-spaceLeft: 8%;
+$wrap-spaceRight: 8%;
 $wrap-spaceLeft-m: $space * 4;
 $wrap-spaceRight-m: $space * 2;
 
