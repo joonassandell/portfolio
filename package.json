@@ -10,8 +10,9 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "classnames": "^2.2.6",
-    "framer-motion": "^2.9.4",
+    "framer-motion": "3.2.2-rc.0",
     "locomotive-scroll": "^4.0.6",
+    "lodash": "^4.17.20",
     "next": "^10.0.1",
     "normalize.css": "^8.0.1",
     "react": "17.0.1",

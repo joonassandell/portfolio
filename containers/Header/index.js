@@ -4,15 +4,13 @@ import c from "classnames";
 import {
   transPrimary,
   transPrimaryFast,
-  transPrimaryFastest,
   transSecondary,
   transSecondaryFast,
-  transSecondaryFastest,
-  easing,
 } from "../../lib/config";
-import { motion, AnimatePresence, useCycle } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { ButtonArrow } from "../../components/Button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { debounce } from "lodash";
 
 const anim = {
   navButton: {
@@ -34,7 +32,7 @@ const anim = {
 
 const navVariant = {
   open: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.3 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -48,20 +46,9 @@ const navItemVariant = {
     transition: transPrimaryFast,
   },
   closed: {
-    y: 50,
+    y: 48,
     opacity: 0,
     transition: transPrimaryFast,
-  },
-};
-
-const bg = {
-  open: (height = 1100) => ({
-    clipPath: `circle(${height}px at 463px 67px)`,
-    transition: transPrimary,
-  }),
-  closed: {
-    clipPath: "circle(0px at 463px 67px)",
-    transition: { ...transSecondary, delay: 0.2 },
   },
 };
 
@@ -82,7 +69,7 @@ const ctrlVariant = {
 
 const ctrlItemOutVariant = {
   open: {
-    transition: transPrimaryFastest,
+    transition: transSecondaryFast,
     y: -36,
   },
   closed: {
@@ -97,10 +84,21 @@ const ctrlItemInVariant = {
     y: 0,
   },
   closed: {
-    transition: transPrimaryFastest,
+    transition: transSecondaryFast,
     y: 36,
   },
 };
+
+// const bg = {
+//   open: (props = { x: 0, y: 0 }) => ({
+//     clipPath: `circle(1100px at ${props.x}px ${props.y}px)`,
+//     transition: transPrimary,
+//   }),
+//   closed: (props = { x: 0, y: 0 }) => ({
+//     clipPath: `circle(10px at ${props.x}px ${props.y}px)`,
+//     transition: { ...transSecondary, delay: 0.2 },
+//   }),
+// };
 
 const NavItem = (props) => {
   const router = useRouter();
@@ -121,6 +119,31 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
+  const arrowIcon = useRef();
+  const [arrowIconPosition, setArrowIconPosition] = useState({ y: 0, x: 0 });
+
+  useEffect(() => {
+    // Hmm, why timeout needed, some mounting/loading thing?
+    setTimeout(() => {
+      setArrowIconPosition({
+        y: arrowIcon.current.offsetTop + arrowIcon.current.offsetHeight / 2,
+        x: arrowIcon.current.offsetLeft + arrowIcon.current.offsetWidth / 2,
+      });
+    }, 50);
+
+    const resize = debounce(() => {
+      setArrowIconPosition({
+        y: arrowIcon.current.offsetTop + arrowIcon.current.offsetHeight / 2,
+        x: arrowIcon.current.offsetLeft + arrowIcon.current.offsetWidth / 2,
+      });
+    }, 100);
+
+    window.addEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   return (
     <>
@@ -129,11 +152,10 @@ export default function Header(props) {
           "is-negative": isOpen,
         })}
       >
-        {/* <div className="Header-wrap wrap"> */}
         <motion.div
           initial={false}
           animate={isOpen ? "open" : "closed"}
-          className="Header-main Header-wrap wrap"
+          className={`Header-main Header-wrap wrap ${arrowIconPosition.x} ${arrowIconPosition.y}`}
           onAnimationComplete={() => !isOpen && setOpenReveal(false)}
         >
           {/* <AnimatePresence initial={false} exitBeforeEnter> */}
@@ -144,9 +166,9 @@ export default function Header(props) {
               </motion.div>
               {openReveal && (
                 <motion.div
-                  variants={ctrlItemInVariant}
-                  initial={false}
                   className="Header-logo-reveal"
+                  initial={{ y: 36 }}
+                  variants={ctrlItemInVariant}
                 >
                   <Link href="/">Joonas Sandell</Link>
                 </motion.div>
@@ -154,28 +176,29 @@ export default function Header(props) {
             </motion.div>
             <motion.div className="Header-separator">
               <motion.div
-                variants={ctrlItemOutVariant}
-                initial={false}
                 className="Header-separator-line"
+                initial={false}
+                variants={ctrlItemOutVariant}
               />
               {openReveal && (
                 <motion.div
-                  variants={ctrlItemInVariant}
-                  initial={false}
                   className="Header-separator-line Header-separator-line--reveal"
+                  initial={{ y: 36 }}
+                  variants={ctrlItemInVariant}
                 ></motion.div>
               )}
             </motion.div>
             <motion.button
-              key={router.route}
               className="Header-button resetButton"
-              onHoverEnd={() => setHover("end")}
-              onHoverStart={() => setHover("start")}
-              // {...anim.navButton}
               onClick={() => {
                 setOpen();
                 setOpenReveal(true);
               }}
+              onHoverStart={() => setHover("start")}
+              onHoverEnd={() => setHover("end")}
+              key={router.route}
+
+              // {...anim.navButton}
             >
               <div className="Header-button-text-mobile">Menu</div>
               <div className="Header-button-text">
@@ -184,19 +207,20 @@ export default function Header(props) {
                 </motion.div>
                 {openReveal && (
                   <motion.div
-                    variants={ctrlItemInVariant}
-                    initial={false}
                     className="Header-button-text-reveal"
+                    initial={{ y: 36 }}
+                    variants={ctrlItemInVariant}
                   >
                     <span>{props.navTitle}</span>
                   </motion.div>
                 )}
               </div>
               <ButtonArrow
-                className="Header-button-arrow"
                 active={isOpen}
-                hoverStart={hover === "start" ? true : false}
+                className="Header-button-arrow"
                 hoverEnd={hover === "end" ? true : false}
+                hoverStart={hover === "start" ? true : false}
+                innerRef={arrowIcon}
               />
             </motion.button>
           </motion.div>
@@ -222,14 +246,27 @@ export default function Header(props) {
             </ul>
           </motion.nav>
         </motion.div>
-        {/* </div> */}
       </header>
+      {/* 
+        Currently the clipPath animates on mount
+      */}
       <motion.div
-        animate={isOpen ? "open" : "closed"}
+        animate={
+          isOpen
+            ? {
+                clipPath: `circle(1100px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                transition: transPrimary,
+              }
+            : {
+                clipPath: `circle(0px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                transition: { ...transSecondary, delay: 0.2 },
+              }
+        }
         className="Header-bg"
-        variants={bg}
-        initial={false}
-      ></motion.div>
+        style={{
+          clipPath: `circle(0px at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+        }}
+      />
     </>
   );
 }

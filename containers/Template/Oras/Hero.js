@@ -23,11 +23,14 @@ export default function OrasHero({
   const headline = useAnimation();
   const bg = useAnimation();
   const bgGradientValue = useMotionValue(0);
-  const bgGradientInput = [0, 100];
-  const bgGradient = useTransform(bgGradientValue, bgGradientInput, [
-    "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)",
-    "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)",
-  ]);
+  const bgGradient = useTransform(
+    bgGradientValue,
+    [0, 100],
+    [
+      "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)",
+      "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)",
+    ]
+  );
   const initial = animationState === "initial";
   const preAnimation = animationState === "preAnimation";
 

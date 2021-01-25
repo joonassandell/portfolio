@@ -12,6 +12,7 @@ export default function ButtonArrow({
   active = false,
   hoverStart = false,
   hoverEnd = false,
+  innerRef = null,
   ...props
 }) {
   const [arrowInVisible, setArrowInVisible] = useState(false);
@@ -115,6 +116,7 @@ export default function ButtonArrow({
     <motion.div
       animate={button}
       className={c("Button Button--arrow", props.className)}
+      ref={innerRef}
     >
       {arrowInVisible && (
         <motion.span
