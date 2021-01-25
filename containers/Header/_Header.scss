@@ -3,85 +3,179 @@
  * ======================================= */
 
 .Header {
-  padding-top: rem($space * 3);
+  min-width: 300px;
+  padding-top: rem($space * 1.5);
   position: absolute;
   z-index: 99;
+  width: 100%;
+
+  @include mq(m) {
+    padding-top: rem($space * 3);
+  }
 }
 
-.Header-name, .Header-nav-button {
-  @include heading('h5');
-  margin: 0;
-}
-
-.Header-nav-ctrl {
+.Header-ctrl {
+  align-items: center;
   display: flex;
   position: relative;
   line-height: 0;
+  width: 100%;
 }
 
-.Header-nav-button-text,
-.Header-name {
-  display: flex;
-  flex-direction: column;
-  height: rem($space * 2);
-  line-height: rem($space * 2);
-  margin-right: rem($space * 2.25);
-  position: relative;
-  overflow: hidden;
-
-  &:after {
-    background: $black;
-    content: '';
-    display: block;
-    height: 2px;
-    position: absolute;
-    right: rem($space * -1.75);
-    top: calc(50% - 2px);
-    width: rem($space * 1.25);
-  }
-
-  span {
-    display: block;
+.Header-logo, .Header-button {
+  @include mq(m) {
+    @include heading('h5');
+    margin-bottom: 0;
   }
 }
 
-.Header-name-reveal,
-.Header-nav-button-text-reveal {
-  color: white;
+.Header-logo {
+  margin-right: auto;
+
+  @include mq(m) {
+    display: flex;
+    flex-direction: column;
+    height: rem($space * 2);
+    margin: 0;
+    line-height: rem($space * 2);
+    overflow: hidden;
+    position: relative;
+  }
+
+  a {
+    color: $text-700;
+    display: block;
+    border-bottom: 1px solid transparent;
+    transition: $trans-duration-fast;
+
+    &:hover { 
+      border-color: $border-20; 
+    }
+  }
+}
+
+.Header-logo-reveal {
+  a {
+    color: $text-10;
+
+    &:hover {
+      border-color: $border-10;
+    }
+  }
+}
+
+.Header-logo-reveal, 
+.Header-button-text-reveal {
+  color: $text-10;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.Header-nav-button {
+.Header-separator {
+  display: none;  
+
+  @include mq(m) {
+    align-items: center;
+    display: flex;
+    height: rem($space * 2);
+    margin: 0 rem($space / 1.5);
+    justify-content: center;  
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    width: rem($space * 1.25);
+  }
+}
+
+.Header-separator-line {
+  display: block;
+  background: $bg-700;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+}
+
+.Header-separator-line--reveal {
+  background: $bg-10;
+}
+
+.Header-button {
+  align-items: center;
   display: flex;
+  margin: 0;
   z-index: 1;
+
+  &:hover { 
+    span {
+      border-color: $border-20; 
+    }
+
+    .Header-button-text-reveal {
+      span {
+        border-color: $border-10;
+      }
+    }
+  }
 }
 
-.Header-nav-button-text {
-  margin-right: 0;
+.Header-button-text {
+  @include mq(m) {
+    display: flex;
+    flex-direction: column;
+    height: rem($space * 2);
+    line-height: rem($space * 2);
+    overflow: hidden;
+    position: relative;
+
+    span {
+      display: block;
+      border-bottom: 1px solid transparent;
+      transition: $trans-duration-fast;
+    }
+  }
 }
 
-.Header-nav-button-icon {
+.Header-button-text-mobile {
+  margin-right: rem($space / 1.5);
 
+  @include mq(m) {
+    display: none;
+  }
 }
 
-.Header-nav-list {
-  // display: none;
-  // opacity: 0;
+.Header-button-text {
+  margin-right: rem($space);
+
+  @include mq($until: m) {
+    display: none;
+  }
+}
+
+.Header-button-text-reveal {
+  span {
+    border-color: $border-10;
+  }
+}
+
+.Header-button-arrow.Button--arrow {
+  margin: 0;
+}
+
+.Header-nav {
   position: absolute;
   width: 100%;
   z-index: 0;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: auto;
-  right: 0;
+.Header-bg {
+  background: $bg-700;
   bottom: 0;
-  width: 100vw;
   height: 100vw;
-  background: black;
+  left: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
   z-index: 98;
 }

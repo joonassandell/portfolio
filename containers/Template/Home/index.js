@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <motion.main exit={{ opacity: 1 }} className="Template--home">
-      <motion.div exit={{ opacity: 1 }}>
+      {/* <motion.div exit={{ opacity: 1 }}>
         <OrasHero
           animationStart={currentHero === "oras" && animation}
           animationState="preAnimation"
@@ -37,7 +37,7 @@ export default function Home() {
           onClick={handleClick}
           // onFocus={handleClick}
         />
-      </motion.div>
+      </motion.div> */}
       <div
         data-id="mummu"
         onClick={handleClick}

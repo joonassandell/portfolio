@@ -1,5 +1,10 @@
 import { ArrowDown, Cross } from "../../components/Icon";
-import { transPrimaryFast, transPrimaryFastest } from "../../lib/config";
+import {
+  transPrimary,
+  transPrimaryFast,
+  transPrimaryFastest,
+} from "../../lib/config";
+import c from "classnames";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -7,10 +12,12 @@ export default function ButtonArrow({
   active = false,
   hoverStart = false,
   hoverEnd = false,
+  ...props
 }) {
-  const [hoverVisible, setHoverVisible] = useState(false);
+  const [arrowInVisible, setArrowInVisible] = useState(false);
   const [crossVisible, setCrossVisible] = useState(false);
   const [activeState, setActive] = useState("start");
+  const button = useAnimation();
   const bg = useAnimation();
   const arrow = useAnimation();
   const arrowIn = useAnimation();
@@ -20,9 +27,8 @@ export default function ButtonArrow({
   useEffect(() => {
     (async () => {
       if (hoverStart && enableHover) {
-        setHoverVisible(true);
+        await setArrowInVisible(true);
         arrowIn.set({
-          color: "#ffffff",
           scaleY: 4,
           y: -96,
         });
@@ -42,9 +48,8 @@ export default function ButtonArrow({
         });
       }
 
-      if (hoverEnd && enableHover && hoverVisible) {
-        arrow.set({ y: -36 });
-        console.log("end");
+      if (hoverEnd && enableHover) {
+        arrowInVisible ? arrow.set({ y: -36 }) : "";
         bg.start({
           transition: transPrimaryFast,
           y: "-77%",
@@ -57,61 +62,61 @@ export default function ButtonArrow({
           transition: transPrimaryFast,
           y: 36,
         });
-        setHoverVisible(false);
+        setArrowInVisible(false);
       }
 
       if (active && activeState == "start") {
-        setCrossVisible(true);
-        bg.start({
+        await setCrossVisible(true);
+        button.set({ backgroundColor: "rgba(255,255,255,0)" });
+        arrow.start({
           transition: transPrimaryFast,
-          y: "-77%",
+          y: 36,
         });
         arrowIn.start({
           transition: transPrimaryFast,
           y: 36,
         });
+        bg.start({
+          transition: transPrimaryFast,
+          y: 0,
+        });
         await cross.start({
           transition: transPrimaryFast,
           y: 0,
         });
-        setHoverVisible(false);
         setActive("end");
       }
 
       if (!active && activeState == "end") {
-        setHoverVisible(true);
-        arrowIn.set({
-          color: "#ffffff",
-          scaleY: 4,
-          y: -96,
-        });
-        bg.set({ y: "77%" });
         bg.start({
-          transition: transPrimaryFast,
-          y: 0,
+          transition: transPrimary,
+          y: "-77%",
         });
-        arrowIn.start({
-          scaleY: 1,
-          transition: transPrimaryFast,
-          y: 0,
-        });
-        arrow.start({
-          transition: transPrimaryFastest,
+        cross.start({
+          transition: { ...transPrimary, delay: 0.2 },
           y: 36,
         });
-        await cross.start({
-          transition: transPrimaryFast,
-          y: 36,
+        button.start({
+          backgroundColor: "#ffffff",
+          transition: { ...transPrimaryFast, delay: 0.2 },
+        });
+        await arrow.start({
+          transition: transPrimary,
+          y: 0,
         });
         setActive("start");
+        setArrowInVisible(false);
         setCrossVisible(false);
       }
     })();
-  }, [hoverVisible, hoverStart, hoverEnd, active]);
+  }, [hoverStart, hoverEnd, active]);
 
   return (
-    <motion.div className="Button Button--arrow">
-      {hoverVisible && (
+    <motion.div
+      animate={button}
+      className={c("Button Button--arrow", props.className)}
+    >
+      {arrowInVisible && (
         <motion.span
           animate={arrowIn}
           initial={false}

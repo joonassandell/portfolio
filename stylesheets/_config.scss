@@ -119,8 +119,11 @@ $link: #4d4dff;
 $link-hover: darken($link, 15%);
 
 // Border colors
-$border: rgba(#000000, 0.12);
+$border-700: $black;
+$border-500-opaque: rgba($white, 0.12);
 $border-500: #323232;
+$border-20: rgba(#000000, 0.12);
+$border-10: #ffffff;
 
 // State colors
 $success: #5cb85c;

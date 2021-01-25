@@ -4,8 +4,10 @@ import c from "classnames";
 import {
   transPrimary,
   transPrimaryFast,
+  transPrimaryFastest,
   transSecondary,
   transSecondaryFast,
+  transSecondaryFastest,
   easing,
 } from "../../lib/config";
 import { motion, AnimatePresence, useCycle } from "framer-motion";
@@ -28,33 +30,18 @@ const anim = {
     },
     transition: { ...transSecondary, duration: 0.5 },
   },
-  // navButtonIcon: {
-  //   animate: {
-  //     opacity: 1,
-  //     y: 0,
-  //   },
-  //   initial: {
-  //     opacity: 0,
-  //     y: 12,
-  //   },
-  //   exit: {
-  //     y: -12,
-  //     opacity: 0,
-  //   },
-  //   transition: { ...transSecondary, duration: 0.6 },
-  // },
 };
 
-const navVariants = {
+const navVariant = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.2 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
 
-const navItemVariants = {
+const navItemVariant = {
   open: {
     y: 0,
     opacity: 1,
@@ -67,7 +54,7 @@ const navItemVariants = {
   },
 };
 
-const sidebar = {
+const bg = {
   open: (height = 1100) => ({
     clipPath: `circle(${height}px at 463px 67px)`,
     transition: transPrimary,
@@ -78,40 +65,40 @@ const sidebar = {
   },
 };
 
-const ctrlVariants = {
+const ctrlVariant = {
   open: {
     transition: {
+      delayChildren: 0.1,
       staggerChildren: 0.05,
-      delayChildren: 0.3,
     },
   },
   closed: {
     transition: {
+      delayChildren: 0.2,
       staggerChildren: 0.05,
-      delayChildren: 0.3,
     },
   },
 };
 
-const ctrlItemOutVariants = {
+const ctrlItemOutVariant = {
   open: {
+    transition: transPrimaryFastest,
     y: -36,
-    transition: transPrimaryFast,
   },
   closed: {
-    y: 0,
     transition: transPrimaryFast,
+    y: 0,
   },
 };
 
-const ctrlItemInVariants = {
+const ctrlItemInVariant = {
   open: {
-    y: 0,
     transition: transPrimaryFast,
+    y: 0,
   },
   closed: {
+    transition: transPrimaryFastest,
     y: 36,
-    transition: transPrimaryFast,
   },
 };
 
@@ -119,8 +106,8 @@ const NavItem = (props) => {
   const router = useRouter();
   return (
     <motion.li
-      variants={navItemVariants}
-      className={c("Header-nav-list-item", {
+      variants={navItemVariant}
+      className={c("Header-main-item", {
         "is-active": router.pathname === props.href,
       })}
     >
@@ -133,8 +120,7 @@ export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
-  const [displayReveal, setDisplayReveal] = useState(false);
-  // console.log(hover === "start");
+  const [openReveal, setOpenReveal] = useState(false);
 
   return (
     <>
@@ -143,92 +129,105 @@ export default function Header(props) {
           "is-negative": isOpen,
         })}
       >
-        <div className="Header-wrap wrap">
-          <motion.nav
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            className="Header-nav"
-            onAnimationComplete={() => !isOpen && setDisplayReveal(false)}
-          >
-            {/* <AnimatePresence initial={false} exitBeforeEnter> */}
-            <motion.div variants={ctrlVariants} className="Header-nav-ctrl">
-              <motion.div className="Header-name">
-                <motion.span variants={ctrlItemOutVariants} initial={false}>
-                  Joonas Sandell
-                </motion.span>
-                {displayReveal && (
-                  <motion.span
-                    variants={ctrlItemInVariants}
-                    initial={false}
-                    className="Header-name-reveal"
-                  >
-                    Joonas Sandell
-                  </motion.span>
-                )}
+        {/* <div className="Header-wrap wrap"> */}
+        <motion.div
+          initial={false}
+          animate={isOpen ? "open" : "closed"}
+          className="Header-main Header-wrap wrap"
+          onAnimationComplete={() => !isOpen && setOpenReveal(false)}
+        >
+          {/* <AnimatePresence initial={false} exitBeforeEnter> */}
+          <motion.div variants={ctrlVariant} className="Header-ctrl">
+            <motion.div className="Header-logo">
+              <motion.div variants={ctrlItemOutVariant} initial={false}>
+                <Link href="/">Joonas Sandell</Link>
               </motion.div>
-              <motion.button
-                key={router.route}
-                className="Header-nav-button resetButton"
-                onHoverEnd={() => setHover("end")}
-                onHoverStart={() => setHover("start")}
-                // {...anim.navButton}
-                onClick={() => {
-                  setOpen();
-                  setDisplayReveal(true);
-                }}
-              >
-                {/* <div className="Header-nav-button-text">
-                  {props.navTitle}
-                </div> */}
-                <div className="Header-nav-button-text">
-                  <motion.span variants={ctrlItemOutVariants} initial={false}>
-                    {props.navTitle}
-                  </motion.span>
-                  {displayReveal && (
-                    <motion.span
-                      variants={ctrlItemInVariants}
-                      initial={false}
-                      className="Header-nav-button-text-reveal"
-                    >
-                      {props.navTitle}
-                    </motion.span>
-                  )}
-                </div>
-                <ButtonArrow
-                  className="Header-nav-button-icon"
-                  active={isOpen}
-                  // activeEnd={!isOpen}
-                  hoverStart={hover === "start" ? true : false}
-                  hoverEnd={hover === "end" ? true : false}
-                />
-              </motion.button>
+              {openReveal && (
+                <motion.div
+                  variants={ctrlItemInVariant}
+                  initial={false}
+                  className="Header-logo-reveal"
+                >
+                  <Link href="/">Joonas Sandell</Link>
+                </motion.div>
+              )}
             </motion.div>
+            <motion.div className="Header-separator">
+              <motion.div
+                variants={ctrlItemOutVariant}
+                initial={false}
+                className="Header-separator-line"
+              />
+              {openReveal && (
+                <motion.div
+                  variants={ctrlItemInVariant}
+                  initial={false}
+                  className="Header-separator-line Header-separator-line--reveal"
+                ></motion.div>
+              )}
+            </motion.div>
+            <motion.button
+              key={router.route}
+              className="Header-button resetButton"
+              onHoverEnd={() => setHover("end")}
+              onHoverStart={() => setHover("start")}
+              // {...anim.navButton}
+              onClick={() => {
+                setOpen();
+                setOpenReveal(true);
+              }}
+            >
+              <div className="Header-button-text-mobile">Menu</div>
+              <div className="Header-button-text">
+                <motion.div variants={ctrlItemOutVariant} initial={false}>
+                  <span>{props.navTitle}</span>
+                </motion.div>
+                {openReveal && (
+                  <motion.div
+                    variants={ctrlItemInVariant}
+                    initial={false}
+                    className="Header-button-text-reveal"
+                  >
+                    <span>{props.navTitle}</span>
+                  </motion.div>
+                )}
+              </div>
+              <ButtonArrow
+                className="Header-button-arrow"
+                active={isOpen}
+                hoverStart={hover === "start" ? true : false}
+                hoverEnd={hover === "end" ? true : false}
+              />
+            </motion.button>
+          </motion.div>
 
-            {/* </AnimatePresence> */}
-            {/* <AnimatePresence initial={false} exitBeforeEnter>
+          {/* </AnimatePresence> */}
+          {/* <AnimatePresence initial={false} exitBeforeEnter>
             <motion.div
               key={router.route}
-              className="Header-nav-button"
+              className="Header-button"
               {...anim.navButton}
             >
-              <div className="Header-name">Joonas Sandell</div>
-              <div className="Header-nav-button-text">{props.navTitle}</div>
+              <div className="Header-logo">Joonas Sandell</div>
+              <div className="Header-button-text">{props.navTitle}</div>
               <motion.div key={router.route} {...anim.navButton}>
-                <ArrowDown className="Header-nav-button-icon" />
+                <ArrowDown className="Header-button-icon" />
               </motion.div>
             </motion.div>
           </AnimatePresence> */}
-            <motion.ul variants={navVariants} className="Header-nav-list">
+          <motion.nav variants={navVariant} className="Header-nav">
+            <ul>
               <NavItem i={0} key={0} name="Selected works" href="/" />
               <NavItem i={1} key={1} name="Oras" href="/projects/oras" />
-            </motion.ul>
+            </ul>
           </motion.nav>
-        </div>
+        </motion.div>
+        {/* </div> */}
       </header>
       <motion.div
         animate={isOpen ? "open" : "closed"}
-        className="background"
-        variants={sidebar}
+        className="Header-bg"
+        variants={bg}
         initial={false}
       ></motion.div>
     </>
