@@ -159,8 +159,10 @@
   }
 }
 
-.Header-button-arrow.Button--arrow {
-  margin: 0;
+.Header-button-arrow {
+  .Button--arrow {
+    margin: 0;
+  }
 }
 
 .Header-mask {

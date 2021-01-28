@@ -120,6 +120,7 @@ export default function ButtonArrow({
   return (
     <motion.div
       animate={button}
+      key={props.key}
       className={c("Button Button--arrow", props.className)}
       ref={innerRef}
     >

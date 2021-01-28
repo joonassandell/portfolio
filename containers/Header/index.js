@@ -6,34 +6,36 @@ import {
   transPrimaryFast,
   transSecondary,
   transSecondaryFast,
-  transSecondaryFastest,
 } from "../../lib/config";
-import { motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { ButtonArrow } from "../../components/Button";
 import { useState, useRef, useEffect } from "react";
 import { debounce } from "lodash";
 
-const anim = {
-  navButton: {
-    animate: {
-      opacity: 1,
-      y: 0,
-    },
-    initial: {
-      opacity: 0,
-      y: 24,
-    },
-    exit: {
-      y: -24,
-      opacity: 0,
-    },
-    transition: { ...transSecondary, duration: 0.5 },
+const enterExitAnimButtonText = {
+  animate: {
+    opacity: 1,
+    y: 0,
   },
+  initial: {
+    opacity: 0,
+    y: 36,
+  },
+  exit: {
+    opacity: 0,
+    y: -24,
+  },
+  transition: { ...transSecondaryFast, duration: 0.4 },
+};
+
+const enterExitAnimButtonArrow = {
+  ...enterExitAnimButtonText,
+  transition: { ...transSecondaryFast, delay: 0.05, duration: 0.4 },
 };
 
 const navVariant = {
   open: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -42,22 +44,22 @@ const navVariant = {
 
 const navItemVariant = {
   open: {
-    y: 0,
     opacity: 1,
     transition: transPrimaryFast,
+    y: 0,
   },
   closed: {
-    y: 64,
     opacity: 0,
     transition: transSecondaryFast,
+    y: 88,
   },
 };
 
 const ctrlVariant = {
   open: {
     transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.05,
+      delayChildren: 0,
+      staggerChildren: 0.03,
     },
   },
   closed: {
@@ -120,24 +122,24 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const arrowIcon = useRef();
-  const [arrowIconPosition, setArrowIconPosition] = useState({ y: 0, x: 0 });
+  const buttonArrow = useRef();
+  const [buttonArrowPosition, setButtonArrowPos] = useState({ y: 0, x: 0 });
 
   useEffect(() => {
     /**
      * Hmm, why timeout needed, some mounting/loading thing?
      */
     setTimeout(() => {
-      setArrowIconPosition({
-        y: arrowIcon.current.offsetTop + arrowIcon.current.offsetHeight / 2,
-        x: arrowIcon.current.offsetLeft + arrowIcon.current.offsetWidth / 2,
+      setButtonArrowPos({
+        y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
+        x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
       });
-    }, 50);
+    }, 500);
 
     const resize = debounce(() => {
-      setArrowIconPosition({
-        y: arrowIcon.current.offsetTop + arrowIcon.current.offsetHeight / 2,
-        x: arrowIcon.current.offsetLeft + arrowIcon.current.offsetWidth / 2,
+      setButtonArrowPos({
+        y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
+        x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
       });
     }, 100);
 
@@ -198,8 +200,6 @@ export default function Header(props) {
               setHover("end");
               setTimeout(() => setHover(false), 100);
             }}
-            key={router.route}
-            // {...anim.navButton}
           >
             <div className="Header-button-text Header-button-text--mobile">
               <span>Menu</span>
@@ -213,50 +213,43 @@ export default function Header(props) {
                 </motion.div>
               )}
             </div>
-            <div className="Header-button-text">
-              <motion.div variants={ctrlItemOutVariant} initial={false}>
-                <span>{props.navTitle}</span>
-              </motion.div>
-              {openReveal && (
-                <motion.div
-                  className="Header-button-text-reveal"
-                  initial={{ y: 36 }}
-                  variants={ctrlItemInVariant}
-                >
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <motion.div
+                className="Header-button-text"
+                key={`Header-button-text-${router.route}`}
+                {...enterExitAnimButtonText}
+              >
+                <motion.div variants={ctrlItemOutVariant}>
                   <span>{props.navTitle}</span>
                 </motion.div>
-              )}
-            </div>
-            <ButtonArrow
-              active={isOpen}
-              className="Header-button-arrow"
-              hoverEnd={hover === "end" ? true : false}
-              hoverStart={hover === "start" ? true : false}
-              innerRef={arrowIcon}
-            />
+                {openReveal && (
+                  <motion.div
+                    className="Header-button-text-reveal"
+                    initial={{ y: 36 }}
+                    variants={ctrlItemInVariant}
+                  >
+                    <span>{props.navTitle}</span>
+                  </motion.div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <motion.div
+                className="Header-button-arrow"
+                key={`Header-button-arrow-${router.route}`}
+                ref={buttonArrow}
+                variants={ctrlItemOutVariant}
+                {...enterExitAnimButtonArrow}
+              >
+                <ButtonArrow
+                  active={isOpen}
+                  hoverEnd={hover === "end" ? true : false}
+                  hoverStart={hover === "start" ? true : false}
+                />
+              </motion.div>
+            </AnimatePresence>
           </motion.button>
         </motion.div>
-
-        {/* </AnimatePresence> */}
-        {/* <AnimatePresence initial={false} exitBeforeEnter>
-            <motion.div
-              key={router.route}
-              className="Header-button"
-              {...anim.navButton}
-            >
-              <div className="Header-logo">Joonas Sandell</div>
-              <div className="Header-button-text">{props.navTitle}</div>
-              <motion.div key={router.route} {...anim.navButton}>
-                <ArrowDown className="Header-button-icon" />
-              </motion.div>
-            </motion.div>
-          </AnimatePresence> */}
-        {/* <motion.nav variants={navVariant} className="Header-nav">
-            <ul>
-              <NavItem i={0} key={0} name="Selected works" href="/" />
-              <NavItem i={1} key={1} name="Oras" href="/projects/oras" />
-            </ul>
-          </motion.nav> */}
       </div>
       {/* 
         Currently the clipPath animates on mount
@@ -265,17 +258,17 @@ export default function Header(props) {
         animate={
           isOpen
             ? {
-                clipPath: `circle(150% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                clipPath: `circle(150% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
                 transition: transPrimary,
               }
             : {
-                clipPath: `circle(0% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+                clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
                 transition: { ...transSecondary, duration: 1.2, delay: 0 },
               }
         }
         className="Header-mask"
         style={{
-          clipPath: `circle(0% at ${arrowIconPosition.x}px ${arrowIconPosition.y}px)`,
+          clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
         }}
       >
         <div className="wrap">
@@ -309,7 +302,6 @@ export default function Header(props) {
                 name="Dribbbles"
                 href="/projects/dribbbles"
               />
-              <NavItem i={0} key={0} name="Browse all" href="/" />
             </ul>
           </motion.nav>
         </div>
