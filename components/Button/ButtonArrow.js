@@ -16,7 +16,7 @@ export default function ButtonArrow({
   innerRef = null,
   ...props
 }) {
-  const [arrowInVisible, setArrowInVisible] = useState(false);
+  const [arrowVisible, setArrowVisible] = useState(false);
   const [crossVisible, setCrossVisible] = useState(false);
   const [activeState, setActive] = useState("start");
   const button = useAnimation();
@@ -29,7 +29,7 @@ export default function ButtonArrow({
   useEffect(() => {
     (async () => {
       if (hoverStart && enableHover) {
-        await setArrowInVisible(true);
+        await setArrowVisible(true);
         arrowIn.set({
           scaleY: 4,
           y: -96,
@@ -51,7 +51,7 @@ export default function ButtonArrow({
       }
 
       if (hoverEnd && enableHover) {
-        arrowInVisible ? arrow.set({ y: -36 }) : "";
+        arrowVisible ? arrow.set({ y: -36 }) : "";
         bg.start({
           transition: transPrimaryFast,
           y: "-77%",
@@ -64,7 +64,7 @@ export default function ButtonArrow({
           transition: transPrimaryFast,
           y: 36,
         });
-        setArrowInVisible(false);
+        setArrowVisible(false);
       }
 
       if (active && activeState == "start") {
@@ -102,16 +102,16 @@ export default function ButtonArrow({
           backgroundColor: "#ffffff",
           transition: { ...transPrimaryFast, delay: 0.2 },
         });
-        button.start({
-          scale: [0.8, 1],
-          transition: { ...transSecondaryFastest, delay: 1.05 },
-        });
+        // button.start({
+        //   scale: [0.8, 1],
+        //   transition: { ...transSecondaryFastest, delay: 1.05 },
+        // });
         await arrow.start({
           transition: transPrimary,
           y: 0,
         });
         setActive("start");
-        setArrowInVisible(false);
+        setArrowVisible(false);
         setCrossVisible(false);
       }
     })();
@@ -124,7 +124,7 @@ export default function ButtonArrow({
       className={c("Button Button--arrow", props.className)}
       ref={innerRef}
     >
-      {arrowInVisible && (
+      {arrowVisible && (
         <motion.span
           animate={arrowIn}
           initial={false}

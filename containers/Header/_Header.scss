@@ -127,6 +127,7 @@
   line-height: rem($space * 2);
   overflow: hidden;
   position: relative;
+  text-align: left;
 
   span {
     display: block;
@@ -160,10 +161,15 @@
 }
 
 .Header-button-arrow {
+  // border: 1px solid red;
   .Button--arrow {
     margin: 0;
   }
 }
+
+// .Header-button-arrow-inner {
+//   border: 1px solid blue;
+// }
 
 .Header-mask {
   background: $bg-700;
@@ -194,8 +200,12 @@
 
 .Header-nav-item {
   margin-bottom: rem($space / 1.5);
+}
 
-  > a {
+.Header-nav-link {
+  color: $text-10;
+  
+  &:hover {
     color: $text-10;
   }
 }
