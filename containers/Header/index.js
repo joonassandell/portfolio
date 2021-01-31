@@ -134,6 +134,7 @@ export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
+  const [tmpReveal, setTmpReveal] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const buttonArrow = useRef();
   const [buttonArrowPosition, setButtonArrowPos] = useState({ y: 0, x: 0 });
@@ -142,9 +143,8 @@ export default function Header(props) {
   const maskAnim = useAnimation();
   const [mask, setMask] = useState(false);
   const [maskReset, setMaskReset] = useState(false);
-  const [title, setTitle] = useState(null);
+  const [revealTitle, setRevealTitle] = useState(null);
   const btnTxtMainSpan = useRef();
-  const [btnTextWidth, setBtnTextWidth] = useState(false);
   const [refresh, setRefresh] = useState(0);
 
   const open = () => {
@@ -161,41 +161,39 @@ export default function Header(props) {
       y: -36,
     });
 
-    await setAsyncTimeout(() => {
-      if (btnTxtMainSpan.current.innerText.length > title.length) {
-        setBtnTextWidth(btnTxtMainSpan.current.offsetWidth);
-      }
-    }, 300);
+    if (btnTxtMainSpan.current.innerText.length > title.length) {
+      setTmpReveal(props.navTitle);
+    }
 
-    // await setAsyncTimeout(() => {
-    //   setMaskReset();
-    // }, 100);
+    // setButtonArrowPos({
+    //   y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
+    //   x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
+    // });
 
-    await setAsyncTimeout(() => {
-      setRefresh(refresh + 1);
-      router.push(href);
-    }, 0);
+    setRefresh(refresh + 1);
+    router.push(href);
   };
 
   useEffect(() => {
-    console.log("maskposreset");
+    // if (!refresh) {
+    setTimeout(() => {
+      setButtonArrowPos({
+        y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
+        x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
+      });
 
-    setButtonArrowPos({
-      y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
-      x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
-    });
-    if (mask === "open") {
-      console.log("open");
-      maskAnim.set({
-        clipPath: `circle(150% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
-      });
-    }
-    if (mask === "closed") {
-      console.log("closed");
-      maskAnim.set({
-        clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
-      });
-    }
+      if (mask === "open") {
+        maskAnim.set({
+          clipPath: `circle(150% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
+        });
+      }
+      if (mask === "closed") {
+        maskAnim.set({
+          clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
+        });
+      }
+    }, 500);
+    // }
   }, [maskReset]);
 
   useEffect(() => {
@@ -215,39 +213,42 @@ export default function Header(props) {
   }, [mask]);
 
   useEffect(() => {
-    console.log("use effect render");
-
     if (refresh) {
-      setBtnTextWidth("unset");
       setTimeout(() => {
-        setTitle(props.navTitle);
+        setTmpReveal(false);
+        setRevealTitle(props.navTitle);
         buttonArrowInnerAnim.start({
           opacity: 1,
           transition: { ...transSecondaryFast },
           y: 0,
         });
-      }, 300);
+        setRefresh(false);
+      }, 600);
     } else {
-      setTitle(props.navTitle);
+      setRevealTitle(props.navTitle);
+      setMaskReset(true);
     }
+  }, [refresh, props.navTitle]);
 
+  useEffect(() => {
     /**
      * Hmm, why timeout needed, some mounting/loading thing?
      */
+    // setButtonArrowPos({
+    //   y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
+    //   x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
+    // });
     // setTimeout(() => {
     //   resetMaskPos();
     // }, 500);
-
     // const resize = debounce(() => {
     //   resetMaskPos();
     // }, 100);
-
     // window.addEventListener("resize", resize);
-
     // return () => {
     //   window.removeEventListener("resize", resize);
     // };
-  }, [refresh, props.navTitle]);
+  }, [props.navTitle]);
 
   useEffect(() => {
     setOpenReveal(true);
@@ -261,9 +262,6 @@ export default function Header(props) {
       })}
       onAnimationComplete={() => {
         !isOpen && setOpenReveal(false);
-        // !isOpen && setAnimating(false);
-
-        // console.log("end animation");
       }}
     >
       <div className="Header-main wrap">
@@ -294,7 +292,7 @@ export default function Header(props) {
                 className="Header-separator-line Header-separator-line--reveal"
                 initial={{ y: 36 }}
                 variants={ctrlItemInVariant}
-              ></motion.div>
+              />
             )}
           </div>
           <motion.button
@@ -325,9 +323,6 @@ export default function Header(props) {
               className="Header-button-text"
               // ref={buttonText}
               // key={`Header-button-text-${router.route}`}
-              style={{
-                width: btnTextWidth ? btnTextWidth : "unset",
-              }}
               // {...enterExitAnimButtonText}
             >
               <motion.div
@@ -336,6 +331,15 @@ export default function Header(props) {
               >
                 <span ref={btnTxtMainSpan}>{props.navTitle}</span>
               </motion.div>
+              {tmpReveal && (
+                <motion.div
+                  className="Header-button-text-tmp"
+                  // initial={{ y: 0 }}
+                  // variants={ctrlItemTmpInVariant}
+                >
+                  <span>{tmpReveal}</span>
+                </motion.div>
+              )}
               <AnimatePresence initial={false} exitBeforeEnter>
                 {/* {openReveal && ( */}
                 <motion.div
@@ -344,10 +348,9 @@ export default function Header(props) {
                   // key={`Header-button-text-${router.route}`}
                   key="Header-button-text-reveal"
                   variants={ctrlItemInVariant}
-                  data-id={props.navTitle}
                   // {...enterExitAnimButtonText}
                 >
-                  <span>{title}</span>
+                  <span>{revealTitle}</span>
                 </motion.div>
                 {/* )} */}
               </AnimatePresence>
