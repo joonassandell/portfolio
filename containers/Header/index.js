@@ -4,6 +4,7 @@ import c from "classnames";
 import {
   transPrimary,
   transPrimaryFast,
+  transPrimaryFastest,
   transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
@@ -17,7 +18,7 @@ import {
 } from "framer-motion";
 import { ButtonArrow } from "../../components/Button";
 import { useState, useRef, useEffect } from "react";
-import { debounce } from "lodash";
+import { asyncTimeout } from "../../lib/utility";
 
 const enterExitAnimButtonText = {
   animate: {
@@ -26,11 +27,11 @@ const enterExitAnimButtonText = {
   },
   initial: {
     opacity: 0,
-    y: -36,
+    y: -24,
   },
   exit: {
     opacity: 0,
-    y: -36,
+    y: 24,
   },
   transition: { ...transSecondaryFastest },
 };
@@ -94,12 +95,8 @@ const ctrlItemInVariant = {
     y: 0,
   },
   closed: {
-    transition: transSecondaryFast,
+    transition: { ...transSecondaryFastest, duration: 0.2 },
     y: 36,
-  },
-  exit: {
-    transition: transSecondaryFast,
-    y: -36,
   },
 };
 
@@ -112,6 +109,11 @@ const NavItem = (props) => {
       className={c("Header-nav-item", {
         "is-active": router.pathname === props.href,
       })}
+      initial={{
+        opacity: 0,
+        transition: transSecondaryFast,
+        y: 88,
+      }}
     >
       {/* <Link href={props.href}> */}
       <a className="Header-nav-link" href={props.href} onClick={props.onClick}>
@@ -122,14 +124,6 @@ const NavItem = (props) => {
   );
 };
 
-const setAsyncTimeout = (cb, timeout = 0) =>
-  new Promise((resolve) => {
-    setTimeout(() => {
-      cb();
-      resolve();
-    }, timeout);
-  });
-
 export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
@@ -137,118 +131,104 @@ export default function Header(props) {
   const [tmpReveal, setTmpReveal] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const buttonArrow = useRef();
-  const [buttonArrowPosition, setButtonArrowPos] = useState({ y: 0, x: 0 });
 
   const buttonArrowInnerAnim = useAnimation();
   const maskAnim = useAnimation();
   const [mask, setMask] = useState(false);
-  const [maskReset, setMaskReset] = useState(false);
   const [revealTitle, setRevealTitle] = useState(null);
   const btnTxtMainSpan = useRef();
   const [refresh, setRefresh] = useState(0);
 
-  const open = () => {
+  const open = ({ withMask = true } = {}) => {
     setOpen();
-    if (mask == "closed" || !mask) setMask("open");
-    if (mask == "open") setMask("closed");
+
+    if (withMask) {
+      if (mask == "closed" || !mask) {
+        openCloseMask("open");
+        setMask("open");
+      }
+
+      if (mask == "open") {
+        openCloseMask("close");
+        setMask("closed");
+      }
+    }
   };
 
   const beforeClick = async ({ title, href }) => {
-    open();
+    open({ withMask: false });
     await buttonArrowInnerAnim.start({
       opacity: 0,
       transition: transSecondaryFastest,
       y: -36,
     });
-
     if (btnTxtMainSpan.current.innerText.length > title.length) {
       setTmpReveal(props.navTitle);
     }
-
-    // setButtonArrowPos({
-    //   y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
-    //   x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
-    // });
-
     setRefresh(refresh + 1);
     router.push(href);
   };
 
-  useEffect(() => {
-    // if (!refresh) {
-    setTimeout(() => {
-      setButtonArrowPos({
-        y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
-        x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
+  const openCloseMask = (state = "close") => {
+    const x =
+      buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2;
+    const y =
+      buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2;
+    console.log(buttonArrow.current.offsetTop);
+    console.log(buttonArrow.current.offsetLeft);
+
+    if (state === "open") {
+      console.log("open");
+      maskAnim.set({
+        clipPath: `circle(0% at ${x}px ${y}px)`,
       });
-
-      if (mask === "open") {
-        maskAnim.set({
-          clipPath: `circle(150% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
-        });
-      }
-      if (mask === "closed") {
-        maskAnim.set({
-          clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
-        });
-      }
-    }, 500);
-    // }
-  }, [maskReset]);
-
-  useEffect(() => {
-    if (mask === "open") {
       maskAnim.start({
-        clipPath: `circle(150% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
+        clipPath: `circle(150% at ${x}px ${y}px)`,
         transition: transPrimary,
       });
     }
 
-    if (mask === "closed") {
+    if (state === "close") {
+      console.log("close");
+      maskAnim.set({
+        clipPath: `circle(150% at ${x}px ${y}px)`,
+      });
       maskAnim.start({
-        clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
+        clipPath: `circle(0% at ${x}px ${y}px)`,
         transition: transPrimary,
       });
     }
-  }, [mask]);
+  };
 
   useEffect(() => {
     if (refresh) {
-      setTimeout(() => {
-        setTmpReveal(false);
-        setRevealTitle(props.navTitle);
-        buttonArrowInnerAnim.start({
-          opacity: 1,
-          transition: { ...transSecondaryFast },
-          y: 0,
-        });
-        setRefresh(false);
-      }, 600);
+      (async () => {
+        if (tmpReveal) {
+          await asyncTimeout(() => {
+            setTmpReveal(false);
+            openCloseMask("close");
+            setMask("closed");
+          }, 300);
+        } else {
+          openCloseMask("close");
+          setMask("closed");
+        }
+        await asyncTimeout(() => {
+          buttonArrowInnerAnim.start({
+            opacity: 1,
+            transition: transSecondaryFast,
+            y: 0,
+          });
+        }, 500);
+        await asyncTimeout(() => {
+          setRevealTitle(props.navTitle);
+          setRefresh(false);
+        }, 100);
+      })();
     } else {
       setRevealTitle(props.navTitle);
-      setMaskReset(true);
     }
   }, [refresh, props.navTitle]);
-
-  useEffect(() => {
-    /**
-     * Hmm, why timeout needed, some mounting/loading thing?
-     */
-    // setButtonArrowPos({
-    //   y: buttonArrow.current.offsetTop + buttonArrow.current.offsetHeight / 2,
-    //   x: buttonArrow.current.offsetLeft + buttonArrow.current.offsetWidth / 2,
-    // });
-    // setTimeout(() => {
-    //   resetMaskPos();
-    // }, 500);
-    // const resize = debounce(() => {
-    //   resetMaskPos();
-    // }, 100);
-    // window.addEventListener("resize", resize);
-    // return () => {
-    //   window.removeEventListener("resize", resize);
-    // };
-  }, [props.navTitle]);
 
   useEffect(() => {
     setOpenReveal(true);
@@ -300,11 +280,11 @@ export default function Header(props) {
             onClick={() => {
               open();
             }}
-            // onHoverStart={() => setHover("start")}
-            // onHoverEnd={() => {
-            //   setHover("end");
-            //   setTimeout(() => setHover(false), 100);
-            // }}
+            onHoverStart={() => setHover("start")}
+            onHoverEnd={() => {
+              setHover("end");
+              setTimeout(() => setHover(false), 100);
+            }}
           >
             <div className="Header-button-text Header-button-text--mobile">
               <span>Menu</span>
@@ -321,8 +301,7 @@ export default function Header(props) {
             {/* <AnimatePresence initial={false} exitBeforeEnter> */}
             <motion.div
               className="Header-button-text"
-              // ref={buttonText}
-              // key={`Header-button-text-${router.route}`}
+              key={`Header-button-text-${router.route}`}
               // {...enterExitAnimButtonText}
             >
               <motion.div
@@ -340,20 +319,15 @@ export default function Header(props) {
                   <span>{tmpReveal}</span>
                 </motion.div>
               )}
-              <AnimatePresence initial={false} exitBeforeEnter>
-                {/* {openReveal && ( */}
+              {openReveal && (
                 <motion.div
                   className="Header-button-text-reveal"
                   initial={{ y: 36 }}
-                  // key={`Header-button-text-${router.route}`}
-                  key="Header-button-text-reveal"
                   variants={ctrlItemInVariant}
-                  // {...enterExitAnimButtonText}
                 >
                   <span>{revealTitle}</span>
                 </motion.div>
-                {/* )} */}
-              </AnimatePresence>
+              )}
             </motion.div>
             {/* </AnimatePresence> */}
             {/* <AnimatePresence initial={false} exitBeforeEnter> */}
@@ -388,13 +362,7 @@ export default function Header(props) {
       {/* 
         Currently the clipPath animates on mount which is unwanted
       */}
-      <motion.div
-        animate={maskAnim}
-        className="Header-mask"
-        style={{
-          clipPath: `circle(0% at ${buttonArrowPosition.x}px ${buttonArrowPosition.y}px)`,
-        }}
-      >
+      <motion.div animate={maskAnim} className="Header-mask">
         <motion.div animate={isOpen ? "open" : "closed"} className="wrap">
           <motion.nav variants={navVariant} className="Header-nav">
             <ul>
