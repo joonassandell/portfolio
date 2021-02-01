@@ -196,11 +196,11 @@ export default function Header(props) {
 
   const beforeClick = async ({ title, href }) => {
     open({ withMask: false });
-    // await btnArrowInnerAnim.start({
-    //   opacity: 0,
-    //   transition: transSecondaryFastest,
-    //   y: -36,
-    // });
+    btnArrowInnerAnim.start({
+      opacity: 0,
+      transition: transSecondaryFast,
+      y: -36,
+    });
     router.push(href);
     // if (btnTxtMainSpan.current.innerText.length > title.length) {
     //   setTmpReveal(props.navTitle);
@@ -391,8 +391,8 @@ export default function Header(props) {
                 >
                   <ButtonArrow
                     active={isOpen}
-                    // hoverEnd={hover === "end" ? true : false}
-                    // hoverStart={hover === "start" ? true : false}
+                    hoverEnd={hover === "end" ? true : false}
+                    hoverStart={hover === "start" ? true : false}
                   />
                 </motion.div>
               </motion.div>
