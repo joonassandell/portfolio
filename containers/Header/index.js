@@ -8,18 +8,20 @@ import {
   transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
+  sitemap,
 } from "../../lib/config";
+import { AnimatePresence, motion, useCycle, useAnimation } from "framer-motion";
 import {
-  AnimateSharedLayout,
-  AnimatePresence,
-  motion,
-  useCycle,
-  useAnimation,
-  usePresence,
-} from "framer-motion";
+  enterExitAnimButtonText,
+  enterExitAnimBtnArrow,
+  navVariant,
+  navItemVariant,
+  ctrlVariant,
+  ctrlItemOutVariant,
+  ctrlItemInVariant,
+} from "./variants";
 import { ButtonArrow } from "../../components/Button";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { asyncTimeout } from "../../lib/utility";
 
 /**
  * TODO:
@@ -28,109 +30,6 @@ import { asyncTimeout } from "../../lib/utility";
  * - Try to get exit anim work better e.g. not so fast by somehow delaying the
  *   mask animation but not slowing down the entire flow
  */
-
-const enterExitAnimButtonText = {
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    y: -16,
-  },
-  exit: {
-    opacity: 0,
-    y: 16,
-    // , delay: 0.3 or any slower transition breaks the mask anim
-    transition: { ...transSecondaryFastest },
-  },
-  transition: { ...transSecondaryFastest },
-};
-
-const enterExitAnimBtnArrow = {
-  // ...enterExitAnimButtonText,
-  // transition: { ...transSecondaryFast, delay: 0.74, duration: 0.4 },
-  // exit: {
-  //   opacity: 0,
-  //   y: 16,
-  //   transition: { ...transSecondaryFastest, delay: 0 },
-  // },
-  // transition: { ...transSecondaryFast, delay: 0, duration: 0.4 },
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    y: -16,
-  },
-  exit: {
-    opacity: 0,
-    y: 16,
-    transition: { ...transSecondaryFastest },
-  },
-  transition: { ...transSecondaryFastest, delay: 0.6 },
-};
-
-const navVariant = {
-  open: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
-};
-
-const navItemVariant = {
-  open: {
-    opacity: 1,
-    transition: transPrimaryFast,
-    y: 0,
-  },
-  closed: {
-    opacity: 0,
-    transition: transSecondaryFast,
-    y: 88,
-  },
-};
-
-const ctrlVariant = {
-  open: {
-    transition: {
-      delayChildren: 0,
-      staggerChildren: 0.03,
-    },
-  },
-  closed: {
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const ctrlItemOutVariant = {
-  open: {
-    transition: transSecondaryFast,
-    y: -36,
-  },
-  closed: {
-    transition: transPrimaryFast,
-    y: 0,
-  },
-};
-
-const ctrlItemInVariant = {
-  open: {
-    transition: transPrimaryFast,
-    y: 0,
-  },
-  closed: {
-    transition: transSecondaryFast,
-    // transition: { ...transSecondaryFastest, duration: 0.2 },
-    y: 36,
-  },
-};
 
 const NavItem = (props) => {
   const router = useRouter();
@@ -147,11 +46,9 @@ const NavItem = (props) => {
         y: 88,
       }}
     >
-      {/* <Link href={props.href}> */}
-      <a className="Header-nav-link" href={props.href} onClick={props.onClick}>
+      <a className="Header-nav-link" href={props.link} onClick={props.onClick}>
         {props.name}
       </a>
-      {/* </Link> */}
     </motion.li>
   );
 };
@@ -160,7 +57,6 @@ export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
-  const [tmpReveal, setTmpReveal] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
 
   const [x, setX] = useState(0);
@@ -194,17 +90,14 @@ export default function Header(props) {
     }
   };
 
-  const beforeClick = async ({ title, href }) => {
+  const beforeClick = async ({ link }) => {
     open({ withMask: false });
     btnArrowInnerAnim.start({
       opacity: 0,
       transition: transSecondaryFast,
       y: -36,
     });
-    router.push(href);
-    // if (btnTxtMainSpan.current.innerText.length > title.length) {
-    //   setTmpReveal(props.navTitle);
-    // }
+    router.push(link);
     setRefresh(true);
   };
 
@@ -223,7 +116,6 @@ export default function Header(props) {
     }
 
     if (mask === "closed") {
-      console.log("closed");
       maskAnim.start({
         clipPath: `circle(0% at ${x}px ${y}px)`,
         transition: transPrimary,
@@ -238,31 +130,12 @@ export default function Header(props) {
   }, [mask, x, y]);
 
   useEffect(() => {
-    // console.log(isPresent);
     if (refresh) {
-      console.log("refresh");
-      // (async () => {
       setMask("openReset");
-      // await asyncTimeout(() => {
-      // setTmpReveal(false);
-      // console.log(props.navTitle);
-      // setRevealTitle(props.navTitle);
       setRefresh(false);
-      // }, 100);
-      // })();
     } else {
       (async () => {
-        console.log("lol");
         setMask("closed");
-        // await asyncTimeout(() => {
-        //   btnArrowInnerAnim.start({
-        //     opacity: 1,
-        //     transition: { ...transSecondaryFastest, delay: 3 },
-        //     y: 0,
-        //   });
-        // }, 300);
-
-        // console.log(props.navTitle);
         setRevealTitle(props.navTitle);
       })();
     }
@@ -270,7 +143,6 @@ export default function Header(props) {
 
   useEffect(() => {
     if (!refresh) {
-      console.log(props.navTitle);
       setRevealTitle(props.navTitle);
     }
   }, [props.navTitle]);
@@ -282,9 +154,7 @@ export default function Header(props) {
   return (
     <motion.header
       animate={isOpen ? "open" : "closed"}
-      className={c("Header", {
-        "is-negative": isOpen,
-      })}
+      className="Header"
       onAnimationComplete={() => {
         !isOpen && setOpenReveal(false);
       }}
@@ -350,16 +220,10 @@ export default function Header(props) {
               >
                 <motion.div
                   className="Header-button-text-main"
-                  // key="Header-button-text-main"
                   variants={ctrlItemOutVariant}
                 >
                   <span ref={btnTxtMainSpan}>{props.navTitle}</span>
                 </motion.div>
-                {/* {tmpReveal && (
-                  <motion.div className="Header-button-text-tmp">
-                    <span>{tmpReveal}</span>
-                  </motion.div>
-                )} */}
                 {openReveal && (
                   <motion.div
                     className="Header-button-text-reveal"
@@ -404,60 +268,19 @@ export default function Header(props) {
         <motion.div animate={isOpen ? "open" : "closed"} className="wrap">
           <motion.nav variants={navVariant} className="Header-nav">
             <ul>
-              <NavItem
-                onClick={(e) => {
-                  e.preventDefault();
-                  beforeClick({
-                    title: "Oras",
-                    href: "/projects/oras",
-                  });
-                }}
-                i={1}
-                key={1}
-                name="Oras"
-                href="/projects/oras"
-              />
-              <NavItem i={2} key={2} name="Biocode" href="/projects/biocode" />
-              <NavItem i={3} key={3} name="Omoroi" href="/projects/omoroi" />
-              <NavItem
-                i={4}
-                key={4}
-                name="Mediasignal"
-                href="/projects/mediasignal"
-              />
-              <NavItem
-                i={5}
-                key={5}
-                name="Hankkija"
-                href="/projects/hankkija"
-              />
-              <NavItem i={6} key={6} name="Hukka" href="/projects/hukka" />
-              <NavItem
-                i={7}
-                key={7}
-                name="HW-Company"
-                href="/projects/hw-company"
-              />
-              <NavItem
-                i={8}
-                key={8}
-                name="Dribbbles"
-                href="/projects/dribbbles"
-              />
-              <NavItem
-                onClick={(e) => {
-                  e.preventDefault();
-
-                  beforeClick({
-                    title: "Selected works",
-                    href: "/",
-                  });
-                }}
-                i={9}
-                key={9}
-                name="Browse all"
-                href="/"
-              />
+              {sitemap.map((item, i) => (
+                <NavItem
+                  onClick={(e) => {
+                    e.preventDefault();
+                    beforeClick({
+                      link: item.link,
+                    });
+                  }}
+                  key={i}
+                  name={item.title}
+                  link={item.link}
+                />
+              ))}
             </ul>
           </motion.nav>
         </motion.div>

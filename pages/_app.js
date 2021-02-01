@@ -4,8 +4,6 @@ import App from "../containers/App";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 function NextApp({ Component, pageProps, router }) {
-  console.log(pageProps, router);
-
   return (
     <App>
       <Header navTitle={pageProps.navTitle} />
