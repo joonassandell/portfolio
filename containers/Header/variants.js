@@ -7,7 +7,10 @@ import {
   transSecondaryFastest,
 } from "../../lib/config";
 
-const enterExitAnimButtonText = {
+/**
+ * Delays e.g. delay: 0.3 breaks the mask anim
+ */
+const enterExitBtnTextIfNavOpenVariant = {
   animate: {
     opacity: 1,
     y: 0,
@@ -19,35 +22,46 @@ const enterExitAnimButtonText = {
   exit: {
     opacity: 0,
     y: 16,
-    // , delay: 0.3 or any slower transition breaks the mask anim
     transition: { ...transSecondaryFastest },
   },
   transition: { ...transSecondaryFastest },
 };
 
-const enterExitAnimBtnArrow = {
-  // ...enterExitAnimButtonText,
-  // transition: { ...transSecondaryFast, delay: 0.74, duration: 0.4 },
-  // exit: {
-  //   opacity: 0,
-  //   y: 16,
-  //   transition: { ...transSecondaryFastest, delay: 0 },
-  // },
-  // transition: { ...transSecondaryFast, delay: 0, duration: 0.4 },
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    y: -16,
-  },
+const enterExitBtnArrowIfNavOpenVariant = {
+  ...enterExitBtnTextIfNavOpenVariant,
   exit: {
     opacity: 0,
     y: 16,
     transition: { ...transSecondaryFastest },
   },
   transition: { ...transSecondaryFastest, delay: 0.6 },
+};
+
+const enterExitBtnTextVariant = {
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  initial: {
+    opacity: 0,
+    y: -16,
+  },
+  exit: {
+    opacity: 0,
+    y: 16,
+    transition: { ...transPrimaryFastest },
+  },
+  transition: { ...transPrimaryFastest },
+};
+
+const enterExitBtnArrowVariant = {
+  ...enterExitBtnTextVariant,
+  exit: {
+    opacity: 0,
+    y: 16,
+    transition: { ...transPrimaryFastest, delay: 0.05 },
+  },
+  transition: { ...transPrimaryFastest, delay: 0.05 },
 };
 
 const navVariant = {
@@ -105,14 +119,15 @@ const ctrlItemInVariant = {
   },
   closed: {
     transition: transSecondaryFast,
-    // transition: { ...transSecondaryFastest, duration: 0.2 },
     y: 36,
   },
 };
 
 export {
-  enterExitAnimButtonText,
-  enterExitAnimBtnArrow,
+  enterExitBtnTextIfNavOpenVariant,
+  enterExitBtnArrowIfNavOpenVariant,
+  enterExitBtnTextVariant,
+  enterExitBtnArrowVariant,
   navVariant,
   navItemVariant,
   ctrlVariant,

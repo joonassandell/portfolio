@@ -102,10 +102,6 @@ export default function ButtonArrow({
           backgroundColor: "#ffffff",
           transition: { ...transPrimaryFast, delay: 0.2 },
         });
-        // button.start({
-        //   scale: [0.8, 1],
-        //   transition: { ...transSecondaryFastest, delay: 1.05 },
-        // });
         await arrow.start({
           transition: transPrimary,
           y: 0,
