@@ -1,15 +1,6 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import c from "classnames";
-import {
-  transPrimary,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
-  transSecondaryFast,
-  transSecondaryFastest,
-  sitemap,
-} from "../../lib/config";
+import { transPrimary, transSecondaryFast, sitemap } from "../../lib/config";
 import { AnimatePresence, motion, useCycle, useAnimation } from "framer-motion";
 import {
   enterExitBtnTextVariant,
@@ -23,16 +14,8 @@ import {
   ctrlItemInVariant,
 } from "./variants";
 import { ButtonArrow } from "../../components/Button";
-import { useState, useRef, useEffect, useCallback } from "react";
-// import { asyncTimeout } from "../../lib/utility";
+import { useState, useEffect, useCallback } from "react";
 
-/**
- * TODO:
- * - Add faster transitions for other links than nav link by editing the
- *   mutating the `enterExitButtonText` obj
- * - Try to get exit anim work better e.g. not so fast by somehow delaying the
- *   mask animation but not slowing down the entire flow
- */
 const NavItem = (props) => {
   const router = useRouter();
 
@@ -60,27 +43,22 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
-
   const btnArrow = useCallback((node) => {
     if (node !== null) {
       setX(node.offsetLeft + node.offsetWidth / 2);
       setY(node.offsetTop + node.offsetHeight / 2);
     }
   }, []);
-
-  const btnArrowInnerAnim = useAnimation();
   const maskAnim = useAnimation();
   const [mask, setMask] = useState("closedReset");
   const [revealTitle, setRevealTitle] = useState(null);
   const [refresh, setRefresh] = useState(0);
-  const [variant, setVariant] = useState({
-    enterExitBtnText: enterExitBtnTextVariant,
-    enterExitBtnArrow: enterExitBtnArrowVariant,
+  const [enterExit, setEnterExit] = useState({
+    btnTxt: enterExitBtnTextVariant,
+    btnArrow: enterExitBtnArrowVariant,
   });
-  const btnTxtMainSpan = useRef();
 
   const open = ({ withMask = true } = {}) => {
     setOpen();
@@ -98,15 +76,15 @@ export default function Header(props) {
 
   const beforeClickIfOpen = (link) => {
     open({ withMask: false });
-    setVariant({
-      enterExitBtnText: enterExitBtnTextIfNavOpenVariant,
-      enterExitBtnArrow: enterExitBtnArrowIfNavOpenVariant,
+    setEnterExit({
+      btnText: enterExitBtnTextIfNavOpenVariant,
+      btnArrow: enterExitBtnArrowIfNavOpenVariant,
     });
     router.push(link);
     setRefresh(true);
   };
 
-  const handleDefaultClick = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     const link = new URL(e.target.href).pathname;
     if (isOpen) {
@@ -150,19 +128,20 @@ export default function Header(props) {
       setRefresh(false);
     } else {
       setTimeout(() => {
-        setVariant({
-          enterExitBtnText: enterExitBtnTextVariant,
-          enterExitBtnArrow: enterExitBtnArrowVariant,
+        setEnterExit({
+          btnText: enterExitBtnTextVariant,
+          btnArrow: enterExitBtnArrowVariant,
         });
       }, 500);
       setMask("closed");
-      setRevealTitle(props.navTitle);
     }
   }, [refresh]);
 
   useEffect(() => {
     if (!refresh) {
-      setRevealTitle(props.navTitle);
+      setTimeout(() => {
+        setRevealTitle(props.navTitle);
+      }, 1000);
     }
   }, [props.navTitle]);
 
@@ -182,7 +161,7 @@ export default function Header(props) {
         <motion.div variants={ctrlVariant} className="Header-ctrl">
           <div className="Header-logo">
             <motion.div variants={ctrlItemOutVariant} initial={false}>
-              <a href="/" onClick={(e) => handleDefaultClick(e)}>
+              <a href="/" onClick={(e) => handleClick(e)}>
                 Joonas Sandell
               </a>
             </motion.div>
@@ -192,7 +171,7 @@ export default function Header(props) {
                 initial={{ y: 36 }}
                 variants={ctrlItemInVariant}
               >
-                <a href="/" onClick={(e) => handleDefaultClick(e)}>
+                <a href="/" onClick={(e) => handleClick(e)}>
                   Joonas Sandell
                 </a>
               </motion.div>
@@ -223,11 +202,11 @@ export default function Header(props) {
               setTimeout(() => setHover(false), 100);
             }}
           >
-            <div className="Header-button-text Header-button-text--mobile">
+            <div className="Header-button-textMobile">
               <span>Menu</span>
               {openReveal && (
                 <motion.div
-                  className="Header-button-text-reveal"
+                  className="Header-button-textMobile-reveal"
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
                 >
@@ -235,46 +214,38 @@ export default function Header(props) {
                 </motion.div>
               )}
             </div>
-            <AnimatePresence initial={false} exitBeforeEnter>
-              <motion.div
-                className="Header-button-text"
-                key={`Header-button-text-${router.route}`}
-                {...variant.enterExitBtnText}
-              >
+            <div className="Header-button-text">
+              <AnimatePresence initial={false} exitBeforeEnter>
                 <motion.div
-                  className="Header-button-text-main"
-                  variants={ctrlItemOutVariant}
+                  className="Header-button-text-item"
+                  key={`Header-button-text-${router.route}`}
+                  {...enterExit.btnText}
                 >
-                  <span ref={btnTxtMainSpan}>{props.navTitle}</span>
-                </motion.div>
-                {openReveal && (
-                  <motion.div
-                    className="Header-button-text-reveal"
-                    initial={{ y: 36 }}
-                    variants={ctrlItemInVariant}
-                  >
-                    <span>{revealTitle}</span>
+                  <motion.div variants={ctrlItemOutVariant}>
+                    <span>{props.navTitle}</span>
                   </motion.div>
-                )}
+                </motion.div>
+              </AnimatePresence>
+              <motion.div className="Header-button-text-item Header-button-text-item--reveal">
+                {/* {openReveal && ( */}
+                <motion.div variants={ctrlItemInVariant} initial={{ y: 36 }}>
+                  <span>{revealTitle}</span>
+                </motion.div>
+                {/* )} */}
               </motion.div>
-            </AnimatePresence>
+            </div>
             <AnimatePresence initial={false} exitBeforeEnter>
               <motion.div
                 className="Header-button-arrow"
                 key={`Header-button-arrow-${router.route}`}
                 ref={btnArrow}
-                {...variant.enterExitBtnArrow}
+                {...enterExit.btnArrow}
               >
-                <motion.div
-                  animate={btnArrowInnerAnim}
-                  className="Header-button-arrow-inner"
-                >
-                  <ButtonArrow
-                    active={isOpen}
-                    hoverEnd={hover === "end" ? true : false}
-                    hoverStart={hover === "start" ? true : false}
-                  />
-                </motion.div>
+                <ButtonArrow
+                  active={isOpen}
+                  hoverEnd={hover === "end" ? true : false}
+                  hoverStart={hover === "start" ? true : false}
+                />
               </motion.div>
             </AnimatePresence>
           </motion.button>

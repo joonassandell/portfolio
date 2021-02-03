@@ -1,15 +1,10 @@
 import {
-  transPrimary,
   transPrimaryFast,
   transPrimaryFastest,
-  transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
 } from "../../lib/config";
 
-/**
- * Delays e.g. delay: 0.3 breaks the mask anim
- */
 const enterExitBtnTextIfNavOpenVariant = {
   animate: {
     opacity: 1,
@@ -21,20 +16,26 @@ const enterExitBtnTextIfNavOpenVariant = {
   },
   exit: {
     opacity: 0,
-    y: 16,
-    transition: { ...transSecondaryFastest },
+    transition: transSecondaryFastest,
   },
-  transition: { ...transSecondaryFastest },
+  transition: { ...transSecondaryFast, delay: 0.6 },
 };
 
 const enterExitBtnArrowIfNavOpenVariant = {
-  ...enterExitBtnTextIfNavOpenVariant,
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  initial: {
+    opacity: 0,
+    y: -16,
+  },
   exit: {
     opacity: 0,
     y: 16,
-    transition: { ...transSecondaryFastest },
+    transition: transSecondaryFastest,
   },
-  transition: { ...transSecondaryFastest, delay: 0.6 },
+  transition: { ...transSecondaryFastest, delay: 0.9 },
 };
 
 const enterExitBtnTextVariant = {
@@ -49,9 +50,9 @@ const enterExitBtnTextVariant = {
   exit: {
     opacity: 0,
     y: 16,
-    transition: { ...transPrimaryFastest },
+    transition: transPrimaryFastest,
   },
-  transition: { ...transPrimaryFastest },
+  transition: transPrimaryFastest,
 };
 
 const enterExitBtnArrowVariant = {

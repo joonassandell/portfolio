@@ -63,8 +63,7 @@
   }
 }
 
-.Header-logo-reveal, 
-.Header-button-text-reveal {
+.Header-logo-reveal {
   color: $text-10;
   position: absolute;
   top: 0;
@@ -119,14 +118,38 @@
   }
 }
 
+.Header-button-textMobile {
+  display: block;
+  overflow: hidden;
+  line-height: rem($space * 2);
+  position: relative;
+  margin-right: rem($space / 1.5);
+
+  span {
+    border: 0;
+  }
+
+  @include mq(m) {
+    display: none;
+  }
+}
+
+.Header-button-textMobile-reveal {
+  color: $text-10;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .Header-button-text {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+}
+
+.Header-button-text-item {
   height: rem($space * 2);
   margin-right: rem($space);
   line-height: rem($space * 2);
   overflow: hidden;
-  position: relative;
   text-align: left;
 
   span {
@@ -140,38 +163,19 @@
   }
 }
 
-
-.Header-button-text--mobile {
-  display: block;
-  margin-right: rem($space / 1.5);
-
-  span {
-    border: 0;
-  }
-
-  @include mq(m) {
-    display: none;
-  }
-}
-
-.Header-button-text-reveal {
-  // visibility: hidden;
-  span {
-    border-color: $border-10;
-  }
+.Header-button-text-item--reveal {
+  left: 0;
+  bottom: 0;
+  color: $text-10;
+  position: absolute;
+  width: rem($space * 20);
 }
 
 .Header-button-arrow {
-  // border: 1px solid red;
-  // visibility: hidden;
   .Button--arrow {
     margin: 0;
   }
 }
-
-// .Header-button-arrow-inner {
-//   border: 1px solid blue;
-// }
 
 .Header-mask {
   background: $bg-700;
