@@ -1,20 +1,21 @@
-import { useRouter } from "next/router";
-import c from "classnames";
-import { transPrimary, transSecondaryFast, sitemap } from "../../lib/config";
-import { AnimatePresence, motion, useCycle, useAnimation } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, useCycle } from "framer-motion";
 import {
-  enterExitBtnTextVariant,
-  enterExitBtnTextIfNavOpenVariant,
-  enterExitBtnArrowVariant,
-  enterExitBtnArrowIfNavOpenVariant,
-  navVariant,
-  navItemVariant,
-  ctrlVariant,
-  ctrlItemOutVariant,
   ctrlItemInVariant,
+  ctrlItemOutVariant,
+  ctrlVariant,
+  enterExitBtnArrowIfNavOpenVariant,
+  enterExitBtnArrowVariant,
+  enterExitBtnTextIfNavOpenVariant,
+  enterExitBtnTextVariant,
+  navItemVariant,
+  navVariant,
 } from "./variants";
+import { sitemap, transPrimary, transSecondaryFast } from "../../lib/config";
+import { useCallback, useEffect, useState } from "react";
+
 import { ButtonArrow } from "../../components/Button";
-import { useState, useEffect, useCallback } from "react";
+import c from "classnames";
+import { useRouter } from "next/router";
 
 const NavItem = (props) => {
   const router = useRouter();
@@ -43,17 +44,21 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  const [arrowPos, setArrowPos] = useState({
+    y: 0,
+    x: 0,
+  });
   const btnArrow = useCallback((node) => {
     if (node !== null) {
-      setX(node.offsetLeft + node.offsetWidth / 2);
-      setY(node.offsetTop + node.offsetHeight / 2);
+      setArrowPos({
+        y: node.offsetTop + node.offsetHeight / 2,
+        x: node.offsetLeft + node.offsetWidth / 2,
+      });
     }
   }, []);
   const maskAnim = useAnimation();
   const [mask, setMask] = useState("closedReset");
-  const [revealTitle, setRevealTitle] = useState(null);
+  const [navRevealTitle, setNavRevealTitle] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [enterExit, setEnterExit] = useState({
     btnTxt: enterExitBtnTextVariant,
@@ -97,30 +102,30 @@ export default function Header(props) {
   useEffect(() => {
     if (mask === "open") {
       maskAnim.start({
-        clipPath: `circle(150% at ${x}px ${y}px)`,
+        clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
         transition: transPrimary,
       });
     }
 
     if (mask === "closedReset") {
       maskAnim.set({
-        clipPath: `circle(0% at ${x}px ${y}px)`,
+        clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
       });
     }
 
     if (mask === "closed") {
       maskAnim.start({
-        clipPath: `circle(0% at ${x}px ${y}px)`,
+        clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
         transition: transPrimary,
       });
     }
 
     if (mask === "openReset") {
       maskAnim.set({
-        clipPath: `circle(150% at ${x}px ${y}px)`,
+        clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
       });
     }
-  }, [mask, x, y]);
+  }, [mask, arrowPos]);
 
   useEffect(() => {
     if (refresh) {
@@ -140,7 +145,7 @@ export default function Header(props) {
   useEffect(() => {
     if (!refresh) {
       setTimeout(() => {
-        setRevealTitle(props.navTitle);
+        setNavRevealTitle(props.navTitle);
       }, 1000);
     }
   }, [props.navTitle]);
@@ -226,13 +231,13 @@ export default function Header(props) {
                   </motion.div>
                 </motion.div>
               </AnimatePresence>
-              <motion.div className="Header-button-text-item Header-button-text-item--reveal">
-                {/* {openReveal && ( */}
-                <motion.div variants={ctrlItemInVariant} initial={{ y: 36 }}>
-                  <span>{revealTitle}</span>
-                </motion.div>
-                {/* )} */}
-              </motion.div>
+              {openReveal && (
+                <div className="Header-button-text-item Header-button-text-item--reveal">
+                  <motion.div variants={ctrlItemInVariant} initial={{ y: 36 }}>
+                    <span>{navRevealTitle}</span>
+                  </motion.div>
+                </div>
+              )}
             </div>
             <AnimatePresence initial={false} exitBeforeEnter>
               <motion.div
