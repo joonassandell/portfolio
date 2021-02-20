@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, useAnimation, useCycle } from "framer-motion";
+import { createCallbackRef, useCallbackRef } from "use-callback-ref";
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
@@ -11,10 +12,11 @@ import {
   navVariant,
 } from "./variants";
 import { sitemap, transPrimary, transSecondaryFast } from "../../lib/config";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ButtonArrow } from "../../components/Button";
 import c from "classnames";
+import { debounce } from "lodash";
 import { useRouter } from "next/router";
 
 const NavItem = (props) => {
@@ -48,14 +50,6 @@ export default function Header(props) {
     y: 0,
     x: 0,
   });
-  const btnArrow = useCallback((node) => {
-    if (node !== null) {
-      setArrowPos({
-        y: node.offsetTop + node.offsetHeight / 2,
-        x: node.offsetLeft + node.offsetWidth / 2,
-      });
-    }
-  }, []);
   const maskAnim = useAnimation();
   const [mask, setMask] = useState("closedReset");
   const [navRevealTitle, setNavRevealTitle] = useState(null);
@@ -64,6 +58,28 @@ export default function Header(props) {
     btnTxt: enterExitBtnTextVariant,
     btnArrow: enterExitBtnArrowVariant,
   });
+  const setArrowPosFromRef = (ref) => {
+    const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
+    setArrowPos({
+      y: offsetTop + offsetHeight / 2,
+      x: offsetLeft + offsetWidth / 2,
+    });
+  };
+  const btnArrow = useCallbackRef(
+    null,
+    (ref) => {
+      if (ref) setArrowPosFromRef(ref);
+    },
+    []
+  );
+  useEffect(() => {
+    const resize = debounce(() => {
+      setArrowPosFromRef(btnArrow.current);
+    }, 100);
+
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, [btnArrow.current]);
 
   const open = ({ withMask = true } = {}) => {
     setOpen();
