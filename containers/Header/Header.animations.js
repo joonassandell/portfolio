@@ -1,7 +1,6 @@
 import {
   transPrimary,
   transPrimaryFast,
-  transPrimaryFastest,
   transSecondaryFast,
   transSecondaryFastest,
 } from "../../lib/config";
@@ -54,20 +53,20 @@ const enterExitBtnText = {
   },
   exit: {
     opacity: 0,
-    y: 16,
-    transition: transPrimaryFastest,
+    y: 24,
+    transition: { ...transPrimaryFast, delay: 0.15 },
   },
-  transition: transPrimaryFastest,
+  transition: transPrimaryFast,
 };
 
 const enterExitBtnArrow = {
   ...enterExitBtnText,
   exit: {
     opacity: 0,
-    y: 16,
-    transition: { ...transPrimaryFastest, delay: 0.05 },
+    y: 32,
+    transition: { ...transPrimaryFast, delay: 0.2 },
   },
-  transition: { ...transPrimaryFastest, delay: 0.05 },
+  transition: { ...transPrimaryFast, delay: 0.03 },
 };
 
 /**
