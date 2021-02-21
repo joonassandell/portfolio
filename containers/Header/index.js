@@ -11,7 +11,7 @@ import {
   maskOpen,
   navItemVariant,
   navVariant,
-} from "./animations";
+} from "./Header.animations";
 import { useEffect, useState } from "react";
 
 import { ButtonArrow } from "../../components/Button";
@@ -154,15 +154,10 @@ export default function Header(props) {
   }, [refresh]);
 
   useEffect(() => {
-    if (!refresh) {
-      setTimeout(() => {
-        setNavRevealTitle(props.navTitle);
-      }, 1000);
+    if (isOpen) {
+      setNavRevealTitle(props.navTitle);
+      setOpenReveal(true);
     }
-  }, [props.navTitle]);
-
-  useEffect(() => {
-    setOpenReveal(true);
   }, [isOpen]);
 
   return (
