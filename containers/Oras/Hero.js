@@ -1,17 +1,18 @@
-import c from "classnames";
-import { transPrimary, transSecondary } from "../../../lib/config";
-import { useRouter } from "next/router";
-import Image from "next/image";
 import {
+  AnimatePresence,
+  AnimateSharedLayout,
+  animate,
   motion,
   useAnimation,
-  useTransform,
   useMotionValue,
-  animate,
-  AnimateSharedLayout,
-  AnimatePresence,
+  useTransform,
 } from "framer-motion";
+import { transPrimary, transSecondary } from "../../lib/config";
+
+import Image from "next/image";
+import c from "classnames";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function OrasHero({
   animationStart = false,

@@ -5,9 +5,9 @@
 .Header {
   min-width: 300px;
   padding-top: rem($space * 1.5);
-  position: absolute;
-  z-index: 99;
+  position: fixed;
   width: 100%;
+  z-index: 99;
 
   @include mq(m) {
     padding-top: rem($space * 3);
@@ -21,7 +21,8 @@
   width: 100%;
 }
 
-.Header-logo, .Header-button {
+.Header-logo,
+.Header-button {
   @include mq(m) {
     @include heading(h5, $margin: false);
   }
@@ -31,25 +32,25 @@
   display: flex;
   flex-direction: column;
   height: rem($space * 2);
-  margin: 0 auto 0 0;
   line-height: rem($space * 2);
+  margin: 0 auto 0 0;
   overflow: hidden;
   position: relative;
   z-index: 1;
 
-  @include mq(m) {
-    margin: 0;
-  }
-
   a {
+    border-bottom: 1px solid transparent;
     color: $text-700;
     display: block;
-    border-bottom: 1px solid transparent;
     transition: $trans-duration-fast;
 
-    &:hover { 
-      border-color: $border-20; 
+    &:hover {
+      border-color: $border-20;
     }
+  }
+
+  @include mq(m) {
+    margin: 0;
   }
 }
 
@@ -65,21 +66,21 @@
 
 .Header-logo-reveal {
   color: $text-10;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
 }
 
 .Header-separator {
-  display: none;  
+  display: none;
 
   @include mq(m) {
     align-items: center;
     display: flex;
-    height: rem($space * 2);
-    margin: 0 rem($space / 1.5);
-    justify-content: center;  
     flex-direction: column;
+    height: rem($space * 2);
+    justify-content: center;
+    margin: 0 rem($space / 1.5);
     overflow: hidden;
     position: relative;
     width: rem($space * 1.25);
@@ -88,10 +89,10 @@
 }
 
 .Header-separator-line {
-  display: block;
   background: $bg-700;
-  position: absolute;
+  display: block;
   height: 2px;
+  position: absolute;
   width: 100%;
 }
 
@@ -105,9 +106,9 @@
   margin: 0;
   z-index: 1;
 
-  &:hover { 
+  &:hover {
     span {
-      border-color: $border-20; 
+      border-color: $border-20;
     }
 
     .Header-button-text-reveal {
@@ -120,10 +121,10 @@
 
 .Header-button-textMobile {
   display: block;
-  overflow: hidden;
   line-height: rem($space * 2);
-  position: relative;
   margin-right: rem($space / 1.5);
+  overflow: hidden;
+  position: relative;
 
   span {
     border: 0;
@@ -136,9 +137,9 @@
 
 .Header-button-textMobile-reveal {
   color: $text-10;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
 }
 
 .Header-button-text {
@@ -147,14 +148,14 @@
 
 .Header-button-text-item {
   height: rem($space * 2);
-  margin-right: rem($space);
   line-height: rem($space * 2);
+  margin-right: rem($space);
   overflow: hidden;
   text-align: left;
 
   span {
-    display: block;
     border-bottom: 1px solid transparent;
+    display: block;
     transition: $trans-duration-fast;
   }
 
@@ -164,9 +165,9 @@
 }
 
 .Header-button-text-item--reveal {
-  left: 0;
   bottom: 0;
   color: $text-10;
+  left: 0;
   position: absolute;
   width: rem($space * 20);
 }
@@ -179,8 +180,8 @@
 
 .Header-mask {
   background: $bg-700;
-  clip-path: circle(0% at 0px 0px);
   bottom: 0;
+  clip-path: circle(0% at 0px 0px);
   height: 100vh;
   left: auto;
   min-width: 300px;
@@ -194,14 +195,14 @@
 .Header-nav {
   @include heading(h3, false);
   border-top: 1px solid $border-500;
-  padding-top: rem($space * 2);
   margin-top: rem($space * 5);
+  padding-top: rem($space * 2);
 
   @include mq(m) {
     border-top: 0;
-    padding-top: 0;
     margin-left: rem($space * 12);
     margin-top: rem($space * 8);
+    padding-top: 0;
   }
 }
 
@@ -211,7 +212,7 @@
 
 .Header-nav-link {
   color: $text-10;
-  
+
   &:hover {
     color: $text-10;
   }

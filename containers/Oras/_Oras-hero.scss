@@ -4,8 +4,8 @@
 
 .Oras-hero {
   height: 100vh;
-  min-height: rem($space * 40);
   max-height: rem($space * 45);
+  min-height: rem($space * 40);
   // max-height: 70vw;
   position: relative;
   width: 100vw;
@@ -26,13 +26,13 @@
 }
 
 .Oras-hero-figure-img {
+  display: block;
+  margin-bottom: 0;
   margin-left: -10vw;
   min-width: 140%;
-  top: 10vw;
   position: absolute;
-  display: block;
+  top: 10vw;
   transform: translateZ(0);
-  margin-bottom: 0;
 }
 
 .Oras-hero-figure-bg {
@@ -41,17 +41,17 @@
   margin-left: -5%;
   width: 100%;
   z-index: 0;
-  
+
   .Oras-hero.-preAnimation & {
     height: 110%;
   }
 }
 
 .Oras-hero-drop {
-  mix-blend-mode: darken;
-  position: absolute;
   height: auto;
   max-width: rem($space * 18);
+  mix-blend-mode: darken;
+  position: absolute;
 
   &.-drop--1 {
     left: 15vw;
@@ -74,25 +74,23 @@
 
 .Oras-hero-headline {
   @include fontSizeFluid($h6-fontSize, 520px, $lineHeight, $h1-lineHeight);
-  bottom: 0;
-  bottom: 0;
-  height: 25%;
   align-items: flex-end;
+  bottom: 0;
+  bottom: 0;
   display: flex;
+  font-weight: $heading-fontWeightLight;
+  height: 25%;
   left: rem($space * -1.5);
   margin: 0;
-  font-weight: $heading-fontWeightLight;
-  white-space: nowrap;
   margin-left: var(--wrap-spaceLeft);
   position: absolute;
-  transform: translate3d(0, -200%,0);
+  transform: translate3d(0, -200%, 0);
+  white-space: nowrap;
   z-index: 1;
 
   .Oras-hero.-preAnimation & {
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-.Oras-hero-headline-inner {
-  
-}
+.Oras-hero-headline-inner {}

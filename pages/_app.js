@@ -1,15 +1,31 @@
 import "../stylesheets/index.scss";
-import Header from "../containers/Header";
+
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+
 import App from "../containers/App";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import Header from "../containers/Header";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import { useRef } from "react";
 
 function NextApp({ Component, pageProps, router }) {
+  const containerRef = useRef(null);
+
   return (
     <App>
       <Header navTitle={pageProps.navTitle} />
-      <div className="App-main" data-scroll-container>
-        <Component {...pageProps} key={router.route} />
-      </div>
+      <LocomotiveScrollProvider
+        containerRef={containerRef}
+        options={{
+          smooth: true,
+        }}
+        watch={[router.route]}
+      >
+        <main className="App-main" data-scroll-container>
+          <AnimatePresence initial={false}>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </main>
+      </LocomotiveScrollProvider>
     </App>
   );
 }

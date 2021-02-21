@@ -1,22 +1,24 @@
 import { AnimatePresence, motion, useAnimation, useCycle } from "framer-motion";
-import { createCallbackRef, useCallbackRef } from "use-callback-ref";
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
   ctrlVariant,
-  enterExitBtnArrowIfNavOpenVariant,
-  enterExitBtnArrowVariant,
-  enterExitBtnTextIfNavOpenVariant,
-  enterExitBtnTextVariant,
+  enterExitBtnArrow,
+  enterExitBtnArrowIfNavOpen,
+  enterExitBtnText,
+  enterExitBtnTextIfNavOpen,
+  maskClose,
+  maskOpen,
   navItemVariant,
   navVariant,
-} from "./variants";
-import { sitemap, transPrimary, transSecondaryFast } from "../../lib/config";
+} from "./animations";
 import { useEffect, useState } from "react";
 
 import { ButtonArrow } from "../../components/Button";
 import c from "classnames";
 import { debounce } from "lodash";
+import { sitemap } from "../../lib/config";
+import { useCallbackRef } from "use-callback-ref";
 import { useRouter } from "next/router";
 
 const NavItem = (props) => {
@@ -24,15 +26,11 @@ const NavItem = (props) => {
 
   return (
     <motion.li
-      variants={navItemVariant}
       className={c("Header-nav-item", {
         "is-active": router.pathname === props.href,
       })}
-      initial={{
-        opacity: 0,
-        transition: transSecondaryFast,
-        y: 88,
-      }}
+      initial={navItemVariant.initial}
+      variants={navItemVariant}
     >
       <a className="Header-nav-link" href={props.link} onClick={props.onClick}>
         {props.name}
@@ -46,17 +44,14 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const [arrowPos, setArrowPos] = useState({
-    y: 0,
-    x: 0,
-  });
+  const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [mask, setMask] = useState("closedReset");
   const [navRevealTitle, setNavRevealTitle] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [enterExit, setEnterExit] = useState({
-    btnTxt: enterExitBtnTextVariant,
-    btnArrow: enterExitBtnArrowVariant,
+    btnTxt: enterExitBtnText,
+    btnArrow: enterExitBtnArrow,
   });
   const setArrowPosFromRef = (ref) => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -98,8 +93,8 @@ export default function Header(props) {
   const beforeClickIfOpen = (link) => {
     open({ withMask: false });
     setEnterExit({
-      btnText: enterExitBtnTextIfNavOpenVariant,
-      btnArrow: enterExitBtnArrowIfNavOpenVariant,
+      btnText: enterExitBtnTextIfNavOpen,
+      btnArrow: enterExitBtnArrowIfNavOpen,
     });
     router.push(link);
     setRefresh(true);
@@ -119,7 +114,7 @@ export default function Header(props) {
     if (mask === "open") {
       maskAnim.start({
         clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-        transition: transPrimary,
+        ...maskClose,
       });
     }
 
@@ -132,7 +127,7 @@ export default function Header(props) {
     if (mask === "closed") {
       maskAnim.start({
         clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-        transition: transPrimary,
+        ...maskOpen,
       });
     }
 
@@ -150,8 +145,8 @@ export default function Header(props) {
     } else {
       setTimeout(() => {
         setEnterExit({
-          btnText: enterExitBtnTextVariant,
-          btnArrow: enterExitBtnArrowVariant,
+          btnText: enterExitBtnText,
+          btnArrow: enterExitBtnArrow,
         });
       }, 500);
       setMask("closed");

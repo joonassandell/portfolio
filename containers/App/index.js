@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { SmoothScrollProvider } from "../../lib/SmoothScroll";
 
 export default function App(props) {
   return (
@@ -12,9 +11,9 @@ export default function App(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-          const html = document.documentElement;
-          html.className = html.className.replace(/(^|\s)no-js(\s|$)/,'has-js');
-        `,
+              const root = document.documentElement;
+              root.className = root.className.replace(/(^|\s)no-js(\s|$)/,'has-js');
+            `,
           }}
         />
       </Head>

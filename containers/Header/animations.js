@@ -1,11 +1,16 @@
 import {
+  transPrimary,
   transPrimaryFast,
   transPrimaryFastest,
   transSecondaryFast,
   transSecondaryFastest,
 } from "../../lib/config";
 
-const enterExitBtnTextIfNavOpenVariant = {
+/**
+ * Note that these enter/exit animations rely heavily on the mask animation, so
+ * if you add too much delay things may look shit, so keep them in sync.
+ */
+const enterExitBtnTextIfNavOpen = {
   animate: {
     opacity: 1,
     y: 0,
@@ -21,7 +26,7 @@ const enterExitBtnTextIfNavOpenVariant = {
   transition: { ...transSecondaryFast, delay: 0.6 },
 };
 
-const enterExitBtnArrowIfNavOpenVariant = {
+const enterExitBtnArrowIfNavOpen = {
   animate: {
     opacity: 1,
     y: 0,
@@ -38,7 +43,7 @@ const enterExitBtnArrowIfNavOpenVariant = {
   transition: { ...transSecondaryFastest, delay: 0.9 },
 };
 
-const enterExitBtnTextVariant = {
+const enterExitBtnText = {
   animate: {
     opacity: 1,
     y: 0,
@@ -55,8 +60,8 @@ const enterExitBtnTextVariant = {
   transition: transPrimaryFastest,
 };
 
-const enterExitBtnArrowVariant = {
-  ...enterExitBtnTextVariant,
+const enterExitBtnArrow = {
+  ...enterExitBtnText,
   exit: {
     opacity: 0,
     y: 16,
@@ -65,6 +70,20 @@ const enterExitBtnArrowVariant = {
   transition: { ...transPrimaryFastest, delay: 0.05 },
 };
 
+/**
+ * Mask
+ */
+const maskOpen = {
+  transition: transPrimary,
+};
+
+const maskClose = {
+  transition: transPrimary,
+};
+
+/**
+ * Nav (in mask)
+ */
 const navVariant = {
   open: {
     transition: { staggerChildren: 0.05, delayChildren: 0.1 },
@@ -80,6 +99,11 @@ const navItemVariant = {
     transition: transPrimaryFast,
     y: 0,
   },
+  initial: {
+    opacity: 0,
+    transition: transSecondaryFast,
+    y: 88,
+  },
   closed: {
     opacity: 0,
     transition: transSecondaryFast,
@@ -87,6 +111,9 @@ const navItemVariant = {
   },
 };
 
+/**
+ * Logo, Separator etc.
+ */
 const ctrlVariant = {
   open: {
     transition: {
@@ -125,13 +152,15 @@ const ctrlItemInVariant = {
 };
 
 export {
-  enterExitBtnTextIfNavOpenVariant,
-  enterExitBtnArrowIfNavOpenVariant,
-  enterExitBtnTextVariant,
-  enterExitBtnArrowVariant,
-  navVariant,
-  navItemVariant,
-  ctrlVariant,
-  ctrlItemOutVariant,
   ctrlItemInVariant,
+  ctrlItemOutVariant,
+  ctrlVariant,
+  enterExitBtnArrow,
+  enterExitBtnArrowIfNavOpen,
+  enterExitBtnText,
+  enterExitBtnTextIfNavOpen,
+  maskClose,
+  maskOpen,
+  navItemVariant,
+  navVariant,
 };
