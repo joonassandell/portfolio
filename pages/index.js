@@ -2,6 +2,7 @@ import { easing, scrollToDuration, transPrimary } from "../lib/config";
 import { useEffect, useState } from "react";
 
 import { OrasHero } from "../containers/Oras";
+import { Template } from "../containers/Template";
 import c from "classnames";
 import { motion } from "framer-motion";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
@@ -36,32 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.div
-        animate={{
-          position: "relative",
-          transition: transPrimary,
-          y: 0,
-        }}
-        className={c("Template Template--oras", {
-          // "is-animating": anim,
-        })}
-        exit={{
-          transition: transPrimary,
-          position: "fixed",
-          y: "-100vh",
-        }}
-        initial={{
-          position: "fixed",
-          y: "100vh",
-        }}
-        onAnimationStart={() => {
-          // console.log("index.js");
-          // setAnim(true);
-        }}
-        onAnimationComplete={() => {
-          window.dispatchEvent(new Event("resize"));
-        }}
-      >
+      <Template name="home">
         <div data-scroll-section>
           <OrasHero
             animationStart={currentHero === "oras" && animation}
@@ -78,7 +54,7 @@ export default function Home() {
           style={{ height: "200vh", background: "white" }}
           data-scroll-section
         />
-      </motion.div>
+      </Template>
     </>
   );
 }

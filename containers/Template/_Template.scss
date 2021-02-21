@@ -2,4 +2,15 @@
  * Template
  * ======================================= */
 
-.Template {}
+.Template {
+  background-color: $bg-10;
+  top: 0;
+}
+
+.Template-overlay {
+  // background-color: rgba($bg-700, 0.2);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}

@@ -22,8 +22,10 @@ $lineHeight-s: 20px;
 $font-size-xs: 12px;
 $lineHeight-xs: 18px;
 
-$font-familySans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-familyMono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-familySans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-familyMono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+"Courier New", monospace;
 $font-familySerif: serif;
 $font-family: $font-familySans;
 $font-weight: 400;
@@ -70,14 +72,13 @@ $grid-gap: $space * 1.5;
 // Breakpoints
 // =========
 
-$mq-breakpoints: (
-  xxxs: 320px,
+$mq-breakpoints: (xxxs: 320px,
   xxs: 360px,
   xs: 480px,
-  s:  600px,
-  m:  768px,
+  s: 600px,
+  m: 768px,
   ml: 900px,
-  l:  1024px,
+  l: 1024px,
   xl: 1140px,
   xxl: 1280px,
   xxxl: 1528px,
@@ -178,7 +179,7 @@ $Icon-size: 32px;
 
 
 // =======================================
-// Button - Config
+// Button
 // =======================================
 
 $Button-borderWidth: 1px;
@@ -195,3 +196,10 @@ $Button-lineHeight-s: $lineHeight-xs;
 $Button-minHeight-s: $space * 2.5;
 $Button-spaceY-s: $space / 2;
 $Button-spaceX-s: $space;
+
+
+// =======================================
+// Template
+// =======================================
+
+$Template-overlayColor: $black;
