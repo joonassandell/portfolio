@@ -1,30 +1,51 @@
-import {
-  easing,
-  transPrimary,
-  transPrimaryFast,
-  transSecondary,
-  transSecondaryFast,
-} from "../../lib/config";
 import { motion, useIsPresent } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import Title from "../../components/Title";
 import c from "classnames";
+import { transPrimary } from "../../lib/config";
+import { useAppContext } from "../App";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
+import { useRouter } from "next/router";
+
+const variants = {
+  animate: {
+    y: 0,
+    position: "relative",
+    zIndex: 1,
+  },
+  exit: {
+    position: "fixed",
+    y: "-50vh",
+    zIndex: 0,
+  },
+  initial: {
+    y: "100vh",
+  },
+};
 
 const Template = ({ children, name, title }) => {
   const { scroll } = useLocomotiveScroll();
   const isPresent = useIsPresent();
   const [animState, setAnimState] = useState(null);
+  const { appState, setTemplateTransition } = useAppContext();
+  const { templateTransition } = appState;
+  const router = useRouter();
+  const displayOverlay = animState === "animExit" && templateTransition;
+
+  useEffect(() => {
+    router.beforePopState(() => {
+      setTemplateTransition(true);
+      return true;
+    });
+  }, []);
 
   useEffect(() => {
     if (!isPresent) {
-      console.log(`${name} has been removed.`);
       setAnimState("animExit");
     }
 
     if (isPresent) {
-      console.log(`${name} has been added.`);
       setAnimState("animStart");
     }
   }, [isPresent]);
@@ -33,35 +54,28 @@ const Template = ({ children, name, title }) => {
     <>
       <Title title={title} />
       <motion.div
-        animate={{
-          y: 0,
-        }}
+        animate="animate"
         className={c("Template", {
           [`Template--${name}`]: name,
         })}
-        exit={{
-          position: "fixed",
-          y: "-50vh",
-        }}
-        initial={{
-          y: "100vh",
-        }}
-        transition={transPrimary}
-        onAnimationStart={() => {
-          if (animState === "animStart") {
-            console.log("Animation start");
-            if (scroll) scroll.destroy();
-          }
-        }}
+        exit="exit"
+        initial="initial"
         onAnimationComplete={() => {
           if (animState === "animExit") {
-            console.log("Animation complete");
+            setTemplateTransition(false);
             if (scroll) scroll.init();
           }
         }}
+        onAnimationStart={() => {
+          if (animState === "animStart") {
+            if (scroll) scroll.destroy();
+          }
+        }}
+        transition={transPrimary}
+        {...(templateTransition && { variants: variants })}
       >
         {children}
-        {animState === "animExit" && (
+        {displayOverlay && (
           <motion.div
             exit={{
               backgroundColor: "var(--Template-overlayColor)",

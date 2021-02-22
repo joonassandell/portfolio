@@ -1,7 +1,6 @@
 import "../stylesheets/index.scss";
 
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
-
+import { AnimatePresence } from "framer-motion";
 import App from "../containers/App";
 import Header from "../containers/Header";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
