@@ -1,14 +1,16 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-const AppContext = createContext({
-  templateTransition: false,
-});
+const AppContext = createContext();
 
 export function App({ children }) {
-  const appContext = useAppContext();
-  const [appState, setAppState] = useState(appContext);
+  const [appState, setAppState] = useState({
+    history: [],
+    templateTransition: true,
+  });
+  const router = useRouter();
 
   const setTemplateTransition = (value) => {
     setAppState((prevState) => ({
@@ -16,6 +18,21 @@ export function App({ children }) {
       templateTransition: value,
     }));
   };
+
+  // useEffect(() => {
+  //   router.beforePopState(() => {
+  //     setTemplateTransition(true);
+  //     return true;
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   const { asPath } = router;
+  //   setAppState((prevState) => ({
+  //     ...prevState,
+  //     history: [...prevState.history, asPath],
+  //   }));
+  // }, [router.route]);
 
   return (
     <>

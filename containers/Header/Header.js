@@ -18,6 +18,7 @@ import { ButtonArrow } from "../../components/Button";
 import c from "classnames";
 import { debounce } from "lodash";
 import { sitemap } from "../../lib/config";
+import { useAppContext } from "../App";
 import { useCallbackRef } from "use-callback-ref";
 import { useRouter } from "next/router";
 
@@ -53,6 +54,8 @@ export default function Header(props) {
     btnTxt: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
+  const { appState, setTemplateTransition } = useAppContext();
+
   const setArrowPosFromRef = (ref) => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
     setArrowPos({
@@ -67,6 +70,7 @@ export default function Header(props) {
     },
     []
   );
+
   useEffect(() => {
     const resize = debounce(() => {
       setArrowPosFromRef(btnArrow.current);
@@ -106,6 +110,7 @@ export default function Header(props) {
     if (isOpen) {
       beforeClickIfOpen(link);
     } else {
+      // setTemplateTransition(true);
       router.push(link);
     }
   };
