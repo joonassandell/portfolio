@@ -8,7 +8,7 @@ const AppContext = createContext();
 export function App({ children }) {
   const [appState, setAppState] = useState({
     history: [],
-    templateTransition: true,
+    templateTransition: false,
   });
   const router = useRouter();
 
@@ -19,12 +19,12 @@ export function App({ children }) {
     }));
   };
 
-  // useEffect(() => {
-  //   router.beforePopState(() => {
-  //     setTemplateTransition(true);
-  //     return true;
-  //   });
-  // }, []);
+  useEffect(() => {
+    router.beforePopState(() => {
+      setTemplateTransition(true);
+      return true;
+    });
+  }, []);
 
   // useEffect(() => {
   //   const { asPath } = router;

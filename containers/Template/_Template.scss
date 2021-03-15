@@ -9,14 +9,6 @@
   z-index: 0;
 }
 
-.Template--home {
-  box-shadow: inset 0 0 0 10px blue;
-}
-
-.Template--oras {
-  box-shadow: inset 0 0 0 10px red;
-}
-
 .Template-overlay {
   height: 100vh;
   position: absolute;
@@ -24,10 +16,18 @@
   width: 100vw;
 }
 
-.test {
-  background: red;
-  padding: 24px;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
+// .Template--home {
+//   box-shadow: inset 0 0 0 10px blue;
+// }
+
+// .Template--oras {
+//   box-shadow: inset 0 0 0 10px red;
+// }
+
+// .test {
+//   background: red;
+//   padding: 24px;
+//   position: fixed;
+//   right: 0;
+//   top: 0;
+// }

@@ -110,8 +110,10 @@ export default function Header(props) {
     if (isOpen) {
       beforeClickIfOpen(link);
     } else {
-      // setTemplateTransition(true);
-      router.push(link);
+      if (router.pathname !== link) {
+        setTemplateTransition(true);
+        router.push(link);
+      }
     }
   };
 

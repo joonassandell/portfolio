@@ -6,9 +6,8 @@ import c from "classnames";
 import { transPrimary } from "../../lib/config";
 import { useAppContext } from "../App";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
-import { useRouter } from "next/router";
 
-const variants = {
+const variantsWithTransition = {
   animate: {
     position: "relative",
     y: 0,
@@ -20,63 +19,32 @@ const variants = {
     zIndex: 0,
   },
   initial: {
-    // position: "fixed",
     y: "100vh",
   },
+  transition: transPrimary,
 };
 
-const AnimationWrapper = (props) => {
-  const { setTemplateTransition } = useAppContext();
-  const { scroll } = useLocomotiveScroll();
-
-  return (
-    <motion.div
-      animate="animate"
-      className={c("Template", {
-        [`Template--${props.name}`]: props.name,
-      })}
-      exit="exit"
-      initial="initial"
-      onAnimationComplete={() => {
-        if (props.animState === "animExit") {
-          console.log("enter");
-          // setTimeout(() => {
-          // setTemplateTransition(false);
-          // }, 1000);
-          if (scroll) {
-            scroll.destroy();
-            scroll.init();
-          }
-        }
-      }}
-      onAnimationStart={() => {
-        if (props.animState === "animStart") {
-          console.log("exit");
-          if (scroll) scroll.stop();
-        }
-      }}
-      variants={variants}
-      transition={transPrimary}
-    >
-      {props.children}
-      {props.displayOverlay && (
-        <motion.div
-          exit={{
-            backgroundColor: "var(--Template-overlayColor)",
-            transition: transPrimary,
-          }}
-          className="Template-overlay"
-        />
-      )}
-    </motion.div>
-  );
+const variantsWithoutTransition = {
+  animate: {
+    position: "relative",
+    y: 0,
+  },
+  exit: {
+    position: "fixed",
+    y: 0,
+  },
+  initial: {
+    y: 0,
+  },
+  transition: {
+    duration: 0.5,
+  },
 };
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState, setTemplateTransition } = useAppContext();
   const { templateTransition } = appState;
-  const router = useRouter();
   const displayOverlay = animState === "animExit" && templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();
@@ -94,52 +62,45 @@ const Template = ({ children, name, title }) => {
   return (
     <>
       <Title title={title} />
-      {/* {templateTransition && ( */}
-      <AnimationWrapper
-        animState={animState}
-        displayOverlay={displayOverlay}
-        name={name}
-      >
-        {children}
-        <div className="test">AnimationWrapper</div>
-      </AnimationWrapper>
-      {/* )} */}
-      {/* {!templateTransition && (
-        <motion.div
-          className={c("Template", {
-            [`Template--${name}`]: name,
-          })}
-          animate={{
-            opacity: 1,
-          }}
-          initial={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 1,
-          }}
-          onAnimationComplete={() => {
-            // if (animState === "animExit") {
+      <motion.div
+        className={c("Template", {
+          [`Template--${name}`]: name,
+        })}
+        onAnimationComplete={() => {
+          if (animState === "animExit") {
             console.log("enter");
+            setTimeout(() => {
+              setTemplateTransition(false);
+            }, 1000);
             if (scroll) {
               scroll.destroy();
               scroll.init();
             }
-            // }
-          }}
-          onAnimationStart={() => {
-            if (animState === "animStart") {
-              console.log("exit");
-              if (scroll) {
-                scroll.stop();
-              }
+          }
+        }}
+        onAnimationStart={() => {
+          if (animState === "animStart" && templateTransition) {
+            console.log("exit");
+            if (scroll) {
+              scroll.stop();
             }
-          }}
-        >
-          {children}
-          <div className="test">No AnimationWrapper</div>
-        </motion.div>
-      )} */}
+          }
+        }}
+        {...(templateTransition
+          ? { ...variantsWithTransition }
+          : { ...variantsWithoutTransition })}
+      >
+        {children}
+        {displayOverlay && (
+          <motion.div
+            exit={{
+              backgroundColor: "var(--Template-overlayColor)",
+              transition: transPrimary,
+            }}
+            className="Template-overlay"
+          />
+        )}
+      </motion.div>
     </>
   );
 };

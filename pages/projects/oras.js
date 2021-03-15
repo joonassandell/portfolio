@@ -5,7 +5,6 @@ import { Template } from "../../containers/Template";
 import c from "classnames";
 import { motion } from "framer-motion";
 import { transPrimary } from "../../lib/config";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
 
 export default function Oras() {
   return (
