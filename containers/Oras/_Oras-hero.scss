@@ -3,84 +3,118 @@
  * ======================================= */
 
 .Oras-hero {
-  height: 100vh;
-  max-height: rem($space * 45);
-  min-height: rem($space * 40);
-  // max-height: 70vw;
+  min-height: rem($space * 23);
+  min-width: var(--root-minWidth);
   position: relative;
-  width: 100vw;
+
+  @include mq(xs) {
+    min-height: 92vw;
+  }
+
+  @include mq(m) {
+    min-height: 70vw;
+  }
+
+  @include mq(l) {
+    min-height: 65vw;
+  }
 }
 
 .Oras-hero-wrap {
-  position: absolute;
-  z-index: 2;
-}
-
-.Oras-hero-wrap--bg {
-  z-index: 0;
+  @include mq($until: m) {
+    padding-right: 0;
+  }
 }
 
 .Oras-hero-figure {
-  height: 35vw;
+  height: 60vw;
   position: relative;
+
+  @include mq(m) {
+    height: 35vw;
+  }
 }
 
 .Oras-hero-figure-img {
   display: block;
   margin-bottom: 0;
-  margin-left: -10vw;
-  min-width: 140%;
+  margin-left: rem($space * -2);
   position: absolute;
-  top: 10vw;
+  top: rem($space * 5);
   transform: translateZ(0);
+  width: 130%;
+  z-index: 3;
+
+  @include mq(m) {
+    margin-left: rem($space * -6);
+    width: 140%;
+  }
 }
 
 .Oras-hero-figure-bg {
   background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
   height: 100vh;
-  margin-left: -5%;
   width: 100%;
   z-index: 0;
 
   .Oras-hero.-preAnimation & {
-    height: 110%;
+    height: 102%;
+  }
+
+  @include mq(m) {
+    margin-left: -5%;
   }
 }
 
 .Oras-hero-drop {
   height: auto;
-  max-width: rem($space * 18);
   mix-blend-mode: darken;
   position: absolute;
+}
 
-  &.-drop--1 {
+.Oras-hero-drop--1 {
+  left: 15vw;
+  max-width: 12.5%;
+  top: 18%;
+
+  @include mq(s) {
     left: 15vw;
-    top: 23%;
-    width: rem($space * 7);
+    max-width: rem($space * 7);
+    top: 18%;
   }
+}
 
-  &.-drop--2 {
-    left: 35vw;
-    top: 75%;
-    width: rem($space * 5);
+.Oras-hero-drop--2 {
+  bottom: 10%;
+  left: 35vw;
+  max-width: 10.5%;
+  
+  @include mq(s) {
+    max-width: rem($space * 5);
   }
+}
 
-  &.-drop--3 {
-    left: rem($space * -2.25);
-    top: rem($space * -3);
-    width: rem($space * 6);
+.Oras-hero-drop--3 {
+  display: none;
+  left: rem($space * -2.25);
+  max-width: rem($space * 5);
+  top: rem($space * -3);
+
+  @include mq(s) {
+    display: block;
+    max-width: rem($space * 6);
   }
 }
 
 .Oras-hero-headline {
-  @include fontSizeFluid($h6-fontSize, 520px, $lineHeight, $h1-lineHeight);
+  // @include fontSizeFluid(20px, 520px, 24px, 1);
+  @include fontSizeFluid(20px, 500px, 24px, 1);
   align-items: flex-end;
-  bottom: 0;
   bottom: 0;
   display: flex;
   font-weight: $heading-fontWeightLight;
   height: 25%;
-  left: rem($space * -1.5);
+  letter-spacing: -0.05em;
   margin: 0;
   margin-left: var(--wrap-spaceLeft);
   position: absolute;
@@ -91,6 +125,12 @@
   .Oras-hero.-preAnimation & {
     transform: translate3d(0, 0, 0);
   }
-}
 
-.Oras-hero-headline-inner {}
+  .Headline-inner {
+    margin-left: rem($space * -0.5);
+
+    @include mq(m) {
+      margin-left: rem($space * -1.5);
+    }
+  }
+}

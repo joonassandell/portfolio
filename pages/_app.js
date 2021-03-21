@@ -8,9 +8,11 @@ import {
 
 import { AnimatePresence } from "framer-motion";
 import Header from "../containers/Header";
+import smoothscroll from "smoothscroll-polyfill";
 import { useRef } from "react";
 
 const Main = ({ Component, pageProps, innerKey }) => {
+  if (typeof window !== "undefined") smoothscroll.polyfill();
   const { appState, setTemplateTransition } = useAppContext();
   const { templateTransition } = appState;
   const { scroll } = useLocomotiveScroll();
@@ -43,6 +45,7 @@ function NextApp({ Component, pageProps, router }) {
         containerRef={containerRef}
         options={{
           smooth: true,
+          reloadOnContextChange: true,
         }}
         // watch={[router.route]}
         watch={["Done manually"]}

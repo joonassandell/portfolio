@@ -1,6 +1,4 @@
 import {
-  AnimatePresence,
-  AnimateSharedLayout,
   animate,
   motion,
   useAnimation,
@@ -40,7 +38,6 @@ export default function OrasHero({
       (async () => {
         animate(bgGradientValue, 100, transSecondary);
         bg.start({
-          // scaleY: 3,
           height: "100vh",
           transition: transSecondary,
         });
@@ -66,9 +63,9 @@ export default function OrasHero({
         ["-initial"]: initial,
       })}
     >
-      <div className={"Oras-hero-wrap wrap"}>
+      <div className="Oras-hero-wrap wrap">
         <div className="grid">
-          <div className={"Oras-hero-figure grid-col grid-col4 -start7"}>
+          <div className="Oras-hero-figure grid-col grid-col6 -start7 grid-col5@m -start8@m grid-col4@l -start8@l">
             <figure
               data-scroll
               data-scroll-speed="-1"
@@ -81,29 +78,10 @@ export default function OrasHero({
                 alt="Oras faucet"
                 // layout="fill"
                 // layout="responsive"
-                height={1276}
-                width={1096}
+                // height={1276}
+                // width={1096}
               />
             </figure>
-            {/* <motion.img 
-              animate={animationStart && {
-                opacity: 1,
-                transition: {...transition, delay: 0.5},
-                y: 0,
-              }}
-              initial={{
-                opacity: 0,
-                y: -24,
-              }}
-              className={'Oras-hero-drop -drop--3'} 
-              src="/images/oras/drop.png" 
-            /> */}
-          </div>
-        </div>
-      </div>
-      <div className={"Oras-hero-wrap Oras-hero-wrap--bg wrap"}>
-        <div className="grid">
-          <div className="Oras-hero-figure grid-col grid-col4 -start7">
             <motion.div
               className="Oras-hero-figure-bg"
               animate={bg}
@@ -113,6 +91,27 @@ export default function OrasHero({
                   background: bgGradient,
                 }
               }
+            />
+            <motion.img
+              animate={
+                animationStart && {
+                  opacity: 1,
+                  transition: {
+                    delay: 0.5,
+                    damping: 30,
+                    type: "spring",
+                  },
+                  y: 0,
+                }
+              }
+              initial={
+                preAnimation && {
+                  opacity: 0,
+                  y: -24,
+                }
+              }
+              className="Oras-hero-drop Oras-hero-drop--3"
+              src="/images/oras/drop.png"
             />
           </div>
         </div>
@@ -135,10 +134,9 @@ export default function OrasHero({
             y: -96,
           }
         }
-        className={"Oras-hero-drop -drop--1"}
+        className="Oras-hero-drop Oras-hero-drop--1"
         src="/images/oras/drop.png"
         aria-hidden="true"
-        // layoutId="drop-1"
       />
       <motion.img
         animate={
@@ -158,16 +156,9 @@ export default function OrasHero({
             y: -120,
           }
         }
-        className={"Oras-hero-drop -drop--2"}
+        className="Oras-hero-drop Oras-hero-drop--2"
         src="/images/oras/drop.png"
         aria-hidden="true"
-        // layoutId="drop-2"
-        // key="drop-2"
-        // exit={
-        //   initial && {
-        //     opacity: 0,
-        //   }
-        // }
       />
       <a
         href="/projects/oras"
@@ -177,8 +168,13 @@ export default function OrasHero({
       >
         <span className="hideVisually">Oras project</span>
       </a>
-      <motion.h2 animate={headline} className={"Oras-hero-headline Headline"}>
-        <div data-scroll data-scroll-speed="1" data-scroll-position="top">
+      <motion.h2 animate={headline} className="Oras-hero-headline Headline">
+        <div
+          className="Headline-inner"
+          data-scroll
+          data-scroll-speed="1"
+          data-scroll-position="top"
+        >
           Oras—2016
         </div>
       </motion.h2>

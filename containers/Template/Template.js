@@ -16,6 +16,7 @@ const variantsWithTransition = {
   exit: {
     position: "fixed",
     y: "-50vh",
+    opacity: 1,
     zIndex: 0,
   },
   initial: {
@@ -24,20 +25,24 @@ const variantsWithTransition = {
   transition: transPrimary,
 };
 
+// Opacity fixes flash in iOS!
 const variantsWithoutTransition = {
   animate: {
     position: "relative",
     y: 0,
+    opacity: 1,
   },
   exit: {
     position: "fixed",
+    opacity: 1,
     y: 0,
   },
   initial: {
     y: 0,
+    opacity: 0,
   },
   transition: {
-    duration: 0.5,
+    duration: 0,
   },
 };
 

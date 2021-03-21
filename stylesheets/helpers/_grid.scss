@@ -3,17 +3,17 @@
  * ======================================= */
 
 .grid {
-  display: grid;
   column-gap: var(--grid-gap, 0);
+  display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
+
+  > * {
+    --span: 12;
+    grid-column: span var(--span, #{$grid-columns}) / span var(--span, #{$grid-columns});
+  }
 
   @include mq(xs) {
     --grid-gap: #{rem($grid-gap)};
-  }
-
-  > * {
-    grid-column: span var(--span, #{$grid-columns}) / span var(--span, #{$grid-columns});
-    --span: 12;
   }
 }
 
@@ -61,3 +61,4 @@
 @include mq(s) { @include gridColumns(s); }
 @include mq(m) { @include gridColumns(m); }
 @include mq(l) { @include gridColumns(l); }
+@include mq(xl) { @include gridColumns(xl); }

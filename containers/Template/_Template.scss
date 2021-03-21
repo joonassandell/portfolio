@@ -4,8 +4,11 @@
 
 .Template {
   background-color: $bg-10;
+  // min-height: 100vh;
+  // overflow: hidden;
   position: relative;
   top: 0;
+  width: 100vw;
   z-index: 0;
 }
 
@@ -15,19 +18,3 @@
   top: 0;
   width: 100vw;
 }
-
-// .Template--home {
-//   box-shadow: inset 0 0 0 10px blue;
-// }
-
-// .Template--oras {
-//   box-shadow: inset 0 0 0 10px red;
-// }
-
-// .test {
-//   background: red;
-//   padding: 24px;
-//   position: fixed;
-//   right: 0;
-//   top: 0;
-// }

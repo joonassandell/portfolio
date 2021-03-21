@@ -55,6 +55,7 @@ export default function Header(props) {
     btnArrow: enterExitBtnArrow,
   });
   const { appState, setTemplateTransition } = useAppContext();
+  const { templateTransition } = appState;
 
   const setArrowPosFromRef = (ref) => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -106,6 +107,7 @@ export default function Header(props) {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (templateTransition) return false;
     const link = new URL(e.target.href).pathname;
     if (isOpen) {
       beforeClickIfOpen(link);

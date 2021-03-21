@@ -1,38 +1,40 @@
-import { easing, scrollToDuration, transPrimary } from "../lib/config";
+import { easing, mq, scrollToDuration, transPrimary } from "../lib/config";
 import { useEffect, useState } from "react";
 
 import { OrasHero } from "../containers/Oras";
 import { Template } from "../containers/Template";
 import c from "classnames";
 import { motion } from "framer-motion";
+import { scrollTo } from "../lib/utility";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
+import { useMedia } from "react-use";
 
 export default function Home() {
   const { scroll } = useLocomotiveScroll();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState(false);
-
-  /**
-   * Quick fix to trigger locomotive scroll to work after enter/exit anims
-   */
-  // useEffect(() => {
-  //   window.dispatchEvent(new Event("resize"));
-  // }, []);
+  const l = useMedia(mq.l);
 
   const handleClick = (e) => {
     e.preventDefault();
     setAnimationHide(true);
     const id = e.currentTarget.closest("[id]").id;
     setCurrentHero(id);
-    scroll &&
-      scroll.scrollTo(`#${id}`, {
-        duration: scrollToDuration,
-        easing: easing,
-        callback: () => {
-          setAnimation(true);
-        },
-      });
+
+    if (l) {
+      scroll &&
+        scroll.scrollTo(`#${id}`, {
+          duration: scrollToDuration,
+          easing: easing,
+          callback: () => {
+            setAnimation(true);
+          },
+        });
+    } else {
+      scrollTo(`#${id}`);
+      setAnimation(true);
+    }
   };
 
   return (
@@ -51,7 +53,7 @@ export default function Home() {
         <div
           data-id="mummu"
           onClick={handleClick}
-          style={{ height: "200vh", background: "white" }}
+          style={{ height: "100vh" }}
           data-scroll-section
         />
       </Template>

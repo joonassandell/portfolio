@@ -6,6 +6,7 @@
   --Template-overlayColor: #{$Template-overlayColor};
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
+  --root-minWidth: #{$root-minWidth};
 
   @include fontSizeFluid($font-size, $font-size-l);
   background-color: $bg-10;
@@ -15,18 +16,26 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   line-height: $lineHeight / $font-size;
-  min-width: 300px;
+  min-width: var(--root-minWidth);
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 
   &.has-js {
-    overflow: hidden;
+    // Matches w/ locomotive-scroll tablet context
+    @include mq(l) { 
+      overflow: hidden;
+    }
   }
 
   @include mq(m) {
     --wrap-spaceLeft: #{$wrap-spaceLeft-m};
     --wrap-spaceRight: #{$wrap-spaceRight-m};
+  }
+
+  @include mq(l) {
+    --wrap-spaceLeft: #{$wrap-spaceLeft-l};
+    --wrap-spaceRight: #{$wrap-spaceRight-l};
   }
 }
 

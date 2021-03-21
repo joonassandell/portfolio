@@ -59,13 +59,17 @@ $space: 16px;
 // Wrap & Grid settings
 // =========
 
-$wrap-spaceLeft: 8%;
-$wrap-spaceRight: 8%;
-$wrap-spaceLeft-m: $space * 4;
-$wrap-spaceRight-m: $space * 2;
+$wrap-spaceLeft: 6.25%;
+$wrap-spaceRight: 6.25%;
+$wrap-spaceLeft-m: $space * 3;
+$wrap-spaceRight-m: $space * 3;
+$wrap-spaceLeft-l: $space * 4;
+$wrap-spaceRight-l: $space * 2;
 
 $grid-columns: 12;
 $grid-gap: $space * 1.5;
+
+$root-minWidth: 320px;
 
 
 // =========
