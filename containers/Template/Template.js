@@ -1,5 +1,5 @@
-import { motion, useIsPresent, usePresence } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { motion, useIsPresent } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import Title from "../../components/Title";
 import c from "classnames";
@@ -43,7 +43,7 @@ const variantsWithoutTransition = {
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
-  const { appState, setTemplateTransition } = useAppContext();
+  const { appState } = useAppContext();
   const { templateTransition } = appState;
   const displayOverlay = animState === "animExit" && templateTransition;
   const isPresent = useIsPresent();
@@ -65,19 +65,8 @@ const Template = ({ children, name, title }) => {
       <motion.div
         className={c("Template", {
           [`Template--${name}`]: name,
+          [`is-animating`]: templateTransition,
         })}
-        onAnimationComplete={() => {
-          if (animState === "animExit") {
-            console.log("enter");
-            setTimeout(() => {
-              setTemplateTransition(false);
-            }, 1000);
-            if (scroll) {
-              scroll.destroy();
-              scroll.init();
-            }
-          }
-        }}
         onAnimationStart={() => {
           if (animState === "animStart" && templateTransition) {
             console.log("exit");

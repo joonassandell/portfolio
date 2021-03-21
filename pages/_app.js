@@ -1,11 +1,37 @@
 import "../stylesheets/index.scss";
 
 import App, { useAppContext } from "../containers/App";
+import {
+  LocomotiveScrollProvider,
+  useLocomotiveScroll,
+} from "react-locomotive-scroll";
 
 import { AnimatePresence } from "framer-motion";
 import Header from "../containers/Header";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { useRef } from "react";
+
+const Main = ({ Component, pageProps, innerKey }) => {
+  const { appState, setTemplateTransition } = useAppContext();
+  const { templateTransition } = appState;
+  const { scroll } = useLocomotiveScroll();
+
+  return (
+    <AnimatePresence
+      onExitComplete={() => {
+        if (templateTransition) {
+          setTemplateTransition(false);
+        }
+
+        if (scroll) {
+          scroll.destroy();
+          scroll.init();
+        }
+      }}
+    >
+      <Component {...pageProps} key={innerKey} />
+    </AnimatePresence>
+  );
+};
 
 function NextApp({ Component, pageProps, router }) {
   const containerRef = useRef(null);
@@ -18,12 +44,15 @@ function NextApp({ Component, pageProps, router }) {
         options={{
           smooth: true,
         }}
-        watch={[router.route]}
+        // watch={[router.route]}
+        watch={["Done manually"]}
       >
         <main className="App-main" data-scroll-container ref={containerRef}>
-          <AnimatePresence>
-            <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
+          <Main
+            Component={Component}
+            pageProps={pageProps}
+            innerKey={router.route}
+          />
         </main>
       </LocomotiveScrollProvider>
     </App>

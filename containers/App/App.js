@@ -1,16 +1,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import Head from "next/head";
+import { debounce } from "lodash";
 import { useRouter } from "next/router";
 
-const AppContext = createContext();
+const AppContext = createContext({
+  history: [],
+  templateTransition: false,
+});
 
 export function App({ children }) {
-  const [appState, setAppState] = useState({
-    history: [],
-    templateTransition: false,
-  });
+  const appContext = useAppContext();
+  const [appState, setAppState] = useState(appContext);
   const router = useRouter();
+  const [delay, setDelay] = useState(200);
 
   const setTemplateTransition = (value) => {
     setAppState((prevState) => ({
@@ -20,19 +23,29 @@ export function App({ children }) {
   };
 
   useEffect(() => {
-    router.beforePopState(() => {
-      setTemplateTransition(true);
-      return true;
-    });
-  }, []);
+    const { asPath } = router;
+    setAppState((prevState) => ({
+      ...prevState,
+      history: [...prevState.history, asPath],
+    }));
+  }, [router.route]);
 
-  // useEffect(() => {
-  //   const { asPath } = router;
-  //   setAppState((prevState) => ({
-  //     ...prevState,
-  //     history: [...prevState.history, asPath],
-  //   }));
-  // }, [router.route]);
+  useEffect(() => {
+    router.beforePopState(
+      debounce(({ url }) => {
+        setDelay(1000);
+        setTemplateTransition(true);
+        router.push(url);
+        return false;
+      }, delay)
+    );
+
+    return () => {
+      setTimeout(() => {
+        setDelay(200);
+      }, 1000);
+    };
+  }, [delay]);
 
   return (
     <>
