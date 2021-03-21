@@ -4,12 +4,22 @@
 
 .Template {
   background-color: $bg-10;
-  // min-height: 100vh;
-  // overflow: hidden;
+  min-height: 100vh;
+  overflow: hidden;
   position: relative;
   top: 0;
   width: 100vw;
   z-index: 0;
+
+  /**
+   * Hack to remove the applied scroll values from prev view. 
+   * Why it even is there?!
+   */
+  &:last-child:not(:only-child).is-animating {
+    [data-scroll-section], [data-scroll] {
+      transform: none !important;
+    }
+  }
 }
 
 .Template-overlay {
