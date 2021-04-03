@@ -1,6 +1,7 @@
 import { easing, mq, scrollToDuration, transPrimary } from "../lib/config";
 import { useEffect, useState } from "react";
 
+import Link from "../components/Link";
 import { OrasHero } from "../containers/Oras";
 import { Template } from "../containers/Template";
 import c from "classnames";
@@ -26,7 +27,7 @@ export default function Home() {
       scroll &&
         scroll.scrollTo(`#${id}`, {
           duration: scrollToDuration,
-          easing: easing,
+          easing,
           callback: () => {
             setAnimation(true);
           },
@@ -41,6 +42,11 @@ export default function Home() {
     <>
       <Template name="home">
         <div data-scroll-section>
+          <p className="Template-introduction">
+            I'm a designer & developer of things that usually appear on screens.
+            Read more <Link href="/projects/oras">about me</Link> or just keep
+            scrolling for selected works.
+          </p>
           <OrasHero
             animationStart={currentHero === "oras" && animation}
             animationState="preAnimation"

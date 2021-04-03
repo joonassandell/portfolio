@@ -1,7 +1,7 @@
 import { motion, useIsPresent } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import Title from "../../components/Title";
+import Title from "../../components/Title/Title";
 import c from "classnames";
 import { transPrimary } from "../../lib/config";
 import { useAppContext } from "../App";
@@ -74,7 +74,6 @@ const Template = ({ children, name, title }) => {
         })}
         onAnimationStart={() => {
           if (animState === "animStart" && templateTransition) {
-            console.log("exit");
             if (scroll) {
               scroll.stop();
             }

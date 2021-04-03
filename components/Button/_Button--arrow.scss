@@ -1,17 +1,9 @@
-/* =======================================
- * Button - Arrow
- * ======================================= */
-
 .Button--arrow {
   align-items: center;
-  background-color: $bg-10;
-  // background-color: red;
-  box-shadow: 0 0 0 1px rgba($white, 0.1),
-              0 -1px 2px 0 rgba($black, 0.07),
-              0 5px 9px 0 rgba($black, 0.08);
-  border-radius: 60px;
   border: 0;
-  color: $text-700;
+  border-radius: 60px;
+  box-shadow: 0 0 0 1px rgba($white, 0.1);
+  color: $text-10;
   flex-direction: column;
   height: rem($space * 2.25);
   justify-content: center;
@@ -19,11 +11,6 @@
   overflow: hidden;
   padding: 0;
   width: rem($space * 2.25);
-
-  @include mq(m) {
-    height: rem($space * 3);
-    width: rem($space * 3);
-  }
   
   .Button-icon {
     position: absolute;
@@ -31,28 +18,29 @@
   }
 
   .Button-icon--in {
-    color: $text-10;
+    color: $text-700;
     z-index: 1;
   }
 
-  .Button-icon--cross {
-    color: $text-10;
+  .Button-icon--close {
+    color: $text-700;
   }
 
   .Button-bg {
-    background-color: $bg-700;
+    background-color: $bg-10;
     border-radius: 50%;
     display: block;
     height: 200%;
-    left: 0;
+    left: -75%;
     position: absolute;
     top: -50%;
     transform: translateY(77%);
-    width: 101%;
-    z-index: 0;
-    left: -50%;
-    width: 150%;
-    left: -75%;
     width: 250%;
+    z-index: 0;
+  }
+
+  @include mq(m) {
+    height: rem($space * 2.5);
+    width: rem($space * 2.5);
   }
 }

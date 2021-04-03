@@ -67,7 +67,11 @@ export default function Header(props) {
   const btnArrow = useCallbackRef(
     null,
     (ref) => {
-      if (ref) setArrowPosFromRef(ref);
+      if (ref) {
+        setTimeout(() => {
+          setArrowPosFromRef(ref);
+        }, 100);
+      }
     },
     []
   );
@@ -170,107 +174,114 @@ export default function Header(props) {
   }, [isOpen]);
 
   return (
-    <motion.header
-      animate={isOpen ? "open" : "closed"}
-      className="Header"
-      onAnimationComplete={() => {
-        !isOpen && setOpenReveal(false);
-      }}
-    >
-      <div className="Header-main wrap">
-        <motion.div variants={ctrlVariant} className="Header-ctrl">
-          <div className="Header-logo">
-            <motion.div variants={ctrlItemOutVariant} initial={false}>
-              <a href="/" onClick={(e) => handleClick(e)}>
-                Joonas Sandell
-              </a>
-            </motion.div>
-            {openReveal && (
-              <motion.div
-                className="Header-logo-reveal"
-                initial={{ y: 36 }}
-                variants={ctrlItemInVariant}
-              >
+    <>
+      <motion.header
+        animate={isOpen ? "open" : "closed"}
+        className="Header"
+        onAnimationComplete={() => {
+          !isOpen && setOpenReveal(false);
+        }}
+      >
+        <div className="Header-main wrap">
+          <motion.div variants={ctrlVariant} className="Header-ctrl">
+            <div className="Header-logo">
+              <motion.div variants={ctrlItemOutVariant} initial={false}>
                 <a href="/" onClick={(e) => handleClick(e)}>
                   Joonas Sandell
                 </a>
               </motion.div>
-            )}
-          </div>
-          <div className="Header-separator">
-            <motion.div
-              className="Header-separator-line"
-              initial={false}
-              variants={ctrlItemOutVariant}
-            />
-            {openReveal && (
-              <motion.div
-                className="Header-separator-line Header-separator-line--reveal"
-                initial={{ y: 36 }}
-                variants={ctrlItemInVariant}
-              />
-            )}
-          </div>
-          <motion.button
-            className="Header-button resetButton"
-            onClick={() => {
-              open();
-            }}
-            onHoverStart={() => setHover("start")}
-            onHoverEnd={() => {
-              setHover("end");
-              setTimeout(() => setHover(false), 100);
-            }}
-          >
-            <div className="Header-button-textMobile">
-              <span>Menu</span>
               {openReveal && (
                 <motion.div
-                  className="Header-button-textMobile-reveal"
+                  className="Header-logo-reveal"
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
                 >
+                  <a href="/" onClick={(e) => handleClick(e)}>
+                    Joonas Sandell
+                  </a>
+                </motion.div>
+              )}
+            </div>
+            <div className="Header-separator">
+              <motion.div
+                className="Header-separator-line"
+                initial={false}
+                variants={ctrlItemOutVariant}
+              />
+              {openReveal && (
+                <motion.div
+                  className="Header-separator-line Header-separator-line--reveal"
+                  initial={{ y: 36 }}
+                  variants={ctrlItemInVariant}
+                />
+              )}
+            </div>
+            <motion.button
+              className="Header-button resetButton"
+              onClick={() => {
+                open();
+              }}
+              onHoverStart={() => setHover("start")}
+              onHoverEnd={() => {
+                setHover("end");
+                setTimeout(() => setHover(false), 100);
+              }}
+            >
+              <div className="Header-button-textMobile">
+                <motion.div variants={ctrlItemOutVariant} initial={false}>
                   <span>Menu</span>
                 </motion.div>
-              )}
-            </div>
-            <div className="Header-button-text">
+                {openReveal && (
+                  <motion.div
+                    className="Header-button-textMobile-reveal"
+                    initial={{ y: 36 }}
+                    variants={ctrlItemInVariant}
+                  >
+                    <span>Menu</span>
+                  </motion.div>
+                )}
+              </div>
+              <div className="Header-button-text">
+                <AnimatePresence initial={false} exitBeforeEnter>
+                  <motion.div
+                    className="Header-button-text-item"
+                    key={`Header-button-text-${router.route}`}
+                    {...enterExit.btnText}
+                  >
+                    <motion.div variants={ctrlItemOutVariant}>
+                      <span>{props.navTitle}</span>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+                {openReveal && (
+                  <div className="Header-button-text-item Header-button-text-item--reveal">
+                    <motion.div
+                      variants={ctrlItemInVariant}
+                      initial={{ y: 36 }}
+                    >
+                      <span>{navRevealTitle}</span>
+                    </motion.div>
+                  </div>
+                )}
+              </div>
               <AnimatePresence initial={false} exitBeforeEnter>
                 <motion.div
-                  className="Header-button-text-item"
-                  key={`Header-button-text-${router.route}`}
-                  {...enterExit.btnText}
+                  className="Header-button-arrow"
+                  key={`Header-button-arrow-${router.route}`}
+                  ref={btnArrow}
+                  {...enterExit.btnArrow}
                 >
-                  <motion.div variants={ctrlItemOutVariant}>
-                    <span>{props.navTitle}</span>
-                  </motion.div>
+                  <ButtonArrow
+                    active={isOpen}
+                    hoverEnd={hover === "end" ? true : false}
+                    hoverStart={hover === "start" ? true : false}
+                  />
                 </motion.div>
               </AnimatePresence>
-              {openReveal && (
-                <div className="Header-button-text-item Header-button-text-item--reveal">
-                  <motion.div variants={ctrlItemInVariant} initial={{ y: 36 }}>
-                    <span>{navRevealTitle}</span>
-                  </motion.div>
-                </div>
-              )}
-            </div>
-            <AnimatePresence initial={false} exitBeforeEnter>
-              <motion.div
-                className="Header-button-arrow"
-                key={`Header-button-arrow-${router.route}`}
-                ref={btnArrow}
-                {...enterExit.btnArrow}
-              >
-                <ButtonArrow
-                  active={isOpen}
-                  hoverEnd={hover === "end" ? true : false}
-                  hoverStart={hover === "start" ? true : false}
-                />
-              </motion.div>
-            </AnimatePresence>
-          </motion.button>
-        </motion.div>
-      </div>
+            </motion.button>
+          </motion.div>
+        </div>
+      </motion.header>
       <motion.div animate={maskAnim} className="Header-mask">
         <motion.div animate={isOpen ? "open" : "closed"} className="wrap">
           <motion.nav variants={navVariant} className="Header-nav">
@@ -290,6 +301,6 @@ export default function Header(props) {
           </motion.nav>
         </motion.div>
       </motion.div>
-    </motion.header>
+    </>
   );
 }

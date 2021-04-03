@@ -7,8 +7,9 @@
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
   --root-minWidth: #{$root-minWidth};
+  @include fontSizeFluid($font-size, $font-size-l, null, null);
+  // @include fontSizeFluid();
 
-  @include fontSizeFluid($font-size, $font-size-l);
   background-color: $bg-10;
   color: $text-700;
   font-family: $font-family;

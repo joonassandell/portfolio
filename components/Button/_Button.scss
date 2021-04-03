@@ -1,7 +1,3 @@
-/* =======================================
- * Button
- * ======================================= */
-
 .Button {
   @include fontSize($Button-fontSize, $Button-lineHeight);
   align-items: center;

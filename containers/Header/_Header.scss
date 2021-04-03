@@ -4,6 +4,7 @@
 
 .Header {
   min-width: 300px;
+  mix-blend-mode: difference;
   padding-top: rem($space * 1.5);
   position: fixed;
   width: 100%;
@@ -23,8 +24,10 @@
 
 .Header-logo,
 .Header-button {
+  color: $text-10;
+
   @include mq(m) {
-    @include heading(h5, $margin: false);
+    @include heading(h5, $margin: false, $color: false);
   }
 }
 
@@ -39,14 +42,14 @@
   z-index: 1;
 
   a {
-    border-bottom: 1px solid transparent;
-    color: $text-700;
+    // border-bottom: 1px solid transparent;
+    color: $text-10;
     display: block;
     transition: $trans-duration-fast;
 
-    &:hover {
-      border-color: $border-20;
-    }
+    // &:hover {
+    //   border-color: $border-500;
+    // }
   }
 
   @include mq(m) {
@@ -55,17 +58,6 @@
 }
 
 .Header-logo-reveal {
-  a {
-    color: $text-10;
-
-    &:hover {
-      border-color: $border-10;
-    }
-  }
-}
-
-.Header-logo-reveal {
-  color: $text-10;
   left: 0;
   position: absolute;
   top: 0;
@@ -89,15 +81,11 @@
 }
 
 .Header-separator-line {
-  background: $bg-700;
+  background: $bg-10;
   display: block;
   height: 2px;
   position: absolute;
   width: 100%;
-}
-
-.Header-separator-line--reveal {
-  background: $bg-10;
 }
 
 .Header-button {
@@ -106,17 +94,17 @@
   margin: 0;
   z-index: 1;
 
-  &:hover {
-    span {
-      border-color: $border-20;
-    }
+  // &:hover {
+  //   span {
+  //     border-color: $border-500;
+  //   }
 
-    .Header-button-text-reveal {
-      span {
-        border-color: $border-10;
-      }
-    }
-  }
+  //   .Header-button-text-reveal {
+  //     span {
+  //       border-color: $border-10;
+  //     }
+  //   }
+  // }
 }
 
 .Header-button-textMobile {
@@ -136,7 +124,6 @@
 }
 
 .Header-button-textMobile-reveal {
-  color: $text-10;
   left: 0;
   position: absolute;
   top: 0;
@@ -149,7 +136,7 @@
 .Header-button-text-item {
   height: rem($space * 2);
   line-height: rem($space * 2);
-  margin-right: rem($space);
+  margin-right: rem($space / 1.5);
   overflow: hidden;
   text-align: left;
 
@@ -166,7 +153,6 @@
 
 .Header-button-text-item--reveal {
   bottom: 0;
-  color: $text-10;
   left: 0;
   position: absolute;
   width: rem($space * 20);
@@ -176,6 +162,11 @@
   .Button--arrow {
     margin: 0;
   }
+
+  @include mq($until: m) {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 .Header-mask {
@@ -183,13 +174,12 @@
   bottom: 0;
   clip-path: circle(0% at 0px 0px);
   height: 100vh;
-  left: auto;
   left: 0;
   min-width: 300px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
-  z-index: 0;
+  z-index: 98;
 }
 
 .Header-nav {

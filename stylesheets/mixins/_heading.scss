@@ -1,16 +1,15 @@
-@mixin headingMargin() {
-  margin: 0 0 rem($space * 1.5);
-}
-
-@mixin heading($size: null, $base: true, $margin: true) {
-  @if $base {
+@mixin heading($size: null, $base: true, $margin: true, $color: true) {
+  @if $color {
     color: $heading;
+  }
+
+  @if $base {
     font-family: $heading-fontFamily;
     font-weight: $heading-fontWeight;
   }
 
   @if $margin and $size != 'h6' {
-    @include headingMargin();
+    margin: 0 0 rem($space * 1.5);
   }
 
   @if $size == 'h1' {

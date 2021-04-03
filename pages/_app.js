@@ -12,7 +12,6 @@ import smoothscroll from "smoothscroll-polyfill";
 import { useRef } from "react";
 
 const Main = ({ Component, pageProps, innerKey }) => {
-  if (typeof window !== "undefined") smoothscroll.polyfill();
   const { appState, setTemplateTransition } = useAppContext();
   const { templateTransition } = appState;
   const { scroll } = useLocomotiveScroll();
@@ -36,6 +35,7 @@ const Main = ({ Component, pageProps, innerKey }) => {
 };
 
 function NextApp({ Component, pageProps, router }) {
+  if (typeof window !== "undefined") smoothscroll.polyfill();
   const containerRef = useRef(null);
 
   return (

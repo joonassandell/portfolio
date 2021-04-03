@@ -1,9 +1,3 @@
-import Head from "next/head";
+import Title from "./Title";
 
-export default function Title({ title }) {
-  return (
-    <Head>
-      <title>{`Joonas Sandell${title ? " — " + title : ""}`}</title>
-    </Head>
-  );
-}
+export default Title;

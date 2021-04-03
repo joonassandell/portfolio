@@ -1,13 +1,13 @@
-import { ArrowDown, Cross } from "../../components/Icon";
+import { ArrowDown, ArrowUp, Cross } from "../Icon";
+import { motion, useAnimation } from "framer-motion";
 import {
   transPrimary,
   transPrimaryFast,
   transPrimaryFastest,
-  transSecondaryFastest,
 } from "../../lib/config";
-import c from "classnames";
-import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
+
+import c from "classnames";
 
 export default function ButtonArrow({
   active = false,
@@ -16,20 +16,20 @@ export default function ButtonArrow({
   innerRef = null,
   ...props
 }) {
-  const [arrowVisible, setArrowVisible] = useState(false);
-  const [crossVisible, setCrossVisible] = useState(false);
+  const [arrowInVisible, setArrowInVisible] = useState(false);
+  const [closeVisible, setCloseVisible] = useState(false);
   const [activeState, setActive] = useState("start");
   const button = useAnimation();
   const bg = useAnimation();
   const arrow = useAnimation();
   const arrowIn = useAnimation();
-  const cross = useAnimation();
+  const close = useAnimation();
   const enableHover = !active && activeState === "start";
 
   useEffect(() => {
     (async () => {
       if (hoverStart && enableHover) {
-        await setArrowVisible(true);
+        await setArrowInVisible(true);
         arrowIn.set({
           scaleY: 4,
           y: -96,
@@ -51,7 +51,7 @@ export default function ButtonArrow({
       }
 
       if (hoverEnd && enableHover) {
-        arrowVisible ? arrow.set({ y: -36 }) : "";
+        arrowInVisible ? arrow.set({ y: -36 }) : "";
         bg.start({
           transition: transPrimaryFast,
           y: "-77%",
@@ -64,12 +64,11 @@ export default function ButtonArrow({
           transition: transPrimaryFast,
           y: 36,
         });
-        setArrowVisible(false);
+        setArrowInVisible(false);
       }
 
       if (active && activeState == "start") {
-        await setCrossVisible(true);
-        button.set({ backgroundColor: "rgba(255,255,255,0)" });
+        await setCloseVisible(true);
         arrow.start({
           transition: transPrimaryFast,
           y: 36,
@@ -82,7 +81,7 @@ export default function ButtonArrow({
           transition: transPrimaryFast,
           y: 0,
         });
-        await cross.start({
+        await close.start({
           transition: transPrimaryFast,
           y: 0,
         });
@@ -91,24 +90,20 @@ export default function ButtonArrow({
 
       if (!active && activeState == "end") {
         bg.start({
-          transition: transPrimary,
+          transition: { ...transPrimary, delay: 0.6 },
           y: "-77%",
         });
-        cross.start({
-          transition: { ...transPrimary, delay: 0.2 },
-          y: 36,
+        await close.start({
+          transition: { ...transPrimaryFast, delay: 0.5 },
+          y: -36,
         });
-        button.start({
-          backgroundColor: "#ffffff",
-          transition: { ...transPrimaryFast, delay: 0.2 },
-        });
-        await arrow.start({
-          transition: transPrimary,
+        arrow.start({
+          transition: transPrimaryFast,
           y: 0,
         });
         setActive("start");
-        setArrowVisible(false);
-        setCrossVisible(false);
+        setArrowInVisible(false);
+        setCloseVisible(false);
       }
     })();
   }, [hoverStart, hoverEnd, active]);
@@ -120,7 +115,7 @@ export default function ButtonArrow({
       className={c("Button Button--arrow", props.className)}
       ref={innerRef}
     >
-      {arrowVisible && (
+      {arrowInVisible && (
         <motion.span
           animate={arrowIn}
           initial={false}
@@ -129,13 +124,13 @@ export default function ButtonArrow({
           <ArrowDown />
         </motion.span>
       )}
-      {crossVisible && (
+      {closeVisible && (
         <motion.span
-          animate={cross}
+          animate={close}
           initial={{ y: -36 }}
-          className="Button-icon Button-icon--cross"
+          className="Button-icon Button-icon--close"
         >
-          <Cross />
+          <ArrowUp />
         </motion.span>
       )}
       <motion.span animate={arrow} initial={false} className="Button-icon">

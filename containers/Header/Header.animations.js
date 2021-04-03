@@ -36,7 +36,7 @@ const enterExitBtnArrowIfNavOpen = {
   },
   exit: {
     opacity: 0,
-    y: 16,
+    y: 24,
     transition: transSecondaryFastest,
   },
   transition: { ...transSecondaryFastest, delay: 0.9 },
@@ -123,7 +123,7 @@ const ctrlVariant = {
   closed: {
     transition: {
       delayChildren: 0.2,
-      staggerChildren: 0.05,
+      staggerChildren: 0.03,
     },
   },
 };
