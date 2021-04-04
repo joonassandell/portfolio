@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimation, useCycle } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, useCycle } from 'framer-motion';
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
@@ -11,29 +11,29 @@ import {
   maskOpen,
   navItemVariant,
   navVariant,
-} from "./Header.animations";
-import { useEffect, useState } from "react";
+} from './Header.animations';
+import { useEffect, useState } from 'react';
 
-import { ButtonArrow } from "../../components/Button";
-import c from "classnames";
-import { debounce } from "lodash";
-import { sitemap } from "../../lib/config";
-import { useAppContext } from "../App";
-import { useCallbackRef } from "use-callback-ref";
-import { useRouter } from "next/router";
+import { ButtonArrow } from '../../components/Button';
+import c from 'classnames';
+import { debounce } from 'lodash';
+import { sitemap } from '../../lib/config';
+import { useAppContext } from '../App';
+import { useCallbackRef } from 'use-callback-ref';
+import { useRouter } from 'next/router';
 
-const NavItem = (props) => {
+const NavItem = props => {
   const router = useRouter();
 
   return (
     <motion.li
-      className={c("Header-nav-item", {
-        "is-active": router.pathname === props.href,
+      className={c('Header-nav-item', {
+        'is-active': router.pathname === props.href,
       })}
       initial={navItemVariant.initial}
       variants={navItemVariant}
     >
-      <a className="Header-nav-link" href={props.link} onClick={props.onClick}>
+      <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
         {props.name}
       </a>
     </motion.li>
@@ -47,7 +47,7 @@ export default function Header(props) {
   const [openReveal, setOpenReveal] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
-  const [mask, setMask] = useState("closedReset");
+  const [mask, setMask] = useState('closedReset');
   const [navRevealTitle, setNavRevealTitle] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [enterExit, setEnterExit] = useState({
@@ -57,7 +57,7 @@ export default function Header(props) {
   const { appState, setTemplateTransition } = useAppContext();
   const { templateTransition } = appState;
 
-  const setArrowPosFromRef = (ref) => {
+  const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
     setArrowPos({
       y: offsetTop + offsetHeight / 2,
@@ -66,14 +66,14 @@ export default function Header(props) {
   };
   const btnArrow = useCallbackRef(
     null,
-    (ref) => {
+    ref => {
       if (ref) {
         setTimeout(() => {
           setArrowPosFromRef(ref);
         }, 100);
       }
     },
-    []
+    [],
   );
 
   useEffect(() => {
@@ -81,70 +81,70 @@ export default function Header(props) {
       setArrowPosFromRef(btnArrow.current);
     }, 100);
 
-    window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    window.addEventListener('resize', resize);
+    return () => window.removeEventListener('resize', resize);
   }, [btnArrow.current]);
 
   const open = ({ withMask = true } = {}) => {
     setOpen();
 
     if (withMask) {
-      if (mask == "closedReset" || mask == "closed") {
-        setMask("open");
+      if (mask == 'closedReset' || mask == 'closed') {
+        setMask('open');
       }
 
-      if (mask == "open") {
-        setMask("closed");
+      if (mask == 'open') {
+        setMask('closed');
       }
     }
   };
 
-  const beforeClickIfOpen = (link) => {
+  const beforeClickIfOpen = url => {
     open({ withMask: false });
     setEnterExit({
       btnText: enterExitBtnTextIfNavOpen,
       btnArrow: enterExitBtnArrowIfNavOpen,
     });
-    router.push(link);
+    router.push(url);
     setRefresh(true);
   };
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault();
     if (templateTransition) return false;
-    const link = new URL(e.target.href).pathname;
+    const url = new URL(e.target.href).pathname;
     if (isOpen) {
-      beforeClickIfOpen(link);
+      beforeClickIfOpen(url);
     } else {
-      if (router.pathname !== link) {
+      if (router.pathname !== url) {
         setTemplateTransition(true);
-        router.push(link);
+        router.push(url);
       }
     }
   };
 
   useEffect(() => {
-    if (mask === "open") {
+    if (mask === 'open') {
       maskAnim.start({
         clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
         ...maskClose,
       });
     }
 
-    if (mask === "closedReset") {
+    if (mask === 'closedReset') {
       maskAnim.set({
         clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
       });
     }
 
-    if (mask === "closed") {
+    if (mask === 'closed') {
       maskAnim.start({
         clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
         ...maskOpen,
       });
     }
 
-    if (mask === "openReset") {
+    if (mask === 'openReset') {
       maskAnim.set({
         clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
       });
@@ -153,7 +153,7 @@ export default function Header(props) {
 
   useEffect(() => {
     if (refresh) {
-      setMask("openReset");
+      setMask('openReset');
       setRefresh(false);
     } else {
       setTimeout(() => {
@@ -162,7 +162,7 @@ export default function Header(props) {
           btnArrow: enterExitBtnArrow,
         });
       }, 500);
-      setMask("closed");
+      setMask('closed');
     }
   }, [refresh]);
 
@@ -176,7 +176,7 @@ export default function Header(props) {
   return (
     <>
       <motion.header
-        animate={isOpen ? "open" : "closed"}
+        animate={isOpen ? 'open' : 'closed'}
         className="Header"
         onAnimationComplete={() => {
           !isOpen && setOpenReveal(false);
@@ -186,7 +186,7 @@ export default function Header(props) {
           <motion.div variants={ctrlVariant} className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant} initial={false}>
-                <a href="/" onClick={(e) => handleClick(e)}>
+                <a href="/" onClick={e => handleClick(e)}>
                   Joonas Sandell
                 </a>
               </motion.div>
@@ -196,7 +196,7 @@ export default function Header(props) {
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
                 >
-                  <a href="/" onClick={(e) => handleClick(e)}>
+                  <a href="/" onClick={e => handleClick(e)}>
                     Joonas Sandell
                   </a>
                 </motion.div>
@@ -221,9 +221,9 @@ export default function Header(props) {
               onClick={() => {
                 open();
               }}
-              onHoverStart={() => setHover("start")}
+              onHoverStart={() => setHover('start')}
               onHoverEnd={() => {
-                setHover("end");
+                setHover('end');
                 setTimeout(() => setHover(false), 100);
               }}
             >
@@ -273,8 +273,8 @@ export default function Header(props) {
                 >
                   <ButtonArrow
                     active={isOpen}
-                    hoverEnd={hover === "end" ? true : false}
-                    hoverStart={hover === "start" ? true : false}
+                    hoverEnd={hover === 'end' ? true : false}
+                    hoverStart={hover === 'start' ? true : false}
                   />
                 </motion.div>
               </AnimatePresence>
@@ -283,17 +283,17 @@ export default function Header(props) {
         </div>
       </motion.header>
       <motion.div animate={maskAnim} className="Header-mask">
-        <motion.div animate={isOpen ? "open" : "closed"} className="wrap">
+        <motion.div animate={isOpen ? 'open' : 'closed'} className="wrap">
           <motion.nav variants={navVariant} className="Header-nav">
             <ul>
               {sitemap.map((item, i) => (
                 <NavItem
                   key={i}
-                  link={item.link}
-                  name={item.title}
-                  onClick={(e) => {
+                  url={item.url}
+                  name={item.navTitle}
+                  onClick={e => {
                     e.preventDefault();
-                    beforeClickIfOpen(item.link);
+                    beforeClickIfOpen(item.url);
                   }}
                 />
               ))}

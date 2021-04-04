@@ -1,26 +1,28 @@
-import { easing, mq, scrollToDuration, transPrimary } from "../lib/config";
-import { useEffect, useState } from "react";
+import { easing, mq, scrollToDuration, transPrimary } from '../lib/config';
+import { getSitemap, scrollTo } from '../lib/utility';
+import { useEffect, useState } from 'react';
 
-import Link from "../components/Link";
-import { OrasHero } from "../containers/Oras";
-import { Template } from "../containers/Template";
-import c from "classnames";
-import { motion } from "framer-motion";
-import { scrollTo } from "../lib/utility";
-import { useLocomotiveScroll } from "react-locomotive-scroll";
-import { useMedia } from "react-use";
+import Link from '../components/Link';
+import { OrasHero } from '../containers/Oras';
+import { Template } from '../containers/Template';
+import c from 'classnames';
+import { motion } from 'framer-motion';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import { useMedia } from 'react-use';
+
+const home = getSitemap('home');
 
 export default function Home() {
   const { scroll } = useLocomotiveScroll();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
-  const [currentHero, setCurrentHero] = useState(false);
+  const [currentHero, setCurrentHero] = useState('');
   const l = useMedia(mq.l);
 
-  const handleClick = (e) => {
+  const handleClick = e => {
     e.preventDefault();
     setAnimationHide(true);
-    const id = e.currentTarget.closest("[id]").id;
+    const id = e.currentTarget.closest('[id]').id;
     setCurrentHero(id);
 
     if (l) {
@@ -40,17 +42,17 @@ export default function Home() {
 
   return (
     <>
-      <Template name="home">
+      <Template name={home.id} title="Portfolio">
         <div data-scroll-section>
           <p className="Template-introduction">
             I'm a designer & developer of things that usually appear on screens.
-            Read more <Link href="/projects/oras">about me</Link> or just keep
-            scrolling for selected works.
+            Read more <Link href="/about">about me</Link> or just keep scrolling
+            for selected works.
           </p>
           <OrasHero
-            animationStart={currentHero === "oras" && animation}
+            animationStart={currentHero === 'oras' && animation}
             animationState="preAnimation"
-            animationHide={currentHero != "oras" && animationHide}
+            animationHide={currentHero != 'oras' && animationHide}
             id="oras"
             onClick={handleClick}
             // onFocus={handleClick}
@@ -59,7 +61,7 @@ export default function Home() {
         <div
           data-id="mummu"
           onClick={handleClick}
-          style={{ height: "100vh" }}
+          style={{ height: '100vh' }}
           data-scroll-section
         />
       </Template>
@@ -70,7 +72,7 @@ export default function Home() {
 export async function getStaticProps() {
   return {
     props: {
-      navTitle: "Selected works",
+      navTitle: home.title,
     },
   };
 }

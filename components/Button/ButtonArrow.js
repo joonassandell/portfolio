@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, Cross } from "../Icon";
+import { ArrowDown, ArrowUp } from "../Icon";
 import { motion, useAnimation } from "framer-motion";
 import {
   transPrimary,
@@ -9,13 +9,13 @@ import { useEffect, useState } from "react";
 
 import c from "classnames";
 
-export default function ButtonArrow({
+const ButtonArrow = ({
   active = false,
   hoverStart = false,
   hoverEnd = false,
   innerRef = null,
   ...props
-}) {
+}) => {
   const [arrowInVisible, setArrowInVisible] = useState(false);
   const [closeVisible, setCloseVisible] = useState(false);
   const [activeState, setActive] = useState("start");
@@ -69,9 +69,14 @@ export default function ButtonArrow({
 
       if (active && activeState == "start") {
         await setCloseVisible(true);
+        close.set({
+          scaleY: 4,
+          y: -96,
+        });
         arrow.start({
           transition: transPrimaryFast,
-          y: 36,
+          scaleY: 4,
+          y: 96,
         });
         arrowIn.start({
           transition: transPrimaryFast,
@@ -83,6 +88,7 @@ export default function ButtonArrow({
         });
         await close.start({
           transition: transPrimaryFast,
+          scaleY: 1,
           y: 0,
         });
         setActive("end");
@@ -95,10 +101,12 @@ export default function ButtonArrow({
         });
         await close.start({
           transition: { ...transPrimaryFast, delay: 0.5 },
-          y: -36,
+          scaleY: 4,
+          y: -96,
         });
         arrow.start({
           transition: transPrimaryFast,
+          scaleY: 1,
           y: 0,
         });
         setActive("start");
@@ -118,7 +126,7 @@ export default function ButtonArrow({
       {arrowInVisible && (
         <motion.span
           animate={arrowIn}
-          initial={false}
+          // initial={false}
           className="Button-icon Button-icon--in"
         >
           <ArrowDown />
@@ -127,22 +135,28 @@ export default function ButtonArrow({
       {closeVisible && (
         <motion.span
           animate={close}
-          initial={{ y: -36 }}
+          // initial={false}
           className="Button-icon Button-icon--close"
         >
           <ArrowUp />
         </motion.span>
       )}
-      <motion.span animate={arrow} initial={false} className="Button-icon">
+      <motion.span
+        animate={arrow}
+        // initial={false}
+        className="Button-icon"
+      >
         <ArrowDown />
       </motion.span>
       <motion.span
         animate={bg}
-        initial={{
-          y: "77%",
-        }}
+        // initial={{
+        //   y: "77%",
+        // }}
         className="Button-bg"
       />
     </motion.div>
   );
-}
+};
+
+export default ButtonArrow;

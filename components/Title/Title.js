@@ -1,9 +1,9 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 const Title = ({ title }) => {
   return (
     <Head>
-      <title>{`Joonas Sandell${title ? " — " + title : ""}`}</title>
+      <title>{`Joonas Sandell${title ? ' — ' + title : ''}`}</title>
     </Head>
   );
 };

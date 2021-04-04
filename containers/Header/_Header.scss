@@ -11,6 +11,10 @@
   z-index: 99;
 
   @include mq(m) {
+    padding-top: rem($space * 2);
+  }
+
+  @include mq(l) {
     padding-top: rem($space * 3);
   }
 }
