@@ -4,18 +4,18 @@ import {
   useAnimation,
   useMotionValue,
   useTransform,
-} from "framer-motion";
-import { transPrimary, transSecondary } from "../../lib/config";
+} from 'framer-motion';
+import { transPrimary, transSecondary } from '../../lib/config';
 
-import Image from "next/image";
-import c from "classnames";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Image from 'next/image';
+import c from 'classnames';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function OrasHero({
   animationStart = false,
   animationHideStart = false,
-  animationState = "initial", // preAnimation, initial
+  animationState = 'initial', // preAnimation, initial
   ...props
 }) {
   const router = useRouter();
@@ -26,26 +26,26 @@ export default function OrasHero({
     bgGradientValue,
     [0, 100],
     [
-      "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)",
-      "linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)",
-    ]
+      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
+      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
+    ],
   );
-  const initial = animationState === "initial";
-  const preAnimation = animationState === "preAnimation";
+  const initial = animationState === 'initial';
+  const preAnimation = animationState === 'preAnimation';
 
   useEffect(() => {
     if (animationStart) {
       (async () => {
         animate(bgGradientValue, 100, transSecondary);
         bg.start({
-          height: "100vh",
+          height: '100vh',
           transition: transSecondary,
         });
         await headline.start({
-          y: "-200%",
+          y: '-200%',
           transition: transPrimary,
         });
-        router.push("/projects/oras");
+        router.push('/oras');
       })();
     }
   });
@@ -58,9 +58,9 @@ export default function OrasHero({
         }
       }
       id={props.id}
-      className={c("Oras-hero", {
-        ["-preAnimation"]: preAnimation,
-        ["-initial"]: initial,
+      className={c('Oras-hero', {
+        ['-preAnimation']: preAnimation,
+        ['-initial']: initial,
       })}
     >
       <div className="Oras-hero-wrap wrap">
@@ -72,58 +72,64 @@ export default function OrasHero({
               data-scroll-position="top"
               className="Oras-hero-figure-img"
             >
-              <img
+              <Image
+                alt="Oras faucet"
+                height={1276}
+                layout="responsive"
                 onClick={props.onClick}
                 src="/images/oras/faucet.png"
-                alt="Oras faucet"
-                // layout="fill"
-                // layout="responsive"
-                // height={1276}
-                // width={1096}
+                width={1096}
               />
             </figure>
             <motion.div
-              className="Oras-hero-figure-bg"
               animate={bg}
               aria-hidden="true"
+              className="Oras-hero-figure-bg"
               style={
                 preAnimation && {
                   background: bgGradient,
                 }
               }
             />
-            <motion.img
+            <motion.div
               animate={
                 animationStart && {
                   opacity: 1,
                   transition: {
                     delay: 0.5,
                     damping: 30,
-                    type: "spring",
+                    type: 'spring',
                   },
                   y: 0,
                 }
               }
+              className="Oras-hero-drop Oras-hero-drop--3"
               initial={
                 preAnimation && {
                   opacity: 0,
                   y: -24,
                 }
               }
-              className="Oras-hero-drop Oras-hero-drop--3"
-              src="/images/oras/drop.png"
-            />
+            >
+              <Image
+                aria-hidden="true"
+                height={256}
+                layout="responsive"
+                src="/images/oras/drop.png"
+                width={256}
+              />
+            </motion.div>
           </div>
         </div>
       </div>
-      <motion.img
+      <motion.div
         animate={
           animationStart && {
             opacity: 1,
             transition: {
               delay: 0.2,
               damping: 30,
-              type: "spring",
+              type: 'spring',
             },
             y: 0,
           }
@@ -135,36 +141,48 @@ export default function OrasHero({
           }
         }
         className="Oras-hero-drop Oras-hero-drop--1"
-        src="/images/oras/drop.png"
-        aria-hidden="true"
-      />
-      <motion.img
+      >
+        <Image
+          aria-hidden="true"
+          height={256}
+          layout="responsive"
+          src="/images/oras/drop.png"
+          width={256}
+        />
+      </motion.div>
+      <motion.div
         animate={
           animationStart && {
             opacity: 1,
             transition: {
               delay: 0.5,
               damping: 25,
-              type: "spring",
+              type: 'spring',
             },
             y: 0,
           }
         }
+        className="Oras-hero-drop Oras-hero-drop--2"
         initial={
           preAnimation && {
             opacity: 0,
             y: -120,
           }
         }
-        className="Oras-hero-drop Oras-hero-drop--2"
-        src="/images/oras/drop.png"
-        aria-hidden="true"
-      />
+      >
+        <Image
+          aria-hidden="true"
+          height={256}
+          layout="responsive"
+          src="/images/oras/drop.png"
+          width={256}
+        />
+      </motion.div>
       <a
-        href="/projects/oras"
         data-id={props.id}
-        onFocus={props.onFocus}
+        href="/oras"
         onClick={props.onClick}
+        onFocus={props.onFocus}
       >
         <span className="hideVisually">Oras project</span>
       </a>

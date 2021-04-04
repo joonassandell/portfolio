@@ -70,6 +70,7 @@
   height: auto;
   mix-blend-mode: darken;
   position: absolute;
+  width: 100%;
 }
 
 .Oras-hero-drop--1 {
@@ -87,8 +88,8 @@
 .Oras-hero-drop--2 {
   bottom: 10%;
   left: 35vw;
-  max-width: 10.5%;
-  
+  max-width: 10%;
+
   @include mq(s) {
     max-width: rem($space * 5);
   }
