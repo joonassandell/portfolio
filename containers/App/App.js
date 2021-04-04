@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 import Head from "next/head";
-import { debounce } from "lodash";
+import { sitemap } from "../../lib/config";
 import { useRouter } from "next/router";
 
 const AppContext = createContext({
@@ -13,7 +13,7 @@ export function App({ children }) {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
-  const [delay, setDelay] = useState(200);
+  const [delay, setDelay] = useState(100);
 
   const setTemplateTransition = (value) => {
     setAppState((prevState) => ({
@@ -31,18 +31,26 @@ export function App({ children }) {
   }, [router.route]);
 
   useEffect(() => {
-    router.beforePopState(
-      debounce(({ url }) => {
+    sitemap.map((site) => {
+      if (site.url === "/oras") {
+        router.prefetch(site.url);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    router.beforePopState(({ url }) => {
+      setTimeout(() => {
         setDelay(1000);
         setTemplateTransition(true);
         router.push(url);
         return false;
-      }, delay)
-    );
+      }, delay);
+    });
 
     return () => {
       setTimeout(() => {
-        setDelay(200);
+        setDelay(100);
       }, 1000);
     };
   }, [delay]);
