@@ -15,6 +15,7 @@ import {
 import { useEffect, useState } from 'react';
 
 import { ButtonArrow } from '../../components/Button';
+import Link from '../../components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
 import { sitemap } from '../../lib/config';
@@ -186,9 +187,13 @@ export default function Header(props) {
           <motion.div variants={ctrlVariant} className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant} initial={false}>
-                <a href="/" onClick={e => handleClick(e)}>
+                <Link
+                  href="/"
+                  onClick={e => handleClick(e)}
+                  disableDefaultClick
+                >
                   Joonas Sandell
-                </a>
+                </Link>
               </motion.div>
               {openReveal && (
                 <motion.div
@@ -196,9 +201,13 @@ export default function Header(props) {
                   initial={{ y: 36 }}
                   variants={ctrlItemInVariant}
                 >
-                  <a href="/" onClick={e => handleClick(e)}>
+                  <Link
+                    href="/"
+                    onClick={e => handleClick(e)}
+                    templateTransition={false}
+                  >
                     Joonas Sandell
-                  </a>
+                  </Link>
                 </motion.div>
               )}
             </div>
@@ -229,7 +238,7 @@ export default function Header(props) {
             >
               <div className="Header-button-textMobile">
                 <motion.div variants={ctrlItemOutVariant} initial={false}>
-                  <span>Menu</span>
+                  Menu
                 </motion.div>
                 {openReveal && (
                   <motion.div
@@ -237,7 +246,7 @@ export default function Header(props) {
                     initial={{ y: 36 }}
                     variants={ctrlItemInVariant}
                   >
-                    <span>Menu</span>
+                    Menu
                   </motion.div>
                 )}
               </div>
@@ -249,7 +258,7 @@ export default function Header(props) {
                     {...enterExit.btnText}
                   >
                     <motion.div variants={ctrlItemOutVariant}>
-                      <span>{props.navTitle}</span>
+                      {props.navTitle}
                     </motion.div>
                   </motion.div>
                 </AnimatePresence>
@@ -259,7 +268,7 @@ export default function Header(props) {
                       variants={ctrlItemInVariant}
                       initial={{ y: 36 }}
                     >
-                      <span>{navRevealTitle}</span>
+                      {navRevealTitle}
                     </motion.div>
                   </div>
                 )}
