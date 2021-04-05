@@ -1,0 +1,22 @@
+.Link {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative;
+
+  &.-underline {
+    .Link-text {
+      text-decoration: underline;
+    }
+  }
+}
+
+.Link-text {
+  display: block;
+  pointer-events: none;
+}
+
+.Link-text--reveal {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
