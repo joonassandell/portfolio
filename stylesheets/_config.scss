@@ -11,10 +11,10 @@ $font-size: 16px;
 $lineHeight: 24px;
 
 $font-size-xl: 24px;
-$lineHeight-xl: 32px;
+$lineHeight-xl: 36px;
 
-$font-size-l: 18px;
-$lineHeight-l: 26px;
+$font-size-l: 20px;
+$lineHeight-l: 28px;
 
 $font-size-s: 14px;
 $lineHeight-s: 20px;
@@ -98,7 +98,7 @@ $mq-breakpoints: (xxxs: 320px,
 // =========
 
 // Brand colors
-$primary: #4d4dff;
+$primary: #000000;
 
 // Base colors
 $black: #000000;
@@ -119,8 +119,8 @@ $text-10: #ffffff;
 $heading: inherit;
 
 // Link colors
-$link: #4d4dff;
-$link-hover: darken($link, 15%);
+$link: #000000;
+$link-hover: #000000;
 
 // Border colors
 $border-700: $black;
@@ -128,13 +128,6 @@ $border-500-opaque: rgba($white, 0.12);
 $border-500: #323232;
 $border-20: rgba(#000000, 0.12);
 $border-10: #ffffff;
-
-// State colors
-$success: #5cb85c;
-$warning: #f0ad4e;
-$danger: #d9534f;
-$info: #5bc0de;
-
 
 // =========
 // Various Global Settings

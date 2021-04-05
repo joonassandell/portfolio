@@ -1,4 +1,4 @@
-@mixin fontSizeFluid($minFontSize: $font-size, $maxFontSize: $font-size-xl, $lineHeight: $lineHeight, $maxLineHeight: $lineHeight-xl, $lineHeightMin: null, $maxMq: 'xxxxxl', $minMq: 0px, $enableMaxFontSize: true) {
+@mixin fontSizeFluid($minFontSize: $font-size, $maxFontSize: $font-size-l, $lineHeight: $lineHeight, $maxLineHeight: $lineHeight-l, $lineHeightMin: null, $maxMq: 'xxxxxl', $minMq: 0px, $enableMaxFontSize: true) {
   $minMqValue: null;
   $maxMqValue: null;
 
@@ -19,6 +19,14 @@
   & {
     font-size: $minFontSize;
 
+    @include mq($minMq) {
+      font-size: calc(#{$minFontSize} + #{strip-unit($maxFontSize - $minFontSize)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
+
+      @if ($lineHeight) {
+        line-height: calc(#{$lineHeight} + #{strip-unit($maxLineHeight - $lineHeight)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
+      }
+    }
+
     @include mq($maxMq) {
       @if $enableMaxFontSize {
         font-size: $maxFontSize;
@@ -26,14 +34,6 @@
         @if ($maxLineHeight) {
           line-height: $maxLineHeight;
         }
-      }
-    }
-
-    @include mq($minMq) {
-      font-size: calc(#{$minFontSize} + #{strip-unit($maxFontSize - $minFontSize)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
-
-      @if ($lineHeight) {
-        line-height: calc(#{$lineHeight} + #{strip-unit($maxLineHeight - $lineHeight)} * ((100vw - #{$minMqValue}) / #{strip-unit($maxMqValue - $minMqValue)}));
       }
     }
   }

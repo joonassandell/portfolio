@@ -11,7 +11,7 @@
   @if $size == 'xl' {
     @include fontSizeFluid($font-size, $font-size-xl, $lineHeight, $lineHeight-xl);
   } @else if $size == 'l' {
-    @include fontSizeFluid($font-size-l, $font-size-xl, $lineHeight, $lineHeight-l);
+    @include fontSizeFluid($font-size, $font-size-l, $lineHeight, $lineHeight-l);
   } @else if $size == 'm' {
     @include fontSize($font-size, $lineHeight);
   } @else if $size == 's' {
@@ -22,7 +22,7 @@
 
   @if $style == 'meta' {
     color: $text-400;
-  } 
+  }
 }
 
 // ======
@@ -35,13 +35,13 @@
 // 1. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
 
 @mixin textTruncate($truncation-boundary: 100%, $important: null) {
-  @if $important { $important: !important; }
 
   max-width: $truncation-boundary $important;
   overflow: hidden $important;
   text-overflow: ellipsis $important;
   white-space: nowrap $important;
   word-wrap: normal $important; // [1.]
+  @if $important { $important: !important; }
 }
 
 
@@ -50,11 +50,11 @@
 // ======
 
 @mixin textHide($important: null) {
-  @if $important { $important: !important; }
 
   overflow: hidden $important;
   text-indent: 1000% $important;
   white-space: nowrap $important;
+  @if $important { $important: !important; }
 }
 
 
@@ -68,9 +68,9 @@
 // 3. Safari 7 and future browsers
 
 @mixin textKern($important: null) {
-  @if $important { $important: !important; }
 
   font-feature-settings: 'kern' 1 $important; // [1.]
-  text-rendering: optimizeLegibility $important; // [2.]
   font-kerning: normal $important; // [3.]
+  text-rendering: optimizeLegibility $important; // [2.]
+  @if $important { $important: !important; }
 }
