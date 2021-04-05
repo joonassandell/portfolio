@@ -1,7 +1,35 @@
 .Template--home {
-  .Template-introduction {
+  .Template-about-mobile {
+    left: var(--wrap-spaceLeft);
+    margin-left: rem(-4px);
     position: absolute;
-    top: 50vh;
+    top: rem($space * 11);
+    top: 50vw;
+    transform: rotate(-180deg);
+    writing-mode: vertical-rl;
     z-index: 999;
+
+    @include mq(s) {
+      display: none;
+    }
+  }
+
+  .Template-about-desktop {
+    display: none;
+
+    @include mq(s) {
+      display: grid;
+      max-width: rem($space * 18);
+      position: absolute;
+      top: 20vw;
+      width: 37vw;
+      z-index: 98;
+    }
+
+
+    @include mq(l) {
+      @include text(xl);
+      max-width: rem($space * 19);
+    }
   }
 }

@@ -11,6 +11,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { useMedia } from 'react-use';
 
 const home = getSitemap('home');
+const about = getSitemap('about');
 
 export default function Home() {
   const { scroll } = useLocomotiveScroll();
@@ -44,11 +45,28 @@ export default function Home() {
     <>
       <Template name={home.id} title="Portfolio">
         <div data-scroll-section>
-          <p className="Template-introduction">
-            I'm a designer & developer of things that usually appear on screens.
-            Read more <Link href="/about">about me</Link> or just keep scrolling
-            for selected works.
-          </p>
+          <div className="Template-about">
+            <div className="wrap">
+              <Link
+                href={about.url}
+                className="Template-about-mobile"
+                orientation="vertical"
+              >
+                {about.title}
+              </Link>
+              <div className="Template-about-desktop">
+                <p>
+                  I'm a designer & developer of things that usually appear on
+                  screens. Read more{' '}
+                  <Link href={about.url} underline>
+                    about me
+                  </Link>{' '}
+                  or just keep scrolling for selected works.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <OrasHero
             animationStart={currentHero === 'oras' && animation}
             animationState="preAnimation"
