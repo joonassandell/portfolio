@@ -7,15 +7,20 @@
   --root-minWidth: #{$root-minWidth};
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
-  @include fontSizeFluid();
+
+  @include fontSize(
+    $lineHeight: $lineHeight,
+    $maxFontSize: 999px,
+    $minFontSize: $font-size,
+    $root: true,
+    $scaleValue: 1.25vw,
+  );
 
   background-color: $bg-10;
   color: $text-700;
   font-family: $font-family;
-  font-size: $font-size;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  line-height: $lineHeight / $font-size;
   min-width: var(--root-minWidth);
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;

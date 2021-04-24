@@ -12,7 +12,11 @@
   }
 
   @include mq(l) {
-    min-height: 65vw;
+    min-height: 67vw;
+  }
+
+  @include mq(xxxl) {
+    min-height: rem($space * 47);
   }
 }
 
@@ -35,30 +39,47 @@
   display: block;
   margin-bottom: 0;
   margin-left: rem($space * -2);
+  max-width: rem($space * 32);
   position: absolute;
   top: rem($space * 5);
   transform: translateZ(0);
-  width: 130%;
+  width: 55vw;
   z-index: 3;
 
   @include mq(m) {
+    width: 45vw;
+  }
+
+  @include mq(l) {
     margin-left: rem($space * -6);
-    width: 140%;
   }
 }
 
 .Oras-hero-figure-bg {
   background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
   height: 100vh;
+  max-width: rem($space * 20);
   width: 100%;
   z-index: 0;
 
   .Oras-hero.-preAnimation & {
-    height: 102%;
+    height: 100%;
+
+    @include mq(m) {
+      height: 40vw;
+    }
+
+    @include mq(l) {
+      height: 35vw;
+    }
+
+    @include mq(xl) {
+      height: rem($space * 25);
+    }
   }
 
   @include mq(m) {
-    margin-left: -5%;
+    margin-left: rem($space * -1);
   }
 }
 
@@ -74,10 +95,10 @@
   max-width: 12.5%;
   top: 18%;
 
-  @include mq(s) {
+  @include mq(m) {
     left: 15vw;
     max-width: rem($space * 7);
-    top: 18%;
+    top: 15%;
   }
 }
 
@@ -86,36 +107,29 @@
   left: 35vw;
   max-width: 10%;
 
-  @include mq(s) {
+  @include mq(m) {
     max-width: rem($space * 5);
   }
 }
 
 .Oras-hero-drop--3 {
   display: none;
-  left: rem($space * -2.25);
+  left: rem($space * -4);
   max-width: rem($space * 5);
   top: rem($space * -3);
 
-  @include mq(s) {
+  @include mq(m) {
     display: block;
     max-width: rem($space * 6);
   }
 }
 
-.Oras-hero-headline {
-  // @include fontSizeFluid(20px, 520px, 24px, 1);
-  @include fontSizeFluid(20px, 500px, 24px, 1);
-  align-items: flex-end;
+.Oras-hero-heading {
   bottom: 0;
-  display: flex;
-  font-weight: $heading-fontWeightLight;
   height: 25%;
-  letter-spacing: -0.05em;
-  margin: 0;
-  margin-left: var(--wrap-spaceLeft);
+  margin: 0 0 0 var(--wrap-spaceLeft);
   position: absolute;
-  transform: translate3d(0, -200%, 0);
+  transform: translate3d(0, -175%, 0);
   white-space: nowrap;
   z-index: 1;
 
@@ -123,7 +137,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  .Headline-inner {
+  .Heading-inner {
     margin-left: rem($space * -0.5);
 
     @include mq(m) {

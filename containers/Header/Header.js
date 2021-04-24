@@ -31,7 +31,7 @@ const NavItem = props => {
       className={c('Header-nav-item', {
         'is-active': router.pathname === props.href,
       })}
-      initial={navItemVariant.initial}
+      initial="initial"
       variants={navItemVariant}
     >
       <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
@@ -69,9 +69,7 @@ export default function Header(props) {
     null,
     ref => {
       if (ref) {
-        setTimeout(() => {
-          setArrowPosFromRef(ref);
-        }, 100);
+        setArrowPosFromRef(ref);
       }
     },
     [],
@@ -81,6 +79,9 @@ export default function Header(props) {
     const resize = debounce(() => {
       setArrowPosFromRef(btnArrow.current);
     }, 100);
+
+    // Sets the initial position properly
+    resize();
 
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
@@ -198,7 +199,7 @@ export default function Header(props) {
               {openReveal && (
                 <motion.div
                   className="Header-logo-reveal"
-                  initial={{ y: 36 }}
+                  initial="initial"
                   variants={ctrlItemInVariant}
                 >
                   <Link
@@ -214,13 +215,12 @@ export default function Header(props) {
             <div className="Header-separator">
               <motion.div
                 className="Header-separator-line"
-                initial={false}
                 variants={ctrlItemOutVariant}
               />
               {openReveal && (
                 <motion.div
                   className="Header-separator-line Header-separator-line--reveal"
-                  initial={{ y: 36 }}
+                  initial="initial"
                   variants={ctrlItemInVariant}
                 />
               )}
@@ -237,13 +237,11 @@ export default function Header(props) {
               }}
             >
               <div className="Header-button-textMobile">
-                <motion.div variants={ctrlItemOutVariant} initial={false}>
-                  Menu
-                </motion.div>
+                <motion.div variants={ctrlItemOutVariant}>Menu</motion.div>
                 {openReveal && (
                   <motion.div
                     className="Header-button-textMobile-reveal"
-                    initial={{ y: 36 }}
+                    initial="initial"
                     variants={ctrlItemInVariant}
                   >
                     Menu
@@ -251,7 +249,7 @@ export default function Header(props) {
                 )}
               </div>
               <div className="Header-button-text">
-                <AnimatePresence initial={false} exitBeforeEnter>
+                <AnimatePresence exitBeforeEnter>
                   <motion.div
                     className="Header-button-text-item"
                     key={`Header-button-text-${router.route}`}
@@ -264,10 +262,7 @@ export default function Header(props) {
                 </AnimatePresence>
                 {openReveal && (
                   <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <motion.div
-                      variants={ctrlItemInVariant}
-                      initial={{ y: 36 }}
-                    >
+                    <motion.div variants={ctrlItemInVariant} initial="initial">
                       {navRevealTitle}
                     </motion.div>
                   </div>

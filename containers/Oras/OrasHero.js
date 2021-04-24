@@ -42,7 +42,7 @@ export default function OrasHero({
           transition: transSecondary,
         });
         await headline.start({
-          y: '-200%',
+          y: '-175%',
           transition: transPrimary,
         });
         router.push('/oras');
@@ -65,7 +65,7 @@ export default function OrasHero({
     >
       <div className="Oras-hero-wrap wrap">
         <div className="grid">
-          <div className="Oras-hero-figure grid-col grid-col6 -start7 grid-col5@m -start8@m grid-col4@l -start8@l">
+          <div className="Oras-hero-figure grid-col grid-col6 -start7 grid-col5@m -start8@m grid-col4@l -start7@xl">
             <figure
               data-scroll
               data-scroll-speed="-1"
@@ -74,16 +74,15 @@ export default function OrasHero({
             >
               <Image
                 alt="Oras faucet"
-                height={1276}
+                height={2552}
                 layout="responsive"
                 onClick={props.onClick}
-                src="/images/oras/faucet.png"
-                width={1096}
+                src="/images/oras/oras-hero.png"
+                width={2192}
               />
             </figure>
             <motion.div
               animate={bg}
-              aria-hidden="true"
               className="Oras-hero-figure-bg"
               style={
                 preAnimation && {
@@ -186,10 +185,14 @@ export default function OrasHero({
       >
         <span className="hideVisually">Oras project</span>
       </a>
-      <motion.h2 animate={headline} className="Oras-hero-headline Headline">
+      <motion.h2
+        animate={headline}
+        className="Oras-hero-heading Heading Heading--display"
+      >
         <div
-          className="Headline-inner"
+          className="Heading-inner"
           data-scroll
+          data-scroll-offset="-10%"
           data-scroll-speed="1"
           data-scroll-position="top"
         >

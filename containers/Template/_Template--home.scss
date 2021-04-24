@@ -19,17 +19,23 @@
 
     @include mq(s) {
       display: grid;
-      max-width: rem($space * 18);
+      max-width: rem($space * 19);
       position: absolute;
-      top: 20vw;
+      top: 25vw;
       width: 37vw;
       z-index: 98;
+
+      // @media (min-height: em(700px)) {
+      //   top: rem($space * 15);
+      // }
     }
 
+    @include mq(m) {
+      @include text(l);
+    }
 
     @include mq(l) {
-      @include text(xl);
-      max-width: rem($space * 19);
+      top: rem($space * 15);
     }
   }
 }

@@ -131,7 +131,7 @@ const ctrlVariant = {
 const ctrlItemOutVariant = {
   open: {
     transition: transSecondaryFast,
-    y: -36,
+    y: '-3rem',
   },
   closed: {
     transition: transPrimaryFast,
@@ -144,9 +144,12 @@ const ctrlItemInVariant = {
     transition: transPrimaryFast,
     y: 0,
   },
+  initial: {
+    y: '3rem',
+  },
   closed: {
     transition: transSecondaryFast,
-    y: 36,
+    y: '3rem',
   },
 };
 

@@ -12,10 +12,10 @@ const oras = getSitemap('oras');
 export default function Oras() {
   return (
     <Template name={oras.id} title={oras.title}>
-      <div data-scroll-section>
-        <OrasHero />
-        <div data-id="mummu" style={{ height: '200vh', background: 'white' }} />
-      </div>
+      {/* <div data-scroll-section> */}
+      <OrasHero />
+      <div data-id="mummu" style={{ height: '200vh', background: 'white' }} />
+      {/* </div> */}
     </Template>
   );
 }

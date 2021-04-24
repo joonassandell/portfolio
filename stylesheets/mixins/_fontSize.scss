@@ -1,17 +1,33 @@
 // =======================================
-// Font sizing with vertical rhythm
+// Font sizing
 // =======================================
 
-@mixin fontSize($size, $line: 'rhythm', $px: false){
-  @if $px {
-    font-size: $size;
-  } @else {
-    font-size: ($size / $font-size) * 1rem;
+@mixin fontSize(
+  $minFontSize: $font-size,
+  $lineHeight: false,
+  $maxFontSize: $minFontSize,
+  $scaleValue: 1vw,
+  $fixed: false,
+  $root: false,
+) {
+  @if not $root {
+    @if not $fixed {
+      font-size: clamp(rem($minFontSize), calc(#{rem($minFontSize)} + #{$scaleValue}), rem($maxFontSize));
+    } @else {
+      font-size: $minFontSize;
+    }
   }
 
-  @if $line == 'rhythm' {
-    line-height: ceil($size / $lineHeight) * ($lineHeight / $size);
-  } @else {
-    line-height: $line / $font-size;
+  @if $root {
+    font-size: clamp($minFontSize, $scaleValue, $maxFontSize);
+  }
+
+  @if $lineHeight {
+    @if unit($minFontSize) == 'rem' {
+      line-height: $lineHeight / px($minFontSize);
+    } @else {
+      line-height: $lineHeight / $minFontSize;
+    }
   }
 }
+

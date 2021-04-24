@@ -9,9 +9,9 @@
 
 @mixin text($size: null, $style: null) {
   @if $size == 'xl' {
-    @include fontSizeFluid($font-size, $font-size-xl, $lineHeight, $lineHeight-xl);
+    @include fontSize($font-size, $lineHeight-xl, $font-size-xl);
   } @else if $size == 'l' {
-    @include fontSizeFluid($font-size, $font-size-l, $lineHeight, $lineHeight-l);
+    @include fontSize($font-size, $lineHeight-l, $font-size-l);
   } @else if $size == 'm' {
     @include fontSize($font-size, $lineHeight);
   } @else if $size == 's' {
@@ -32,15 +32,12 @@
 // Force overly long spans of text to truncate
 // e.g. @include truncate(80%);
 // Where $truncation-boundary is a united measurement.
-// 1. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
 
 @mixin textTruncate($truncation-boundary: 100%, $important: null) {
-
   max-width: $truncation-boundary $important;
   overflow: hidden $important;
   text-overflow: ellipsis $important;
   white-space: nowrap $important;
-  word-wrap: normal $important; // [1.]
   @if $important { $important: !important; }
 }
 

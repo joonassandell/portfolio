@@ -1,0 +1,11 @@
+.Heading {}
+
+.Heading--display {
+  @include fontSize(20px, 20px, 999px, 20vw);
+  align-items: center;
+  display: flex;
+  font-weight: $heading-fontWeightLight;
+  height: 25%;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}

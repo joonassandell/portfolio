@@ -39,27 +39,27 @@ h6 {
   margin: 0 0 rem($space);
 }
 
-h1, .h1, %h1 {
-  @include fontSizeFluid($h6-fontSize, $h1-fontSize, $lineHeight, $h1-lineHeight);
+h1, .h1 {
+  @include heading(h1);
 }
 
-h2, .h2, %h2 {
-  @include fontSizeFluid($h6-fontSize, $h2-fontSize, $lineHeight, $h2-lineHeight);
+h2, .h2 {
+  @include heading(h2);
 }
 
-h3, .h3, %h3 {
-  @include fontSizeFluid($h6-fontSize, $h3-fontSize, $h6-lineHeight, $h3-lineHeight);
+h3, .h3 {
+  @include heading(h3);
 }
 
-h4, .h4, %h4 {
-  @include fontSizeFluid($h6-fontSize, $h4-fontSize, $h6-lineHeight, $h4-lineHeight);
+h4, .h4 {
+  @include heading(h4);
 }
 
-h5, .h5, %h5 {
-  @include fontSizeFluid($h6-fontSize, $h5-fontSize, $h6-lineHeight, $h5-lineHeight);
+h5, .h5 {
+  @include heading(h5);
 }
 
-h6, .h6, %h6 {
-  @include fontSizeFluid($font-size, $h6-fontSize);
-  @include text('subtitle');
+h6, .h6 {
+  @include heading(h6);
 }
+

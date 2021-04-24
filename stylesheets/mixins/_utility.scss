@@ -20,8 +20,16 @@
 // Convert pixels to rem's
 //
 @function rem($pixels) {
-  @return #{strip-unit($pixels) / strip-unit($font-size)}rem;
+  @return strip-unit($pixels) / strip-unit($font-size) * 1rem;
 }
+
+//
+// Convert rem's to pixels
+//
+@function px($rem) {
+  @return strip-unit($rem) * strip-unit($font-size) * 1px;
+}
+
 
 //
 // Check if number is even

@@ -78,7 +78,7 @@ const Template = ({ children, name, title }) => {
           ? { ...variantsWithTransition }
           : { ...variantsWithoutTransition })}
       >
-        {children}
+        <div data-scroll-section>{children}</div>
         {displayOverlay && (
           <motion.div
             exit={{

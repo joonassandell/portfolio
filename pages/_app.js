@@ -1,15 +1,15 @@
-import "../stylesheets/index.scss";
+import '../stylesheets/index.scss';
 
-import App, { useAppContext } from "../containers/App";
+import App, { useAppContext } from '../containers/App';
 import {
   LocomotiveScrollProvider,
   useLocomotiveScroll,
-} from "react-locomotive-scroll";
+} from 'react-locomotive-scroll';
 
-import { AnimatePresence } from "framer-motion";
-import Header from "../containers/Header";
-import smoothscroll from "smoothscroll-polyfill";
-import { useRef } from "react";
+import { AnimatePresence } from 'framer-motion';
+import Header from '../containers/Header';
+import smoothscroll from 'smoothscroll-polyfill';
+import { useRef } from 'react';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const { appState, setTemplateTransition } = useAppContext();
@@ -35,7 +35,7 @@ const Main = ({ Component, pageProps, innerKey }) => {
 };
 
 function NextApp({ Component, pageProps, router }) {
-  if (typeof window !== "undefined") smoothscroll.polyfill();
+  if (typeof window !== 'undefined') smoothscroll.polyfill();
   const containerRef = useRef(null);
 
   return (
@@ -47,14 +47,13 @@ function NextApp({ Component, pageProps, router }) {
           smooth: true,
           reloadOnContextChange: true,
         }}
-        // watch={[router.route]}
-        watch={["Done manually"]}
+        watch={['Done manually I presume']}
       >
         <main className="App-main" data-scroll-container ref={containerRef}>
           <Main
             Component={Component}
-            pageProps={pageProps}
             innerKey={router.route}
+            pageProps={pageProps}
           />
         </main>
       </LocomotiveScrollProvider>

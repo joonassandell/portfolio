@@ -1,2 +1,2 @@
-import OrasHero from "./Hero.js";
+import OrasHero from './OrasHero.js';
 export { OrasHero };
