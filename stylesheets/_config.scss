@@ -75,7 +75,7 @@ $wrap-spaceRight: 6.25%;
 $wrap-spaceLeft-m: $space * 3;
 $wrap-spaceRight-m: $space * 3;
 $wrap-spaceLeft-l: $space * 4;
-$wrap-spaceRight-l: $space * 2;
+$wrap-spaceRight-l: $space * 3;
 
 $grid-columns: 12;
 $grid-gap: $space * 1.5;
@@ -101,8 +101,6 @@ $mq-breakpoints: (
   xxxxl: 1920px,
   xxxxxl: 2560px,
   xxxxxxl: 2560px,
-  // wrapWidth: $wrapWidth,
-  // wrapMaxWidth: $wrapMaxWidth,
 );
 
 

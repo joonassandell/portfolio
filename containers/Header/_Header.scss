@@ -18,13 +18,11 @@
 .Header-ctrl {
   align-items: center;
   display: flex;
-  line-height: 0;
-  width: 100%;
 }
 
 .Header-logo,
 .Header-button-text-item {
-  color: $text-10;
+
   height: rem($space * 2);
   line-height: rem($space * 2);
 
@@ -34,6 +32,7 @@
 }
 
 .Header-logo {
+  color: $text-10;
   display: flex;
   flex-direction: column;
   margin: 0 auto 0 0;
@@ -43,8 +42,6 @@
 
   a {
     color: $text-10;
-    display: block;
-    transition: $trans-duration-fast;
   }
 
   @include mq(m) {
@@ -81,17 +78,21 @@
   height: 2px;
   position: absolute;
   width: 100%;
+
+  @include mq(xxxxl) {
+    height: 3px;
+  }
 }
 
 .Header-button {
   align-items: center;
+  color: $text-10;
   display: flex;
   margin: 0;
   z-index: 1;
 }
 
 .Header-button-textMobile {
-  display: block;
   line-height: rem($space * 2);
   margin-right: rem($space / 1.5);
   overflow: hidden;
@@ -140,6 +141,33 @@
   }
 }
 
+.Header-secondary {
+  display: none;
+
+  @include mq(m) {
+    @include resetList();
+    @include text(l);
+    display: flex;
+    margin-left: auto;
+
+    a {
+      color: $text-10;
+    }
+  }
+}
+
+.Header-secondary-item {
+  margin-left: rem($space * 1.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.Header-secondary-item-reveal {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
 .Header-mask {
   background: $bg-700;
   bottom: 0;
@@ -154,21 +182,21 @@
 }
 
 .Header-nav {
-  @include heading(h3, false);
   border-top: 1px solid $border-500;
   margin-top: rem($space * 5);
   padding-top: rem($space * 2);
 
   @include mq(m) {
     border-top: 0;
-    margin-left: rem($space * 12);
+    margin-left: rem($space * 13);
     margin-top: rem($space * 8);
     padding-top: 0;
   }
 }
 
 .Header-nav-item {
-  margin-bottom: rem($space / 1.5);
+  @include heading(h4, false, false);
+  margin-bottom: rem($space / 1.25);
 }
 
 .Header-nav-link {

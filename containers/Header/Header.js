@@ -19,9 +19,13 @@ import Link from '../../components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
 import { sitemap } from '../../lib/config';
+import { getSitemap } from '../../lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
+
+const about = getSitemap('about');
+const contact = getSitemap('contact');
 
 const NavItem = props => {
   const router = useRouter();
@@ -31,7 +35,6 @@ const NavItem = props => {
       className={c('Header-nav-item', {
         'is-active': router.pathname === props.href,
       })}
-      initial="initial"
       variants={navItemVariant}
     >
       <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
@@ -88,7 +91,17 @@ export default function Header(props) {
   }, [btnArrow.current]);
 
   const open = ({ withMask = true } = {}) => {
-    setOpen();
+    /**
+     * This delay is here because otherwise the variants properties
+     * (e.g. staggerChildren) from the parent variant (ctrlVariant) aren't
+     * passed to the revealed elements. Couldn't get this to work
+     * w/ AnimatePresence and exit props.
+     */
+    setOpenReveal(true);
+    setNavRevealTitle(props.navTitle);
+    setTimeout(() => {
+      setOpen();
+    }, 10);
 
     if (withMask) {
       if (mask == 'closedReset' || mask == 'closed') {
@@ -168,26 +181,23 @@ export default function Header(props) {
     }
   }, [refresh]);
 
-  useEffect(() => {
-    if (isOpen) {
-      setNavRevealTitle(props.navTitle);
-      setOpenReveal(true);
-    }
-  }, [isOpen]);
-
   return (
     <>
       <motion.header
         animate={isOpen ? 'open' : 'closed'}
         className="Header"
+        initial="initial"
         onAnimationComplete={() => {
-          !isOpen && setOpenReveal(false);
+          if (!isOpen) {
+            setOpenReveal(false);
+          }
         }}
+        variants={ctrlVariant}
       >
         <div className="Header-main wrap">
-          <motion.div variants={ctrlVariant} className="Header-ctrl">
+          <div className="Header-ctrl">
             <div className="Header-logo">
-              <motion.div variants={ctrlItemOutVariant} initial={false}>
+              <motion.div variants={ctrlItemOutVariant}>
                 <Link
                   href="/"
                   onClick={e => handleClick(e)}
@@ -199,7 +209,6 @@ export default function Header(props) {
               {openReveal && (
                 <motion.div
                   className="Header-logo-reveal"
-                  initial="initial"
                   variants={ctrlItemInVariant}
                 >
                   <Link
@@ -220,7 +229,6 @@ export default function Header(props) {
               {openReveal && (
                 <motion.div
                   className="Header-separator-line Header-separator-line--reveal"
-                  initial="initial"
                   variants={ctrlItemInVariant}
                 />
               )}
@@ -241,7 +249,6 @@ export default function Header(props) {
                 {openReveal && (
                   <motion.div
                     className="Header-button-textMobile-reveal"
-                    initial="initial"
                     variants={ctrlItemInVariant}
                   >
                     Menu
@@ -262,7 +269,7 @@ export default function Header(props) {
                 </AnimatePresence>
                 {openReveal && (
                   <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <motion.div variants={ctrlItemInVariant} initial="initial">
+                    <motion.div variants={ctrlItemInVariant}>
                       {navRevealTitle}
                     </motion.div>
                   </div>
@@ -283,24 +290,72 @@ export default function Header(props) {
                 </motion.div>
               </AnimatePresence>
             </motion.button>
-          </motion.div>
+            <ul className="Header-secondary">
+              <li className="Header-secondary-item">
+                <motion.div variants={ctrlItemOutVariant}>
+                  <Link
+                    disableDefaultClick
+                    href={about.url}
+                    onClick={e => handleClick(e)}
+                  >
+                    {about.navTitle}
+                  </Link>
+                </motion.div>
+                {openReveal && (
+                  <motion.div
+                    className="Header-secondary-item-reveal"
+                    variants={ctrlItemInVariant}
+                  >
+                    <Link
+                      href={about.url}
+                      onClick={e => handleClick(e)}
+                      templateTransition={false}
+                    >
+                      {about.navTitle}
+                    </Link>
+                  </motion.div>
+                )}
+              </li>
+              <li className="Header-secondary-item">
+                <motion.div variants={ctrlItemOutVariant}>
+                  <Link href={contact.url}>{contact.navTitle}</Link>
+                </motion.div>
+                {openReveal && (
+                  <motion.div
+                    className="Header-secondary-item-reveal"
+                    variants={ctrlItemInVariant}
+                  >
+                    <Link href={contact.url}>{contact.navTitle}</Link>
+                  </motion.div>
+                )}
+              </li>
+            </ul>
+          </div>
         </div>
       </motion.header>
       <motion.div animate={maskAnim} className="Header-mask">
-        <motion.div animate={isOpen ? 'open' : 'closed'} className="wrap">
-          <motion.nav variants={navVariant} className="Header-nav">
+        <motion.div className="wrap">
+          <motion.nav
+            animate={isOpen ? 'open' : 'closed'}
+            className="Header-nav"
+            initial="initial"
+            variants={navVariant}
+          >
             <ul>
-              {sitemap.map((item, i) => (
-                <NavItem
-                  key={i}
-                  url={item.url}
-                  name={item.navTitle}
-                  onClick={e => {
-                    e.preventDefault();
-                    beforeClickIfOpen(item.url);
-                  }}
-                />
-              ))}
+              {sitemap.map(item => {
+                if (item.type === 'secondary') return false;
+                return (
+                  <NavItem
+                    key={item.navTitle}
+                    url={item.url}
+                    name={item.navTitle}
+                    onClick={e => {
+                      e.preventDefault();
+                      beforeClickIfOpen(item.url);
+                    }}
+                  />
+                );
+              })}
             </ul>
           </motion.nav>
         </motion.div>

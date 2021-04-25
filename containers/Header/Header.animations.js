@@ -16,13 +16,13 @@ const enterExitBtnTextIfNavOpen = {
   },
   initial: {
     opacity: 0,
-    y: -16,
+    y: '-2rem',
   },
   exit: {
     opacity: 0,
     transition: transSecondaryFastest,
   },
-  transition: { ...transSecondaryFast, delay: 0.6 },
+  transition: { ...transSecondaryFast, delay: 0.3 },
 };
 
 const enterExitBtnArrowIfNavOpen = {
@@ -32,14 +32,14 @@ const enterExitBtnArrowIfNavOpen = {
   },
   initial: {
     opacity: 0,
-    y: -16,
+    y: '-2rem',
   },
   exit: {
     opacity: 0,
-    y: 24,
+    y: '1rem',
     transition: transSecondaryFastest,
   },
-  transition: { ...transSecondaryFastest, delay: 0.9 },
+  transition: { ...transSecondaryFastest, delay: 0.5 },
 };
 
 const enterExitBtnText = {
@@ -49,12 +49,12 @@ const enterExitBtnText = {
   },
   initial: {
     opacity: 0,
-    y: -16,
+    y: '2rem',
   },
   exit: {
     opacity: 0,
-    y: 24,
-    transition: { ...transPrimaryFast, delay: 0.15 },
+    y: '-2rem',
+    transition: { ...transPrimaryFast, delay: 0.1 },
   },
   transition: transPrimaryFast,
 };
@@ -63,8 +63,8 @@ const enterExitBtnArrow = {
   ...enterExitBtnText,
   exit: {
     opacity: 0,
-    y: 32,
-    transition: { ...transPrimaryFast, delay: 0.2 },
+    y: '-2rem',
+    transition: { ...transPrimaryFast, delay: 0.125 },
   },
   transition: { ...transPrimaryFast, delay: 0.03 },
 };
@@ -85,7 +85,7 @@ const maskClose = {
  */
 const navVariant = {
   open: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+    transition: { delayChildren: 0.1, staggerChildren: 0.05 },
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -122,8 +122,9 @@ const ctrlVariant = {
   },
   closed: {
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.03,
+      delayChildren: 0.3,
+      staggerDirection: -1,
+      staggerChildren: 0.02,
     },
   },
 };

@@ -14,7 +14,7 @@ import { useAppContext } from '../../containers/App';
 const Link = forwardRef(({ ...props }, ref) => {
   const { setTemplateTransition } = useAppContext();
   const [isHover, setHover] = useCycle(false, true);
-  const classes = c('Link', props.className, {
+  const classes = c(props.className, 'Link', {
     '-underline': props.underline,
   });
   const Tag = props.tag == 'span' ? motion.span : motion.a;

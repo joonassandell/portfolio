@@ -34,13 +34,13 @@
   }
 
   @include mq(m) {
-    --wrap-spaceLeft: #{$wrap-spaceLeft-m};
-    --wrap-spaceRight: #{$wrap-spaceRight-m};
+    --wrap-spaceLeft: #{rem($wrap-spaceLeft-m)};
+    --wrap-spaceRight: #{rem($wrap-spaceRight-m)};
   }
 
   @include mq(l) {
-    --wrap-spaceLeft: #{$wrap-spaceLeft-l};
-    --wrap-spaceRight: #{$wrap-spaceRight-l};
+    --wrap-spaceLeft: #{rem($wrap-spaceLeft-l)};
+    --wrap-spaceRight: #{rem($wrap-spaceRight-l)};
   }
 }
 

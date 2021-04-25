@@ -64,8 +64,8 @@ export default function Home() {
             </Link>
             <div className="Template-about-desktop">
               <p>
-                I'm a designer & developer of things that usually appear on
-                screens. Read more{' '}
+                I'm a designer & creative developer of things that usually
+                appear on screens. Read more{' '}
                 <Link href={about.url} underline>
                   about me
                 </Link>{' '}
