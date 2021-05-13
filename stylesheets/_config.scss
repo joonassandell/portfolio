@@ -144,7 +144,7 @@ $border-10: #ffffff;
 // Various Global Settings
 // =========
 
-$border-radius: 0;
+$border-radius: 0px;
 $trans-duration: 1s;
 $trans-duration-medium: 0.6s;
 $trans-duration-fast: 0.3s;
@@ -190,7 +190,7 @@ $Icon-size: 32px;
 // Button
 // =======================================
 
-$Button-borderWidth: 1px;
+$Button-borderWidth: 2px;
 
 $Button-fontSize: $font-size-xs;
 $Button-lineHeight: $lineHeight-xs;
