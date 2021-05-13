@@ -1,3 +1,6 @@
 .Icon {
+  display: inline-block;
   fill: currentColor;
+  height: rem($Icon-size);
+  width: rem($Icon-size);
 }

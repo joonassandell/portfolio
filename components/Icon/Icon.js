@@ -1,16 +1,16 @@
-import ArrowDownIcon from "../../public/icons/arrow-down.svg";
-import ArrowDownIconLong from "../../public/icons/arrow-down-long.svg";
-import ArrowUpIcon from "../../public/icons/arrow-up.svg";
-import CrossIcon from "../../public/icons/cross.svg";
-import React from "react";
-import c from "classnames";
+import ArrowDownIcon from './icons/arrow-down.svg';
+import ArrowDownIconLong from './icons/arrow-down-long.svg';
+import ArrowUpIcon from './icons/arrow-up.svg';
+import CrossIcon from './icons/cross.svg';
+import React from 'react';
+import c from 'classnames';
 
-const ArrowDown = (props) => (
-  <ArrowDownIcon className={c("Icon Icon--arrowDown", props.className)} />
+const ArrowDown = props => (
+  <ArrowDownIcon className={c('Icon Icon--arrowDown', props.className)} />
 );
 
-const ArrowDownLong = (props) => (
-  <div className={c("Icon Icon--arrowDownLong", props.className)}>
+const ArrowDownLong = props => (
+  <div className={c('Icon Icon--arrowDownLong', props.className)}>
     <div className="Icon-inner">
       <div className="Icon-icon">
         <ArrowDownIconLong />
@@ -19,12 +19,12 @@ const ArrowDownLong = (props) => (
   </div>
 );
 
-const ArrowUp = (props) => (
-  <ArrowUpIcon className={c("Icon Icon--arrowUp", props.className)} />
+const ArrowUp = props => (
+  <ArrowUpIcon className={c('Icon Icon--arrowUp', props.className)} />
 );
 
-const Cross = (props) => (
-  <CrossIcon className={c("Icon Icon--cross", props.className)} />
+const Cross = props => (
+  <CrossIcon className={c('Icon Icon--cross', props.className)} />
 );
 
 export { ArrowDown, ArrowDownLong, ArrowUp, Cross };
