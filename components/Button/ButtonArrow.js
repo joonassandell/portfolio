@@ -1,13 +1,13 @@
-import { ArrowDown, ArrowUp } from "../Icon";
-import { motion, useAnimation } from "framer-motion";
+import { ArrowDown, ArrowUp } from '../Icon';
+import { motion, useAnimation } from 'framer-motion';
 import {
   transPrimary,
   transPrimaryFast,
   transPrimaryFastest,
-} from "../../lib/config";
-import { useEffect, useState } from "react";
+} from '../../lib/config';
+import { useEffect, useState } from 'react';
 
-import c from "classnames";
+import c from 'classnames';
 
 const ButtonArrow = ({
   active = false,
@@ -18,23 +18,23 @@ const ButtonArrow = ({
 }) => {
   const [arrowInVisible, setArrowInVisible] = useState(false);
   const [closeVisible, setCloseVisible] = useState(false);
-  const [activeState, setActive] = useState("start");
+  const [activeState, setActive] = useState('start');
   const button = useAnimation();
   const bg = useAnimation();
   const arrow = useAnimation();
   const arrowIn = useAnimation();
   const close = useAnimation();
-  const enableHover = !active && activeState === "start";
+  const enableHover = !active && activeState === 'start';
+  const classes = c(props.className, 'Button Button--arrow');
 
   useEffect(() => {
     (async () => {
       if (hoverStart && enableHover) {
         await setArrowInVisible(true);
         arrowIn.set({
-          scaleY: 4,
-          y: -96,
+          scaleY: 6,
+          y: '-5rem',
         });
-        bg.set({ y: "77%" });
         bg.start({
           transition: transPrimaryFast,
           y: 0,
@@ -44,17 +44,16 @@ const ButtonArrow = ({
           transition: transPrimaryFast,
           y: 0,
         });
-        await arrow.start({
-          transition: transPrimaryFastest,
-          y: 36,
+        arrow.start({
+          transition: { ...transPrimaryFastest, delay: 0.1 },
+          y: '3rem',
         });
       }
 
       if (hoverEnd && enableHover) {
-        arrowInVisible ? arrow.set({ y: -36 }) : "";
         bg.start({
           transition: transPrimaryFast,
-          y: "-77%",
+          y: '77%',
         });
         arrow.start({
           transition: transPrimaryFast,
@@ -62,25 +61,25 @@ const ButtonArrow = ({
         });
         await arrowIn.start({
           transition: transPrimaryFast,
-          y: 36,
+          y: '3rem',
         });
         setArrowInVisible(false);
       }
 
-      if (active && activeState == "start") {
+      if (active && activeState == 'start') {
         await setCloseVisible(true);
         close.set({
-          scaleY: 4,
-          y: -96,
+          scaleY: 6,
+          y: '-5rem',
         });
         arrow.start({
           transition: transPrimaryFast,
-          scaleY: 4,
-          y: 96,
+          scaleY: 6,
+          y: '5rem',
         });
         arrowIn.start({
           transition: transPrimaryFast,
-          y: 36,
+          y: '3rem',
         });
         bg.start({
           transition: transPrimaryFast,
@@ -91,70 +90,56 @@ const ButtonArrow = ({
           scaleY: 1,
           y: 0,
         });
-        setActive("end");
+        setActive('end');
       }
 
-      if (!active && activeState == "end") {
+      if (!active && activeState == 'end') {
         bg.start({
           transition: { ...transPrimary, delay: 0.6 },
-          y: "-77%",
+          y: '77%',
         });
         await close.start({
           transition: { ...transPrimaryFast, delay: 0.5 },
-          scaleY: 4,
-          y: -96,
+          scaleY: 6,
+          y: '-5rem',
         });
         arrow.start({
           transition: transPrimaryFast,
           scaleY: 1,
           y: 0,
         });
-        setActive("start");
+        setActive('start');
         setArrowInVisible(false);
         setCloseVisible(false);
       }
     })();
   }, [hoverStart, hoverEnd, active]);
 
+  useEffect(() => {
+    bg.set({ y: '77%' });
+  }, []);
+
   return (
     <motion.div
       animate={button}
       key={props.key}
-      className={c("Button Button--arrow", props.className)}
+      className={classes}
       ref={innerRef}
     >
       {arrowInVisible && (
-        <motion.span
-          animate={arrowIn}
-          // initial={false}
-          className="Button-icon Button-icon--in"
-        >
+        <motion.span animate={arrowIn} className="Button-icon Button-icon--in">
           <ArrowDown />
         </motion.span>
       )}
       {closeVisible && (
-        <motion.span
-          animate={close}
-          // initial={false}
-          className="Button-icon Button-icon--close"
-        >
+        <motion.span animate={close} className="Button-icon Button-icon--close">
           <ArrowUp />
         </motion.span>
       )}
-      <motion.span
-        animate={arrow}
-        // initial={false}
-        className="Button-icon"
-      >
+      <motion.span animate={arrow} className="Button-icon">
         <ArrowDown />
       </motion.span>
-      <motion.span
-        animate={bg}
-        // initial={{
-        //   y: "77%",
-        // }}
-        className="Button-bg"
-      />
+      <motion.span animate={bg} className="Button-bg" />
     </motion.div>
   );
 };
