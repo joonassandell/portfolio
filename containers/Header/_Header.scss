@@ -11,7 +11,7 @@
   }
 
   @include mq(l) {
-    padding-top: rem($space * 3);
+    padding-top: rem($space * 2.5);
   }
 }
 
@@ -22,7 +22,6 @@
 
 .Header-logo,
 .Header-button-text-item {
-
   height: rem($space * 2);
   line-height: rem($space * 2);
 
@@ -90,6 +89,10 @@
   display: flex;
   margin: 0;
   z-index: 1;
+
+  &.is-disabled {
+    pointer-events: none;
+  }
 }
 
 .Header-button-textMobile {

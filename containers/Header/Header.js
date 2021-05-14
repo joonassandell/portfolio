@@ -49,6 +49,7 @@ export default function Header(props) {
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [mask, setMask] = useState('closedReset');
@@ -91,17 +92,18 @@ export default function Header(props) {
   }, [btnArrow.current]);
 
   const open = ({ withMask = true } = {}) => {
-    /**
-     * This delay is here because otherwise the variants properties
-     * (e.g. staggerChildren) from the parent variant (ctrlVariant) aren't
-     * passed to the revealed elements. Couldn't get this to work
-     * w/ AnimatePresence and exit props.
-     */
     setOpenReveal(true);
+    setDisableButton(true);
     setNavRevealTitle(props.navTitle);
+    /**
+     * 1. This delay is here because otherwise the variants properties
+     *    (e.g. staggerChildren) from the parent variant (ctrlVariant) aren't
+     *    passed to the revealed elements. Couldn't get this to work
+     *    w/ AnimatePresence and exit props.
+     */
     setTimeout(() => {
       setOpen();
-    }, 10);
+    }, 10); // [1.]
 
     if (withMask) {
       if (mask == 'closedReset' || mask == 'closed') {
@@ -191,6 +193,7 @@ export default function Header(props) {
           if (!isOpen) {
             setOpenReveal(false);
           }
+          setDisableButton(false);
         }}
         variants={ctrlVariant}
       >
@@ -198,11 +201,7 @@ export default function Header(props) {
           <div className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant}>
-                <Link
-                  href="/"
-                  onClick={e => handleClick(e)}
-                  disableDefaultClick
-                >
+                <Link href="/" onClick={e => handleClick(e)}>
                   Joonas Sandell
                 </Link>
               </motion.div>
@@ -234,10 +233,10 @@ export default function Header(props) {
               )}
             </div>
             <motion.button
-              className="Header-button resetButton"
-              onClick={() => {
-                open();
-              }}
+              className={c('Header-button resetButton', {
+                'is-disabled': disableButton,
+              })}
+              onClick={() => open()}
               onHoverStart={() => setHover('start')}
               onHoverEnd={() => {
                 setHover('end');
@@ -293,11 +292,7 @@ export default function Header(props) {
             <ul className="Header-secondary">
               <li className="Header-secondary-item">
                 <motion.div variants={ctrlItemOutVariant}>
-                  <Link
-                    disableDefaultClick
-                    href={about.url}
-                    onClick={e => handleClick(e)}
-                  >
+                  <Link href={about.url} onClick={e => handleClick(e)}>
                     {about.navTitle}
                   </Link>
                 </motion.div>

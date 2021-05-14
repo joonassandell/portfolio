@@ -1,6 +1,7 @@
 import {
   transPrimary,
   transPrimaryFast,
+  transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
 } from '../../lib/config';
@@ -122,9 +123,8 @@ const ctrlVariant = {
   },
   closed: {
     transition: {
-      delayChildren: 0.3,
-      staggerDirection: -1,
-      staggerChildren: 0.02,
+      delayChildren: 0,
+      staggerChildren: 0.03,
     },
   },
 };
