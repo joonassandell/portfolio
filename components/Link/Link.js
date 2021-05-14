@@ -5,67 +5,14 @@ import {
   outVariant,
   outVariantX,
 } from './Link.animations';
-
 import { default as NextLink } from 'next/link';
 import c from 'classnames';
-import { forwardRef } from 'react';
 import { useAppContext } from '../../containers/App';
+import ConditionalWrapper from '../ConditionalWrapper';
 
-const Link = forwardRef(({ ...props }, ref) => {
-  const { setTemplateTransition } = useAppContext();
-  const [isHover, setHover] = useCycle(false, true);
-  const classes = c(props.className, 'Link', {
-    '-underline': props.underline,
-  });
-  const Tag = props.tag == 'span' ? motion.span : motion.a;
-  const defaultClick = !props.disableDefaultClick;
-
-  return (
-    <Tag
-      animate={isHover ? 'in' : 'out'}
-      className={classes}
-      href={props.href}
-      {...(!defaultClick && { onClick: props.onClick })}
-      {...(defaultClick && {
-        onClick: e => {
-          props.templateTransition
-            ? setTemplateTransition(true)
-            : setTemplateTransition(false);
-          props.onClick(e);
-        },
-      })}
-      onHoverEnd={() => setHover()}
-      onHoverStart={() => setHover()}
-      ref={ref}
-    >
-      <motion.span
-        className="Link-text"
-        variants={props.orientation === 'vertical' ? outVariantX : outVariant}
-      >
-        {props.children}
-      </motion.span>
-      <AnimatePresence>
-        {isHover && (
-          <motion.span
-            animate="in"
-            className="Link-text Link-text--reveal"
-            exit="out"
-            initial="initial"
-            key="Link-text--reveal"
-            variants={props.orientation === 'vertical' ? inVariantX : inVariant}
-          >
-            {props.children}
-          </motion.span>
-        )}
-      </AnimatePresence>
-    </Tag>
-  );
-});
-
-const NextLinkWrap = ({
+const Link = ({
   className,
   children,
-  disableDefaultClick,
   href,
   onClick,
   orientation,
@@ -73,38 +20,58 @@ const NextLinkWrap = ({
   templateTransition = true,
   underline,
 }) => {
-  if (href) {
-    return (
-      <NextLink href={href} passHref>
-        <Link
-          className={className}
-          disableDefaultClick={disableDefaultClick}
-          {...(onClick && { onClick: onClick })}
-          orientation={orientation}
-          templateTransition={templateTransition}
-          tag={tag}
-          underline={underline}
-        >
-          {children}
-        </Link>
-      </NextLink>
-    );
-  }
+  const { setTemplateTransition } = useAppContext();
+  const [hover, setHover] = useCycle(false, true);
+  const classes = c(className, 'Link', {
+    '-underline': underline,
+  });
+  const Tag = tag == 'span' ? motion.span : motion.a;
 
   return (
-    <Link
-      className={className}
-      disableDefaultClick={disableDefaultClick}
-      href={href}
-      {...(onClick && { onClick: onClick })}
-      orientation={orientation}
-      templateTransition={templateTransition}
-      tag={tag}
-      underline={underline}
+    <ConditionalWrapper
+      condition={href}
+      wrapper={children => (
+        <NextLink href={href} passHref>
+          {children}
+        </NextLink>
+      )}
     >
-      {children}
-    </Link>
+      <Tag
+        animate={hover ? 'in' : 'out'}
+        className={classes}
+        href={href}
+        onClick={e => {
+          templateTransition
+            ? setTemplateTransition(true)
+            : setTemplateTransition(false);
+          onClick ? onClick(e) : false;
+        }}
+        onHoverEnd={() => setHover()}
+        onHoverStart={() => setHover()}
+      >
+        <motion.span
+          className="Link-text"
+          variants={orientation === 'vertical' ? outVariantX : outVariant}
+        >
+          {children}
+        </motion.span>
+        <AnimatePresence>
+          {hover && (
+            <motion.span
+              animate="in"
+              className="Link-text Link-text--reveal"
+              exit="out"
+              initial="initial"
+              key="Link-text--reveal"
+              variants={orientation === 'vertical' ? inVariantX : inVariant}
+            >
+              {children}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </Tag>
+    </ConditionalWrapper>
   );
 };
 
-export default NextLinkWrap;
+export default Link;
