@@ -101,9 +101,7 @@ export default function Header(props) {
      *    passed to the revealed elements. Couldn't get this to work
      *    w/ AnimatePresence and exit props.
      */
-    setTimeout(() => {
-      setOpen();
-    }, 10); // [1.]
+    setTimeout(() => setOpen(), 10); // [1.]
 
     if (withMask) {
       if (mask == 'closedReset' || mask == 'closed') {
@@ -192,8 +190,10 @@ export default function Header(props) {
         onAnimationComplete={() => {
           if (!isOpen) {
             setOpenReveal(false);
+            setTimeout(() => setDisableButton(false), 500);
+          } else {
+            setDisableButton(false);
           }
-          setDisableButton(false);
         }}
         variants={ctrlVariant}
       >

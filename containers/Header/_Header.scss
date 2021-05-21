@@ -114,16 +114,16 @@
 
 .Header-button-text {
   position: relative;
+
+  @include mq($until: m) {
+    display: none;
+  }
 }
 
 .Header-button-text-item {
   margin-right: rem($space / 1.5);
   overflow: hidden;
   text-align: left;
-
-  @include mq($until: m) {
-    display: none;
-  }
 }
 
 .Header-button-text-item--reveal {
