@@ -10,12 +10,12 @@
 // provided, the element will be centered in its nearest relatively-positioned
 // ancestor.
 
-@mixin positionAbsoluteFill($important: null) {
-  @if $important { $important: !important; }
-
-  bottom: 0 $important;
-  left: 0 $important;
+@mixin positionAbsoluteFill($important: null, $offset: 0) {
+  bottom: $offset $important;
+  left: $offset $important;
   position: absolute $important;
-  right: 0 $important;
-  top: 0 $important;
+  right: $offset $important;
+  top: $offset $important;
+
+  @if $important { $important: !important; }
 }

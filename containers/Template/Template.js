@@ -65,7 +65,7 @@ const Template = ({ children, name, title }) => {
       <motion.div
         className={c('Template', {
           [`Template--${name}`]: name,
-          [`is-animating`]: templateTransition,
+          'is-animating': templateTransition,
         })}
         onAnimationStart={() => {
           if (animState === 'animStart' && templateTransition) {

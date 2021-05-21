@@ -8,6 +8,10 @@
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
+  --primary: #{$primary};
+  --black: #{$black};
+  --white: #{$white};
+
   @include fontSize(
     $lineHeight: $lineHeight,
     $maxFontSize: 999px,
@@ -45,7 +49,6 @@
 }
 
 * {
-
   &,
   &:before,
   &:after {
@@ -86,6 +89,16 @@ a {
 
   &:hover {
     color: $link-hover;
+  }
+}
+
+* {
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
   }
 }
 

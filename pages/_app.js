@@ -43,11 +43,8 @@ function NextApp({ Component, pageProps, router }) {
       <Header navTitle={pageProps.navTitle} />
       <LocomotiveScrollProvider
         containerRef={containerRef}
-        options={{
-          smooth: true,
-          reloadOnContextChange: true,
-        }}
-        watch={['Done manually I presume']}
+        options={{ smooth: true }}
+        watch={['Done manually I presume?']}
       >
         <main className="App-main" data-scroll-container ref={containerRef}>
           <Main

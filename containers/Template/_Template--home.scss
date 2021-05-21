@@ -1,10 +1,14 @@
 .Template--home {
+  .Template-about {
+    position: relative;
+    z-index: 999;
+  }
+
   .Template-about-mobile {
     left: var(--wrap-spaceLeft);
     margin-left: rem(-4px);
     position: absolute;
-    top: rem($space * 11);
-    top: 50vw;
+    top: 48vw;
     transform: rotate(-180deg);
     writing-mode: vertical-rl;
     z-index: 999;
@@ -24,10 +28,6 @@
       top: 25vw;
       width: 37vw;
       z-index: 98;
-
-      // @media (min-height: em(700px)) {
-      //   top: rem($space * 15);
-      // }
     }
 
     @include mq(m) {
