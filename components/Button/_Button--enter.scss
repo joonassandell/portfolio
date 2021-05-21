@@ -1,11 +1,13 @@
 .Button--enter {
   align-items: flex-end;
-  background-color: $bg-700;
-  border-color: $bg-10;
-  color: $text-10;
-  min-height: rem($space * 6);
-  mix-blend-mode: difference;
-  padding: rem($space) rem($space) rem($space) rem($space / 2);
+  background-color: $bg-10;
+  border-color: $border-700;
+  padding: rem($space * 2) rem($space) rem($space) rem($space / 2);
+  z-index: 999;
+
+  &:focus-visible {
+    outline: 0;
+  }
 
   .Button-arrow {
     align-items: flex-start;
@@ -14,7 +16,11 @@
     padding-bottom: rem($space / 2);
     padding-left: rem($space / 2);
     position: relative;
-    z-index: 1;
+    z-index: 2;
+
+    @include mq($until: m) {
+      transform: scale(0.75);
+    }
   }
 
   .Button-arrow-svgPath {
@@ -29,24 +35,36 @@
 
   .Button-arrow-path {
     fill: transparent;
-    stroke: $border-10;
+    stroke: $border-700;
     stroke-width: 2;
   }
 
   .Button-arrow-pointer {
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 9 16" xmlns="http://www.w3.org/2000/svg"><path d="M3.04198 5.92739C3.54995 6.36804 4.18382 6.8091 4.79803 7.00897L4.77903 9L4.5675 9.08667C3.95037 9.33809 3.33292 9.80453 2.85869 10.2412C2.26083 10.7769 1.7636 11.4151 1.3905 12.1259C1.00538 12.8393 0.764371 13.6215 0.681217 14.428L3.49501 15.0359L3.4977 14.7496C3.54458 13.3213 4.09166 11.9512 5.04833 10.8816C6.10229 9.83246 7.51381 9.05521 9 9.00294V7.00294L8.73857 6.98634C7.34899 6.85899 6.04029 6.11779 5.04833 5.13038C4.02608 3.98801 3.47119 2.50277 3.494 0.969971L0.680206 1.57792L0.718845 1.87886C0.826116 2.57799 1.05272 3.25429 1.38948 3.878C1.76259 4.58873 2.25982 5.227 2.85768 5.76264L3.04198 5.92739Z" fill="%23ffffff" /></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 9 16" xmlns="http://www.w3.org/2000/svg"><path d="M3.04198 5.92739C3.54995 6.36804 4.18382 6.8091 4.79803 7.00897L4.77903 9L4.5675 9.08667C3.95037 9.33809 3.33292 9.80453 2.85869 10.2412C2.26083 10.7769 1.7636 11.4151 1.3905 12.1259C1.00538 12.8393 0.764371 13.6215 0.681217 14.428L3.49501 15.0359L3.4977 14.7496C3.54458 13.3213 4.09166 11.9512 5.04833 10.8816C6.10229 9.83246 7.51381 9.05521 9 9.00294V7.00294L8.73857 6.98634C7.34899 6.85899 6.04029 6.11779 5.04833 5.13038C4.02608 3.98801 3.47119 2.50277 3.494 0.969971L0.680206 1.57792L0.718845 1.87886C0.826116 2.57799 1.05272 3.25429 1.38948 3.878C1.76259 4.58873 2.25982 5.227 2.85768 5.76264L3.04198 5.92739Z" fill="%23000000" /></svg>');
+    // %23ffffff
     background-repeat: no-repeat;
     height: 16px;
     left: rem($space / 2);
     offset-path: path("M1 0V28C1 30.7614 3.23858 33 6 33H37");
     position: absolute;
     top: 0;
-    // transform: translateZ(0);
     width: 18px; // Real width: 9px
   }
 
   .Button-bg {
-    @include positionAbsoluteFill();
+    @include positionAbsoluteFill($offset: -$Button-borderWidth);
+    background-color: $bg-10;
+    border: $Button-borderWidth solid $border-700;
+    z-index: 1;
+  }
+
+  .Button-bg-hover {
+    @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background: $bg-700;
+    z-index: 0;
+  }
+
+  @include mq($until: m) {
+    padding: rem($space) rem($space / 4) rem($space / 3) 0;
   }
 }

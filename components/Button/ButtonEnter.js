@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion';
-import { getCSSVarValue } from '../../lib/utility';
 import {
-  transPrimary,
   transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
 } from '../../lib/config';
@@ -44,6 +40,15 @@ const pointerOutVariants = {
   initial: { offsetDistance: '100%', x: 0, transition: { duration: 0 } },
 };
 
+const bgVariant = {
+  in: {
+    x: '0.5rem',
+    y: '0.5rem',
+    transition: { ...transSecondaryFast, delay: 0.05 },
+  },
+  out: { x: 0, y: 0, transition: transSecondaryFastest },
+};
+
 const ButtonEnter = ({
   className,
   children,
@@ -53,6 +58,7 @@ const ButtonEnter = ({
 }) => {
   const classes = c(className, 'Button Button--enter');
   const { setTemplateTransition } = useAppContext();
+  const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
   const Tag = href ? motion.a : motion.button;
 
@@ -67,21 +73,23 @@ const ButtonEnter = ({
     >
       <Tag
         className={classes}
+        onBlur={() => setHover(false)}
         onClick={e => {
           templateTransition
             ? setTemplateTransition(true)
             : setTemplateTransition(false);
           onClick ? onClick(e) : false;
         }}
-        onHoverStart={() => setArrowHover(true)}
-        onFocus={() => setArrowHover(true)}
-        whileHover={{
-          boxShadow: `5px 5px 0 0 ${getCSSVarValue('--white')}`,
-          transition: {
-            ...transPrimaryFastest,
-            delay: 0.1,
-          },
+        onFocus={() => {
+          setArrowHover(true);
+          setHover(true);
         }}
+        onHoverStart={() => {
+          setArrowHover(true);
+          setHover(true);
+        }}
+        onHoverEnd={() => setHover(false)}
+        // whileHover="in" // WHY THIS DOESN'T WORK?!
         whileTap={{ y: 2 }}
       >
         <motion.div
@@ -125,6 +133,12 @@ const ButtonEnter = ({
           />
         </motion.div>
         <div className="hideVisually">{children}</div>
+        <span className="Button-bg" />
+        <motion.span
+          animate={hover ? 'in' : 'out'}
+          className="Button-bg-hover"
+          variants={bgVariant}
+        />
       </Tag>
     </ConditionalWrapper>
   );
