@@ -1,13 +1,8 @@
 .Button--enter {
-  align-items: flex-end;
-  background-color: $bg-10;
-  border-color: $border-700;
-  padding: rem($space * 2) rem($space) rem($space) rem($space / 2);
+  // padding: rem($space * 2) rem($space) rem($space) rem($space / 2);
+  // padding: rem($space * 2) rem($space) $space rem($space / 2);
+  padding: ($space * 2) $space ($space / 1.5) ($space / 2);
   z-index: 999;
-
-  &:focus-visible {
-    outline: 0;
-  }
 
   .Button-arrow {
     align-items: flex-start;
@@ -18,8 +13,17 @@
     position: relative;
     z-index: 2;
 
-    @include mq($until: m) {
+    @include mq($until: s) {
       transform: scale(0.75);
+    }
+
+    @include mq(xxxxl) {
+      transform: scale(1.2);
+      // transform-origin: right;
+    }
+
+    @include mq(xxxxxxl) {
+      transform: scale(1.5);
     }
   }
 
@@ -55,16 +59,27 @@
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background-color: $bg-10;
     border: $Button-borderWidth solid $border-700;
+    border-radius: 0 0 0 7px;
     z-index: 1;
   }
 
   .Button-bg-hover {
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background: $bg-700;
+    border-radius: 0 0 0 7px;
     z-index: 0;
+
+    @include mq($until: s) {
+      height: 100%;
+      width: 100%;
+    }
   }
 
-  @include mq($until: m) {
-    padding: rem($space) rem($space / 4) rem($space / 3) 0;
+  @include mq($until: s) {
+    padding: rem($space) rem($space / 2) ($space / 6) 0;
+  }
+
+  @include mq(xxxxl) {
+    padding: rem($space * 2) rem($space * 1) $space ($space / 1.5);
   }
 }

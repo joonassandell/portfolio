@@ -7,25 +7,15 @@
   cursor: pointer;
   display: inline-flex;
   font-weight: $Button-fontWeight;
-  margin-bottom: rem($space);
-  margin-right: rem($space);
   min-height: rem($Button-minHeight);
   padding: rem(($Button-spaceY) - ($Button-borderWidth * 2)) rem($Button-spaceX);
   position: relative;
   user-select: none;
   vertical-align: top;
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
+  &:focus-visible {
+    outline: 0;
   }
-
-  // @include mq($until: l) {
-  //   @include fontSize($Button-fontSize-s, $Button-lineHeight-s);
-  //   margin-right: rem($space / 1.5);
-  //   min-height: rem($Button-minHeight-s);
-  //   padding: rem(($Button-spaceY-s) - ($Button-borderWidth * 2)) rem($Button-spaceX-s);
-  // }
 }
 
 .Button-text {
