@@ -1,7 +1,7 @@
 .Button--enter {
   // padding: rem($space * 2) rem($space) rem($space) rem($space / 2);
   // padding: rem($space * 2) rem($space) $space rem($space / 2);
-  padding: ($space * 2) $space ($space / 1.5) ($space / 2);
+  padding: ($space * 2.5) $space ($space / 1.5) ($space / 2);
   z-index: 999;
 
   .Button-arrow {
@@ -13,17 +13,14 @@
     position: relative;
     z-index: 2;
 
-    @include mq($until: s) {
-      transform: scale(0.75);
-    }
-
     @include mq(xxxxl) {
-      transform: scale(1.2);
-      // transform-origin: right;
+      margin-bottom: rem($space * -0.15);
+      margin-left: rem($space * -0.15);
     }
 
     @include mq(xxxxxxl) {
-      transform: scale(1.5);
+      margin-bottom: rem($space * -0.2);
+      margin-left: rem($space * -0.3);
     }
   }
 
@@ -59,14 +56,14 @@
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background-color: $bg-10;
     border: $Button-borderWidth solid $border-700;
-    border-radius: 0 0 0 7px;
+    // border-radius: 7px;
     z-index: 1;
   }
 
   .Button-bg-hover {
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background: $bg-700;
-    border-radius: 0 0 0 7px;
+    // border-radius: 7px;
     z-index: 0;
 
     @include mq($until: s) {
@@ -76,10 +73,19 @@
   }
 
   @include mq($until: s) {
-    padding: rem($space) rem($space / 2) ($space / 6) 0;
+    transform: scale(0.75);
+  }
+
+  @include mq(xxxl) {
+    transform: scale(1.1);
+    transform-origin: bottom right;
   }
 
   @include mq(xxxxl) {
-    padding: rem($space * 2) rem($space * 1) $space ($space / 1.5);
+    transform: scale(1.2);
+  }
+
+  @include mq(xxxxxl) {
+    transform: scale(1.5);
   }
 }
