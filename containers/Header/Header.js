@@ -236,12 +236,17 @@ export default function Header(props) {
               className={c('Header-button resetButton', {
                 'is-disabled': disableButton,
               })}
+              onBlur={() => {
+                setHover('end');
+                setTimeout(() => setHover(false), 100);
+              }}
               onClick={() => open()}
-              onHoverStart={() => setHover('start')}
+              onFocus={() => setHover('start')}
               onHoverEnd={() => {
                 setHover('end');
                 setTimeout(() => setHover(false), 100);
               }}
+              onHoverStart={() => setHover('start')}
             >
               <div className="Header-button-textMobile">
                 <motion.div variants={ctrlItemOutVariant}>Menu</motion.div>
@@ -292,7 +297,11 @@ export default function Header(props) {
             <ul className="Header-secondary">
               <li className="Header-secondary-item">
                 <motion.div variants={ctrlItemOutVariant}>
-                  <Link href={about.url} onClick={e => handleClick(e)}>
+                  <Link
+                    href={about.url}
+                    isActive={about.url === router.pathname}
+                    onClick={e => handleClick(e)}
+                  >
                     {about.navTitle}
                   </Link>
                 </motion.div>
@@ -303,6 +312,7 @@ export default function Header(props) {
                   >
                     <Link
                       href={about.url}
+                      isActive={about.url === router.pathname}
                       onClick={e => handleClick(e)}
                       templateTransition={false}
                     >

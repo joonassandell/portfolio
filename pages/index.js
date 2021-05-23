@@ -1,4 +1,4 @@
-import { easing, mq, scrollToDuration, transPrimary } from '../lib/config';
+import { ease, mq, scrollToDuration, transPrimary } from '../lib/config';
 import { getSitemap, scrollTo } from '../lib/utility';
 import { useEffect, useState } from 'react';
 
@@ -30,7 +30,7 @@ export default function Home() {
       scroll &&
         scroll.scrollTo(`#${id}`, {
           duration: scrollToDuration,
-          easing,
+          ease,
           callback: () => {
             setAnimation(true);
           },

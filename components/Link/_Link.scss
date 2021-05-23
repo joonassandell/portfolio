@@ -1,11 +1,15 @@
 .Link {
   display: inline-flex;
+  outline: 0;
   overflow: hidden;
   position: relative;
 
-  &.-underline {
+  &.-underline,
+  &.is-active {
     .Link-text {
-      text-decoration: underline;
+      &:after {
+        opacity: 1;
+      }
     }
   }
 }
@@ -13,10 +17,26 @@
 .Link-text {
   display: block;
   pointer-events: none;
+
+  &:after {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    bottom: 2px;
+    content: '';
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity $trans-primary;
+    width: 100%;
+  }
 }
 
 .Link-text--reveal {
   left: 0;
   position: absolute;
   top: 0;
+
+  &:after {
+    opacity: 1;
+  }
 }

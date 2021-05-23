@@ -14,6 +14,7 @@ const Link = ({
   className,
   children,
   href,
+  isActive,
   onClick,
   orientation,
   tag = 'a',
@@ -24,6 +25,7 @@ const Link = ({
   const [hover, setHover] = useCycle(false, true);
   const classes = c(className, 'Link', {
     '-underline': underline,
+    'is-active': isActive,
   });
   const Tag = tag == 'span' ? motion.span : motion.a;
 
@@ -39,12 +41,22 @@ const Link = ({
       <Tag
         animate={hover ? 'in' : 'out'}
         className={classes}
+        onBlur={() => {
+          if (hover) {
+            setHover();
+          }
+        }}
         href={href}
         onClick={e => {
           templateTransition
             ? setTemplateTransition(true)
             : setTemplateTransition(false);
           onClick ? onClick(e) : false;
+        }}
+        onFocus={() => {
+          if (!hover) {
+            setHover();
+          }
         }}
         onHoverEnd={() => setHover()}
         onHoverStart={() => setHover()}
