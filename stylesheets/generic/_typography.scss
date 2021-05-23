@@ -23,7 +23,7 @@ hr {
 
 hgroup {
   > *:not(:last-child) {
-    margin-bottom: rem($space / 2);
+    margin-bottom: rem($space-xs);
   }
 }
 

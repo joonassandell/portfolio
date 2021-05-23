@@ -1,17 +1,17 @@
 .Header {
   min-width: $root-minWidth;
   mix-blend-mode: difference;
-  padding-top: rem($space * 1.5);
+  padding-top: rem($space-m);
   position: fixed;
   width: 100%;
   z-index: 99;
 
   @include mq(m) {
-    padding-top: rem($space * 2);
+    padding-top: rem($space-ml);
   }
 
   @include mq(l) {
-    padding-top: rem($space * 2.5);
+    padding-top: rem($space-l);
   }
 }
 
@@ -22,8 +22,8 @@
 
 .Header-logo,
 .Header-button-text-item {
-  height: rem($space * 2);
-  line-height: rem($space * 2);
+  height: rem($space-ml);
+  line-height: rem($space-ml);
 
   @include mq(m) {
     @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
@@ -61,9 +61,9 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: rem($space * 2);
+    height: rem($space-ml);
     justify-content: center;
-    margin: 0 rem($space / 1.5);
+    margin: 0 rem($space-s);
     overflow: hidden;
     position: relative;
     width: rem($space * 1.25);
@@ -96,8 +96,8 @@
 }
 
 .Header-button-textMobile {
-  line-height: rem($space * 2);
-  margin-right: rem($space / 1.5);
+  line-height: rem($space-ml);
+  margin-right: rem($space-s);
   overflow: hidden;
   position: relative;
 
@@ -121,7 +121,7 @@
 }
 
 .Header-button-text-item {
-  margin-right: rem($space / 1.5);
+  margin-right: rem($space-s);
   overflow: hidden;
   text-align: left;
 }
@@ -160,7 +160,7 @@
 }
 
 .Header-secondary-item {
-  margin-left: rem($space * 1.5);
+  margin-left: rem($space-m);
   overflow: hidden;
   position: relative;
 }
@@ -187,7 +187,7 @@
 .Header-nav {
   border-top: 1px solid $border-500;
   margin-top: rem($space * 5);
-  padding-top: rem($space * 2);
+  padding-top: rem($space-ml);
 
   @include mq(m) {
     border-top: 0;

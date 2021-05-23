@@ -22,7 +22,7 @@
   pointer-events: none;
 
   + .Button-icon {
-    margin-left: rem($space / 2);
+    margin-left: rem($space-xs);
   }
 }
 
@@ -33,6 +33,6 @@
   pointer-events: none;
 
   + .Button-text {
-    margin-left: rem($space / 2);
+    margin-left: rem($space-xs);
   }
 }

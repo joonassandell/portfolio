@@ -40,7 +40,7 @@
 .OrasHero-figure-img {
   display: block;
   margin-bottom: 0;
-  margin-left: rem($space * -2);
+  margin-left: rem(-$space-ml);
   max-width: rem($space * 32);
   min-width: rem($space * 12);
   position: absolute;
@@ -64,29 +64,15 @@
 .OrasHero-figure-bg {
   background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
   height: 100vh;
-  // max-width: rem($space * 22);
   width: 100%;
   z-index: 0;
 
   .OrasHero.-preAnimation & {
     height: 100%;
-
-    @include mq(m) {
-      // height: 40vw;
-    }
-
-    @include mq(l) {
-      // height: 35vw;
-    }
-  }
-
-  @include mq(m) {
-    // margin-left: rem($space * -2);
-    // margin-left: rem($space * 2);
   }
 
   @include mq(l) {
-    margin-left: rem($space * -1);
+    margin-left: rem(-$space);
   }
 }
 
@@ -123,7 +109,7 @@
   display: none;
   left: rem($space * -4);
   max-width: rem($space * 5);
-  top: rem($space * -3);
+  top: rem(-$space-xl);
 
   @include mq(m) {
     display: block;
@@ -146,10 +132,10 @@
   }
 
   .Heading-inner {
-    margin-left: rem($space * -0.5);
+    margin-left: rem(-$space-xs);
 
     @include mq(m) {
-      margin-left: rem($space * -1.5);
+      margin-left: rem(-$space-m);
     }
   }
 }
@@ -187,7 +173,7 @@
 }
 
 .OrasHero-content-heading {
-  margin-bottom: rem($space / 2);
+  margin-bottom: rem($space-xs);
 
   @include mq($until: l) {
     display: none;
@@ -195,7 +181,7 @@
 }
 
 .OrasHero-content-text {
-  margin-bottom: rem($space * 1.5);
+  margin-bottom: rem($space-m);
 
   @include mq($until: l) {
     display: none;

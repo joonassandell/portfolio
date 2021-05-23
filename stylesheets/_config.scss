@@ -2,7 +2,6 @@
 // Config
 // =======================================
 
-
 // =========
 // Typography
 // =========
@@ -64,6 +63,14 @@ $h6-lineHeight: 24px;
 // =========
 
 $space: 16px;
+$space-xxs: $space / 3;
+$space-xs: $space / 2;
+$space-s: $space / 1.5;
+$space-m: $space * 1.5;
+$space-ml: $space * 2;
+$space-l: $space * 2.5;
+$space-xl: $space * 3;
+
 
 // =========
 // Wrap & Grid settings
@@ -71,16 +78,15 @@ $space: 16px;
 
 $wrap-spaceLeft: 6.25%;
 $wrap-spaceRight: 6.25%;
-$wrap-spaceLeft-m: $space * 2.5;
-$wrap-spaceRight-m: $space * 2.5;
+$wrap-spaceLeft-m: $space-ml;
+$wrap-spaceRight-m: $space-ml;
 $wrap-spaceLeft-l: $space * 4;
-$wrap-spaceRight-l: $space * 3;
+$wrap-spaceRight-l: $space-xl;
 
 $grid-columns: 12;
-$grid-gap: $space * 1.5;
+$grid-gap: $space-m;
 
 $root-minWidth: 320px;
-
 
 // =========
 // Breakpoints
@@ -147,7 +153,6 @@ $border-10: #ffffff;
 $border-radius: 0px;
 $focus-outlineWidth: 2px;
 
-
 // =======================================
 // Transitions & easings
 // =======================================
@@ -187,13 +192,11 @@ $ease-inBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 $ease-outBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $ease-inOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-
 // =======================================
 // Icon
 // =======================================
 
 $Icon-size: 32px;
-
 
 // =======================================
 // Button
@@ -203,10 +206,9 @@ $Button-borderWidth: 2px;
 $Button-fontSize: $font-size-xs;
 $Button-lineHeight: $lineHeight-xs;
 $Button-fontWeight: $font-weight;
-$Button-minHeight: $space * 2;
+$Button-minHeight: $space-ml;
 $Button-spaceY: $space / 1.33;
 $Button-spaceX: $space * 1.25;
-
 
 // =======================================
 // Template

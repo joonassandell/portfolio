@@ -9,7 +9,7 @@
   }
 
   @if $margin and $size != 'h6' {
-    margin: 0 0 rem($space * 1.5);
+    margin: 0 0 rem($space-m);
   }
 
   @if $size == 'h1' {

@@ -15,6 +15,11 @@
   .Button-icon {
     position: absolute;
     z-index: 2;
+
+    @include mq($until: m) {
+      height: rem(24px);
+      width: rem(24px);
+    }
   }
 
   .Button-icon--in {
@@ -40,12 +45,12 @@
   }
 
   @include mq(m) {
-    height: rem($space * 2.5);
-    width: rem($space * 2.5);
+    height: rem($space-l);
+    width: rem($space-l);
   }
 
   @include mq(l) {
-    height: rem($space * 3);
-    width: rem($space * 3);
+    height: rem($space-xl);
+    width: rem($space-xl);
   }
 }
