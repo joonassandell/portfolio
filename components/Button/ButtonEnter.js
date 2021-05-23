@@ -90,7 +90,7 @@ const ButtonEnter = ({
         }}
         onHoverEnd={() => setHover(false)}
         // whileHover="in" // WHY THIS DOESN'T WORK?!
-        whileTap={{ y: 2 }}
+        whileTap={{ top: 2 }}
       >
         <motion.div
           animate={arrowHover ? 'in' : 'initial'}

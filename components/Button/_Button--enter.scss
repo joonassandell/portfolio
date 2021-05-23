@@ -1,7 +1,5 @@
 .Button--enter {
-  // padding: rem($space * 2) rem($space) rem($space) rem($space / 2);
-  // padding: rem($space * 2) rem($space) $space rem($space / 2);
-  padding: ($space * 2.5) $space ($space / 1.5) ($space / 2);
+  padding: ($space * 2.5) $space ($space / 1.25) ($space / 2);
   z-index: 999;
 
   .Button-arrow {
@@ -56,14 +54,12 @@
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background-color: $bg-10;
     border: $Button-borderWidth solid $border-700;
-    // border-radius: 7px;
     z-index: 1;
   }
 
   .Button-bg-hover {
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background: $bg-700;
-    // border-radius: 7px;
     z-index: 0;
 
     @include mq($until: s) {
@@ -77,8 +73,9 @@
   }
 
   @include mq(xxxl) {
+    margin-top: rem($space * 1.5);
     transform: scale(1.1);
-    transform-origin: bottom right;
+    transform-origin: bottom left;
   }
 
   @include mq(xxxxl) {
