@@ -6,20 +6,25 @@ import {
   useTransform,
 } from 'framer-motion';
 import { transPrimary, transSecondary } from '../../lib/config';
+import { getSitemap } from '../../lib/utility';
+import { ButtonEnter } from '../../components/Button';
 
 import Image from 'next/image';
 import c from 'classnames';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+const oras = getSitemap('oras');
+
 export default function OrasHero({
   animationStart = false,
   animationHideStart = false,
   animationState = 'initial', // preAnimation, initial
-  ...props
+  id,
+  onClick,
 }) {
   const router = useRouter();
-  const headline = useAnimation();
+  const headingDisplay = useAnimation();
   const bg = useAnimation();
   const bgGradientValue = useMotionValue(0);
   const bgGradient = useTransform(
@@ -32,6 +37,7 @@ export default function OrasHero({
   );
   const initial = animationState === 'initial';
   const preAnimation = animationState === 'preAnimation';
+  const HeadingDisplay = preAnimation ? motion.h2 : motion.h1;
 
   useEffect(() => {
     if (animationStart) {
@@ -41,49 +47,50 @@ export default function OrasHero({
           height: '100vh',
           transition: transSecondary,
         });
-        await headline.start({
+        await headingDisplay.start({
           y: '-175%',
           transition: transPrimary,
         });
-        router.push('/oras');
+        router.push(oras.url);
       })();
     }
   });
 
   return (
     <motion.section
-      exit={
+      animate={
         animationHideStart && {
           opacity: 0,
+          transition: transPrimary,
         }
       }
-      id={props.id}
-      className={c('Oras-hero', {
-        ['-preAnimation']: preAnimation,
-        ['-initial']: initial,
+      className={c('OrasHero', {
+        '-preAnimation': preAnimation,
+        '-initial': initial,
       })}
+      id={id}
     >
-      <div className="Oras-hero-wrap wrap">
+      <div className="OrasHero-wrap wrap">
         <div className="grid">
-          <div className="Oras-hero-figure grid-col grid-col6 -start7 grid-col5@m -start8@m grid-col4@l -start7@xl">
+          <div className="OrasHero-figure grid-col grid-col6 -start7 grid-col4@m -start7@m grid-col4@l -start7@l -start7@xl">
             <figure
               data-scroll
-              data-scroll-speed="-1"
               data-scroll-position="top"
-              className="Oras-hero-figure-img"
+              data-scroll-speed="-1.5"
+              className="OrasHero-figure-img"
             >
               <Image
                 alt="Oras faucet"
                 height={2552}
                 layout="responsive"
-                onClick={props.onClick}
+                onClick={onClick}
                 src="/images/oras/oras-hero.png"
                 width={2192}
               />
             </figure>
             <motion.div
               animate={bg}
-              className="Oras-hero-figure-bg"
+              className="OrasHero-figure-bg"
               style={
                 preAnimation && {
                   background: bgGradient,
@@ -102,7 +109,7 @@ export default function OrasHero({
                   y: 0,
                 }
               }
-              className="Oras-hero-drop Oras-hero-drop--3"
+              className="OrasHero-drop OrasHero-drop--3"
               initial={
                 preAnimation && {
                   opacity: 0,
@@ -119,6 +126,31 @@ export default function OrasHero({
               />
             </motion.div>
           </div>
+          {preAnimation && (
+            <motion.div
+              animate={
+                animationStart && {
+                  opacity: 0,
+                  transition: transPrimary,
+                }
+              }
+              className="OrasHero-content grid-col grid-col2@m -start11@m grid-col2@l -start11@l"
+            >
+              <h2 className="OrasHero-content-heading Text -l">Oras</h2>
+              <p className="OrasHero-content-text Text -s">
+                UI, UX design <br />
+                Web development <br />
+                Concept strategy
+              </p>
+              <ButtonEnter
+                className="OrasHero-content-button"
+                href={oras.url}
+                onClick={onClick}
+              >
+                View Oras project
+              </ButtonEnter>
+            </motion.div>
+          )}
         </div>
       </div>
       <motion.div
@@ -139,7 +171,7 @@ export default function OrasHero({
             y: -96,
           }
         }
-        className="Oras-hero-drop Oras-hero-drop--1"
+        className="OrasHero-drop OrasHero-drop--1"
       >
         <Image
           aria-hidden="true"
@@ -161,7 +193,7 @@ export default function OrasHero({
             y: 0,
           }
         }
-        className="Oras-hero-drop Oras-hero-drop--2"
+        className="OrasHero-drop OrasHero-drop--2"
         initial={
           preAnimation && {
             opacity: 0,
@@ -177,17 +209,11 @@ export default function OrasHero({
           width={256}
         />
       </motion.div>
-      <a
-        data-id={props.id}
-        href="/oras"
-        onClick={props.onClick}
-        onFocus={props.onFocus}
-      >
-        <span className="hideVisually">Oras project</span>
-      </a>
-      <motion.h2
-        animate={headline}
-        className="Oras-hero-heading Heading Heading--display"
+      <HeadingDisplay
+        animate={headingDisplay}
+        className="OrasHero-heading Heading Heading--display"
+        onClick={onClick}
+        {...(preAnimation && { 'aria-hidden': 'true' })}
       >
         <div
           className="Heading-inner"
@@ -197,8 +223,28 @@ export default function OrasHero({
           data-scroll-position="top"
         >
           Oras—2016
+          {/* Oras &middot; 2016 */}
         </div>
-      </motion.h2>
+      </HeadingDisplay>
+      {preAnimation && (
+        <motion.div
+          animate={
+            animationStart && {
+              opacity: 0,
+              transition: transPrimary,
+            }
+          }
+          className="OrasHero-buttonMobile wrap"
+        >
+          <div className="grid -placeEnd">
+            <div className="grid-col">
+              <ButtonEnter href={oras.url} onClick={onClick}>
+                View Oras project
+              </ButtonEnter>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </motion.section>
   );
 }

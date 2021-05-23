@@ -21,20 +21,28 @@
   .Template-about-desktop {
     display: none;
 
+    > h1 {
+      @include text(m);
+    }
+
     @include mq(s) {
       display: grid;
-      max-width: rem($space * 19);
+      max-width: 25ch;
       position: absolute;
       top: 25vw;
-      width: 37vw;
       z-index: 98;
     }
 
-    @include mq(m) {
-      @include text(l);
+    @include mq(ml) {
+      max-width: 35ch;
+
+      > h1 {
+        @include text(l);
+      }
     }
 
     @include mq(l) {
+      max-width: 35ch;
       top: rem($space * 15);
     }
   }

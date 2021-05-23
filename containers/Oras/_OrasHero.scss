@@ -1,5 +1,6 @@
-.Oras-hero {
-  min-height: rem($space * 23);
+.OrasHero {
+  background-color: $bg-10;
+  min-height: rem($space * 24);
   min-width: var(--root-minWidth);
   position: relative;
 
@@ -20,31 +21,36 @@
   }
 }
 
-.Oras-hero-wrap {
+.OrasHero-wrap {
   @include mq($until: m) {
     padding-right: 0;
   }
 }
 
-.Oras-hero-figure {
+.OrasHero-figure {
   height: 60vw;
+  min-height: rem($space * 12);
   position: relative;
 
   @include mq(m) {
-    height: 35vw;
+    height: 40vw;
   }
 }
 
-.Oras-hero-figure-img {
+.OrasHero-figure-img {
   display: block;
   margin-bottom: 0;
   margin-left: rem($space * -2);
   max-width: rem($space * 32);
+  min-width: rem($space * 12);
   position: absolute;
   top: rem($space * 5);
-  transform: translateZ(0);
   width: 55vw;
   z-index: 3;
+
+  .OrasHero.-preAnimation & {
+    cursor: pointer;
+  }
 
   @include mq(m) {
     width: 45vw;
@@ -55,42 +61,43 @@
   }
 }
 
-.Oras-hero-figure-bg {
+.OrasHero-figure-bg {
   background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
   height: 100vh;
-  max-width: rem($space * 20);
+  // max-width: rem($space * 22);
   width: 100%;
   z-index: 0;
 
-  .Oras-hero.-preAnimation & {
+  .OrasHero.-preAnimation & {
     height: 100%;
 
     @include mq(m) {
-      height: 40vw;
+      // height: 40vw;
     }
 
     @include mq(l) {
-      height: 35vw;
-    }
-
-    @include mq(xl) {
-      height: rem($space * 25);
+      // height: 35vw;
     }
   }
 
   @include mq(m) {
+    // margin-left: rem($space * -2);
+    // margin-left: rem($space * 2);
+  }
+
+  @include mq(l) {
     margin-left: rem($space * -1);
   }
 }
 
-.Oras-hero-drop {
+.OrasHero-drop {
   height: auto;
   mix-blend-mode: darken;
   position: absolute;
   width: 100%;
 }
 
-.Oras-hero-drop--1 {
+.OrasHero-drop--1 {
   left: 15vw;
   max-width: 12.5%;
   top: 18%;
@@ -102,7 +109,7 @@
   }
 }
 
-.Oras-hero-drop--2 {
+.OrasHero-drop--2 {
   bottom: 10%;
   left: 35vw;
   max-width: 10%;
@@ -112,7 +119,7 @@
   }
 }
 
-.Oras-hero-drop--3 {
+.OrasHero-drop--3 {
   display: none;
   left: rem($space * -4);
   max-width: rem($space * 5);
@@ -124,7 +131,7 @@
   }
 }
 
-.Oras-hero-heading {
+.OrasHero-heading {
   bottom: 0;
   height: 25%;
   margin: 0 0 0 var(--wrap-spaceLeft);
@@ -133,7 +140,8 @@
   white-space: nowrap;
   z-index: 1;
 
-  .Oras-hero.-preAnimation & {
+  .OrasHero.-preAnimation & {
+    cursor: pointer;
     transform: translate3d(0, 0, 0);
   }
 
@@ -143,5 +151,53 @@
     @include mq(m) {
       margin-left: rem($space * -1.5);
     }
+  }
+}
+
+.OrasHero-buttonMobile {
+  position: absolute;
+  top: 41vw;
+
+  > .grid {
+    place-items: end;
+  }
+
+  @include mq(s) {
+    top: 40vw;
+  }
+
+  @include mq(m) {
+    display: none;
+  }
+}
+
+.OrasHero-content {
+  @include mq($until: m) {
+    display: none;
+  }
+
+  @include mq(m) {
+    align-self: end;
+    justify-self: end;
+  }
+
+  @include mq(l) {
+    justify-self: start;
+  }
+}
+
+.OrasHero-content-heading {
+  margin-bottom: rem($space / 2);
+
+  @include mq($until: l) {
+    display: none;
+  }
+}
+
+.OrasHero-content-text {
+  margin-bottom: rem($space * 1.5);
+
+  @include mq($until: l) {
+    display: none;
   }
 }
