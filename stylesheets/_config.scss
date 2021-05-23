@@ -13,7 +13,7 @@ $lineHeight: 24px;
 $font-size-xl: 22px;
 $lineHeight-xl: 22px;
 
-$font-size-l: 18px;
+$font-size-l: 19px;
 $lineHeight-l: 22px;
 
 $font-size-s: 15px;
@@ -65,15 +65,14 @@ $h6-lineHeight: 24px;
 
 $space: 16px;
 
-
 // =========
 // Wrap & Grid settings
 // =========
 
 $wrap-spaceLeft: 6.25%;
 $wrap-spaceRight: 6.25%;
-$wrap-spaceLeft-m: $space * 3;
-$wrap-spaceRight-m: $space * 3;
+$wrap-spaceLeft-m: $space * 2.5;
+$wrap-spaceRight-m: $space * 2.5;
 $wrap-spaceLeft-l: $space * 4;
 $wrap-spaceRight-l: $space * 3;
 
@@ -99,7 +98,7 @@ $mq-breakpoints: (
   xxl: 1280px,
   xxxl: 1528px,
   xxxxl: 1680px,
-  xxxxxl: 2560px,
+  xxxxxl: 1920px,
   xxxxxxl: 2560px,
   xxxxxxxl: 3840px,
 );

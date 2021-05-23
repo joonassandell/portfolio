@@ -13,9 +13,9 @@
   --white: #{$white};
 
   @include fontSize(
+    $minFontSize: $font-size,
     $lineHeight: $lineHeight,
     $maxFontSize: 999px,
-    $minFontSize: $font-size,
     $root: true,
     $scaleValue: 1.25vw,
   );

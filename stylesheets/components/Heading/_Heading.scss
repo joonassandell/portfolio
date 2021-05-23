@@ -10,4 +10,8 @@
   letter-spacing: -0.05em;
   mix-blend-mode: difference;
   white-space: nowrap;
+
+  @include mq($until: xxs) {
+    @include fontSize(92px, 92px);
+  }
 }
