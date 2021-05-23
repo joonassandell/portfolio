@@ -13,7 +13,7 @@
   } @else if $size == 'l' {
     @include fontSize($font-size, $lineHeight-l, $font-size-l);
   } @else if $size == 'm' {
-    @include fontSize($font-size, $lineHeight);
+    @include fontSize($font-size, $lineHeight, $scaling: 'rem');
   } @else if $size == 's' {
     @include fontSize($font-size-s, $lineHeight-s);
   } @else if $size == 'xs' {
