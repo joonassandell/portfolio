@@ -80,7 +80,7 @@ export default function Header(props) {
 
   useEffect(() => {
     const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
-    resize(); // Sets the initial position properly
+    setArrowPosFromRef(btnArrow.current);
 
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
@@ -90,6 +90,7 @@ export default function Header(props) {
     setOpenReveal(true);
     setDisableButton(true);
     setNavRevealTitle(props.navTitle);
+
     /**
      * 1. This delay is here because otherwise the variants properties
      *    (e.g. staggerChildren) from the parent variant (ctrlVariant) aren't
@@ -99,93 +100,81 @@ export default function Header(props) {
     setTimeout(() => setOpen(), 10); // [1.]
 
     if (withMask) {
-      if (mask == 'closed') setMask('open');
-      if (mask == 'open') setMask('closed');
+      if (mask === 'closed' || mask === 'closedReset') setMask('open');
+      if (mask === 'open' || mask === 'openReset') setMask('closed');
     }
-  };
-
-  const beforeClickIfOpen = url => {
-    toggleOpen({ withMask: false });
-    setEnterExit({
-      btnText: enterExitBtnTextIfNavOpen,
-      btnArrow: enterExitBtnArrowIfNavOpen,
-    });
-    router.push(url);
-    setBeforeNextView(true);
   };
 
   const handleClick = e => {
     e.preventDefault();
     const url = new URL(e.target.href).pathname;
-
-    if (isOpen) {
-      beforeClickIfOpen(url);
-    } else {
-      if (router.pathname !== url) {
-        router.push(url);
-      }
-    }
+    router.push(url);
   };
 
   useEffect(() => {
-    const closeIfPopState = () => {
+    const closeStart = () => {
       if (isOpen) {
         setTemplateTransition(false);
-        beforeClickIfOpen(router.pathname);
+        setEnterExit({
+          btnText: enterExitBtnTextIfNavOpen,
+          btnArrow: enterExitBtnArrowIfNavOpen,
+        });
       }
     };
 
-    router.events.on('routeChangeComplete', closeIfPopState);
+    const closeComplete = () => {
+      if (isOpen) {
+        toggleOpen({ withMask: false });
+        setTimeout(() => {
+          setEnterExit({
+            btnText: enterExitBtnText,
+            btnArrow: enterExitBtnArrow,
+          });
+        }, 500);
+        setMask('closed');
+      }
+    };
 
-    return () => router.events.off('routeChangeComplete', closeIfPopState);
+    router.events.on('routeChangeStart', closeStart);
+    router.events.on('routeChangeComplete', closeComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', closeStart);
+      router.events.off('routeChangeComplete', closeComplete);
+    };
   }, [isOpen]);
 
   useEffect(() => {
-    if (mask === 'open') {
-      maskAnim.start({
-        clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-        ...maskClose,
-      });
-    }
-
-    if (mask === 'closedReset') {
-      maskAnim.set({
-        clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-      });
-    }
-
-    if (mask === 'closed') {
-      maskAnim.start({
-        clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-        ...maskOpen,
-      });
-    }
-
-    if (mask === 'openReset') {
-      maskAnim.set({
-        clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-      });
-    }
-  }, [mask, arrowPos]);
-
-  useEffect(() => {
-    const nextView = !beforeNextView;
-
-    if (beforeNextView) {
-      setMask('openReset');
-      setBeforeNextView(false);
-    }
-
-    if (nextView) {
-      setTimeout(() => {
-        setEnterExit({
-          btnText: enterExitBtnText,
-          btnArrow: enterExitBtnArrow,
+    (async () => {
+      if (mask === 'open') {
+        await maskAnim.start({
+          clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          ...maskClose,
         });
-      }, 500);
-      setMask('closed');
-    }
-  }, [beforeNextView]);
+        setMask('openReset');
+      }
+
+      if (mask === 'closed') {
+        await maskAnim.start({
+          clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          ...maskOpen,
+        });
+        setMask('closedReset');
+      }
+
+      if (mask === 'openReset') {
+        maskAnim.set({
+          clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
+        });
+      }
+
+      if (mask === 'closedReset') {
+        maskAnim.set({
+          clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
+        });
+      }
+    })();
+  }, [mask, arrowPos]);
 
   return (
     <>
