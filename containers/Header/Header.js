@@ -18,11 +18,12 @@ import { ButtonArrow } from '../../components/Button';
 import Link from '../../components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { sitemap } from '../../lib/config';
+import { sitemap, easeCSS } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
+import NProgress from 'nprogress';
 
 const about = getSitemap('about');
 const contact = getSitemap('contact');
@@ -112,6 +113,29 @@ export default function Header(props) {
   };
 
   useEffect(() => {
+    // Test if connection is slow, polyfill this later or apply better solution
+    if (navigator.connection && navigator.connection.downlink < 3) {
+      NProgress.configure({
+        easing: easeCSS,
+        showSpinner: false,
+        speed: 1200,
+      });
+      const changeStart = () => NProgress.start();
+      const changeComplete = () => NProgress.done();
+
+      router.events.on('routeChangeStart', changeStart);
+      router.events.on('routeChangeError', changeComplete);
+      router.events.on('routeChangeComplete', changeComplete);
+
+      return () => {
+        router.events.off('routeChangeStart', changeStart);
+        router.events.off('routeChangeError', changeComplete);
+        router.events.off('routeChangeComplete', changeComplete);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
     const closeStart = () => {
       if (isOpen) {
         setTemplateTransition(false);
@@ -136,10 +160,12 @@ export default function Header(props) {
     };
 
     router.events.on('routeChangeStart', closeStart);
+    router.events.on('routeChangeError', closeComplete);
     router.events.on('routeChangeComplete', closeComplete);
 
     return () => {
       router.events.off('routeChangeStart', closeStart);
+      router.events.off('routeChangeError', closeComplete);
       router.events.off('routeChangeComplete', closeComplete);
     };
   }, [isOpen]);

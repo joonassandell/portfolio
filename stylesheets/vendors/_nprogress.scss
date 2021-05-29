@@ -1,0 +1,11 @@
+#nprogress {
+  .bar {
+    background: $bg-10;
+    mix-blend-mode: difference;
+    opacity: 0.5;
+  }
+
+  .peg {
+    display: none;
+  }
+}
