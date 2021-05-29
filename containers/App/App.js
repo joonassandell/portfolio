@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 
-import Head from "next/head";
-import { sitemap } from "../../lib/config";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { sitemap } from '../../lib/config';
+import { useRouter } from 'next/router';
 
 const AppContext = createContext({
   history: [],
@@ -15,8 +15,8 @@ export function App({ children }) {
   const router = useRouter();
   const [delay, setDelay] = useState(100);
 
-  const setTemplateTransition = (value) => {
-    setAppState((prevState) => ({
+  const setTemplateTransition = value => {
+    setAppState(prevState => ({
       ...prevState,
       templateTransition: value,
     }));
@@ -24,15 +24,15 @@ export function App({ children }) {
 
   useEffect(() => {
     const { asPath } = router;
-    setAppState((prevState) => ({
+    setAppState(prevState => ({
       ...prevState,
       history: [...prevState.history, asPath],
     }));
   }, [router.route]);
 
   useEffect(() => {
-    sitemap.map((site) => {
-      if (site.url === "/oras") {
+    sitemap.map(site => {
+      if (site.url === '/oras') {
         router.prefetch(site.url);
       }
     });

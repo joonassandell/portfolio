@@ -54,13 +54,12 @@ export default function Header(props) {
   const maskAnim = useAnimation();
   const [mask, setMask] = useState('closedReset');
   const [navRevealTitle, setNavRevealTitle] = useState(null);
-  const [refresh, setRefresh] = useState(0);
+  const [beforeNextView, setBeforeNextView] = useState(0);
   const [enterExit, setEnterExit] = useState({
     btnTxt: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
-  const { appState, setTemplateTransition } = useAppContext();
-  const { templateTransition } = appState;
+  const { setTemplateTransition } = useAppContext();
 
   const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -80,18 +79,14 @@ export default function Header(props) {
   );
 
   useEffect(() => {
-    const resize = debounce(() => {
-      setArrowPosFromRef(btnArrow.current);
-    }, 100);
-
-    // Sets the initial position properly
-    resize();
+    const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
+    resize(); // Sets the initial position properly
 
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
   }, [btnArrow.current]);
 
-  const open = ({ withMask = true } = {}) => {
+  const toggleOpen = ({ withMask = true } = {}) => {
     setOpenReveal(true);
     setDisableButton(true);
     setNavRevealTitle(props.navTitle);
@@ -104,39 +99,46 @@ export default function Header(props) {
     setTimeout(() => setOpen(), 10); // [1.]
 
     if (withMask) {
-      if (mask == 'closedReset' || mask == 'closed') {
-        setMask('open');
-      }
-
-      if (mask == 'open') {
-        setMask('closed');
-      }
+      if (mask == 'closed') setMask('open');
+      if (mask == 'open') setMask('closed');
     }
   };
 
   const beforeClickIfOpen = url => {
-    open({ withMask: false });
+    toggleOpen({ withMask: false });
     setEnterExit({
       btnText: enterExitBtnTextIfNavOpen,
       btnArrow: enterExitBtnArrowIfNavOpen,
     });
     router.push(url);
-    setRefresh(true);
+    setBeforeNextView(true);
   };
 
   const handleClick = e => {
     e.preventDefault();
-    if (templateTransition) return false;
     const url = new URL(e.target.href).pathname;
+
     if (isOpen) {
       beforeClickIfOpen(url);
     } else {
       if (router.pathname !== url) {
-        setTemplateTransition(true);
         router.push(url);
       }
     }
   };
+
+  useEffect(() => {
+    const closeIfPopState = () => {
+      if (isOpen) {
+        setTemplateTransition(false);
+        beforeClickIfOpen(router.pathname);
+      }
+    };
+
+    router.events.on('routeChangeComplete', closeIfPopState);
+
+    return () => router.events.off('routeChangeComplete', closeIfPopState);
+  }, [isOpen]);
 
   useEffect(() => {
     if (mask === 'open') {
@@ -167,10 +169,14 @@ export default function Header(props) {
   }, [mask, arrowPos]);
 
   useEffect(() => {
-    if (refresh) {
+    const nextView = !beforeNextView;
+
+    if (beforeNextView) {
       setMask('openReset');
-      setRefresh(false);
-    } else {
+      setBeforeNextView(false);
+    }
+
+    if (nextView) {
       setTimeout(() => {
         setEnterExit({
           btnText: enterExitBtnText,
@@ -179,7 +185,7 @@ export default function Header(props) {
       }, 500);
       setMask('closed');
     }
-  }, [refresh]);
+  }, [beforeNextView]);
 
   return (
     <>
@@ -240,7 +246,7 @@ export default function Header(props) {
                 setHover('end');
                 setTimeout(() => setHover(false), 100);
               }}
-              onClick={() => open()}
+              onClick={() => toggleOpen()}
               onFocus={() => setHover('start')}
               onHoverEnd={() => {
                 setHover('end');
@@ -355,8 +361,9 @@ export default function Header(props) {
                     url={item.url}
                     name={item.navTitle}
                     onClick={e => {
-                      e.preventDefault();
-                      beforeClickIfOpen(item.url);
+                      // e.preventDefault();
+                      handleClick(e);
+                      // beforeClickIfOpen(item.url);
                     }}
                   />
                 );
