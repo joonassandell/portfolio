@@ -58,7 +58,7 @@ export default function Header(props) {
   const [mask, setMask] = useState('closedReset');
   const [navRevealTitle, setNavRevealTitle] = useState(null);
   const [enterExit, setEnterExit] = useState({
-    btnTxt: enterExitBtnText,
+    btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
   const { setTemplateTransition } = useAppContext();
