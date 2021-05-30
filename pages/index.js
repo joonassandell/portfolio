@@ -1,11 +1,10 @@
-import { ease, mq, scrollToDuration, transPrimary } from '../lib/config';
+import { mq, transPrimary } from '../lib/config';
 import { getSitemap, scrollTo } from '../lib/utility';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Link from '../components/Link';
 import { OrasHero } from '../containers/Oras';
 import { Template } from '../containers/Template';
-import c from 'classnames';
 import { motion } from 'framer-motion';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { useMedia } from 'react-use';
@@ -25,20 +24,7 @@ export default function Home() {
     setAnimationHide(true);
     const id = e.currentTarget.closest('[id]').id;
     setCurrentHero(id);
-
-    if (l) {
-      scroll &&
-        scroll.scrollTo(`#${id}`, {
-          duration: scrollToDuration,
-          ease,
-          callback: () => {
-            setAnimation(true);
-          },
-        });
-    } else {
-      scrollTo(`#${id}`);
-      setAnimation(true);
-    }
+    scrollTo(`#${id}`, scroll, l, () => setAnimation(true));
   };
 
   return (
