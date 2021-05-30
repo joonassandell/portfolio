@@ -5,16 +5,17 @@ import Title from '../../components/Title';
 import c from 'classnames';
 import { transPrimary } from '../../lib/config';
 import { useAppContext } from '../App';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const variantsWithTransition = {
   animate: {
-    position: 'relative',
+    position: 'fixed',
     y: 0,
     zIndex: 1,
+    transitionEnd: {
+      position: 'relative',
+    },
   },
   exit: {
-    position: 'fixed',
     y: '-50vh',
     zIndex: 0,
   },
@@ -30,7 +31,6 @@ const variantsWithoutTransition = {
     y: 0,
   },
   exit: {
-    position: 'fixed',
     y: 0,
   },
   initial: {
@@ -47,15 +47,10 @@ const Template = ({ children, name, title }) => {
   const { templateTransition } = appState;
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
-  const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
     if (!isPresent) {
       setAnimState('animExit');
-    }
-
-    if (isPresent) {
-      setAnimState('animStart');
     }
   }, [isPresent]);
 
@@ -67,13 +62,6 @@ const Template = ({ children, name, title }) => {
           [`Template--${name}`]: name,
           'is-animating': templateTransition,
         })}
-        onAnimationStart={() => {
-          if (animState === 'animStart' && templateTransition) {
-            if (scroll) {
-              scroll.stop();
-            }
-          }
-        }}
         {...(templateTransition
           ? { ...variantsWithTransition }
           : { ...variantsWithoutTransition })}
