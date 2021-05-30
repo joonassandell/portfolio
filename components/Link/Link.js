@@ -17,6 +17,7 @@ const Link = ({
   isActive,
   onClick,
   orientation,
+  target,
   tag = 'a',
   templateTransition = true,
   underline,
@@ -28,6 +29,11 @@ const Link = ({
     'is-active': isActive,
   });
   const Tag = tag == 'span' ? motion.span : motion.a;
+  const linkTarget = target
+    ? target
+    : href.indexOf('http') === 0
+    ? '_blank'
+    : false;
 
   return (
     <ConditionalWrapper
@@ -60,6 +66,7 @@ const Link = ({
         }}
         onHoverEnd={() => setHover()}
         onHoverStart={() => setHover()}
+        {...(href && linkTarget && { target: linkTarget })}
       >
         <motion.span
           className="Link-text"
