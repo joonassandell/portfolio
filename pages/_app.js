@@ -40,12 +40,12 @@ function NextApp({ Component, pageProps, router }) {
 
   return (
     <App>
-      <Header navTitle={pageProps.navTitle} />
       <LocomotiveScrollProvider
         containerRef={containerRef}
         options={{ smooth: true }}
         watch={['Done manually I presume?']}
       >
+        <Header navTitle={pageProps.navTitle} />
         <main className="App-main" data-scroll-container ref={containerRef}>
           <Main
             Component={Component}
