@@ -18,12 +18,14 @@ import { ButtonArrow } from '../../components/Button';
 import Link from '../../components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { sitemap, easeCSS } from '../../lib/config';
-import { getSitemap } from '../../lib/utility';
+import { easeCSS, mq, sitemap } from '../../lib/config';
+import { getSitemap, scrollTo } from '../../lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import { useMedia } from 'react-use';
 
 const about = getSitemap('about');
 const contact = getSitemap('contact');
@@ -55,12 +57,13 @@ export default function Header(props) {
   const maskAnim = useAnimation();
   const [mask, setMask] = useState('closedReset');
   const [navRevealTitle, setNavRevealTitle] = useState(null);
-  const [beforeNextView, setBeforeNextView] = useState(0);
   const [enterExit, setEnterExit] = useState({
     btnTxt: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
   const { setTemplateTransition } = useAppContext();
+  const { scroll } = useLocomotiveScroll();
+  const l = useMedia(mq.l);
 
   const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -109,11 +112,27 @@ export default function Header(props) {
   const handleClick = e => {
     e.preventDefault();
     const url = new URL(e.target.href).pathname;
+    const currUrl = router.pathname === url;
+
+    if (!isOpen && currUrl) {
+      setTemplateTransition(false);
+      scrollTo(0, scroll, l);
+      return;
+    }
+
+    if (isOpen && currUrl) {
+      toggleOpen();
+      return;
+    }
+
     router.push(url);
   };
 
   useEffect(() => {
-    // Test if connection is slow, polyfill this later or apply better solution
+    /**
+     * Test if connection is slow and add progress spinner. Polyfill this
+     * later or apply better solution.
+     */
     if (navigator.connection && navigator.connection.downlink < 3) {
       NProgress.configure({
         easing: easeCSS,
@@ -222,7 +241,7 @@ export default function Header(props) {
           <div className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant}>
-                <Link href="/" onClick={e => handleClick(e)}>
+                <Link href="/" onClick={handleClick}>
                   Joonas Sandell
                 </Link>
               </motion.div>
@@ -233,7 +252,7 @@ export default function Header(props) {
                 >
                   <Link
                     href="/"
-                    onClick={e => handleClick(e)}
+                    onClick={handleClick}
                     templateTransition={false}
                   >
                     Joonas Sandell
@@ -321,7 +340,7 @@ export default function Header(props) {
                   <Link
                     href={about.url}
                     isActive={about.url === router.pathname}
-                    onClick={e => handleClick(e)}
+                    onClick={handleClick}
                   >
                     {about.navTitle}
                   </Link>
@@ -334,7 +353,7 @@ export default function Header(props) {
                     <Link
                       href={about.url}
                       isActive={about.url === router.pathname}
-                      onClick={e => handleClick(e)}
+                      onClick={handleClick}
                       templateTransition={false}
                     >
                       {about.navTitle}
@@ -375,11 +394,7 @@ export default function Header(props) {
                     key={item.navTitle}
                     url={item.url}
                     name={item.navTitle}
-                    onClick={e => {
-                      // e.preventDefault();
-                      handleClick(e);
-                      // beforeClickIfOpen(item.url);
-                    }}
+                    onClick={e => handleClick(e)}
                   />
                 );
               })}
