@@ -27,13 +27,11 @@
  * Modifiers
  * ====== */
 
-%Text--subtitle,
 .Text--subtitle {
   @include fontSize($font-size-s, $lineHeight-s);
   @include text($style: 'subtitle');
 }
 
-%Text--lead,
-.Text--lead {
-  @include text($style: 'lead');
+.Text--meta {
+  @include text($style: 'meta');
 }

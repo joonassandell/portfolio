@@ -300,7 +300,7 @@ export default function Header(props) {
                 )}
               </div>
               <div className="Header-button-text">
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence initial={false} exitBeforeEnter>
                   <motion.div
                     className="Header-button-text-item"
                     key={`Header-button-text-${router.route}`}

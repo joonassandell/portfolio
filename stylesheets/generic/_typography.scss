@@ -3,7 +3,7 @@
  * ======================================= */
 
 p {
-  margin: 0 0 rem($space);
+  margin: 0 0 rem($space-m);
 }
 
 b,
@@ -11,12 +11,17 @@ strong {
   font-weight: $font-weightStrong;
 }
 
+small {
+  @include text(xs);
+  display: inline-block;
+}
+
 hr {
   border: 0;
-  border-top: 1px solid $border-10;
+  border-top: 1px solid $border-700;
   display: block;
   height: 1px;
-  margin-bottom: rem($space);
+  margin-bottom: rem($space-m);
   margin-top: 0;
   padding: 0;
 }
@@ -27,16 +32,10 @@ hgroup {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $heading;
-  font-family: $heading-fontFamily;
-  font-weight: $heading-fontWeight;
-  margin: 0 0 rem($space);
+h1, h2, h3, h4, h5 {
+  &:not(:first-child) {
+    margin-top: rem($space-xl);
+  }
 }
 
 h1, .h1 {

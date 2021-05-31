@@ -67,6 +67,7 @@ const Link = ({
         onHoverEnd={() => setHover()}
         onHoverStart={() => setHover()}
         {...(href && linkTarget && { target: linkTarget })}
+        {...(linkTarget === '_blank' && { rel: 'external' })}
       >
         <motion.span
           className="Link-text"

@@ -22,7 +22,7 @@ const variantsWithTransition = {
   initial: {
     y: '100vh',
   },
-  transition: transPrimary,
+  transition: { duration: 1.2, ease: [0.76, 0, 0.18, 1] },
 };
 
 const variantsWithoutTransition = {
@@ -71,7 +71,7 @@ const Template = ({ children, name, title }) => {
           <motion.div
             exit={{
               backgroundColor: 'var(--Template-overlayColor)',
-              transition: transPrimary,
+              transition: variantsWithTransition.transition,
             }}
             className="Template-overlay"
           />

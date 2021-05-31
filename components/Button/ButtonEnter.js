@@ -95,6 +95,7 @@ const ButtonEnter = ({
         <motion.div
           animate={arrowHover ? 'in' : 'initial'}
           className="Button-arrow"
+          initial="initial"
           onAnimationComplete={() => setArrowHover(false)}
         >
           <svg
@@ -105,30 +106,25 @@ const ButtonEnter = ({
             <motion.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
-              initial="initial"
               variants={pathInVariants}
             />
           </svg>
           <svg
             className="Button-arrow-svgPath Button-arrow-svgPath--out"
-            // viewBox="0 0 37 34"
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
-              initial="initial"
               variants={pathOutVariants}
             />
           </svg>
           <motion.div
             className="Button-arrow-pointer"
-            initial="initial"
             variants={pointerInVariants}
           />
           <motion.div
             className="Button-arrow-pointer Button-arrow-pointer--out"
-            initial="initial"
             variants={pointerOutVariants}
           />
         </motion.div>
