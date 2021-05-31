@@ -1,0 +1,43 @@
+.Info {
+  position: relative;
+}
+
+.Info-ruler {
+  margin-bottom: rem($space-l);
+  transform: scaleX(0);
+  transform-origin: top left;
+
+  @include mq(m) {
+    margin-bottom: rem($space-xxl);
+  }
+}
+
+.Info-metaCol {
+  @include text(s);
+}
+
+.Info-roleCol {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin-top: auto;
+    max-width: 19ch;
+  }
+}
+
+.Info-headingCol {
+  margin-top: rem($space-m);
+
+  @include mq(s) {
+    margin-bottom: rem($space);
+  }
+
+  @include mq(m) {
+    margin-top: 0;
+  }
+}
+
+.Info-textCol {
+  // @include text(l);
+}
