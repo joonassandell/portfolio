@@ -26,18 +26,14 @@
   }
 }
 
-.Info-headingCol {
+.Info-heading {
   margin-top: rem($space-m);
 
   @include mq(s) {
-    margin-bottom: rem($space);
+    margin-bottom: rem($space-l);
   }
 
   @include mq(m) {
     margin-top: 0;
   }
-}
-
-.Info-textCol {
-  // @include text(l);
 }
