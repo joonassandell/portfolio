@@ -24,3 +24,38 @@
   top: 0;
   width: 100vw;
 }
+
+.Template-img-1.Figure {
+  @include mq(l) {
+    margin-top: rem($space * -6);
+  }
+}
+
+.Template-img-2.Figure {
+  margin-bottom: rem(-$space-l);
+
+  @include mq(m) {
+    margin-bottom: 0;
+    margin-top: rem($space * 12);
+  }
+}
+
+.Template-section {
+  padding: rem($space-xxxxxxl) 0;
+
+  &.-bg\:50 {
+    background: $bg-50;
+  }
+
+  &.-bg\:100 {
+    background: $bg-100;
+  }
+
+  &.-bg\:gradient-10-50 {
+    background: linear-gradient($bg-10, $bg-50 8%);
+  }
+
+  &.-bg\:gradient-10-50-10 {
+    background: linear-gradient($bg-10, $bg-50 8%, $bg-50 92%, $bg-10);
+  }
+}

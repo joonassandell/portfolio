@@ -1,23 +1,20 @@
 .OrasHero {
   background-color: $bg-10;
-  min-height: rem($space * 24);
+  height: rem($space * 24);
+  max-height: rem($space * 52);
   min-width: var(--root-minWidth);
   position: relative;
 
   @include mq(xs) {
-    min-height: 92vw;
+    height: 92vw;
   }
 
   @include mq(m) {
-    min-height: 70vw;
+    height: 70vw;
   }
 
   @include mq(l) {
-    min-height: 67vw;
-  }
-
-  @include mq(xxxl) {
-    min-height: rem($space * 47);
+    height: 112vh; // 67vw;
   }
 }
 
@@ -57,7 +54,9 @@
   }
 
   @include mq(l) {
-    margin-left: rem($space * -6);
+    margin-left: rem($space * -7);
+    top: rem($space * 6);
+    // top: 10vw;
   }
 }
 
@@ -68,11 +67,12 @@
   z-index: 0;
 
   .OrasHero.-preAnimation & {
+    height: 90%;
     height: 100%;
   }
 
   @include mq(l) {
-    margin-left: rem(-$space);
+    margin-left: rem(-$space-m);
   }
 }
 

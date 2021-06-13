@@ -5,7 +5,7 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import { transPrimary, transSecondary } from '../../lib/config';
+import { scrollSpeed, transPrimary, transSecondary } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
 
@@ -72,7 +72,14 @@ export default function OrasHero({
     >
       <div className="OrasHero-wrap wrap">
         <div className="grid">
-          <div className="OrasHero-figure grid-col grid-col6 -start7 grid-col4@m -start7@m grid-col4@l -start7@l -start7@xl">
+          <div
+            className="
+              OrasHero-figure grid-col
+              grid-col:6 -start:7
+              grid-col:4@m -start:7@m
+              grid-col:4@l -start:7@l
+            "
+          >
             <figure
               data-scroll
               data-scroll-position="top"
@@ -84,7 +91,7 @@ export default function OrasHero({
                 height={2552}
                 layout="responsive"
                 onClick={onClick}
-                src="/images/oras/oras-hero.png"
+                src="/assets/oras/joonassandell-oras-hero.png"
                 width={2192}
               />
             </figure>
@@ -121,7 +128,7 @@ export default function OrasHero({
                 aria-hidden="true"
                 height={256}
                 layout="responsive"
-                src="/images/oras/drop.png"
+                src="/assets/oras/drop.png"
                 width={256}
               />
             </motion.div>
@@ -134,7 +141,7 @@ export default function OrasHero({
                   transition: transPrimary,
                 }
               }
-              className="OrasHero-content grid-col grid-col2@m -start11@m grid-col2@l -start11@l"
+              className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
             >
               <h2 className="OrasHero-content-heading Text -l">Oras</h2>
               <p className="OrasHero-content-text Text -s">
@@ -177,7 +184,7 @@ export default function OrasHero({
           aria-hidden="true"
           height={256}
           layout="responsive"
-          src="/images/oras/drop.png"
+          src="/assets/oras/drop.png"
           width={256}
         />
       </motion.div>
@@ -201,13 +208,20 @@ export default function OrasHero({
           }
         }
       >
-        <Image
-          aria-hidden="true"
-          height={256}
-          layout="responsive"
-          src="/images/oras/drop.png"
-          width={256}
-        />
+        <div
+          data-scroll
+          data-scroll-delay="0.4"
+          data-scroll-speed="1"
+          data-scroll-position="top"
+        >
+          <Image
+            aria-hidden="true"
+            height={256}
+            layout="responsive"
+            src="/assets/oras/drop.png"
+            width={256}
+          />
+        </div>
       </motion.div>
       <HeadingDisplay
         animate={headingDisplay}
@@ -218,9 +232,9 @@ export default function OrasHero({
         <div
           className="Heading-inner"
           data-scroll
-          data-scroll-offset="-10%"
-          data-scroll-speed="1"
           data-scroll-position="top"
+          data-scroll-offset="-10%"
+          data-scroll-speed={scrollSpeed}
         >
           Oras—2016
           {/* Oras &middot; 2016 */}

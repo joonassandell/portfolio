@@ -1,9 +1,15 @@
 .Template--oras {
-  .Oras-hero-figure {
-    // height: 40vw;
-    // width: 100px;
-  }
-  .Oras-hero-figure-img {
-    // width: 300px;
+  /**
+   * Fix weird pixel on top in the video
+   */
+  .Template-videoBathroom {
+    .Image-figure {
+      overflow: hidden;
+    }
+
+    .Image-video {
+      position: relative;
+      top: -2px;
+    }
   }
 }
