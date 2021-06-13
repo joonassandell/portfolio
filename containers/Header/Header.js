@@ -84,7 +84,7 @@ export default function Header(props) {
 
   useEffect(() => {
     const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
-    setArrowPosFromRef(btnArrow.current);
+    resize();
 
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
