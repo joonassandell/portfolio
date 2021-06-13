@@ -1,0 +1,29 @@
+.Figure {
+  margin-bottom: rem($space-xl);
+
+  &.-mask {
+    // max-height: 102%;
+    overflow: hidden;
+  }
+
+  &.-placeholderColor\:10 {
+    .Figure-figure {
+      background: $bg-10;
+    }
+  }
+
+  &.-placeholderColor\:50 {
+    .Figure-figure {
+      background: $bg-50;
+    }
+  }
+}
+
+.Figure-figure {
+  margin-bottom: 0;
+}
+
+.Figure-video {
+  height: 100%;
+  width: 100%;
+}
