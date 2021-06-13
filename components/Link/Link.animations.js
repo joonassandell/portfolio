@@ -1,12 +1,8 @@
-import {
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondaryFastest,
-} from '../../lib/config';
+import { transPrimaryFast, transPrimaryFastest } from '../../lib/config';
 
 const outVariant = {
   in: {
-    transition: transSecondaryFastest,
+    transition: transPrimaryFastest,
     y: '-2rem',
   },
   out: {
@@ -31,7 +27,7 @@ const inVariant = {
 
 const outVariantX = {
   in: {
-    transition: transSecondaryFastest,
+    transition: transPrimaryFastest,
     x: '2rem',
   },
   out: {
