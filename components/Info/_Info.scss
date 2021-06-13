@@ -7,8 +7,9 @@
   transform: scaleX(0);
   transform-origin: top left;
 
-  @include mq(m) {
-    margin-bottom: rem($space-xxl);
+  @include mq(l) {
+    margin-bottom: rem($space-xxxl);
+    // margin-bottom: rem($space * 6);
   }
 }
 
@@ -22,7 +23,11 @@
 
   p {
     margin-top: auto;
-    max-width: 19ch;
+    max-width: 20ch;
+
+    @include mq(l) {
+      margin-top: rem($space-m);
+    }
   }
 }
 
@@ -35,5 +40,13 @@
 
   @include mq(m) {
     margin-top: 0;
+  }
+}
+
+.Info-text {
+  margin-bottom: rem($space-xl);
+
+  @include mq(l) {
+    margin-bottom: 0;
   }
 }
