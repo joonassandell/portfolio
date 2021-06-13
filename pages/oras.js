@@ -124,6 +124,7 @@ export default function Oras() {
               alt="Oras homepage hero"
               height={1200}
               id="oras-homepage"
+              scrollSpeed={0.5}
               src="/assets/oras/joonassandell-oras-home-hero.jpg"
               width={1584}
             />

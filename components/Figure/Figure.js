@@ -24,7 +24,7 @@ const moveInVariants = {
   },
   hidden: {
     opacity: 0,
-    y: '5rem',
+    y: '4rem',
   },
 };
 
@@ -80,6 +80,8 @@ const Figure = ({
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
+      : mask
+      ? '-20%'
       : !mask && transition != 'fade'
       ? '15%'
       : null;
