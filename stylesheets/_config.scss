@@ -69,6 +69,9 @@ $space-l: $space * 2.5;
 $space-xl: $space * 3;
 $space-xxl: $space * 4;
 $space-xxxl: $space * 5;
+$space-xxxxl: $space * 6;
+$space-xxxxxl: $space * 7;
+$space-xxxxxxl: $space * 8;
 
 
 // =========
@@ -79,13 +82,14 @@ $wrap-spaceLeft: 6.25%;
 $wrap-spaceRight: 6.25%;
 $wrap-spaceLeft-m: $space-ml;
 $wrap-spaceRight-m: $space-ml;
-$wrap-spaceLeft-l: $space * 4;
-$wrap-spaceRight-l: $space * 4;
-$wrap-spaceLeft-l: $space-xl;
-$wrap-spaceRight-l: $space-xl;
+$wrap-spaceLeft-l: $space-xxl;
+$wrap-spaceRight-l: $space-xxl;
+// $wrap-spaceLeft-l: $space-xl;
+// $wrap-spaceRight-l: $space-xl;
 
 $grid-columns: 12;
 $grid-gap: $space-m;
+$grid-gap-l: $space-xl;
 
 $root-minWidth: 320px;
 
@@ -124,8 +128,8 @@ $white: #ffffff;
 
 // Background colors
 $bg-700: $black;
-$bg-100: darken(#ffffff, 10);
-$bg-50: darken(#ffffff, 3);
+$bg-100: darken(#ffffff, 5);
+$bg-50: darken(#ffffff, 3); //  #fdfdfd
 $bg-10: #ffffff;
 
 // Text colors

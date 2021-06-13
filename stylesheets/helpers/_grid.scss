@@ -1,15 +1,11 @@
-/* =======================================
- * Grid
- * ======================================= */
-
 .grid {
   column-gap: var(--grid-gap, 0);
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
 
   > * {
-    --span: 12;
-    grid-column: span var(--span, #{$grid-columns}) / span var(--span, #{$grid-columns});
+    --grid-span: 12;
+    grid-column: span var(--grid-span, #{$grid-columns}) / span var(--grid-span, #{$grid-columns});
   }
 
   @include mq(xs) {
@@ -18,7 +14,7 @@
 }
 
 
-/* ======
+/* ======§
  * Sizing & Layout
  * ====== */
 
@@ -26,16 +22,18 @@
   &.-auto {
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 
-    > * { --span: span; }
+    > * { --grid-span: span; }
   }
 
-  &.-l {
+  &.-size\:l {
     @include mq(m) {
-      --grid-gap: #{rem($grid-gap * 2)};
+      --grid-gap: #{rem($grid-gap-l)};
     }
   }
 
-  &.-full { --grid-gap: 0; }
+  &.-size\-full { --grid-gap: 0; }
+
+  &.-justify\:center { justify-items: center; }
 }
 
 
@@ -47,17 +45,20 @@
   $breakpoint: if($breakpoint, \@#{$breakpoint}, null);
 
   @for $i from 1 through $grid-columns {
-    .grid-col#{$i}#{$breakpoint} { --span: #{$i}; }
-    .grid-col.-start#{$i}#{$breakpoint} { grid-column-start: #{$i}; }
-    .grid-col.-end#{$i+1}#{$breakpoint} { grid-column-end: #{$i+1}; }
+    .grid-col\:#{$i}#{$breakpoint} { --grid-span: #{$i}; }
+    .grid-col.-start\:#{$i}#{$breakpoint} { grid-column-start: #{$i}; }
+    .grid-col.-end\:#{$i+1}#{$breakpoint} { grid-column-end: #{$i+1}; }
   }
 }
 
 .grid-col.-start { grid-column-start: 1; }
 .grid-col.-end   { grid-column-end: -1; }
+.grid-col.-align\:end   { align-self: end; }
+.grid-col.-align\:center   { align-self: center; }
+
 
 @include gridColumns();
-@include mq(xs) { @include gridColumns(xs); }
+// @include mq(xs) { @include gridColumns(xs); }
 @include mq(s) { @include gridColumns(s); }
 @include mq(m) { @include gridColumns(m); }
 @include mq(l) { @include gridColumns(l); }
