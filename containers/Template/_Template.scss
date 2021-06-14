@@ -5,7 +5,7 @@
   position: relative;
   top: 0;
   width: 100vw;
-  z-index: 0;
+  z-index: 2;
 
   /**
    * Hack to remove the applied scroll values from prev view.
@@ -19,10 +19,8 @@
 }
 
 .Template-overlay {
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  width: 100vw;
+  @include positionAbsoluteFill();
+  z-index: 1;
 }
 
 .Template-img-1.Figure {
@@ -32,7 +30,7 @@
 }
 
 .Template-img-2.Figure {
-  margin-bottom: rem(-$space-l);
+  margin-bottom: rem($space);
 
   @include mq(m) {
     margin-bottom: 0;
@@ -41,7 +39,7 @@
 }
 
 .Template-section {
-  padding: rem($space-xxxxxxl) 0;
+  padding: 10vw 0;
 
   &.-bg\:50 {
     background: $bg-50;

@@ -8,9 +8,7 @@ import { useAppContext } from '../App';
 
 const variantsWithTransition = {
   animate: {
-    position: 'fixed',
     y: 0,
-    zIndex: 1,
     transitionEnd: {
       position: 'relative',
     },
@@ -20,6 +18,7 @@ const variantsWithTransition = {
     zIndex: 0,
   },
   initial: {
+    position: 'fixed',
     y: '100vh',
   },
   transition: { duration: 1.2, ease: [0.76, 0, 0.18, 1] },
