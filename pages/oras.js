@@ -1,18 +1,7 @@
 import { OrasHero } from '../containers/Oras';
 import { Template } from '../containers/Template';
 import { getSitemap } from '../lib/utility';
-import { motion, useAnimation } from 'framer-motion';
-import {
-  mq,
-  scrollSpeed,
-  transPrimary,
-  transTertiary,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
-  transSecondaryFast,
-  transSecondaryFastest,
-} from '../lib/config';
+import { mq, scrollSpeed } from '../lib/config';
 import Info from '../components/Info';
 import Figure from '../components/Figure';
 
@@ -81,7 +70,7 @@ export default function Oras() {
         </div>
       </section>
       <section className="grid -size:l">
-        <div className="grid-col grid-col:6">
+        <div className="grid-col grid-col:10 grid-col:6@m">
           <Figure
             className="Template-videoBathroom"
             alt="Oras lifestyle animation concept"
@@ -91,7 +80,7 @@ export default function Oras() {
             src="/assets/oras/joonassandell-oras-bathroom.mp4"
           />
         </div>
-        <div className="grid-col grid-col:6">
+        <div className="grid-col grid-col:10 -end grid-col:6@m">
           <Figure
             alt="Oras get inspired animation concept"
             id="oras-get-inspired-animation"

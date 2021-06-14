@@ -139,6 +139,7 @@ const Figure = ({
             <NextImage
               alt={alt}
               className="Figure-img"
+              draggable="false"
               layout="responsive"
               sizes={sizes}
               src={src}

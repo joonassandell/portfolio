@@ -89,12 +89,13 @@ export default function OrasHero({
             >
               <Image
                 alt="Oras faucet"
+                draggable="false"
                 height={2552}
                 layout="responsive"
                 onClick={onClick}
+                sizes="33vw"
                 src="/assets/oras/joonassandell-oras-hero.png"
                 width={2192}
-                sizes="33vw"
                 quality="90"
                 {...(priority && { priority: true })}
               />
@@ -130,6 +131,7 @@ export default function OrasHero({
             >
               <Image
                 aria-hidden="true"
+                draggable="false"
                 height={256}
                 layout="responsive"
                 src="/assets/oras/drop.png"
@@ -186,6 +188,7 @@ export default function OrasHero({
       >
         <Image
           aria-hidden="true"
+          draggable="false"
           height={256}
           layout="responsive"
           src="/assets/oras/drop.png"
@@ -220,6 +223,7 @@ export default function OrasHero({
         >
           <Image
             aria-hidden="true"
+            draggable="false"
             height={256}
             layout="responsive"
             src="/assets/oras/drop.png"

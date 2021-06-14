@@ -9,6 +9,7 @@
   height: 25%;
   letter-spacing: -0.05em;
   mix-blend-mode: difference;
+  user-select: none;
   white-space: nowrap;
 
   @include mq($until: xxs) {
