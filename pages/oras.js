@@ -21,21 +21,19 @@ const oras = getSitemap('oras');
 export default function Oras() {
   return (
     <Template name={oras.id} title={oras.title}>
-      <OrasHero />
+      <OrasHero priority={true} />
       <Info
         client={{ name: oras.title, href: 'https://oras.com' }}
         employer={{ name: 'Mediasignal', href: 'https://mediasignal.fi/en' }}
         heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We we're asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
         smallPrint="Made together with wonderful people at Mediasignal and Hasan & Partners."
         text={
-          <>
-            <p>
-              After several iterations the Oras brand was modernised entirely in
-              connection with the web service overhaul. The web service was used
-              to create a bold and distinct image of Oras and to strongly
-              highlight the brand’s new promise.
-            </p>
-          </>
+          <p>
+            After several iterations the Oras brand was modernised entirely in
+            connection with the web service overhaul. The web service was used
+            to create a bold and distinct image of Oras and to strongly
+            highlight the brand’s new promise.
+          </p>
         }
         role={['UI/UX design', 'Web development', 'Concept strategy']}
         year="2016"
@@ -65,17 +63,19 @@ export default function Oras() {
         </div>
       </section>
       <section className="Template-section -bg:gradient-10-50-10">
-        <div className="grid">
-          <div className="grid-col grid-col:8 -start:3">
+        <div className="grid wrap">
+          <div className="grid-col grid-col:10 -start:2">
             <Figure
               alt="Oras product family"
-              height={6072}
+              height={7590}
               id="oras-product-family"
-              placeholderColor={50}
+              placeholderColor={10}
               scrolling={false}
               transition="fade"
               src="/assets/oras/joonassandell-oras-product-family.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.l} 80vw, 100vw`}
+              quality={90}
             />
           </div>
         </div>
@@ -102,76 +102,82 @@ export default function Oras() {
         </div>
       </section>
       <section className="Template-section -bg:gradient-10-50-10 paddingBottom-0">
-        <div className="wrap grid">
-          <div className="grid-col grid-col:7 -end">
+        <div className="wrap grid -size:l">
+          <div className="grid-col grid-col:8@m -end">
             <Figure
               alt="Oras kitchen experience"
-              height={6338}
+              height={7923}
               id="oras-ux-kitchen"
               placeholderColor={10}
               scrolling={false}
               transition="fade"
               src="/assets/oras/joonassandell-oras-ux-kitchen.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.m} 80vw, 100vw`}
             />
           </div>
         </div>
       </section>
       <section className="Template-section paddingBottom-0">
         <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:7">
+          <div className="grid-col grid-col:7@m">
             <Figure
               alt="Oras homepage hero"
-              height={1200}
+              height={1499}
               id="oras-homepage"
               scrollSpeed={0.5}
               src="/assets/oras/joonassandell-oras-home-hero.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.m} 70vw, 100vw`}
             />
           </div>
-          <div className="grid-col grid-col:4 -start:9 -align:end">
+          <div className="grid-col grid-col:9 -start:4 grid-col:4@m -start:9@m -align:end">
             <Figure
               alt="Oras live more page hero"
-              height={890}
+              height={1113}
               id="oras-live-more"
               scrollSpeed={-scrollSpeed}
               transition="fade"
               src="/assets/oras/joonassandell-oras-live-more-hero.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.m} 33vw, 80vw`}
             />
           </div>
-          <div className="grid-col grid-col:8 -start:4">
+          <div className="grid-col grid-col:9 grid-col:8@m -start:4@m">
             <Figure
               alt="Oras look book cta"
-              height={1368}
+              height={1710}
               id="oras-look-booked"
               scrolling={false}
               src="/assets/oras/joonassandell-oras-look-booked.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.m} 80vw, 100vw`}
             />
           </div>
         </div>
       </section>
       <section className="Template-section -bg:gradient-10-50-10">
-        <div className="wra grid">
-          <div className="grid-col grid-col:7">
+        <div className="wrap grid -size:l">
+          <div className="grid-col grid-col:8@m">
             <Figure
-              alt="Oras single product"
-              height={4824}
+              alt="Oras single product page"
+              height={6030}
               id="oras-product-single"
               placeholderColor={10}
               scrolling={false}
               transition="fade"
               src="/assets/oras/joonassandell-oras-product-single.jpg"
-              width={1584}
+              width={1980}
+              sizes={`${mq.m} 80vw, 100vw`}
             />
           </div>
-          <div className="grid-col grid-col:4 -start:9 -align:center">
+          <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
             <Figure
               alt="Oras man showering"
               id="oras-man-2"
               mask={true}
               src="/assets/oras/joonassandell-oras-man.jpg"
+              sizes={`${mq.m} 50vw, 33vw`}
             />
           </div>
         </div>

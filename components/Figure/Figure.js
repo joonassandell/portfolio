@@ -57,6 +57,7 @@ const Figure = ({
   transition,
   src,
   width,
+  quality,
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
@@ -77,12 +78,16 @@ const Figure = ({
       : null,
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
+
+  /**
+   * 1. This means default, which starts the move in transition a bit earlier
+   */
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
       : mask
       ? '-20%'
-      : !mask && transition != 'fade'
+      : !mask && transition != 'fade' // [1.]
       ? '15%'
       : null;
 
@@ -143,6 +148,7 @@ const Figure = ({
                   setImageIsLoaded(true);
                 }
               }}
+              quality={quality}
               {...imageSize}
             />
           )}

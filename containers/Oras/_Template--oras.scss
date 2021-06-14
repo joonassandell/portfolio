@@ -3,11 +3,11 @@
    * Fix weird pixel on top in the video
    */
   .Template-videoBathroom {
-    .Image-figure {
+    .Figure-figure {
       overflow: hidden;
     }
 
-    .Image-video {
+    .Figure-video {
       position: relative;
       top: -2px;
     }

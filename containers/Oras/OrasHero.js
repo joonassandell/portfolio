@@ -5,7 +5,12 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import { scrollSpeed, transPrimary, transSecondary } from '../../lib/config';
+import {
+  mq,
+  scrollSpeed,
+  transPrimary,
+  transSecondary,
+} from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
 
@@ -22,6 +27,7 @@ export default function OrasHero({
   animationState = 'initial', // preAnimation, initial
   id,
   onClick,
+  priority = false,
 }) {
   const router = useRouter();
   const headingDisplay = useAnimation();
@@ -93,6 +99,8 @@ export default function OrasHero({
                 onClick={onClick}
                 src="/assets/oras/joonassandell-oras-hero.png"
                 width={2192}
+                sizes="33vw"
+                {...(priority && { priority: true })}
               />
             </figure>
             <motion.div
