@@ -5,12 +5,7 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import {
-  mq,
-  scrollSpeed,
-  transPrimary,
-  transSecondary,
-} from '../../lib/config';
+import { scrollSpeed, transPrimary, transSecondary } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
 
@@ -57,7 +52,7 @@ export default function OrasHero({
           y: '-175%',
           transition: transPrimary,
         });
-        router.push(oras.url);
+        router.push(oras.url, false, { scroll: false });
       })();
     }
   });
@@ -100,6 +95,7 @@ export default function OrasHero({
                 src="/assets/oras/joonassandell-oras-hero.png"
                 width={2192}
                 sizes="33vw"
+                quality="90"
                 {...(priority && { priority: true })}
               />
             </figure>
