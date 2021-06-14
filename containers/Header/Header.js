@@ -125,7 +125,9 @@ export default function Header(props) {
       return;
     }
 
-    router.push(url);
+    router.push(url, false, {
+      scroll: false,
+    });
   };
 
   useEffect(() => {

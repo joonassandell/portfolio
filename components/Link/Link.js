@@ -39,7 +39,7 @@ const Link = ({
     <ConditionalWrapper
       condition={href}
       wrapper={children => (
-        <NextLink href={href} passHref>
+        <NextLink href={href} passHref scroll={false}>
           {children}
         </NextLink>
       )}
@@ -57,7 +57,7 @@ const Link = ({
           templateTransition
             ? setTemplateTransition(true)
             : setTemplateTransition(false);
-          onClick ? onClick(e) : false;
+          onClick && onClick(e);
         }}
         onFocus={() => {
           if (!hover) {
