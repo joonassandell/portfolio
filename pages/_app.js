@@ -9,24 +9,28 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import Header from '../containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const { appState, setTemplateTransition } = useAppContext();
   const { templateTransition } = appState;
+  const [utils, setUtils] = useState();
   const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
     /**
-     * Fix locomotive scroll for not triggering in iOS on page load.
+     * 1. Fix locomotive scroll to trigger in iOS on page load/after anim.
      */
     (async () => {
       const utils = await import('../lib/detect');
-      if (scroll && utils.isIOS) {
-        scroll.scrollTo(1);
-      }
+      setUtils(utils);
     })();
-  }, [scroll]);
+  }, []);
+
+  useEffect(() => {
+    // !window.scrollY > 0 &&
+    scroll && utils && utils.isIOS && scroll.scrollTo(-1); // [1.]
+  }, [scroll, utils]);
 
   return (
     <AnimatePresence
@@ -38,6 +42,7 @@ const Main = ({ Component, pageProps, innerKey }) => {
         if (scroll) {
           scroll.destroy();
           scroll.init();
+          utils.isIOS && scroll.scrollTo(-1); // [1.]
         }
       }}
     >
