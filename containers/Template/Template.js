@@ -65,14 +65,16 @@ const Template = ({ children, name, title }) => {
           ? { ...variantsWithTransition }
           : { ...variantsWithoutTransition })}
       >
-        <div data-scroll-section>{children}</div>
+        <div className="Template-inner" data-scroll-section>
+          {children}
+        </div>
         {displayOverlay && (
           <motion.div
-            exit={{
+            animate={{
               backgroundColor: 'var(--Template-overlayColor)',
-              transition: variantsWithTransition.transition,
             }}
             className="Template-overlay"
+            transition={variantsWithTransition.transition}
           />
         )}
       </motion.div>

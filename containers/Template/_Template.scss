@@ -5,7 +5,7 @@
   position: relative;
   top: 0;
   width: 100vw;
-  z-index: 2;
+  z-index: 1;
 
   /**
    * Hack to remove the applied scroll values from prev view.
@@ -16,6 +16,11 @@
       transform: none !important;
     }
   }
+}
+
+.Template-inner {
+  position: relative;
+  z-index: 0;
 }
 
 .Template-overlay {
