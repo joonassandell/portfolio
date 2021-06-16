@@ -21,6 +21,7 @@
     "react-locomotive-scroll": "^0.1.7",
     "react-use": "^17.2.1",
     "smoothscroll-polyfill": "^0.4.4",
+    "universal-cookie": "^4.0.4",
     "use-callback-ref": "^1.2.5"
   },
   "devDependencies": {

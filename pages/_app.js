@@ -10,6 +10,8 @@ import { AnimatePresence } from 'framer-motion';
 import Header from '../containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect, useState } from 'react';
+import { default as _App } from 'next/app';
+import Cookies from 'universal-cookie';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const { appState, setTemplateTransition } = useAppContext();
@@ -55,6 +57,14 @@ function NextApp({ Component, pageProps, router }) {
   if (typeof window !== 'undefined') smoothscroll.polyfill();
   const containerRef = useRef(null);
 
+  if (pageProps.notLoggedIn) {
+    return (
+      <App>
+        <Component {...pageProps} />
+      </App>
+    );
+  }
+
   return (
     <App>
       <LocomotiveScrollProvider
@@ -73,6 +83,29 @@ function NextApp({ Component, pageProps, router }) {
       </LocomotiveScrollProvider>
     </App>
   );
+}
+
+if (process.env.NODE_ENV != 'development') {
+  NextApp.getInitialProps = async context => {
+    const appProps = await _App.getInitialProps(context);
+    const cookies = new Cookies(context.ctx.req.headers.cookie);
+    const password = cookies.get('pw') ?? '';
+    const pass = 'portto';
+
+    if (password !== pass) {
+      appProps.pageProps.notLoggedIn = true;
+    }
+
+    if (password !== pass && context.ctx.req.url !== '/login') {
+      context.ctx.res.writeHead(302, { Location: '/login' });
+    }
+
+    if (password === pass) {
+      appProps.pageProps.notLoggedIn = false;
+    }
+
+    return { ...appProps };
+  };
 }
 
 export default NextApp;
