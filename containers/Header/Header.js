@@ -125,7 +125,7 @@ export default function Header(props) {
       return;
     }
 
-    router.push(url, false, {
+    router.push(url, null, {
       scroll: false,
     });
   };

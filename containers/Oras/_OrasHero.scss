@@ -56,7 +56,6 @@
   @include mq(l) {
     margin-left: rem($space * -7);
     top: rem($space * 6);
-    // top: 10vw;
   }
 }
 
@@ -106,14 +105,14 @@
 }
 
 .OrasHero-drop--3 {
-  display: none;
-  left: rem($space * -4);
-  max-width: rem($space * 5);
-  top: rem(-$space-xl);
+  left: rem($space * -1.5);
+  max-width: rem($space * 3);
+  top: rem(-$space-m);
 
   @include mq(m) {
-    display: block;
+    left: -20%;
     max-width: rem($space * 6);
+    top: rem(-$space-xl);
   }
 }
 

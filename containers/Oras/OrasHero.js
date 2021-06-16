@@ -5,7 +5,12 @@ import {
   useMotionValue,
   useTransform,
 } from 'framer-motion';
-import { scrollSpeed, transPrimary, transSecondary } from '../../lib/config';
+import {
+  scrollSpeed,
+  transPrimary,
+  transSecondary,
+  transTertiary,
+} from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
 
@@ -52,7 +57,7 @@ export default function OrasHero({
           y: '-175%',
           transition: transPrimary,
         });
-        router.push(oras.url, false, { scroll: false });
+        router.push(oras.url, null, { scroll: false });
       })();
     }
   });
@@ -114,9 +119,8 @@ export default function OrasHero({
                 animationStart && {
                   opacity: 1,
                   transition: {
-                    delay: 0.5,
-                    damping: 30,
-                    type: 'spring',
+                    ...transTertiary,
+                    delay: 0.25,
                   },
                   y: 0,
                 }
@@ -134,8 +138,10 @@ export default function OrasHero({
                 draggable="false"
                 height={256}
                 layout="responsive"
+                sizes="10vw"
                 src="/assets/oras/drop.png"
                 width={256}
+                {...(priority && { priority: true })}
               />
             </motion.div>
           </div>
@@ -171,9 +177,8 @@ export default function OrasHero({
           animationStart && {
             opacity: 1,
             transition: {
-              delay: 0.2,
-              damping: 30,
-              type: 'spring',
+              ...transTertiary,
+              delay: 0.1,
             },
             y: 0,
           }
@@ -191,8 +196,10 @@ export default function OrasHero({
           draggable="false"
           height={256}
           layout="responsive"
+          sizes="10vw"
           src="/assets/oras/drop.png"
           width={256}
+          {...(priority && { priority: true })}
         />
       </motion.div>
       <motion.div
@@ -200,9 +207,8 @@ export default function OrasHero({
           animationStart && {
             opacity: 1,
             transition: {
-              delay: 0.5,
-              damping: 25,
-              type: 'spring',
+              ...transTertiary,
+              delay: 0.25,
             },
             y: 0,
           }
@@ -211,7 +217,7 @@ export default function OrasHero({
         initial={
           preAnimation && {
             opacity: 0,
-            y: -120,
+            y: -40,
           }
         }
       >
@@ -226,8 +232,10 @@ export default function OrasHero({
             draggable="false"
             height={256}
             layout="responsive"
+            sizes="10vw"
             src="/assets/oras/drop.png"
             width={256}
+            {...(priority && { priority: true })}
           />
         </div>
       </motion.div>
