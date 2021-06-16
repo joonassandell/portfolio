@@ -57,13 +57,26 @@ function NextApp({ Component, pageProps, router }) {
   if (typeof window !== 'undefined') smoothscroll.polyfill();
   const containerRef = useRef(null);
 
-  if (pageProps.notLoggedIn) {
-    return (
-      <App>
-        <Component {...pageProps} />
-      </App>
-    );
-  }
+  /**
+   * Remove this crap, universal-cookie and portto.js once published.
+   */
+  const cookies = new Cookies();
+  const _ = cookies.get('portto');
+  const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
+  useEffect(() => {
+    if (
+      production &&
+      router.route === '/portto' &&
+      typeof window !== 'undefined'
+    ) {
+      const cookies = new Cookies();
+      cookies.set('portto', true, {
+        path: '/',
+      });
+      window.location.href = '/';
+    }
+  }, []);
+  if (!_ && production) return <></>;
 
   return (
     <App>
@@ -83,29 +96,6 @@ function NextApp({ Component, pageProps, router }) {
       </LocomotiveScrollProvider>
     </App>
   );
-}
-
-if (process.env.NODE_ENV != 'development') {
-  NextApp.getInitialProps = async context => {
-    const appProps = await _App.getInitialProps(context);
-    const cookies = new Cookies(context.ctx.req.headers.cookie);
-    const password = cookies.get('pw') ?? '';
-    const pass = 'portto';
-
-    if (password !== pass) {
-      appProps.pageProps.notLoggedIn = true;
-    }
-
-    if (password !== pass && context.ctx.req.url !== '/login') {
-      context.ctx.res.writeHead(302, { Location: '/login' });
-    }
-
-    if (password === pass) {
-      appProps.pageProps.notLoggedIn = false;
-    }
-
-    return { ...appProps };
-  };
 }
 
 export default NextApp;
