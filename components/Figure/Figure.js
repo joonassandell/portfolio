@@ -18,13 +18,11 @@ import c from 'classnames';
 
 const moveInVariants = {
   inView: {
-    opacity: 1,
-    transition: transTertiary,
-    y: 0,
+    clipPath: 'polygon(0% 100%, 100.2% 100%, 100.2% 0%, 0% 0%)',
+    transition: transPrimary,
   },
   hidden: {
-    opacity: 0,
-    y: '4rem',
+    clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
   },
 };
 
@@ -40,9 +38,9 @@ const fadeVariants = {
 
 const Figure = ({
   alt,
+  blurDataURL,
   className,
   height,
-  id = 'image',
   mask = false,
   size = '3:4',
   placeholderColor,
@@ -66,7 +64,6 @@ const Figure = ({
   });
   const { scroll } = useLocomotiveScroll();
   const [inView, setInView] = useState(false);
-  const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src.indexOf('mp4') > -1;
   const imageSize = {
     height: height
@@ -88,22 +85,14 @@ const Figure = ({
       : mask
       ? '-20%'
       : !mask && transition != 'fade' // [1.]
-      ? '15%'
+      ? '-25%'
       : null;
 
-  /**
-   * Let the mask scroll effect go even less image hasn't loaded and element is in view
-   */
-  const figureInView = mask
-    ? imageIsLoaded
-    : isVideo
-    ? inView
-    : imageIsLoaded && inView;
   const figureVariants =
     mask || transition === 'fade' ? fadeVariants : moveInVariants;
 
   if (scroll) {
-    scroll.on('scroll', args => isInView(args, id, () => setInView(true)));
+    scroll.on('scroll', args => isInView(args, src, () => setInView(true)));
   }
 
   useEffect(() => {
@@ -114,7 +103,7 @@ const Figure = ({
     <motion.div
       className={classes}
       data-scroll
-      data-scroll-id={id}
+      data-scroll-id={src}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(offset && { 'data-scroll-offset': offset })}
       {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
@@ -130,7 +119,7 @@ const Figure = ({
         {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <motion.div
-          animate={figureInView ? 'inView' : false}
+          animate={inView ? 'inView' : false}
           className="Figure-figure-inner"
           initial="hidden"
           variants={figureVariants}
@@ -143,13 +132,9 @@ const Figure = ({
               layout="responsive"
               sizes={sizes}
               src={src}
-              onLoad={event => {
-                const target = event.target;
-                if (target.src.indexOf('data:image/gif;base64') < 0) {
-                  setImageIsLoaded(true);
-                }
-              }}
               quality={quality}
+              {...(blurDataURL && { blurDataURL })}
+              {...(blurDataURL && { placeholder: 'blur' })}
               {...imageSize}
             />
           )}
