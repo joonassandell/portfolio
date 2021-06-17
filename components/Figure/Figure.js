@@ -12,8 +12,9 @@ import {
   transSecondaryFastest,
 } from '../../lib/config';
 import { default as NextImage } from 'next/image';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { isInView } from '../../lib/utility';
+import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 
 const moveInVariants = {
@@ -38,7 +39,7 @@ const fadeVariants = {
 
 const Figure = ({
   alt,
-  blurDataURL,
+  blurhash,
   className,
   height,
   mask = false,
@@ -51,6 +52,7 @@ const Figure = ({
   scrollImageSpeed = -3,
   scrollOffset,
   scrollImageOffset = '-20%',
+  priority,
   sizes,
   transition,
   src,
@@ -64,6 +66,7 @@ const Figure = ({
   });
   const { scroll } = useLocomotiveScroll();
   const [inView, setInView] = useState(false);
+  const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src.indexOf('mp4') > -1;
   const imageSize = {
     height: height
@@ -77,16 +80,18 @@ const Figure = ({
   };
 
   /**
-   * 1. This means default, which starts the move in transition a bit earlier
+   * 1. Mask offset
+   * 2. Default offset
+   * 3. Fade offset
    */
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
       : mask
-      ? '-20%'
-      : !mask && transition != 'fade' // [1.]
+      ? '-25%' // [1.]
+      : !mask && transition != 'fade' // [2.]
       ? '-25%'
-      : null;
+      : '15%'; // [3.]
 
   const figureVariants =
     mask || transition === 'fade' ? fadeVariants : moveInVariants;
@@ -124,6 +129,27 @@ const Figure = ({
           initial="hidden"
           variants={figureVariants}
         >
+          {!isVideo && blurhash && (
+            <AnimatePresence>
+              {!imageIsLoaded && (
+                <motion.div
+                  animate={{ opacity: 1 }}
+                  className="Figure-blur"
+                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0 }}
+                  transition={transTertiaryFast}
+                >
+                  <BlurhashCanvas
+                    className="Figure-blur-canvas"
+                    hash={blurhash.hash}
+                    width={blurhash.height}
+                    height={blurhash.width}
+                    punch={1}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )}
           {!isVideo && (
             <NextImage
               alt={alt}
@@ -133,8 +159,13 @@ const Figure = ({
               sizes={sizes}
               src={src}
               quality={quality}
-              {...(blurDataURL && { blurDataURL })}
-              {...(blurDataURL && { placeholder: 'blur' })}
+              onLoad={event => {
+                const target = event.target;
+                if (target.src.indexOf('data:image/gif;base64') < 0) {
+                  setImageIsLoaded(true);
+                }
+              }}
+              {...(priority && { priority: true })}
               {...imageSize}
             />
           )}

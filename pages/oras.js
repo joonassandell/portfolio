@@ -71,6 +71,8 @@ const Oras = ({ images }) => {
               sizes={`${mq.l} 80vw, 100vw`}
               quality={90}
               {...family}
+              blurhash={false}
+              priority
             />
           </div>
         </div>
@@ -102,6 +104,7 @@ const Oras = ({ images }) => {
               transition="fade"
               sizes={`${mq.m} 80vw, 100vw`}
               {...kitchen}
+              blurhash={false}
             />
           </div>
         </div>
@@ -164,11 +167,13 @@ export const getStaticProps = async () => {
   const imagePaths = getImages(oras.id);
   const images = await Promise.all(
     imagePaths.map(async src => {
-      const { base64, img } = await getPlaiceholder(src);
+      const { blurhash, img } = await getPlaiceholder(src, {
+        size: 32,
+      });
 
       return {
         ...img,
-        blurDataURL: base64,
+        blurhash,
       };
     }),
   ).then(values => values);

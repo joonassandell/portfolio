@@ -2,7 +2,6 @@
   margin-bottom: rem($space-xl);
 
   &.-mask {
-    // max-height: 102%;
     overflow: hidden;
   }
 
@@ -21,6 +20,17 @@
 
 .Figure-figure {
   margin-bottom: 0;
+}
+
+.Figure-figure-inner {
+  position: relative;
+}
+
+.Figure-blur, .Figure-blur-canvas {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 .Figure-video {
