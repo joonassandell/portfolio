@@ -60,12 +60,13 @@
 }
 
 .OrasHero-figure-bg {
-  background: linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%);
+  background: linear-gradient(180deg, #E9E9E9 0%, rgba(#E9E9E9, 0) 100%);
   height: 100vh;
   width: 100%;
   z-index: 0;
 
   .OrasHero.-preAnimation & {
+    background: #E9E9E9;
     height: 90%;
     height: 100%;
   }
@@ -83,6 +84,18 @@
 }
 
 .OrasHero-drop--1 {
+  left: rem($space * -1.5);
+  max-width: rem($space * 3);
+  top: rem(-$space-m);
+
+  @include mq(m) {
+    left: -20%;
+    max-width: rem($space * 6);
+    top: rem(-$space-xl);
+  }
+}
+
+.OrasHero-drop--2 {
   left: 15vw;
   max-width: 12.5%;
   top: 18%;
@@ -94,25 +107,13 @@
   }
 }
 
-.OrasHero-drop--2 {
+.OrasHero-drop--3 {
   bottom: 10%;
   left: 35vw;
   max-width: 10%;
 
   @include mq(m) {
     max-width: rem($space * 5);
-  }
-}
-
-.OrasHero-drop--3 {
-  left: rem($space * -1.5);
-  max-width: rem($space * 3);
-  top: rem(-$space-m);
-
-  @include mq(m) {
-    left: -20%;
-    max-width: rem($space * 6);
-    top: rem(-$space-xl);
   }
 }
 

@@ -1,4 +1,4 @@
-import { transPrimary } from '../lib/config';
+import { fadeOutVariants, transPrimary } from '../lib/config';
 import { getSitemap } from '../lib/utility';
 import { useState } from 'react';
 
@@ -36,13 +36,10 @@ export default function Home() {
     <>
       <Template name={home.id} title="Portfolio">
         <motion.div
-          animate={
-            animationHide && {
-              opacity: 0,
-            }
-          }
+          animate={animationHide}
+          exit="exit"
           className="Template-about"
-          transition={transPrimary}
+          variants={fadeOutVariants}
         >
           <div className="wrap">
             <Link

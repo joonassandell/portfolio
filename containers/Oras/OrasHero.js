@@ -1,19 +1,14 @@
-import {
-  animate,
-  motion,
-  useAnimation,
-  useMotionValue,
-  useTransform,
-} from 'framer-motion';
-import {
-  scrollSpeed,
-  transPrimary,
-  transSecondary,
-  transTertiary,
-} from '../../lib/config';
+import { motion } from 'framer-motion';
+import { fadeOutVariants, scrollSpeed } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
-
+import {
+  bgVariants,
+  headingVariants,
+  dropVariants,
+  dropVariants2,
+  dropVariants3,
+} from './OrasHero.animations';
 import Image from 'next/image';
 import c from 'classnames';
 import { useEffect } from 'react';
@@ -36,46 +31,18 @@ export default function OrasHero({
     '-initial': initial,
   });
   const router = useRouter();
-  const headingDisplay = useAnimation();
-  const bg = useAnimation();
-  const bgGradientValue = useMotionValue(0);
-  const bgGradient = useTransform(
-    bgGradientValue,
-    [0, 100],
-    [
-      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
-      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
-    ],
-  );
-  const HeadingDisplay = preAnimation ? motion.h2 : motion.h1;
+  const Heading = preAnimation ? motion.h2 : motion.h1;
 
   useEffect(() => {
-    if (animationStart) {
-      (async () => {
-        animate(bgGradientValue, 100, transSecondary);
-        bg.start({
-          height: '100vh',
-          transition: transSecondary,
-        });
-        await headingDisplay.start({
-          y: '-175%',
-          transition: transPrimary,
-        });
-        router.push(oras.url, null, { scroll: false });
-      })();
-    }
+    if (animationStart) router.push(oras.url, null, { scroll: false });
   }, [animationStart]);
 
   return (
     <motion.section
-      animate={
-        animationHideStart && {
-          opacity: 0,
-          transition: transPrimary,
-        }
-      }
+      animate={animationHideStart}
       className={classes}
       id={id}
+      variants={fadeOutVariants}
     >
       <div className="OrasHero-wrap wrap">
         <div className="grid">
@@ -107,32 +74,17 @@ export default function OrasHero({
               />
             </figure>
             <motion.div
-              animate={bg}
+              animate={animationStart}
               className="OrasHero-figure-bg"
-              style={
-                preAnimation && {
-                  background: bgGradient,
-                }
-              }
+              exit="exit"
+              variants={bgVariants}
             />
             <motion.div
-              animate={
-                animationStart && {
-                  opacity: 1,
-                  transition: {
-                    ...transTertiary,
-                    delay: 0.25,
-                  },
-                  y: 0,
-                }
-              }
-              className="OrasHero-drop OrasHero-drop--3"
-              initial={
-                preAnimation && {
-                  opacity: 0,
-                  y: -24,
-                }
-              }
+              animate={animationStart}
+              className="OrasHero-drop OrasHero-drop--1"
+              exit="exit"
+              variants={dropVariants}
+              {...(preAnimation && { initial: 'preAnimation' })}
             >
               <Image
                 aria-hidden="true"
@@ -148,13 +100,10 @@ export default function OrasHero({
           </div>
           {preAnimation && (
             <motion.div
-              animate={
-                animationStart && {
-                  opacity: 0,
-                  transition: transPrimary,
-                }
-              }
+              animate={animationStart}
+              exit="exit"
               className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
+              variants={fadeOutVariants}
             >
               <h2 className="OrasHero-content-heading Text -l">Oras</h2>
               <p className="OrasHero-content-text Text -s">
@@ -174,23 +123,11 @@ export default function OrasHero({
         </div>
       </div>
       <motion.div
-        animate={
-          animationStart && {
-            opacity: 1,
-            transition: {
-              ...transTertiary,
-              delay: 0.1,
-            },
-            y: 0,
-          }
-        }
-        initial={
-          preAnimation && {
-            opacity: 0,
-            y: -96,
-          }
-        }
-        className="OrasHero-drop OrasHero-drop--1"
+        animate={animationStart}
+        className="OrasHero-drop OrasHero-drop--2"
+        exit="exit"
+        variants={dropVariants2}
+        {...(preAnimation && { initial: 'preAnimation' })}
       >
         <Image
           aria-hidden="true"
@@ -204,23 +141,11 @@ export default function OrasHero({
         />
       </motion.div>
       <motion.div
-        animate={
-          animationStart && {
-            opacity: 1,
-            transition: {
-              ...transTertiary,
-              delay: 0.25,
-            },
-            y: 0,
-          }
-        }
-        className="OrasHero-drop OrasHero-drop--2"
-        initial={
-          preAnimation && {
-            opacity: 0,
-            y: -40,
-          }
-        }
+        animate={animationStart}
+        className="OrasHero-drop OrasHero-drop--3"
+        exit="exit"
+        variants={dropVariants3}
+        {...(preAnimation && { initial: 'preAnimation' })}
       >
         <div
           data-scroll
@@ -240,10 +165,12 @@ export default function OrasHero({
           />
         </div>
       </motion.div>
-      <HeadingDisplay
-        animate={headingDisplay}
+      <Heading
+        animate={animationStart}
         className="OrasHero-heading Heading Heading--display"
+        exit="exit"
         onClick={onClick}
+        variants={headingVariants}
         {...(preAnimation && { 'aria-hidden': 'true' })}
       >
         <div
@@ -254,18 +181,14 @@ export default function OrasHero({
           data-scroll-speed={scrollSpeed}
         >
           Oras—2016
-          {/* Oras &middot; 2016 */}
         </div>
-      </HeadingDisplay>
+      </Heading>
       {preAnimation && (
         <motion.div
-          animate={
-            animationStart && {
-              opacity: 0,
-              transition: transPrimary,
-            }
-          }
+          animate={animationStart}
           className="OrasHero-buttonMobile wrap"
+          exit="exit"
+          variants={fadeOutVariants}
         >
           <div className="grid -placeEnd">
             <div className="grid-col">
