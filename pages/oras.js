@@ -19,6 +19,13 @@ const Oras = ({ images }) => {
   const lookBooked = getImage('joonassandell-oras-look-booked', images);
   const single = getImage('joonassandell-oras-product-single', images);
   const man = getImage('joonassandell-oras-man', images);
+  const s1 = getImage('joonassandell-oras-strategy-1', images);
+  const s2 = getImage('joonassandell-oras-strategy-2', images);
+  const s3 = getImage('joonassandell-oras-strategy-3', images);
+  const s4 = getImage('joonassandell-oras-strategy-4', images);
+  const s5 = getImage('joonassandell-oras-strategy-5', images);
+  const s6 = getImage('joonassandell-oras-strategy-6', images);
+  const s7 = getImage('joonassandell-oras-strategy-7', images);
 
   return (
     <Template name={oras.id} title={oras.title}>
@@ -60,7 +67,7 @@ const Oras = ({ images }) => {
           />
         </div>
       </section>
-      <section className="Template-section -bg:gradient-10-50-10">
+      <section className="Template-section -bg:gradient-10-50-10 -padding:full">
         <div className="grid wrap">
           <div className="grid-col grid-col:10 -start:2">
             <Figure
@@ -94,7 +101,7 @@ const Oras = ({ images }) => {
           />
         </div>
       </section>
-      <section className="Template-section -bg:gradient-10-50-10 paddingBottom-0">
+      <section className="Template-section -bg:gradient-10-50-10">
         <div className="wrap grid -size:l">
           <div className="grid-col grid-col:8@m -end">
             <Figure
@@ -109,7 +116,7 @@ const Oras = ({ images }) => {
           </div>
         </div>
       </section>
-      <section className="Template-section paddingBottom-0">
+      <section className="Template-section">
         <div className="wrap grid -size:l">
           <div className="grid-col grid-col:7@m">
             <Figure
@@ -155,6 +162,73 @@ const Oras = ({ images }) => {
               mask={true}
               sizes={`${mq.m} 50vw, 33vw`}
               {...man}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="Template-section -padding:full">
+        <div className="grid -size:l wra">
+          <div className="grid-col grid-col:4 -align:end">
+            <Figure
+              alt="Oras strategy 1"
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              {...s5}
+            />
+          </div>
+          <div className="grid-col grid-col:7">
+            <Figure
+              alt="Oras strategy 2"
+              scrolling={false}
+              sizes={`100vw`}
+              quality={90}
+              {...s1}
+            />
+          </div>
+        </div>
+        <div className="grid -size:l wrap">
+          <div className="grid-col grid-col:7">
+            <Figure
+              alt="Oras strategy 3"
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              {...s4}
+            />
+          </div>
+          <div className="grid-col grid-col:5 -start:">
+            <Figure
+              alt="Oras strategy 3"
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              {...s2}
+            />
+          </div>
+        </div>
+        <div className="grid -size:l wra">
+          <div className="grid-col grid-col:5">
+            <Figure
+              alt="Oras strategy 3"
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              {...s3}
+            />
+            <div className="grid">
+              <div className="grid-col grid-col:8 -start:5">
+                <Figure
+                  alt="Oras strategy 3"
+                  scrolling={false}
+                  sizes={`${mq.m} 33vw, 50vw`}
+                  {...s7}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="grid-col grid-col:7">
+            <Figure
+              alt="Oras strategy 3"
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              {...s6}
             />
           </div>
         </div>
