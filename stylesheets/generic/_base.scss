@@ -31,8 +31,7 @@
   -webkit-touch-callout: none;
 
   &.has-js {
-    // Matches w/ locomotive-scroll tablet context
-    @include mq(l) {
+    @include mq(desktop) {
       overflow: hidden;
     }
   }

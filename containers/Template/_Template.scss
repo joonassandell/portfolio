@@ -11,7 +11,7 @@
    * Hack to remove the applied scroll values from prev view.
    * Why it even is there?!
    */
-  &:last-child:not(:only-child).is-animating {
+  &:last-child:not(:only-child).is-transition {
     [data-scroll-section], [data-scroll] {
       transform: none !important;
     }
@@ -44,7 +44,7 @@
 }
 
 .Template-section {
-  padding: 10vw 0;
+  padding-top: 10vw;
 
   &.-bg\:50 {
     background: $bg-50;
@@ -60,5 +60,9 @@
 
   &.-bg\:gradient-10-50-10 {
     background: linear-gradient($bg-10, $bg-50 8%, $bg-50 92%, $bg-10);
+  }
+
+  &.-padding\:full {
+    padding-bottom: 10vw;
   }
 }

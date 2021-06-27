@@ -1,5 +1,5 @@
 .grid {
-  column-gap: var(--grid-gap, 0);
+  --grid-gap: #{rem($grid-gap)};
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
 
@@ -9,12 +9,12 @@
   }
 
   @include mq(xs) {
-    --grid-gap: #{rem($grid-gap)};
+    column-gap: var(--grid-gap);
   }
 }
 
 
-/* ======§
+/* ======
  * Sizing & Layout
  * ====== */
 

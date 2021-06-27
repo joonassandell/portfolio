@@ -97,6 +97,9 @@ $root-minWidth: 320px;
 // Breakpoints
 // =========
 
+/**
+ * Desktop & mobile match w/ locomotive-scroll smooth setting
+ */
 $mq-breakpoints: (
   xxxs: 320px,
   xxs: 360px,
@@ -112,6 +115,8 @@ $mq-breakpoints: (
   xxxxxl: 1920px,
   xxxxxxl: 2560px,
   xxxxxxxl: 3840px,
+  desktop: 1024px,
+  mobile: 1023px,
 );
 
 

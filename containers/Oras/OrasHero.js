@@ -29,6 +29,12 @@ export default function OrasHero({
   onClick,
   priority = false,
 }) {
+  const initial = animationState === 'initial';
+  const preAnimation = animationState === 'preAnimation';
+  const classes = c('OrasHero', {
+    '-preAnimation': preAnimation,
+    '-initial': initial,
+  });
   const router = useRouter();
   const headingDisplay = useAnimation();
   const bg = useAnimation();
@@ -41,8 +47,6 @@ export default function OrasHero({
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
     ],
   );
-  const initial = animationState === 'initial';
-  const preAnimation = animationState === 'preAnimation';
   const HeadingDisplay = preAnimation ? motion.h2 : motion.h1;
 
   useEffect(() => {
@@ -60,7 +64,7 @@ export default function OrasHero({
         router.push(oras.url, null, { scroll: false });
       })();
     }
-  });
+  }, [animationStart]);
 
   return (
     <motion.section
@@ -70,10 +74,7 @@ export default function OrasHero({
           transition: transPrimary,
         }
       }
-      className={c('OrasHero', {
-        '-preAnimation': preAnimation,
-        '-initial': initial,
-      })}
+      className={classes}
       id={id}
     >
       <div className="OrasHero-wrap wrap">

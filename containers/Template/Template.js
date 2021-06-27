@@ -64,7 +64,7 @@ const Template = ({ children, name, title }) => {
       <motion.div
         className={c('Template', {
           [`Template--${name}`]: name,
-          'is-animating': templateTransition,
+          'is-transition': templateTransition,
         })}
         {...(templateTransition
           ? { ...variantsWithTransition }
