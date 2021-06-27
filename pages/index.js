@@ -1,4 +1,4 @@
-import { transPrimary, mq } from '../lib/config';
+import { transPrimary } from '../lib/config';
 import { getSitemap } from '../lib/utility';
 import { useState } from 'react';
 
@@ -6,6 +6,7 @@ import Link from '../components/Link';
 import { OrasHero } from '../containers/Oras';
 import { Template } from '../containers/Template';
 import { motion } from 'framer-motion';
+import { useAppContext } from '../containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import useScrollTo from '../lib/useScrollTo';
 
@@ -14,6 +15,7 @@ const about = getSitemap('about');
 
 export default function Home() {
   const { scroll } = useLocomotiveScroll();
+  const { setTransition } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
@@ -21,6 +23,7 @@ export default function Home() {
 
   const handleClick = e => {
     if (scroll) scroll.stop();
+    setTransition(true);
     e.preventDefault();
     setAnimationHide(true);
     const id = e.currentTarget.closest('[id]').id;

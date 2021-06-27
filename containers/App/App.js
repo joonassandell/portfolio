@@ -1,11 +1,15 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 import Head from 'next/head';
-import { sitemap } from '../../lib/config';
+import { sitemap, mq } from '../../lib/config';
 import { useRouter } from 'next/router';
+import c from 'classnames';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useMedia } from 'react-use';
 
 const AppContext = createContext({
   history: [],
+  transition: false,
   templateTransition: false,
 });
 
@@ -14,6 +18,19 @@ export function App({ children }) {
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
   const [delay, setDelay] = useState(100);
+  const mobile = useMedia(mq.mobile);
+  const { templateTransition, transition } = appState;
+  const transitions = templateTransition || transition;
+  const classes = c('App', {
+    'is-transition': transitions,
+  });
+
+  const setTransition = value => {
+    setAppState(prevState => ({
+      ...prevState,
+      transition: value,
+    }));
+  };
 
   const setTemplateTransition = value => {
     setAppState(prevState => ({
@@ -37,6 +54,22 @@ export function App({ children }) {
       }
     });
   }, []);
+
+  /**
+   * Disable scrolling in mobile (non smooth) devices during transitions
+   */
+  useEffect(() => {
+    if (mobile) {
+      // el is just for the function to work in iOS
+      const el = document.querySelector('.App');
+
+      if (transitions) {
+        disableBodyScroll(el);
+      } else {
+        enableBodyScroll(el);
+      }
+    }
+  }, [transitions]);
 
   useEffect(() => {
     router.beforePopState(({ url }) => {
@@ -70,8 +103,10 @@ export function App({ children }) {
           }}
         />
       </Head>
-      <AppContext.Provider value={{ appState, setTemplateTransition }}>
-        <div className="App">{children}</div>
+      <AppContext.Provider
+        value={{ appState, setTransition, setTemplateTransition }}
+      >
+        <div className={classes}>{children}</div>
       </AppContext.Provider>
     </>
   );

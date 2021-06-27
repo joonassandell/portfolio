@@ -9,15 +9,15 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import Header from '../containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { default as _App } from 'next/app';
 import Cookies from 'universal-cookie';
 import { useMedia } from 'react-use';
 import { mq } from '../lib/config';
 
 const Main = ({ Component, pageProps, innerKey }) => {
-  const { appState, setTemplateTransition } = useAppContext();
-  const { templateTransition } = appState;
+  const { appState, setTransition, setTemplateTransition } = useAppContext();
+  const { templateTransition, transition } = appState;
   const { scroll } = useLocomotiveScroll();
   const mobile = useMedia(mq.mobile);
 
@@ -25,6 +25,7 @@ const Main = ({ Component, pageProps, innerKey }) => {
     <AnimatePresence
       onExitComplete={() => {
         if (templateTransition) setTemplateTransition(false);
+        if (transition) setTransition(false);
         if (mobile) window.scroll({ top: 0 });
         if (scroll) {
           scroll.destroy();
