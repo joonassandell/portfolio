@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 import Title from '../../components/Title';
 import c from 'classnames';
-import { transPrimary } from '../../lib/config';
 import { useAppContext } from '../App';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const variantsWithTransition = {
   animate: {
@@ -46,10 +46,15 @@ const Template = ({ children, name, title }) => {
   const { templateTransition } = appState;
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
+  const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
     if (!isPresent) {
       setAnimState('animExit');
+    }
+
+    if (isPresent) {
+      setAnimState('animStart');
     }
   }, [isPresent]);
 
@@ -64,6 +69,12 @@ const Template = ({ children, name, title }) => {
         {...(templateTransition
           ? { ...variantsWithTransition }
           : { ...variantsWithoutTransition })}
+        onAnimationStart={() => {
+          if (animState === 'animStart' && templateTransition) {
+            console.log('Template transition start:', title);
+            if (scroll) scroll.stop();
+          }
+        }}
       >
         <div className="Template-inner" data-scroll-section>
           {children}
