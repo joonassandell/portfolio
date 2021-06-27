@@ -19,13 +19,12 @@ import Link from '../../components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
 import { easeCSS, mq, sitemap } from '../../lib/config';
-import { getSitemap, scrollTo } from '../../lib/utility';
+import { getSitemap } from '../../lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import { useMedia } from 'react-use';
+import useScrollTo from '../../lib/useScrollTo';
 
 const about = getSitemap('about');
 const contact = getSitemap('contact');
@@ -62,8 +61,7 @@ export default function Header(props) {
     btnArrow: enterExitBtnArrow,
   });
   const { setTemplateTransition } = useAppContext();
-  const { scroll } = useLocomotiveScroll();
-  const l = useMedia(mq.l);
+  const scrollTo = useScrollTo();
 
   const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -72,15 +70,12 @@ export default function Header(props) {
       x: offsetLeft + offsetWidth / 2,
     });
   };
-  const btnArrow = useCallbackRef(
-    null,
-    ref => {
-      if (ref) {
-        setArrowPosFromRef(ref);
-      }
-    },
-    [],
-  );
+
+  const btnArrow = useCallbackRef(null, ref => {
+    if (ref) {
+      setArrowPosFromRef(ref);
+    }
+  });
 
   useEffect(() => {
     const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
@@ -116,7 +111,7 @@ export default function Header(props) {
 
     if (!isOpen && currUrl) {
       setTemplateTransition(false);
-      scrollTo(0, scroll, l);
+      scrollTo(0);
       return;
     }
 
@@ -136,6 +131,8 @@ export default function Header(props) {
      * later or apply better solution.
      */
     if (navigator.connection && navigator.connection.downlink < 3) {
+      console.log('Downlink speed:', navigator.connection.downlink);
+
       NProgress.configure({
         easing: easeCSS,
         showSpinner: false,

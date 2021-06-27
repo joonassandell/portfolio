@@ -1,5 +1,5 @@
-import { mq, transPrimary } from '../lib/config';
-import { getSitemap, scrollTo } from '../lib/utility';
+import { transPrimary, mq } from '../lib/config';
+import { getSitemap } from '../lib/utility';
 import { useState } from 'react';
 
 import Link from '../components/Link';
@@ -7,7 +7,7 @@ import { OrasHero } from '../containers/Oras';
 import { Template } from '../containers/Template';
 import { motion } from 'framer-motion';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import { useMedia } from 'react-use';
+import useScrollTo from '../lib/useScrollTo';
 
 const home = getSitemap('home');
 const about = getSitemap('about');
@@ -17,20 +17,21 @@ export default function Home() {
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
-  const l = useMedia(mq.l);
+  const scrollTo = useScrollTo();
 
   const handleClick = e => {
+    if (scroll) scroll.stop();
     e.preventDefault();
     setAnimationHide(true);
     const id = e.currentTarget.closest('[id]').id;
     setCurrentHero(id);
-    scrollTo(`#${id}`, scroll, l, () => setAnimation(true));
+    setAnimation(true);
+    scrollTo(`#${id}`, () => setAnimation(true));
   };
 
   return (
     <>
       <Template name={home.id} title="Portfolio">
-        {/* <div data-scroll-section> */}
         <motion.div
           animate={
             animationHide && {
@@ -69,7 +70,6 @@ export default function Home() {
           onClick={handleClick}
           // onFocus={handleClick}
         />
-        {/* </div> */}
         <div
           data-id="test"
           onClick={handleClick}
