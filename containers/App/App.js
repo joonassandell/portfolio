@@ -64,7 +64,9 @@ export function App({ children }) {
       const el = document.querySelector('.App');
 
       if (transitions) {
-        disableBodyScroll(el);
+        setTimeout(() => {
+          disableBodyScroll(el);
+        }, 700);
       } else {
         enableBodyScroll(el);
       }
