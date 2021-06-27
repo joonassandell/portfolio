@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import {
   scrollSpeed,
   transPrimary,
@@ -10,10 +8,12 @@ import {
   transSecondaryFast,
   transSecondaryFastest,
 } from '../../lib/config';
-import { isInView } from '../../lib/utility';
 import { motion, useAnimation } from 'framer-motion';
 import Link from '../Link';
 import ConditionalWrapper from '../ConditionalWrapper';
+import { useCallbackRef } from 'use-callback-ref';
+import useInView from '../../lib/useInView';
+import { useRef } from 'react';
 
 const infoRulerVariants = {
   inView: {
@@ -52,16 +52,8 @@ const Info = ({
   text,
   year,
 }) => {
-  const { scroll } = useLocomotiveScroll();
-  const [inView, setInView] = useState(false);
-
-  if (scroll) {
-    scroll.on('scroll', args => isInView(args, 'info', () => setInView(true)));
-  }
-
-  useEffect(() => {
-    () => scroll.off('call', inViewStart);
-  }, [scroll]);
+  const ref = useCallbackRef(null, ref => ref);
+  const inView = useInView(ref, 'info');
 
   return (
     <motion.div
@@ -69,7 +61,8 @@ const Info = ({
       className="Info"
       data-scroll
       data-scroll-id="info"
-      // data-scroll-offset="10%"
+      ref={ref}
+      // data-scroll-offset="-25%"
       // data-scroll-speed="1"
       // data-scroll-position="top"
       initial="hidden"
@@ -79,6 +72,7 @@ const Info = ({
           data-scroll
           // data-scroll-delay="1"
           data-scroll-position="top"
+          // data-scroll-offset="-25%"
           data-scroll-speed="0.5" // 1
         >
           <motion.hr className="Info-ruler" variants={infoRulerVariants} />

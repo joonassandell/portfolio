@@ -13,9 +13,11 @@ import {
 } from '../../lib/config';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { isInView } from '../../lib/utility';
+import { isInScrollView, isInView } from '../../lib/utility';
+import useInView from '../../lib/useInView';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
+import { useCallbackRef } from 'use-callback-ref';
 
 const moveInVariants = {
   inView: {
@@ -64,8 +66,8 @@ const Figure = ({
     '-placeholderColor:50': placeholderColor === 50 || mask,
     '-placeholderColor:10': placeholderColor === 10,
   });
-  const { scroll } = useLocomotiveScroll();
-  const [inView, setInView] = useState(false);
+  const ref = useCallbackRef(null, ref => ref);
+  const inView = useInView(ref, src);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src.indexOf('mp4') > -1;
   const imageSize = {
@@ -96,14 +98,6 @@ const Figure = ({
   const figureVariants =
     mask || transition === 'fade' ? fadeVariants : moveInVariants;
 
-  if (scroll) {
-    scroll.on('scroll', args => isInView(args, src, () => setInView(true)));
-  }
-
-  useEffect(() => {
-    () => scroll.off('call', inViewStart);
-  }, [scroll]);
-
   return (
     <motion.div
       className={classes}
@@ -127,6 +121,7 @@ const Figure = ({
           animate={inView ? 'inView' : false}
           className="Figure-figure-inner"
           initial="hidden"
+          ref={ref}
           variants={figureVariants}
         >
           {!isVideo && blurhash && (
