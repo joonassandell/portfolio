@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import { useState, useEffect } from 'react';
 import {
+  mq,
   scrollSpeed as scrlSpeed,
   transPrimary,
   transTertiary,
@@ -13,31 +13,12 @@ import {
 } from '../../lib/config';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { isInScrollView, isInView } from '../../lib/utility';
 import useInView from '../../lib/useInView';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { useCallbackRef } from 'use-callback-ref';
-
-const moveInVariants = {
-  inView: {
-    clipPath: 'polygon(0% 100%, 100.2% 100%, 100.2% 0%, 0% 0%)',
-    transition: transPrimary,
-  },
-  hidden: {
-    clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-  },
-};
-
-const fadeVariants = {
-  inView: {
-    opacity: 1,
-    transition: transTertiaryFast,
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
+import { useMedia } from 'react-use';
+import { moveInVariants, fadeVariants } from './Figure.animations';
 
 const Figure = ({
   alt,
@@ -80,6 +61,7 @@ const Figure = ({
       : null,
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
+  const mobile = useMedia(mq.mobile);
 
   /**
    * 1. Mask offset
@@ -95,8 +77,12 @@ const Figure = ({
       ? '-25%'
       : '15%'; // [3.]
 
-  const figureVariants =
+  let figureVariants =
     mask || transition === 'fade' ? fadeVariants : moveInVariants;
+
+  if (mobile) {
+    figureVariants = mask ? moveInVariants : figureVariants;
+  }
 
   return (
     <motion.div

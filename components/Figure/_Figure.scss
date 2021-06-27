@@ -1,10 +1,6 @@
 .Figure {
   margin-bottom: rem($space-xxl);
 
-  &.-mask {
-    overflow: hidden;
-  }
-
   &.-placeholderColor\:10 {
     .Figure-figure {
       background: $bg-10;
@@ -14,6 +10,16 @@
   &.-placeholderColor\:50 {
     .Figure-figure {
       background: $bg-50;
+    }
+  }
+
+  &.-mask {
+    overflow: hidden;
+
+    @include mq($until: mobile) {
+      .Figure-figure  {
+        background: transparent;
+      }
     }
   }
 }
