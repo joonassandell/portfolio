@@ -10,7 +10,7 @@ import {
  * Note that these enter/exit animations rely heavily on the mask animation, so
  * if you add too much delay things may look shit, so keep them in sync.
  */
-const enterExitBtnTextIfNavOpen = {
+export const enterExitBtnTextIfNavOpen = {
   animate: {
     opacity: 1,
     y: 0,
@@ -26,7 +26,7 @@ const enterExitBtnTextIfNavOpen = {
   transition: { ...transSecondaryFast, delay: 0.3 },
 };
 
-const enterExitBtnArrowIfNavOpen = {
+export const enterExitBtnArrowIfNavOpen = {
   animate: {
     opacity: 1,
     y: 0,
@@ -43,7 +43,7 @@ const enterExitBtnArrowIfNavOpen = {
   transition: { ...transSecondaryFastest, delay: 0.5 },
 };
 
-const enterExitBtnText = {
+export const enterExitBtnText = {
   animate: {
     opacity: 1,
     y: 0,
@@ -60,7 +60,7 @@ const enterExitBtnText = {
   transition: transPrimaryFast,
 };
 
-const enterExitBtnArrow = {
+export const enterExitBtnArrow = {
   ...enterExitBtnText,
   exit: {
     opacity: 0,
@@ -73,18 +73,18 @@ const enterExitBtnArrow = {
 /**
  * Mask
  */
-const maskOpen = {
+export const maskOpen = {
   transition: transPrimary,
 };
 
-const maskClose = {
+export const maskClose = {
   transition: transPrimary,
 };
 
 /**
  * Nav (in mask)
  */
-const navVariant = {
+export const navVariant = {
   open: {
     transition: { delayChildren: 0.1, staggerChildren: 0.05 },
   },
@@ -93,7 +93,7 @@ const navVariant = {
   },
 };
 
-const navItemVariant = {
+export const navItemVariant = {
   open: {
     opacity: 1,
     transition: transPrimaryFast,
@@ -114,7 +114,7 @@ const navItemVariant = {
 /**
  * Logo, Separator etc.
  */
-const ctrlVariant = {
+export const ctrlVariant = {
   open: {
     transition: {
       delayChildren: 0,
@@ -129,7 +129,7 @@ const ctrlVariant = {
   },
 };
 
-const ctrlItemOutVariant = {
+export const ctrlItemOutVariant = {
   open: {
     transition: transSecondaryFast,
     y: '-3rem',
@@ -140,7 +140,7 @@ const ctrlItemOutVariant = {
   },
 };
 
-const ctrlItemInVariant = {
+export const ctrlItemInVariant = {
   open: {
     transition: transPrimaryFast,
     y: 0,
@@ -152,18 +152,4 @@ const ctrlItemInVariant = {
     transition: transSecondaryFast,
     y: '3rem',
   },
-};
-
-export {
-  ctrlItemInVariant,
-  ctrlItemOutVariant,
-  ctrlVariant,
-  enterExitBtnArrow,
-  enterExitBtnArrowIfNavOpen,
-  enterExitBtnText,
-  enterExitBtnTextIfNavOpen,
-  maskClose,
-  maskOpen,
-  navItemVariant,
-  navVariant,
 };

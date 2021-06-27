@@ -8,8 +8,8 @@
   z-index: 1;
 
   /**
-   * Hack to remove the applied scroll values from prev view.
-   * Why it even is there?!
+   * Hack to remove the applied scroll values from the new view.
+   * Why are those even there?!
    */
   &:last-child:not(:only-child).is-transition {
     [data-scroll-section], [data-scroll] {
