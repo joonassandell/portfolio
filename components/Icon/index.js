@@ -1,3 +1,10 @@
-import { ArrowDown, ArrowDownLong, ArrowUp, Cross } from "./Icon";
+import {
+  ArrowDown,
+  ArrowDownLong,
+  ArrowRight,
+  ArrowRightLong,
+  ArrowUp,
+  Cross,
+} from './Icon';
 
-export { ArrowDown, ArrowDownLong, ArrowUp, Cross };
+export { ArrowDown, ArrowDownLong, ArrowRight, ArrowRightLong, ArrowUp, Cross };
