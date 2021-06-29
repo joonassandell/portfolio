@@ -1,25 +1,21 @@
 .OrasHero {
   background-color: $bg-10;
-  height: rem($space * 24);
+  height: 115vw;
   max-height: rem($space * 52);
   min-width: var(--root-minWidth);
   position: relative;
 
-  @include mq(xs) {
-    height: 92vw;
-  }
-
-  @include mq(m) {
-    height: 70vw;
+  @include mq(s) {
+    height: 100vw;
   }
 
   @include mq(l) {
-    height: 112vh; // 67vw;
+    height: 75vw;
   }
 }
 
 .OrasHero-wrap {
-  @include mq($until: m) {
+  @include mq($until: l) {
     padding-right: 0;
   }
 }
@@ -29,7 +25,7 @@
   min-height: rem($space * 12);
   position: relative;
 
-  @include mq(m) {
+  @include mq(l) {
     height: 40vw;
   }
 }
@@ -37,25 +33,29 @@
 .OrasHero-figure-img {
   display: block;
   margin-bottom: 0;
-  margin-left: rem(-$space-ml);
+  margin-left: rem($space * -3);
   max-width: rem($space * 32);
   min-width: rem($space * 12);
   position: absolute;
   top: rem($space * 5);
-  width: 55vw;
+  width: 65vw;
   z-index: 3;
 
   .OrasHero.-preAnimation & {
     cursor: pointer;
   }
 
-  @include mq(m) {
-    width: 45vw;
+  @include mq(s) {
+    margin-left: rem($space * -4);
+    top: rem($space * 7);
+    width: 60vw;
   }
+
 
   @include mq(l) {
     margin-left: rem($space * -7);
-    top: rem($space * 6);
+    top: rem($space * 7);
+    width: 45vw;
   }
 }
 
@@ -67,8 +67,15 @@
 
   .OrasHero.-preAnimation & {
     background: #E9E9E9;
-    height: 90%;
     height: 100%;
+
+    @include mq(s) {
+      height: 85%;
+    }
+
+    @include mq(l) {
+      height: 100%;
+    }
   }
 
   @include mq(l) {
@@ -141,6 +148,7 @@
 }
 
 .OrasHero-buttonMobile {
+  display: none;
   position: absolute;
   top: 41vw;
 
@@ -158,7 +166,7 @@
 }
 
 .OrasHero-content {
-  @include mq($until: m) {
+  @include mq($until: l) {
     display: none;
   }
 
@@ -174,10 +182,6 @@
 
 .OrasHero-content-heading {
   margin-bottom: rem($space-xs);
-
-  @include mq($until: l) {
-    display: none;
-  }
 }
 
 .OrasHero-content-text {

@@ -49,8 +49,8 @@ export default function OrasHero({
           <div
             className="
               OrasHero-figure grid-col
-              grid-col:6 -start:7
-              grid-col:4@m -start:7@m
+              grid-col:7 -start:6
+              grid-col:6@s -start:7@s
               grid-col:4@l -start:7@l
             "
           >
