@@ -66,7 +66,7 @@ const ButtonEnter = ({
     <ConditionalWrapper
       condition={href}
       wrapper={children => (
-        <Link href={href} passHref>
+        <Link href={href} passHref scroll={false}>
           {children}
         </Link>
       )}
@@ -78,7 +78,7 @@ const ButtonEnter = ({
           templateTransition
             ? setTemplateTransition(true)
             : setTemplateTransition(false);
-          onClick ? onClick(e) : false;
+          onClick && onClick(e);
         }}
         onFocus={() => {
           setArrowHover(true);

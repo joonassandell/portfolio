@@ -80,10 +80,10 @@ $space-xxxxxxl: $space * 8;
 
 $wrap-spaceLeft: 6.25%;
 $wrap-spaceRight: 6.25%;
-$wrap-spaceLeft-m: $space-ml;
-$wrap-spaceRight-m: $space-ml;
+$wrap-spaceLeft-m: $space-l;
+$wrap-spaceRight-m: $space-l;
 $wrap-spaceLeft-l: $space-xxl;
-$wrap-spaceRight-l: $space-xxl;
+$wrap-spaceRight-l: $space-xl;
 // $wrap-spaceLeft-l: $space-xl;
 // $wrap-spaceRight-l: $space-xl;
 
@@ -207,6 +207,7 @@ $ease-inOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // =======================================
 
 $Icon-size: 32px;
+$Icon-size-s: 24px;
 
 // =======================================
 // Button

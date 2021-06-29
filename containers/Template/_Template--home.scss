@@ -5,12 +5,12 @@
   }
 
   .Template-about-mobile {
+    height: max-content;
     left: var(--wrap-spaceLeft);
     margin-left: rem(-4px);
     position: absolute;
-    top: 48vw;
-    transform: rotate(-180deg);
-    writing-mode: vertical-rl;
+    top: 45vw;
+    width: auto;
     z-index: 999;
 
     @include mq(s) {
