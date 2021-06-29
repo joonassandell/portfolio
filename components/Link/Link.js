@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
+import { ArrowRight, ArrowRightLong } from '../Icon';
 import {
   inVariant,
   inVariantX,
@@ -11,6 +12,7 @@ import { useAppContext } from '../../containers/App';
 import ConditionalWrapper from '../ConditionalWrapper';
 
 const Link = ({
+  arrow,
   className,
   children,
   href,
@@ -27,6 +29,8 @@ const Link = ({
   const classes = c(className, 'Link', {
     '-underline': underline,
     'is-active': isActive,
+    '-vertical': orientation === 'vertical',
+    '-arrow': arrow,
   });
   const Tag = tag == 'span' ? motion.span : motion.a;
   const linkTarget = target
@@ -89,6 +93,11 @@ const Link = ({
             </motion.span>
           )}
         </AnimatePresence>
+        {arrow && (
+          <div className="Link-icon">
+            <ArrowRight />
+          </div>
+        )}
       </Tag>
     </ConditionalWrapper>
   );

@@ -1,22 +1,15 @@
 .Link {
+  align-items: center;
   display: inline-flex;
   outline: 0;
   overflow: hidden;
   position: relative;
-
-  &.-underline,
-  &.is-active {
-    .Link-text {
-      &:after {
-        opacity: 1;
-      }
-    }
-  }
 }
 
 .Link-text {
   display: block;
   pointer-events: none;
+  position: relative;
 
   &:after {
     border-bottom-style: solid;
@@ -38,5 +31,61 @@
 
   &:after {
     opacity: 1;
+  }
+}
+
+.Link-icon {
+  align-items: center;
+  display: flex;
+  margin-top: rem(-1px);
+  position: absolute;
+  right: 0;
+
+  // @include mq($until: m) {
+  //   .Icon {
+  //     height: rem($Icon-size-s);
+  //     width: rem($Icon-size-s);
+  //   }
+  // }
+}
+
+/* ======
+ * Modifiers
+ * ====== */
+
+.Link {
+  &.-underline,
+  &.is-active {
+    .Link-text {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.-vertical {
+    transform: rotate(-180deg);
+    writing-mode: vertical-rl;
+
+    .Link-text {
+      &:after {
+        border-bottom-width: 0;
+        border-left-style: solid;
+        border-left-width: 1px;
+        bottom: 0;
+        top: 0;
+      }
+    }
+  }
+
+  &.-arrow {
+    @include text(l);
+    padding-right: rem($space-l);
+
+    &.-underline {
+      .Link-text:after {
+        bottom: 0;
+      }
+    }
   }
 }
