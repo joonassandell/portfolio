@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeOutVariants, scrollSpeed } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
+import Link from '../../components/Link';
 import {
   bgVariants,
   headingVariants,
@@ -44,6 +45,26 @@ export default function OrasHero({
       id={id}
       variants={fadeOutVariants}
     >
+      <Heading
+        animate={animationStart}
+        className="OrasHero-heading Heading Heading--display"
+        exit="exit"
+        onClick={onClick}
+        variants={headingVariants}
+      >
+        <div
+          className="Heading-inner"
+          data-scroll
+          data-scroll-offset="-10%"
+          data-scroll-position="top"
+          data-scroll-speed={scrollSpeed}
+          // {...(preAnimation && { 'data-scroll-speed': 3 })}
+          {...(preAnimation && { 'data-scroll-direction': 'horizontal' })}
+        >
+          Oras \ 2016
+          {/* Oras — 2016 */}
+        </div>
+      </Heading>
       <div className="OrasHero-wrap wrap">
         <div className="grid">
           <div
@@ -57,7 +78,7 @@ export default function OrasHero({
             <figure
               data-scroll
               data-scroll-position="top"
-              data-scroll-speed="-1.5"
+              data-scroll-speed={-scrollSpeed}
               className="OrasHero-figure-img"
             >
               <Image
@@ -105,7 +126,9 @@ export default function OrasHero({
               className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
               variants={fadeOutVariants}
             >
-              <h2 className="OrasHero-content-heading Text -l">Oras</h2>
+              <p aria-hidden="true" className="OrasHero-content-heading h5">
+                Oras 
+              </p>
               <p className="OrasHero-content-text Text -s">
                 UI, UX design <br />
                 Web development <br />
@@ -165,36 +188,25 @@ export default function OrasHero({
           />
         </div>
       </motion.div>
-      <Heading
-        animate={animationStart}
-        className="OrasHero-heading Heading Heading--display"
-        exit="exit"
-        onClick={onClick}
-        variants={headingVariants}
-        {...(preAnimation && { 'aria-hidden': 'true' })}
-      >
-        <div
-          className="Heading-inner"
-          data-scroll
-          data-scroll-position="top"
-          data-scroll-offset="-10%"
-          data-scroll-speed={scrollSpeed}
-        >
-          Oras—2016
-        </div>
-      </Heading>
+
       {preAnimation && (
         <motion.div
           animate={animationStart}
-          className="OrasHero-buttonMobile wrap"
+          className="OrasHero-link wrap"
           exit="exit"
           variants={fadeOutVariants}
         >
           <div className="grid -placeEnd">
             <div className="grid-col">
-              <ButtonEnter href={oras.url} onClick={onClick}>
-                View Oras project
-              </ButtonEnter>
+              <Link
+                arrow
+                href={oras.url}
+                onClick={onClick}
+                templateTransition={false}
+                underline
+              >
+                View project
+              </Link>
             </div>
           </div>
         </motion.div>

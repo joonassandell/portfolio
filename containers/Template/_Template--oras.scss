@@ -1,0 +1,7 @@
+.Template--oras {
+  .Info {
+    @include mq($until: ml) {
+      margin-top: rem($space * -4);
+    }
+  }
+}

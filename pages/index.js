@@ -1,4 +1,4 @@
-import { fadeOutVariants, transPrimary } from '../lib/config';
+import { fadeOutVariants } from '../lib/config';
 import { getSitemap } from '../lib/utility';
 import { useState } from 'react';
 
@@ -46,8 +46,9 @@ export default function Home() {
               href={about.url}
               className="Template-about-mobile"
               orientation="vertical"
+              underline
             >
-              {about.title}
+              About me
             </Link>
             <div className="Template-about-desktop">
               <h1>
