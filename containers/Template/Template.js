@@ -9,16 +9,12 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 const variantsWithTransition = {
   animate: {
     y: 0,
-    transitionEnd: {
-      position: 'relative',
-    },
   },
   exit: {
     y: '-50vh',
     zIndex: 0,
   },
   initial: {
-    position: 'fixed',
     y: '100vh',
   },
   transition: { duration: 1.2, ease: [0.76, 0, 0.18, 1] },
@@ -26,7 +22,6 @@ const variantsWithTransition = {
 
 const variantsWithoutTransition = {
   animate: {
-    position: 'relative',
     y: 0,
   },
   exit: {
@@ -64,7 +59,7 @@ const Template = ({ children, name, title }) => {
       <motion.div
         className={c('Template', {
           [`Template--${name}`]: name,
-          'is-transition': templateTransition,
+          'is-transition:template': templateTransition,
         })}
         {...(templateTransition
           ? { ...variantsWithTransition }

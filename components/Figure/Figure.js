@@ -50,7 +50,7 @@ const Figure = ({
   const ref = useCallbackRef(null, ref => ref);
   const inView = useInView(ref, src);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
-  const isVideo = src.indexOf('mp4') > -1;
+  const isVideo = src && src.indexOf('mp4') > -1;
   const imageSize = {
     height: height
       ? height

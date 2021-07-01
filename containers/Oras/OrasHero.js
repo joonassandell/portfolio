@@ -46,11 +46,10 @@ export default function OrasHero({
       variants={fadeOutVariants}
     >
       <Heading
-        animate={animationStart}
         className="OrasHero-heading Heading Heading--display"
-        exit="exit"
         onClick={onClick}
-        variants={headingVariants}
+        {...(animationStart && { exit: 'exit' })}
+        {...(animationStart && { variants: headingVariants })}
       >
         <div
           className="Heading-inner"
@@ -95,16 +94,15 @@ export default function OrasHero({
               />
             </figure>
             <motion.div
-              animate={animationStart}
               className="OrasHero-figure-bg"
-              exit="exit"
               variants={bgVariants}
+              {...(animationStart && { exit: 'exit' })}
+              {...(animationStart && { variants: bgVariants })}
             />
             <motion.div
-              animate={animationStart}
               className="OrasHero-drop OrasHero-drop--1"
-              exit="exit"
               variants={dropVariants}
+              {...(animationStart && { exit: 'exit' })}
               {...(preAnimation && { initial: 'preAnimation' })}
             >
               <Image
@@ -121,10 +119,9 @@ export default function OrasHero({
           </div>
           {preAnimation && (
             <motion.div
-              animate={animationStart}
-              exit="exit"
               className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
-              variants={fadeOutVariants}
+              {...(animationStart && { exit: 'exit' })}
+              {...(animationStart && { variants: fadeOutVariants })}
             >
               <p aria-hidden="true" className="OrasHero-content-heading h5">
                 Oras 
@@ -146,10 +143,10 @@ export default function OrasHero({
         </div>
       </div>
       <motion.div
-        animate={animationStart}
         className="OrasHero-drop OrasHero-drop--2"
-        exit="exit"
         variants={dropVariants2}
+        {...(animationStart && { exit: 'exit' })}
+        {...(animationStart && { variants: dropVariants2 })}
         {...(preAnimation && { initial: 'preAnimation' })}
       >
         <Image
@@ -164,11 +161,10 @@ export default function OrasHero({
         />
       </motion.div>
       <motion.div
-        animate={animationStart}
         className="OrasHero-drop OrasHero-drop--3"
-        exit="exit"
         variants={dropVariants3}
         {...(preAnimation && { initial: 'preAnimation' })}
+        {...(animationStart && { exit: 'exit' })}
       >
         <div
           data-scroll
@@ -191,10 +187,9 @@ export default function OrasHero({
 
       {preAnimation && (
         <motion.div
-          animate={animationStart}
           className="OrasHero-link wrap"
-          exit="exit"
-          variants={fadeOutVariants}
+          {...(animationStart && { exit: 'exit' })}
+          {...(animationStart && { variants: fadeOutVariants })}
         >
           <div className="grid -placeEnd">
             <div className="grid-col">

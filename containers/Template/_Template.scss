@@ -8,13 +8,15 @@
   z-index: 1;
 
   /**
-   * Hack to remove the applied scroll values from the new view.
+   * 1. Hack to remove the applied scroll values from the new view.
    * Why are those even there?!
    */
-  &:last-child:not(:only-child).is-transition {
-    [data-scroll-section], [data-scroll] {
-      transform: none !important;
-    }
+  &:last-child:not(:only-child).is-transition\:template {
+    position: fixed;
+
+    // [data-scroll-section], [data-scroll] { // [1.]
+    //   transform: none !important;
+    // }
   }
 }
 
