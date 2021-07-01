@@ -26,10 +26,9 @@ export default function Home() {
     setTransition(true);
     e.preventDefault();
     setAnimationHide(true);
-    const id = e.currentTarget.closest('[id]').id;
-    setCurrentHero(id);
-    setAnimation(true);
-    scrollTo(`#${id}`, () => setAnimation(true));
+    const el = e.currentTarget.closest('[id]');
+    setCurrentHero(el.id);
+    scrollTo(el, () => setAnimation(true));
   };
 
   return (
