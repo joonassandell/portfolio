@@ -1,9 +1,16 @@
 import { transPrimary, transSecondary, transTertiary } from '../../lib/config';
 
+/**
+ * Extra delay is for smoother animation in mobile,
+ * check later if this could be fixed in some other way.
+ */
+const extraDelay = 0.5;
+
 export const headingVariants = {
   exit: {
     y: '-175%',
-    transition: transPrimary,
+    // transition: transPrimary,
+    transition: { ...transPrimary, delay: extraDelay },
   },
 };
 
@@ -14,7 +21,8 @@ export const bgVariants = {
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
     ],
-    transition: transSecondary,
+    // transition: transSecondary,
+    transition: { ...transSecondary, delay: extraDelay },
   },
 };
 
@@ -23,7 +31,7 @@ export const dropVariants = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25,
+      delay: 0.25 + extraDelay,
     },
     y: 0,
   },
@@ -38,7 +46,7 @@ export const dropVariants2 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.1,
+      delay: 0.1 + extraDelay,
     },
     y: 0,
   },
@@ -53,7 +61,7 @@ export const dropVariants3 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25,
+      delay: 0.25 + extraDelay,
     },
     y: 0,
   },
