@@ -72,9 +72,12 @@ export const enterExitBtnArrow = {
 
 /**
  * Mask
+ *
+ * 1. Add some delay to header mask to prevent flash of content.
+ *    TODO: Figure out a better way later.
  */
 export const maskOpen = {
-  transition: transPrimary,
+  transition: { ...transPrimary, delay: 0.3 }, // [1.]
 };
 
 export const maskClose = {
