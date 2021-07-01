@@ -127,17 +127,19 @@ export default function Header(props) {
 
   useEffect(() => {
     /**
-     * Test if connection is slow and add progress spinner. Polyfill this
-     * later or apply better solution.
+     * Test if connection is slow or header is open and add progress spinner.
+     * Polyfill this later or apply better solution.
+     *
+     * (navigator.connection && navigator.connection.downlink < 3)
+     * // console.log('Downlink speed:', navigator.connection.downlink);
      */
-    if (navigator.connection && navigator.connection.downlink < 3) {
-      console.log('Downlink speed:', navigator.connection.downlink);
-
+    if (isOpen) {
       NProgress.configure({
         easing: easeCSS,
         showSpinner: false,
         speed: 1200,
       });
+
       const changeStart = () => NProgress.start();
       const changeComplete = () => NProgress.done();
 
@@ -151,7 +153,7 @@ export default function Header(props) {
         router.events.off('routeChangeComplete', changeComplete);
       };
     }
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     const closeStart = () => {

@@ -1,11 +1,25 @@
 #nprogress {
+  $width: rem(2px);
+  height: $width;
+  left: $width / 2;
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+  transform: rotate(90deg);
+  transform-origin: left;
+  width: 100vh;
+  z-index: 999;
+
   .bar {
-    background: $bg-10;
-    mix-blend-mode: difference;
-    opacity: 0.5;
+    // background: $bg-10;
+    background: linear-gradient(to right, rgba($bg-10, 0) 0%, rgba($bg-10, 0.7));
+    // background: linear-gradient(to right, rgba($bg-10, 0) 0%, rgba($bg-10, 1));
+    height: $width;
   }
 
   .peg {
-    display: none;
+    box-shadow: 0 0 30px $bg-10, 0 0 8px $bg-10;
+    transform: translate(0, 0);
+    width: rem($space);
   }
 }
