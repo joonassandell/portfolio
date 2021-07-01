@@ -10,7 +10,6 @@ import { AnimatePresence } from 'framer-motion';
 import Header from '../containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect } from 'react';
-import { default as _App } from 'next/app';
 import Cookies from 'universal-cookie';
 import { useMedia } from 'react-use';
 import { mq } from '../lib/config';
@@ -26,7 +25,6 @@ const Main = ({ Component, pageProps, innerKey }) => {
       onExitComplete={() => {
         if (templateTransition) setTemplateTransition(false);
         if (transition) setTransition(false);
-        if (mobile) window.scroll({ top: 0 });
         if (scroll) {
           scroll.destroy();
           scroll.init();

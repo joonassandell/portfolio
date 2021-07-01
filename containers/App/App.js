@@ -2,9 +2,9 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 import Head from 'next/head';
 import { sitemap, mq } from '../../lib/config';
+import { scrollLock } from '../../lib/utility';
 import { useRouter } from 'next/router';
 import c from 'classnames';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useMedia } from 'react-use';
 
 const AppContext = createContext({
@@ -60,15 +60,12 @@ export function App({ children }) {
    */
   useEffect(() => {
     if (mobile) {
-      // el is just for the function to work in iOS
-      const el = document.querySelector('.App');
-
       if (transitions) {
         setTimeout(() => {
-          disableBodyScroll(el);
+          scrollLock(true);
         }, 700);
       } else {
-        enableBodyScroll(el);
+        scrollLock(false);
       }
     }
   }, [transitions]);
@@ -78,7 +75,7 @@ export function App({ children }) {
       setTimeout(() => {
         setDelay(1000);
         setTemplateTransition(true);
-        router.push(url);
+        router.push(url, null, { scroll: false });
         return false;
       }, delay);
     });

@@ -36,6 +36,12 @@
     }
   }
 
+  &.is-scrollLock {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
   @include mq(m) {
     --wrap-spaceLeft: #{rem($wrap-spaceLeft-m)};
     --wrap-spaceRight: #{rem($wrap-spaceRight-m)};
