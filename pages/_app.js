@@ -11,14 +11,11 @@ import Header from '../containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect } from 'react';
 import Cookies from 'universal-cookie';
-import { useMedia } from 'react-use';
-import { mq } from '../lib/config';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const { appState, setTransition, setTemplateTransition } = useAppContext();
   const { templateTransition, transition } = appState;
   const { scroll } = useLocomotiveScroll();
-  const mobile = useMedia(mq.mobile);
 
   return (
     <AnimatePresence
@@ -65,7 +62,15 @@ function NextApp({ Component, pageProps, router }) {
     <App>
       <LocomotiveScrollProvider
         containerRef={containerRef}
-        options={{ smooth: true }}
+        options={{
+          smooth: true,
+          multiplier:
+            typeof window !== 'undefined' &&
+            window.navigator &&
+            window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+              ? 4
+              : 1,
+        }}
         watch={['Done manually I presume?']}
         // watch={[router.route]}
       >
