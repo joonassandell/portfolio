@@ -30,7 +30,7 @@ const ButtonArrow = ({
   useEffect(() => {
     (async () => {
       if (hoverStart && enableHover) {
-        await setArrowInVisible(true);
+        setArrowInVisible(true);
         arrowIn.set({
           scaleY: 6,
           y: '-5rem',
@@ -67,7 +67,7 @@ const ButtonArrow = ({
       }
 
       if (active && activeState == 'start') {
-        await setCloseVisible(true);
+        setCloseVisible(true);
         close.set({
           scaleY: 6,
           y: '-5rem',
@@ -113,7 +113,7 @@ const ButtonArrow = ({
         setCloseVisible(false);
       }
     })();
-  }, [hoverStart, hoverEnd, active]);
+  }, [hoverStart, hoverEnd, active, arrowInVisible, closeVisible]);
 
   useEffect(() => {
     bg.set({ y: '77%' });
