@@ -7,6 +7,10 @@
   width: 100%;
   z-index: 99;
 
+  &.is-disableClick {
+    pointer-events: none;
+  }
+
   @include mq(m) {
     padding-top: rem($space-ml);
   }
@@ -90,10 +94,6 @@
   display: flex;
   margin: 0;
   z-index: 1;
-
-  &.is-disabled {
-    pointer-events: none;
-  }
 }
 
 .Header-button-textMobile {
@@ -176,6 +176,7 @@
   background: $bg-700;
   bottom: 0;
   clip-path: circle(0% at 0px 0px);
+  display: none;
   height: 100vh;
   left: 0;
   min-width: 300px;
@@ -183,6 +184,10 @@
   right: 0;
   top: 0;
   z-index: 98;
+
+  &.is-open {
+    display: block;
+  }
 }
 
 .Header-nav {

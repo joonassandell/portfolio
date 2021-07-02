@@ -50,8 +50,9 @@ export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
+  const [maskReveal, setMaskReveal] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const [disableButton, setDisableButton] = useState(false);
+  const [disableClick, setDisableClick] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [mask, setMask] = useState('closedReset');
@@ -87,7 +88,7 @@ export default function Header(props) {
 
   const toggleOpen = ({ withMask = true } = {}) => {
     setOpenReveal(true);
-    setDisableButton(true);
+    setDisableClick(true);
     setNavRevealTitle(props.navTitle);
 
     /**
@@ -99,6 +100,7 @@ export default function Header(props) {
     setTimeout(() => setOpen(), 10); // [1.]
 
     if (withMask) {
+      setMaskReveal(true);
       if (mask === 'closed' || mask === 'closedReset') setMask('open');
       if (mask === 'open' || mask === 'openReset') setMask('closed');
     }
@@ -226,14 +228,16 @@ export default function Header(props) {
     <>
       <motion.header
         animate={isOpen ? 'open' : 'closed'}
-        className="Header"
+        className={c('Header', {
+          'is-disableClick': disableClick,
+        })}
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
             setOpenReveal(false);
-            setTimeout(() => setDisableButton(false), 500);
+            setTimeout(() => setDisableClick(false), 500);
           } else {
-            setDisableButton(false);
+            setDisableClick(false);
           }
         }}
         variants={ctrlVariant}
@@ -274,9 +278,7 @@ export default function Header(props) {
               )}
             </div>
             <motion.button
-              className={c('Header-button resetButton', {
-                'is-disabled': disableButton,
-              })}
+              className="Header-button resetButton"
               onBlur={() => {
                 setHover('end');
                 setTimeout(() => setHover(false), 100);
@@ -379,29 +381,41 @@ export default function Header(props) {
           </div>
         </div>
       </motion.header>
-      <motion.div animate={maskAnim} className="Header-mask">
-        <motion.div className="wrap">
-          <motion.nav
-            animate={isOpen ? 'open' : 'closed'}
-            className="Header-nav"
-            initial="initial"
-            variants={navVariant}
-          >
-            <ul>
-              {sitemap.map(item => {
-                if (item.type === 'secondary') return false;
-                return (
-                  <NavItem
-                    key={item.navTitle}
-                    url={item.url}
-                    name={item.navTitle}
-                    onClick={e => handleClick(e)}
-                  />
-                );
-              })}
-            </ul>
-          </motion.nav>
-        </motion.div>
+      <motion.div
+        animate={maskAnim}
+        className={c('Header-mask', {
+          'is-open': maskReveal,
+        })}
+        onAnimationComplete={() => {
+          if (!isOpen) {
+            setMaskReveal(false);
+          }
+        }}
+      >
+        {maskReveal && (
+          <div className="wrap">
+            <motion.nav
+              animate={isOpen ? 'open' : 'closed'}
+              className="Header-nav"
+              initial="initial"
+              variants={navVariant}
+            >
+              <ul>
+                {sitemap.map(item => {
+                  if (item.type === 'secondary') return false;
+                  return (
+                    <NavItem
+                      key={item.navTitle}
+                      url={item.url}
+                      name={item.navTitle}
+                      onClick={e => handleClick(e)}
+                    />
+                  );
+                })}
+              </ul>
+            </motion.nav>
+          </div>
+        )}
       </motion.div>
     </>
   );
