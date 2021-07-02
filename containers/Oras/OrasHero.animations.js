@@ -1,40 +1,44 @@
-import { transPrimary, transSecondary, transTertiary } from '../../lib/config';
-
-/**
- * Extra delay is for smoother animation in mobile,
- * check later if this could be fixed in some other way.
- */
-const extraDelay = 0.5;
+import {
+  transPrimary,
+  transSecondary,
+  mobileExtraDelay,
+  transTertiary,
+} from '../../lib/config';
 
 export const headingVariants = {
-  exit: {
+  exit: mobile => ({
     y: '-175%',
-    // transition: transPrimary,
-    transition: { ...transPrimary, delay: extraDelay },
-  },
+    transition: {
+      ...transPrimary,
+      ...(mobile && { delay: mobileExtraDelay }),
+    },
+  }),
 };
 
 export const bgVariants = {
-  exit: {
+  exit: mobile => ({
     scaleY: 4,
     background: [
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
     ],
-    // transition: transSecondary,
-    transition: { ...transSecondary, delay: extraDelay },
-  },
+    transition: {
+      ...transSecondary,
+      ...(mobile && { delay: mobileExtraDelay }),
+    },
+  }),
 };
 
 export const dropVariants = {
-  exit: {
+  exit: mobile => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25 + extraDelay,
+      delay: 0.25,
+      ...(mobile && { delay: 0.25 + mobileExtraDelay }),
     },
     y: 0,
-  },
+  }),
   preAnimation: {
     opacity: 0,
     y: -24,
@@ -42,14 +46,15 @@ export const dropVariants = {
 };
 
 export const dropVariants2 = {
-  exit: {
+  exit: mobile => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.1 + extraDelay,
+      delay: 0.1,
+      ...(mobile && { delay: 0.1 + mobileExtraDelay }),
     },
     y: 0,
-  },
+  }),
   preAnimation: {
     opacity: 0,
     y: -96,
@@ -57,14 +62,15 @@ export const dropVariants2 = {
 };
 
 export const dropVariants3 = {
-  exit: {
+  exit: mobile => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25 + extraDelay,
+      delay: 0.25,
+      ...(mobile && { delay: 0.25 + mobileExtraDelay }),
     },
     y: 0,
-  },
+  }),
   preAnimation: {
     opacity: 0,
     y: -40,

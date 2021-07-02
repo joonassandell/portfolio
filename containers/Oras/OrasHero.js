@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { fadeOutVariants, scrollSpeed } from '../../lib/config';
+import { fadeOutVariants, scrollSpeed, mq } from '../../lib/config';
 import { getSitemap } from '../../lib/utility';
 import { ButtonEnter } from '../../components/Button';
 import Link from '../../components/Link';
@@ -14,6 +14,7 @@ import Image from 'next/image';
 import c from 'classnames';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useMedia } from 'react-use';
 
 const oras = getSitemap('oras');
 
@@ -25,6 +26,7 @@ export default function OrasHero({
   onClick,
   priority = false,
 }) {
+  const mobile = useMedia(mq.mobile);
   const initial = animationState === 'initial';
   const preAnimation = animationState === 'preAnimation';
   const classes = c('OrasHero', {
@@ -48,6 +50,7 @@ export default function OrasHero({
       <Heading
         className="OrasHero-heading Heading Heading--display"
         onClick={onClick}
+        custom={mobile}
         {...(animationStart && { exit: 'exit' })}
         {...(animationStart && { variants: headingVariants })}
       >
@@ -95,12 +98,14 @@ export default function OrasHero({
             </figure>
             <motion.div
               className="OrasHero-figure-bg"
+              custom={mobile}
               variants={bgVariants}
               {...(animationStart && { exit: 'exit' })}
               {...(animationStart && { variants: bgVariants })}
             />
             <motion.div
               className="OrasHero-drop OrasHero-drop--1"
+              custom={mobile}
               variants={dropVariants}
               {...(animationStart && { exit: 'exit' })}
               {...(preAnimation && { initial: 'preAnimation' })}
@@ -144,6 +149,7 @@ export default function OrasHero({
       </div>
       <motion.div
         className="OrasHero-drop OrasHero-drop--2"
+        custom={mobile}
         variants={dropVariants2}
         {...(animationStart && { exit: 'exit' })}
         {...(animationStart && { variants: dropVariants2 })}
@@ -162,6 +168,7 @@ export default function OrasHero({
       </motion.div>
       <motion.div
         className="OrasHero-drop OrasHero-drop--3"
+        custom={mobile}
         variants={dropVariants3}
         {...(preAnimation && { initial: 'preAnimation' })}
         {...(animationStart && { exit: 'exit' })}
