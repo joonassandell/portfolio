@@ -118,7 +118,7 @@ const Figure = ({
                   className="Figure-blur"
                   exit={{ opacity: 0 }}
                   initial={{ opacity: 0 }}
-                  transition={transTertiaryFast}
+                  transition={transTertiary}
                 >
                   <BlurhashCanvas
                     className="Figure-blur-canvas"

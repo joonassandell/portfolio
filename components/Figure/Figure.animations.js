@@ -17,14 +17,14 @@ export const moveInVariants = {
   },
   hidden: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-    opacity: 0,
+    opacity: 1,
   },
 };
 
 export const fadeVariants = {
   inView: {
     opacity: 1,
-    transition: transTertiaryFast,
+    transition: transTertiary,
   },
   hidden: {
     opacity: 0,

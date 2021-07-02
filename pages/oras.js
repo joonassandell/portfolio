@@ -112,6 +112,7 @@ const Oras = ({ images }) => {
               sizes={`${mq.m} 80vw, 100vw`}
               {...kitchen}
               blurhash={false}
+              priority
             />
           </div>
         </div>
@@ -154,6 +155,8 @@ const Oras = ({ images }) => {
               transition="fade"
               sizes={`${mq.m} 80vw, 100vw`}
               {...single}
+              blurhash={false}
+              priority
             />
           </div>
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
