@@ -62,13 +62,14 @@
 
 .OrasHero-figure-bg {
   background: linear-gradient(180deg, #E9E9E9 0%, rgba(#E9E9E9, 0) 100%);
-  height: 100vh;
+  height: 100%;
+  transform: scaleY(4);
   width: 100%;
   z-index: 0;
 
   .OrasHero.-preAnimation & {
     background: #E9E9E9;
-    height: 100%;
+    transform: scaleY(1);
 
     @include mq(s) {
       height: 85%;

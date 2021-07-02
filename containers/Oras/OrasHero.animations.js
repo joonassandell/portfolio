@@ -16,7 +16,7 @@ export const headingVariants = {
 
 export const bgVariants = {
   exit: {
-    height: '100vh',
+    scaleY: 4,
     background: [
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
       'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
