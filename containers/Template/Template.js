@@ -12,7 +12,6 @@ const variantsWithTransition = {
   },
   exit: {
     y: '-50vh',
-    zIndex: 0,
   },
   initial: {
     y: '100vh',
@@ -32,13 +31,14 @@ const variantsWithoutTransition = {
   },
   transition: {
     duration: 0,
+    ease: 'linear',
   },
 };
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
-  const { templateTransition } = appState;
+  const { templateTransition, transition } = appState;
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();
@@ -59,6 +59,7 @@ const Template = ({ children, name, title }) => {
       <motion.div
         className={c('Template', {
           [`Template--${name}`]: name,
+          'is-transition:instant': transition === 'instant',
           'is-transition:template': templateTransition,
         })}
         {...(templateTransition

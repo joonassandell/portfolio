@@ -14,17 +14,17 @@ import {
 } from './Header.animations';
 import { useEffect, useState } from 'react';
 
-import { ButtonArrow } from '../../components/Button';
-import Link from '../../components/Link';
+import { ButtonArrow } from '@/components/Button';
+import Link from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { easeCSS, mq, sitemap } from '../../lib/config';
-import { getSitemap } from '../../lib/utility';
+import { easeCSS, mq, sitemap } from '@/lib/config';
+import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-import useScrollTo from '../../lib/useScrollTo';
+import useScrollTo from '@/lib/useScrollTo';
 
 const about = getSitemap('about');
 const contact = getSitemap('contact');
@@ -61,7 +61,7 @@ export default function Header(props) {
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
-  const { setTemplateTransition } = useAppContext();
+  const { setTemplateTransition, setTransition } = useAppContext();
   const scrollTo = useScrollTo();
 
   const setArrowPosFromRef = ref => {
@@ -120,6 +120,10 @@ export default function Header(props) {
     if (isOpen && currUrl) {
       toggleOpen();
       return;
+    }
+
+    if (isOpen) {
+      setTransition('instant');
     }
 
     router.push(url, null, {
