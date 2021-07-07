@@ -1,11 +1,11 @@
-import { OrasHero } from '../containers/Oras';
-import { Template } from '../containers/Template';
-import { getSitemap, getImage } from '../lib/utility';
-import { mq, scrollSpeed } from '../lib/config';
-import Info from '../components/Info';
-import Figure from '../components/Figure';
+import { OrasHero } from '@/containers/Oras';
+import { Template } from '@/containers/Template';
+import { getSitemap, getImage } from '@/lib/utility';
+import { mq, scrollSpeed } from '@/lib/config';
+import Info from '@/components/Info';
+import Figure from '@/components/Figure';
 import { getPlaiceholder } from 'plaiceholder';
-import { getImages } from '../lib/getImages';
+import { getImages } from '@/lib/getImages';
 
 const oras = getSitemap('oras');
 

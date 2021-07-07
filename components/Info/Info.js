@@ -8,12 +8,12 @@ import {
   transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 import { motion } from 'framer-motion';
 import Link from '../Link';
 import ConditionalWrapper from '../ConditionalWrapper';
 import { useCallbackRef } from 'use-callback-ref';
-import useInView from '../../lib/useInView';
+import useInView from '@/lib/useInView';
 import { useMedia } from 'react-use';
 
 const infoRulerVariants = {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   mq,
   scrollSpeed as scrlSpeed,
@@ -10,14 +10,14 @@ import {
   transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import useInView from '../../lib/useInView';
+import useInView from '@/lib/useInView';
+import useIsMobile from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { useCallbackRef } from 'use-callback-ref';
-import { useMedia } from 'react-use';
 import { moveInVariants, fadeVariants } from './Figure.animations';
 
 const Figure = ({
@@ -61,7 +61,7 @@ const Figure = ({
       : null,
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
-  const mobile = useMedia(mq.mobile);
+  const mobile = useIsMobile();
 
   /**
    * 1. Mask offset

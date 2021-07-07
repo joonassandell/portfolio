@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { fadeOutVariants, scrollSpeed, mq } from '../../lib/config';
-import { getSitemap } from '../../lib/utility';
-import { ButtonEnter } from '../../components/Button';
-import Link from '../../components/Link';
+import { fadeOutVariants, scrollSpeed } from '@/lib/config';
+import { getSitemap } from '@/lib/utility';
+import useIsMobile from '@/lib/useIsMobile';
+import { ButtonEnter } from '@/components/Button';
+import Link from '@/components/Link';
 import {
   bgVariants,
   headingVariants,
@@ -14,19 +15,18 @@ import Image from 'next/image';
 import c from 'classnames';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useMedia } from 'react-use';
 
 const oras = getSitemap('oras');
 
-export default function OrasHero({
+const OrasHero = ({
   animationStart = false,
   animationHideStart = false,
   animationState = 'initial', // preAnimation, initial
   id,
   onClick,
   priority = false,
-}) {
-  const mobile = useMedia(mq.mobile);
+}) => {
+  const mobile = useIsMobile();
   const initial = animationState === 'initial';
   const preAnimation = animationState === 'preAnimation';
   const classes = c('OrasHero', {
@@ -215,4 +215,6 @@ export default function OrasHero({
       )}
     </motion.section>
   );
-}
+};
+
+export default OrasHero;

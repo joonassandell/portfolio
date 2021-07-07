@@ -4,7 +4,7 @@ import {
   transPrimary,
   transPrimaryFast,
   transPrimaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 import { useEffect, useState } from 'react';
 
 import c from 'classnames';

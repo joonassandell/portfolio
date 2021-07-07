@@ -1,13 +1,13 @@
-import '../stylesheets/index.scss';
+import '@/stylesheets/index.scss';
 
-import App, { useAppContext } from '../containers/App';
+import App, { useAppContext } from '@/containers/App';
 import {
   LocomotiveScrollProvider,
   useLocomotiveScroll,
 } from 'react-locomotive-scroll';
 
 import { AnimatePresence } from 'framer-motion';
-import Header from '../containers/Header';
+import Header from '@/containers/Header';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect } from 'react';
 import Cookies from 'universal-cookie';

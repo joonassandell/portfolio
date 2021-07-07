@@ -8,7 +8,7 @@ import {
 } from './Link.animations';
 import { default as NextLink } from 'next/link';
 import c from 'classnames';
-import { useAppContext } from '../../containers/App';
+import { useAppContext } from '@/containers/App';
 import ConditionalWrapper from '../ConditionalWrapper';
 
 const Link = ({

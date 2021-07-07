@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 import Head from 'next/head';
-import { sitemap, mq } from '../../lib/config';
-import { scrollLock } from '../../lib/utility';
+import { sitemap } from '@/lib/config';
+import { scrollLock } from '@/lib/utility';
+import useIsMobile from '@/lib/useIsMobile';
 import { useRouter } from 'next/router';
 import c from 'classnames';
-import { useMedia } from 'react-use';
 
 const AppContext = createContext({
   history: [],
@@ -18,7 +18,7 @@ export function App({ children }) {
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
   const [delay, setDelay] = useState(100);
-  const mobile = useMedia(mq.mobile);
+  const mobile = useIsMobile();
   const { templateTransition, transition } = appState;
   const transitions = templateTransition || transition;
   const classes = c('App', {

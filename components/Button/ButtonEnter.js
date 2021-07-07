@@ -3,10 +3,10 @@ import {
   transPrimaryFast,
   transSecondaryFast,
   transSecondaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 import { useState } from 'react';
 import Link from 'next/link';
-import { useAppContext } from '../../containers/App';
+import { useAppContext } from '@/containers/App';
 import c from 'classnames';
 import ConditionalWrapper from '../ConditionalWrapper';
 

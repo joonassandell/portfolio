@@ -1,14 +1,14 @@
-import { fadeOutVariants } from '../lib/config';
-import { getSitemap } from '../lib/utility';
+import { fadeOutVariants } from '@/lib/config';
+import { getSitemap } from '@/lib/utility';
 import { useState } from 'react';
 
-import Link from '../components/Link';
-import { OrasHero } from '../containers/Oras';
-import { Template } from '../containers/Template';
+import Link from '@/components/Link';
+import { OrasHero } from '@/containers/Oras';
+import { Template } from '@/containers/Template';
 import { motion } from 'framer-motion';
-import { useAppContext } from '../containers/App';
+import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import useScrollTo from '../lib/useScrollTo';
+import useScrollTo from '@/lib/useScrollTo';
 
 const home = getSitemap('home');
 const about = getSitemap('about');
