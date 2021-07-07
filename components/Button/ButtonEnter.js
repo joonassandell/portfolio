@@ -73,7 +73,11 @@ const ButtonEnter = ({
     >
       <Tag
         className={classes}
-        onBlur={() => setHover(false)}
+        onBlur={() => {
+          if (hover) {
+            setHover(false);
+          }
+        }}
         onClick={e => {
           templateTransition
             ? setTemplateTransition(true)
@@ -81,14 +85,16 @@ const ButtonEnter = ({
           onClick && onClick(e);
         }}
         onFocus={() => {
+          if (!hover) {
+            setArrowHover(true);
+            setHover(true);
+          }
+        }}
+        onMouseEnter={() => {
           setArrowHover(true);
           setHover(true);
         }}
-        onHoverStart={() => {
-          setArrowHover(true);
-          setHover(true);
-        }}
-        onHoverEnd={() => setHover(false)}
+        onMouseLeave={() => setHover(false)}
         // whileHover="in" // WHY THIS DOESN'T WORK?!
         whileTap={{ top: 2 }}
       >

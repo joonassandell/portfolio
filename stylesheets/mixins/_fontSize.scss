@@ -23,7 +23,7 @@
 
   @if $root {
     @if $scaling == 'scale' {
-      font-size: clamp($minFontSize, $scaleValue, $maxFontSize);
+      font-size: clamp(rem($minFontSize), $scaleValue, rem($maxFontSize));
     }
 
     @if $scaling == 'rem' {
