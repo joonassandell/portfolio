@@ -1,5 +1,6 @@
-import { AnimatePresence, motion, useCycle } from 'framer-motion';
-import { ArrowRight, ArrowRightLong } from '../Icon';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { ArrowRight } from '../Icon';
 import {
   inVariant,
   inVariantX,
@@ -25,7 +26,7 @@ const Link = ({
   underline,
 }) => {
   const { setTemplateTransition } = useAppContext();
-  const [hover, setHover] = useCycle(false, true);
+  const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
     '-underline': underline,
     'is-active': isActive,
@@ -53,7 +54,7 @@ const Link = ({
         className={classes}
         onBlur={() => {
           if (hover) {
-            setHover();
+            setHover(false);
           }
         }}
         href={href}
@@ -65,11 +66,11 @@ const Link = ({
         }}
         onFocus={() => {
           if (!hover) {
-            setHover();
+            setHover(true);
           }
         }}
-        onHoverEnd={() => setHover()}
-        onHoverStart={() => setHover()}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         {...(href && linkTarget && { target: linkTarget })}
         {...(linkTarget === '_blank' && { rel: 'external' })}
       >
@@ -86,7 +87,6 @@ const Link = ({
               className="Link-text Link-text--reveal"
               exit="out"
               initial="initial"
-              key="Link-text--reveal"
               variants={orientation === 'vertical' ? inVariantX : inVariant}
             >
               {children}

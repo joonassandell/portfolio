@@ -3,7 +3,7 @@ import { transPrimaryFast, transPrimaryFastest } from '../../lib/config';
 export const outVariant = {
   in: {
     transition: transPrimaryFastest,
-    y: '-2rem',
+    y: '-2.5rem',
   },
   out: {
     transition: transPrimaryFast,
@@ -17,18 +17,18 @@ export const inVariant = {
     y: 0,
   },
   initial: {
-    y: '2rem',
+    y: '2.5rem',
   },
   out: {
     transition: transPrimaryFast,
-    y: '2rem',
+    y: '2.5rem',
   },
 };
 
 export const outVariantX = {
   in: {
     transition: transPrimaryFastest,
-    x: '2rem',
+    x: '2.5rem',
   },
   out: {
     transition: transPrimaryFast,
@@ -42,10 +42,10 @@ export const inVariantX = {
     x: 0,
   },
   initial: {
-    x: '-2rem',
+    x: '-2.5rem',
   },
   out: {
     transition: transPrimaryFast,
-    x: '-2rem',
+    x: '-2.5rem',
   },
 };

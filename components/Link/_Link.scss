@@ -14,7 +14,8 @@
   &:after {
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    bottom: 2px;
+    // bottom: 2px;
+    bottom: rem(2px);
     content: '';
     left: 0;
     opacity: 0;
@@ -80,12 +81,11 @@
 
   &.-arrow {
     @include text(l);
+    line-height: 1.75;
     padding-right: rem($space-l);
 
-    &.-underline {
-      .Link-text:after {
-        bottom: 0;
-      }
+    .Link-text:after {
+      bottom: 0;
     }
   }
 }
