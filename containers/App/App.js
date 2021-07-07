@@ -9,6 +9,7 @@ import c from 'classnames';
 
 const AppContext = createContext({
   history: [],
+  scrollLock: false,
   transition: false,
   templateTransition: false,
 });
@@ -39,6 +40,19 @@ export function App({ children }) {
     }));
   };
 
+  const setScrollLock = enable => {
+    setAppState(prevState => ({
+      ...prevState,
+      scrollLock: enable,
+    }));
+
+    if (enable) {
+      scrollLock(true);
+    } else {
+      scrollLock(false);
+    }
+  };
+
   useEffect(() => {
     const { asPath } = router;
     setAppState(prevState => ({
@@ -56,19 +70,14 @@ export function App({ children }) {
   }, []);
 
   /**
-   * Disable scrolling in mobile (non smooth) devices during transitions
+   * Disable scrolling in mobile (non smooth) devices during template transition.
+   * Scrolling is enabled after the transition in _app.js
    */
   useEffect(() => {
-    if (mobile) {
-      if (transitions) {
-        setTimeout(() => {
-          scrollLock(true);
-        }, 700);
-      } else {
-        scrollLock(false);
-      }
+    if (mobile && templateTransition) {
+      setScrollLock(true);
     }
-  }, [transitions]);
+  }, [templateTransition]);
 
   useEffect(() => {
     router.beforePopState(({ url }) => {
@@ -103,7 +112,12 @@ export function App({ children }) {
         />
       </Head>
       <AppContext.Provider
-        value={{ appState, setTransition, setTemplateTransition }}
+        value={{
+          appState,
+          setScrollLock,
+          setTemplateTransition,
+          setTransition,
+        }}
       >
         <div className={classes}>{children}</div>
       </AppContext.Provider>

@@ -18,7 +18,7 @@ import { ButtonArrow } from '@/components/Button';
 import Link from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { easeCSS, mq, sitemap } from '@/lib/config';
+import { easeCSS, sitemap } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';

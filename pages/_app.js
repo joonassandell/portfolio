@@ -13,13 +13,19 @@ import { useRef, useEffect } from 'react';
 import Cookies from 'universal-cookie';
 
 const Main = ({ Component, pageProps, innerKey }) => {
-  const { appState, setTransition, setTemplateTransition } = useAppContext();
-  const { templateTransition, transition } = appState;
+  const {
+    appState,
+    setTransition,
+    setScrollLock,
+    setTemplateTransition,
+  } = useAppContext();
+  const { templateTransition, scrollLock, transition } = appState;
   const { scroll } = useLocomotiveScroll();
 
   return (
     <AnimatePresence
       onExitComplete={() => {
+        if (scrollLock) setScrollLock(false);
         if (templateTransition) setTemplateTransition(false);
         if (transition) setTransition(false);
         if (scroll) {
