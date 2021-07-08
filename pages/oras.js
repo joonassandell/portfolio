@@ -4,8 +4,7 @@ import { getSitemap, getImage } from '@/lib/utility';
 import { mq, scrollSpeed } from '@/lib/config';
 import Info from '@/components/Info';
 import Figure from '@/components/Figure';
-import { getPlaiceholder } from 'plaiceholder';
-import { getImages } from '@/lib/getImages';
+import getImages from '@/lib/getImages';
 
 const oras = getSitemap('oras');
 
@@ -241,24 +240,10 @@ const Oras = ({ images }) => {
 };
 
 export const getStaticProps = async () => {
-  const imagePaths = getImages(oras.id);
-  const images = await Promise.all(
-    imagePaths.map(async src => {
-      const { blurhash, img } = await getPlaiceholder(src, {
-        size: 32,
-      });
-
-      return {
-        ...img,
-        blurhash,
-      };
-    }),
-  ).then(values => values);
-
   return {
     props: {
       navTitle: oras.title,
-      images,
+      images: await getImages(oras.id),
     },
   };
 };
