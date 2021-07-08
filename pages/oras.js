@@ -170,8 +170,8 @@ const Oras = ({ images }) => {
         </div>
       </section>
       <section className="Template-section -padding:full">
-        <div className="grid -size:l wra">
-          <div className="grid-col grid-col:4 -align:end">
+        <div className="grid -size:l">
+          <div className="grid-col grid-col:10 grid-col:4@m -align:end">
             <Figure
               alt="Oras strategy 1"
               scrolling={false}
@@ -179,7 +179,7 @@ const Oras = ({ images }) => {
               {...s5}
             />
           </div>
-          <div className="grid-col grid-col:7">
+          <div className="grid-col grid-col:10 -start:2 grid-col:7@m -start:5@m">
             <Figure
               alt="Oras strategy 2"
               scrolling={false}
@@ -189,8 +189,8 @@ const Oras = ({ images }) => {
             />
           </div>
         </div>
-        <div className="grid -size:l wrap">
-          <div className="grid-col grid-col:7">
+        <div className="grid -size:l wrap@m">
+          <div className="grid-col grid-col:10 -start:3 grid-col:7@m -start:1@m">
             <Figure
               alt="Oras strategy 3"
               scrolling={false}
@@ -198,7 +198,7 @@ const Oras = ({ images }) => {
               {...s4}
             />
           </div>
-          <div className="grid-col grid-col:5 -start:">
+          <div className="grid-col grid-col:10 -start:2 grid-col:5@m -start:8@m">
             <Figure
               alt="Oras strategy 3"
               scrolling={false}
@@ -207,8 +207,8 @@ const Oras = ({ images }) => {
             />
           </div>
         </div>
-        <div className="grid -size:l wra">
-          <div className="grid-col grid-col:5">
+        <div className="grid -size:l">
+          <div className="grid-col grid-col:10 grid-col:5@m">
             <Figure
               alt="Oras strategy 3"
               scrolling={false}
@@ -216,7 +216,7 @@ const Oras = ({ images }) => {
               {...s3}
             />
             <div className="grid">
-              <div className="grid-col grid-col:8 -start:5">
+              <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
                 <Figure
                   alt="Oras strategy 3"
                   scrolling={false}
@@ -226,7 +226,7 @@ const Oras = ({ images }) => {
               </div>
             </div>
           </div>
-          <div className="grid-col grid-col:7">
+          <div className="grid-col grid-col:9 -start:4 grid-col:7@m -start:6@m">
             <Figure
               alt="Oras strategy 3"
               scrolling={false}

@@ -44,7 +44,7 @@ function NextApp({ Component, pageProps, router }) {
   const containerRef = useRef(null);
 
   /**
-   * Remove this crap, universal-cookie and portto.js once published.
+   * Remove this crap and portto.js once published
    */
   const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
   useEffect(() => {

@@ -2,4 +2,12 @@
   padding-left: var(--wrap-spaceLeft);
   padding-right: var(--wrap-spaceRight);
   width: 100%;
+
+  &\@m {
+    @include mq(m) {
+      padding-left: var(--wrap-spaceLeft);
+      padding-right: var(--wrap-spaceRight);
+      width: 100%;
+    }
+  }
 }

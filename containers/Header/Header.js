@@ -52,7 +52,7 @@ export default function Header(props) {
   const [hover, setHover] = useState(false);
   const [maskReveal, setMaskReveal] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const [disableClick, setDisableClick] = useState(false);
+  const [disable, setDisable] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [mask, setMask] = useState('closedReset');
@@ -88,7 +88,7 @@ export default function Header(props) {
 
   const toggleOpen = ({ withMask = true } = {}) => {
     setOpenReveal(true);
-    setDisableClick(true);
+    setDisable(true);
     setNavRevealTitle(props.navTitle);
 
     /**
@@ -233,15 +233,15 @@ export default function Header(props) {
       <motion.header
         animate={isOpen ? 'open' : 'closed'}
         className={c('Header', {
-          'is-disableClick': disableClick,
+          'is-disabled': disable,
         })}
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
             setOpenReveal(false);
-            setTimeout(() => setDisableClick(false), 500);
+            setTimeout(() => setDisable(false), 500);
           } else {
-            setDisableClick(false);
+            setDisable(false);
           }
         }}
         variants={ctrlVariant}
