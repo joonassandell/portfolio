@@ -75,9 +75,7 @@ export function App({ children }) {
         router.prefetch(site.url);
       }
     });
-  }, []);
 
-  useEffect(() => {
     setAppState(prevState => ({
       ...prevState,
       loading: false,
@@ -128,7 +126,8 @@ export function App({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              document.documentElement.className = document.documentElement.className.replace(/(^|\s)no-js(\s|$)/,'has-js');
+              document.documentElement.classList.remove('no-js');
+              document.documentElement.classList.add('has-js');
             `,
           }}
         />
