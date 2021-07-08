@@ -27,7 +27,6 @@
     "react-use": "^17.2.1",
     "sharp": "^0.28.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "universal-cookie": "^4.0.4",
     "use-callback-ref": "^1.2.5"
   },
   "devDependencies": {

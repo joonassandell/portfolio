@@ -11,7 +11,6 @@ import Header from '@/containers/Header';
 import Splash from '@/containers/Splash';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect } from 'react';
-import Cookies from 'universal-cookie';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const {
@@ -47,23 +46,22 @@ function NextApp({ Component, pageProps, router }) {
   /**
    * Remove this crap, universal-cookie and portto.js once published.
    */
-  // const cookies = new Cookies();
-  // const _ = cookies.get('portto');
-  // const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
-  // useEffect(() => {
-  //   if (
-  //     production &&
-  //     router.route === '/portto' &&
-  //     typeof window !== 'undefined'
-  //   ) {
-  //     const cookies = new Cookies();
-  //     cookies.set('portto', true, {
-  //       path: '/',
-  //     });
-  //     window.location.href = '/';
-  //   }
-  // }, []);
-  // if (!_ && production) return <></>;
+  const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
+  useEffect(() => {
+    if (
+      production &&
+      router.route === '/portto' &&
+      typeof window !== 'undefined'
+    ) {
+      localStorage.setItem('portto', '/');
+      window.location.href = '/';
+    }
+  }, []);
+
+  if (typeof window !== 'undefined') {
+    const _ = localStorage.getItem('portto');
+    if (!_ && production) return <></>;
+  }
 
   return (
     <>
