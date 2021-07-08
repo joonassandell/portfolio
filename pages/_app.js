@@ -47,23 +47,23 @@ function NextApp({ Component, pageProps, router }) {
   /**
    * Remove this crap, universal-cookie and portto.js once published.
    */
-  const cookies = new Cookies();
-  const _ = cookies.get('portto');
-  const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
-  useEffect(() => {
-    if (
-      production &&
-      router.route === '/portto' &&
-      typeof window !== 'undefined'
-    ) {
-      const cookies = new Cookies();
-      cookies.set('portto', true, {
-        path: '/',
-      });
-      window.location.href = '/';
-    }
-  }, []);
-  if (!_ && production) return <></>;
+  // const cookies = new Cookies();
+  // const _ = cookies.get('portto');
+  // const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
+  // useEffect(() => {
+  //   if (
+  //     production &&
+  //     router.route === '/portto' &&
+  //     typeof window !== 'undefined'
+  //   ) {
+  //     const cookies = new Cookies();
+  //     cookies.set('portto', true, {
+  //       path: '/',
+  //     });
+  //     window.location.href = '/';
+  //   }
+  // }, []);
+  // if (!_ && production) return <></>;
 
   return (
     <>
