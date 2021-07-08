@@ -8,8 +8,10 @@
 // Mixins
 @import 'mixins';
 
+// Splash screen
+@import '../containers/Splash';
+
 // Vendors
-@import 'normalize.css/normalize';
 @import 'locomotive-scroll/src/styles/base';
 @import 'locomotive-scroll/src/styles/scrollbar';
 @import 'nprogress/nprogress.css';

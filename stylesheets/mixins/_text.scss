@@ -13,7 +13,7 @@
   } @else if $size == 'l' {
     @include fontSize($font-size, $lineHeight-l, $font-size-l);
   } @else if $size == 'm' {
-    @include fontSize($font-size, $lineHeight, $scaling: 'rem');
+    @include fontSize($font-size, $lineHeight);
   } @else if $size == 's' {
     @include fontSize($font-size-s, $lineHeight-s);
   } @else if $size == 'xs' {
@@ -41,11 +41,11 @@
 // Where $truncation-boundary is a united measurement.
 
 @mixin textTruncate($truncation-boundary: 100%, $important: null) {
+  $important: if($important, '!important', null);
   max-width: $truncation-boundary $important;
   overflow: hidden $important;
   text-overflow: ellipsis $important;
   white-space: nowrap $important;
-  @if $important { $important: !important; }
 }
 
 
@@ -54,11 +54,10 @@
 // ======
 
 @mixin textHide($important: null) {
-
+  $important: if($important, '!important', null);
   overflow: hidden $important;
   text-indent: 1000% $important;
   white-space: nowrap $important;
-  @if $important { $important: !important; }
 }
 
 
@@ -72,9 +71,8 @@
 // 3. Safari 7 and future browsers
 
 @mixin textKern($important: null) {
-
+  $important: if($important, '!important', null);
   font-feature-settings: 'kern' 1 $important; // [1.]
   font-kerning: normal $important; // [3.]
   text-rendering: optimizeLegibility $important; // [2.]
-  @if $important { $important: !important; }
 }

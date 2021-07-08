@@ -1,5 +1,7 @@
 .App {
   overflow: hidden;
+  position: relative;
+  z-index: $App-zIndex;
 
   &.is-transition {
     pointer-events: none;
@@ -9,5 +11,5 @@
 
 .App-main {
   position: relative;
-  z-index: 0;
+  z-index: $App-main-zIndex;
 }

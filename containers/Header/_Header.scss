@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 99;
+  z-index: $Header-zIndex;
 
   &.is-disableClick {
     pointer-events: none;
@@ -31,7 +31,8 @@
   line-height: rem($space-ml);
 
   @include mq(m) {
-    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax, $scaleValue: 0.5vw);
+    // @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax, $scaleValue: 0.5vw);
+    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
   }
 }
 
@@ -183,7 +184,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 98;
+  z-index: $Header-mask-zIndex;
 
   &.is-open {
     display: block;

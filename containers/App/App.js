@@ -110,6 +110,20 @@ export function App({ children }) {
             `,
           }}
         />
+        <link
+          as="font"
+          crossOrigin=""
+          href="/fonts/Px-Grotesk-Regular.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
+        <link
+          as="font"
+          crossOrigin=""
+          href="/fonts/Px-Grotesk-Light.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
       </Head>
       <AppContext.Provider
         value={{

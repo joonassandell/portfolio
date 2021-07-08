@@ -1,18 +1,16 @@
 @mixin fontSize(
   $minFontSize: $font-size,
   $lineHeight: $lineHeight,
-  $maxFontSize: $minFontSize,
+  $maxFontSize: null,
   $scaleValue: 1vw,
   $scaleFontSize: $minFontSize,
   $scaling: 'scale',
   $root: false,
 ) {
   @if not $root {
-    @if $scaling == 'scale' {
+    @if $scaling == 'scale' and $maxFontSize {
       font-size: clamp(rem($minFontSize), calc(#{rem($scaleFontSize)} + #{$scaleValue}), rem($maxFontSize));
-    }
-
-    @if $scaling == 'rem' {
+    } @else {
       font-size: rem($minFontSize);
     }
 
@@ -22,11 +20,9 @@
   }
 
   @if $root {
-    @if $scaling == 'scale' {
+    @if $scaling == 'scale' and $maxFontSize {
       font-size: clamp(rem($minFontSize), $scaleValue, rem($maxFontSize));
-    }
-
-    @if $scaling == 'rem' {
+    } @else {
       font-size: rem($minFontSize);
     }
   }

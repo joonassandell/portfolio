@@ -21,7 +21,8 @@
   } @else if $size == 'h4' {
     @include fontSize($h4-fontSizeMin, $h4-lineHeight, $h4-fontSizeMax);
   } @else if $size == 'h5' {
-    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax, $scaleValue: 0.5vw);
+    @include fontSize($h5-fontSizeMin, $h5-lineHeight, $h5-fontSizeMax);
+    // @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax, $scaleValue: 0.5vw);
   } @else if $size == 'h6' {
     @include text($style: subtitle);
     @if $margin { margin: 0 0 rem($space-xxs); }

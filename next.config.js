@@ -4,6 +4,7 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
+  experimental: { optimizeCss: true },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -14,6 +15,11 @@ module.exports = {
   },
   images: {
     // deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048, 3840],
+
+    /**
+     * This is here to make svgs import properly.
+     * https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
+     */
     disableStaticImages: true,
   },
   async headers() {

@@ -8,6 +8,7 @@ import {
 
 import { AnimatePresence } from 'framer-motion';
 import Header from '@/containers/Header';
+import Splash from '@/containers/Splash';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRef, useEffect } from 'react';
 import Cookies from 'universal-cookie';
@@ -65,31 +66,33 @@ function NextApp({ Component, pageProps, router }) {
   if (!_ && production) return <></>;
 
   return (
-    <App>
-      <LocomotiveScrollProvider
-        containerRef={containerRef}
-        options={{
-          smooth: true,
-          multiplier:
-            typeof window !== 'undefined' &&
-            window.navigator &&
-            window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-              ? 4
-              : 1,
-        }}
-        watch={['Done manually I presume?']}
-        // watch={[router.route]}
-      >
-        <Header navTitle={pageProps.navTitle} />
-        <main className="App-main" data-scroll-container ref={containerRef}>
-          <Main
-            Component={Component}
-            innerKey={router.route}
-            pageProps={pageProps}
-          />
-        </main>
-      </LocomotiveScrollProvider>
-    </App>
+    <>
+      <Splash />
+      <App>
+        <LocomotiveScrollProvider
+          containerRef={containerRef}
+          options={{
+            smooth: true,
+            multiplier:
+              typeof window !== 'undefined' &&
+              window.navigator &&
+              window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+                ? 4
+                : 1,
+          }}
+          watch={['Done manually I presume?']} // router.route
+        >
+          <Header navTitle={pageProps.navTitle} />
+          <main className="App-main" data-scroll-container ref={containerRef}>
+            <Main
+              Component={Component}
+              innerKey={router.route}
+              pageProps={pageProps}
+            />
+          </main>
+        </LocomotiveScrollProvider>
+      </App>
+    </>
   );
 }
 

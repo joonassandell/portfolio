@@ -203,6 +203,18 @@ $ease-outBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 $ease-inOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 // =======================================
+// Z-indexes
+// =======================================
+
+$Splash-zIndex: 1000;
+$App-zIndex: 900;
+$locomotive-scrollBar: 950;
+
+$Header-zIndex: 1000;
+$Header-mask-zIndex: 900;
+$App-main-zIndex: 800;
+
+// =======================================
 // Icon
 // =======================================
 

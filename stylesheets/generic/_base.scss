@@ -27,6 +27,7 @@
   -webkit-font-smoothing: antialiased;
   min-width: var(--root-minWidth);
   -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
   touch-action: pan-y;
   -webkit-touch-callout: none;
 
@@ -36,6 +37,7 @@
     }
   }
 
+  &.is-loading,
   &.is-scrollLock {
     overflow: hidden;
     position: fixed;
@@ -53,15 +55,26 @@
   }
 }
 
+body {
+  margin: 0;
+}
+
 * {
   &,
   &:before,
   &:after {
     box-sizing: border-box;
   }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: $focus-outlineWidth solid $primary;
+  }
 }
 
-hgroup,
 blockquote,
 address,
 table,
@@ -97,16 +110,6 @@ a {
   }
 }
 
-* {
-  &:focus {
-    outline: 0;
-  }
-
-  &:focus-visible {
-    outline: $focus-outlineWidth solid $primary;
-  }
-}
-
 ::-moz-selection {
   background: $primary;
   color: $white;
@@ -136,4 +139,93 @@ video {
 img {
   height: auto;
   vertical-align: middle;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
 }

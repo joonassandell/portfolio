@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html className="no-js">
+      <Html className="no-js is-loading">
         <Head />
         <body>
           <Main />

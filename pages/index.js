@@ -13,7 +13,7 @@ import useScrollTo from '@/lib/useScrollTo';
 const home = getSitemap('home');
 const about = getSitemap('about');
 
-export default function Home() {
+const Home = () => {
   const { scroll } = useLocomotiveScroll();
   const { setTransition } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
@@ -68,6 +68,7 @@ export default function Home() {
           animationHide={currentHero != 'oras' && animationHide}
           id="oras"
           onClick={handleClick}
+          priority={true}
           // onFocus={handleClick}
         />
         <div
@@ -79,7 +80,9 @@ export default function Home() {
       </Template>
     </>
   );
-}
+};
+
+export default Home;
 
 export async function getStaticProps() {
   return {

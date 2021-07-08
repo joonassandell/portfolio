@@ -23,13 +23,32 @@ hr {
   height: 1px;
   margin-bottom: rem($space-m);
   margin-top: 0;
+  overflow: visible;
   padding: 0;
 }
 
-hgroup {
-  > *:not(:last-child) {
-    margin-bottom: rem($space-xs);
-  }
+code,
+kbd,
+samp,
+pre {
+  font-family: $font-familyMono;
+  font-size: 1rem;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
 }
 
 h1, h2, h3, h4, h5 {

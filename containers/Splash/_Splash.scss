@@ -1,0 +1,51 @@
+.Splash {
+  // background-color: $bg-700;
+  background-color: $bg-50;
+  // background-color: wheat;
+  // color: $text-10;
+  color: $text-700;
+  inset: 0;
+  overflow: hidden;
+  position: fixed;
+  user-select: none;
+  z-index: $Splash-zIndex;
+
+  @include mq(m) {
+    padding-top: rem($space-ml);
+  }
+
+  @include mq(l) {
+    padding-top: rem($space-l);
+  }
+}
+
+.Splash-logo {
+  height: rem($space-ml);
+  line-height: rem($space-ml);
+  position: relative;
+  top: rem(25px);
+
+  @include mq(m) {
+    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
+    top: rem(4px);
+  }
+
+  @include mq(l) {
+    top: rem(8px);
+  }
+}
+
+.Splash-content {
+  @include fontSize(20px, 20px, 120px, 10vw);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: var(--wrap-spaceLeft);
+  position: absolute;
+  right: var(--wrap-spaceRight);
+  text-align: center;
+  text-transform: lowercase;
+  top: 0;
+}
