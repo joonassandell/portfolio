@@ -31,7 +31,7 @@ const Oras = ({ images }) => {
       <OrasHero priority={true} />
       <Info
         client={{ name: oras.title, href: 'https://oras.com' }}
-        employer={{ name: 'Mediasignal', href: 'https://mediasignal.fi/en' }}
+        type={['Web service']}
         heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We we're asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
         smallPrint="Made together with wonderful people at Mediasignal and Hasan & Partners."
         text={

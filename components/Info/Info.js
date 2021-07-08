@@ -49,10 +49,10 @@ const infoGridCellVariants = {
 
 const Info = ({
   client = { name, href },
-  employer = { name, href },
   heading,
   role = [],
   smallPrint,
+  type = [],
   text,
   year,
 }) => {
@@ -113,17 +113,12 @@ const Info = ({
                     <p>{year}</p>
                   </div>
                   <div className="grid-col:4@s grid-col:4@m grid-col:12@l">
-                    <h6>Employer</h6>
-                    <p>
-                      <ConditionalWrapper
-                        condition={employer.href}
-                        wrapper={children => (
-                          <Link href={employer.href}>{children}</Link>
-                        )}
-                      >
-                        {employer.name}
-                      </ConditionalWrapper>
-                    </p>
+                    <h6>Project type</h6>
+                    <ul className="resetList">
+                      {type.map((r, i) => (
+                        <li key={i}>{r}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </motion.div>
