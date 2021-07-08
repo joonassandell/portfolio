@@ -9,6 +9,8 @@ import c from 'classnames';
 
 const AppContext = createContext({
   history: [],
+  loading: true,
+  loadingEnd: false,
   scrollLock: false,
   transition: false,
   templateTransition: false,
@@ -20,10 +22,9 @@ export function App({ children }) {
   const router = useRouter();
   const [delay, setDelay] = useState(100);
   const mobile = useIsMobile();
-  const { templateTransition, transition } = appState;
-  const transitions = templateTransition || transition;
+  const { templateTransition, transition, loadingEnd } = appState;
   const classes = c('App', {
-    'is-transition': transitions,
+    'is-transition': templateTransition || transition,
   });
 
   const setTransition = value => {
@@ -53,6 +54,13 @@ export function App({ children }) {
     }
   };
 
+  const setLoadingEnd = value => {
+    setAppState(prevState => ({
+      ...prevState,
+      loadingEnd: value,
+    }));
+  };
+
   useEffect(() => {
     const { asPath } = router;
     setAppState(prevState => ({
@@ -68,6 +76,20 @@ export function App({ children }) {
       }
     });
   }, []);
+
+  useEffect(() => {
+    setAppState(prevState => ({
+      ...prevState,
+      loading: false,
+    }));
+  }, []);
+
+  useEffect(() => {
+    if (loadingEnd) {
+      const html = document.querySelector('html');
+      html.classList.remove('is-loading');
+    }
+  }, [loadingEnd]);
 
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
@@ -128,6 +150,7 @@ export function App({ children }) {
       <AppContext.Provider
         value={{
           appState,
+          setLoadingEnd,
           setScrollLock,
           setTemplateTransition,
           setTransition,

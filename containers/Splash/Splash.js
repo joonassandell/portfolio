@@ -1,7 +1,6 @@
-// import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { transPrimary } from '@/lib/config';
+import { useAppContext } from '@/containers/App';
 
 export const moveOutVariants = {
   hidden: {
@@ -13,22 +12,16 @@ export const moveOutVariants = {
 };
 
 const Splash = () => {
-  // const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const {
+    appState: { loading },
+    setLoadingEnd,
+  } = useAppContext();
 
-  useEffect(() => {
-    // router.events.on('routeChangeStart', changeStart);
-    // router.events.on('routeChangeError', changeComplete);
-    // router.events.on('routeChangeComplete', changeComplete);
+  // useEffect(() => {
+  //   if (loading) {}
 
-    setLoading(false);
-
-    return () => {
-      // router.events.off('routeChangeStart', changeStart);
-      // router.events.off('routeChangeError', changeComplete);
-      // router.events.off('routeChangeComplete', changeComplete);
-    };
-  }, []);
+  //   return () => {};
+  // }, [, loading]);
 
   return (
     <AnimatePresence>
@@ -37,10 +30,7 @@ const Splash = () => {
           className="Splash"
           exit="hidden"
           initial="visible"
-          onAnimationComplete={() => {
-            const html = document.querySelector('html');
-            html.classList.remove('is-loading');
-          }}
+          onAnimationComplete={() => setLoadingEnd(true)}
           transition={{ ...transPrimary, delay: 0.5 }}
           variants={moveOutVariants}
         >

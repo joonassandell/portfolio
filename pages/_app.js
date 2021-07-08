@@ -14,13 +14,20 @@ import { useRef, useEffect } from 'react';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const {
-    appState,
+    appState: { templateTransition, scrollLock, transition, loadingEnd },
     setTransition,
     setScrollLock,
     setTemplateTransition,
   } = useAppContext();
-  const { templateTransition, scrollLock, transition } = appState;
   const { scroll } = useLocomotiveScroll();
+
+  useEffect(() => {
+    if (loadingEnd && scroll) {
+      setTimeout(() => {
+        scroll.update();
+      }, 10);
+    }
+  }, [loadingEnd]);
 
   return (
     <AnimatePresence
@@ -65,8 +72,8 @@ function NextApp({ Component, pageProps, router }) {
 
   return (
     <>
-      <Splash />
       <App>
+        <Splash />
         <LocomotiveScrollProvider
           containerRef={containerRef}
           options={{

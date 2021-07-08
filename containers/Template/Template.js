@@ -1,9 +1,9 @@
 import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import Title from '../../components/Title';
+import Title from '@/components/Title';
 import c from 'classnames';
-import { useAppContext } from '../App';
+import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const variantsWithTransition = {
