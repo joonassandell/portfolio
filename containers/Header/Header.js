@@ -15,6 +15,7 @@ import {
 import { useEffect, useState } from 'react';
 
 import { ButtonArrow } from '@/components/Button';
+import LinkRoll from '@/components/LinkRoll';
 import Link from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
@@ -39,9 +40,12 @@ const NavItem = props => {
       })}
       variants={navItemVariant}
     >
-      <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
-        {props.name}
-      </a>
+      <LinkRoll
+        className="Header-nav-link"
+        href={props.url}
+        onClick={props.onClick}
+        word={props.name}
+      />
     </motion.li>
   );
 };

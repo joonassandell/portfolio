@@ -1,0 +1,19 @@
+.LinkRoll {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.LinkRoll-text {
+  pointer-events: none;
+
+  &.-hover {
+    inset: 0;
+    position: absolute;
+  }
+}
+
+.LinkRoll-char {
+  display: inline-block;
+  position: relative;
+}
