@@ -177,6 +177,10 @@
   background: $bg-700;
   bottom: 0;
   clip-path: circle(0% at 0px 0px);
+
+  // clip-path: circle(150% at 480px 64px) !important;
+  // display: block !important;
+
   display: none;
   height: 100vh;
   left: 0;

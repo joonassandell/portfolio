@@ -7,7 +7,7 @@ import {
   transSecondary,
   transSecondaryFast,
   transSecondaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 
 export const moveInVariants = {
   inView: {

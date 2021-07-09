@@ -3,7 +3,7 @@ import {
   transPrimaryFast,
   transSecondaryFast,
   transSecondaryFastest,
-} from '../../lib/config';
+} from '@/lib/config';
 
 /**
  * Note that these enter/exit animations rely heavily on the mask animation, so

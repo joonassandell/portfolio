@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { transPrimary } from '@/lib/config';
+import { transPrimary, transSecondary, transTemplate } from '@/lib/config';
 import { useAppContext } from '@/containers/App';
 
 export const moveOutVariants = {
@@ -31,7 +31,7 @@ const Splash = () => {
           exit="hidden"
           initial="visible"
           onAnimationComplete={() => setLoadingEnd(true)}
-          transition={{ ...transPrimary, delay: 0.5 }}
+          transition={{ ...transSecondary, delay: 0.5 }}
           variants={moveOutVariants}
         >
           <div className="wrap">

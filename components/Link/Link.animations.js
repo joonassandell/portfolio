@@ -1,4 +1,4 @@
-import { transPrimaryFast, transPrimaryFastest } from '../../lib/config';
+import { transPrimaryFast, transPrimaryFastest } from '@/lib/config';
 
 export const outVariant = {
   in: {

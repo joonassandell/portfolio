@@ -3,7 +3,7 @@ import {
   transSecondary,
   mobileExtraDelay,
   transTertiary,
-} from '../../lib/config';
+} from '@/lib/config';
 
 export const headingVariants = {
   exit: mobile => ({

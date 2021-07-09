@@ -2,6 +2,7 @@ import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import Title from '@/components/Title';
+import { transTemplate } from '@/lib/config';
 import c from 'classnames';
 import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
@@ -16,7 +17,7 @@ const variantsWithTransition = {
   initial: {
     y: '100vh',
   },
-  transition: { duration: 1.2, ease: [0.76, 0, 0.18, 1] },
+  transition: transTemplate,
 };
 
 const variantsWithoutTransition = {
