@@ -36,13 +36,14 @@ const Link = ({
   const Tag = tag == 'span' ? motion.span : motion.a;
   const linkTarget = target
     ? target
-    : href.indexOf('http') === 0
+    : href.startsWith('http')
     ? '_blank'
     : false;
+  const hasHref = href && (href.startsWith('/') || href.startsWith('http'));
 
   return (
     <ConditionalWrapper
-      condition={href}
+      condition={hasHref}
       wrapper={children => (
         <NextLink href={href} passHref scroll={false}>
           {children}
