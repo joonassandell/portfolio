@@ -16,10 +16,6 @@
   @include mq(s) {
     height: 100vw;
   }
-
-  @include mq(l) {
-    height: 112vh;
-  }
 }
 
 .OrasHero-wrap {
@@ -209,16 +205,23 @@
 // }
 
 .OrasHero-circle {
-  $sizeMin: rem($space * 12);
-  $size: 30vw;
+  $sizeMin: rem($space * 8);
+  $sizeMax: 25vw;
   background-color: red;
   border-radius: 50%;
-  height: clamp($sizeMin, calc(#{$sizeMin} + 10vw), $size);
-  inset: 0;
+  bottom: 0;
+  height: clamp($sizeMin, calc(#{$sizeMin} + 15vw), $sizeMax);
+  left: -15%;
   margin: auto;
   position: absolute;
-  width: clamp($sizeMin, calc(#{$sizeMin} + 10vw), $size);
+  right: 0;
+  top: 0;
+  width: clamp($sizeMin, calc(#{$sizeMin} + 15vw), $sizeMax);
   z-index: 0;
+
+  @include mq(xs) {
+    left: 0;
+  }
 }
 
 .OrasHero-circle--bg {
