@@ -58,19 +58,19 @@
   padding-top: 10vw;
 
   &.-bg\:50 {
-    background: $bg-50;
+    background: $bg-50-opaque;
   }
 
   &.-bg\:100 {
-    background: $bg-100;
+    background: $bg-100-opaque;
   }
 
   &.-bg\:gradient-10-50 {
-    background: linear-gradient($bg-10, $bg-50 8%);
+    background: linear-gradient(transparent, $bg-50-opaque 8%);
   }
 
   &.-bg\:gradient-10-50-10 {
-    background: linear-gradient($bg-10, $bg-50 8%, $bg-50 92%, $bg-10);
+    background: linear-gradient(transparent, $bg-50-opaque 8%, $bg-50-opaque 92%, transparent);
   }
 
   &.-padding\:full {

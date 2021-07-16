@@ -127,8 +127,8 @@ $white: #ffffff;
 
 // Brand colors
 $primary: #111111;
-$primary-negative: #f6eee3; // #f6eee3
-
+$primary-negative: #f6eee3;
+$primary-negativeLight: $white;
 // $primary: $black;
 // $primary-negative: $white;
 
@@ -138,8 +138,13 @@ $bg-10: $primary-negative;
 $bg-100: desaturate(darken($bg-10, 5), 20);
 $bg-50: desaturate(darken($bg-10, 3), 20);
 
-// $bg-100: darken($bg-10, 5);
-// $bg-50: darken($bg-10, 3);
+$bg-100-opaqueAlpha: 0.15;
+$bg-100-opaque: rgba($black, $bg-100-opaqueAlpha);
+$bg-100-opaqueNegative: rgba($white, $bg-100-opaqueAlpha);
+
+$bg-50-opaqueAlpha: 0.06;
+$bg-50-opaque: rgba($black, $bg-50-opaqueAlpha);
+$bg-50-opaqueNegative: rgba($white, $bg-50-opaqueAlpha);
 
 // Text colors
 $text-700: $primary;
@@ -156,9 +161,9 @@ $link-hover: $primary;
 // Border colors
 $border-700: $primary;
 $border-500-opaque: rgba($primary-negative, 0.12);
-$border-500: #323232;
+$border-500: lighten($primary, 15);
 $border-20: rgba(#000000, 0.12);
-$border-10: #ffffff;
+$border-10: $white;
 
 // =========
 // Various Global Settings
@@ -211,12 +216,13 @@ $ease-inOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 // =======================================
 
 $App-zIndex: 1000;
-$locomotive-scrollBar: 2000;
+$locomotive-scrollBar-zIndex: 2000;
+$nprogress-zIndex: 2000;
 
 $Splash-zIndex: 1000;
 $Header-zIndex: 900;
-$Header-mask-zIndex: 800;
-$App-main-zIndex: 700;
+$Header-maskZindex: 800;
+$App-mainZindex: 700;
 
 // =======================================
 // Icon
@@ -247,5 +253,8 @@ $Template-overlayColor: $primary;
 // Oras
 // =======================================
 
-$OrasHero-bg: $bg-10;
-$OrasHero-figure-bg: $bg-100; // #E9E9E9
+$oras-bg: $white;
+$OrasHero-bgPreTransition: $bg-10;
+$OrasHero-figureBg: $black; // #E9E9E9
+$OrasHero-figureBgAlpha: $bg-100-opaqueAlpha;
+$OrasHero-figurePreTransitionBgAlpha: $bg-50-opaqueAlpha;

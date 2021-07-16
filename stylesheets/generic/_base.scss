@@ -9,12 +9,15 @@
 
   --primary: #{$primary};
   --primary-negative: #{$primary-negative};
+  --primary-negativeLight: #{$primary-negativeLight};
+
   --bg-100: #{$bg-100};
   --bg-50: #{$bg-50};
   --bg-10: #{$bg-10};
 
-  --OrasHero-figure-bg: #{$OrasHero-figure-bg};
-  --OrasHero-figure-bg-rgb: #{hexToRgb($OrasHero-figure-bg)};
+  --OrasHero-figureBg: #{$OrasHero-figureBg};
+  --OrasHero-figureBgAlpha:#{$OrasHero-figureBgAlpha};
+  --OrasHero-figureBgRgb: #{hexToRgb($OrasHero-figureBg)};
 
   --Template-overlayColor: #{$Template-overlayColor};
 

@@ -7,51 +7,51 @@
  * Mobile up responsive visibility helper
  * ====== */
 
-.hidden,
-.visible\@s, .visible--i\@s, .visible--ib\@s, .visible--tc\@s, .visible--f\@s,
-.visible\@m, .visible--i\@m, .visible--ib\@m, .visible--tc\@m, .visible--f\@m,
-.visible\@l, .visible--i\@l, .visible--ib\@l, .visible--tc\@l, .visible--f\@l,
-.visible\@xl, .visible--i\@xl, .visible--ib\@xl, .visible--tc\@xl, .visible--f\@xl {
-  display: none !important;
-}
+// .hidden,
+// .visible\@s, .visible--i\@s, .visible--ib\@s, .visible--tc\@s, .visible--f\@s,
+// .visible\@m, .visible--i\@m, .visible--ib\@m, .visible--tc\@m, .visible--f\@m,
+// .visible\@l, .visible--i\@l, .visible--ib\@l, .visible--tc\@l, .visible--f\@l,
+// .visible\@xl, .visible--i\@xl, .visible--ib\@xl, .visible--tc\@xl, .visible--f\@xl {
+//   display: none !important;
+// }
 
-.visible { display: inherit !important; }
+// .visible { display: inherit !important; }
 
-@include mq(s) {
-  .visible\@s     { display: inherit !important; }
-  .visible--f\@s { display: flex !important; }
-  .visible--i\@s  { display: inline !important; }
-  .visible--ib\@s { display: inline-block !important; }
-  .visible--tc\@s { display: table-cell !important; }
-  .hidden\@s      { display: none !important; }
-}
+// @include mq(s) {
+//   .visible\@s     { display: inherit !important; }
+//   .visible--f\@s { display: flex !important; }
+//   .visible--i\@s  { display: inline !important; }
+//   .visible--ib\@s { display: inline-block !important; }
+//   .visible--tc\@s { display: table-cell !important; }
+//   .hidden\@s      { display: none !important; }
+// }
 
-@include mq(m) {
-  .visible\@m     { display: inherit !important; }
-  .visible--f\@m  { display: flex !important; }
-  .visible--i\@m  { display: inline !important; }
-  .visible--ib\@m { display: inline-block !important; }
-  .visible--tc\@m { display: table-cell !important; }
-  .hidden\@m      { display: none !important; }
-}
+// @include mq(m) {
+//   .visible\@m     { display: inherit !important; }
+//   .visible--f\@m  { display: flex !important; }
+//   .visible--i\@m  { display: inline !important; }
+//   .visible--ib\@m { display: inline-block !important; }
+//   .visible--tc\@m { display: table-cell !important; }
+//   .hidden\@m      { display: none !important; }
+// }
 
-@include mq(l) {
-  .visible\@l { display: inherit !important; }
-  .visible--f\@l { display: flex !important; }
-  .visible--i\@l { display: inline !important; }
-  .visible--ib\@l { display: inline-block !important; }
-  .visible--tc\@l { display: table-cell !important; }
-  .hidden\@l { display: none !important; }
-}
+// @include mq(l) {
+//   .visible\@l { display: inherit !important; }
+//   .visible--f\@l { display: flex !important; }
+//   .visible--i\@l { display: inline !important; }
+//   .visible--ib\@l { display: inline-block !important; }
+//   .visible--tc\@l { display: table-cell !important; }
+//   .hidden\@l { display: none !important; }
+// }
 
-@include mq(xl) {
-  .visible\@xl     { display: inherit !important; }
-  .visible--f\@xl  { display: flex !important; }
-  .visible--i\@xl  { display: inline !important; }
-  .visible--ib\@xl { display: inline-block !important; }
-  .visible--tc\@xl { display: table-cell !important; }
-  .hidden\@xl      { display: none !important; }
-}
+// @include mq(xl) {
+//   .visible\@xl     { display: inherit !important; }
+//   .visible--f\@xl  { display: flex !important; }
+//   .visible--i\@xl  { display: inline !important; }
+//   .visible--ib\@xl { display: inline-block !important; }
+//   .visible--tc\@xl { display: table-cell !important; }
+//   .hidden\@xl      { display: none !important; }
+// }
 
 
 /* ======
