@@ -18,7 +18,7 @@ import useIsMobile from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { useCallbackRef } from 'use-callback-ref';
-import { moveInVariants, fadeVariants } from './Figure.animations';
+import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
 
 const Figure = ({
   alt,
@@ -44,8 +44,8 @@ const Figure = ({
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
-    '-placeholderColor:50': placeholderColor === 50 || mask,
-    '-placeholderColor:10': placeholderColor === 10,
+    // '-placeholderColor:50': placeholderColor === 50 || mask,
+    // '-placeholderColor:10': placeholderColor === 10,
   });
   const ref = useCallbackRef(null, ref => ref);
   const inView = useInView(ref, src);
@@ -65,23 +65,26 @@ const Figure = ({
 
   /**
    * 1. Mask offset
-   * 2. Default offset
-   * 3. Fade offset
+   * 2. Default offset (move)
+   * 3. Clip offset
    */
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
       : mask
       ? '-25%' // [1.]
-      : !mask && transition != 'fade' // [2.]
-      ? '-25%'
-      : '15%'; // [3.]
+      : !mask && transition != 'clip' // [2.]
+      ? '15%'
+      : false; // [3.]
 
-  let figureVariants =
-    mask || transition === 'fade' ? fadeVariants : moveInVariants;
+  let figureVariants = mask
+    ? maskVariants
+    : transition === 'clip'
+    ? clipVariants
+    : moveVariants;
 
   if (mobile) {
-    figureVariants = mask ? moveInVariants : figureVariants;
+    figureVariants = mask ? clipVariants : figureVariants;
   }
 
   return (

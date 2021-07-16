@@ -73,7 +73,6 @@ const Oras = ({ images }) => {
               alt="Oras product family"
               placeholderColor={10}
               scrolling={false}
-              transition="fade"
               sizes={`${mq.l} 80vw, 100vw`}
               quality={90}
               {...family}
@@ -90,6 +89,7 @@ const Oras = ({ images }) => {
             alt="Oras lifestyle animation concept"
             scrollSpeed={-1}
             src="/assets/oras/joonassandell-oras-bathroom.mp4"
+            transition="clip"
           />
         </div>
         <div className="grid-col grid-col:10 -end grid-col:6@m">
@@ -97,6 +97,7 @@ const Oras = ({ images }) => {
             alt="Oras get inspired animation concept"
             scrollSpeed={0.5}
             src="/assets/oras/joonassandell-oras-get-inspired.mp4"
+            transition="clip"
           />
         </div>
       </section>
@@ -107,7 +108,6 @@ const Oras = ({ images }) => {
               alt="Oras kitchen experience"
               placeholderColor={10}
               scrolling={false}
-              transition="fade"
               sizes={`${mq.m} 80vw, 100vw`}
               {...kitchen}
               blurhash={false}
@@ -123,6 +123,7 @@ const Oras = ({ images }) => {
               alt="Oras homepage hero"
               scrollSpeed={0.5}
               sizes={`${mq.m} 70vw, 100vw`}
+              transition="clip"
               {...homeHero}
             />
           </div>
@@ -131,6 +132,7 @@ const Oras = ({ images }) => {
               alt="Oras live more page hero"
               scrollSpeed={-scrollSpeed}
               sizes={`${mq.m} 33vw, 80vw`}
+              transition="clip"
               {...liveMore}
             />
           </div>
@@ -139,6 +141,7 @@ const Oras = ({ images }) => {
               alt="Oras look book cta"
               scrolling={false}
               sizes={`${mq.m} 80vw, 100vw`}
+              transition="clip"
               {...lookBooked}
             />
           </div>
@@ -151,7 +154,6 @@ const Oras = ({ images }) => {
               alt="Oras single product page"
               placeholderColor={10}
               scrolling={false}
-              transition="fade"
               sizes={`${mq.m} 80vw, 100vw`}
               {...single}
               blurhash={false}

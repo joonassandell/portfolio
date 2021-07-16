@@ -1,17 +1,17 @@
 .Figure {
   margin-bottom: rem($space-xxl);
 
-  &.-placeholderColor\:10 {
-    .Figure-figure {
-      background: $bg-10;
-    }
-  }
+  // &.-placeholderColor\:10 {
+  //   .Figure-figure {
+  //     background: $bg-10;
+  //   }
+  // }
 
-  &.-placeholderColor\:50 {
-    .Figure-figure {
-      background: $bg-50;
-    }
-  }
+  // &.-placeholderColor\:50 {
+  //   .Figure-figure {
+  //     background: $bg-50-opaque;
+  //   }
+  // }
 
   &.-mask {
     overflow: hidden;
@@ -30,6 +30,7 @@
 
 .Figure-figure-inner {
   position: relative;
+  transform-origin: top center;
 }
 
 .Figure-blur, .Figure-blur-canvas {
