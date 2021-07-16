@@ -63,13 +63,12 @@ const Home = () => {
         </motion.div>
 
         <OrasHero
-          animationStart={currentHero === 'oras' && animation}
-          animationState="preAnimation"
-          animationHide={currentHero != 'oras' && animationHide}
+          transitionStart={currentHero === 'oras' && animation}
+          transitionState="pre"
+          transitionHide={currentHero != 'oras' && animationHide}
           id="oras"
           onClick={handleClick}
           priority={true}
-          // onFocus={handleClick}
         />
         <div
           data-id="test"

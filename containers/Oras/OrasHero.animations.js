@@ -5,6 +5,10 @@ import {
   transTertiary,
 } from '@/lib/config';
 
+import { getCSSVarValue } from '@/lib/utility';
+
+const delayAfterBgCirle = 0.3;
+
 export const headingVariants = {
   exit: mobile => ({
     y: '-175%',
@@ -15,16 +19,50 @@ export const headingVariants = {
   }),
 };
 
-export const bgVariants = {
+export const circleVariants = {
+  exit: mobile => ({
+    scale: 0,
+    skew: '45deg',
+    rotate: '180deg',
+    transition: {
+      ...transPrimary,
+      ...(mobile && { delay: mobileExtraDelay }),
+    },
+  }),
+};
+
+export const circleBgVariants = {
+  exit: mobile => ({
+    // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // bottom/right/left
+    // clipPath: 'circle(100% at 50% 50%)',
+    // scale: 2.5,
+    scale: 10,
+    transition: {
+      ...transPrimary,
+      ...(mobile && { delay: mobileExtraDelay }),
+    },
+  }),
+  // preTransition: {
+  //   // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // bottom
+  //   // clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', // right
+  //   // clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)', // left
+  //   // clipPath: 'polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%)', // bottom left
+  //   // clipPath: 'circle(15% at 50% 50%)',
+  // },
+};
+
+export const figureBgVariants = {
   exit: mobile => ({
     scaleY: 4,
     background: [
-      'linear-gradient(180deg, var(--OrasHero-figure-bg) 0%, rgba(var(--OrasHero-figure-bg-rgb), 1) 100%)',
-      'linear-gradient(180deg, var(--OrasHero-figure-bg) 0%, rgba(var(--OrasHero-figure-bg-rgb), 0) 100%)',
+      'linear-gradient(180deg, var(--OrasHero-figureBg) 0%, rgba(var(--OrasHero-figureBgRgb), 1) 100%)',
+      'linear-gradient(180deg, var(--OrasHero-figureBg) 0%, rgba(var(--OrasHero-figureBgRgb), 0) 100%)',
     ],
+    opacity: parseFloat(getCSSVarValue('--OrasHero-figureBgAlpha')),
     transition: {
       ...transSecondary,
-      ...(mobile && { delay: mobileExtraDelay }),
+      delay: delayAfterBgCirle,
+      ...(mobile && { delay: delayAfterBgCirle + mobileExtraDelay }),
     },
   }),
 };
@@ -39,7 +77,7 @@ export const dropVariants = {
     },
     y: 0,
   }),
-  preAnimation: {
+  preTransition: {
     opacity: 0,
     y: -24,
   },
@@ -55,7 +93,7 @@ export const dropVariants2 = {
     },
     y: 0,
   }),
-  preAnimation: {
+  preTransition: {
     opacity: 0,
     y: -96,
   },
@@ -71,7 +109,7 @@ export const dropVariants3 = {
     },
     y: 0,
   }),
-  preAnimation: {
+  preTransition: {
     opacity: 0,
     y: -40,
   },

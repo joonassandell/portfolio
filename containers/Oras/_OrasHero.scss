@@ -1,9 +1,13 @@
 .OrasHero {
-  background-color: $OrasHero-bg;
+  background-color: $oras-bg;
   height: 132vw;
   max-height: rem($space * 52);
   min-width: var(--root-minWidth);
   position: relative;
+
+  &.-transition\:pre {
+    background-color: $OrasHero-bgPreTransition;
+  }
 
   @include mq(xs) {
     height: 115vw;
@@ -45,7 +49,7 @@
   width: 67vw;
   z-index: 3;
 
-  .OrasHero.-preAnimation & {
+  .OrasHero.-transition\:pre & {
     cursor: pointer;
   }
 
@@ -61,14 +65,17 @@
 }
 
 .OrasHero-figure-bg {
-  background: linear-gradient(180deg, $OrasHero-figure-bg 0%, rgba($OrasHero-figure-bg, 0) 100%);
+  background: linear-gradient(180deg, $OrasHero-figureBg 0%, rgba($OrasHero-figureBg, 0) 100%);
   height: 100%;
+  opacity: $OrasHero-figureBgAlpha;
+  position: relative;
   transform: scaleY(4);
   width: 100%;
-  z-index: 0;
+  z-index: 1;
 
-  .OrasHero.-preAnimation & {
-    background: $OrasHero-figure-bg;
+  .OrasHero.-transition\:pre & {
+    background: $OrasHero-figureBg;
+    opacity: $OrasHero-figurePreTransitionBgAlpha;
     transform: scaleY(1);
 
     @include mq(s) {
@@ -86,11 +93,11 @@
 }
 
 .OrasHero-drop {
-  filter: grayscale(100%);
   height: auto;
   mix-blend-mode: darken;
   position: absolute;
   width: 100%;
+  z-index: 1;
 }
 
 .OrasHero-drop--1 {
@@ -138,9 +145,9 @@
   position: absolute;
   transform: translate3d(0, -175%, 0);
   white-space: nowrap;
-  z-index: 1;
+  z-index: 2;
 
-  .OrasHero.-preAnimation & {
+  .OrasHero.-transition\:pre & {
     cursor: pointer;
     transform: translate3d(0, 0, 0);
   }
@@ -189,4 +196,32 @@
   @include mq($until: l) {
     display: none;
   }
+}
+
+// .OrasHero-circle {
+//   background-color: red;
+//   clip-path: circle(15% at 50% 50%);
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   width: 100vw;
+//   z-index: 0;
+// }
+
+.OrasHero-circle {
+  $sizeMin: rem($space * 12);
+  $size: 30vw;
+  background-color: red;
+  border-radius: 50%;
+  height: clamp($sizeMin, calc(#{$sizeMin} + 10vw), $size);
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  width: clamp($sizeMin, calc(#{$sizeMin} + 10vw), $size);
+  z-index: 0;
+}
+
+.OrasHero-circle--bg {
+  background-color: $oras-bg;
+  // clip-path: circle(0% at 50% 50%);
 }

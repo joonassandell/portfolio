@@ -1,4 +1,6 @@
-.Template--oras {
+.Template.Template--oras {
+  background-color: $oras-bg;
+
   /**
    * Fix weird pixel on top in the video
    */
@@ -12,4 +14,12 @@
       top: -2px;
     }
   }
+
+  // .Figure {
+  //   &.-placeholderColor\:10 {
+  //     .Figure-figure {
+  //       background: $white;
+  //     }
+  //   }
+  // }
 }

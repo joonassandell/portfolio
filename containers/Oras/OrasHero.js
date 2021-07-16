@@ -5,7 +5,9 @@ import useIsMobile from '@/lib/useIsMobile';
 import { ButtonEnter } from '@/components/Button';
 import Link from '@/components/Link';
 import {
-  bgVariants,
+  circleBgVariants,
+  circleVariants,
+  figureBgVariants,
   headingVariants,
   dropVariants,
   dropVariants2,
@@ -19,30 +21,27 @@ import { useRouter } from 'next/router';
 const oras = getSitemap('oras');
 
 const OrasHero = ({
-  animationStart = false,
-  animationHideStart = false,
-  animationState = 'initial', // preAnimation, initial
+  transitionStart = false,
+  transitionHideStart = false,
+  transitionState = null,
   id,
   onClick,
   priority = false,
 }) => {
   const mobile = useIsMobile();
-  const initial = animationState === 'initial';
-  const preAnimation = animationState === 'preAnimation';
-  const classes = c('OrasHero', {
-    '-preAnimation': preAnimation,
-    '-initial': initial,
-  });
+  const preTransition = transitionState === 'pre';
+  const classes = c('OrasHero', { '-transition:pre': preTransition });
   const router = useRouter();
-  const Heading = preAnimation ? motion.h2 : motion.h1;
+  const Heading = preTransition ? motion.h2 : motion.h1;
+  const transitionStartOrInitial = transitionStart || !transitionState;
 
   useEffect(() => {
-    if (animationStart) router.push(oras.url, null, { scroll: false });
-  }, [animationStart]);
+    if (transitionStart) router.push(oras.url, null, { scroll: false });
+  }, [transitionStart]);
 
   return (
     <motion.section
-      animate={animationHideStart}
+      animate={transitionHideStart}
       className={classes}
       id={id}
       variants={fadeOutVariants}
@@ -51,8 +50,8 @@ const OrasHero = ({
         className="OrasHero-heading Heading Heading--display"
         onClick={onClick}
         custom={mobile}
-        {...(animationStart && { exit: 'exit' })}
-        {...(animationStart && { variants: headingVariants })}
+        variants={headingVariants}
+        {...(transitionStart && { exit: 'exit' })}
       >
         <div
           className="Heading-inner"
@@ -60,8 +59,8 @@ const OrasHero = ({
           data-scroll-offset="-10%"
           data-scroll-position="top"
           data-scroll-speed={scrollSpeed}
-          // {...(preAnimation && { 'data-scroll-speed': 3 })}
-          {...(preAnimation && { 'data-scroll-direction': 'horizontal' })}
+          // {...(preTransition && { 'data-scroll-speed': 3 })}
+          {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
           Oras \ 2016
           {/* Oras — 2016 */}
@@ -99,37 +98,38 @@ const OrasHero = ({
             <motion.div
               className="OrasHero-figure-bg"
               custom={mobile}
-              variants={bgVariants}
-              {...(animationStart && { exit: 'exit' })}
-              {...(animationStart && { variants: bgVariants })}
+              variants={figureBgVariants}
+              {...(transitionStart && { exit: 'exit' })}
             />
-            <motion.div
-              className="OrasHero-drop OrasHero-drop--1"
-              custom={mobile}
-              variants={dropVariants}
-              {...(animationStart && { exit: 'exit' })}
-              {...(preAnimation && { initial: 'preAnimation' })}
-            >
-              <Image
-                aria-hidden="true"
-                draggable="false"
-                height={256}
-                layout="responsive"
-                sizes="10vw"
-                src="/assets/oras/drop.png"
-                width={256}
-                {...(priority && { priority: true })}
-              />
-            </motion.div>
+            {transitionStartOrInitial && (
+              <motion.div
+                className="OrasHero-drop OrasHero-drop--1"
+                custom={mobile}
+                variants={dropVariants}
+                {...(transitionStart && { exit: 'exit' })}
+                {...(preTransition && { initial: 'preTransition' })}
+              >
+                <Image
+                  aria-hidden="true"
+                  draggable="false"
+                  height={256}
+                  layout="responsive"
+                  sizes="10vw"
+                  src="/assets/oras/oras-drop.png"
+                  width={256}
+                  {...(priority && { priority: true })}
+                />
+              </motion.div>
+            )}
           </div>
-          {preAnimation && (
+          {preTransition && (
             <motion.div
               className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
-              {...(animationStart && { exit: 'exit' })}
-              {...(animationStart && { variants: fadeOutVariants })}
+              variants={fadeOutVariants}
+              {...(transitionStart && { exit: 'exit' })}
             >
               <p aria-hidden="true" className="OrasHero-content-heading h5">
-                Oras 
+                Oras
               </p>
               <p className="OrasHero-content-text Text -s">
                 UI, UX design <br />
@@ -147,37 +147,13 @@ const OrasHero = ({
           )}
         </div>
       </div>
-      <motion.div
-        className="OrasHero-drop OrasHero-drop--2"
-        custom={mobile}
-        variants={dropVariants2}
-        {...(animationStart && { exit: 'exit' })}
-        {...(animationStart && { variants: dropVariants2 })}
-        {...(preAnimation && { initial: 'preAnimation' })}
-      >
-        <Image
-          aria-hidden="true"
-          draggable="false"
-          height={256}
-          layout="responsive"
-          sizes="10vw"
-          src="/assets/oras/drop.png"
-          width={256}
-          {...(priority && { priority: true })}
-        />
-      </motion.div>
-      <motion.div
-        className="OrasHero-drop OrasHero-drop--3"
-        custom={mobile}
-        variants={dropVariants3}
-        {...(preAnimation && { initial: 'preAnimation' })}
-        {...(animationStart && { exit: 'exit' })}
-      >
-        <div
-          data-scroll
-          data-scroll-delay="0.4"
-          data-scroll-speed="1"
-          data-scroll-position="top"
+      {transitionStartOrInitial && (
+        <motion.div
+          className="OrasHero-drop OrasHero-drop--2"
+          custom={mobile}
+          variants={dropVariants2}
+          {...(transitionStart && { exit: 'exit' })}
+          {...(preTransition && { initial: 'preTransition' })}
         >
           <Image
             aria-hidden="true"
@@ -185,18 +161,44 @@ const OrasHero = ({
             height={256}
             layout="responsive"
             sizes="10vw"
-            src="/assets/oras/drop.png"
+            src="/assets/oras/oras-drop.png"
             width={256}
             {...(priority && { priority: true })}
           />
-        </div>
-      </motion.div>
-
-      {preAnimation && (
+        </motion.div>
+      )}
+      {transitionStartOrInitial && (
+        <motion.div
+          className="OrasHero-drop OrasHero-drop--3"
+          custom={mobile}
+          variants={dropVariants3}
+          {...(preTransition && { initial: 'preTransition' })}
+          {...(transitionStart && { exit: 'exit' })}
+        >
+          <div
+            data-scroll
+            data-scroll-delay="0.15"
+            data-scroll-position="top"
+            data-scroll-speed="1"
+          >
+            <Image
+              aria-hidden="true"
+              draggable="false"
+              height={256}
+              layout="responsive"
+              sizes="10vw"
+              src="/assets/oras/oras-drop.png"
+              width={256}
+              {...(priority && { priority: true })}
+            />
+          </div>
+        </motion.div>
+      )}
+      {preTransition && (
         <motion.div
           className="OrasHero-link wrap"
-          {...(animationStart && { exit: 'exit' })}
-          {...(animationStart && { variants: fadeOutVariants })}
+          {...(transitionStart && { exit: 'exit' })}
+          {...(transitionStart && { variants: fadeOutVariants })}
         >
           <div className="grid -placeEnd">
             <div className="grid-col">
@@ -212,6 +214,22 @@ const OrasHero = ({
             </div>
           </div>
         </motion.div>
+      )}
+      {transitionStart && (
+        <motion.div
+          className="OrasHero-circle OrasHero-circle--bg"
+          custom={mobile}
+          variants={circleBgVariants}
+          {...(transitionStart && { exit: 'exit' })}
+        />
+      )}
+      {preTransition && (
+        <motion.div
+          className="OrasHero-circle"
+          custom={mobile}
+          variants={circleVariants}
+          {...(transitionStart && { exit: 'exit' })}
+        />
       )}
     </motion.section>
   );
