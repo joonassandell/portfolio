@@ -19,8 +19,8 @@ export const bgVariants = {
   exit: mobile => ({
     scaleY: 4,
     background: [
-      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 1) 100%)',
-      'linear-gradient(180deg, #E9E9E9 0%, rgba(233, 233, 233, 0) 100%)',
+      'linear-gradient(180deg, var(--OrasHero-figure-bg) 0%, rgba(var(--OrasHero-figure-bg-rgb), 1) 100%)',
+      'linear-gradient(180deg, var(--OrasHero-figure-bg) 0%, rgba(var(--OrasHero-figure-bg-rgb), 0) 100%)',
     ],
     transition: {
       ...transSecondary,

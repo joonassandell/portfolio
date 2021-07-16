@@ -3,14 +3,20 @@
  * ======================================= */
 
 :root {
-  --Template-overlayColor: #{$Template-overlayColor};
   --root-minWidth: #{$root-minWidth};
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
   --primary: #{$primary};
-  --black: #{$black};
-  --white: #{$white};
+  --primary-negative: #{$primary-negative};
+  --bg-100: #{$bg-100};
+  --bg-50: #{$bg-50};
+  --bg-10: #{$bg-10};
+
+  --OrasHero-figure-bg: #{$OrasHero-figure-bg};
+  --OrasHero-figure-bg-rgb: #{hexToRgb($OrasHero-figure-bg)};
+
+  --Template-overlayColor: #{$Template-overlayColor};
 
   @include fontSize(
     $minFontSize: $font-size,
@@ -112,12 +118,12 @@ a {
 
 ::-moz-selection {
   background: $primary;
-  color: $white;
+  color: $primary-negative;
 }
 
 ::selection {
   background: $primary;
-  color: $white;
+  color: $primary-negative;
 }
 
 img::selection {

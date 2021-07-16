@@ -80,3 +80,11 @@
 @function pascalize($string) {
   @return capitalize(camelize($string));
 }
+
+
+//
+// Convert hext to rgb
+//
+@function hexToRgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

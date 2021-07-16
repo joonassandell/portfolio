@@ -54,7 +54,6 @@ $h5-fontSizeMin: 18px;
 $h5-fontSizeMax: 24px;
 $h5-lineHeight: 28px;
 
-
 // =========
 // Spacing & Sizing
 // =========
@@ -72,7 +71,6 @@ $space-xxxl: $space * 5;
 $space-xxxxl: $space * 6;
 $space-xxxxxl: $space * 7;
 $space-xxxxxxl: $space * 8;
-
 
 // =========
 // Wrap & Grid settings
@@ -119,39 +117,45 @@ $mq-breakpoints: (
   mobile: 1023px,
 );
 
-
 // =========
 // Colors
 // =========
-
-// Brand colors
-$primary: #000000;
 
 // Base colors
 $black: #000000;
 $white: #ffffff;
 
+// Brand colors
+$primary: #111111;
+$primary-negative: #f6eee3; // #f6eee3
+
+// $primary: $black;
+// $primary-negative: $white;
+
 // Background colors
-$bg-700: $black;
-$bg-100: darken(#ffffff, 5);
-$bg-50: darken(#ffffff, 3);
-$bg-10: #ffffff;
+$bg-700: $primary;
+$bg-10: $primary-negative;
+$bg-100: desaturate(darken($bg-10, 5), 20);
+$bg-50: desaturate(darken($bg-10, 3), 20);
+
+// $bg-100: darken($bg-10, 5);
+// $bg-50: darken($bg-10, 3);
 
 // Text colors
-$text-700: #000000;
+$text-700: $primary;
 $text-400: lighten($text-700, 30);
-$text-10: #ffffff;
+$text-10: $primary-negative;
 
 // Heading color
 $heading: inherit;
 
 // Link colors
-$link: #000000;
-$link-hover: #000000;
+$link: $primary;
+$link-hover: $primary;
 
 // Border colors
-$border-700: $black;
-$border-500-opaque: rgba($white, 0.12);
+$border-700: $primary;
+$border-500-opaque: rgba($primary-negative, 0.12);
 $border-500: #323232;
 $border-20: rgba(#000000, 0.12);
 $border-10: #ffffff;
@@ -237,4 +241,11 @@ $Button-spaceX: $space * 1.25;
 // Template
 // =======================================
 
-$Template-overlayColor: $black;
+$Template-overlayColor: $primary;
+
+// =======================================
+// Oras
+// =======================================
+
+$OrasHero-bg: $bg-10;
+$OrasHero-figure-bg: $bg-100; // #E9E9E9

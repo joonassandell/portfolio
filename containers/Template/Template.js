@@ -2,39 +2,13 @@ import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import Title from '@/components/Title';
-import { transTemplate } from '@/lib/config';
+import {
+  variantsWithTransition,
+  variantsWithoutTransition,
+} from './Template.animations';
 import c from 'classnames';
 import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
-
-const variantsWithTransition = {
-  animate: {
-    y: 0,
-  },
-  exit: {
-    y: '-50vh',
-  },
-  initial: {
-    y: '100vh',
-  },
-  transition: transTemplate,
-};
-
-const variantsWithoutTransition = {
-  animate: {
-    y: 0,
-  },
-  exit: {
-    y: 0,
-  },
-  initial: {
-    y: 0,
-  },
-  transition: {
-    duration: 0,
-    ease: 'linear',
-  },
-};
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);

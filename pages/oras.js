@@ -174,7 +174,7 @@ const Oras = ({ images }) => {
             <Figure
               alt="Oras strategy 1"
               scrolling={false}
-              sizes={`${mq.m} 33vw, 50vw`}
+              sizes={`${mq.m} 33vw, 80vw`}
               {...s5}
             />
           </div>
@@ -182,7 +182,7 @@ const Oras = ({ images }) => {
             <Figure
               alt="Oras strategy 2"
               scrolling={false}
-              sizes={`100vw`}
+              sizes={`80vw`}
               quality={90}
               {...s1}
             />
@@ -193,15 +193,15 @@ const Oras = ({ images }) => {
             <Figure
               alt="Oras strategy 3"
               scrolling={false}
-              sizes={`${mq.m} 33vw, 50vw`}
+              sizes={`${mq.m} 33vw, 80vw`}
               {...s4}
             />
           </div>
           <div className="grid-col grid-col:10 -start:2 grid-col:5@m -start:8@m">
             <Figure
-              alt="Oras strategy 3"
+              alt="Oras strategy 4"
               scrolling={false}
-              sizes={`${mq.m} 33vw, 50vw`}
+              sizes={`${mq.m} 33vw, 80vw`}
               {...s2}
             />
           </div>
@@ -209,15 +209,15 @@ const Oras = ({ images }) => {
         <div className="grid -size:l">
           <div className="grid-col grid-col:10 grid-col:5@m">
             <Figure
-              alt="Oras strategy 3"
+              alt="Oras strategy 5"
               scrolling={false}
-              sizes={`${mq.m} 33vw, 50vw`}
+              sizes={`${mq.m} 33vw, 80vw`}
               {...s3}
             />
             <div className="grid">
               <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
                 <Figure
-                  alt="Oras strategy 3"
+                  alt="Oras strategy 6"
                   scrolling={false}
                   sizes={`${mq.m} 33vw, 50vw`}
                   {...s7}
@@ -227,7 +227,7 @@ const Oras = ({ images }) => {
           </div>
           <div className="grid-col grid-col:9 -start:4 grid-col:7@m -start:6@m">
             <Figure
-              alt="Oras strategy 3"
+              alt="Oras strategy 7"
               scrolling={false}
               sizes={`${mq.m} 33vw, 50vw`}
               {...s6}
