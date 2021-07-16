@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import {
+  ease,
   transPrimaryFast,
   transSecondaryFast,
-  transSecondaryFastest,
+  transPrimaryFastest,
 } from '@/lib/config';
+import { getCSSVarValue } from '@/lib/utility';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/containers/App';
@@ -42,11 +44,22 @@ const pointerOutVariants = {
 
 const bgVariant = {
   in: {
+    backgroundColor: getCSSVarValue('--primary-negativeLight'),
+    transition: { ...transPrimaryFast, delay: 0.05 },
+  },
+  out: {
+    backgroundColor: getCSSVarValue('--primary-negative'),
+    transition: { ...transPrimaryFastest },
+  },
+};
+
+const bgHoverVariant = {
+  in: {
     x: '0.5rem',
     y: '0.5rem',
-    transition: { ...transSecondaryFast, delay: 0.05 },
+    transition: { ...transPrimaryFast, delay: 0.05 },
   },
-  out: { x: 0, y: 0, transition: transSecondaryFastest },
+  out: { x: 0, y: 0, transition: transPrimaryFastest },
 };
 
 const ButtonEnter = ({
@@ -97,6 +110,10 @@ const ButtonEnter = ({
         onMouseLeave={() => setHover(false)}
         // whileHover="in" // WHY THIS DOESN'T WORK?!
         whileTap={{ top: 2 }}
+        transition={{
+          duration: 0.1,
+          ease,
+        }}
       >
         <motion.div
           animate={arrowHover ? 'in' : 'initial'}
@@ -135,11 +152,15 @@ const ButtonEnter = ({
           />
         </motion.div>
         <div className="hideVisually">{children}</div>
-        <span className="Button-bg" />
+        <motion.span
+          animate={hover ? 'in' : 'out'}
+          className="Button-bg"
+          variants={bgVariant}
+        />
         <motion.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg-hover"
-          variants={bgVariant}
+          variants={bgHoverVariant}
         />
       </Tag>
     </ConditionalWrapper>
