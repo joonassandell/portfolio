@@ -1,28 +1,56 @@
 import StampSvg from './stamp.svg';
 import { motion } from 'framer-motion';
 import c from 'classnames';
-import { stampVariant, stampInnerVariant } from './stamp.animations';
+import {
+  innerVariants,
+  svgVariants,
+  overlayVariants,
+} from './Stamp.animations';
 import useIsMobile from '@/lib/useIsMobile';
 
-const Stamp = ({ className, color, iris, opacity, exit }) => {
+const Stamp = ({
+  className,
+  color,
+  transitionStart,
+  iris,
+  opacity,
+  overlayBg,
+}) => {
   const classes = c(className, 'Stamp');
   const isMobile = useIsMobile();
 
   return (
     <motion.div
       className={classes}
-      custom={isMobile}
       style={{
         '--Stamp-color': color,
         '--Stamp-iris': iris,
         '--Stamp-opacity': opacity,
+        '--Stamp-overlayBg': overlayBg,
       }}
-      variants={stampVariant}
-      {...(exit && { exit: 'exit' })}
     >
-      <motion.div animate="animate" variants={stampInnerVariant}>
-        <StampSvg />
+      <motion.div
+        className="Stamp-inner"
+        custom={isMobile}
+        variants={innerVariants}
+        {...(transitionStart && { exit: 'exit' })}
+      >
+        <motion.div
+          animate="animate"
+          className="Stamp-svg"
+          variants={svgVariants}
+        >
+          <StampSvg />
+        </motion.div>
       </motion.div>
+      {transitionStart && (
+        <motion.div
+          className="Stamp-overlay"
+          custom={isMobile}
+          variants={overlayVariants}
+          {...(transitionStart && { exit: 'exit' })}
+        />
+      )}
     </motion.div>
   );
 };

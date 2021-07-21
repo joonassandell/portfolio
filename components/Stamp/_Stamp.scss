@@ -1,21 +1,13 @@
 .Stamp {
-  $sizeMin: rem($space * 8);
-  $sizeMax: 30vw;
-  height: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
-  inset: 0;
-  margin: auto;
   opacity: var(--Stamp-opacity, 1);
-  position: absolute;
-  width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
-  z-index: 0;
 
   svg {
     path {
       fill: var(--Stamp-color, var(--primary));
 
-      // &:first-child {
-      //   display: none;
-      // }
+      &:first-child {
+        display: none;
+      }
     }
 
     circle {
@@ -33,3 +25,33 @@
     }
   }
 }
+
+// .Stamp-overlay {
+//   background-color: $oras-bg;
+//   clip-path: circle(15% at 50% 50%);
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   width: 100vw;
+//   z-index: 0;
+// }
+
+.Stamp,
+.Stamp-overlay {
+  $sizeMin: rem($space * 8);
+  $sizeMax: 30vw;
+
+  height: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  z-index: 0;
+}
+
+.Stamp-overlay {
+  background: var(--Stamp-overlayBg, var(--white));
+  border-radius: 50%;
+  transform: scale(0);
+}
+

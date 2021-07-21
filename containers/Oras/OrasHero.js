@@ -124,11 +124,7 @@ const OrasHero = ({
             )}
           </div>
           {preTransition && (
-            <motion.div
-              className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l"
-              variants={fadeOutVariants}
-              {...(transitionStart && { exit: 'exit' })}
-            >
+            <div className="OrasHero-content grid-col grid-col:2@m -start:11@m grid-col:2@l -start:11@l">
               <p aria-hidden="true" className="OrasHero-content-heading h5">
                 Oras
               </p>
@@ -144,7 +140,7 @@ const OrasHero = ({
               >
                 View Oras project
               </ButtonEnter>
-            </motion.div>
+            </div>
           )}
         </div>
       </div>
@@ -218,19 +214,11 @@ const OrasHero = ({
           </div>
         </motion.div>
       )}
-      {transitionStart && (
-        <motion.div
-          className="OrasHero-circle"
-          custom={isMobile}
-          variants={circleBgVariants}
-          {...(transitionStart && { exit: 'exit' })}
-        />
-      )}
       {preTransition && (
         <Stamp
           className="OrasHero-stamp"
-          exit={transitionStart}
           iris="var(--oras-primary)"
+          transitionStart={transitionStart}
         />
       )}
     </motion.section>
