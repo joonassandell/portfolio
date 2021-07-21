@@ -19,24 +19,12 @@ export const headingVariants = {
   }),
 };
 
-export const circleVariants = {
-  exit: mobile => ({
-    scale: 0,
-    skew: '45deg',
-    rotate: '180deg',
-    transition: {
-      ...transPrimary,
-      ...(mobile && { delay: mobileExtraDelay }),
-    },
-  }),
-};
-
 export const circleBgVariants = {
   exit: mobile => ({
     // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // bottom/right/left
     // clipPath: 'circle(100% at 50% 50%)',
     // scale: 2.5,
-    scale: 10,
+    scale: [0, 10],
     transition: {
       ...transPrimary,
       ...(mobile && { delay: mobileExtraDelay }),

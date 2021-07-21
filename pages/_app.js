@@ -82,7 +82,7 @@ function NextApp({ Component, pageProps, router }) {
               typeof window !== 'undefined' &&
               window.navigator &&
               window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-                ? 4
+                ? 3
                 : 1,
           }}
           watch={['Done manually I presume?']} // router.route

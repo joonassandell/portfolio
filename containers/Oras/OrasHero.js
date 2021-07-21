@@ -3,10 +3,10 @@ import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import useIsMobile from '@/lib/useIsMobile';
 import { ButtonEnter } from '@/components/Button';
+import Stamp from '@/components/Stamp';
 import Link from '@/components/Link';
 import {
   circleBgVariants,
-  circleVariants,
   figureBgVariants,
   headingVariants,
   dropVariants,
@@ -28,7 +28,7 @@ const OrasHero = ({
   onClick,
   priority = false,
 }) => {
-  const mobile = useIsMobile();
+  const isMobile = useIsMobile();
   const preTransition = transitionState === 'pre';
   const classes = c('OrasHero', { '-transition:pre': preTransition });
   const router = useRouter();
@@ -49,7 +49,7 @@ const OrasHero = ({
       <Heading
         className="OrasHero-heading Heading Heading--display"
         onClick={onClick}
-        custom={mobile}
+        custom={isMobile}
         variants={headingVariants}
         {...(transitionStart && { exit: 'exit' })}
       >
@@ -62,8 +62,8 @@ const OrasHero = ({
           // {...(preTransition && { 'data-scroll-speed': 3 })}
           {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
-          Oras \ 2016
-          {/* Oras — 2016 */}
+          {/* Oras \ 2016 */}
+          Oras — 2016
         </div>
       </Heading>
       <div className="OrasHero-wrap wrap">
@@ -97,14 +97,14 @@ const OrasHero = ({
             </figure>
             <motion.div
               className="OrasHero-figure-bg"
-              custom={mobile}
+              custom={isMobile}
               variants={figureBgVariants}
               {...(transitionStart && { exit: 'exit' })}
             />
             {transitionStartOrInitial && (
               <motion.div
                 className="OrasHero-drop OrasHero-drop--1"
-                custom={mobile}
+                custom={isMobile}
                 variants={dropVariants}
                 {...(transitionStart && { exit: 'exit' })}
                 {...(preTransition && { initial: 'preTransition' })}
@@ -117,6 +117,7 @@ const OrasHero = ({
                   sizes="10vw"
                   src="/assets/oras/oras-drop.png"
                   width={256}
+                  quality="90"
                   {...(priority && { priority: true })}
                 />
               </motion.div>
@@ -150,7 +151,7 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--2"
-          custom={mobile}
+          custom={isMobile}
           variants={dropVariants2}
           {...(transitionStart && { exit: 'exit' })}
           {...(preTransition && { initial: 'preTransition' })}
@@ -163,6 +164,7 @@ const OrasHero = ({
             sizes="10vw"
             src="/assets/oras/oras-drop.png"
             width={256}
+            quality="90"
             {...(priority && { priority: true })}
           />
         </motion.div>
@@ -170,7 +172,7 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--3"
-          custom={mobile}
+          custom={isMobile}
           variants={dropVariants3}
           {...(preTransition && { initial: 'preTransition' })}
           {...(transitionStart && { exit: 'exit' })}
@@ -189,6 +191,7 @@ const OrasHero = ({
               sizes="10vw"
               src="/assets/oras/oras-drop.png"
               width={256}
+              quality="90"
               {...(priority && { priority: true })}
             />
           </div>
@@ -217,18 +220,17 @@ const OrasHero = ({
       )}
       {transitionStart && (
         <motion.div
-          className="OrasHero-circle OrasHero-circle--bg"
-          custom={mobile}
+          className="OrasHero-circle"
+          custom={isMobile}
           variants={circleBgVariants}
           {...(transitionStart && { exit: 'exit' })}
         />
       )}
       {preTransition && (
-        <motion.div
-          className="OrasHero-circle"
-          custom={mobile}
-          variants={circleVariants}
-          {...(transitionStart && { exit: 'exit' })}
+        <Stamp
+          className="OrasHero-stamp"
+          exit={transitionStart}
+          iris="var(--oras-primary)"
         />
       )}
     </motion.section>

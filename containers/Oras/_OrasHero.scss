@@ -195,7 +195,7 @@
 }
 
 // .OrasHero-circle {
-//   background-color: red;
+//   background-color: $oras-bg;
 //   clip-path: circle(15% at 50% 50%);
 //   height: 100%;
 //   position: absolute;
@@ -204,27 +204,31 @@
 //   z-index: 0;
 // }
 
-.OrasHero-circle {
-  $sizeMin: rem($space * 8);
-  $sizeMax: 25vw;
-  background-color: red;
-  border-radius: 50%;
-  bottom: 0;
-  height: clamp($sizeMin, calc(#{$sizeMin} + 15vw), $sizeMax);
-  left: -15%;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: clamp($sizeMin, calc(#{$sizeMin} + 15vw), $sizeMax);
-  z-index: 0;
+.OrasHero-circle, .OrasHero-stamp.Stamp {
+  left: -20%;
+  top: -10%;
 
-  @include mq(xs) {
-    left: 0;
+  @include mq(s) {
+    left: -7%;
+    top: 0;
+  }
+
+  @include mq(m) {
+    left: -13%;
   }
 }
 
-.OrasHero-circle--bg {
+.OrasHero-circle {
+  $sizeMin: rem($space * 8);
+  $sizeMax: 30vw;
+
   background-color: $oras-bg;
-  // clip-path: circle(0% at 50% 50%);
+  border-radius: 50%;
+  height: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  transform: scale(0);
+  width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  z-index: 0;
 }

@@ -135,6 +135,7 @@ $primary-negativeLight: $white;
 // Background colors
 $bg-700: $primary;
 $bg-10: $primary-negative;
+$bg-200: desaturate(darken($bg-10, 13), 20);
 $bg-100: desaturate(darken($bg-10, 5), 20);
 $bg-50: desaturate(darken($bg-10, 3), 20);
 
@@ -254,6 +255,7 @@ $Template-overlayColor: $primary;
 // =======================================
 
 $oras-bg: $white;
+$oras-primary: red;
 $OrasHero-bgPreTransition: $bg-10;
 $OrasHero-figureBg: $black; // #E9E9E9
 $OrasHero-figureBgAlpha: $bg-100-opaqueAlpha;

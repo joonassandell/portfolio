@@ -1,66 +1,18 @@
 import { motion } from 'framer-motion';
-import {
-  ease,
-  transPrimaryFast,
-  transSecondaryFast,
-  transPrimaryFastest,
-} from '@/lib/config';
-import { getCSSVarValue } from '@/lib/utility';
+import { ease } from '@/lib/config';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/containers/App';
 import c from 'classnames';
 import ConditionalWrapper from '../ConditionalWrapper';
-
-const pathInVariants = {
-  in: { pathLength: 1, transition: { ...transPrimaryFast, delay: 0.1 } },
-  initial: { pathLength: 0, transition: { duration: 0 } },
-};
-
-const pointerInVariants = {
-  in: {
-    offsetDistance: '100%',
-    transition: { ...transPrimaryFast, delay: 0.1 },
-  },
-  initial: { offsetDistance: '0%', transition: { duration: 0 } },
-};
-
-const pathOutVariants = {
-  in: {
-    pathOffset: 1,
-    transition: transSecondaryFast,
-  },
-  initial: {
-    pathLength: 1,
-    pathOffset: 0,
-    transition: { duration: 0 },
-  },
-};
-
-const pointerOutVariants = {
-  in: { x: '1rem', transition: transSecondaryFast },
-  initial: { offsetDistance: '100%', x: 0, transition: { duration: 0 } },
-};
-
-const bgVariant = {
-  in: {
-    backgroundColor: getCSSVarValue('--primary-negativeLight'),
-    transition: { ...transPrimaryFast, delay: 0.05 },
-  },
-  out: {
-    backgroundColor: getCSSVarValue('--primary-negative'),
-    transition: { ...transPrimaryFastest },
-  },
-};
-
-const bgHoverVariant = {
-  in: {
-    x: '0.5rem',
-    y: '0.5rem',
-    transition: { ...transPrimaryFast, delay: 0.05 },
-  },
-  out: { x: 0, y: 0, transition: transPrimaryFastest },
-};
+import {
+  pathInVariants,
+  pointerInVariants,
+  pathOutVariants,
+  pointerOutVariants,
+  bgVariant,
+  bgHoverVariant,
+} from './ButtonEnter.animations';
 
 const ButtonEnter = ({
   className,

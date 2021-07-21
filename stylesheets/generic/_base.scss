@@ -7,14 +7,19 @@
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
+  --black: #{$black};
+  --white: #{$white};
+
   --primary: #{$primary};
   --primary-negative: #{$primary-negative};
   --primary-negativeLight: #{$primary-negativeLight};
 
+  --bg-200: #{$bg-200};
   --bg-100: #{$bg-100};
   --bg-50: #{$bg-50};
   --bg-10: #{$bg-10};
 
+  --oras-primary: #{$oras-primary};
   --OrasHero-figureBg: #{$OrasHero-figureBg};
   --OrasHero-figureBgAlpha:#{$OrasHero-figureBgAlpha};
   --OrasHero-figureBgRgb: #{hexToRgb($OrasHero-figureBg)};

@@ -1,0 +1,35 @@
+.Stamp {
+  $sizeMin: rem($space * 8);
+  $sizeMax: 30vw;
+  height: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  inset: 0;
+  margin: auto;
+  opacity: var(--Stamp-opacity, 1);
+  position: absolute;
+  width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
+  z-index: 0;
+
+  svg {
+    path {
+      fill: var(--Stamp-color, var(--primary));
+
+      // &:first-child {
+      //   display: none;
+      // }
+    }
+
+    circle {
+      &:nth-last-child(3) {
+        fill: var(--Stamp-iris, var(--white));
+      }
+
+      // &:nth-last-child(2) {
+      //   fill: var(--Stamp-pupil, var(--primary));
+      // }
+
+      // &:last-child {
+      //   fill: var(--Stamp-glow, var(--white));
+      // }
+    }
+  }
+}

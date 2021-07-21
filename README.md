@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Notes
 
 - In development, hero transitions in homepage etc. may lag because of the blurhash placeholder generation. In production build everything is fine.
+- Exit animations work in various components because `_app.js` contains `AnimatePresence` which wraps all the pages/components.
 
 ## Links
 
