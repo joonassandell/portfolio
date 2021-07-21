@@ -6,7 +6,6 @@ import { ButtonEnter } from '@/components/Button';
 import Stamp from '@/components/Stamp';
 import Link from '@/components/Link';
 import {
-  circleBgVariants,
   figureBgVariants,
   headingVariants,
   dropVariants,
@@ -30,7 +29,10 @@ const OrasHero = ({
 }) => {
   const isMobile = useIsMobile();
   const preTransition = transitionState === 'pre';
-  const classes = c('OrasHero', { '-transition:pre': preTransition });
+  const classes = c('OrasHero', {
+    '-transition:pre': preTransition,
+    'is-transition': transitionStart,
+  });
   const router = useRouter();
   const Heading = preTransition ? motion.h2 : motion.h1;
   const transitionStartOrInitial = transitionStart || !transitionState;
