@@ -8,22 +8,44 @@ import {
   linkVariants,
 } from './LinkRoll.animations';
 import c from 'classnames';
+import { isBoolean } from '@/lib/utility';
+import ConditionalWrapper from '../ConditionalWrapper';
 
 const LinkRoll = ({
-  word,
+  children,
   className,
+  isActive,
   href,
   onClick,
-  templateTransition = false,
+  tag,
+  target,
+  templateTransition = true,
 }) => {
   const { setTemplateTransition } = useAppContext();
   const [hover, setHover] = useState(false);
-  const characters = word.split('');
-  const classes = c(className, 'LinkRoll');
+  const characters = children.split('');
+  const classes = c(className, 'LinkRoll', {
+    'is-active': isActive,
+    'has-active': isBoolean(isActive),
+  });
+  const Tag = tag == 'span' ? motion.span : motion.a;
+  const linkTarget = target
+    ? target
+    : href.startsWith('http')
+    ? '_blank'
+    : false;
+  const hasHref = href && (href.startsWith('/') || href.startsWith('http'));
 
   return (
-    <NextLink href={href} passHref scroll={false}>
-      <motion.a
+    <ConditionalWrapper
+      condition={hasHref}
+      wrapper={children => (
+        <NextLink href={href} passHref scroll={false}>
+          {children}
+        </NextLink>
+      )}
+    >
+      <Tag
         animate={hover ? 'in' : 'out'}
         className={classes}
         onClick={e => {
@@ -32,36 +54,56 @@ const LinkRoll = ({
             : setTemplateTransition(false);
           onClick && onClick(e);
         }}
+        href={href}
         initial="out"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
+        {...(href && linkTarget && { target: linkTarget })}
+        {...(linkTarget === '_blank' && { rel: 'external' })}
       >
         <motion.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, index) => {
+            const empty = char.trim() === '';
+            empty ? (char = '.') : false;
+
             return (
               <motion.span
-                className="LinkRoll-char"
+                className={c('LinkRoll-char', {
+                  '-empty': empty,
+                })}
                 key={index}
                 variants={characterOutVariants}
+                {...(empty && { 'aria-hidden': 'true' })}
               >
                 {char}
               </motion.span>
             );
           })}
         </motion.span>
-        <motion.span className="LinkRoll-text -hover" variants={linkVariants}>
-          {characters.map((char, index) => (
-            <motion.span
-              className="LinkRoll-char"
-              key={index}
-              variants={characterInVariants}
-            >
-              {char}
-            </motion.span>
-          ))}
+        <motion.span
+          aria-hidden="true"
+          className="LinkRoll-text -hover"
+          variants={linkVariants}
+        >
+          {characters.map((char, index) => {
+            const empty = char.trim() === '';
+            empty ? (char = '.') : false;
+
+            return (
+              <motion.span
+                className={c('LinkRoll-char', {
+                  '-empty': empty,
+                })}
+                key={index}
+                variants={characterInVariants}
+              >
+                {char}
+              </motion.span>
+            );
+          })}
         </motion.span>
-      </motion.a>
-    </NextLink>
+      </Tag>
+    </ConditionalWrapper>
   );
 };
 

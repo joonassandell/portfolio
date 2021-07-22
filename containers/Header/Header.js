@@ -44,8 +44,10 @@ const NavItem = props => {
         className="Header-nav-link"
         href={props.url}
         onClick={props.onClick}
-        word={props.name}
-      />
+        templateTransition={false}
+      >
+        {props.name}
+      </LinkRoll>
     </motion.li>
   );
 };
@@ -254,22 +256,22 @@ export default function Header(props) {
           <div className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant}>
-                <Link href="/" onClick={handleClick}>
+                <LinkRoll href="/" onClick={handleClick}>
                   Joonas Sandell
-                </Link>
+                </LinkRoll>
               </motion.div>
               {openReveal && (
                 <motion.div
                   className="Header-logo-reveal"
                   variants={ctrlItemInVariant}
                 >
-                  <Link
+                  <LinkRoll
                     href="/"
                     onClick={handleClick}
                     templateTransition={false}
                   >
                     Joonas Sandell
-                  </Link>
+                  </LinkRoll>
                 </motion.div>
               )}
             </div>
@@ -348,40 +350,40 @@ export default function Header(props) {
             <ul className="Header-secondary">
               <li className="Header-secondary-item">
                 <motion.div variants={ctrlItemOutVariant}>
-                  <Link
+                  <LinkRoll
                     href={about.url}
                     isActive={about.url === router.pathname}
                     onClick={handleClick}
                   >
                     {about.navTitle}
-                  </Link>
+                  </LinkRoll>
                 </motion.div>
                 {openReveal && (
                   <motion.div
                     className="Header-secondary-item-reveal"
                     variants={ctrlItemInVariant}
                   >
-                    <Link
+                    <LinkRoll
                       href={about.url}
                       isActive={about.url === router.pathname}
                       onClick={handleClick}
                       templateTransition={false}
                     >
                       {about.navTitle}
-                    </Link>
+                    </LinkRoll>
                   </motion.div>
                 )}
               </li>
               <li className="Header-secondary-item">
                 <motion.div variants={ctrlItemOutVariant}>
-                  <Link href={contact.url}>{contact.navTitle}</Link>
+                  <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
                 </motion.div>
                 {openReveal && (
                   <motion.div
                     className="Header-secondary-item-reveal"
                     variants={ctrlItemInVariant}
                   >
-                    <Link href={contact.url}>{contact.navTitle}</Link>
+                    <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
                   </motion.div>
                 )}
               </li>

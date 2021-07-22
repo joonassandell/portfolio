@@ -6,6 +6,7 @@
 
 .LinkRoll-text {
   pointer-events: none;
+  position: relative;
 
   &.-hover {
     inset: 0;
@@ -16,4 +17,39 @@
 .LinkRoll-char {
   display: inline-block;
   position: relative;
+
+  &.-empty {
+    content: 'a';
+    visibility: hidden;
+  }
+}
+
+/* ======
+ * Modifiers
+ * ====== */
+
+.LinkRoll {
+  &.has-active {
+    .LinkRoll-char {
+      &:after {
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        bottom: rem(2px);
+        content: '';
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transition: opacity $trans-primary;
+        width: 100%;
+      }
+    }
+  }
+
+  &.is-active {
+    .LinkRoll-char {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
 }

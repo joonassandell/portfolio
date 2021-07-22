@@ -90,10 +90,6 @@ const Stamp = ({
       ref={ref}
       // onMouseMove={handleMouse}
     >
-      {intersection && console.log(intersection.intersectionRatio)}
-      {intersection && intersection.intersectionRatio
-        ? console.log('Fully in view')
-        : console.log('Obscured')}
       <div className="Stamp-inner">
         <motion.div
           className="Stamp-content"
