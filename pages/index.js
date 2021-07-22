@@ -73,8 +73,7 @@ const Home = () => {
         <div
           data-id="test"
           onClick={handleClick}
-          style={{ height: '100vh' }}
-          data-scroll-section
+          style={{ height: '300vh' }}
         ></div>
       </Template>
     </>

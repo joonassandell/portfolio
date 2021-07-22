@@ -7,9 +7,19 @@ import {
   overlayVariants,
 } from './Stamp.animations';
 import useIsMobile from '@/lib/useIsMobile';
-import { useMeasure, useMouseHovered } from 'react-use';
-import { useEffect } from 'react';
+import { useMouseHovered, useIntersection } from 'react-use';
+import { useEffect, useRef } from 'react';
+import useMeasureDirty from 'react-use/lib/useMeasureDirty';
 
+/**
+ * With `useMeasureDirty` I can use the mouseRef outside this component to
+ * get the parent component (Hero) dimensions.
+ *
+ * https://github.com/streamich/react-use/issues/1227
+ * const [ref, { width, height }] = useMeasure();
+ *
+ * https://www.framer.com/docs/transition/###damping
+ */
 const Stamp = ({
   className,
   color,
@@ -23,25 +33,27 @@ const Stamp = ({
 }) => {
   const classes = c(className, 'Stamp');
   const isMobile = useIsMobile();
-  const [ref, { width, height }] = useMeasure();
+  const ref = useRef(null);
+  let intersection = useIntersection(ref, {
+    root: null,
+    rootMargin: '0px',
+  });
+  const inView = intersection && intersection.intersectionRatio;
+  const { width, height } = useMeasureDirty(mouseRef);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   let { elX, elY } = useMouseHovered(mouseRef, {
     bound: true,
     whenHovered: true,
   });
-
-  // https://www.framer.com/docs/transition/###damping
   const springOpts = {
     damping: 100,
     stiffness: 150,
   };
-
   const moveX = useSpring(
     useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
     springOpts,
   );
-
   const moveY = useSpring(
     useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
     springOpts,
@@ -51,9 +63,7 @@ const Stamp = ({
     if (!mouseLeave) {
       x.set(elX);
       y.set(elY);
-    }
-
-    if (mouseLeave) {
+    } else {
       x.set(0);
       y.set(0);
     }
@@ -68,6 +78,9 @@ const Stamp = ({
   return (
     <div
       aria-hidden="true"
+      data-scroll
+      data-scroll-id="stamp"
+      data-scroll-position="top"
       className={classes}
       style={{
         '--Stamp-color': color,
@@ -77,6 +90,10 @@ const Stamp = ({
       ref={ref}
       // onMouseMove={handleMouse}
     >
+      {intersection && console.log(intersection.intersectionRatio)}
+      {intersection && intersection.intersectionRatio
+        ? console.log('Fully in view')
+        : console.log('Obscured')}
       <div className="Stamp-inner">
         <motion.div
           className="Stamp-content"
@@ -97,7 +114,7 @@ const Stamp = ({
             {...(transitionStart && { exit: 'exit' })}
           >
             <motion.div
-              animate="animate"
+              animate={inView ? 'animate' : ''}
               className="Stamp-svg"
               variants={svgVariants}
             >

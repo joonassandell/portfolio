@@ -92,6 +92,7 @@ const Figure = ({
       className={classes}
       data-scroll
       data-scroll-id={src}
+      ref={ref}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(offset && { 'data-scroll-offset': offset })}
       {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
@@ -110,7 +111,6 @@ const Figure = ({
           animate={inView ? 'inView' : false}
           className="Figure-figure-inner"
           initial="hidden"
-          ref={ref}
           variants={figureVariants}
         >
           {!isVideo && blurhash && (

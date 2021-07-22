@@ -27,6 +27,7 @@
 .OrasHero-figure {
   height: 60vw;
   min-height: rem($space * 12);
+  pointer-events: none;
   position: relative;
 
   @include mq(l) {
