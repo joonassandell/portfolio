@@ -225,6 +225,7 @@ const OrasHero = ({
         <Stamp
           className="OrasHero-stamp"
           href={oras.url}
+          iris="var(--oras-primary)"
           mouseRef={ref}
           mouseLeave={mouseLeave}
           onClick={onClick}

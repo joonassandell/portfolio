@@ -2,10 +2,37 @@
   inset: 0;
   position: absolute;
   z-index: 0;
+}
+
+.Stamp-inner {
+  inset: 0;
+  margin: auto;
+  position: absolute;
+}
+
+.Stamp-inner, .Stamp-content, .Stamp-svg {
+  $sizeMin: rem($space * 12);
+  $sizeMax: 30vw;
+
+  height: clamp($sizeMin, calc(#{$sizeMin} + 13vw), $sizeMax);
+  width: clamp($sizeMin, calc(#{$sizeMin} + 13vw), $sizeMax);
+}
+
+.Stamp-stamp {
+  cursor: pointer;
+  display: block;
 
   svg {
     path {
       fill: var(--Stamp-color, var(--primary));
+
+      &:first-child, &:nth-last-child(4) {
+        fill: none;
+
+        @include mq($until: l) {
+          stroke-width: 4px;
+        }
+      }
     }
 
     circle {
@@ -22,22 +49,6 @@
       // }
     }
   }
-}
-
-.Stamp-inner {
-  $sizeMin: rem($space * 8);
-  $sizeMax: 30vw;
-
-  height: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
-  inset: 0;
-  margin: auto;
-  position: absolute;
-  width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
-}
-
-.Stamp-stamp {
-  cursor: pointer;
-  display: block;
 }
 
 .Stamp-overlay {
