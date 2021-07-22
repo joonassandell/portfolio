@@ -1,14 +1,9 @@
-import {
-  transPrimaryFast,
-  transSecondaryFast,
-  transPrimaryFastest,
-  transTap,
-} from '@/lib/config';
+import { transPrimaryFast, transPrimaryFastest, transTap } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
 
 export const buttonVariants = {
   tap: {
-    y: 2,
+    top: 2,
     transition: transTap,
   },
 };
@@ -16,7 +11,7 @@ export const buttonVariants = {
 export const bgVariants = {
   in: {
     backgroundColor: getCSSVarValue('--primary-negativeLight'),
-    transition: { ...transPrimaryFast, delay: 0.05 },
+    transition: { ...transPrimaryFast },
   },
   out: {
     backgroundColor: getCSSVarValue('--primary-negative'),
@@ -28,20 +23,20 @@ export const bgHoverVariants = {
   in: {
     x: '0.5rem',
     y: '0.5rem',
-    transition: { ...transPrimaryFast, delay: 0.05 },
+    transition: { ...transPrimaryFast, delay: 0.02 },
   },
   out: { x: 0, y: 0, transition: transPrimaryFastest },
 };
 
 export const pathInVariants = {
-  in: { pathLength: 1, transition: { ...transPrimaryFast, delay: 0.1 } },
+  in: { pathLength: 1, transition: { ...transPrimaryFast } },
   initial: { pathLength: 0, transition: { duration: 0 } },
 };
 
 export const pointerInVariants = {
   in: {
     offsetDistance: '100%',
-    transition: { ...transPrimaryFast, delay: 0.1 },
+    transition: { ...transPrimaryFast },
   },
   initial: { offsetDistance: '0%', transition: { duration: 0 } },
 };
@@ -49,7 +44,7 @@ export const pointerInVariants = {
 export const pathOutVariants = {
   in: {
     pathOffset: 1,
-    transition: transSecondaryFast,
+    transition: transPrimaryFastest,
   },
   initial: {
     pathLength: 1,
@@ -59,6 +54,6 @@ export const pathOutVariants = {
 };
 
 export const pointerOutVariants = {
-  in: { x: '1rem', transition: transSecondaryFast },
+  in: { x: '1rem', transition: transPrimaryFastest },
   initial: { offsetDistance: '100%', x: 0, transition: { duration: 0 } },
 };

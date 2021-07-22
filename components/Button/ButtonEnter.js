@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ease } from '@/lib/config';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/containers/App';
