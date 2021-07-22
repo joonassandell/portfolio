@@ -14,7 +14,7 @@ import {
 } from './OrasHero.animations';
 import Image from 'next/image';
 import c from 'classnames';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const oras = getSitemap('oras');
@@ -36,6 +36,8 @@ const OrasHero = ({
   const router = useRouter();
   const Heading = preTransition ? motion.h2 : motion.h1;
   const transitionStartOrInitial = transitionStart || !transitionState;
+  const ref = useRef(null);
+  const [mouseLeave, setMouseLeave] = useState(false);
 
   useEffect(() => {
     if (transitionStart) router.push(oras.url, null, { scroll: false });
@@ -46,6 +48,9 @@ const OrasHero = ({
       animate={transitionHideStart}
       className={classes}
       id={id}
+      ref={ref}
+      onMouseEnter={() => setMouseLeave(false)}
+      onMouseLeave={() => setMouseLeave(true)}
       variants={fadeOutVariants}
     >
       <Heading
@@ -61,7 +66,7 @@ const OrasHero = ({
           data-scroll-offset="-10%"
           data-scroll-position="top"
           data-scroll-speed={scrollSpeed}
-          // {...(preTransition && { 'data-scroll-speed': 3 })}
+          {...(preTransition && { 'data-scroll-speed': 3 })}
           {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
           {/* Oras \ 2016 */}
@@ -220,6 +225,8 @@ const OrasHero = ({
         <Stamp
           className="OrasHero-stamp"
           iris="var(--oras-primary)"
+          mouseRef={ref}
+          mouseLeave={mouseLeave}
           transitionStart={transitionStart}
         />
       )}

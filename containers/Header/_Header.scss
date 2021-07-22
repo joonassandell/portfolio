@@ -2,14 +2,15 @@
   min-width: $root-minWidth;
   mix-blend-mode: difference;
   padding-top: rem($space-m);
+  pointer-events: none;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: $Header-zIndex;
 
-  &.is-disabled {
-    pointer-events: none;
-  }
+  // &.is-disabled {
+  //   pointer-events: none;
+  // }
 
   @include mq(m) {
     padding-top: rem($space-ml);
@@ -18,6 +19,10 @@
   @include mq(l) {
     padding-top: rem($space-l);
   }
+}
+
+.Header-logo, .Header-button, .Header-secondary {
+  pointer-events: all;
 }
 
 .Header-ctrl {

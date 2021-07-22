@@ -201,15 +201,17 @@
 }
 
 .OrasHero-stamp.Stamp {
-  left: -20%;
-  top: -10%;
+  .Stamp-inner {
+    left: -20%;
+    top: -10%;
 
-  @include mq(s) {
-    left: -7%;
-    top: 0;
-  }
+    @include mq(s) {
+      left: -7%;
+      top: 0;
+    }
 
-  @include mq(m) {
-    left: -13%;
+    @include mq(m) {
+      left: -13%;
+    }
   }
 }

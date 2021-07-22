@@ -28,6 +28,7 @@
     @include mq(s) {
       display: grid;
       max-width: 25ch;
+      pointer-events: none;
       position: absolute;
       top: 25vw;
       z-index: 98;

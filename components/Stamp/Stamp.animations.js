@@ -1,6 +1,6 @@
 import { transPrimary, transSecondary, mobileExtraDelay } from '@/lib/config';
 
-export const innerVariants = {
+export const stampVariants = {
   // exit: mobile => ({
   //   scale: 0,
   //   // rotate: 180,
