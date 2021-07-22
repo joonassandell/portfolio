@@ -6,12 +6,13 @@ import { useAppContext } from '@/containers/App';
 import c from 'classnames';
 import ConditionalWrapper from '../ConditionalWrapper';
 import {
+  bgVariants,
+  bgHoverVariants,
+  buttonVariants,
   pathInVariants,
   pointerInVariants,
   pathOutVariants,
   pointerOutVariants,
-  bgVariant,
-  bgHoverVariant,
 } from './ButtonEnter.animations';
 
 const ButtonEnter = ({
@@ -61,11 +62,8 @@ const ButtonEnter = ({
         }}
         onMouseLeave={() => setHover(false)}
         // whileHover="in" // WHY THIS DOESN'T WORK?!
-        whileTap={{ top: 2 }}
-        transition={{
-          duration: 0.1,
-          ease,
-        }}
+        whileTap="tap"
+        variants={buttonVariants}
       >
         <motion.div
           animate={arrowHover ? 'in' : 'initial'}
@@ -107,12 +105,12 @@ const ButtonEnter = ({
         <motion.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg"
-          variants={bgVariant}
+          variants={bgVariants}
         />
         <motion.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg-hover"
-          variants={bgHoverVariant}
+          variants={bgHoverVariants}
         />
       </Tag>
     </ConditionalWrapper>

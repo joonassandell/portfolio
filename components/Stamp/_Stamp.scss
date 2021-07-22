@@ -35,6 +35,11 @@
   width: clamp($sizeMin, calc(#{$sizeMin} + 18vw), $sizeMax);
 }
 
+.Stamp-stamp {
+  cursor: pointer;
+  display: block;
+}
+
 .Stamp-overlay {
   background: var(--Stamp-overlayBg, var(--white));
   border-radius: 50%;

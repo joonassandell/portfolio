@@ -224,9 +224,10 @@ const OrasHero = ({
       {preTransition && (
         <Stamp
           className="OrasHero-stamp"
-          iris="var(--oras-primary)"
+          href={oras.url}
           mouseRef={ref}
           mouseLeave={mouseLeave}
+          onClick={onClick}
           transitionStart={transitionStart}
         />
       )}

@@ -13,9 +13,11 @@ import { useEffect } from 'react';
 const Stamp = ({
   className,
   color,
+  href,
   iris,
   mouseRef,
   mouseLeave = false,
+  onClick,
   overlayBg,
   transitionStart,
 }) => {
@@ -65,6 +67,7 @@ const Stamp = ({
 
   return (
     <div
+      aria-hidden="true"
       className={classes}
       style={{
         '--Stamp-color': color,
@@ -82,10 +85,15 @@ const Stamp = ({
             x: moveX,
           }}
         >
-          <motion.div
+          <motion.a
             className="Stamp-stamp"
             custom={isMobile}
+            href={href}
+            onClick={onClick}
             variants={stampVariants}
+            whileHover="hover"
+            whileTap="tap"
+            transition={stampVariants.transition}
             {...(transitionStart && { exit: 'exit' })}
           >
             <motion.div
@@ -95,7 +103,7 @@ const Stamp = ({
             >
               <StampSvg />
             </motion.div>
-          </motion.div>
+          </motion.a>
           {transitionStart && (
             <motion.div
               className="Stamp-overlay"

@@ -1,4 +1,9 @@
-import { transPrimary, transSecondary, mobileExtraDelay } from '@/lib/config';
+import {
+  transPrimary,
+  mobileExtraDelay,
+  transPrimaryFast,
+  transTap,
+} from '@/lib/config';
 
 export const stampVariants = {
   // exit: mobile => ({
@@ -10,6 +15,14 @@ export const stampVariants = {
   //     ...(mobile && { delay: mobileExtraDelay }),
   //   },
   // }),
+  hover: {
+    scale: 1.1,
+  },
+  tap: {
+    scale: 1.05,
+    transition: transTap,
+  },
+  transition: transPrimaryFast,
 };
 
 export const svgVariants = {

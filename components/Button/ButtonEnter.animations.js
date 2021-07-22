@@ -2,8 +2,36 @@ import {
   transPrimaryFast,
   transSecondaryFast,
   transPrimaryFastest,
+  transTap,
 } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
+
+export const buttonVariants = {
+  tap: {
+    y: 2,
+    transition: transTap,
+  },
+};
+
+export const bgVariants = {
+  in: {
+    backgroundColor: getCSSVarValue('--primary-negativeLight'),
+    transition: { ...transPrimaryFast, delay: 0.05 },
+  },
+  out: {
+    backgroundColor: getCSSVarValue('--primary-negative'),
+    transition: { ...transPrimaryFastest },
+  },
+};
+
+export const bgHoverVariants = {
+  in: {
+    x: '0.5rem',
+    y: '0.5rem',
+    transition: { ...transPrimaryFast, delay: 0.05 },
+  },
+  out: { x: 0, y: 0, transition: transPrimaryFastest },
+};
 
 export const pathInVariants = {
   in: { pathLength: 1, transition: { ...transPrimaryFast, delay: 0.1 } },
@@ -33,24 +61,4 @@ export const pathOutVariants = {
 export const pointerOutVariants = {
   in: { x: '1rem', transition: transSecondaryFast },
   initial: { offsetDistance: '100%', x: 0, transition: { duration: 0 } },
-};
-
-export const bgVariant = {
-  in: {
-    backgroundColor: getCSSVarValue('--primary-negativeLight'),
-    transition: { ...transPrimaryFast, delay: 0.05 },
-  },
-  out: {
-    backgroundColor: getCSSVarValue('--primary-negative'),
-    transition: { ...transPrimaryFastest },
-  },
-};
-
-export const bgHoverVariant = {
-  in: {
-    x: '0.5rem',
-    y: '0.5rem',
-    transition: { ...transPrimaryFast, delay: 0.05 },
-  },
-  out: { x: 0, y: 0, transition: transPrimaryFastest },
 };
