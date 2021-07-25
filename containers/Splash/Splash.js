@@ -1,15 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { transPrimary, transSecondary, transTemplate } from '@/lib/config';
 import { useAppContext } from '@/containers/App';
-
-export const moveOutVariants = {
-  hidden: {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
-  },
-  visible: {
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-  },
-};
+import { splashVariants, textVariants } from './Splash.animations';
 
 const Splash = () => {
   const {
@@ -17,29 +8,31 @@ const Splash = () => {
     setLoadingEnd,
   } = useAppContext();
 
-  // useEffect(() => {
-  //   if (loading) {}
-
-  //   return () => {};
-  // }, [, loading]);
-
   return (
     <AnimatePresence>
       {loading && (
         <motion.div
+          aria-hidden="true"
           className="Splash"
-          exit="hidden"
-          initial="visible"
+          exit="exit"
+          initial="initial"
           onAnimationComplete={() => setLoadingEnd(true)}
-          transition={{ ...transSecondary, delay: 0.5 }}
-          variants={moveOutVariants}
+          variants={splashVariants}
         >
           <div className="wrap">
-            <header className="Splash-logo">Joonas Sandell</header>
-            <p className="Splash-content">
-              <span>Digital designer </span>
-              <span>& Developer</span>
-            </p>
+            {/* <header className="Splash-logo">Joonas Sandell</header> */}
+            <h1 className="Splash-content">
+              <div className="Splash-line Splash-line--subHeading">
+                <motion.span className="Splash-text" variants={textVariants}>
+                  Portfolio of
+                </motion.span>
+              </div>
+              <div className="Splash-line Splash-line--heading">
+                <motion.span className="Splash-text" variants={textVariants}>
+                  Joonas Sandell
+                </motion.span>
+              </div>
+            </h1>
           </div>
         </motion.div>
       )}

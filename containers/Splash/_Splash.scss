@@ -1,9 +1,6 @@
 .Splash {
   background-color: $bg-700;
-  // background-color: $white;
-  // background-color: lighten(wheat, 12);
   color: $text-10;
-  // color: $text-700;
   inset: 0;
   position: fixed;
   user-select: none;
@@ -18,24 +15,23 @@
   }
 }
 
-.Splash-logo {
-  height: rem($space-ml);
-  line-height: rem($space-ml);
-  position: relative;
-  top: rem(25px);
+// .Splash-logo {
+//   height: rem($space-ml);
+//   line-height: rem($space-ml);
+//   position: relative;
+//   top: rem(25px);
 
-  @include mq(m) {
-    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
-    top: rem(4px);
-  }
+//   @include mq(m) {
+//     @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
+//     top: rem(4px);
+//   }
 
-  @include mq(l) {
-    top: rem(8px);
-  }
-}
+//   @include mq(l) {
+//     top: rem(8px);
+//   }
+// }
 
 .Splash-content {
-  @include fontSize(20px, 20px, 120px, 10vw);
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -45,6 +41,34 @@
   position: absolute;
   right: var(--wrap-spaceRight);
   text-align: center;
-  text-transform: lowercase;
   top: 0;
+}
+
+.Splash-line {
+  overflow: hidden;
+}
+
+.Splash-line--subHeading {
+  @include text(xl);
+}
+
+.Splash-line--heading {
+  @include heading(h3);
+  // @include fontSize(20px, 20px, 120px, 10vw);
+  // font-weight: $heading-fontWeightLight;
+}
+
+.Splash-text {
+  animation: animate $trans-primary;
+  display: inline-block;
+}
+
+@keyframes animate {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0%, 0);
+  }
 }
