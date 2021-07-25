@@ -20,9 +20,9 @@ export function App({ children }) {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
-  const [delay, setDelay] = useState(100);
   const mobile = useIsMobile();
   const { templateTransition, transition, loadingEnd } = appState;
+  const transitions = templateTransition || transition;
   const classes = c('App', {
     'is-transition': templateTransition || transition,
   });
@@ -100,21 +100,20 @@ export function App({ children }) {
   }, [templateTransition]);
 
   useEffect(() => {
-    router.beforePopState(({ url }) => {
-      setTimeout(() => {
-        setDelay(1000);
-        setTemplateTransition(true);
-        router.push(url, null, { scroll: false });
+    router.beforePopState(({ url, as }) => {
+      if (transitions) {
+        setTimeout(() => {
+          setTemplateTransition(true);
+          router.push(url, as, { scroll: false });
+        }, 1000);
         return false;
-      }, delay);
+      } else {
+        setTemplateTransition(true);
+        router.push(url, as, { scroll: false });
+        return false;
+      }
     });
-
-    return () => {
-      setTimeout(() => {
-        setDelay(100);
-      }, 1000);
-    };
-  }, [delay]);
+  }, [transitions]);
 
   return (
     <>

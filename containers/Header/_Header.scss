@@ -22,7 +22,9 @@
 }
 
 .Header-logo, .Header-button, .Header-secondary {
-  pointer-events: all;
+  .App:not(.is-transition) & {
+    pointer-events: all;
+  }
 }
 
 .Header-ctrl {
