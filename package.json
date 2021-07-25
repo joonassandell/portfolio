@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "production": "npm run build && npm run start",
+    "serve": "npm run build && npm run start",
     "start": "next start"
   },
   "dependencies": {

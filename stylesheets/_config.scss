@@ -177,15 +177,15 @@ $focus-outlineWidth: 2px;
 // Transitions & easings
 // =======================================
 
-$ease: cubic-bezier(0.76, 0, 0.18, 1);
+$ease: cubic-bezier(0.68, 0, 0.1, 1);
 $ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
 
-$trans-primary: 1.2s $ease;
-$trans-primaryFast: 0.7s $ease;
+$trans-primary: 1.3s $ease;
+$trans-primaryFast: 0.6s $ease;
 $trans-primaryFastest: 0.3s $ease;
 
 $trans-secondary: 1s $ease-secondary;
-$trans-secondaryFast: 0.7s $ease-secondary;
+$trans-secondaryFast: 0.6s $ease-secondary;
 $trans-secondaryFastest: 0.3s $ease-secondary;
 
 $ease-outSine: cubic-bezier(0.39, 0.575, 0.565, 1);

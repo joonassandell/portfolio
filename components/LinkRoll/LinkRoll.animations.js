@@ -34,7 +34,7 @@ export const characterOutVariants = {
 
 export const characterInVariants = {
   in: {
-    opacity: 0.7,
+    opacity: 1,
     skewX: 0,
     y: 0,
     transition: trans,

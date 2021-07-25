@@ -8,7 +8,7 @@ import {
   linkVariants,
 } from './LinkRoll.animations';
 import c from 'classnames';
-import { isBoolean } from '@/lib/utility';
+import { isBoolean, isEmptyString } from '@/lib/utility';
 import ConditionalWrapper from '../ConditionalWrapper';
 
 const LinkRoll = ({
@@ -63,7 +63,7 @@ const LinkRoll = ({
       >
         <motion.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, index) => {
-            const empty = char.trim() === '';
+            const empty = isEmptyString(char);
             empty ? (char = '.') : false;
 
             return (
@@ -86,7 +86,7 @@ const LinkRoll = ({
           variants={linkVariants}
         >
           {characters.map((char, index) => {
-            const empty = char.trim() === '';
+            const empty = isEmptyString(char);
             empty ? (char = '.') : false;
 
             return (

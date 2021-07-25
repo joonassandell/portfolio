@@ -41,7 +41,7 @@ export const overlayVariants = {
     // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // bottom/right/left
     // clipPath: 'circle(100% at 50% 50%)',
     // scale: 2.5,
-    scale: [0, 7],
+    scale: [0, 10],
     transition: {
       ...transPrimary,
       ...(mobile && { delay: mobileExtraDelay }),
