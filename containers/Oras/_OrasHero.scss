@@ -165,9 +165,14 @@
 .OrasHero-link {
   bottom: 0;
   position: absolute;
+  z-index: 4;
 
   > .grid {
     place-items: end;
+  }
+
+  .OrasHero.is-transition & {
+    z-index: 0;
   }
 
   @include mq(l) {
