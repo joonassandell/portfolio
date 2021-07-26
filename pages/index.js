@@ -35,8 +35,7 @@ const Home = () => {
     <>
       <Template name={home.id} title="Portfolio">
         <motion.div
-          animate={animationHide}
-          exit="exit"
+          animate={animationHide ? 'hidden' : ''}
           className="Template-about"
           variants={fadeOutVariants}
         >
@@ -63,12 +62,12 @@ const Home = () => {
         </motion.div>
 
         <OrasHero
-          transitionStart={currentHero === 'oras' && animation}
-          transitionState="pre"
-          transitionHide={currentHero != 'oras' && animationHide}
           id="oras"
           onClick={handleClick}
           priority={true}
+          transitionStart={currentHero === 'oras' && animation}
+          transitionState="pre"
+          transitionHideStart={currentHero != 'oras' && animationHide}
         />
         <div
           data-id="test"

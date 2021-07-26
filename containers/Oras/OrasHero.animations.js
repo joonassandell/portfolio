@@ -40,8 +40,8 @@ export const dropVariants = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25,
-      ...(mobile && { delay: 0.25 + mobileExtraDelay }),
+      delay: 0.1,
+      ...(mobile && { delay: 0.1 + mobileExtraDelay }),
     },
     y: 0,
   }),
@@ -56,14 +56,13 @@ export const dropVariants2 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.1,
-      ...(mobile && { delay: 0.1 + mobileExtraDelay }),
+      ...(mobile && { delay: mobileExtraDelay }),
     },
     y: 0,
   }),
   preTransition: {
     opacity: 0,
-    y: -96,
+    y: -72,
   },
 };
 
@@ -72,13 +71,13 @@ export const dropVariants3 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.25,
-      ...(mobile && { delay: 0.25 + mobileExtraDelay }),
+      delay: 0.4,
+      ...(mobile && { delay: 0.4 + mobileExtraDelay }),
     },
     y: 0,
   }),
   preTransition: {
     opacity: 0,
-    y: -40,
+    y: -48,
   },
 };
