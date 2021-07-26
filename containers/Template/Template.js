@@ -50,7 +50,6 @@ const Template = ({ children, name, title }) => {
         animate="animate"
         className={c('Template', {
           [`Template--${name}`]: name,
-          'is-transition:instant': transition === 'instant',
           'is-transition:template': templateTransition,
           'is-transition:template:exit':
             templateTransition && animState === 'animExit',

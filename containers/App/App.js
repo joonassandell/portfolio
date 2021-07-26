@@ -12,7 +12,7 @@ const AppContext = createContext({
   loading: true,
   loadingEnd: false,
   scrollLock: false,
-  transition: false, // 'instant', 'template', false, true
+  transition: false, // template', false, true
 });
 
 export function App({ children }) {

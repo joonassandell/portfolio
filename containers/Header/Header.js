@@ -129,7 +129,7 @@ export default function Header(props) {
     }
 
     if (isOpen) {
-      setTransition('instant');
+      setTransition(false);
     }
 
     router.push(url, null, {
