@@ -45,20 +45,20 @@ const OrasHero = ({
 
   return (
     <motion.section
-      animate={transitionHideStart}
+      animate={transitionHideStart ? 'hidden' : ''}
       className={classes}
+      exit={transitionStart ? 'exit' : ''}
       id={id}
       ref={ref}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
-      variants={fadeOutVariants}
+      variants={transitionHideStart ? fadeOutVariants : {}}
     >
       <Heading
         className="OrasHero-heading Heading Heading--display"
         onClick={onClick}
         custom={isMobile}
         variants={headingVariants}
-        {...(transitionStart && { exit: 'exit' })}
       >
         <div
           className="Heading-inner"
@@ -106,7 +106,6 @@ const OrasHero = ({
               className="OrasHero-figure-bg"
               custom={isMobile}
               variants={figureBgVariants}
-              {...(transitionStart && { exit: 'exit' })}
             />
             {transitionStartOrInitial && (
               <motion.div

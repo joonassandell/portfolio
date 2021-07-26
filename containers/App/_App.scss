@@ -3,10 +3,10 @@
   position: relative;
   z-index: $App-zIndex;
 
-  &.is-transition {
-    pointer-events: none;
-    touch-action: none;
-  }
+  // &.is-transition {
+  //   pointer-events: none;
+  //   touch-action: none;
+  // }
 }
 
 .App-main {

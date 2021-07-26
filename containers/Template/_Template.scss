@@ -13,19 +13,19 @@
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
+    z-index: 0;
 
     // [data-scroll-section], [data-scroll] { // [1.]
     //   transform: none !important;
     // }
   }
 
-  &:first-child:not(:only-child).is-transition\:template {
+  &.is-transition\:template\:exit {
     z-index: 0;
   }
 
   &:last-child:not(:only-child).is-transition\:instant {
     position: absolute;
-    z-index: 2;
   }
 }
 

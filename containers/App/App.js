@@ -105,12 +105,11 @@ export function App({ children }) {
         setTimeout(() => {
           setTemplateTransition(true);
           router.push(url, as, { scroll: false });
-        }, 1000);
+        }, 500);
         return false;
       } else {
         setTemplateTransition(true);
-        router.push(url, as, { scroll: false });
-        return false;
+        return true;
       }
     });
   }, [transitions]);

@@ -31,6 +31,7 @@ const Main = ({ Component, pageProps, innerKey }) => {
 
   return (
     <AnimatePresence
+      initial={false}
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
         if (templateTransition) setTemplateTransition(false);
