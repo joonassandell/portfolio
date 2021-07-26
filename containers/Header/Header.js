@@ -67,7 +67,7 @@ export default function Header(props) {
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
-  const { setTemplateTransition, setTransition } = useAppContext();
+  const { setTransition } = useAppContext();
   const scrollTo = useScrollTo();
 
   const setArrowPosFromRef = ref => {
@@ -118,7 +118,7 @@ export default function Header(props) {
     const currUrl = router.pathname === url;
 
     if (!isOpen && currUrl) {
-      setTemplateTransition(false);
+      setTransition(false);
       scrollTo(0);
       return;
     }
@@ -170,7 +170,7 @@ export default function Header(props) {
   useEffect(() => {
     const closeStart = () => {
       if (isOpen) {
-        setTemplateTransition(false);
+        setTransition(false);
         setEnterExit({
           btnText: enterExitBtnTextIfNavOpen,
           btnArrow: enterExitBtnArrowIfNavOpen,

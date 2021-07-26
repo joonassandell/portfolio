@@ -25,7 +25,7 @@ const Link = ({
   templateTransition = true,
   underline,
 }) => {
-  const { setTemplateTransition } = useAppContext();
+  const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
     '-underline': underline,
@@ -60,9 +60,7 @@ const Link = ({
         }}
         href={href}
         onClick={e => {
-          templateTransition
-            ? setTemplateTransition(true)
-            : setTemplateTransition(false);
+          templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => {

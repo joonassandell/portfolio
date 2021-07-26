@@ -14,10 +14,9 @@ import { useRef, useEffect } from 'react';
 
 const Main = ({ Component, pageProps, innerKey }) => {
   const {
-    appState: { templateTransition, scrollLock, transition, loadingEnd },
+    appState: { scrollLock, transition, loadingEnd },
     setTransition,
     setScrollLock,
-    setTemplateTransition,
   } = useAppContext();
   const { scroll } = useLocomotiveScroll();
 
@@ -34,7 +33,6 @@ const Main = ({ Component, pageProps, innerKey }) => {
       initial={false}
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
-        if (templateTransition) setTemplateTransition(false);
         if (transition) setTransition(false);
         if (scroll) {
           scroll.destroy();

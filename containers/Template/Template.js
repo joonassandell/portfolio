@@ -13,7 +13,8 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
-  const { templateTransition, transition } = appState;
+  const { transition } = appState;
+  const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();

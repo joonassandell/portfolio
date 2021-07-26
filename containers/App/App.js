@@ -12,8 +12,7 @@ const AppContext = createContext({
   loading: true,
   loadingEnd: false,
   scrollLock: false,
-  transition: false,
-  templateTransition: false,
+  transition: false, // 'instant', 'template', false, true
 });
 
 export function App({ children }) {
@@ -21,23 +20,15 @@ export function App({ children }) {
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
   const mobile = useIsMobile();
-  const { templateTransition, transition, loadingEnd } = appState;
-  const transitions = templateTransition || transition;
+  const { transition, loadingEnd } = appState;
   const classes = c('App', {
-    'is-transition': templateTransition || transition,
+    'is-transition': transition,
   });
 
   const setTransition = value => {
     setAppState(prevState => ({
       ...prevState,
       transition: value,
-    }));
-  };
-
-  const setTemplateTransition = value => {
-    setAppState(prevState => ({
-      ...prevState,
-      templateTransition: value,
     }));
   };
 
@@ -94,25 +85,25 @@ export function App({ children }) {
    * Scrolling is enabled after the transition in _app.js
    */
   useEffect(() => {
-    if (mobile && templateTransition) {
+    if (mobile && transition === 'template') {
       setScrollLock(true);
     }
-  }, [templateTransition]);
+  }, [transition]);
 
   useEffect(() => {
     router.beforePopState(({ url, as }) => {
-      if (transitions) {
+      if (transition) {
         setTimeout(() => {
-          setTemplateTransition(true);
+          setTransition('template');
           router.push(url, as, { scroll: false });
         }, 500);
         return false;
       } else {
-        setTemplateTransition(true);
+        setTransition('template');
         return true;
       }
     });
-  }, [transitions]);
+  }, [transition]);
 
   return (
     <>
@@ -149,7 +140,6 @@ export function App({ children }) {
           appState,
           setLoadingEnd,
           setScrollLock,
-          setTemplateTransition,
           setTransition,
         }}
       >

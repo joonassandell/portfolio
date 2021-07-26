@@ -21,7 +21,7 @@ const LinkRoll = ({
   target,
   templateTransition = true,
 }) => {
-  const { setTemplateTransition } = useAppContext();
+  const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const characters = children.split('');
   const classes = c(className, 'LinkRoll', {
@@ -49,9 +49,7 @@ const LinkRoll = ({
         animate={hover ? 'in' : 'out'}
         className={classes}
         onClick={e => {
-          templateTransition
-            ? setTemplateTransition(true)
-            : setTemplateTransition(false);
+          templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         href={href}

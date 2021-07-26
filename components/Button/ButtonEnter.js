@@ -22,7 +22,7 @@ const ButtonEnter = ({
   templateTransition = false,
 }) => {
   const classes = c(className, 'Button Button--enter');
-  const { setTemplateTransition } = useAppContext();
+  const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
   const Tag = href ? motion.a : motion.button;
@@ -44,9 +44,7 @@ const ButtonEnter = ({
           }
         }}
         onClick={e => {
-          templateTransition
-            ? setTemplateTransition(true)
-            : setTemplateTransition(false);
+          templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => {
