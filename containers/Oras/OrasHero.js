@@ -48,6 +48,7 @@ const OrasHero = ({
       animate={transitionHideStart ? 'hidden' : ''}
       className={classes}
       exit={transitionStart ? 'exit' : ''}
+      data-id={id}
       id={id}
       ref={ref}
       onMouseEnter={() => setMouseLeave(false)}

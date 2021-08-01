@@ -34,7 +34,7 @@ const LinkRoll = ({
     : href.startsWith('http')
     ? '_blank'
     : false;
-  const hasHref = href && (href.startsWith('/') || href.startsWith('http'));
+  const hasHref = href && href.startsWith('/');
 
   return (
     <ConditionalWrapper

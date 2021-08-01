@@ -1,5 +1,4 @@
 import { transPrimaryFast, transPrimaryFastest, transTap } from '@/lib/config';
-import { getCSSVarValue } from '@/lib/utility';
 
 export const buttonVariants = {
   tap: {
@@ -10,11 +9,11 @@ export const buttonVariants = {
 
 export const bgVariants = {
   in: {
-    backgroundColor: getCSSVarValue('--primary-negativeLight'),
+    backgroundColor: 'var(--primary-negativeLight)',
     transition: { ...transPrimaryFast },
   },
   out: {
-    backgroundColor: getCSSVarValue('--primary-negative'),
+    backgroundColor: 'var(--primary-negative)',
     transition: { ...transPrimaryFastest },
   },
 };
