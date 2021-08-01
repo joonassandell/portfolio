@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 import Head from 'next/head';
-import { sitemap } from '@/lib/config';
-import { scrollLock } from '@/lib/utility';
+import { getSitemap, scrollLock } from '@/lib/utility';
 import useIsMobile from '@/lib/useIsMobile';
 import { useRouter } from 'next/router';
 import c from 'classnames';
+
+const sitemap = getSitemap();
 
 const AppContext = createContext({
   history: [],

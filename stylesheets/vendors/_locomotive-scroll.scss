@@ -6,4 +6,9 @@
 
 .c-scrollbar {
   z-index: $locomotive-scrollBar-zIndex;
+
+  :root.is-headerOpen & {
+    opacity: 0;
+    pointer-events: none;
+  }
 }

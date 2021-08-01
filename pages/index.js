@@ -11,7 +11,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import useScrollTo from '@/lib/useScrollTo';
 
 const home = getSitemap('home');
-const about = getSitemap('about');
+const about = getSitemap('about', 'secondary');
 
 const Home = () => {
   const { scroll } = useLocomotiveScroll();

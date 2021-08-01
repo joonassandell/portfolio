@@ -13,50 +13,29 @@ import {
   navVariant,
 } from './Header.animations';
 import { useEffect, useState } from 'react';
-
 import { ButtonArrow } from '@/components/Button';
 import LinkRoll from '@/components/LinkRoll';
 import Link from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { easeCSS, sitemap } from '@/lib/config';
+import { easeCSS, sitemap, links } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import useScrollTo from '@/lib/useScrollTo';
+import NavItem from './HeaderNavItem';
 
-const about = getSitemap('about');
-const contact = getSitemap('contact');
-
-const NavItem = props => {
-  const router = useRouter();
-
-  return (
-    <motion.li
-      className={c('Header-nav-item', {
-        'is-active': router.pathname === props.href,
-      })}
-      variants={navItemVariant}
-    >
-      <LinkRoll
-        className="Header-nav-link"
-        href={props.url}
-        onClick={props.onClick}
-        templateTransition={false}
-      >
-        {props.name}
-      </LinkRoll>
-    </motion.li>
-  );
-};
+const about = getSitemap('about', 'secondary');
+const contact = getSitemap('contact', 'secondary');
+const someLinks = links.social;
 
 export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
-  const [maskReveal, setMaskReveal] = useState(false);
+  const [maskReveal, setMaskReveal] = useState(false); //
   const [openReveal, setOpenReveal] = useState(false);
   const [disable, setDisable] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
@@ -93,7 +72,9 @@ export default function Header(props) {
   }, [btnArrow.current]);
 
   const toggleOpen = ({ withMask = true } = {}) => {
-    setOpenReveal(true);
+    const html = document.querySelector('html');
+    html.classList.add('is-headerOpen');
+    if (!isOpen) setOpenReveal(true);
     setDisable(true);
     setNavRevealTitle(props.navTitle);
 
@@ -244,7 +225,9 @@ export default function Header(props) {
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
+            const html = document.querySelector('html');
             setOpenReveal(false);
+            html.classList.remove('is-headerOpen');
             setTimeout(() => setDisable(false), 500);
           } else {
             setDisable(false);
@@ -393,7 +376,7 @@ export default function Header(props) {
       </motion.header>
       <motion.div
         animate={maskAnim}
-        className={c('Header-mask', {
+        className={c('Header-mask scrollbar -color:negative', {
           'is-open': maskReveal,
         })}
         onAnimationComplete={() => {
@@ -403,7 +386,7 @@ export default function Header(props) {
         }}
       >
         {maskReveal && (
-          <div className="wrap">
+          <>
             <motion.nav
               animate={isOpen ? 'open' : 'closed'}
               className="Header-nav"
@@ -411,20 +394,38 @@ export default function Header(props) {
               variants={navVariant}
             >
               <ul>
-                {sitemap.map(item => {
-                  if (item.type === 'secondary') return false;
+                {sitemap.primary.map(item => {
                   return (
                     <NavItem
+                      color={item.color}
                       key={item.navTitle}
-                      url={item.url}
                       name={item.navTitle}
                       onClick={e => handleClick(e)}
+                      url={item.url}
+                      year={item.year}
                     />
                   );
                 })}
               </ul>
             </motion.nav>
-          </div>
+            <footer className="Header-footer wrap">
+              <ul className="Header-links Header-links--mobile">
+                {someLinks.map(link => {
+                  return (
+                    <li className="Header-links-item" key={link.id}>
+                      <Link href={link.url} underline>
+                        {link.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="Header-copyright">
+                Copyright <br />
+                &copy; 2021
+              </p>
+            </footer>
+          </>
         )}
       </motion.div>
     </>

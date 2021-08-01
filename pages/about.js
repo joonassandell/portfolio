@@ -1,7 +1,7 @@
 import { Template } from '../containers/Template';
 import { getSitemap } from '../lib/utility';
 
-const about = getSitemap('about');
+const about = getSitemap('about', 'secondary');
 const home = getSitemap('home');
 
 export default function About() {
