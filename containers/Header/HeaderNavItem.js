@@ -144,7 +144,10 @@ const NavItem = props => {
       // variants={navItemVariant}
     >
       <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
-        {props.name}
+        <span className="Header-nav-link-inner">
+          <span className="Header-nav-link-text">{props.name}</span>
+          <EyeSvg className="Header-nav-link-eye" />
+        </span>
       </a>
       <motion.div
         animate={hover === 'in' ? 'in' : hover === 'out' ? 'out' : ''}
