@@ -100,12 +100,12 @@ export const navItemVariant = {
   },
   initial: {
     opacity: 0,
-    transition: transSecondaryFast,
+    transition: transPrimaryFast,
     y: 88,
   },
   closed: {
     opacity: 0,
-    transition: transSecondaryFast,
+    transition: transPrimaryFast,
     y: 88,
   },
 };

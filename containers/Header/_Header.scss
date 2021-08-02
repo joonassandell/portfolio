@@ -8,10 +8,6 @@
   width: 100%;
   z-index: $Header-zIndex;
 
-  // &.is-disabled {
-  //   pointer-events: none;
-  // }
-
   @include mq(m) {
     padding-top: rem($space-ml);
   }
@@ -24,6 +20,10 @@
 .Header-logo, .Header-button, .Header-secondary {
   .App:not(.is-transition) & {
     pointer-events: all;
+  }
+
+  .Header.is-disabled & {
+    pointer-events: none;
   }
 }
 

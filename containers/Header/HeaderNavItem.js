@@ -1,6 +1,7 @@
 import { motion, animate } from 'framer-motion';
 import { transPrimaryFastest } from '@/lib/config';
 import { getClosestEdge } from '@/lib/utility';
+import { navItemVariant } from './Header.animations';
 import React, { Fragment, useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
@@ -124,6 +125,7 @@ const NavItem = props => {
   //   });
   //   }
   // }, [hover]);
+
   return (
     <motion.li
       className={c('Header-nav-item', {
@@ -141,7 +143,7 @@ const NavItem = props => {
       style={{
         '--Header-marquee-iris': props.color,
       }}
-      // variants={navItemVariant}
+      variants={navItemVariant}
     >
       <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
         <span className="Header-nav-link-inner">
