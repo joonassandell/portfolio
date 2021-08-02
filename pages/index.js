@@ -50,8 +50,8 @@ const Home = () => {
             </Link>
             <div className="Template-about-desktop">
               <h1>
-                I'm a designer & creative developer of things that usually
-                appear on screens. Read more{' '}
+                I'm a designer, creative developer and sometimes even a music
+                producer from Helsinki, Finland. Read more{' '}
                 <Link href={about.url} underline>
                   about me
                 </Link>{' '}
