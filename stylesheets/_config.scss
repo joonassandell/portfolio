@@ -126,7 +126,8 @@ $black: #000000;
 $white: #ffffff;
 
 // Brand colors
-$primary: #111111;
+$primary: $black; //#111111;
+$primary-500: #111111;
 $primary-negative: #f6eee3;
 $primary-negativeLight: $white;
 // $primary: $black;
@@ -148,7 +149,7 @@ $bg-50-opaque: rgba($black, $bg-50-opaqueAlpha);
 $bg-50-opaqueNegative: rgba($white, $bg-50-opaqueAlpha);
 
 // Text colors
-$text-700: $primary;
+$text-700: $primary-500;
 $text-400: lighten($text-700, 30);
 $text-10: $primary-negative;
 
@@ -162,7 +163,7 @@ $link-hover: $primary;
 // Border colors
 $border-700: $primary;
 $border-500-opaque: rgba($primary-negative, 0.12);
-$border-500: lighten($primary, 15);
+$border-500: lighten($primary, 20);
 $border-20: rgba(#000000, 0.12);
 $border-10: $white;
 
