@@ -34,12 +34,12 @@ export default function Header(props) {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
-  const [maskReveal, setMaskReveal] = useState(false); //
+  const [maskIsOpen, setMaskIsOpen] = useState(false);
+  const [mask, setMask] = useState('closedReset');
   const [openReveal, setOpenReveal] = useState(false);
   const [disable, setDisable] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
-  const [mask, setMask] = useState('closedReset');
   const [navRevealTitle, setNavRevealTitle] = useState(null);
   const [enterExit, setEnterExit] = useState({
     btnText: enterExitBtnText,
@@ -74,7 +74,7 @@ export default function Header(props) {
   }, [btnArrow.current]);
 
   const toggleOpen = ({ withMask = true } = {}) => {
-    html.classList.add('is-headerOpen');
+    if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
     setDisable(true);
     setNavRevealTitle(props.navTitle);
@@ -88,7 +88,7 @@ export default function Header(props) {
     setTimeout(() => setOpen(), 10); // [1.]
 
     if (withMask) {
-      setMaskReveal(true);
+      setMaskIsOpen(true);
       if (mask === 'closed' || mask === 'closedReset') setMask('open');
       if (mask === 'open' || mask === 'openReset') setMask('closed');
     }
@@ -222,6 +222,7 @@ export default function Header(props) {
         animate={isOpen ? 'open' : 'closed'}
         className={c('Header', {
           'is-disabled': disable,
+          'is-open': isOpen && !disable,
         })}
         initial="initial"
         onAnimationComplete={() => {
@@ -377,15 +378,15 @@ export default function Header(props) {
       <motion.div
         animate={maskAnim}
         className={c('Header-mask scrollbar -color:negative', {
-          'is-open': maskReveal,
+          'is-open': maskIsOpen,
         })}
         onAnimationComplete={() => {
           if (!isOpen) {
-            setMaskReveal(false);
+            setMaskIsOpen(false);
           }
         }}
       >
-        {maskReveal && (
+        {maskIsOpen && (
           <>
             <motion.nav
               animate={isOpen ? 'open' : 'closed'}
