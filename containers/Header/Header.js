@@ -11,7 +11,7 @@ import {
   maskOpen,
   navVariant,
 } from './Header.animations';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ButtonArrow } from '@/components/Button';
 import LinkRoll from '@/components/LinkRoll';
 import Link from '@/components/Link';
@@ -50,6 +50,7 @@ export default function Header(props) {
     setTransition,
   } = useAppContext();
   const scrollTo = useScrollTo();
+  const maskRef = useRef(null);
 
   const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -381,10 +382,12 @@ export default function Header(props) {
           'is-open': maskIsOpen,
         })}
         onAnimationComplete={() => {
-          if (!isOpen) {
-            setMaskIsOpen(false);
-          }
+          if (!isOpen) setMaskIsOpen(false);
         }}
+        onAnimationStart={() => {
+          if (!isOpen) maskRef.current.scroll({ top: 0 });
+        }}
+        ref={maskRef}
       >
         {maskIsOpen && (
           <>
