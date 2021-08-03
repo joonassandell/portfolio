@@ -357,6 +357,7 @@
 
 .Header-nav-link-inner {
   display: flex;
+  pointer-events: none;
 }
 
 .Header-nav-link-text {
