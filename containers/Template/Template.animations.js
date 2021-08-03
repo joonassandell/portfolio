@@ -8,7 +8,7 @@ export const variantsWithTransition = {
     y: '-50vh',
   },
   initial: {
-    y: '100vh',
+    y: 'var(--vh)',
   },
   transition: transTemplate,
 };

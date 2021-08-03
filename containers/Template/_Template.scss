@@ -1,6 +1,6 @@
 .Template {
   background-color: $bg-10;
-  min-height: 100vh;
+  min-height: var(--vh);
   overflow: hidden;
   position: relative;
   top: 0;

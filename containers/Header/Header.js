@@ -9,7 +9,6 @@ import {
   enterExitBtnTextIfNavOpen,
   maskClose,
   maskOpen,
-  navItemVariant,
   navVariant,
 } from './Header.animations';
 import { useEffect, useState } from 'react';
@@ -46,7 +45,10 @@ export default function Header(props) {
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
-  const { setTransition } = useAppContext();
+  const {
+    appState: { html },
+    setTransition,
+  } = useAppContext();
   const scrollTo = useScrollTo();
 
   const setArrowPosFromRef = ref => {
@@ -72,7 +74,6 @@ export default function Header(props) {
   }, [btnArrow.current]);
 
   const toggleOpen = ({ withMask = true } = {}) => {
-    const html = document.querySelector('html');
     html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
     setDisable(true);
@@ -225,7 +226,6 @@ export default function Header(props) {
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
-            const html = document.querySelector('html');
             setOpenReveal(false);
             html.classList.remove('is-headerOpen');
             setTimeout(() => setDisable(false), 500);

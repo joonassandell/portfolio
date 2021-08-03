@@ -9,6 +9,8 @@ import c from 'classnames';
 const sitemap = getSitemap();
 
 const AppContext = createContext({
+  doc: null,
+  html: null,
   history: [],
   loading: true,
   loadingEnd: false,
@@ -21,7 +23,7 @@ export function App({ children }) {
   const [appState, setAppState] = useState(appContext);
   const router = useRouter();
   const mobile = useIsMobile();
-  const { transition, loadingEnd } = appState;
+  const { doc, html, loadingEnd, transition } = appState;
   const classes = c('App', {
     'is-transition': transition,
   });
@@ -40,9 +42,9 @@ export function App({ children }) {
     }));
 
     if (enable) {
-      scrollLock(true);
+      scrollLock(true, html);
     } else {
-      scrollLock(false);
+      scrollLock(false, html);
     }
   };
 
@@ -70,16 +72,27 @@ export function App({ children }) {
 
     setAppState(prevState => ({
       ...prevState,
+      doc: document.documentElement,
+      html: document.querySelector('html'),
       loading: false,
     }));
   }, []);
 
   useEffect(() => {
-    if (loadingEnd) {
-      const html = document.querySelector('html');
-      html.classList.remove('is-loading');
-    }
-  }, [loadingEnd]);
+    if (!doc) return;
+
+    const rootHeight = () =>
+      doc.style.setProperty('--vh', `${window.innerHeight}px`);
+    window.addEventListener('resize', rootHeight);
+    rootHeight();
+
+    () => window.removeEventListener('resize', rootHeight);
+  }, [doc]);
+
+  useEffect(() => {
+    if (!html) return;
+    if (loadingEnd) html.classList.remove('is-loading');
+  }, [html, loadingEnd]);
 
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
