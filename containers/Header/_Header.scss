@@ -178,9 +178,12 @@
   top: 0;
 }
 
+/* ======
+ * Mask
+ * ====== */
+
 .Header-mask {
   background: $bg-700;
-  bottom: 0;
   clip-path: circle(0% at 0px 0px);
 
   // clip-path: circle(150% at 480px 64px) !important;
@@ -188,12 +191,9 @@
 
   display: none;
   flex-direction: column;
-  height: 100vh;
-  left: 0;
+  inset: 0;
   min-width: 300px;
   position: fixed;
-  right: 0;
-  top: 0;
   z-index: $Header-maskZindex;
 
   &.is-open {
@@ -222,13 +222,13 @@
 
 .Header-nav {
   // margin: max(25vh, #{rem($space * 6)}) auto auto auto;
-  margin: max(22.5vh, #{rem($space * 6)}) auto auto auto;
+  margin: max(20vh, #{rem($space * 6)}) auto auto auto;
   width: 100%;
   z-index: 0;
 
   @include mq(m) {
     // margin-top: max(22.5vh, #{rem($space * 8)});
-    margin-top:  max(20vh, #{rem($space * 9)});
+    margin-top: max(20vh, #{rem($space * 9)});
   }
 }
 
@@ -377,6 +377,7 @@
 }
 
 .Header-nav-link-eye {
+  height: 100%;
   margin: 0 rem($space-s) 0 rem($space);
   width: clamp(rem($space * 3), 10vw, rem($space * 5));
 
@@ -430,7 +431,7 @@
   align-items: flex-end;
   color: $text-10;
   display: flex;
-  margin: max(5vh, #{rem($space * 6)}) 0 rem($space-ml) 0;
+  margin: max(5vh, #{rem($space * 6)}) 0 rem($space-xl) 0;
 
   a {
     color: $text-10;
@@ -438,10 +439,6 @@
 
   @include mq($until: m) {
     @include text(xs);
-  }
-
-  @include mq(l) {
-    margin-bottom: rem($space-xl);
   }
 }
 
