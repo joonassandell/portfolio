@@ -1,13 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useAppContext } from '@/containers/App';
 import { splashVariants, textVariants } from './Splash.animations';
 
-const Splash = () => {
-  const {
-    appState: { loading },
-    setLoadingEnd,
-  } = useAppContext();
-
+const Splash = ({ loading, setLoadingEnd, ...props }) => {
   return (
     <AnimatePresence>
       {loading && (

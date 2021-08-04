@@ -1,10 +1,17 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, useRef } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 import Head from 'next/head';
 import { getSitemap, scrollLock } from '@/lib/utility';
 import useIsMobile from '@/lib/useIsMobile';
-import { useRouter } from 'next/router';
+import Splash from '@/containers/Splash';
+import Header from '@/containers/Header';
 import c from 'classnames';
+import {
+  LocomotiveScrollProvider,
+  useLocomotiveScroll,
+} from 'react-locomotive-scroll';
+import smoothscroll from 'smoothscroll-polyfill';
 
 const sitemap = getSitemap();
 
@@ -18,15 +25,19 @@ const AppContext = createContext({
   transition: false, // template', false, true
 });
 
-export function App({ children }) {
+export function App({ Component, pageProps, router }) {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
-  const router = useRouter();
   const mobile = useIsMobile();
   const { doc, html, loadingEnd, transition } = appState;
+  const containerRef = useRef(null);
   const classes = c('App', {
     'is-transition': transition,
   });
+
+  /* ======
+   * App state functions
+   * ====== */
 
   const setTransition = value => {
     setAppState(prevState => ({
@@ -55,15 +66,13 @@ export function App({ children }) {
     }));
   };
 
-  useEffect(() => {
-    const { asPath } = router;
-    setAppState(prevState => ({
-      ...prevState,
-      history: [...prevState.history, asPath],
-    }));
-  }, [router.route]);
+  /* ======
+   * Initialize stuff on load etc.
+   * ====== */
 
   useEffect(() => {
+    smoothscroll.polyfill();
+
     sitemap.map(site => {
       if (site.url === '/oras') {
         router.prefetch(site.url);
@@ -77,6 +86,22 @@ export function App({ children }) {
       loading: false,
     }));
   }, []);
+
+  /* ======
+   * History
+   * ====== */
+
+  useEffect(() => {
+    const { asPath } = router;
+    setAppState(prevState => ({
+      ...prevState,
+      history: [...prevState.history, asPath],
+    }));
+  }, [router.route]);
+
+  /* ======
+   * Set come CSS vars
+   * ====== */
 
   useEffect(() => {
     if (!doc) return;
@@ -94,6 +119,10 @@ export function App({ children }) {
     if (loadingEnd) html.classList.remove('is-loading');
   }, [html, loadingEnd]);
 
+  /* ======
+   * Various
+   * ====== */
+
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
    * Scrolling is enabled after the transition in _app.js
@@ -104,6 +133,9 @@ export function App({ children }) {
     }
   }, [transition]);
 
+  /**
+   * Set proper transitions w/ delay when navigation back/forward
+   */
   useEffect(() => {
     router.beforePopState(({ url, as }) => {
       if (transition) {
@@ -149,6 +181,7 @@ export function App({ children }) {
           type="font/woff2"
         />
       </Head>
+      <Splash loading={appState.loading} setLoadingEnd={setLoadingEnd} />
       <AppContext.Provider
         value={{
           appState,
@@ -157,11 +190,73 @@ export function App({ children }) {
           setTransition,
         }}
       >
-        <div className={classes}>{children}</div>
+        <LocomotiveScrollProvider
+          containerRef={containerRef}
+          options={{
+            smooth: true,
+            multiplier:
+              typeof window !== 'undefined' &&
+              window.navigator &&
+              window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+                ? 3
+                : 1,
+          }}
+          watch={['Done manually I presume?']} // router.route
+        >
+          <div className={classes}>
+            <Header navTitle={pageProps.navTitle} />
+            <main className="App-main" data-scroll-container ref={containerRef}>
+              <AppMain
+                Component={Component}
+                innerKey={router.route}
+                loadingEnd={loadingEnd}
+                pageProps={pageProps}
+                scrollLock={appState.scrollLock}
+                setScrollLock={setScrollLock}
+                setTransition={setTransition}
+                transition={transition}
+              />
+            </main>
+          </div>
+        </LocomotiveScrollProvider>
       </AppContext.Provider>
     </>
   );
 }
+
+const AppMain = ({ ...props }) => {
+  const {
+    Component,
+    innerKey,
+    pageProps,
+    loadingEnd,
+    scrollLock,
+    setScrollLock,
+    setTransition,
+    transition,
+  } = props;
+  const { scroll } = useLocomotiveScroll();
+
+  useEffect(() => {
+    if (loadingEnd && scroll) setTimeout(() => scroll.update(), 10);
+  }, [loadingEnd]);
+
+  return (
+    <AnimatePresence
+      initial={false}
+      onExitComplete={() => {
+        if (scrollLock) setScrollLock(false);
+        if (transition) setTransition(false);
+        if (scroll) {
+          scroll.destroy();
+          scroll.init();
+        }
+      }}
+    >
+      <Component {...pageProps} key={innerKey} />
+    </AnimatePresence>
+  );
+};
 
 export function useAppContext() {
   return useContext(AppContext);

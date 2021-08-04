@@ -1,54 +1,9 @@
 import '@/stylesheets/index.scss';
 
-import App, { useAppContext } from '@/containers/App';
-import {
-  LocomotiveScrollProvider,
-  useLocomotiveScroll,
-} from 'react-locomotive-scroll';
-
-import { AnimatePresence } from 'framer-motion';
-import Header from '@/containers/Header';
-import Splash from '@/containers/Splash';
-import smoothscroll from 'smoothscroll-polyfill';
-import { useRef, useEffect } from 'react';
-
-const Main = ({ Component, pageProps, innerKey }) => {
-  const {
-    appState: { scrollLock, transition, loadingEnd },
-    setTransition,
-    setScrollLock,
-  } = useAppContext();
-  const { scroll } = useLocomotiveScroll();
-
-  useEffect(() => {
-    if (loadingEnd && scroll) {
-      setTimeout(() => {
-        scroll.update();
-      }, 10);
-    }
-  }, [loadingEnd]);
-
-  return (
-    <AnimatePresence
-      initial={false}
-      onExitComplete={() => {
-        if (scrollLock) setScrollLock(false);
-        if (transition) setTransition(false);
-        if (scroll) {
-          scroll.destroy();
-          scroll.init();
-        }
-      }}
-    >
-      <Component {...pageProps} key={innerKey} />
-    </AnimatePresence>
-  );
-};
+import App from '@/containers/App';
+import { useEffect } from 'react';
 
 function NextApp({ Component, pageProps, router }) {
-  if (typeof window !== 'undefined') smoothscroll.polyfill();
-  const containerRef = useRef(null);
-
   /**
    * Remove this crap and portto.js once published
    */
@@ -69,35 +24,7 @@ function NextApp({ Component, pageProps, router }) {
     if (!_ && production) return <></>;
   }
 
-  return (
-    <>
-      <App>
-        <Splash />
-        <LocomotiveScrollProvider
-          containerRef={containerRef}
-          options={{
-            smooth: true,
-            multiplier:
-              typeof window !== 'undefined' &&
-              window.navigator &&
-              window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-                ? 3
-                : 1,
-          }}
-          watch={['Done manually I presume?']} // router.route
-        >
-          <Header navTitle={pageProps.navTitle} />
-          <main className="App-main" data-scroll-container ref={containerRef}>
-            <Main
-              Component={Component}
-              innerKey={router.route}
-              pageProps={pageProps}
-            />
-          </main>
-        </LocomotiveScrollProvider>
-      </App>
-    </>
-  );
+  return <App Component={Component} pageProps={pageProps} router={router} />;
 }
 
 export default NextApp;
