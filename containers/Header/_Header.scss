@@ -225,13 +225,11 @@
 }
 
 .Header-nav {
-  // margin: max(25vh, #{rem($space * 6)}) auto auto auto;
-  margin: max(20vh, #{rem($space * 6)}) auto auto auto;
+  margin: max(20vh, #{rem($space * 6)}) auto auto;
   width: 100%;
   z-index: 0;
 
   @include mq(m) {
-    // margin-top: max(22.5vh, #{rem($space * 8)});
     margin-top: max(20vh, #{rem($space * 9)});
   }
 }
@@ -251,11 +249,11 @@
     }
   }
 
-  &.is-active {
-    .Header-nav-link-text:after {
-      // opacity: 1;
-    }
-  }
+  // &.is-active {
+  //   .Header-nav-link-text:after {
+  //     opacity: 1;
+  //   }
+  // }
 
   @include mq(m) {
     @for $i from 2 through 12 {
@@ -360,6 +358,7 @@
 }
 
 .Header-nav-link-inner {
+  align-items: center;
   display: flex;
   pointer-events: none;
 }
@@ -367,21 +366,20 @@
 .Header-nav-link-text {
   position: relative;
 
-  &:after {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    bottom: 0;
-    content: '';
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    transition: opacity $trans-primary;
-    width: 100%;
-  }
+  // &:after {
+  //   border-bottom-style: solid;
+  //   border-bottom-width: 1px;
+  //   bottom: 0;
+  //   content: '';
+  //   left: 0;
+  //   opacity: 0;
+  //   position: absolute;
+  //   transition: opacity $trans-primary;
+  //   width: 100%;
+  // }
 }
 
 .Header-nav-link-eye {
-  height: 100%;
   margin: 0 rem($space-s) 0 rem($space);
   width: clamp(rem($space * 3), 10vw, rem($space * 5));
 
@@ -394,7 +392,7 @@
   path {
     &:first-child {
       stroke: $border-500;
-      stroke-width: rem(7px);
+      stroke-width: 3px;
     }
   }
 }
@@ -422,11 +420,17 @@
 .Header-nav-marquee-eye {
   flex-shrink: 0;
   margin: 0 rem($space-s);
-  width: clamp(rem($space * 3), 10vw, rem($space * 6));
+  width: clamp(rem($space * 3), 10vw, rem($space * 5));
 
   circle {
     &:nth-child(2) {
       fill: var(--Header-marquee-iris, var(--white));
+    }
+  }
+
+  path {
+    &:first-child {
+      stroke-width: 3px;
     }
   }
 }
@@ -435,7 +439,7 @@
   align-items: flex-end;
   color: $text-10;
   display: flex;
-  margin: max(5vh, #{rem($space * 6)}) 0 rem($space-xl) 0;
+  margin: max(10vh, #{rem($space * 5)}) 0 rem($space-xl) 0;
 
   a {
     color: $text-10;
@@ -443,6 +447,14 @@
 
   @include mq($until: m) {
     @include text(xs);
+  }
+
+  @include mq(m) {
+    margin-top: max(12.5vh, #{rem($space * 6)});
+  }
+
+  @include mq(l) {
+    margin-bottom: rem($space-xxl);
   }
 }
 

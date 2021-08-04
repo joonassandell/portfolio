@@ -30,7 +30,7 @@
         fill: none;
 
         @include mq($until: l) {
-          stroke-width: 4px;
+          stroke-width: 3px;
         }
       }
     }
