@@ -1,5 +1,5 @@
 .Splash {
-  background-color: $bg-700;
+  background-color: $root-bg;
   color: $text-10;
   inset: 0;
   position: fixed;
@@ -60,7 +60,8 @@
 
 .Splash-text {
   animation: animate $trans-primary;
-  display: inline-block;
+  display: block;
+  will-change: transform;
 }
 
 @keyframes animate {
@@ -70,5 +71,25 @@
 
   to {
     transform: translate3d(0, 0%, 0);
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  // @keyframes removeSafariInitialFlash {
+  //   from {
+  //     opacity: 0;
+  //     transform: translate3d(0, 100%, 0);
+  //   }
+
+  //   to {
+  //     opacity: 1;
+  //     transform: translate3d(0, 0%, 0);
+  //   }
+  // }
+
+  .Splash-text {
+    // animation: removeSafariInitialFlash $trans-primary;
+    animation: unset;
+    // will-change: opacity, transform;
   }
 }
