@@ -28,9 +28,11 @@ const Template = ({ children, name, title }) => {
 
     if (isPresent) {
       setAnimState('animStart');
+      if (!appState.loading) setKey(prevKey => prevKey + 1);
 
-      if (!appState.loading) {
-        setKey(prevKey => prevKey + 1);
+      if (scroll && !templateTransition) {
+        scroll.destroy();
+        scroll.init();
       }
     }
   }, [isPresent]);
@@ -50,6 +52,8 @@ const Template = ({ children, name, title }) => {
         animate="animate"
         className={c('Template', {
           [`Template--${name}`]: name,
+          'is-transition:exit':
+            transition && !templateTransition && animState === 'animExit',
           'is-transition:template': templateTransition,
           'is-transition:template:exit':
             templateTransition && animState === 'animExit',

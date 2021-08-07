@@ -72,7 +72,7 @@ const Home = () => {
         <div
           data-id="test"
           onClick={handleClick}
-          style={{ height: '300vh' }}
+          style={{ height: '300vh', backgroundColor: 'black' }}
         ></div>
       </Template>
     </>

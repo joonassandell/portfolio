@@ -2,25 +2,36 @@
   background-color: $bg-10;
   min-height: var(--vh);
   overflow: hidden;
-  position: relative;
   top: 0;
   width: 100vw;
   z-index: 1;
 
   /**
-   * 1. Hack to remove the applied scroll values from the new view.
-   * Why are those even there?!
+   * This is the start animation
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
     z-index: 0;
 
-    // [data-scroll-section], [data-scroll] { // [1.]
+    /**
+     * Hack to remove the applied scroll values from the new view.
+     * Why are those even there?!
+     */
+    // [data-scroll-section], [data-scroll] {
     //   transform: none !important;
     // }
   }
 
+  &.is-transition\:template {
+    position: relative;
+  }
+
   &.is-transition\:template\:exit {
+    z-index: 0;
+  }
+
+  &.is-transition\:exit {
+    position: absolute;
     z-index: 0;
   }
 }
@@ -28,6 +39,11 @@
 .Template-inner {
   position: relative;
   z-index: 0;
+}
+
+.Template-content {
+  position: relative;
+  z-index: 3;
 }
 
 .Template-overlay {

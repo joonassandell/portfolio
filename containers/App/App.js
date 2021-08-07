@@ -30,9 +30,11 @@ export function App({ Component, pageProps, router }) {
   const [appState, setAppState] = useState(appContext);
   const mobile = useIsMobile();
   const { doc, html, loadingEnd, transition } = appState;
+  const templateTransition = transition === 'template';
   const containerRef = useRef(null);
   const classes = c('App', {
-    'is-transition': transition,
+    'is-transition': transition && !templateTransition,
+    'is-transition:template': templateTransition,
   });
 
   /* ======
@@ -215,6 +217,7 @@ export function App({ Component, pageProps, router }) {
                 setScrollLock={setScrollLock}
                 setTransition={setTransition}
                 transition={transition}
+                templateTransition={templateTransition}
               />
             </main>
           </div>
@@ -234,6 +237,7 @@ const AppMain = ({ ...props }) => {
     setScrollLock,
     setTransition,
     transition,
+    templateTransition,
   } = props;
   const { scroll } = useLocomotiveScroll();
 
@@ -246,11 +250,17 @@ const AppMain = ({ ...props }) => {
       initial={false}
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
-        if (transition) setTransition(false);
+
         if (scroll) {
-          scroll.destroy();
-          scroll.init();
+          if (templateTransition) {
+            scroll.destroy();
+            scroll.init();
+          } else {
+            scroll.update();
+          }
         }
+
+        if (transition) setTransition(false);
       }}
     >
       <Component {...pageProps} key={innerKey} />

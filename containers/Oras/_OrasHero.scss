@@ -5,8 +5,13 @@
   min-width: var(--root-minWidth);
   position: relative;
 
+  .App.is-transition &:not(.-transition\:pre) {
+    visibility: hidden;
+  }
+
   &.-transition\:pre {
     background-color: $OrasHero-bgPreTransition;
+    visibility: visible;
   }
 
   @include mq(xs) {

@@ -120,9 +120,9 @@ const Stamp = ({
           {transitionStart && (
             <motion.div
               className="Stamp-overlay"
+              exit="exit"
               custom={isMobile}
               variants={overlayVariants}
-              {...(transitionStart && { exit: 'exit' })}
             />
           )}
         </motion.div>

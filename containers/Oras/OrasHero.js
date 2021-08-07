@@ -47,6 +47,7 @@ const OrasHero = ({
     <motion.section
       animate={transitionHideStart ? 'hidden' : ''}
       className={classes}
+      data-scroll
       exit={transitionStart ? 'exit' : ''}
       data-id={id}
       id={id}
@@ -67,8 +68,9 @@ const OrasHero = ({
           data-scroll-offset="-10%"
           data-scroll-position="top"
           data-scroll-speed={scrollSpeed}
-          {...(preTransition && { 'data-scroll-speed': 3 })}
-          {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
+          data-scroll-direction="horizontal"
+          // {...(preTransition && { 'data-scroll-speed': 3 })}
+          // {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
           {/* Oras \ 2016 */}
           Oras — 2016
