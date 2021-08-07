@@ -247,7 +247,6 @@ const AppMain = ({ ...props }) => {
 
   return (
     <AnimatePresence
-      initial={false}
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
 

@@ -34,7 +34,7 @@ const Figure = ({
   scrollSpeed = scrlSpeed,
   scrollImageSpeed = -3,
   scrollOffset,
-  scrollImageOffset = '-20%',
+  scrollImageOffset = '-25%',
   priority,
   sizes,
   transition,
@@ -108,7 +108,7 @@ const Figure = ({
         {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <motion.div
-          animate={inView ? 'inView' : false}
+          animate={inView ? 'inView' : ''}
           className="Figure-figure-inner"
           initial="hidden"
           variants={figureVariants}

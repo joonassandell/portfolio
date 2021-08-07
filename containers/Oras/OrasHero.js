@@ -47,13 +47,12 @@ const OrasHero = ({
     <motion.section
       animate={transitionHideStart ? 'hidden' : ''}
       className={classes}
+      data-id={id}
       data-scroll
       exit={transitionStart ? 'exit' : ''}
-      data-id={id}
-      id={id}
-      ref={ref}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
+      ref={ref}
       variants={transitionHideStart ? fadeOutVariants : {}}
     >
       <Heading

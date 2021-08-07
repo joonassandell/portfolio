@@ -13,7 +13,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
-  const { transition } = appState;
+  const { transition, loading } = appState;
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
@@ -28,7 +28,7 @@ const Template = ({ children, name, title }) => {
 
     if (isPresent) {
       setAnimState('animStart');
-      if (!appState.loading) setKey(prevKey => prevKey + 1);
+      if (!loading) setKey(prevKey => prevKey + 1);
 
       if (scroll && !templateTransition) {
         scroll.destroy();
@@ -59,7 +59,6 @@ const Template = ({ children, name, title }) => {
             templateTransition && animState === 'animExit',
         })}
         exit="exit"
-        initial="initial"
         key={`${name}-${key}`}
         onAnimationStart={() => {
           if (animState === 'animStart' && templateTransition) {
@@ -69,6 +68,7 @@ const Template = ({ children, name, title }) => {
         }}
         transition={variants.transition}
         variants={variants}
+        {...(!loading && { initial: 'initial' })}
       >
         <div className="Template-inner" data-scroll-section>
           {children}

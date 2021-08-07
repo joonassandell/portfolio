@@ -4,12 +4,10 @@
 
 .Info-ruler {
   margin-bottom: rem($space-l);
-  transform: scaleX(0);
   transform-origin: top left;
 
   @include mq(l) {
     margin-bottom: rem($space-xxxl);
-    // margin-bottom: rem($space * 6);
   }
 }
 

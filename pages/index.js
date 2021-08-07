@@ -27,7 +27,7 @@ const Home = () => {
     e.preventDefault();
     setAnimationHide(true);
     const el = e.currentTarget.closest('[data-id]');
-    setCurrentHero(el.id);
+    setCurrentHero(el.dataset.id);
     scrollTo(el, () => setAnimation(true));
   };
 

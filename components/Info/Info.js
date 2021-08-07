@@ -65,7 +65,7 @@ const Info = ({
   const textInView = useInView(textRef, 'infoText');
 
   return (
-    <motion.div className="Info" initial="hidden">
+    <div className="Info">
       <div className="wrap">
         <div
           data-scroll
@@ -75,16 +75,18 @@ const Info = ({
           ref={rulerRef}
         >
           <motion.hr
-            animate={rulerInView ? 'inView' : false}
+            animate={rulerInView ? 'inView' : ''}
             className="Info-ruler"
+            initial="hidden"
             variants={infoRulerVariants}
           />
         </div>
         <div className="grid">
           <motion.div
-            animate={gridInView ? 'inView' : false}
+            animate={gridInView ? 'inView' : ''}
             data-scroll
             data-scroll-id="infoGrid"
+            initial="hidden"
             ref={gridRef}
             className="Info-metaCol grid-col:5@l"
             variants={infoGridVariants}
@@ -139,10 +141,11 @@ const Info = ({
             </div>
           </motion.div>
           <motion.div
-            animate={textInView ? 'inView' : false}
+            animate={textInView ? 'inView' : ''}
             custom={desktop ? 0.3 : false}
             data-scroll
             data-scroll-id="infoText"
+            initial="hidden"
             ref={textRef}
             className="Info-headingCol grid-col:9@m grid-col:7@l"
             variants={infoGridCellVariants}
@@ -154,7 +157,7 @@ const Info = ({
           </motion.div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
