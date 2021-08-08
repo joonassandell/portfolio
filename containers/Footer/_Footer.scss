@@ -1,3 +1,48 @@
 .Footer {
-  background-color: $bg-10;
+  margin-top: rem($space-xxxxl);
+  padding-bottom: rem($space-l);
+  position: relative;
+  z-index: $Footer-zIndex;
+
+  @include mq($until: m) {
+    @include text(s);
+  }
+
+  @include mq(m) {
+    padding-bottom: rem($space-xxxxl);
+  }
+}
+
+.Footer-inner {
+  align-items: flex-end;
+  border-top: 1px solid $border-700;
+  display: flex;
+  padding-top: rem($space-xl);
+
+  @include mq(m) {
+    padding-top: rem($space-xxl);
+  }
+}
+
+.Footer-links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include mq(m) {
+    flex-direction: row;
+  }
+}
+
+.Footer-links-item {
+  margin-right: rem($space-xs);
+
+  &:not(:last-child) {
+    margin-bottom: rem($space / 8);
+  }
+}
+
+.Footer-copyright {
+  margin: 0 0 0 auto;
+  text-align: right;
 }

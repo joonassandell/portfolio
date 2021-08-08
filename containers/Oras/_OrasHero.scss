@@ -12,6 +12,7 @@
   &.-transition\:pre {
     background-color: $OrasHero-bgPreTransition;
     visibility: visible;
+    z-index: $Footer-zIndex + 1;
   }
 
   @include mq(xs) {

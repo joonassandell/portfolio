@@ -9,6 +9,7 @@ import {
 import c from 'classnames';
 import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import Footer from '@/containers/Footer';
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
@@ -72,6 +73,7 @@ const Template = ({ children, name, title }) => {
       >
         <div className="Template-inner" data-scroll-section>
           {children}
+          <Footer />
         </div>
         {displayOverlay && (
           <motion.div
