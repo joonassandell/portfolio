@@ -16,11 +16,11 @@
   &.-mask {
     overflow: hidden;
 
-    @include mq($until: mobile) {
-      .Figure-figure  {
-        background: transparent;
-      }
-    }
+    // @include mq($until: mobile) {
+    //   .Figure-figure  {
+    //     background: transparent;
+    //   }
+    // }
   }
 }
 

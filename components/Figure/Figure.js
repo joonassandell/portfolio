@@ -47,8 +47,9 @@ const Figure = ({
     // '-placeholderColor:50': placeholderColor === 50 || mask,
     // '-placeholderColor:10': placeholderColor === 10,
   });
+  const id = src.split('/').pop().split('.')[0];
   const ref = useCallbackRef(null, ref => ref);
-  const inView = useInView(ref, src);
+  const inView = useInView(ref, id);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src && src.indexOf('mp4') > -1;
   const imageSize = {
@@ -91,7 +92,7 @@ const Figure = ({
     <motion.div
       className={classes}
       data-scroll
-      data-scroll-id={src}
+      data-scroll-id={id}
       ref={ref}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(offset && { 'data-scroll-offset': offset })}
@@ -101,8 +102,9 @@ const Figure = ({
       <figure
         className="Figure-figure"
         {...(scrolling && mask && { 'data-scroll': true })}
-        {...(scrolling && mask && { 'data-scroll-offset': scrollImageOffset })}
         {...(scrolling && mask && { 'data-scroll-speed': scrollImageSpeed })}
+        {...(scrolling &&
+          mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
         {...(scrolling &&
           scrollPosition && { 'data-scroll-position': scrollPosition })}
         {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
@@ -140,15 +142,15 @@ const Figure = ({
               className="Figure-img"
               draggable="false"
               layout="responsive"
-              sizes={sizes}
-              src={src}
-              quality={quality}
               onLoad={event => {
                 const target = event.target;
                 if (target.src.indexOf('data:image/gif;base64') < 0) {
                   setImageIsLoaded(true);
                 }
               }}
+              sizes={sizes}
+              src={src}
+              quality={quality}
               {...(priority && { priority: true })}
               {...imageSize}
             />

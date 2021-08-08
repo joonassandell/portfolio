@@ -23,9 +23,18 @@ export const clipVariants = {
   },
 };
 
+/**
+ * Added is mask figure is visible after hero transition from homepage.
+ * This may not be necessary.
+ */
 export const maskVariants = {
-  inView: {},
-  hidden: {},
+  inView: {
+    opacity: 1,
+    transition: transPrimaryFast,
+  },
+  hidden: {
+    opacity: 0,
+  },
 };
 
 export const moveVariants = {
