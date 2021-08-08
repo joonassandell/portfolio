@@ -460,7 +460,7 @@
   }
 
   @include mq($until: m) {
-    @include text(xs);
+    @include text(s);
   }
 
   @include mq(m) {
@@ -474,21 +474,15 @@
 
 .Header-links {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
 .Header-links-item {
   margin-right: rem($space-xs);
-}
 
-.Header-links--mobile {
-  flex-direction: column;
-
-  @include mq($until: xs) {
-  }
-
-  @include mq(xs) {
-    justify-content: center;
+  &:not(:last-child) {
+    margin-bottom: rem($space / 8);
   }
 }
 

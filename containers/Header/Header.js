@@ -30,7 +30,7 @@ const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
 const someLinks = links.social;
 
-export default function Header(props) {
+const Header = props => {
   const router = useRouter();
   const [isOpen, setOpen] = useCycle(false, true);
   const [hover, setHover] = useState(false);
@@ -413,7 +413,7 @@ export default function Header(props) {
               </ul>
             </motion.nav>
             <footer className="Header-footer wrap">
-              <ul className="Header-links Header-links--mobile">
+              <ul className="Header-links">
                 {someLinks.map(link => {
                   return (
                     <li className="Header-links-item" key={link.id}>
@@ -425,8 +425,8 @@ export default function Header(props) {
                 })}
               </ul>
               <p className="Header-copyright">
-                Copyright <br />
-                &copy; 2021
+                &copy; {new Date().getFullYear()} <br />
+                Joonas Sandell
               </p>
             </footer>
           </>
@@ -434,4 +434,6 @@ export default function Header(props) {
       </motion.div>
     </>
   );
-}
+};
+
+export default Header;

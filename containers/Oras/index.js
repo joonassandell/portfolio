@@ -1,2 +1,2 @@
 import OrasHero from './OrasHero.js';
-export { OrasHero };
+export default OrasHero;

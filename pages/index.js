@@ -3,7 +3,7 @@ import { getSitemap } from '@/lib/utility';
 import { useState } from 'react';
 
 import Link from '@/components/Link';
-import { OrasHero } from '@/containers/Oras';
+import OrasHero from '@/containers/Oras';
 import { Template } from '@/containers/Template';
 import { motion } from 'framer-motion';
 import { useAppContext } from '@/containers/App';
@@ -69,11 +69,7 @@ const Home = () => {
           transitionState="pre"
           transitionHideStart={currentHero != 'oras' && animationHide}
         />
-        <div
-          data-id="test"
-          onClick={handleClick}
-          style={{ height: '300vh', backgroundColor: 'black' }}
-        ></div>
+        {/* <div data-id="test" onClick={handleClick} style={{ height: '300vh' }} /> */}
       </Template>
     </>
   );

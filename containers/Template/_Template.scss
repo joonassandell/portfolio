@@ -41,13 +41,9 @@
   z-index: 0;
 }
 
-.Template-content {
-  position: relative;
-  z-index: 3;
-}
-
 .Template-overlay {
-  @include positionAbsoluteFill();
+  inset: 0;
+  position: absolute;
   z-index: 1;
 }
 
