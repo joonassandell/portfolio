@@ -28,7 +28,7 @@ const Oras = ({ images }) => {
 
   return (
     <Template name={oras.id} title={oras.title}>
-      <OrasHero priority={true} />
+      <OrasHero priority />
       <div className="Template-content">
         <Info
           client={{ name: oras.title, href: 'https://oras.com' }}
@@ -51,7 +51,8 @@ const Oras = ({ images }) => {
             <Figure
               alt="Oras woman showering"
               className="Template-img-1"
-              mask={true}
+              mask
+              priority
               sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
               {...woman}
             />
@@ -60,7 +61,8 @@ const Oras = ({ images }) => {
             <Figure
               alt="Oras man showering"
               className="Template-img-2"
-              mask={true}
+              mask
+              priority
               scrollSpeed={1}
               sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
               {...manSquare}
@@ -164,7 +166,7 @@ const Oras = ({ images }) => {
             <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
               <Figure
                 alt="Oras man showering"
-                mask={true}
+                mask
                 sizes={`${mq.m} 50vw, 33vw`}
                 {...man}
               />

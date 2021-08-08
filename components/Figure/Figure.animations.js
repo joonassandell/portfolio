@@ -28,12 +28,24 @@ export const clipVariants = {
  * This may not be necessary.
  */
 export const maskVariants = {
-  inView: {
-    opacity: 1,
-    transition: transPrimaryFast,
+  inView: isMobile => {
+    if (isMobile) {
+      return { ...clipVariants.inView };
+    } else {
+      return {
+        opacity: 1,
+        transition: transPrimaryFast,
+      };
+    }
   },
-  hidden: {
-    opacity: 0,
+  hidden: isMobile => {
+    if (isMobile) {
+      return { ...clipVariants.hidden };
+    } else {
+      return {
+        opacity: 0,
+      };
+    }
   },
 };
 

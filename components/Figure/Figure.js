@@ -62,7 +62,7 @@ const Figure = ({
       : null,
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
-  const mobile = useIsMobile();
+  const isMobile = useIsMobile();
 
   /**
    * 1. Mask offset
@@ -83,10 +83,6 @@ const Figure = ({
     : transition === 'clip'
     ? clipVariants
     : moveVariants;
-
-  if (mobile) {
-    figureVariants = mask ? clipVariants : figureVariants;
-  }
 
   return (
     <motion.div
@@ -112,10 +108,11 @@ const Figure = ({
         <motion.div
           animate={inView ? 'inView' : ''}
           className="Figure-figure-inner"
+          custom={isMobile}
           initial="hidden"
           variants={figureVariants}
         >
-          {!isVideo && blurhash && (
+          {!isVideo && blurhash && !priority && (
             <AnimatePresence>
               {!imageIsLoaded && (
                 <motion.div
