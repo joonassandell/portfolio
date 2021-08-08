@@ -117,6 +117,13 @@ export function App({ Component, pageProps, router }) {
   }, [doc]);
 
   useEffect(() => {
+    (async () => {
+      const { isWindows } = await import('@/lib/detect');
+      if (isWindows) html.classList.add('is-windows');
+    })();
+  }, [html]);
+
+  useEffect(() => {
     if (!html) return;
     if (loadingEnd) html.classList.remove('is-loading');
   }, [html, loadingEnd]);

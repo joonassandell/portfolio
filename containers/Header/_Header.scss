@@ -7,18 +7,20 @@
   top: 0;
   width: 100%;
   z-index: $Header-zIndex;
-  
+
   /**
-   * Quick fix for Windows font rendering. This is needed because there's mix-blend mode in parent which
-   * adds odd text rendering in Windows. This needs to be tested w/ macOs etc. 
-   * and maybe add ua detect based class for windows
+   * Quick fix for Windows font rendering. This is needed because there's
+   * mix-blend mode in parent which adds odd text rendering in Windows.
    */
-  .LinkRoll-char,
-  .Header-button-text-item > div {
-    background: white;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .is-windows & {
+    .LinkRoll-char,
+    .Header-button-text-item > div {
+      background: white;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
+
 
   &.is-open {
     mix-blend-mode: unset;
