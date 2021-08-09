@@ -7,7 +7,7 @@ function NextApp({ Component, pageProps, router }) {
   /**
    * Remove this crap and portto.js once published
    */
-  const production = !process.env.NEXT_PUBLIC_ENVIRONMENT;
+  const production = process.env.NODE_ENV === 'production';
   useEffect(() => {
     if (
       production &&
