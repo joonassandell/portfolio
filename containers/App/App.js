@@ -127,6 +127,7 @@ https://www.typescriptlang.org And this one too
   }, [doc]);
 
   useEffect(() => {
+    if (!html) return;
     (async () => {
       const { isWindows } = await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
