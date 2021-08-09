@@ -5,7 +5,7 @@ module.exports = {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
   experimental: { optimizeCss: true },
-  webpack(config) {
+  webpack(config, { defaultLoaders }) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
