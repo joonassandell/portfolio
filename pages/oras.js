@@ -1,6 +1,7 @@
 import OrasHero from '@/containers/Oras';
 import { Template } from '@/containers/Template';
 import { getSitemap, getImage } from '@/lib/utility';
+import NextProject from '@/components/NextProject';
 import { mq, scrollSpeed } from '@/lib/config';
 import Info from '@/components/Info';
 import Figure from '@/components/Figure';
@@ -9,7 +10,7 @@ import getImages from '@/lib/getImages';
 const oras = getSitemap('oras');
 
 const Oras = ({ images }) => {
-  const woman = getImage('joonassandell-oras-woman', images);
+  const woman = getImage('joonassandell-oras-thumbnail', images);
   const manSquare = getImage('joonassandell-oras-man-square', images);
   const family = getImage('joonassandell-oras-product-family', images);
   const kitchen = getImage('joonassandell-oras-ux-kitchen', images);
@@ -240,6 +241,7 @@ const Oras = ({ images }) => {
           </div>
         </div>
       </section>
+      <NextProject id="oras" />
     </Template>
   );
 };

@@ -1,0 +1,47 @@
+.NextProject {}
+
+.NextProject-link {
+  @include fontSize(16px, 16px, 120px, 10vw);
+  display: block;
+  padding-left: var(--wrap-spaceLeft);
+  z-index: 1;
+
+  .LinkRoll-text.-hover {
+    left: var(--wrap-spaceLeft);
+  }
+}
+
+.NextProject-inner {
+  padding: rem($space-xxl) 0 0 0;
+  position: relative;
+}
+
+.NextProject-figure {
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: min(#{rem($space * 20)}, 45%);
+  will-change: transform;
+
+  @include mq(xxxxxl) {
+    max-width: rem($space * 18);
+  }
+}
+
+// .NextProject-figure-inner {
+//   overflow: hidden;
+// }
+
+// .NextProject-figure-inner,
+// .NextProject-figure-inner-img {
+//   height: 100%;
+//   position: relative;
+//   width: 100%;
+// }
+
+// .NextProject-figure-inner-img {
+//   background-image: url('/assets/test.jpg');
+//   background-position: 50% 50%;
+//   background-size: cover;
+// }
