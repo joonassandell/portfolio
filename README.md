@@ -10,3 +10,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Links
 
 - [Initial template of this README](https://github.com/vercel/next.js/blob/canary/packages/create-next-app/templates/default/README-template.md)
+- [https://www.framer.com/docs/transition/###damping](https://www.framer.com/docs/transition/###damping)
+- [Inspired by: https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js](https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js)

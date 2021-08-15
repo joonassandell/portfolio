@@ -1,9 +1,13 @@
 import { transPrimaryFastest } from '@/lib/config';
 
-const trans = {
-  duration: transPrimaryFastest.duration,
-  ease: [0.215, 0.61, 0.355, 1],
-};
+// const trans = {
+//   // duration: transPrimaryFastest.duration,
+//   duration: 0.4,
+//   ease: transPrimaryFastest.ease,
+//   // ease: [0.215, 0.61, 0.355, 1],
+// };
+
+const trans = transPrimaryFastest;
 
 export const linkVariants = {
   in: {

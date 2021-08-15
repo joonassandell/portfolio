@@ -32,46 +32,45 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Template name={home.id} title="Portfolio">
-        <motion.div
-          animate={animationHide ? 'hidden' : ''}
-          className="Template-about"
-          variants={fadeOutVariants}
-        >
-          <div className="wrap">
-            <Link
-              href={about.url}
-              className="Template-about-mobile"
-              orientation="vertical"
-              underline
-            >
-              About me
-            </Link>
-            <div className="Template-about-desktop">
-              <h1>
-                I'm a designer, creative developer and sometimes even a music
-                producer from Helsinki, Finland. Read more{' '}
-                <Link href={about.url} underline>
-                  about me
-                </Link>{' '}
-                or just keep scrolling for selected works.
-              </h1>
-            </div>
+    <Template name={home.id} title="Portfolio">
+      <motion.div
+        animate={animationHide ? 'hidden' : ''}
+        className="Template-about"
+        variants={fadeOutVariants}
+      >
+        <div className="wrap">
+          <Link
+            href={about.url}
+            className="Template-about-mobile"
+            orientation="vertical"
+            underline
+          >
+            About me
+          </Link>
+          <div className="Template-about-desktop">
+            <h1>
+              I'm a designer, creative developer and sometimes even a music
+              producer from Helsinki, Finland. Read more{' '}
+              <Link href={about.url} underline>
+                about me
+              </Link>{' '}
+              or just keep scrolling for selected works.
+            </h1>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        <OrasHero
-          id="oras"
-          onClick={handleClick}
-          priority={true}
-          transitionStart={currentHero === 'oras' && animation}
-          transitionState="pre"
-          transitionHideStart={currentHero != 'oras' && animationHide}
-        />
-        {/* <div data-id="test" onClick={handleClick} style={{ height: '300vh' }} /> */}
-      </Template>
-    </>
+      <OrasHero
+        id="oras"
+        onClick={handleClick}
+        priority={true}
+        transitionStart={currentHero === 'oras' && animation}
+        transitionState="pre"
+        transitionHideStart={currentHero != 'oras' && animationHide}
+      />
+
+      <div data-id="test" onClick={handleClick} style={{ height: '300vh' }} />
+    </Template>
   );
 };
 

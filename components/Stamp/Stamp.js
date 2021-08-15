@@ -17,8 +17,6 @@ import useMeasureDirty from 'react-use/lib/useMeasureDirty';
  *
  * https://github.com/streamich/react-use/issues/1227
  * const [ref, { width, height }] = useMeasure();
- *
- * https://www.framer.com/docs/transition/###damping
  */
 const Stamp = ({
   className,

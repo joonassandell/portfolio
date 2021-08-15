@@ -75,15 +75,17 @@ export function App({ Component, pageProps, router }) {
   useEffect(() => {
     smoothscroll.polyfill();
 
-    // prettier-ignore
-    console.info(
-      `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲
+    if (process.env.NODE_ENV === 'production') {
+      // prettier-ignore
+      console.info(
+        `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲
 
 https://github.com/joonassandell/rebirth My styleguide in development
 https://nextjs.org I really recommend this
 https://www.typescriptlang.org And this one too
       `
-    );
+      );
+    }
 
     sitemap.map(site => {
       if (site.url === '/oras') {

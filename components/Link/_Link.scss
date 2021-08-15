@@ -29,10 +29,6 @@
   left: 0;
   position: absolute;
   top: 0;
-
-  &:after {
-    opacity: 1;
-  }
 }
 
 .Link-icon {
@@ -57,7 +53,7 @@
 .Link {
   &.-underline,
   &.is-active {
-    .Link-text {
+    .Link-text, .Link-text--reveal {
       &:after {
         opacity: 1;
       }
