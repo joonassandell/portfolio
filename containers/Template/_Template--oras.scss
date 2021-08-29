@@ -1,7 +1,23 @@
 .Template--oras {
+  background-color: $oras-bg;
+
   .Info {
     @include mq($until: ml) {
       margin-top: rem($space * -4);
+    }
+  }
+
+  /**
+   * Fix weird pixel on top in the video
+   */
+  .Template-videoBathroom {
+    .Figure-figure {
+      overflow: hidden;
+    }
+
+    .Figure-video {
+      position: relative;
+      top: -2px;
     }
   }
 }

@@ -19,6 +19,12 @@ const Oras = ({ images }) => {
   const lookBooked = getImage('joonassandell-oras-look-booked', images);
   const single = getImage('joonassandell-oras-product-single', images);
   const man = getImage('joonassandell-oras-man', images);
+  const productsOverview = getImage(
+    'joonassandell-oras-products-overview',
+    images,
+  );
+  const blog = getImage('joonassandell-oras-blog', images);
+  const heroSense = getImage('joonassandell-oras-hero-sense', images);
   const s1 = getImage('joonassandell-oras-strategy-1', images);
   const s2 = getImage('joonassandell-oras-strategy-2', images);
   const s3 = getImage('joonassandell-oras-strategy-3', images);
@@ -26,14 +32,17 @@ const Oras = ({ images }) => {
   const s5 = getImage('joonassandell-oras-strategy-5', images);
   const s6 = getImage('joonassandell-oras-strategy-6', images);
   const s7 = getImage('joonassandell-oras-strategy-7', images);
+  const mobile = getImage('joonassandell-oras-mobile', images);
+  const mobile2 = getImage('joonassandell-oras-mobile-2', images);
+  const mobile3 = getImage('joonassandell-oras-mobile-3', images);
 
   return (
     <Template name={oras.id} title={oras.title}>
       <OrasHero priority />
       <Info
         client={{ name: oras.title, href: 'https://oras.com' }}
-        type={['Web service']}
-        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We we're asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
+        type={['Web service', 'Commission']}
+        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
         smallPrint="Made together with wonderful people at Mediasignal and Hasan & Partners."
         text={
           <p>
@@ -69,18 +78,18 @@ const Oras = ({ images }) => {
           />
         </div>
       </section>
-      <section className="Template-section -bg:gradient-10-50-10 -padding:full">
+      <section className="Template-section -bg:gradient-10-50-10 -padding:bottom">
         <div className="grid wrap">
-          <div className="grid-col grid-col:10 -start:2">
+          <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
               alt="Oras product family"
               placeholderColor={10}
               scrolling={false}
               sizes={`${mq.l} 80vw, 100vw`}
               quality={90}
-              {...family}
               blurhash={false}
               priority
+              {...family}
             />
           </div>
         </div>
@@ -106,21 +115,39 @@ const Oras = ({ images }) => {
       </section>
       <section className="Template-section -bg:gradient-10-50-10">
         <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:8@m -end">
+          <div className="grid-col grid-col:9@m">
+            <Figure
+              alt="Oras products overview"
+              scrolling={false}
+              sizes={`${mq.m} 70vw, 100vw`}
+              blurhash={false}
+              priority
+              {...productsOverview}
+            />
+          </div>
+          <div className="grid-col grid-col:8@m -start:2@m">
+            <Figure
+              alt="Oras blog"
+              scrolling={false}
+              sizes={`${mq.m} 60vw, 100vw`}
+              {...blog}
+            />
+          </div>
+          <div className="grid-col grid-col:9@m -end">
             <Figure
               alt="Oras kitchen experience"
               placeholderColor={10}
               scrolling={false}
-              sizes={`${mq.m} 80vw, 100vw`}
-              {...kitchen}
+              sizes={`${mq.m} 70vw, 100vw`}
               blurhash={false}
               priority
+              {...kitchen}
             />
           </div>
         </div>
       </section>
       <section className="Template-section">
-        <div className="wrap grid -size:l">
+        <div className="wrap grid -size:full">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Oras homepage hero"
@@ -130,7 +157,7 @@ const Oras = ({ images }) => {
               {...homeHero}
             />
           </div>
-          <div className="grid-col grid-col:9 -start:4 grid-col:4@m -start:9@m -align:end">
+          <div className="grid-col grid-col:9 -start:4 grid-col:5@m -start:9@m -align:end">
             <Figure
               alt="Oras live more page hero"
               scrollSpeed={-scrollSpeed}
@@ -150,6 +177,15 @@ const Oras = ({ images }) => {
           </div>
         </div>
       </section>
+      <section className="Template-section">
+        <Figure
+          alt="Oras sense faucet"
+          scrolling={false}
+          blurhash={false}
+          priority
+          {...heroSense}
+        />
+      </section>
       <section className="Template-section -bg:gradient-10-50-10">
         <div className="wrap grid -size:l">
           <div className="grid-col grid-col:8@m">
@@ -158,9 +194,9 @@ const Oras = ({ images }) => {
               placeholderColor={10}
               scrolling={false}
               sizes={`${mq.m} 80vw, 100vw`}
-              {...single}
               blurhash={false}
               priority
+              {...single}
             />
           </div>
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
@@ -173,7 +209,7 @@ const Oras = ({ images }) => {
           </div>
         </div>
       </section>
-      <section className="Template-section -padding:full">
+      <section className="Template-section">
         <div className="grid -size:l">
           <div className="grid-col grid-col:10 grid-col:4@m -align:end">
             <Figure
@@ -237,6 +273,39 @@ const Oras = ({ images }) => {
               sizes={`80vw`}
               quality={90}
               {...s4}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="Template-section -padding:bottom">
+        <div className="wrap grid -size:l">
+          <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
+            <Figure
+              alt="Oras homepage mobile"
+              priority
+              sizes={`${mq.m} 25vw, 50vw`}
+              quality={100}
+              {...mobile}
+            />
+          </div>
+          <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
+            <Figure
+              alt="Oras homepage mobile 2"
+              scrollSpeed={-scrollSpeed}
+              priority
+              sizes={`${mq.m} 25vw, 50vw`}
+              {...mobile2}
+            />
+          </div>
+        </div>
+        <div className="wrap grid -size:l">
+          <div className="grid-col grid-col:5 -start:7 grid-col:4@s grid-col:3@m">
+            <Figure
+              alt="Oras homepage mobile 3"
+              scrollSpeed={scrollSpeed * 2}
+              priority
+              sizes={`${mq.m} 25vw, 50vw`}
+              {...mobile3}
             />
           </div>
         </div>

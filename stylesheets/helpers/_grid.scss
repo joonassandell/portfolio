@@ -1,15 +1,12 @@
 .grid {
   --grid-gap: #{rem($grid-gap)};
+  column-gap: var(--grid-gap);
   display: grid;
   grid-template-columns: repeat($grid-columns, 1fr);
 
   > * {
     --grid-span: 12;
     grid-column: span var(--grid-span, #{$grid-columns}) / span var(--grid-span, #{$grid-columns});
-  }
-
-  @include mq(xs) {
-    column-gap: var(--grid-gap);
   }
 }
 
@@ -31,7 +28,7 @@
     }
   }
 
-  &.-size\-full { --grid-gap: 0; }
+  &.-size\:full { --grid-gap: 0; }
 
   &.-justify\:center { justify-items: center; }
 }

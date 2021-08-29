@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { splashVariants, textVariants } from './Splash.animations';
 
-const Splash = ({ loading, setLoadingEnd, ...props }) => {
+const Splash = ({ loading, setLoadingEnd }) => {
   return (
     <AnimatePresence>
       {loading && (

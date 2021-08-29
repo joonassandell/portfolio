@@ -1,5 +1,4 @@
 import '@/stylesheets/index.scss';
-
 import App from '@/containers/App';
 import { useEffect } from 'react';
 
