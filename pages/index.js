@@ -22,13 +22,16 @@ const Home = () => {
   const scrollTo = useScrollTo();
 
   const handleClick = e => {
+    e.preventDefault();
     if (scroll) scroll.stop();
     setTransition(true);
-    e.preventDefault();
-    setAnimationHide(true);
+
     const el = e.currentTarget.closest('[data-id]');
     setCurrentHero(el.dataset.id);
-    scrollTo(el, () => setAnimation(true));
+    scrollTo(el, () => {
+      setAnimationHide(true);
+      setAnimation(true);
+    });
   };
 
   return (
