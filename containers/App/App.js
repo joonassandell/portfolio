@@ -156,10 +156,17 @@ https://www.typescriptlang.org And this one too
   }, [transition]);
 
   /**
-   * Set proper transitions w/ delay when navigation back/forward
+   * Set proper transitions w/ delay when navigating back/forward
    */
   useEffect(() => {
     router.beforePopState(({ url, as }) => {
+      const defaultTransition = transition && transition != 'template';
+
+      if (defaultTransition) {
+        window.location.href = as;
+        return false;
+      }
+
       if (transition) {
         setTimeout(() => {
           setTransition('template');
@@ -171,7 +178,7 @@ https://www.typescriptlang.org And this one too
         return true;
       }
     });
-  }, [transition]);
+  }, [transition, templateTransition]);
 
   return (
     <>

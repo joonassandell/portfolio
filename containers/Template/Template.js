@@ -11,7 +11,7 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import Footer from '@/containers/Footer';
 import { extraDelay } from '@/lib/config';
 
-const Delayed = ({ children, waitBeforeShow = 500 }) => {
+const Delayed = ({ children, waitBeforeShow = extraDelay }) => {
   const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
