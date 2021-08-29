@@ -25,7 +25,7 @@ const AppContext = createContext({
   transition: false, // template', false, true
 });
 
-export function App({ Component, pageProps, router }) {
+const App = ({ Component, pageProps, router }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const mobile = useIsMobile();
@@ -236,8 +236,8 @@ https://www.typescriptlang.org And this one too
                 scrollLock={appState.scrollLock}
                 setScrollLock={setScrollLock}
                 setTransition={setTransition}
-                transition={transition}
                 templateTransition={templateTransition}
+                transition={transition}
               />
             </main>
           </div>
@@ -245,7 +245,7 @@ https://www.typescriptlang.org And this one too
       </AppContext.Provider>
     </>
   );
-}
+};
 
 const AppMain = ({ ...props }) => {
   const {
@@ -287,6 +287,6 @@ const AppMain = ({ ...props }) => {
   );
 };
 
-export function useAppContext() {
-  return useContext(AppContext);
-}
+const useAppContext = () => useContext(AppContext);
+
+export { App, useAppContext };
