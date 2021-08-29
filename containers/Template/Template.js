@@ -18,15 +18,12 @@ const Template = ({ children, name, title }) => {
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();
-  const [key, setKey] = useState(0);
-  const [variants, setVariants] = useState(variantsWithoutTransition);
 
   useEffect(() => {
     if (!isPresent) setAnimState('animExit');
 
     if (isPresent) {
       setAnimState('animStart');
-      if (!loading) setKey(prevKey => prevKey + 1);
 
       if (scroll && !templateTransition) {
         scroll.destroy();
@@ -34,14 +31,6 @@ const Template = ({ children, name, title }) => {
       }
     }
   }, [isPresent]);
-
-  useEffect(() => {
-    if (templateTransition) {
-      setVariants(variantsWithTransition);
-    } else {
-      setVariants(variantsWithoutTransition);
-    }
-  }, [templateTransition]);
 
   return (
     <>
@@ -57,15 +46,21 @@ const Template = ({ children, name, title }) => {
             templateTransition && animState === 'animExit',
         })}
         exit="exit"
-        key={`${name}-${key}`}
+        key={name}
         onAnimationStart={() => {
           if (animState === 'animStart' && templateTransition) {
             console.log('Template transition start:', title);
             if (scroll) scroll.stop();
           }
         }}
-        transition={variants.transition}
-        variants={variants}
+        {...(!templateTransition && {
+          variants: variantsWithoutTransition,
+          transition: variantsWithoutTransition.transition,
+        })}
+        {...(templateTransition && {
+          variants: variantsWithTransition,
+          transition: variantsWithTransition.transition,
+        })}
         {...(!loading && { initial: 'initial' })}
       >
         <div className="Template-inner" data-scroll-section>
