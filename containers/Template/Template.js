@@ -9,6 +9,19 @@ import c from 'classnames';
 import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import Footer from '@/containers/Footer';
+import { extraDelay } from '@/lib/config';
+
+const Delayed = ({ children, waitBeforeShow = 500 }) => {
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsShown(true);
+    }, waitBeforeShow);
+  }, [waitBeforeShow]);
+
+  return isShown ? children : null;
+};
 
 const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
@@ -16,6 +29,7 @@ const Template = ({ children, name, title }) => {
   const { transition, loading } = appState;
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
+  const defaultTransition = transition && !templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();
 
@@ -30,53 +44,54 @@ const Template = ({ children, name, title }) => {
         scroll.init();
       }
     }
-  }, [isPresent]);
+  }, [isPresent, templateTransition]);
 
   return (
     <>
       <Title title={title} />
-      <motion.div
-        animate="animate"
-        className={c('Template', {
-          [`Template--${name}`]: name,
-          'is-transition:exit':
-            transition && !templateTransition && animState === 'animExit',
-          'is-transition:template': templateTransition,
-          'is-transition:template:exit':
-            templateTransition && animState === 'animExit',
-        })}
-        exit="exit"
-        key={name}
-        onAnimationStart={() => {
-          if (animState === 'animStart' && templateTransition) {
-            console.log('Template transition start:', title);
-            if (scroll) scroll.stop();
-          }
-        }}
-        {...(!templateTransition && {
-          variants: variantsWithoutTransition,
-          transition: variantsWithoutTransition.transition,
-        })}
-        {...(templateTransition && {
-          variants: variantsWithTransition,
-          transition: variantsWithTransition.transition,
-        })}
-        {...(!loading && { initial: 'initial' })}
-      >
-        <div className="Template-inner" data-scroll-section>
-          {children}
-          <Footer />
-        </div>
-        {displayOverlay && (
-          <motion.div
-            animate={{
-              backgroundColor: 'var(--Template-overlayColor)',
-            }}
-            className="Template-overlay"
-            transition={variantsWithTransition.transition}
-          />
-        )}
-      </motion.div>
+      <Delayed waitBeforeShow={defaultTransition ? extraDelay : 0}>
+        <motion.div
+          animate="animate"
+          className={c('Template', {
+            [`Template--${name}`]: name,
+            'is-transition:exit': defaultTransition && animState === 'animExit',
+            'is-transition:template': templateTransition,
+            'is-transition:template:exit':
+              templateTransition && animState === 'animExit',
+          })}
+          exit="exit"
+          key={name}
+          onAnimationStart={() => {
+            if (animState === 'animStart' && templateTransition) {
+              console.log('Template transition start:', title);
+              if (scroll) scroll.stop();
+            }
+          }}
+          {...(!templateTransition && {
+            variants: variantsWithoutTransition,
+            transition: variantsWithoutTransition.transition,
+          })}
+          {...(templateTransition && {
+            variants: variantsWithTransition,
+            transition: variantsWithTransition.transition,
+          })}
+          {...(!loading && { initial: 'initial' })}
+        >
+          <div className="Template-inner" data-scroll-section>
+            {children}
+            <Footer />
+          </div>
+          {displayOverlay && (
+            <motion.div
+              animate={{
+                backgroundColor: 'var(--Template-overlayColor)',
+              }}
+              className="Template-overlay"
+              transition={variantsWithTransition.transition}
+            />
+          )}
+        </motion.div>
+      </Delayed>
     </>
   );
 };

@@ -58,7 +58,6 @@ const OrasHero = ({
       <Heading
         className="OrasHero-heading Heading Heading--display"
         onClick={onClick}
-        custom={isMobile}
         variants={headingVariants}
       >
         <div
@@ -106,13 +105,11 @@ const OrasHero = ({
             </figure>
             <motion.div
               className="OrasHero-figure-bg"
-              custom={isMobile}
               variants={figureBgVariants}
             />
             {transitionStartOrInitial && (
               <motion.div
                 className="OrasHero-drop OrasHero-drop--1"
-                custom={isMobile}
                 variants={dropVariants}
                 {...(transitionStart && { exit: 'exit' })}
                 {...(preTransition && { initial: 'preTransition' })}
@@ -155,7 +152,6 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--2"
-          custom={isMobile}
           variants={dropVariants2}
           {...(transitionStart && { exit: 'exit' })}
           {...(preTransition && { initial: 'preTransition' })}
@@ -176,7 +172,6 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--3"
-          custom={isMobile}
           variants={dropVariants3}
           {...(preTransition && { initial: 'preTransition' })}
           {...(transitionStart && { exit: 'exit' })}

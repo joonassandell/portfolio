@@ -1,6 +1,6 @@
 import {
   transPrimary,
-  mobileExtraDelay,
+  extraDelay,
   transPrimaryFast,
   transTap,
 } from '@/lib/config';
@@ -12,7 +12,7 @@ export const stampVariants = {
   //   skew: -45,
   //   transition: {
   //     ...transSecondary,
-  //     ...(mobile && { delay: mobileExtraDelay }),
+  //     ...(mobile && { delay: extraDelay }),
   //   },
   // }),
   hover: {
@@ -37,16 +37,16 @@ export const svgVariants = {
 };
 
 export const overlayVariants = {
-  exit: mobile => ({
+  exit: {
     // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // bottom/right/left
     // clipPath: 'circle(100% at 50% 50%)',
     // scale: 2.5,
     scale: [0, 30],
     transition: {
       ...transPrimary,
-      ...(mobile && { delay: mobileExtraDelay }),
+      delay: extraDelay,
     },
-  }),
+  },
   // preTransition: {
   //   // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // bottom
   //   // clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', // right

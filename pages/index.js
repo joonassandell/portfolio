@@ -1,7 +1,6 @@
 import { fadeOutVariants } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useState } from 'react';
-
 import Link from '@/components/Link';
 import OrasHero from '@/containers/Oras';
 import { Template } from '@/containers/Template';
@@ -19,7 +18,7 @@ const Home = () => {
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
-  const scrollTo = useScrollTo();
+  const scrollTo = useScrollTo(500);
 
   const handleClick = e => {
     e.preventDefault();

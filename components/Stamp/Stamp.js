@@ -98,7 +98,6 @@ const Stamp = ({
         >
           <motion.a
             className="Stamp-stamp"
-            custom={isMobile}
             href={href}
             onClick={onClick}
             variants={stampVariants}
@@ -119,7 +118,6 @@ const Stamp = ({
             <motion.div
               className="Stamp-overlay"
               exit="exit"
-              custom={isMobile}
               variants={overlayVariants}
             />
           )}
