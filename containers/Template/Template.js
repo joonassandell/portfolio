@@ -1,6 +1,5 @@
 import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
-
 import Title from '@/components/Title';
 import {
   variantsWithTransition,
@@ -23,9 +22,7 @@ const Template = ({ children, name, title }) => {
   const [variants, setVariants] = useState(variantsWithoutTransition);
 
   useEffect(() => {
-    if (!isPresent) {
-      setAnimState('animExit');
-    }
+    if (!isPresent) setAnimState('animExit');
 
     if (isPresent) {
       setAnimState('animStart');

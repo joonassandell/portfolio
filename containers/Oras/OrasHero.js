@@ -20,12 +20,12 @@ import { useRouter } from 'next/router';
 const oras = getSitemap('oras');
 
 const OrasHero = ({
-  transitionStart = false,
-  transitionHideStart = false,
-  transitionState = null,
   id,
   onClick,
   priority = false,
+  transitionHideStart = false,
+  transitionStart = false,
+  transitionState = null,
 }) => {
   const isMobile = useIsMobile();
   const preTransition = transitionState === 'pre';
