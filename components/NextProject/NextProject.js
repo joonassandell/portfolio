@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import LinkRoll from '@/components/LinkRoll';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useMeasureDirty from 'react-use/lib/useMeasureDirty';
 import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash';
@@ -26,12 +26,9 @@ const NextProject = ({ id }) => {
     bound: true,
     whenHovered: true,
   });
-  const [mouseLeave, setMouseLeave] = useState(false);
   const prevMousePosX = x.current + figureWidthHalf;
   const direction = mousePosX < prevMousePosX ? 'left' : 'right';
   const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100);
-  // let direction = mousePosX < prevMousePosX ? 'left' : 'right';
-  // const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100);
 
   const spring = {
     damping: 120,
@@ -73,25 +70,20 @@ const NextProject = ({ id }) => {
   }, [mousePosX, mousePosY]);
 
   /**
-   * Set initial and mouse out state. Initials won't animate because the
-   * rotate/x/y.current conditions in style attrs below are zero initially
+   * Set initials. Initials won't animate because the rotate/x/y.current
+   * conditions in style attrs below are zero initially
    */
   useEffect(() => {
-    if ((width && !mousePosX) || mouseLeave) {
+    if (width && !mousePosX) {
       r.set(-0.5);
       x.set(width - figureWidthHalf * 1.75);
-      y.set(height - figureHeightHalf);
+      y.set(height - figureHeightHalf * 0.8);
     }
-  }, [mousePosX, width, mouseLeave]);
+  }, [mousePosX, width]);
 
   return (
     <div className="NextProject">
-      <div
-        ref={ref}
-        className="NextProject-inner"
-        onMouseEnter={() => setMouseLeave(false)}
-        onMouseLeave={() => setMouseLeave(true)}
-      >
+      <div ref={ref} className="NextProject-inner">
         <LinkRoll className="NextProject-link" href={href}>
           Next project
         </LinkRoll>
@@ -106,13 +98,13 @@ const NextProject = ({ id }) => {
           }}
         >
           <Image
-            src={src}
-            height={1920}
-            width={1440}
             draggable="false"
-            sizes="50vw"
-            priority
+            height={1920}
             layout="responsive"
+            priority
+            sizes="50vw"
+            src={src}
+            width={1440}
           />
         </motion.figure>
       </div>

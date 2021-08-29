@@ -1,7 +1,7 @@
 .NextProject {}
 
 .NextProject-link {
-  @include fontSize(16px, 16px, 120px, 10vw);
+  @include fontSize(16px, 16px, 112px, 10vw);
   display: block;
   padding-left: var(--wrap-spaceLeft);
   z-index: 1;
@@ -24,24 +24,11 @@
   width: min(#{rem($space * 20)}, 45%);
   will-change: transform;
 
+  @include mq($from: m, $until: l) {
+    width: rem($space * 16);
+  }
+
   @include mq(xxxxxl) {
-    max-width: rem($space * 18);
+    width: rem($space * 18);
   }
 }
-
-// .NextProject-figure-inner {
-//   overflow: hidden;
-// }
-
-// .NextProject-figure-inner,
-// .NextProject-figure-inner-img {
-//   height: 100%;
-//   position: relative;
-//   width: 100%;
-// }
-
-// .NextProject-figure-inner-img {
-//   background-image: url('/assets/test.jpg');
-//   background-position: 50% 50%;
-//   background-size: cover;
-// }
