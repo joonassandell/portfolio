@@ -11,6 +11,8 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import Footer from '@/containers/Footer';
 import { extraDelay } from '@/lib/config';
 
+const extraDelayWithDelay = (extraDelay + 0.3) * 1000;
+
 const Delayed = ({ children, waitBeforeShow = extraDelay }) => {
   const [isShown, setIsShown] = useState(false);
 
@@ -49,7 +51,7 @@ const Template = ({ children, name, title }) => {
   return (
     <>
       <Title title={title} />
-      <Delayed waitBeforeShow={defaultTransition ? extraDelay : 0}>
+      <Delayed waitBeforeShow={defaultTransition ? extraDelayWithDelay : 0}>
         <motion.div
           animate="animate"
           className={c('Template', {
