@@ -6,10 +6,10 @@ import {
   svgVariants,
   overlayVariants,
 } from './Stamp.animations';
-import useIsMobile from '@/lib/useIsMobile';
-import { useMouseHovered, useIntersection } from 'react-use';
+import { useMouseHovered } from 'react-use';
 import { useEffect, useRef } from 'react';
 import useMeasureDirty from 'react-use/lib/useMeasureDirty';
+import useInView from '@/lib/useInView';
 
 /**
  * With `useMeasureDirty` I can use the mouseRef outside this component to
@@ -30,13 +30,8 @@ const Stamp = ({
   transitionStart,
 }) => {
   const classes = c(className, 'Stamp');
-  const isMobile = useIsMobile();
   const ref = useRef(null);
-  let intersection = useIntersection(ref, {
-    root: null,
-    rootMargin: '0px',
-  });
-  const inView = intersection && intersection.intersectionRatio;
+  const inView = useInView(ref, 0, false);
   const { width, height } = useMeasureDirty(mouseRef);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

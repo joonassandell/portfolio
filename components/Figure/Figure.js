@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
-  mq,
   scrollSpeed as scrlSpeed,
   transPrimary,
   transTertiary,
@@ -17,7 +16,6 @@ import useInView from '@/lib/useInView';
 import useIsMobile from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
-import { useCallbackRef } from 'use-callback-ref';
 import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
 
 const Figure = ({
@@ -34,7 +32,6 @@ const Figure = ({
   scrollSpeed = scrlSpeed,
   scrollImageSpeed = -3,
   scrollOffset,
-  scrollImageOffset = '-25%',
   priority,
   sizes,
   transition,
@@ -48,10 +45,21 @@ const Figure = ({
     // '-placeholderColor:10': placeholderColor === 10,
   });
   const id = src.split('/').pop().split('.')[0];
-  const ref = useCallbackRef(null, ref => ref);
-  const inView = useInView(ref, id);
+  const ref = useRef(null);
+  const isMobile = useIsMobile();
+  const offset =
+    scrollOffset || scrollOffset === 0
+      ? scrollOffset
+      : mask && isMobile
+      ? 0
+      : mask
+      ? '-25%'
+      : 0;
+  const inView = useInView(ref, offset);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src && src.indexOf('mp4') > -1;
+  const refVideo = useRef(null);
+  useInView(refVideo, offset);
   const imageSize = {
     height: height
       ? height
@@ -62,21 +70,6 @@ const Figure = ({
       : null,
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
-  const isMobile = useIsMobile();
-
-  /**
-   * 1. Mask offset
-   * 2. Default offset (move)
-   * 3. Clip offset
-   */
-  const offset =
-    scrollOffset || scrollOffset === 0
-      ? scrollOffset
-      : mask
-      ? '-25%' // [1.]
-      : !mask && transition != 'clip' // [2.]
-      ? '15%'
-      : false; // [3.]
 
   let figureVariants = mask
     ? maskVariants
@@ -88,8 +81,8 @@ const Figure = ({
     <motion.div
       className={classes}
       data-scroll
-      data-scroll-id={id}
       ref={ref}
+      {...(scrolling && mask && { 'data-scroll-id': id })}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(offset && { 'data-scroll-offset': offset })}
       {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
@@ -154,11 +147,11 @@ const Figure = ({
           )}
           {isVideo && (
             <video
-              autoPlay
               className="Figure-video"
               loop
               muted
               playsInline
+              ref={refVideo}
               title={alt}
             >
               <source src={src} />

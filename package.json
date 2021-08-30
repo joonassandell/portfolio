@@ -28,7 +28,8 @@
     "react-use": "^17.2.1",
     "sharp": "^0.28.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "use-callback-ref": "^1.2.5"
+    "use-callback-ref": "^1.2.5",
+    "use-intersection": "^0.2.1"
   },
   "devDependencies": {
     "sass": "^1.29.0",
