@@ -1,4 +1,5 @@
 .App {
+  min-height: var(--vh);
   overflow: hidden;
   position: relative;
   z-index: $App-zIndex;

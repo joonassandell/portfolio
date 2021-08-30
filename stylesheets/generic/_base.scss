@@ -60,6 +60,10 @@
     width: 100%;
   }
 
+  @include mq(mobile) {
+    overflow-y: scroll;
+  }
+
   @include mq(m) {
     --wrap-spaceLeft: #{rem($wrap-spaceLeft-m)};
     --wrap-spaceRight: #{rem($wrap-spaceRight-m)};
