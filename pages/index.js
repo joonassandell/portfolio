@@ -6,22 +6,21 @@ import OrasHero from '@/containers/Oras';
 import { Template } from '@/containers/Template';
 import { motion } from 'framer-motion';
 import { useAppContext } from '@/containers/App';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import useScrollTo from '@/lib/useScrollTo';
 const home = getSitemap('home');
 const about = getSitemap('about', 'secondary');
 
 const Home = () => {
-  const { scroll } = useLocomotiveScroll();
   const { setTransition } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
-  const scrollTo = useScrollTo();
+  const scrollTo = useScrollTo({
+    scrollLock: true,
+  });
 
   const handleClick = e => {
     e.preventDefault();
-    if (scroll) scroll.stop();
     setTransition(true);
 
     const el = e.currentTarget.closest('[data-id]');

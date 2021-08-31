@@ -282,7 +282,7 @@ const AppMain = ({ ...props }) => {
             scroll.destroy();
             scroll.init();
           } else {
-            scroll.update();
+            if (scroll.scroll.stop) scroll.start();
           }
         }
 
