@@ -36,15 +36,7 @@ const Template = ({ children, name, title }) => {
 
   useEffect(() => {
     if (!isPresent) setAnimState('animExit');
-
-    if (isPresent) {
-      setAnimState('animStart');
-
-      if (scroll && !templateTransition) {
-        scroll.destroy();
-        scroll.init();
-      }
-    }
+    if (isPresent) setAnimState('animStart');
   }, [isPresent, templateTransition]);
 
   return (
