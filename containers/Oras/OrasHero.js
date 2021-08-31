@@ -21,7 +21,6 @@ const oras = getSitemap('oras');
 const OrasHero = ({
   id,
   onClick,
-  priority = false,
   transitionHideStart = false,
   transitionStart = false,
   transitionState = null,
@@ -66,9 +65,8 @@ const OrasHero = ({
           data-scroll-offset="-10%"
           data-scroll-position="top"
           data-scroll-speed={scrollSpeed}
-          data-scroll-direction="horizontal"
           // {...(preTransition && { 'data-scroll-speed': 3 })}
-          // {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
+          {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
           {/* Oras \ 2016 */}
           Oras — 2016
@@ -221,8 +219,8 @@ const OrasHero = ({
           className="OrasHero-stamp"
           href={oras.url}
           iris="var(--oras-primary)"
-          mouseRef={ref}
           mouseLeave={mouseLeave}
+          mouseRef={ref}
           onClick={onClick}
           transitionStart={transitionStart}
         />
