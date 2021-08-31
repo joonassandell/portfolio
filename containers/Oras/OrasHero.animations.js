@@ -67,7 +67,7 @@ export const dropVariants3 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.4 + extraDelay,
+      delay: 0.3 + extraDelay,
     },
     y: 0,
   },

@@ -44,7 +44,11 @@ const OrasHero = ({
       data-id={id}
       data-scroll
       onAnimationComplete={() => {
-        if (preTransition) router.push(oras.url, null, { scroll: false });
+        if (preTransition) {
+          setTimeout(() => {
+            router.push(oras.url, null, { scroll: false });
+          }, 200);
+        }
       }}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
@@ -116,11 +120,11 @@ const OrasHero = ({
                   draggable="false"
                   height={256}
                   layout="responsive"
+                  priority
                   sizes="10vw"
                   src="/assets/oras/oras-drop.png"
                   width={256}
                   quality="90"
-                  {...(priority && { priority: true })}
                 />
               </motion.div>
             )}
@@ -159,11 +163,11 @@ const OrasHero = ({
             draggable="false"
             height={256}
             layout="responsive"
+            priority
             sizes="10vw"
             src="/assets/oras/oras-drop.png"
             width={256}
             quality="90"
-            {...(priority && { priority: true })}
           />
         </motion.div>
       )}
@@ -186,11 +190,11 @@ const OrasHero = ({
               draggable="false"
               height={256}
               layout="responsive"
+              priority
               sizes="10vw"
               src="/assets/oras/oras-drop.png"
               width={256}
               quality="90"
-              {...(priority && { priority: true })}
             />
           </div>
         </motion.div>
