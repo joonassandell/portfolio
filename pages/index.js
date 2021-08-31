@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import { useAppContext } from '@/containers/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import useScrollTo from '@/lib/useScrollTo';
-
 const home = getSitemap('home');
 const about = getSitemap('about', 'secondary');
 
@@ -18,7 +17,7 @@ const Home = () => {
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
-  const scrollTo = useScrollTo(500);
+  const scrollTo = useScrollTo();
 
   const handleClick = e => {
     e.preventDefault();
@@ -65,7 +64,6 @@ const Home = () => {
       <OrasHero
         id="oras"
         onClick={handleClick}
-        priority={true}
         transitionStart={currentHero === 'oras' && animation}
         transitionState="pre"
         transitionHideStart={currentHero != 'oras' && animationHide}

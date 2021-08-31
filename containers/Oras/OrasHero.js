@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import useIsMobile from '@/lib/useIsMobile';
 import { ButtonEnter } from '@/components/Button';
 import Stamp from '@/components/Stamp';
 import Link from '@/components/Link';
@@ -14,7 +13,7 @@ import {
 } from './OrasHero.animations';
 import Image from 'next/image';
 import c from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const oras = getSitemap('oras');
@@ -27,7 +26,6 @@ const OrasHero = ({
   transitionStart = false,
   transitionState = null,
 }) => {
-  const isMobile = useIsMobile();
   const preTransition = transitionState === 'pre';
   const classes = c('OrasHero', {
     '-transition:pre': preTransition,
@@ -35,21 +33,19 @@ const OrasHero = ({
   });
   const router = useRouter();
   const Heading = preTransition ? motion.h2 : motion.h1;
-  const transitionStartOrInitial = transitionStart || !transitionState;
+  const transitionStartOrInitial = transitionStart || !preTransition;
   const ref = useRef(null);
   const [mouseLeave, setMouseLeave] = useState(false);
 
-  useEffect(() => {
-    if (transitionStart) router.push(oras.url, null, { scroll: false });
-  }, [transitionStart]);
-
   return (
     <motion.section
-      animate={transitionHideStart ? 'hidden' : ''}
+      animate={transitionStart ? 'exit' : transitionHideStart ? 'hidden' : ''}
       className={classes}
       data-id={id}
       data-scroll
-      exit={transitionStart ? 'exit' : ''}
+      onAnimationComplete={() => {
+        if (preTransition) router.push(oras.url, null, { scroll: false });
+      }}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
       ref={ref}
@@ -96,11 +92,11 @@ const OrasHero = ({
                 height={2552}
                 layout="responsive"
                 onClick={onClick}
+                priority
+                quality="90"
                 sizes="33vw"
                 src="/assets/oras/joonassandell-oras-hero.png"
                 width={2192}
-                quality="90"
-                {...(priority && { priority: true })}
               />
             </figure>
             <motion.div
@@ -110,9 +106,10 @@ const OrasHero = ({
             {transitionStartOrInitial && (
               <motion.div
                 className="OrasHero-drop OrasHero-drop--1"
-                variants={dropVariants}
-                {...(transitionStart && { exit: 'exit' })}
-                {...(preTransition && { initial: 'preTransition' })}
+                {...(preTransition && {
+                  initial: 'preTransition',
+                  variants: dropVariants,
+                })}
               >
                 <Image
                   aria-hidden="true"
@@ -152,9 +149,10 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--2"
-          variants={dropVariants2}
-          {...(transitionStart && { exit: 'exit' })}
-          {...(preTransition && { initial: 'preTransition' })}
+          {...(preTransition && {
+            initial: 'preTransition',
+            variants: dropVariants2,
+          })}
         >
           <Image
             aria-hidden="true"
@@ -172,9 +170,10 @@ const OrasHero = ({
       {transitionStartOrInitial && (
         <motion.div
           className="OrasHero-drop OrasHero-drop--3"
-          variants={dropVariants3}
-          {...(preTransition && { initial: 'preTransition' })}
-          {...(transitionStart && { exit: 'exit' })}
+          {...(preTransition && {
+            initial: 'preTransition',
+            variants: dropVariants3,
+          })}
         >
           <div
             data-scroll
@@ -197,11 +196,7 @@ const OrasHero = ({
         </motion.div>
       )}
       {preTransition && (
-        <motion.div
-          className="OrasHero-link wrap"
-          {...(transitionStart && { exit: 'exit' })}
-          {...(transitionStart && { variants: fadeOutVariants })}
-        >
+        <div className="OrasHero-link wrap">
           <div className="grid -placeEnd">
             <div className="grid-col">
               <Link
@@ -215,7 +210,7 @@ const OrasHero = ({
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
       {preTransition && (
         <Stamp

@@ -111,8 +111,8 @@ const Stamp = ({
           </motion.a>
           {transitionStart && (
             <motion.div
+              animate="exit"
               className="Stamp-overlay"
-              exit="exit"
               variants={overlayVariants}
             />
           )}

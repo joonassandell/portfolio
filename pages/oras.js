@@ -38,7 +38,7 @@ const Oras = ({ images }) => {
 
   return (
     <Template name={oras.id} title={oras.title}>
-      <OrasHero priority />
+      <OrasHero />
       <Info
         client={{ name: oras.title, href: 'https://oras.com' }}
         type={['Web service', 'Commission']}

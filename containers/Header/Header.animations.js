@@ -54,7 +54,7 @@ export const enterExitBtnText = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...transPrimaryFast, delay: 0.1 },
+    transition: { ...transPrimaryFast },
   },
   transition: transPrimaryFast,
 };
@@ -64,7 +64,7 @@ export const enterExitBtnArrow = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...transPrimaryFast, delay: 0.125 },
+    transition: { ...transPrimaryFast, delay: 0.1 },
   },
   transition: { ...transPrimaryFast, delay: 0.03 },
 };
