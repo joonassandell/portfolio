@@ -8,16 +8,9 @@ import {
 } from './Stamp.animations';
 import { useMouseHovered } from 'react-use';
 import { useEffect, useRef } from 'react';
-import useMeasureDirty from 'react-use/lib/useMeasureDirty';
+import { useMeasure } from 'react-use';
 import useInView from '@/lib/useInView';
 
-/**
- * With `useMeasureDirty` I can use the mouseRef outside this component to
- * get the parent component (Hero) dimensions.
- *
- * https://github.com/streamich/react-use/issues/1227
- * const [ref, { width, height }] = useMeasure();
- */
 const Stamp = ({
   className,
   color,
@@ -30,12 +23,12 @@ const Stamp = ({
   transitionStart,
 }) => {
   const classes = c(className, 'Stamp');
-  const ref = useRef(null);
-  const inView = useInView(ref, 0, false);
-  const { width, height } = useMeasureDirty(mouseRef);
+  const [ref, { width, height }] = useMeasure();
+  const innerRef = useRef(null);
+  const inView = useInView(innerRef, 0, false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  let { elX, elY } = useMouseHovered(mouseRef, {
+  const { elX, elY } = useMouseHovered(mouseRef, {
     bound: true,
     whenHovered: true,
   });
@@ -75,17 +68,18 @@ const Stamp = ({
       data-scroll-id="stamp"
       data-scroll-position="top"
       className={classes}
+      ref={ref}
       style={{
         '--Stamp-color': color,
         '--Stamp-iris': iris,
         '--Stamp-overlayBg': overlayBg,
       }}
-      ref={ref}
       // onMouseMove={handleMouse}
     >
       <div className="Stamp-inner">
         <motion.div
           className="Stamp-content"
+          ref={innerRef}
           style={{
             y: moveY,
             x: moveX,

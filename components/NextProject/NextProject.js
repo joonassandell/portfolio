@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import LinkRoll from '@/components/LinkRoll';
 import { useEffect, useRef } from 'react';
-import useMeasureDirty from 'react-use/lib/useMeasureDirty';
 import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash';
 import { mapRange, getSitemap } from '@/lib/utility';
@@ -14,7 +13,7 @@ const NextProject = ({ id }) => {
   const href = sitemap.url;
   const src = `/assets/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef(null);
-  const { width, height } = useMeasureDirty(ref);
+  const [innerRef, { width, height }] = useMeasure();
   const [figureRef, { width: figureWidth, height: figureHeight }] =
     useMeasure();
   const figureWidthHalf = figureWidth / 2;
@@ -57,33 +56,35 @@ const NextProject = ({ id }) => {
       y.set(mousePosY - figureHeightHalf);
     }
 
-    const rotateAmount = mapRange(
-      mouseDistanceX,
-      0,
-      100,
-      0,
-      direction === 'left' ? 1 : -1,
-    );
-    r.set(rotateAmount);
+    if (mouseDistanceX) {
+      const rotateAmount = mapRange(
+        mouseDistanceX,
+        0,
+        100,
+        0,
+        direction === 'left' ? 1 : -1,
+      );
+      r.set(rotateAmount);
+    }
 
     // prevMousePosX = mousePosX;
-  }, [mousePosX, mousePosY]);
+  }, [mousePosX, mousePosY, mouseDistanceX]);
 
   /**
    * Set initials. Initials won't animate because the rotate/x/y.current
    * conditions in style attrs below are zero initially
    */
   useEffect(() => {
-    if (width && !mousePosX) {
+    if (width && height && figureWidthHalf && figureHeightHalf && !mousePosX) {
       r.set(-0.5);
       x.set(width - figureWidthHalf * 1.75);
       y.set(height - figureHeightHalf * 0.8);
     }
-  }, [mousePosX, width]);
+  }, [mousePosX, height, width, figureWidthHalf, figureHeightHalf]);
 
   return (
-    <div className="NextProject">
-      <div ref={ref} className="NextProject-inner">
+    <div ref={ref} className="NextProject">
+      <div ref={innerRef} className="NextProject-inner">
         <LinkRoll className="NextProject-link" href={href}>
           Next project
         </LinkRoll>
