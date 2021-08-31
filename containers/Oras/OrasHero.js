@@ -41,13 +41,8 @@ const OrasHero = ({
       animate={transitionStart ? 'exit' : transitionHideStart ? 'hidden' : ''}
       className={classes}
       data-id={id}
-      data-scroll
       onAnimationComplete={() => {
-        if (preTransition) {
-          setTimeout(() => {
-            router.push(oras.url, null, { scroll: false });
-          }, 200);
-        }
+        if (preTransition) router.push(oras.url, null, { scroll: false });
       }}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
@@ -65,6 +60,7 @@ const OrasHero = ({
           data-scroll-offset="-10%"
           data-scroll-position="top"
           data-scroll-speed={scrollSpeed}
+          // data-scroll-direction="horizontal"
           // {...(preTransition && { 'data-scroll-speed': 3 })}
           {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
         >
@@ -109,6 +105,7 @@ const OrasHero = ({
               <motion.div
                 className="OrasHero-drop OrasHero-drop--1"
                 {...(preTransition && {
+                  animate: transitionStart ? 'exit' : '',
                   initial: 'preTransition',
                   variants: dropVariants,
                 })}
@@ -152,6 +149,7 @@ const OrasHero = ({
         <motion.div
           className="OrasHero-drop OrasHero-drop--2"
           {...(preTransition && {
+            animate: transitionStart ? 'exit' : '',
             initial: 'preTransition',
             variants: dropVariants2,
           })}
@@ -169,34 +167,33 @@ const OrasHero = ({
           />
         </motion.div>
       )}
-      {transitionStartOrInitial && (
-        <motion.div
-          className="OrasHero-drop OrasHero-drop--3"
-          {...(preTransition && {
-            initial: 'preTransition',
-            variants: dropVariants3,
-          })}
+      <motion.div
+        className="OrasHero-drop OrasHero-drop--3"
+        {...(preTransition && {
+          animate: transitionStart ? 'exit' : '',
+          initial: 'preTransition',
+          variants: dropVariants3,
+        })}
+      >
+        <div
+          data-scroll
+          data-scroll-delay="0.15"
+          data-scroll-position="top"
+          data-scroll-speed="1"
         >
-          <div
-            data-scroll
-            data-scroll-delay="0.15"
-            data-scroll-position="top"
-            data-scroll-speed="1"
-          >
-            <Image
-              aria-hidden="true"
-              draggable="false"
-              height={256}
-              layout="responsive"
-              priority
-              sizes="10vw"
-              src="/assets/oras/oras-drop.png"
-              width={256}
-              quality="90"
-            />
-          </div>
-        </motion.div>
-      )}
+          <Image
+            aria-hidden="true"
+            draggable="false"
+            height={256}
+            layout="responsive"
+            priority
+            sizes="10vw"
+            src="/assets/oras/oras-drop.png"
+            width={256}
+            quality="90"
+          />
+        </div>
+      </motion.div>
       {preTransition && (
         <div className="OrasHero-link wrap">
           <div className="grid -placeEnd">
