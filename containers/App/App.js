@@ -223,7 +223,6 @@ https://www.typescriptlang.org And this one too
           containerRef={containerRef}
           options={{
             smooth: true,
-            reloadOnContextChange: true,
             multiplier:
               typeof window !== 'undefined' &&
               window.navigator &&
