@@ -12,40 +12,31 @@ import {
 export const clipVariants = {
   inView: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
-    opacity: 1,
     scale: 1,
     transition: transPrimary,
   },
   hidden: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-    opacity: 1,
     scale: 1.07,
   },
 };
 
 /**
- * Added is mask figure is visible after hero transition from homepage.
+ * Added if mask figure is visible after hero transition from homepage.
  * This may not be necessary.
+ *
+ * NOTE: Transitions and transforms are overridden and forced in styles based on
+ * media query. Couldn't figure out how to set variants based on media query
+ * without getting errors from react/nexjs.
  */
 export const maskVariants = {
-  inView: isMobile => {
-    if (isMobile) {
-      return { ...clipVariants.inView };
-    } else {
-      return {
-        opacity: 1,
-        transition: transPrimaryFast,
-      };
-    }
+  inView: {
+    ...clipVariants.inView,
+    opacity: 1,
   },
-  hidden: isMobile => {
-    if (isMobile) {
-      return { ...clipVariants.hidden };
-    } else {
-      return {
-        opacity: 0,
-      };
-    }
+  hidden: {
+    ...clipVariants.hidden,
+    opacity: 0,
   },
 };
 

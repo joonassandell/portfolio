@@ -12,7 +12,7 @@ import {
 } from '@/lib/config';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import useInView from '@/lib/useInView';
+import { useInView, useInViewVideo } from '@/lib/useInView';
 import useIsMobile from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
@@ -59,7 +59,7 @@ const Figure = ({
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
-  useInView(refVideo, offset);
+  useInViewVideo(refVideo, offset);
   const imageSize = {
     height: height
       ? height
@@ -101,7 +101,6 @@ const Figure = ({
         <motion.div
           animate={inView ? 'inView' : ''}
           className="Figure-figure-inner"
-          custom={isMobile}
           initial="hidden"
           variants={figureVariants}
         >

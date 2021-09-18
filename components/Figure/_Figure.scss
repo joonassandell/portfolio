@@ -21,6 +21,20 @@
     //     background: transparent;
     //   }
     // }
+
+    @include mq($until: mobile) {
+      .Figure-figure-inner {
+        opacity: 1 !important;
+      }
+    }
+
+    @include mq(desktop) {
+      .Figure-figure-inner {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) !important;
+        transform: scale(1) !important;
+        transition: $trans-primaryFast !important;
+      }
+    }
   }
 }
 
