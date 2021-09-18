@@ -3,7 +3,7 @@
   "env": {
     "production": {
       "plugins": [
-        ["transform-remove-console", { "exclude": ["error", "warn", "info"] }]
+        ["transform-remove-console", { "exclude": ["error", "info"] }]
       ]
     }
   }

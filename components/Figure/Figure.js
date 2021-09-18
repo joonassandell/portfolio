@@ -131,15 +131,12 @@ const Figure = ({
               className="Figure-img"
               draggable="false"
               layout="responsive"
-              onLoad={event => {
-                const target = event.target;
-                if (target.src.indexOf('data:image/gif;base64') < 0) {
-                  setImageIsLoaded(true);
-                }
-              }}
               sizes={sizes}
               src={src}
               quality={quality}
+              onLoadingComplete={() => {
+                setImageIsLoaded(true);
+              }}
               {...(priority && { priority: true })}
               {...imageSize}
             />

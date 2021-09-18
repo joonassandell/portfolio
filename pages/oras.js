@@ -180,8 +180,8 @@ const Oras = ({ images }) => {
       <section className="Template-section">
         <Figure
           alt="Oras sense faucet"
-          scrolling={false}
           blurhash={false}
+          mask
           priority
           {...heroSense}
         />
