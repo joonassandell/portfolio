@@ -1,12 +1,10 @@
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
-
 import Head from 'next/head';
 import { getSitemap, scrollLock } from '@/lib/utility';
 import useIsMobile from '@/lib/useIsMobile';
 import Splash from '@/containers/Splash';
 import Header from '@/containers/Header';
-import c from 'classnames';
 import {
   LocomotiveScrollProvider,
   useLocomotiveScroll,
@@ -110,7 +108,7 @@ https://www.typescriptlang.org And this one too
   }, [router.route]);
 
   /* ======
-   * Set come CSS vars
+   * Various
    * ====== */
 
   useEffect(() => {
@@ -137,10 +135,6 @@ https://www.typescriptlang.org And this one too
     if (loadingEnd) html.classList.remove('is-loading');
   }, [html, loadingEnd]);
 
-  /* ======
-   * Various
-   * ====== */
-
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
    * Scrolling is enabled after the transition in _app.js
@@ -157,7 +151,6 @@ https://www.typescriptlang.org And this one too
       html.classList.add('is-transition', 'is-transition:withDelay');
     }
     if (!transition) {
-      console.log('lul');
       html.classList.remove('is-transition');
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
     }
@@ -239,12 +232,6 @@ https://www.typescriptlang.org And this one too
                 : 1,
           }}
           watch={['Done manually']}
-          onUpdate={scroll => {
-            if (loadingEnd) {
-              if (scroll.scroll.stop) scroll.start();
-              scroll.scrollTo(0, { duration: 0, disableLerp: true });
-            }
-          }}
         >
           <div className="App">
             <Header navTitle={pageProps.navTitle} />
@@ -290,6 +277,22 @@ const AppMain = ({ ...props }) => {
     <AnimatePresence
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
+
+        if (scroll) {
+          /**
+           * Without destroying/initing there will be a slight jump in the
+           * scrolling update for some reason if using the latter solution.
+           */
+          if (templateTransition) {
+            scroll.destroy();
+            scroll.init();
+          } else {
+            if (scroll.scroll.stop) scroll.start();
+            scroll.update();
+            scroll.scrollTo(0, { duration: 0, disableLerp: true });
+          }
+        }
+
         if (transition) setTransition(false);
       }}
     >
