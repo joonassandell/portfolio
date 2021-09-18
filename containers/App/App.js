@@ -25,17 +25,18 @@ const AppContext = createContext({
   transition: false, // template', false, true
 });
 
-const App = ({ Component, pageProps, router }) => {
+export const App = ({ Component, pageProps, router }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const mobile = useIsMobile();
-  const { doc, html, loadingEnd, transition } = appState;
+  const { doc, html, loading, loadingEnd, transition } = appState;
   const templateTransition = transition === 'template';
   const containerRef = useRef(null);
   const classes = c('App', {
     'is-transition': transition && !templateTransition,
     'is-transition:template': templateTransition,
   });
+  const { asPath } = router;
 
   /* ======
    * App state functions
@@ -106,7 +107,6 @@ https://www.typescriptlang.org And this one too
    * ====== */
 
   useEffect(() => {
-    const { asPath } = router;
     setAppState(prevState => ({
       ...prevState,
       history: [...prevState.history, asPath],
@@ -210,7 +210,7 @@ https://www.typescriptlang.org And this one too
           type="font/woff2"
         />
       </Head>
-      <Splash loading={appState.loading} setLoadingEnd={setLoadingEnd} />
+      <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       <AppContext.Provider
         value={{
           appState,
@@ -230,7 +230,13 @@ https://www.typescriptlang.org And this one too
                 ? 3
                 : 1,
           }}
-          watch={['Done manually I presume?']} // router.route
+          watch={['Done manually']}
+          onUpdate={scroll => {
+            if (loadingEnd) {
+              if (scroll.scroll.stop) scroll.start();
+              scroll.scrollTo(0, { duration: 0, disableLerp: true });
+            }
+          }}
         >
           <div className={classes}>
             <Header navTitle={pageProps.navTitle} />
@@ -276,12 +282,6 @@ const AppMain = ({ ...props }) => {
     <AnimatePresence
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
-
-        if (scroll) {
-          scroll.destroy();
-          scroll.init();
-        }
-
         if (transition) setTransition(false);
       }}
     >
@@ -290,6 +290,4 @@ const AppMain = ({ ...props }) => {
   );
 };
 
-const useAppContext = () => useContext(AppContext);
-
-export { App, useAppContext };
+export const useAppContext = () => useContext(AppContext);
