@@ -32,10 +32,6 @@ export const App = ({ Component, pageProps, router }) => {
   const { doc, html, loading, loadingEnd, transition } = appState;
   const templateTransition = transition === 'template';
   const containerRef = useRef(null);
-  const classes = c('App', {
-    'is-transition': transition && !templateTransition,
-    'is-transition:template': templateTransition,
-  });
   const { asPath } = router;
 
   /* ======
@@ -155,6 +151,18 @@ https://www.typescriptlang.org And this one too
     }
   }, [transition]);
 
+  useEffect(() => {
+    if (!html || !loadingEnd) return;
+    if (transition) {
+      html.classList.add('is-transition', 'is-transition:withDelay');
+    }
+    if (!transition) {
+      console.log('lul');
+      html.classList.remove('is-transition');
+      setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
+    }
+  }, [html, transition]);
+
   /**
    * Set proper transitions w/ delay when navigating back/forward
    */
@@ -178,7 +186,7 @@ https://www.typescriptlang.org And this one too
         return true;
       }
     });
-  }, [transition, templateTransition]);
+  }, [transition]);
 
   return (
     <>
@@ -238,7 +246,7 @@ https://www.typescriptlang.org And this one too
             }
           }}
         >
-          <div className={classes}>
+          <div className="App">
             <Header navTitle={pageProps.navTitle} />
             <main className="App-main" data-scroll-container ref={containerRef}>
               <AppMain

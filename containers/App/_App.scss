@@ -3,11 +3,6 @@
   overflow: hidden;
   position: relative;
   z-index: $App-zIndex;
-
-  &[class*="is-transition"] {
-    pointer-events: none;
-    touch-action: none;
-  }
 }
 
 .App-main {

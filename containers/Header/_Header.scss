@@ -21,7 +21,6 @@
     }
   }
 
-
   &.is-open {
     mix-blend-mode: unset;
   }
@@ -36,7 +35,7 @@
 }
 
 .Header-logo, .Header-button, .Header-secondary {
-  .App:not(.is-transition) & {
+  :root:not(.is-transition) & {
     pointer-events: all;
   }
 
