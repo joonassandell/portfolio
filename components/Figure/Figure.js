@@ -41,19 +41,22 @@ const Figure = ({
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
-    // '-placeholderColor:50': placeholderColor === 50 || mask,
-    // '-placeholderColor:10': placeholderColor === 10,
+    // '-placeholderColor': placeholderColor,
   });
   const id = src.split('/').pop().split('.')[0];
   const ref = useRef(null);
   const isMobile = useIsMobile();
+
+  /**
+   * 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
+   */
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
       : mask && isMobile
       ? 0
       : mask
-      ? '-25%'
+      ? 0 // [1.]
       : 0;
   const inView = useInView(ref, offset);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
@@ -71,11 +74,14 @@ const Figure = ({
     width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
   };
 
-  let figureVariants = mask
-    ? maskVariants
-    : transition === 'clip'
-    ? clipVariants
-    : moveVariants;
+  let figureVariants =
+    transition === 'move'
+      ? moveVariants
+      : transition === 'clip'
+      ? clipVariants
+      : mask
+      ? maskVariants
+      : moveVariants;
 
   return (
     <motion.div

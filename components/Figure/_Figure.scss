@@ -1,15 +1,9 @@
 .Figure {
   margin-bottom: rem($space-xxl);
 
-  // &.-placeholderColor\:10 {
+  // &.-placeholderColor {
   //   .Figure-figure {
-  //     background: $bg-10;
-  //   }
-  // }
-
-  // &.-placeholderColor\:50 {
-  //   .Figure-figure {
-  //     background: $bg-50-opaque;
+  //     background: var(--Figure-placeholderColor, $bg-50-opaque);
   //   }
   // }
 
@@ -22,19 +16,19 @@
     //   }
     // }
 
-    @include mq($until: mobile) {
-      .Figure-figure-inner {
-        opacity: 1 !important;
-      }
-    }
+    // @include mq($until: mobile) {
+    //   .Figure-figure-inner {
+    //     opacity: 1 !important;
+    //   }
+    // }
 
-    @include mq(desktop) {
-      .Figure-figure-inner {
-        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) !important;
-        transform: scale(1) !important;
-        transition: $trans-primaryFastest !important;
-      }
-    }
+    // @include mq(desktop) {
+    //   .Figure-figure-inner {
+    //     clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) !important;
+    //     transform: scale(1) !important;
+    //     transition: $trans-primaryFastest !important;
+    //   }
+    // }
   }
 }
 
@@ -55,6 +49,7 @@
 }
 
 .Figure-video {
+  background: var(--Figure-videoPlaceholderColor, $bg-50-opaque);
   height: 100%;
   width: 100%;
 }

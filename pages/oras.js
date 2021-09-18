@@ -62,7 +62,9 @@ const Oras = ({ images }) => {
             className="Template-img-1"
             mask
             priority
+            scrollOffset="-25%"
             sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
+            transition="clip"
             {...woman}
           />
         </div>
@@ -73,7 +75,9 @@ const Oras = ({ images }) => {
             mask
             priority
             scrollSpeed={1}
+            scrollOffset="-25%"
             sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
+            transition="clip"
             {...manSquare}
           />
         </div>
@@ -83,7 +87,6 @@ const Oras = ({ images }) => {
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
               alt="Oras product family"
-              placeholderColor={10}
               scrolling={false}
               sizes={`${mq.l} 80vw, 100vw`}
               quality={90}
@@ -136,7 +139,6 @@ const Oras = ({ images }) => {
           <div className="grid-col grid-col:9@m -end">
             <Figure
               alt="Oras kitchen experience"
-              placeholderColor={10}
               scrolling={false}
               sizes={`${mq.m} 70vw, 100vw`}
               blurhash={false}
@@ -191,7 +193,6 @@ const Oras = ({ images }) => {
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
-              placeholderColor={10}
               scrolling={false}
               sizes={`${mq.m} 80vw, 100vw`}
               blurhash={false}

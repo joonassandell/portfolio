@@ -13,7 +13,7 @@ export const clipVariants = {
   inView: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
     scale: 1,
-    transition: transPrimary,
+    transition: transTertiary,
   },
   hidden: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
@@ -29,16 +29,17 @@ export const clipVariants = {
  * media query. Couldn't figure out how to set variants based on media query
  * without getting errors from react/nexjs.
  */
-export const maskVariants = {
-  inView: {
-    ...clipVariants.inView,
-    opacity: 1,
-  },
-  hidden: {
-    ...clipVariants.hidden,
-    opacity: 0,
-  },
-};
+// export const maskVariants = {
+//   inView: {
+//     ...clipVariants.inView,
+//     // opacity: 1,
+//   },
+//   hidden: {
+//     ...clipVariants.hidden,
+//     // opacity: 0,
+//   },
+// };
+export const maskVariants = {};
 
 export const moveVariants = {
   inView: {
