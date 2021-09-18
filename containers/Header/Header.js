@@ -37,7 +37,7 @@ const Header = props => {
   const [maskIsOpen, setMaskIsOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');
   const [openReveal, setOpenReveal] = useState(false);
-  const [disable, setDisable] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [navRevealTitle, setNavRevealTitle] = useState(null);
@@ -77,7 +77,7 @@ const Header = props => {
   const toggleOpen = ({ withMask = true } = {}) => {
     if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
-    setDisable(true);
+    setDisabled(true);
     setNavRevealTitle(props.navTitle);
 
     /**
@@ -107,11 +107,13 @@ const Header = props => {
     }
 
     if (isOpen && currUrl) {
+      setDisabled(true);
       toggleOpen();
       return;
     }
 
     if (isOpen) {
+      setDisabled(true);
       setTransition(false);
     }
 
@@ -222,17 +224,17 @@ const Header = props => {
       <motion.header
         animate={isOpen ? 'open' : 'closed'}
         className={c('Header', {
-          'is-disabled': disable,
-          'is-open': isOpen && !disable,
+          'is-disabled': disabled,
+          'is-open': isOpen && !disabled,
         })}
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
             setOpenReveal(false);
             html.classList.remove('is-headerOpen');
-            setTimeout(() => setDisable(false), 500);
+            setTimeout(() => setDisabled(false), 500);
           } else {
-            setDisable(false);
+            setDisabled(false);
           }
         }}
         variants={ctrlVariant}
@@ -380,6 +382,7 @@ const Header = props => {
         animate={maskAnim}
         className={c('Header-mask scrollbar -color:negative', {
           'is-open': maskIsOpen,
+          'is-disabled': disabled,
         })}
         onAnimationComplete={() => {
           if (!isOpen) setMaskIsOpen(false);

@@ -368,6 +368,10 @@
     //   margin-left: rem($space-s);
     // }
   }
+
+  .Header-mask.is-disabled & {
+    pointer-events: none;
+  }
 }
 
 .Header-nav-link-inner {
