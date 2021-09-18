@@ -278,12 +278,8 @@ const AppMain = ({ ...props }) => {
         if (scrollLock) setScrollLock(false);
 
         if (scroll) {
-          if (templateTransition) {
-            scroll.destroy();
-            scroll.init();
-          } else {
-            if (scroll.scroll.stop) scroll.start();
-          }
+          scroll.destroy();
+          scroll.init();
         }
 
         if (transition) setTransition(false);
