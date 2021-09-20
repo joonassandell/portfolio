@@ -150,6 +150,7 @@ https://www.typescriptlang.org And this one too
     if (transition) {
       html.classList.add('is-transition', 'is-transition:withDelay');
     }
+
     if (!transition) {
       html.classList.remove('is-transition');
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
@@ -246,6 +247,7 @@ https://www.typescriptlang.org And this one too
                 setTransition={setTransition}
                 templateTransition={templateTransition}
                 transition={transition}
+                html={html}
               />
             </main>
           </div>
@@ -266,6 +268,7 @@ const AppMain = ({ ...props }) => {
     setTransition,
     transition,
     templateTransition,
+    html,
   } = props;
   const { scroll } = useLocomotiveScroll();
 
@@ -273,24 +276,34 @@ const AppMain = ({ ...props }) => {
     if (loadingEnd && scroll) setTimeout(() => scroll.update(), 10);
   }, [loadingEnd]);
 
+  const hackClass = 'is-transition:template:after';
+  const hackClassAfterDelay = 'is-transition:template:after:withDelay';
+
+  if (scroll) {
+    scroll.on('scroll', () => {
+      if (scroll.scroll.isScrolling && html.classList.contains(hackClass)) {
+        html.classList.remove(hackClass);
+        html.classList.add(hackClassAfterDelay);
+
+        setTimeout(() => {
+          html.classList.remove(hackClassAfterDelay);
+        }, 100);
+      }
+    });
+  }
+
   return (
     <AnimatePresence
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
 
         if (scroll) {
-          /**
-           * Without destroying/initing there will be a slight jump in the
-           * scrolling update for some reason if using the latter solution.
-           */
           if (templateTransition) {
-            scroll.destroy();
-            scroll.init();
-          } else {
-            if (scroll.scroll.stop) scroll.start();
-            scroll.update();
-            scroll.scrollTo(0, { duration: 0, disableLerp: true });
+            html.classList.add(hackClass);
           }
+
+          scroll.destroy();
+          scroll.init();
         }
 
         if (transition) setTransition(false);

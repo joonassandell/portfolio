@@ -22,6 +22,19 @@
     // }
   }
 
+  :root.is-transition\:template\:after & {
+    [data-scroll-target] {
+      transform: none !important;
+      // transition: 0.3s !important;
+    }
+  }
+
+  :root.is-transition\:template\:after\:withDelay & {
+    [data-scroll-target] {
+      transition: 0.1s !important;
+    }
+  }
+
   &.is-transition\:template {
     position: relative;
   }
