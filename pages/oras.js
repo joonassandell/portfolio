@@ -6,10 +6,12 @@ import { mq, scrollSpeed } from '@/lib/config';
 import Info from '@/components/Info';
 import Figure from '@/components/Figure';
 import getImages from '@/lib/getImages';
+import useIsMobile from '@/lib/useIsMobile';
 
 const oras = getSitemap('oras');
 
 const Oras = ({ images }) => {
+  const isMobile = useIsMobile();
   const woman = getImage('joonassandell-oras-thumbnail', images);
   const manSquare = getImage('joonassandell-oras-man-square', images);
   const family = getImage('joonassandell-oras-product-family', images);
@@ -62,7 +64,7 @@ const Oras = ({ images }) => {
             className="Template-img-1"
             mask
             priority
-            scrollOffset="-25%"
+            scrollOffset={isMobile ? 0 : '-25%'}
             sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
             transition="clip"
             {...woman}
@@ -74,8 +76,8 @@ const Oras = ({ images }) => {
             className="Template-img-2"
             mask
             priority
+            scrollOffset={isMobile ? 0 : '-25%'}
             scrollSpeed={1}
-            scrollOffset="-25%"
             sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
             transition="clip"
             {...manSquare}
@@ -311,7 +313,7 @@ const Oras = ({ images }) => {
           </div>
         </div>
       </section>
-      <NextProject id="oras" />
+      <NextProject id="biocode" />
     </Template>
   );
 };
