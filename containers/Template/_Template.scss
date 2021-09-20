@@ -16,22 +16,17 @@
     /**
      * Hack to remove the applied scroll values from the new view.
      * Why are those even there?!
+     * This happens sometimes at least w/ Chromium, so keep this.
      */
-    // [data-scroll-section], [data-scroll] {
-    //   transform: none !important;
-    // }
+    [data-scroll-section], [data-scroll] {
+      transform: none !important;
+    }
   }
 
   :root.is-transition\:template\:after & {
     [data-scroll-target] {
-      transform: none !important;
-      // transition: 0.3s !important;
-    }
-  }
-
-  :root.is-transition\:template\:after\:withDelay & {
-    [data-scroll-target] {
-      transition: 0.1s !important;
+      // transform: none !important;
+      transition: 0.3s !important;
     }
   }
 

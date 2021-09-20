@@ -277,20 +277,6 @@ const AppMain = ({ ...props }) => {
   }, [loadingEnd]);
 
   const hackClass = 'is-transition:template:after';
-  const hackClassAfterDelay = 'is-transition:template:after:withDelay';
-
-  if (scroll) {
-    scroll.on('scroll', () => {
-      if (scroll.scroll.isScrolling && html.classList.contains(hackClass)) {
-        html.classList.remove(hackClass);
-        html.classList.add(hackClassAfterDelay);
-
-        setTimeout(() => {
-          html.classList.remove(hackClassAfterDelay);
-        }, 100);
-      }
-    });
-  }
 
   return (
     <AnimatePresence
@@ -300,6 +286,10 @@ const AppMain = ({ ...props }) => {
         if (scroll) {
           if (templateTransition) {
             html.classList.add(hackClass);
+
+            setTimeout(() => {
+              html.classList.remove(hackClass);
+            }, 300);
           }
 
           scroll.destroy();

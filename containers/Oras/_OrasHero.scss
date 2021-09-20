@@ -10,7 +10,8 @@
   }
 
   &.-transition\:pre {
-    background-color: $OrasHero-bgPreTransition;
+    // background-color: $OrasHero-bgPreTransition;
+    background-color: transparent;
     visibility: visible;
     z-index: $Footer-zIndex + 1;
   }
@@ -22,6 +23,10 @@
   @include mq(s) {
     height: 100vw;
   }
+}
+
+.OrasHero-inner {
+  min-height: 100vh;
 }
 
 .OrasHero-wrap {
