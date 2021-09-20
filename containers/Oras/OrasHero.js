@@ -40,9 +40,14 @@ const OrasHero = ({
     <motion.section
       animate={transitionStart ? 'exit' : transitionHideStart ? 'hidden' : ''}
       className={classes}
+      data-scroll-id="OrasHero"
       data-id={id}
       onAnimationComplete={() => {
-        if (preTransition) router.push(oras.url, null, { scroll: false });
+        if (preTransition && transitionStart) {
+          setTimeout(() => {
+            router.push(oras.url, null, { scroll: false });
+          }, 10);
+        }
       }}
       onMouseEnter={() => setMouseLeave(false)}
       onMouseLeave={() => setMouseLeave(true)}
@@ -57,14 +62,10 @@ const OrasHero = ({
         <div
           className="Heading-inner"
           data-scroll
-          data-scroll-offset="-10%"
-          data-scroll-position="top"
+          data-scroll-target={`[data-scroll-id="OrasHero"]`}
           data-scroll-speed={scrollSpeed}
-          // data-scroll-direction="horizontal"
-          // {...(preTransition && { 'data-scroll-speed': 3 })}
-          {...(preTransition && { 'data-scroll-direction': 'horizontal' })}
+          data-scroll-direction="horizontal"
         >
-          {/* Oras \ 2016 */}
           Oras — 2016
         </div>
       </Heading>
@@ -80,7 +81,7 @@ const OrasHero = ({
           >
             <figure
               data-scroll
-              data-scroll-position="top"
+              data-scroll-target={`[data-scroll-id="OrasHero"]`}
               data-scroll-speed={-scrollSpeed}
               className="OrasHero-figure-img"
             >
@@ -117,7 +118,7 @@ const OrasHero = ({
                   layout="responsive"
                   priority
                   sizes="10vw"
-                  src="/assets/oras/oras-drop.png"
+                  src="/assets/oras/joonassandell-oras-drop.png"
                   width={256}
                   quality="90"
                 />
@@ -161,7 +162,7 @@ const OrasHero = ({
             layout="responsive"
             priority
             sizes="10vw"
-            src="/assets/oras/oras-drop.png"
+            src="/assets/oras/joonassandell-oras-drop.png"
             width={256}
             quality="90"
           />
@@ -178,7 +179,7 @@ const OrasHero = ({
         <div
           data-scroll
           data-scroll-delay="0.15"
-          data-scroll-position="top"
+          data-scroll-target={`[data-scroll-id="OrasHero"]`}
           data-scroll-speed="1"
         >
           <Image
@@ -188,7 +189,7 @@ const OrasHero = ({
             layout="responsive"
             priority
             sizes="10vw"
-            src="/assets/oras/oras-drop.png"
+            src="/assets/oras/joonassandell-oras-drop.png"
             width={256}
             quality="90"
           />
