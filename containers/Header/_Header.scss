@@ -408,8 +408,8 @@
 
   path {
     &:first-child {
-      stroke: $border-500;
-      stroke-width: 3px;
+      stroke: lighten($border-500, 30);
+      stroke-width: 4px;
     }
   }
 }
@@ -447,7 +447,7 @@
 
   path {
     &:first-child {
-      stroke-width: 3px;
+      stroke-width: 4px;
     }
   }
 }
