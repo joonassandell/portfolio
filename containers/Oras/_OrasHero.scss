@@ -5,14 +5,9 @@
   min-width: var(--root-minWidth);
   position: relative;
 
-  .App.is-transition &:not(.-transition\:pre) {
-    visibility: hidden;
-  }
-
   &.-transition\:pre {
-    // background-color: $OrasHero-bgPreTransition;
-    background-color: transparent;
-    visibility: visible;
+    background-color: $OrasHero-bgPreTransition;
+    // background-color: transparent;
     z-index: $Footer-zIndex + 1;
   }
 
@@ -38,7 +33,6 @@
 .OrasHero-figure {
   height: 60vw;
   min-height: rem($space * 12);
-  pointer-events: none;
   position: relative;
 
   @include mq(l) {

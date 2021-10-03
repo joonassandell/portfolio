@@ -75,6 +75,7 @@ const OrasHero = ({
               grid-col:6@s -start:7@s
               grid-col:4@l -start:7@l
             "
+              onClick={onClick}
             >
               <figure
                 data-scroll
@@ -87,7 +88,6 @@ const OrasHero = ({
                   draggable="false"
                   height={2552}
                   layout="responsive"
-                  onClick={onClick}
                   priority
                   quality="90"
                   sizes="33vw"

@@ -23,10 +23,12 @@
   --primary-negative: #{$primary-negative};
   --primary-negativeLight: #{$primary-negativeLight};
 
-  --bg-200: #{$bg-200};
   --bg-100: #{$bg-100};
   --bg-50: #{$bg-50};
   --bg-10: #{$bg-10};
+
+  --biocode-primary: #{$biocode-primary};
+  --biocode-bg: #{$biocode-bg};
 
   --oras-primary: #{$oras-primary};
   --OrasHero-figureBg: #{$OrasHero-figureBg};
@@ -52,7 +54,7 @@
     }
   }
 
-  &.is-loading,
+  // &.is-loading,
   &.is-scrollLock {
     overflow: hidden;
     position: fixed;

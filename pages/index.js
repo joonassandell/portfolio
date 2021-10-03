@@ -2,6 +2,7 @@ import { fadeOutVariants } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useState } from 'react';
 import Link from '@/components/Link';
+import BiocodeHero from '@/containers/Biocode';
 import OrasHero from '@/containers/Oras';
 import { Template } from '@/containers/Template';
 import { motion } from 'framer-motion';
@@ -59,6 +60,14 @@ const Home = () => {
           </div>
         </div>
       </motion.div>
+
+      <BiocodeHero
+        id="biocode"
+        onClick={handleClick}
+        transitionStart={currentHero === 'biocode' && animation}
+        transitionState="pre"
+        transitionHideStart={currentHero != 'biocode' && animationHide}
+      />
 
       <OrasHero
         id="oras"

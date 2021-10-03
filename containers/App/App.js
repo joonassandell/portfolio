@@ -212,7 +212,7 @@ https://www.typescriptlang.org And this one too
           type="font/woff2"
         />
       </Head>
-      <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
+      {/* <Splash loading={loading} setLoadingEnd={setLoadingEnd} /> */}
       <AppContext.Provider
         value={{
           appState,

@@ -25,8 +25,7 @@
 
   :root.is-transition\:template\:after & {
     [data-scroll-target] {
-      // transform: none !important;
-      transition: 0.3s !important;
+      transition: 0.3s;
     }
   }
 

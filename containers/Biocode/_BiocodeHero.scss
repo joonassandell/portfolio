@@ -1,0 +1,194 @@
+.BiocodeHero {
+  background-color: $biocode-bg;
+  height: 132vw;
+  margin-bottom: rem($space-xxxl);
+  max-height: rem($space * 52);
+  min-width: var(--root-minWidth);
+  position: relative;
+
+  &.-transition\:pre {
+    // background-color: $BiocodeHero-bgPreTransition;
+    background-color: $bg-10;
+    // background-color: transparent;
+    z-index: $Footer-zIndex + 1;
+  }
+
+  @include mq(xs) {
+    height: 115vw;
+  }
+
+  @include mq(s) {
+    height: 100vw;
+  }
+}
+
+.BiocodeHero-wrap {
+  @include mq($until: l) {
+    padding-right: 0;
+  }
+}
+
+.BiocodeHero-figure {
+  height: 70vw;
+  min-height: rem($space * 15);
+  position: relative;
+  z-index: 3;
+
+  .BiocodeHero.-transition\:pre & {
+    cursor: pointer;
+  }
+
+  @include mq(s) {
+    height: 60vw;
+  }
+
+  @include mq(l) {
+    height: 40vw;
+  }
+}
+
+.BiocodeHero-figure-mask {
+  bottom: 0;
+  height: 70%;
+  margin: 0;
+  mask-image: url('/assets/biocode/biocode-b.svg');
+  mask-repeat: no-repeat;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  // z-index: 1;
+
+  @include mq(l) {
+    bottom: auto;
+    height: 90%;
+    top: 0;
+  }
+
+  @include mq(xl) {
+    height: 100%;
+    margin-left: rem($space * 3);
+  }
+}
+
+.BiocodeHero-figure-figure {
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.BiocodeHero-figure-figure--pre {
+  z-index: 2;
+}
+
+.BiocodeHero-figure-scroll {
+  // position: relative;
+  // top: rem($space * -2);
+}
+
+.BiocodeHero-figure-bg {
+  background: $bg-50-opaque;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include mq(l) {
+    display: none;
+  }
+}
+
+.BiocodeHero-heading {
+  bottom: rem($space-m);
+  height: 25%;
+  margin: 0 0 0 var(--wrap-spaceLeft);
+  position: absolute;
+  transform: translate3d(0, -175%, 0);
+  z-index: 2;
+
+  .BiocodeHero.-transition\:pre & {
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .Heading-inner {
+    margin-left: rem(-$space-xs);
+
+    @include mq(m) {
+      margin-left: rem(-$space-m);
+    }
+  }
+
+  @include mq(l) {
+    bottom: 0;
+  }
+}
+
+.BiocodeHero-link {
+  bottom: 0;
+  position: absolute;
+  z-index: 4;
+
+  > .grid {
+    place-items: end;
+  }
+
+  .BiocodeHero.is-transition & {
+    z-index: 0;
+  }
+
+  @include mq(l) {
+    display: none;
+  }
+}
+
+.BiocodeHero-content {
+  align-self: end;
+  position: relative;
+  z-index: 4;
+
+  .BiocodeHero.is-transition & {
+    z-index: 0;
+  }
+
+  @include mq($until: l) {
+    display: none;
+  }
+}
+
+.BiocodeHero-content-heading {
+  margin-bottom: rem($space-xs);
+}
+
+.BiocodeHero-content-text {
+  margin-bottom: rem($space-m);
+
+  @include mq($until: l) {
+    display: none;
+  }
+}
+
+.BiocodeHero-stamp.Stamp {
+  .Stamp-inner {
+    left: -15%;
+    top: 5%;
+
+    @include mq(s) {
+      left: 0;
+      top: 10%;
+    }
+
+    @include mq(m) {
+      left: -5%;
+    }
+
+    @include mq(l) {
+      left: -8%;
+      top: 0;
+    }
+
+    @include mq(xl) {
+      left: -13%;
+    }
+  }
+}

@@ -38,20 +38,10 @@ export const svgVariants = {
 
 export const overlayVariants = {
   exit: {
-    // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // bottom/right/left
-    // clipPath: 'circle(100% at 50% 50%)',
-    // scale: 2.5,
     scale: [0, 10],
     transition: {
       ...transPrimary,
       delay: extraDelay,
     },
   },
-  // preTransition: {
-  //   // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // bottom
-  //   // clipPath: 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)', // right
-  //   // clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)', // left
-  //   // clipPath: 'polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%)', // bottom left
-  //   // clipPath: 'circle(15% at 50% 50%)',
-  // },
 };

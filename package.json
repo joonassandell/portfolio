@@ -9,8 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "blurhash": "^1.1.3",
     "classnames": "^2.2.6",
     "critters": "0.0.7",
@@ -32,6 +30,8 @@
     "use-intersection": "^0.2.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "sass": "^1.29.0",
     "sass-mq": "^5.0.1"
   }

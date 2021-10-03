@@ -130,15 +130,12 @@ $primary: $black; //#111111;
 $primary-500: #111111;
 $primary-negative: #f6eee3;
 $primary-negativeLight: $white;
-// $primary: $black;
-// $primary-negative: $white;
 
 // Background colors
 $bg-700: $primary;
 $bg-10: $primary-negative;
-$bg-200: desaturate(darken($bg-10, 13), 20);
-$bg-100: desaturate(darken($bg-10, 5), 20);
-$bg-50: desaturate(darken($bg-10, 3), 20);
+$bg-100: desaturate(darken($bg-10, 12), 35);
+$bg-50: desaturate(darken($bg-10, 5), 20);
 
 $bg-100-opaqueAlpha: 0.15;
 $bg-100-opaque: rgba($black, $bg-100-opaqueAlpha);
@@ -254,6 +251,14 @@ $Button-spaceX: $space * 1.25;
 // =======================================
 
 $Template-overlayColor: $primary;
+
+// =======================================
+// Biocode
+// =======================================
+
+$biocode-bg: $primary-500;
+$biocode-primary: $white;
+$biocode-text: $white;
 
 // =======================================
 // Oras

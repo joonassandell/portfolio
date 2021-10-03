@@ -4,12 +4,14 @@
   @include fontSize(20px, 20px, 999px, 20vw);
   align-items: center;
   // color: $text-10;
+  // color: lighten($text-10, 10);
+  color: $text-700;
   display: flex;
   font-weight: $heading-fontWeightLight;
   height: 25%;
-  letter-spacing: -0.035em;
-  // letter-spacing: 1em;
+  letter-spacing: -0.05em; // -0.035em, 1em
   // mix-blend-mode: difference;
+  // text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
 
