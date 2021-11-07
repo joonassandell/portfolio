@@ -60,7 +60,7 @@
 }
 
 .Header-logo {
-  color: $text-10;
+  color: $white;
   display: flex;
   flex-direction: column;
   margin: 0 auto 0 0;
@@ -69,7 +69,7 @@
   z-index: 1;
 
   a {
-    color: $text-10;
+    color: $white;
   }
 
   @include mq(m) {
@@ -114,7 +114,7 @@
 
 .Header-button {
   align-items: center;
-  color: $text-10;
+  color: $white;
   display: flex;
   margin: 0;
   z-index: 1;
@@ -178,7 +178,7 @@
     margin-left: auto;
 
     a {
-      color: $text-10;
+      color: $white;
     }
   }
 }
@@ -336,13 +336,13 @@
 
 .Header-nav-link {
   align-items: center;
-  color: $text-10;
+  color: $white;
   display: flex;
   padding: rem($space-s) 0;
   // padding: rem($space) 0;
 
   &:hover {
-    color: $text-10;
+    color: $white;
   }
 
   &:before, &:after {
@@ -454,12 +454,12 @@
 
 .Header-footer {
   align-items: flex-end;
-  color: $text-10;
+  color: $white;
   display: flex;
   margin: max(10vh, #{rem($space * 5)}) 0 rem($space-xl) 0;
 
   a {
-    color: $text-10;
+    color: $white;
   }
 
   @include mq($until: m) {
