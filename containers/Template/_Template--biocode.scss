@@ -1,9 +1,14 @@
 .Template--biocode {
-  background-color: $biocode-bg;
+  --link: #{$biocode-text};
+  --link-hover: #{$biocode-text};
+  --text-400: #{$gray-10};
+  --border-700: #{$white};
+  background-color: var(--biocode-bg);
+  color: $biocode-text;
 
-  // .Info {
-  //   @include mq($until: ml) {
-  //     margin-top: rem($space * -4);
-  //   }
-  // }
+  .Info {
+    @include mq($until: ml) {
+      margin-top: rem($space * -4);
+    }
+  }
 }

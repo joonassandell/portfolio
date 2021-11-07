@@ -7,6 +7,16 @@
   z-index: 1;
 
   /**
+   * Negative
+   */
+  // --link: var(--primary-negative);
+  // --link-hover: var(--primary-negative);
+  // --text-400: var(--text-50);
+  // --border-700: var(--border-10);
+  // background-color: var(--primary-500);
+  // color: var(--text-10);
+
+  /**
    * This is the start animation
    */
   &:last-child:not(:only-child).is-transition\:template {

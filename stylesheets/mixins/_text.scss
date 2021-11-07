@@ -21,13 +21,13 @@
   }
 
   @if $style == 'subtitle' {
-    color: $text-400;
+    color: var(--text-400);
     // text-transform: uppercase;
     @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
   }
 
   @if $style == 'meta' {
-    color: $text-400;
+    color: var(--text-400);
     @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
   }
 }

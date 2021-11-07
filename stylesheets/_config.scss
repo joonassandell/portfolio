@@ -125,6 +125,9 @@ $mq-breakpoints: (
 $black: #000000;
 $white: #ffffff;
 
+// Grays
+$gray-10: lighten($black, 60);
+
 // Brand colors
 $primary: $black; //#111111;
 $primary-500: #111111;
@@ -133,6 +136,7 @@ $primary-negativeLight: $white;
 
 // Background colors
 $bg-700: $primary;
+$bg-500: $primary-500;
 $bg-10: $primary-negative;
 $bg-100: desaturate(darken($bg-10, 12), 35);
 $bg-50: desaturate(darken($bg-10, 5), 20);
@@ -149,20 +153,20 @@ $bg-50-opaqueNegative: rgba($white, $bg-50-opaqueAlpha);
 $text-700: $primary-500;
 $text-400: lighten($text-700, 30);
 $text-10: $primary-negative;
+$text-50: darken(desaturate($primary-negative, 45), 30);
 
 // Heading color
 $heading: inherit;
 
 // Link colors
-$link: $primary;
-$link-hover: $primary;
+$link: $primary-500;
+$link-hover: $primary-500;
 
 // Border colors
 $border-700: $primary;
-$border-500-opaque: rgba($primary-negative, 0.12);
 $border-500: lighten($primary, 20);
-$border-20: rgba(#000000, 0.12);
-$border-10: $white;
+$border-50: rgba($primary, 0.12);
+$border-10: $primary-negative;
 
 // Root
 $root-bg: $bg-700;
@@ -256,7 +260,7 @@ $Template-overlayColor: $primary;
 // Biocode
 // =======================================
 
-$biocode-bg: $primary-500;
+$biocode-bg: #070707;
 $biocode-primary: $white;
 $biocode-text: $white;
 

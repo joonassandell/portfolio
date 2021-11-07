@@ -3,6 +3,7 @@ import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { ButtonEnter } from '@/components/Button';
 import Stamp from '@/components/Stamp';
+import TextReveal from '@/components/TextReveal';
 import Link from '@/components/Link';
 import { headingVariants, figurePreVariants } from './BiocodeHero.animations';
 import Image from 'next/image';
@@ -60,6 +61,11 @@ const BiocodeHero = ({
           Biocode — 2021
         </div>
       </Heading>
+      {transitionStartOrInitial && (
+        <div className="BiocodeHero-textReveal">
+          <TextReveal text={['We have to', 'reverse global', 'heating']} />
+        </div>
+      )}
       <div className="BiocodeHero-wrap wrap">
         <div className="grid">
           <div

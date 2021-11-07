@@ -124,6 +124,12 @@
   }
 }
 
+.BiocodeHero-textReveal {
+  color: $biocode-text;
+  mix-blend-mode: difference;
+  position: absolute;
+}
+
 .BiocodeHero-link {
   bottom: 0;
   position: absolute;

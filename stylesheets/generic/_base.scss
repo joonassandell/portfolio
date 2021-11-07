@@ -23,6 +23,18 @@
   --primary-negative: #{$primary-negative};
   --primary-negativeLight: #{$primary-negativeLight};
 
+  --link: #{$link};
+  --link-hover: #{$link-hover};
+
+  --text-700: #{$text-700};
+  --text-400: #{$text-400};
+  --text-50: #{$text-50};
+  --text-10: #{$text-10};
+
+  --border-700: #{$border-700};
+  --border-500: #{$border-500};
+  --border-10: #{$border-10};
+
   --bg-100: #{$bg-100};
   --bg-50: #{$bg-50};
   --bg-10: #{$bg-10};
@@ -38,7 +50,7 @@
   --Template-overlayColor: #{$Template-overlayColor};
 
   background-color: $root-bg;
-  color: $text-700;
+  color: var(--text-700);
   font-family: $font-family;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -93,7 +105,7 @@ body {
   }
 
   &:focus-visible {
-    outline: $focus-outlineWidth solid $primary;
+    outline: $focus-outlineWidth solid var(--link);
   }
 }
 
@@ -120,15 +132,15 @@ ul {
 }
 
 a {
-  color: $link;
+  color: var(--link);
   text-decoration: none;
 
   &:active {
-    color: $link;
+    color: var(--link);
   }
 
   &:hover {
-    color: $link-hover;
+    color: var(--link-hover);
   }
 }
 
