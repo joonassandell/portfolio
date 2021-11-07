@@ -19,3 +19,9 @@
     @include fontSize(92px, 92px);
   }
 }
+
+.Heading--primary {
+  @include fontSize(20px, 20px, 104px, 20vw);
+  text-transform: uppercase;
+}
+
