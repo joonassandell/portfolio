@@ -1,0 +1,124 @@
+.Hero {
+  height: 132vw;
+  max-height: rem($space * 52);
+  min-width: var(--root-minWidth);
+  position: relative;
+
+  &.-transition\:pre {
+    background-color: $bg-10;
+    z-index: $Footer-zIndex + 1;
+  }
+
+  @include mq(xs) {
+    height: 115vw;
+  }
+
+  @include mq(s) {
+    height: 100vw;
+  }
+}
+
+.Hero-inner {
+  min-height: 100vh;
+}
+
+.Hero-wrap {
+  @include mq($until: l) {
+    padding-right: 0;
+  }
+}
+
+.Hero-heading {
+  bottom: rem($space-m);
+  height: 25%;
+  margin: 0 0 0 var(--wrap-spaceLeft);
+  position: absolute;
+  transform: translate3d(0, -175%, 0);
+  white-space: nowrap;
+  z-index: 2;
+
+  .Hero.-transition\:pre & {
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .Heading-inner {
+    margin-left: rem(-$space-xs);
+
+    @include mq(m) {
+      margin-left: rem(-$space-m);
+    }
+  }
+
+  @include mq(l) {
+    bottom: 0;
+  }
+}
+
+.Hero-link {
+  bottom: 0;
+  position: absolute;
+  z-index: 4;
+
+  > .grid {
+    place-items: end;
+  }
+
+  .Hero.is-transition & {
+    z-index: 0;
+  }
+
+  @include mq(l) {
+    display: none;
+  }
+}
+
+.Hero-content {
+  position: relative;
+  z-index: 4;
+
+  .Hero.is-transition & {
+    z-index: 0;
+  }
+
+  @include mq($until: l) {
+    display: none;
+  }
+}
+
+.Hero-content-heading {
+  margin-bottom: rem($space-xs);
+}
+
+.Hero-content-text {
+  margin-bottom: rem($space-m);
+
+  @include mq($until: l) {
+    display: none;
+  }
+}
+
+.Hero-stamp.Stamp {
+  .Stamp-inner {
+    left: -15%;
+    top: 5%;
+
+    @include mq(s) {
+      left: 0;
+      top: 10%;
+    }
+
+    @include mq(m) {
+      left: -5%;
+    }
+
+    @include mq(l) {
+      left: -8%;
+      top: 0;
+    }
+
+    @include mq(xl) {
+      left: -13%;
+    }
+  }
+}
