@@ -12,7 +12,7 @@ const home = getSitemap('home');
 const about = getSitemap('about', 'secondary');
 
 const Home = () => {
-  const { setTransition } = useAppContext();
+  const { setTransition, setTransitionInitial } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
@@ -23,6 +23,7 @@ const Home = () => {
   const handleClick = e => {
     e.preventDefault();
     setTransition(true);
+    setTransitionInitial(false);
 
     const el = e.currentTarget.closest('[data-id]');
     setCurrentHero(el.dataset.id);

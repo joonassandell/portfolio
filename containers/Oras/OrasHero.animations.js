@@ -8,7 +8,7 @@ import {
 import { getCSSVarValue } from '@/lib/utility';
 
 export const headingVariants = {
-  exit: {
+  animate: {
     y: '-175%',
     transition: {
       ...transPrimary,
@@ -18,7 +18,7 @@ export const headingVariants = {
 };
 
 export const figureBgVariants = {
-  exit: {
+  animate: {
     scaleY: 4,
     background: [
       'linear-gradient(180deg, var(--OrasHero-figureBg) 0%, rgba(var(--OrasHero-figureBgRgb), 1) 100%)',
@@ -33,46 +33,46 @@ export const figureBgVariants = {
 };
 
 export const dropVariants = {
-  exit: {
+  animate: (delay = 0) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.1 + extraDelay,
+      delay: delay + extraDelay,
     },
     y: 0,
-  },
-  preTransition: {
+  }),
+  initial: {
     opacity: 0,
     y: -24,
   },
 };
 
 export const dropVariants2 = {
-  exit: {
+  animate: (delay = 0) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: extraDelay,
+      delay: 0.2 + delay + extraDelay,
     },
     y: 0,
-  },
-  preTransition: {
+  }),
+  initial: {
     opacity: 0,
-    y: -72,
+    y: -48,
   },
 };
 
 export const dropVariants3 = {
-  exit: {
+  animate: (delay = 0) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.3 + extraDelay,
+      delay: 0.3 + delay + extraDelay,
     },
     y: 0,
-  },
-  preTransition: {
+  }),
+  initial: {
     opacity: 0,
-    y: -48,
+    y: -72,
   },
 };

@@ -20,7 +20,8 @@ const AppContext = createContext({
   loading: true,
   loadingEnd: false,
   scrollLock: false,
-  transition: false, // template', false, true
+  transition: false, // 'template', false, true
+  transitionInitial: true,
 });
 
 export const App = ({ Component, pageProps, router }) => {
@@ -40,6 +41,13 @@ export const App = ({ Component, pageProps, router }) => {
     setAppState(prevState => ({
       ...prevState,
       transition: value,
+    }));
+  };
+
+  const setTransitionInitial = value => {
+    setAppState(prevState => ({
+      ...prevState,
+      transitionInitial: value,
     }));
   };
 
@@ -137,7 +145,7 @@ https://www.typescriptlang.org And this one too
 
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
-   * Scrolling is enabled after the transition in _app.js
+   * Scrolling is enabled after the transition in <AppMain />
    */
   useEffect(() => {
     if (mobile && transition === 'template') {
@@ -219,6 +227,7 @@ https://www.typescriptlang.org And this one too
           setLoadingEnd,
           setScrollLock,
           setTransition,
+          setTransitionInitial,
         }}
       >
         <LocomotiveScrollProvider
