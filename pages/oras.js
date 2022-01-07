@@ -1,4 +1,4 @@
-import OrasHero from '@/containers/Oras';
+import { HeroOras } from '@/components/Hero';
 import { Template } from '@/containers/Template';
 import { getSitemap, getImage } from '@/lib/utility';
 import NextProject from '@/components/NextProject';
@@ -40,7 +40,7 @@ const Oras = ({ images }) => {
 
   return (
     <Template name={oras.id} title={oras.title}>
-      <OrasHero />
+      <HeroOras />
       <Info
         client={{ name: oras.title, href: 'https://oras.com' }}
         type={['Web service', 'Commission']}

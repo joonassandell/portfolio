@@ -261,7 +261,7 @@ $Template-overlayColor: $primary;
 // =======================================
 
 $biocode-bg: #070707;
-$biocode-primary: $white;
+$biocode-primary: #4d4dff;
 $biocode-text: $white;
 
 // =======================================
@@ -270,7 +270,8 @@ $biocode-text: $white;
 
 $oras-bg: $white;
 $oras-primary: red;
-$OrasHero-bgPreTransition: $bg-10;
-$OrasHero-figureBg: $black; // #E9E9E9
-$OrasHero-figureBgAlpha: $bg-100-opaqueAlpha;
-$OrasHero-figurePreTransitionBgAlpha: $bg-50-opaqueAlpha;
+
+$HeroOras-bgPreTransition: $bg-10;
+$HeroOras-figureBg: $black; // #E9E9E9
+$HeroOras-figureBgAlpha: $bg-100-opaqueAlpha;
+$HeroOras-figurePreTransitionBgAlpha: $bg-50-opaqueAlpha;

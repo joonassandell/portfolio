@@ -43,9 +43,9 @@
   --biocode-bg: #{$biocode-bg};
 
   --oras-primary: #{$oras-primary};
-  --OrasHero-figureBg: #{$OrasHero-figureBg};
-  --OrasHero-figureBgAlpha:#{$OrasHero-figureBgAlpha};
-  --OrasHero-figureBgRgb: #{hexToRgb($OrasHero-figureBg)};
+  --HeroOras-figureBg: #{$HeroOras-figureBg};
+  --HeroOras-figureBgAlpha:#{$HeroOras-figureBgAlpha};
+  --HeroOras-figureBgRgb: #{hexToRgb($HeroOras-figureBg)};
 
   --Template-overlayColor: #{$Template-overlayColor};
 
