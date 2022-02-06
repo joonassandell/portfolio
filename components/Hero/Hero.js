@@ -35,27 +35,33 @@ const Hero = ({
   const displayAtStartOrByDefault = transitionStart || !statePre;
 
   // At hero transition start or at initial state (= default state & appState.transitionInitial === true)
-  const transitionStartOrStateInitial =
-    transitionStart || (transitionInitial && !statePre);
+  const transitionStartOrInitial =
+    transitionStart || (!statePre && transitionInitial);
 
-  // State before hero transition or state before template transition
+  // State before hero transition or at initial state (= usually before template transition)
   const statePreOrStateInitial = statePre || transitionInitial;
 
   const ref = useRef(null);
   const [mouseLeave, setMouseLeave] = useState(false);
-  const initialDelay = 0.5;
 
   const passedProps = {
     displayAtStartOrByDefault,
-    initialDelay,
-    transitionStartOrStateInitial,
+    initialDelay: transitionInitial ? 0.75 : 0,
+    transitionStartOrInitial,
     statePreOrStateInitial,
     transitionInitial,
     statePre,
   };
 
+  /**
+   * This should re-trigger the animations (statePreOrStateInitial) after the
+   * hero transitions but it doesn't which is exactly what I want. Maybe
+   * animation won't retrigger because we use the spread etc. don't know.
+   */
   useEffect(() => {
-    return () => !statePre && setTransitionInitial(true);
+    if (!transitionInitial) {
+      setTransitionInitial(true);
+    }
   }, []);
 
   return (

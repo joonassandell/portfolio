@@ -28,10 +28,8 @@ const HeroBiocode = ({
       {({
         displayAtStartOrByDefault,
         initialDelay,
-        transitionInitial,
         statePre,
         statePreOrStateInitial,
-        transitionStartOrStateInitial,
       }) => {
         return (
           <>
@@ -42,7 +40,7 @@ const HeroBiocode = ({
                     ...(statePreOrStateInitial && {
                       animate: 'in',
                       initial: 'initial',
-                      custom: transitionInitial ? initialDelay : 0,
+                      custom: initialDelay,
                     }),
                   }}
                   // text={['Are you ready', 'for climate', 'smart food?']}

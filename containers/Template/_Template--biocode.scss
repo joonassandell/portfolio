@@ -3,7 +3,7 @@
   --link-hover: #{$biocode-text};
   --text-400: #{$gray-10};
   --border-700: #{$white};
-  background-color: var(--biocode-bg);
+  background-color: $biocode-bg;
   color: $biocode-text;
 
   .Info {

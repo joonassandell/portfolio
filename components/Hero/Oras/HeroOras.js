@@ -23,10 +23,8 @@ const HeroOras = ({
       childrenAfter={({
         displayAtStartOrByDefault,
         initialDelay,
-        transitionInitial,
-        statePre,
         statePreOrStateInitial,
-        transitionStartOrStateInitial,
+        transitionStartOrInitial,
       }) => {
         return (
           <>
@@ -35,7 +33,7 @@ const HeroOras = ({
                 className="Hero-drop Hero-drop--2"
                 {...(statePreOrStateInitial && {
                   animate: 'animate',
-                  custom: transitionInitial ? initialDelay : 0,
+                  custom: initialDelay,
                   initial: 'initial',
                   variants: dropVariants2,
                 })}
@@ -56,8 +54,8 @@ const HeroOras = ({
             <motion.div
               className="Hero-drop Hero-drop--3"
               {...(statePreOrStateInitial && {
-                animate: transitionStartOrStateInitial ? 'animate' : '',
-                custom: transitionInitial ? initialDelay : 0,
+                animate: transitionStartOrInitial ? 'animate' : '',
+                custom: initialDelay,
                 initial: 'initial',
                 variants: dropVariants3,
               })}
@@ -96,10 +94,8 @@ const HeroOras = ({
       {({
         displayAtStartOrByDefault,
         initialDelay,
-        transitionInitial,
         statePre,
         statePreOrStateInitial,
-        transitionStartOrStateInitial,
       }) => {
         return (
           <div className="grid">
@@ -138,8 +134,8 @@ const HeroOras = ({
                 <motion.div
                   className="Hero-drop Hero-drop--1"
                   {...(statePreOrStateInitial && {
-                    animate: transitionStartOrStateInitial ? 'animate' : '',
-                    custom: transitionInitial ? initialDelay : 0,
+                    animate: 'animate',
+                    custom: initialDelay,
                     initial: 'initial',
                     variants: dropVariants,
                   })}
