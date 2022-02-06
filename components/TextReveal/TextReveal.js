@@ -2,16 +2,21 @@ import { motion } from 'framer-motion';
 import { headingVariant, inVariant } from './TextReveal.animations';
 import c from 'classnames';
 
-const TextReveal = ({ className, text, transitionStart }) => {
+const TextReveal = ({ animate, className, text }) => {
   const classes = c(className, 'TextReveal Heading Heading--primary');
 
+  const animateOptions = animate
+    ? { ...animate }
+    : {
+        animate: 'in',
+        initial: 'initial',
+      };
+
   return (
-    <motion.h1
-      // animate={transitionStart ? 'in' : ''}
-      animate="in"
+    <motion.h2
       className={classes}
-      initial="initial"
       variants={headingVariant}
+      {...animateOptions}
     >
       {text.map((text, index) => {
         return (
@@ -26,7 +31,7 @@ const TextReveal = ({ className, text, transitionStart }) => {
           </div>
         );
       })}
-    </motion.h1>
+    </motion.h2>
   );
 };
 

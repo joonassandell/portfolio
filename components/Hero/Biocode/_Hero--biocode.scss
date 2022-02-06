@@ -1,0 +1,86 @@
+.Hero--biocode {
+  --Stamp-iris: #{$biocode-primary};
+  --Stamp-overlayBg: #{$biocode-bg};
+  background-color: $biocode-bg;
+
+  .Hero-figure {
+    height: 70vw;
+    min-height: rem($space * 15);
+    position: relative;
+    z-index: 3;
+
+    .Hero.-transition\:pre & {
+      cursor: pointer;
+    }
+
+    @include mq(s) {
+      height: 60vw;
+    }
+
+    @include mq(l) {
+      height: 40vw;
+    }
+  }
+
+  .Hero-figure-mask {
+    bottom: 0;
+    height: 70%;
+    margin: 0;
+    mask-image: url('/assets/biocode/biocode-b.svg');
+    mask-repeat: no-repeat;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    // z-index: 1;
+
+    @include mq(l) {
+      bottom: auto;
+      height: 90%;
+      top: 0;
+    }
+
+    @include mq(xl) {
+      height: 100%;
+      margin-left: rem($space * 3);
+    }
+  }
+
+  .Hero-figure-figure {
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .Hero-figure-figure--pre {
+    z-index: 2;
+  }
+
+  .Hero-figure-scroll {
+    // position: relative;
+    // top: rem($space * -2);
+  }
+
+  .Hero-figure-bg {
+    background: $bg-50-opaque;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    @include mq(l) {
+      display: none;
+    }
+  }
+
+  .Hero-textReveal {
+    color: $biocode-text;
+    mix-blend-mode: difference;
+    position: absolute;
+    z-index: 9999;
+  }
+
+  .Hero-content {
+    align-self: end;
+  }
+}

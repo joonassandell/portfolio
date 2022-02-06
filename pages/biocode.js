@@ -1,4 +1,4 @@
-import BiocodeHero from '@/containers/Biocode';
+import { HeroBiocode } from '@/components/Hero';
 import { Template } from '@/containers/Template';
 import { getSitemap, getImage } from '@/lib/utility';
 import NextProject from '@/components/NextProject';
@@ -41,7 +41,7 @@ const Biocode = ({ images }) => {
 
   return (
     <Template name={biocode.id} title={biocode.title}>
-      <BiocodeHero />
+      <HeroBiocode />
       <Info
         client={{ name: biocode.title, href: 'https://biocode.io' }}
         type={['Web service', 'Commission']}

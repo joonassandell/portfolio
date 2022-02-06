@@ -1,11 +1,11 @@
 import { fadeOutVariants } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
+import { HeroOras, HeroBiocode } from '@/components/Hero';
+import { motion } from 'framer-motion';
+import { Template } from '@/containers/Template';
+import { useAppContext } from '@/containers/App';
 import { useState } from 'react';
 import Link from '@/components/Link';
-import { HeroOras } from '@/components/Hero';
-import { Template } from '@/containers/Template';
-import { motion } from 'framer-motion';
-import { useAppContext } from '@/containers/App';
 import useScrollTo from '@/lib/useScrollTo';
 const home = getSitemap('home');
 const about = getSitemap('about', 'secondary');
@@ -61,7 +61,7 @@ const Home = () => {
         </div>
       </motion.div>
 
-      <BiocodeHero
+      <HeroBiocode
         id="biocode"
         onClick={handleClick}
         transitionStart={currentHero === 'biocode' && animation}
