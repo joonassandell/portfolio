@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "create-component": "node ./utils/create-component",
     "serve": "npm run build && npm run start",
     "start": "next start"
   },
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "colors": "^1.4.0",
     "sass": "^1.29.0",
     "sass-mq": "^5.0.1"
   }
