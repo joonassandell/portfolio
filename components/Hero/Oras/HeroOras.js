@@ -21,19 +21,19 @@ const HeroOras = ({
   return (
     <Hero
       childrenAfter={({
-        displayAtStartOrInitially,
+        displayAtStartOrByDefault,
         initialDelay,
         transitionInitial,
-        transitionPre,
-        transitionPreOrInitial,
-        transitionStartOrInitial,
+        statePre,
+        statePreOrStateInitial,
+        transitionStartOrStateInitial,
       }) => {
         return (
           <>
-            {displayAtStartOrInitially && (
+            {displayAtStartOrByDefault && (
               <motion.div
                 className="Hero-drop Hero-drop--2"
-                {...(transitionPreOrInitial && {
+                {...(statePreOrStateInitial && {
                   animate: 'animate',
                   custom: transitionInitial ? initialDelay : 0,
                   initial: 'initial',
@@ -55,8 +55,8 @@ const HeroOras = ({
             )}
             <motion.div
               className="Hero-drop Hero-drop--3"
-              {...(transitionPreOrInitial && {
-                animate: transitionStartOrInitial ? 'animate' : '',
+              {...(statePreOrStateInitial && {
+                animate: transitionStartOrStateInitial ? 'animate' : '',
                 custom: transitionInitial ? initialDelay : 0,
                 initial: 'initial',
                 variants: dropVariants3,
@@ -88,19 +88,18 @@ const HeroOras = ({
       heading="Oras — 2016"
       href={oras.url}
       id={oras.id}
-      irisColor="var(--oras-primary)"
       onClick={onClick}
       transitionHideStart={transitionHideStart}
       transitionStart={transitionStart}
       transitionState={transitionState}
     >
       {({
-        displayAtStartOrInitially,
+        displayAtStartOrByDefault,
         initialDelay,
         transitionInitial,
-        transitionPre,
-        transitionPreOrInitial,
-        transitionStartOrInitial,
+        statePre,
+        statePreOrStateInitial,
+        transitionStartOrStateInitial,
       }) => {
         return (
           <div className="grid">
@@ -135,11 +134,11 @@ const HeroOras = ({
                 className="Hero-figure-bg"
                 variants={figureBgVariants}
               />
-              {displayAtStartOrInitially && (
+              {displayAtStartOrByDefault && (
                 <motion.div
                   className="Hero-drop Hero-drop--1"
-                  {...(transitionPreOrInitial && {
-                    animate: transitionStartOrInitial ? 'animate' : '',
+                  {...(statePreOrStateInitial && {
+                    animate: transitionStartOrStateInitial ? 'animate' : '',
                     custom: transitionInitial ? initialDelay : 0,
                     initial: 'initial',
                     variants: dropVariants,
@@ -164,7 +163,7 @@ const HeroOras = ({
               heading={oras.title}
               href={oras.url}
               onClick={onClick}
-              transitionPre={transitionPre}
+              statePre={statePre}
               role={['UI, UX design', 'Web development', 'Concept strategy']}
             />
           </div>

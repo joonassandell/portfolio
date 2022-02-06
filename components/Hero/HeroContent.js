@@ -8,9 +8,9 @@ const HeroContent = ({
   onClick,
   href,
   role = [],
-  transitionPre,
+  statePre,
 }) => {
-  if (!transitionPre) return null;
+  if (!statePre) return null;
   const classes = c('Hero-content', className);
 
   return (

@@ -20,27 +20,26 @@ const HeroBiocode = ({
       heading="Biocode — 2022"
       href={biocode.url}
       id={biocode.id}
-      irisColor="var(--biocode-primary)"
       onClick={onClick}
       transitionHideStart={transitionHideStart}
       transitionStart={transitionStart}
       transitionState={transitionState}
     >
       {({
-        displayAtStartOrInitially,
+        displayAtStartOrByDefault,
         initialDelay,
         transitionInitial,
-        transitionPre,
-        transitionPreOrInitial,
-        transitionStartOrInitial,
+        statePre,
+        statePreOrStateInitial,
+        transitionStartOrStateInitial,
       }) => {
         return (
           <>
-            {displayAtStartOrInitially && (
+            {displayAtStartOrByDefault && (
               <div className="Hero-textReveal">
                 <TextReveal
                   animate={{
-                    ...(transitionPreOrInitial && {
+                    ...(statePreOrStateInitial && {
                       animate: 'in',
                       initial: 'initial',
                       custom: transitionInitial ? initialDelay : 0,
@@ -68,7 +67,7 @@ const HeroBiocode = ({
                   // data-scroll-speed={scrollSpeed * -3}
                   // data-scroll-speed={scrollSpeed * -2}
                 >
-                  {transitionPre && (
+                  {statePre && (
                     <motion.figure
                       animate={transitionStart ? 'exit' : ''}
                       className="Hero-figure-figure Hero-figure-figure--pre"
@@ -97,7 +96,7 @@ const HeroBiocode = ({
                       </div>
                     </motion.figure>
                   )}
-                  {displayAtStartOrInitially && (
+                  {displayAtStartOrByDefault && (
                     <motion.figure className="Hero-figure-figure Hero-figure-figure--initial">
                       <div
                         className="Hero-figure-scroll"
@@ -128,7 +127,7 @@ const HeroBiocode = ({
                 heading={biocode.title}
                 href={biocode.url}
                 onClick={onClick}
-                transitionPre={transitionPre}
+                statePre={statePre}
                 role={['UI, UX design', 'App development', 'Web development']}
               />
             </div>

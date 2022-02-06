@@ -16,40 +16,46 @@ const Hero = ({
   headingVariants = headingVars,
   href,
   id,
-  irisColor,
   onClick,
   transitionHideStart = false,
   transitionStart = false,
   transitionState = null,
 }) => {
-  const transitionPre = transitionState === 'pre';
+  const statePre = transitionState === 'pre';
   const classes = c(className, 'Hero', {
-    '-transition:pre': transitionPre,
+    '-transition:pre': statePre,
     'is-transition': transitionStart,
   });
   const { appState, setTransitionInitial } = useAppContext();
   const { transitionInitial } = appState;
   const router = useRouter();
-  const Heading = transitionPre ? motion.h2 : motion.h1;
-  const displayAtStartOrInitially = transitionStart || !transitionPre;
-  const transitionStartOrInitial =
-    transitionStart || (transitionInitial && !transitionPre);
-  const transitionPreOrInitial = transitionPre || transitionInitial;
+  const Heading = statePre ? motion.h2 : motion.h1;
+
+  // At hero transition start or at default state (= after transition)
+  const displayAtStartOrByDefault = transitionStart || !statePre;
+
+  // At hero transition start or at initial state (= default state & appState.transitionInitial === true)
+  const transitionStartOrStateInitial =
+    transitionStart || (transitionInitial && !statePre);
+
+  // State before hero transition or state before template transition
+  const statePreOrStateInitial = statePre || transitionInitial;
+
   const ref = useRef(null);
   const [mouseLeave, setMouseLeave] = useState(false);
   const initialDelay = 0.5;
 
   const passedProps = {
-    displayAtStartOrInitially,
+    displayAtStartOrByDefault,
     initialDelay,
-    transitionStartOrInitial,
-    transitionPreOrInitial,
+    transitionStartOrStateInitial,
+    statePreOrStateInitial,
     transitionInitial,
-    transitionPre,
+    statePre,
   };
 
   useEffect(() => {
-    return () => !transitionPre && setTransitionInitial(true);
+    return () => !statePre && setTransitionInitial(true);
   }, []);
 
   return (
@@ -60,7 +66,7 @@ const Hero = ({
       className={classes}
       data-id={id}
       onAnimationComplete={() => {
-        if (transitionPre && transitionStart)
+        if (statePre && transitionStart)
           router.push(href, null, { scroll: false });
       }}
       onMouseEnter={() => setMouseLeave(false)}
@@ -86,7 +92,7 @@ const Hero = ({
         </Heading>
         <div className="Hero-wrap wrap">{children(passedProps)}</div>
         {childrenAfter(passedProps)}
-        {transitionPre && (
+        {statePre && (
           <div className="Hero-link wrap">
             <div className="grid -placeEnd">
               <div className="grid-col">
@@ -103,11 +109,10 @@ const Hero = ({
             </div>
           </div>
         )}
-        {transitionPre && (
+        {statePre && (
           <Stamp
             className="Hero-stamp"
             href={href}
-            iris={irisColor}
             mouseLeave={mouseLeave}
             mouseRef={ref}
             onClick={onClick}
