@@ -101,7 +101,6 @@ const Header = props => {
     const currUrl = router.pathname === url;
 
     if (!isOpen && currUrl) {
-      setTransition(false);
       scrollTo(0);
       return;
     }
