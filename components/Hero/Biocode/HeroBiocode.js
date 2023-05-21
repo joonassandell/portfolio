@@ -12,32 +12,32 @@ const HeroBiocode = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,
-  transitionState = null,
+  transition = null,
 }) => {
   return (
     <Hero
       className="Hero--biocode"
-      heading="Biocode — 2022"
+      heading="Biocode — 2023"
       href={biocode.url}
       id={biocode.id}
       onClick={onClick}
       transitionHideStart={transitionHideStart}
       transitionStart={transitionStart}
-      transitionState={transitionState}
+      transition={transition}
     >
       {({
-        displayAtStartOrByDefault,
+        transitionStartOrDefault,
         initialDelay,
-        statePre,
-        statePreOrStateInitial,
+        transitionPre,
+        transitionPreOrTransitionInitial,
       }) => {
         return (
           <>
-            {displayAtStartOrByDefault && (
+            {transitionStartOrDefault && (
               <div className="Hero-textReveal">
                 <TextReveal
                   animate={{
-                    ...(statePreOrStateInitial && {
+                    ...(transitionPreOrTransitionInitial && {
                       animate: 'in',
                       initial: 'initial',
                       custom: initialDelay,
@@ -50,13 +50,14 @@ const HeroBiocode = ({
             )}
             <div className="grid">
               <div
-                className="Hero-figure
-                      grid-col
-                      grid-col:7 -start:6
-                      grid-col:6@s -start:7@s
-                      grid-col:5@l -start:7@l
-                      -start:6@xl
-                    "
+                className="
+                  Hero-figure
+                  grid-col
+                  grid-col:7 -start:6
+                  grid-col:6@s -start:7@s
+                  grid-col:5@l -start:7@l
+                  -start:6@xl
+                "
               >
                 <div
                   className="Hero-figure-mask"
@@ -65,7 +66,7 @@ const HeroBiocode = ({
                   // data-scroll-speed={scrollSpeed * -3}
                   // data-scroll-speed={scrollSpeed * -2}
                 >
-                  {statePre && (
+                  {transitionPre && (
                     <motion.figure
                       animate={transitionStart ? 'exit' : ''}
                       className="Hero-figure-figure Hero-figure-figure--pre"
@@ -94,7 +95,7 @@ const HeroBiocode = ({
                       </div>
                     </motion.figure>
                   )}
-                  {displayAtStartOrByDefault && (
+                  {transitionStartOrDefault && (
                     <motion.figure className="Hero-figure-figure Hero-figure-figure--initial">
                       <div
                         className="Hero-figure-scroll"
@@ -125,7 +126,7 @@ const HeroBiocode = ({
                 heading={biocode.title}
                 href={biocode.url}
                 onClick={onClick}
-                statePre={statePre}
+                transitionPre={transitionPre}
                 role={['UI, UX design', 'App development', 'Web development']}
               />
             </div>

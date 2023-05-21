@@ -19,45 +19,45 @@ const Hero = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,
-  transitionState = null,
+  transition = null,
 }) => {
-  const statePre = transitionState === 'pre';
+  const transitionPre = transition === 'pre';
   const classes = c(className, 'Hero', {
-    '-transition:pre': statePre,
+    '-transition:pre': transitionPre,
     'is-transition': transitionStart,
   });
   const { appState, setTransitionInitial } = useAppContext();
   const { transitionInitial } = appState;
   const router = useRouter();
-  const Heading = statePre ? motion.h2 : motion.h1;
+  const Heading = transitionPre ? motion.h2 : motion.h1;
 
-  // At hero transition start or at default state (= after transition)
-  const displayAtStartOrByDefault = transitionStart || !statePre;
+  /**
+   * Pre transition: Transition before router change
+   * Default state: After pre transition or at page load
+   * Initial state: Default state and appState.transitionInitial === true
+   */
+  // At transition start or at default state
+  const transitionStartOrDefault = transitionStart || !transitionPre;
 
-  // At hero transition start or at initial state (= default state & appState.transitionInitial === true)
-  const transitionStartOrInitial =
-    transitionStart || (!statePre && transitionInitial);
+  // At transition start or at initial state
+  const transitionStartOrTransitionInitial =
+    transitionStart || (!transitionPre && transitionInitial);
 
-  // State before hero transition or at initial state (= usually before template transition)
-  const statePreOrStateInitial = statePre || transitionInitial;
+  // Pre transition or at initial state
+  const transitionPreOrTransitionInitial = transitionPre || transitionInitial;
 
   const ref = useRef(null);
   const [mouseLeave, setMouseLeave] = useState(false);
 
   const passedProps = {
-    displayAtStartOrByDefault,
     initialDelay: transitionInitial ? 0.75 : 0,
-    transitionStartOrInitial,
-    statePreOrStateInitial,
+    transitionPre,
     transitionInitial,
-    statePre,
+    transitionPreOrTransitionInitial,
+    transitionStartOrDefault,
+    transitionStartOrTransitionInitial,
   };
 
-  /**
-   * This should re-trigger the animations (statePreOrStateInitial) after the
-   * hero transitions but it doesn't which is exactly what I want. Maybe
-   * animation won't retrigger because we use the spread etc. don't know.
-   */
   useEffect(() => {
     if (!transitionInitial) {
       setTransitionInitial(true);
@@ -72,7 +72,7 @@ const Hero = ({
       className={classes}
       data-id={id}
       onAnimationComplete={() => {
-        if (statePre && transitionStart)
+        if (transitionPre && transitionStart)
           router.push(href, null, { scroll: false });
       }}
       onMouseEnter={() => setMouseLeave(false)}
@@ -98,7 +98,7 @@ const Hero = ({
         </Heading>
         <div className="Hero-wrap wrap">{children(passedProps)}</div>
         {childrenAfter(passedProps)}
-        {statePre && (
+        {transitionPre && (
           <div className="Hero-link wrap">
             <div className="grid -placeEnd">
               <div className="grid-col">
@@ -115,7 +115,7 @@ const Hero = ({
             </div>
           </div>
         )}
-        {statePre && (
+        {transitionPre && (
           <Stamp
             className="Hero-stamp"
             href={href}

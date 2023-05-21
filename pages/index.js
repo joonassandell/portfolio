@@ -65,7 +65,7 @@ const Home = () => {
         id="biocode"
         onClick={handleClick}
         transitionStart={currentHero === 'biocode' && animation}
-        transitionState="pre"
+        transition="pre"
         transitionHideStart={currentHero != 'biocode' && animationHide}
       />
 
@@ -73,7 +73,7 @@ const Home = () => {
         id="oras"
         onClick={handleClick}
         transitionStart={currentHero === 'oras' && animation}
-        transitionState="pre"
+        transition="pre"
         transitionHideStart={currentHero != 'oras' && animationHide}
       />
 
