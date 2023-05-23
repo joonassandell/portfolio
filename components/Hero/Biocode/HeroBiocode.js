@@ -29,7 +29,7 @@ const HeroBiocode = ({
         transitionStartOrDefault,
         initialDelay,
         transitionPre,
-        transitionPreOrTransitionInitial,
+        isSetForTransition,
       }) => {
         return (
           <>
@@ -37,7 +37,7 @@ const HeroBiocode = ({
               <div className="Hero-textReveal">
                 <TextReveal
                   animate={{
-                    ...(transitionPreOrTransitionInitial && {
+                    ...(isSetForTransition && {
                       animate: 'in',
                       initial: 'initial',
                       custom: initialDelay,

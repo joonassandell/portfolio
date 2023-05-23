@@ -33,18 +33,14 @@ const Hero = ({
 
   /**
    * Pre transition: Transition before router change
-   * Default state: After pre transition or at page load
-   * Initial state: Default state and appState.transitionInitial === true
+   * Default state: On mount (e.g. after pre transition) or at page load
+   * Initial state: appState.transitionInitial === true
    */
+  // Is ready for pre or initial transition
+  const isSetForTransition = transitionPre || transitionInitial;
+
   // At transition start or at default state
   const transitionStartOrDefault = transitionStart || !transitionPre;
-
-  // At transition start or at initial state
-  const transitionStartOrTransitionInitial =
-    transitionStart || (!transitionPre && transitionInitial);
-
-  // Pre transition or at initial state
-  const transitionPreOrTransitionInitial = transitionPre || transitionInitial;
 
   const ref = useRef(null);
   const [mouseLeave, setMouseLeave] = useState(false);
@@ -53,16 +49,19 @@ const Hero = ({
     initialDelay: transitionInitial ? 0.75 : 0,
     transitionPre,
     transitionInitial,
-    transitionPreOrTransitionInitial,
+    isSetForTransition,
     transitionStartOrDefault,
-    transitionStartOrTransitionInitial,
   };
 
+  /**
+   * Set initial transition to true if the hero is not in pre transition state,
+   * so that initial animations are visible in 'template' transitions.
+   */
   useEffect(() => {
-    if (!transitionInitial) {
+    if (!transitionInitial && !transitionPre) {
       setTransitionInitial(true);
     }
-  }, []);
+  }, [transitionInitial, transitionPre]);
 
   return (
     <motion.section

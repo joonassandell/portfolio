@@ -23,15 +23,14 @@ const HeroOras = ({
       childrenAfter={({
         transitionStartOrDefault,
         initialDelay,
-        transitionPreOrTransitionInitial,
-        transitionStartOrTransitionInitial,
+        isSetForTransition,
       }) => {
         return (
           <>
             {transitionStartOrDefault && (
               <motion.div
                 className="Hero-drop Hero-drop--2"
-                {...(transitionPreOrTransitionInitial && {
+                {...(isSetForTransition && {
                   animate: 'animate',
                   custom: initialDelay,
                   initial: 'initial',
@@ -53,12 +52,13 @@ const HeroOras = ({
             )}
             <motion.div
               className="Hero-drop Hero-drop--3"
-              {...(transitionPreOrTransitionInitial && {
-                animate: transitionStartOrTransitionInitial ? 'animate' : '',
-                custom: initialDelay,
-                initial: 'initial',
-                variants: dropVariants3,
-              })}
+              {...(transitionStartOrDefault &&
+                isSetForTransition && {
+                  animate: 'animate',
+                  custom: initialDelay,
+                  initial: 'initial',
+                  variants: dropVariants3,
+                })}
             >
               <div
                 data-scroll
@@ -95,7 +95,7 @@ const HeroOras = ({
         transitionStartOrDefault,
         initialDelay,
         transitionPre,
-        transitionPreOrTransitionInitial,
+        isSetForTransition,
       }) => {
         return (
           <div className="grid">
@@ -133,7 +133,7 @@ const HeroOras = ({
               {transitionStartOrDefault && (
                 <motion.div
                   className="Hero-drop Hero-drop--1"
-                  {...(transitionPreOrTransitionInitial && {
+                  {...(isSetForTransition && {
                     animate: 'animate',
                     custom: initialDelay,
                     initial: 'initial',
