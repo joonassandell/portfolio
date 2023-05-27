@@ -94,10 +94,10 @@ $root-minWidth: 320px;
 // =========
 // Breakpoints
 // =========
+//
+// Desktop & mobile match w/ locomotive-scroll smooth setting
+//
 
-/**
- * Desktop & mobile match w/ locomotive-scroll smooth setting
- */
 $mq-breakpoints: (
   xxxs: 320px,
   xxs: 360px,
@@ -116,60 +116,6 @@ $mq-breakpoints: (
   desktop: 1024px,
   mobile: 1023px,
 );
-
-// =========
-// Colors
-// =========
-
-// Base colors
-$black: #000000;
-$white: #ffffff;
-
-// Grays
-$gray-10: lighten($black, 60);
-
-// Brand colors
-$primary: $black; //#111111;
-$primary-500: #111111;
-$primary-negative: #f6eee3;
-$primary-negativeLight: $white;
-
-// Background colors
-$bg-700: $primary;
-$bg-500: $primary-500;
-$bg-10: $primary-negative;
-$bg-100: desaturate(darken($bg-10, 12), 35);
-$bg-50: desaturate(darken($bg-10, 5), 20);
-
-$bg-100-opaqueAlpha: 0.15;
-$bg-100-opaque: rgba($black, $bg-100-opaqueAlpha);
-$bg-100-opaqueNegative: rgba($white, $bg-100-opaqueAlpha);
-
-$bg-50-opaqueAlpha: 0.06;
-$bg-50-opaque: rgba($black, $bg-50-opaqueAlpha);
-$bg-50-opaqueNegative: rgba($white, $bg-50-opaqueAlpha);
-
-// Text colors
-$text-700: $primary-500;
-$text-400: lighten($text-700, 30);
-$text-10: $primary-negative;
-$text-50: darken(desaturate($primary-negative, 45), 30);
-
-// Heading color
-$heading: inherit;
-
-// Link colors
-$link: $primary-500;
-$link-hover: $primary-500;
-
-// Border colors
-$border-700: $primary;
-$border-500: lighten($primary, 20);
-$border-50: rgba($primary, 0.12);
-$border-10: $primary-negative;
-
-// Root
-$root-bg: $bg-700;
 
 // =========
 // Various Global Settings
@@ -249,29 +195,3 @@ $Button-fontWeight: $font-weight;
 $Button-minHeight: $space-ml;
 $Button-spaceY: $space / 1.33;
 $Button-spaceX: $space * 1.25;
-
-// =======================================
-// Template
-// =======================================
-
-$Template-overlayColor: $primary;
-
-// =======================================
-// Biocode
-// =======================================
-
-$biocode-bg: #070707;
-$biocode-primary: #4d4dff;
-$biocode-text: $white;
-
-// =======================================
-// Oras
-// =======================================
-
-$oras-bg: $white;
-$oras-primary: red;
-
-$HeroOras-bgPreTransition: $bg-10;
-$HeroOras-figureBg: $black; // #E9E9E9
-$HeroOras-figureBgAlpha: $bg-100-opaqueAlpha;
-$HeroOras-figurePreTransitionBgAlpha: $bg-50-opaqueAlpha;

@@ -3,9 +3,9 @@
   --scrollbar-minLength: 1rem;
   --scrollbar-ff-width: thin;
   --scrollbar-track-color: transparent;
-  --scrollbar-color: #{rgba($black, 0.2)};
-  --scrollbar-color-hover: #{rgba($black, 0.3)};
-  --scrollbar-color-active: #{$black};
+  --scrollbar-color: #{rgba(#000, 0.2)};
+  --scrollbar-color-hover: #{rgba(#000, 0.3)};
+  --scrollbar-color-active: #000;
 
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -15,9 +15,9 @@
   scrollbar-width: var(--scrollbar-ff-width);
 
   &.-color\:negative {
-    --scrollbar-color: #{rgba($white, 0.15)};
-    --scrollbar-color-hover: #{rgba($white, 0.3)};
-    --scrollbar-color-active: #{$white};
+    --scrollbar-color: #{rgba(#fff, 0.15)};
+    --scrollbar-color-hover: #{rgba(#fff, 0.3)};
+    --scrollbar-color-active: #fff;
   }
 }
 

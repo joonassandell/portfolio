@@ -2,6 +2,7 @@ import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Title from '@/components/Title';
 import {
+  overlayVariants,
   variantsWithTransition,
   variantsWithoutTransition,
 } from './Template.animations';
@@ -76,11 +77,10 @@ const Template = ({ children, name, title }) => {
         </div>
         {displayOverlay && (
           <motion.div
-            animate={{
-              backgroundColor: 'var(--Template-overlayColor)',
-            }}
+            animate="animate"
             className="Template-overlay"
-            transition={variantsWithTransition.transition}
+            initial="initial"
+            variants={overlayVariants}
           />
         )}
       </motion.div>

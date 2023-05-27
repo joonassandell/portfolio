@@ -60,7 +60,7 @@
 }
 
 .Header-logo {
-  color: $white;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   margin: 0 auto 0 0;
@@ -69,7 +69,7 @@
   z-index: 1;
 
   a {
-    color: $white;
+    color: var(--white);
   }
 
   @include mq(m) {
@@ -101,7 +101,7 @@
 }
 
 .Header-separator-line {
-  background: $bg-10;
+  background: var(--bg-10);
   display: block;
   height: 2px;
   position: absolute;
@@ -114,7 +114,7 @@
 
 .Header-button {
   align-items: center;
-  color: $white;
+  color: var(--white);
   display: flex;
   margin: 0;
   z-index: 1;
@@ -178,7 +178,7 @@
     margin-left: auto;
 
     a {
-      color: $white;
+      color: var(--white);
     }
   }
 }
@@ -200,7 +200,7 @@
  * ====== */
 
 .Header-mask {
-  background: $bg-700;
+  background: var(--bg-700);
   clip-path: circle(0% at 0px 0px);
 
   // clip-path: circle(150% at 480px 64px) !important;
@@ -218,7 +218,7 @@
   }
 
   &:before {
-    background: linear-gradient($primary 40%, rgba($primary, 0));
+    background: linear-gradient(var(--primary) 40%, transparent);
     content: '';
     height: rem($space * 8);
     left: 0;
@@ -336,17 +336,17 @@
 
 .Header-nav-link {
   align-items: center;
-  color: $white;
+  color: var(--white);
   display: flex;
   padding: rem($space-s) 0;
   // padding: rem($space) 0;
 
   &:hover {
-    color: $white;
+    color: var(--white);
   }
 
   &:before, &:after {
-    border-top: 1px solid $border-500;
+    border-top: 1px solid var(--border-500);
     content: '';
   }
 
@@ -408,14 +408,14 @@
 
   path {
     &:first-child {
-      stroke: lighten($border-500, 30);
+      stroke: #4d4d4d; // lighten($border-500, 30);
       stroke-width: 4px;
     }
   }
 }
 
 .Header-nav-marquee {
-  background: $primary-negative;
+  background: var(--primary-negative);
   inset: 0;
   overflow: hidden;
   pointer-events: none;
@@ -454,12 +454,12 @@
 
 .Header-footer {
   align-items: flex-end;
-  color: $white;
+  color: var(--white);
   display: flex;
   margin: max(10vh, #{rem($space * 5)}) 0 rem($space-xl) 0;
 
   a {
-    color: $white;
+    color: var(--white);
   }
 
   @include mq($until: m) {

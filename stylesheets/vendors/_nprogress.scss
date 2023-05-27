@@ -12,13 +12,13 @@
 
   .bar {
     // background: $bg-10;
-    background: linear-gradient(to right, rgba($bg-10, 0) 0%, rgba($bg-10, 0.7));
+    background: linear-gradient(to right, rgba(#f6eee3, 0) 0%, rgba(#f6eee3, 0.7));
     // background: linear-gradient(to right, rgba($bg-10, 0) 0%, rgba($bg-10, 1));
     height: $width;
   }
 
   .peg {
-    box-shadow: 0 0 30px $bg-10, 0 0 8px $bg-10;
+    box-shadow: 0 0 30px var(--bg-10), 0 0 8px var(--bg-10);
     transform: translate(0, 0);
     width: rem($space);
   }

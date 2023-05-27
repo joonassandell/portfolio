@@ -10,46 +10,8 @@
     $root: true,
     $scaleValue: 1.25vw,
   );
-  --root-minWidth: #{$root-minWidth};
-  --vh: 100vh;
-
-  --wrap-spaceLeft: #{$wrap-spaceLeft};
-  --wrap-spaceRight: #{$wrap-spaceRight};
-
-  --black: #{$black};
-  --white: #{$white};
-
-  --primary: #{$primary};
-  --primary-negative: #{$primary-negative};
-  --primary-negativeLight: #{$primary-negativeLight};
-
-  --link: #{$link};
-  --link-hover: #{$link-hover};
-
-  --text-700: #{$text-700};
-  --text-400: #{$text-400};
-  --text-50: #{$text-50};
-  --text-10: #{$text-10};
-
-  --border-700: #{$border-700};
-  --border-500: #{$border-500};
-  --border-10: #{$border-10};
-
-  --bg-100: #{$bg-100};
-  --bg-50: #{$bg-50};
-  --bg-10: #{$bg-10};
-
-  --biocode-primary: #{$biocode-primary};
-
-  --oras-primary: #{$oras-primary};
-  --HeroOras-figureBg: #{$HeroOras-figureBg};
-  --HeroOras-figureBgAlpha:#{$HeroOras-figureBgAlpha};
-  --HeroOras-figureBgRgb: #{hexToRgb($HeroOras-figureBg)};
-
-  --Template-overlayColor: #{$Template-overlayColor};
-
-  background-color: $root-bg;
-  color: var(--text-700);
+  background-color: var(--root-bg);
+  color: var(--text);
   font-family: $font-family;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -75,16 +37,6 @@
   &.is-transition {
     pointer-events: none;
     touch-action: none;
-  }
-
-  @include mq(m) {
-    --wrap-spaceLeft: #{rem($wrap-spaceLeft-m)};
-    --wrap-spaceRight: #{rem($wrap-spaceRight-m)};
-  }
-
-  @include mq(l) {
-    --wrap-spaceLeft: #{rem($wrap-spaceLeft-l)};
-    --wrap-spaceRight: #{rem($wrap-spaceRight-l)};
   }
 }
 
@@ -134,23 +86,19 @@ a {
   color: var(--link);
   text-decoration: none;
 
-  &:active {
-    color: var(--link);
-  }
-
   &:hover {
     color: var(--link-hover);
   }
 }
 
 ::-moz-selection {
-  background: $primary;
-  color: $primary-negative;
+  background: var(--primary);
+  color: var(--primary-negative);
 }
 
 ::selection {
-  background: $primary;
-  color: $primary-negative;
+  background: var(--primary);
+  color: var(--primary-negative);
 }
 
 img::selection {

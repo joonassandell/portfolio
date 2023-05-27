@@ -1,5 +1,5 @@
 .Template {
-  background-color: $bg-10;
+  background-color: var(--Template-bgColor, var(--bg-50));
   min-height: var(--vh);
   overflow: hidden;
   top: 0;
@@ -83,19 +83,19 @@
   padding-top: 10vw;
 
   &.-bg\:50 {
-    background: $bg-50-opaque;
+    background: var(--bg-50-opaque);
   }
 
   &.-bg\:100 {
-    background: $bg-100-opaque;
+    background: var(--bg-100-opaque);
   }
 
   &.-bg\:gradient-10-50 {
-    background: linear-gradient(transparent, $bg-50-opaque 8%);
+    background: linear-gradient(transparent, var(--bg-50-opaque) 8%);
   }
 
   &.-bg\:gradient-10-50-10 {
-    background: linear-gradient(transparent, $bg-50-opaque 8%, $bg-50-opaque 92%, transparent);
+    background: linear-gradient(transparent, var(--bg-50-opaque) 8%, var(--bg-50-opaque) 92%, transparent);
   }
 
   &.-padding\:bottom {

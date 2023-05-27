@@ -49,7 +49,7 @@
 }
 
 .Figure-video {
-  background: var(--Figure-videoPlaceholderColor, $bg-50-opaque);
+  background: var(--Figure-videoPlaceholderColor, var(--bg-50-opaque));
   height: 100%;
   width: 100%;
 }

@@ -28,3 +28,13 @@ export const variantsWithoutTransition = {
     ease: 'linear',
   },
 };
+
+export const overlayVariants = {
+  animate: {
+    backgroundColor: 'var(--Template-overlayColor)',
+    transition: transTemplate,
+  },
+  initial: {
+    backgroundColor: 'var(--Template-overlayColor-initial)',
+  },
+};
