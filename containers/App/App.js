@@ -21,7 +21,7 @@ const AppContext = createContext({
   loadingEnd: false,
   scrollLock: false,
   transition: false, // 'template', false, true
-  transitionInitial: true,
+  transitionInitial: false,
 });
 
 export const App = ({ Component, pageProps, router }) => {
@@ -220,7 +220,9 @@ https://www.typescriptlang.org And this one too
           type="font/woff2"
         />
       </Head>
-      {/* <Splash loading={loading} setLoadingEnd={setLoadingEnd} /> */}
+      {process.env.NODE_ENV === 'production' && (
+        <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
+      )}
       <AppContext.Provider
         value={{
           appState,
@@ -233,13 +235,13 @@ https://www.typescriptlang.org And this one too
         <LocomotiveScrollProvider
           containerRef={containerRef}
           options={{
-            smooth: true,
             multiplier:
               typeof window !== 'undefined' &&
               window.navigator &&
               window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
                 ? 3
                 : 1,
+            smooth: true,
           }}
           watch={['Done manually']}
         >
@@ -266,19 +268,18 @@ https://www.typescriptlang.org And this one too
   );
 };
 
-const AppMain = ({ ...props }) => {
-  const {
-    Component,
-    innerKey,
-    pageProps,
-    loadingEnd,
-    scrollLock,
-    setScrollLock,
-    setTransition,
-    transition,
-    templateTransition,
-    html,
-  } = props;
+const AppMain = ({
+  Component,
+  innerKey,
+  pageProps,
+  loadingEnd,
+  scrollLock,
+  setScrollLock,
+  setTransition,
+  transition,
+  templateTransition,
+  html,
+}) => {
   const { scroll } = useLocomotiveScroll();
 
   useEffect(() => {
