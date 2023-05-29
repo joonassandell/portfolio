@@ -19,9 +19,6 @@ const HeroContent = ({
         {heading}
       </p>
       <p className="Hero-content-text Text -s">
-        {/* UI, UX design <br />
-        Web development <br />
-        Concept strategy */}
         {role.map((r, i, arr) => {
           const br = arr.length - 1 != i ? <br /> : null;
           return (

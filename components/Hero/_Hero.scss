@@ -1,71 +1,99 @@
+/**
+ * 1. For locomotive-scroll to work properly and not trigger a move e.g. with
+ *    heading after template transition
+ */
 .Hero {
-  height: 132vw;
-  max-height: rem($space * 52);
-  min-width: var(--root-minWidth);
+  --Hero-minHeight: #{rem($space * 32)};
+  --Hero-height: 100vw;
+  --Hero-maxHeight: 75vh;
+  height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
   position: relative;
 
   &.-transition\:pre {
-    background-color: $bg-10;
+    background-color: var(--bg-10);
+    box-shadow: inset 0 -1px 0 var(--primary);
     z-index: $Footer-zIndex + 1;
   }
 
-  @include mq(xs) {
-    height: 115vw;
+  @include mq(s) {
+    --Hero-maxHeight: #{rem($space * 48)};
   }
 
-  @include mq(s) {
-    height: 100vw;
+  @include mq(l) {
+    --Hero-minHeight: #{rem($space * 42)};
+    --Hero-height: 100vh; // [1.]
+  }
+
+  @include mq(xxl) {
+    --Hero-minHeight: #{rem($space * 44)};
   }
 }
 
 .Hero-inner {
-  min-height: 100vh;
-}
+  min-height: 100vh; // [1.]
 
-.Hero-wrap {
-  @include mq($until: l) {
-    padding-right: 0;
+  > * {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  > :where(.wrap) {
+    @include mq($until: l) {
+      padding-right: 0;
+    }
   }
 }
 
 .Hero-heading {
-  bottom: rem($space-m);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.Hero-heading-inner {
+  align-items: center;
+  bottom: rem($space-xl);
+  display: flex;
   height: 25%;
-  margin: 0 0 0 var(--wrap-spaceLeft);
+  margin: 0 0 0 rem(-$space-xs);
+  pointer-events: all;
   position: absolute;
   transform: translate3d(0, -175%, 0);
   white-space: nowrap;
-  z-index: 2;
 
   .Hero.-transition\:pre & {
     cursor: pointer;
     transform: translate3d(0, 0, 0);
   }
 
-  .Heading-inner {
-    margin-left: rem(-$space-xs);
-
-    @include mq(m) {
-      margin-left: rem(-$space-m);
-    }
+  @include mq(m) {
+    margin-left: rem(-$space-m);
   }
 
   @include mq(l) {
-    bottom: 0;
+    bottom: rem(-($space-ml + 1px));
+  }
+
+  @include mq(xl) {
+    bottom: rem(-($space-m) + 1px);
+  }
+}
+
+.Hero-figure {
+  .Hero.-transition\:pre & {
+    cursor: pointer;
   }
 }
 
 .Hero-link {
-  bottom: 0;
+  inset: auto 0 rem($space-ml) 0;
+  padding-right: var(--wrap-spaceRight);
+  pointer-events: all;
   position: absolute;
   z-index: 4;
 
   > .grid {
     place-items: end;
-  }
-
-  .Hero.is-transition & {
-    z-index: 0;
   }
 
   @include mq(l) {
@@ -74,12 +102,9 @@
 }
 
 .Hero-content {
+  pointer-events: all;
   position: relative;
   z-index: 4;
-
-  .Hero.is-transition & {
-    z-index: 0;
-  }
 
   @include mq($until: l) {
     display: none;
@@ -99,6 +124,8 @@
 }
 
 .Hero-stamp.Stamp {
+  pointer-events: all;
+
   .Stamp-inner {
     left: -15%;
     top: 5%;

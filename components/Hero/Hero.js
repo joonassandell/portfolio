@@ -2,7 +2,7 @@ import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { motion } from 'framer-motion';
 import { useAppContext } from '@/containers/App';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
 import Link from '@/components/Link';
@@ -10,13 +10,14 @@ import Stamp from '@/components/Stamp';
 
 const Hero = ({
   children,
-  childrenAfter = () => null,
   className,
   heading,
   headingVariants = headingVars,
   href,
   id,
   onClick,
+  stampOverlay = true,
+  stampAddVarsToParent = false,
   transitionHideStart = false,
   transitionStart = false,
   transition = null,
@@ -37,19 +38,18 @@ const Hero = ({
    * Initial state: appState.transitionInitial === true
    */
   // Is ready for pre or initial transition
-  const isSetForTransition = transitionPre || transitionInitial;
+  const transitionPreOrInitial = transitionPre || transitionInitial;
 
   // At transition start or at default state
   const transitionStartOrDefault = transitionStart || !transitionPre;
 
   const ref = useRef(null);
-  const [mouseLeave, setMouseLeave] = useState(false);
 
   const passedProps = {
     initialDelay: transitionInitial ? 0.75 : 0,
     transitionPre,
     transitionInitial,
-    isSetForTransition,
+    transitionPreOrInitial,
     transitionStartOrDefault,
   };
 
@@ -74,29 +74,27 @@ const Hero = ({
         if (transitionPre && transitionStart)
           router.push(href, null, { scroll: false });
       }}
-      onMouseEnter={() => setMouseLeave(false)}
-      onMouseLeave={() => setMouseLeave(true)}
       ref={ref}
       variants={transitionHideStart ? fadeOutVariants : {}}
     >
-      <div className="Hero-inner" data-scroll-id={id}>
-        <Heading
-          className="Hero-heading Heading Heading--display"
-          onClick={onClick}
-          variants={headingVariants}
-        >
-          <div
-            className="Heading-inner"
-            data-scroll
-            data-scroll-target={`[data-scroll-id="${id}"]`}
-            data-scroll-speed={scrollSpeed}
-            data-scroll-direction="horizontal"
+      <div data-scroll-id={id} className="Hero-inner">
+        <div className="Hero-heading wrap">
+          <Heading
+            className="Hero-heading-inner Heading Heading--display"
+            onClick={onClick}
+            variants={headingVariants}
           >
-            {heading}
-          </div>
-        </Heading>
-        <div className="Hero-wrap wrap">{children(passedProps)}</div>
-        {childrenAfter(passedProps)}
+            <div
+              data-scroll
+              data-scroll-target={`[data-scroll-id="${id}"]`}
+              data-scroll-speed={scrollSpeed}
+              data-scroll-direction="horizontal"
+            >
+              {heading}
+            </div>
+          </Heading>
+        </div>
+        {children(passedProps)}
         {transitionPre && (
           <div className="Hero-link wrap">
             <div className="grid -placeEnd">
@@ -106,7 +104,6 @@ const Hero = ({
                   href={href}
                   onClick={onClick}
                   templateTransition={false}
-                  underline
                 >
                   View project
                 </Link>
@@ -116,11 +113,12 @@ const Hero = ({
         )}
         {transitionPre && (
           <Stamp
+            addVarsToParent={stampAddVarsToParent}
             className="Hero-stamp"
             href={href}
-            mouseLeave={mouseLeave}
-            mouseRef={ref}
             onClick={onClick}
+            overlay={stampOverlay}
+            parentRef={ref}
             transitionStart={transitionStart}
           />
         )}
