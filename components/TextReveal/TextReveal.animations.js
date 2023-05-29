@@ -1,20 +1,24 @@
 import { transPrimary } from '@/lib/config';
 
 export const headingVariant = {
-  in: (delay = 0) => ({
+  animate: ({ delay } = { delay: 0 }) => ({
     transition: {
-      delayChildren: delay ? delay : 0,
+      delayChildren: delay,
       staggerChildren: 0.3,
     },
   }),
 };
 
 export const inVariant = {
-  in: {
+  animate: {
     transition: transPrimary,
     y: 0,
   },
-  initial: {
-    y: '100%',
+  initial: ({ enableInitial } = { enableInitial: true }) => {
+    return enableInitial
+      ? {
+          y: '100%',
+        }
+      : {};
   },
 };

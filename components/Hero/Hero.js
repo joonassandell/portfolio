@@ -46,7 +46,7 @@ const Hero = ({
   const ref = useRef(null);
 
   const passedProps = {
-    initialDelay: transitionInitial ? 0.75 : 0,
+    initialDelay: transitionInitial ? 0.75 : null,
     transitionPre,
     transitionInitial,
     transitionPreOrInitial,
@@ -74,6 +74,7 @@ const Hero = ({
         if (transitionPre && transitionStart)
           router.push(href, null, { scroll: false });
       }}
+      initial="initial"
       ref={ref}
       variants={transitionHideStart ? fadeOutVariants : {}}
     >

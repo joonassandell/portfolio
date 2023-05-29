@@ -6,7 +6,7 @@ import TextReveal from '@/components/TextReveal';
 import { headingVariants, maskVariants } from './HeroBiocode.animations';
 import Image from 'next/image';
 
-const biocode = getSitemap('biocode');
+const { url, year, id, title } = getSitemap('biocode');
 
 const HeroBiocode = ({
   onClick,
@@ -20,10 +20,10 @@ const HeroBiocode = ({
   return (
     <Hero
       className="Hero--biocode"
-      heading="Biocode — 2023"
+      heading={`Biocode — ${year}`}
       headingVariants={headingVariants}
-      href={biocode.url}
-      id={biocode.id}
+      href={url}
+      id={id}
       onClick={onClick}
       stampOverlay={false}
       stampAddVarsToParent={true}
@@ -35,7 +35,6 @@ const HeroBiocode = ({
         initialDelay,
         preTransition,
         transitionPre,
-        transitionPreOrInitial,
         transitionStartOrDefault,
       }) => {
         return (
@@ -46,7 +45,7 @@ const HeroBiocode = ({
                   <figure className="Hero-figure-globe Hero-figure-globe--pre">
                     <div
                       data-scroll
-                      data-scroll-target={`[data-scroll-id=${biocode.id}]`}
+                      data-scroll-target={`[data-scroll-id=${id}]`}
                       data-scroll-speed={-scrollSpeed}
                     >
                       <Image
@@ -66,8 +65,8 @@ const HeroBiocode = ({
                 </div>
                 <HeroContent
                   className="grid-col grid-col:3 -start:11 grid-col:2@xl"
-                  heading={biocode.title}
-                  href={biocode.url}
+                  heading={title}
+                  href={url}
                   onClick={onClick}
                   transitionPre={transitionPre}
                   transitionStart={transitionStart}
@@ -80,9 +79,8 @@ const HeroBiocode = ({
               </div>
             )}
             <motion.div
-              animate={transitionStart ? 'animate' : ''}
-              initial={transitionPre ? 'initial' : ''}
               className="Hero-globe wrap grid -size:l"
+              custom={{ enableInitial: transitionPre }}
               variants={maskVariants}
             >
               <div className={figureClasses}>
@@ -91,7 +89,7 @@ const HeroBiocode = ({
                     {...(!preTransition && {
                       'data-scroll': true,
                       'data-scroll-speed': -scrollSpeed,
-                      'data-scroll-target': `[data-scroll-id=${biocode.id}]`,
+                      'data-scroll-target': `[data-scroll-id=${id}]`,
                     })}
                   >
                     <Image
@@ -129,24 +127,18 @@ const HeroBiocode = ({
             {transitionStartOrDefault && (
               <div className="Hero-textReveal wrap">
                 <TextReveal
-                  animate={{
-                    ...(transitionPreOrInitial && {
-                      animate: 'in',
-                      custom: initialDelay ? initialDelay : 0.3,
-                      initial: 'initial',
-                    }),
+                  custom={{
+                    delay: initialDelay ?? 0.3,
+                    enableInitial: transitionPre,
                   }}
                   className="Hero-textReveal-mobile"
                   text={['We have to', 'reverse global', 'heating']}
                   hidden
                 />
                 <TextReveal
-                  animate={{
-                    ...(transitionPreOrInitial && {
-                      animate: 'in',
-                      custom: initialDelay ? initialDelay : 0.3,
-                      initial: 'initial',
-                    }),
+                  custom={{
+                    delay: initialDelay ?? 0.3,
+                    enableInitial: transitionPre,
                   }}
                   className="Hero-textReveal-desktop"
                   text={['We have to reverse', 'global heating']}
@@ -162,8 +154,7 @@ const HeroBiocode = ({
             )}
             <motion.div
               className="Hero-bg"
-              animate={transitionStart ? 'animate' : ''}
-              initial={transitionPre ? 'initial' : ''}
+              custom={{ enableInitial: transitionPre }}
               variants={maskVariants}
             />
           </>
