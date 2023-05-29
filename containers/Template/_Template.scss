@@ -1,6 +1,6 @@
 .Template {
-  --Template-overlayColor: rgba(0 0 0 / 1);
-  --Template-overlayColor-initial: rgba(0 0 0 / 0);
+  --Template-overlayColor: var(--black);
+  --Template-overlayColor-initial: var(--black-transparent);
   background-color: var(--Template-bgColor, var(--bg-50));
   color: var(--Template-color, var(--text-1000));
   min-height: var(--vh);
