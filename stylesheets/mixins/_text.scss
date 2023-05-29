@@ -22,12 +22,12 @@
   @if $style == 'subtitle' {
     // text-transform: uppercase;
     @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
-    color: var(--text-400);
+    color: var(--text-muted);
   }
 
   @if $style == 'meta' {
     @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
-    color: var(--text-400);
+    color: var(--text-muted);
   }
 }
 

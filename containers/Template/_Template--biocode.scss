@@ -2,13 +2,11 @@
   --Template-bgColor: var(--biocode-bg);
   --link: var(--biocode-text-1000);
   --link-hover: var(--biocode-text-1000);
-  --border-700: var(--biocode-border-700);
-  --text-700: var(--biocode-text-1000);
-  --text-600: var(--biocode-text-900);
-  --text-400: var(--biocode-text-800);
+  --border-1000: var(--biocode-border-1000);
+  --text-1000: var(--biocode-text-1000);
+  --text-900: var(--biocode-text-900);
+  --text-muted: var(--biocode-text-muted);
   --heading: var(--biocode-heading);
-  --border-1000: white;
-  color: var(--text-700);
 
   .Info {
     @include mq($until: ml) {

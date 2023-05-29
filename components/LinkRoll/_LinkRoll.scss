@@ -2,6 +2,11 @@
   display: inline-flex;
   overflow: hidden;
   position: relative;
+  transition: opacity $trans-primaryFastest;
+
+  &:where(:hover) {
+    opacity: var(--link-hover-opacity);
+  }
 }
 
 .LinkRoll-text {

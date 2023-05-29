@@ -1,20 +1,13 @@
 .Template {
+  --Template-overlayColor: rgba(0 0 0 / 1);
+  --Template-overlayColor-initial: rgba(0 0 0 / 0);
   background-color: var(--Template-bgColor, var(--bg-50));
+  color: var(--Template-color, var(--text-1000));
   min-height: var(--vh);
   overflow: hidden;
   top: 0;
   width: 100vw;
   z-index: 1;
-
-  /**
-   * Negative
-   */
-  // --link: var(--primary-negative);
-  // --link-hover: var(--primary-negative);
-  // --text-400: var(--text-50);
-  // --border-700: var(--border-10);
-  // background-color: var(--primary-500);
-  // color: var(--text-10);
 
   /**
    * This is the start animation
@@ -83,19 +76,19 @@
   padding-top: 10vw;
 
   &.-bg\:50 {
-    background: var(--bg-50-opaque);
+    background: var(--bg-gray-50-opaque);
   }
 
   &.-bg\:100 {
-    background: var(--bg-100-opaque);
+    background: var(--bg-gray-100-opaque);
   }
 
-  &.-bg\:gradient-10-50 {
-    background: linear-gradient(transparent, var(--bg-50-opaque) 8%);
+  &.-bg\:gradient-0-50 {
+    background: linear-gradient(transparent, var(--bg-gray-50-opaque) 8%);
   }
 
-  &.-bg\:gradient-10-50-10 {
-    background: linear-gradient(transparent, var(--bg-50-opaque) 8%, var(--bg-50-opaque) 92%, transparent);
+  &.-bg\:gradient-0-50-0 {
+    background: linear-gradient(transparent, var(--bg-gray-50-opaque) 8%, var(--bg-gray-50-opaque) 92%, transparent);
   }
 
   &.-padding\:bottom {

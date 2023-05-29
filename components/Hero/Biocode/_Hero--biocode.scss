@@ -63,7 +63,7 @@
   }
 
   .Hero-figure-icon {
-    border: 1px solid rgba(255, 255, 255, 0);
+    border: 1px solid transparent;
     border-radius: 50%;
     inset: auto auto 27% 40%;
     margin: 0;
@@ -87,12 +87,12 @@
 
   &.is-transition, &:not(.Hero.-transition\:pre) {
     .Hero-figure-icon {
-      border-color: rgba(255, 255, 255, 0.15);
+      border-color: var(--biocode-border-1000);
     }
   }
 
   .Hero-figureBg-bg {
-    background: var(--bg-50-opaque);
+    background: var(--bg-gray-50-opaque);
     height: 100%;
   }
 

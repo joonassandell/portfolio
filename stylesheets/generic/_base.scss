@@ -10,8 +10,8 @@
     $root: true,
     $scaleValue: 1.25vw,
   );
-  background-color: var(--root-bg);
-  color: var(--text);
+  background-color: var(--bg-1000);
+  color: var(--text-50);
   font-family: $font-family;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -88,23 +88,19 @@ ul {
   @include resetList();
 }
 
-a {
+:where(a) {
   color: var(--link);
   text-decoration: none;
-
-  &:hover {
-    color: var(--link-hover);
-  }
 }
 
 ::-moz-selection {
-  background: var(--primary);
-  color: var(--primary-negative);
+  background: var(--bg-1000);
+  color: var(--cream-50);
 }
 
 ::selection {
-  background: var(--primary);
-  color: var(--primary-negative);
+  background: var(--bg-1000);
+  color: var(--cream-50);
 }
 
 img::selection {

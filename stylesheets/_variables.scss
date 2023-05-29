@@ -1,54 +1,43 @@
 :root {
-  // Base colors
+  // Base
   --black: #000;
   --white: #fff;
 
-  // Grays
-  --gray-10: #999999; // #{lighten($black, 60)};
+  // Brand
+  --cream-200: #d6cfc6;
+  --cream-100: #eae1d6;
+  --cream-50: #f6eee3;
 
-  // Brand colors
-  --primary: var(--black);
-  --primary-500: #111111;
-  --primary-negative: #f6eee3;
-  --primary-negativeLight: var(--white);
+  // Background
+  --bg-1000: var(--black);
+  --bg-900: #111;
+  --bg-50: var(--white);
 
-  // Background colors
-  --bg-700: var(--primary);
-  --bg-500: var(--primary-500);
-  --bg-100: #d6cfc6; // #{desaturate(darken(#f6eee3, 12), 35)};
-  --bg-50: #eae1d6; // #{desaturate(darken(#f6eee3, 5), 20)};
-  --bg-10: var(--primary-negative);
+  --bg-gray-100-opaque-alpha: 0.15;
+  --bg-gray-100-opaque: rgba(0, 0, 0, var(--bg-gray-100-opaque-alpha));
+  --bg-gray-50-opaque-alpha: 0.06;
+  --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
 
-  --bg-100-opaqueAlpha: 0.15;
-  --bg-100-opaque: rgba(0, 0, 0, var(--bg-100-opaqueAlpha));
-  --bg-100-opaqueNegative: rgba(255, 255, 255, var(--bg-100-opaqueAlpha));
+  // Text
+  --text-1000: #111;
+  --text-900: #111;
+  --text-50: var(--white);
+  --text-muted: #5e5e5e;
 
-  --bg-50-opaqueAlpha: 0.06;
-  --bg-50-opaque: rgba(0, 0, 0, var(--bg-50-opaqueAlpha));
-  --bg-50-opaqueNegative: rgba(255, 255, 255, var(--bg-50-opaqueAlpha));
-
-  // Text colors
-  --text-700: var(--primary-500);
-  --text-600: var(--primary-500);
-  --text-400: #5e5e5e; // lighten($text-700, 30);
-  --text-10: var(--primary-negative);
-  --text-50: #a6a19a; // #{darken(desaturate($primary-negative, 45), 30)};
-
-  // Heading color
+  // Heading
   --heading: inherit;
 
-  // Link colors
-  --link: var(--primary-500);
-  --link-hover: var(--primary-500);
+  // Link
+  --link: var(--text-1000);
+  --link-hover-opacity: 0.6;
 
-  // Border colors
-  --border-700: var(--primary);
-  --border-500: #333333;
-  --border-50: rgba(0, 0, 0, 0.12);
-  --border-10: var(--primary-negative);
+  // Border
+  --border-1000: var(--black);
+  --border-900: #333333;
+  --border-800: #4d4d4d;
 
   // Root
-  --root-bg: var(--bg-700);
+  --root-bg: var(--bg-1000);
   --root-minWidth: #{$root-minWidth};
   --vh: 100vh;
 
@@ -57,40 +46,32 @@
   --wrap-spaceRight: #{$wrap-spaceRight};
 
   // =========
-  // Template
-  // =========
-
-  --Template-overlayColor: rgba(0, 0, 0, 1);
-  --Template-overlayColor-initial: rgba(0, 0, 0, 0);
-
-  // =========
   // Oras
   // =========
 
-  --oras-bg: white;
-  --oras-primary: red;
-  --oras-heading: #000000;
+  --oras-bg: var(--white);
+  --oras-heading: var(--black);
+  --oras-primary: #eb1414;
 
-  --HeroOras-bgPreTransition: var(--primary-negative);
-  --HeroOras-figureBg: black;
-  --HeroOras-figureBgAlpha: var(--bg-100-opaqueAlpha);
-  --HeroOras-figureBgRgb: 0, 0, 0;
-  --HeroOras-figurePreTransitionBgAlpha: var(--bg-50-opaqueAlpha);
+  --oras-Hero-figureBg: var(--black);
+  --oras-Hero-figureBgAlpha: var(--bg-gray-100-opaque-alpha);
+  --oras-Hero-figureBgRgb: 0, 0, 0;
+  --oras-Hero-figurePreTransitionBgAlpha: var(--bg-gray-50-opaque-alpha);
 
   // =========
   // Biocode
   // =========
 
-  --biocode-bg: var(--biocode-bg-1000);
   --biocode-bg-1000: #00081F;
   --biocode-bg-900: #001141;
-  --biocode-primary: #3757f9;
-  --biocode-primary-text: #3374ff;
+  --biocode-bg: var(--biocode-bg-1000);
+  --biocode-border-1000: #26355d;
   --biocode-heading: var(--white);
-  --biocode-border-700: #26355d;
+  --biocode-primary-text: #3374ff;
+  --biocode-primary: #3757f9;
   --biocode-text-1000: var(--white);
   --biocode-text-900: #a3abc2;
-  --biocode-text-800: #858fad;
+  --biocode-text-muted: #858fad;
 
   // =========
   // MQ

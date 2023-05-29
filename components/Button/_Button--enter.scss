@@ -33,7 +33,7 @@
 
   .Button-arrow-path {
     fill: transparent;
-    stroke: var(--border-700);
+    stroke: var(--border-1000);
     stroke-width: 2;
   }
 
@@ -51,15 +51,15 @@
 
   .Button-bg {
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
-    background-color: var(--bg-10);
-    border: $Button-borderWidth solid var(--border-700);
+    background-color: var(--cream-50);
+    border: $Button-borderWidth solid var(--border-1000);
     border-radius: 4px 4px 4px 16px;
     z-index: 1;
   }
 
   .Button-bg-hover {
     @include positionAbsoluteFill($offset: -$Button-borderWidth);
-    background: var(--bg-700);
+    background: var(--bg-1000);
     border-radius: 4px 4px 4px 16px;
     z-index: 0;
 

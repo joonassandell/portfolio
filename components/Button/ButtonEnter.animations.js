@@ -9,11 +9,11 @@ export const buttonVariants = {
 
 export const bgVariants = {
   in: {
-    backgroundColor: 'var(--primary-negativeLight)',
+    backgroundColor: 'var(--bg-50)',
     transition: { ...transPrimaryFast },
   },
   out: {
-    backgroundColor: 'var(--primary-negative)',
+    backgroundColor: 'var(--cream-50)',
     transition: { ...transPrimaryFastest },
   },
 };

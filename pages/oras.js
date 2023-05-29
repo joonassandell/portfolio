@@ -84,7 +84,7 @@ const Oras = ({ images }) => {
           />
         </div>
       </section>
-      <section className="Template-section -bg:gradient-10-50-10 -padding:bottom">
+      <section className="Template-section -bg:gradient-0-50-0 -padding:bottom">
         <div className="grid wrap">
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
@@ -118,7 +118,7 @@ const Oras = ({ images }) => {
           />
         </div>
       </section>
-      <section className="Template-section -bg:gradient-10-50-10">
+      <section className="Template-section -bg:gradient-0-50-0">
         <div className="wrap grid -size:l">
           <div className="grid-col grid-col:9@m">
             <Figure
@@ -190,7 +190,7 @@ const Oras = ({ images }) => {
           {...heroSense}
         />
       </section>
-      <section className="Template-section -bg:gradient-10-50-10">
+      <section className="Template-section -bg:gradient-0-50-0">
         <div className="wrap grid -size:l">
           <div className="grid-col grid-col:8@m">
             <Figure
