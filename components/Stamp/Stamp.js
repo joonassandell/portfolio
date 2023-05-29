@@ -6,32 +6,30 @@ import {
   svgVariants,
   overlayVariants,
 } from './Stamp.animations';
-import { useMouseHovered } from 'react-use';
+import { debounce } from 'lodash';
+import { useMouse, useMeasure } from 'react-use';
 import { useEffect, useRef } from 'react';
-import { useMeasure } from 'react-use';
 import useInView from '@/lib/useInView';
 
 const Stamp = ({
+  addVarsToParent = false,
   className,
   color,
   href,
   iris,
-  mouseRef,
-  mouseLeave = false,
   onClick,
+  overlay = true,
   overlayBg,
+  parentRef,
   transitionStart,
 }) => {
   const classes = c(className, 'Stamp');
   const [ref, { width, height }] = useMeasure();
-  const innerRef = useRef(null);
-  const inView = useInView(innerRef, 0, false);
+  const contentRef = useRef(null);
+  const inView = useInView(contentRef, 0, false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const { elX, elY } = useMouseHovered(mouseRef, {
-    bound: true,
-    whenHovered: true,
-  });
+  const { elX, elY } = useMouse(parentRef);
   const springOpts = {
     damping: 100,
     stiffness: 150,
@@ -45,28 +43,35 @@ const Stamp = ({
     springOpts,
   );
 
-  useEffect(() => {
-    if (!mouseLeave) {
-      x.set(elX);
-      y.set(elY);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  }, [elX, elY, mouseLeave]);
+  const setParentAttributes = () => {
+    if (!addVarsToParent) return;
+    if (!parentRef || !contentRef) return;
+    const { x, y, width, height } = contentRef.current.getBoundingClientRect();
+    parentRef.current.setAttribute(
+      'style',
+      `--Stamp-center-x: ${x + width / 2}px; --Stamp-center-y: ${
+        y + height / 2
+      }px;`,
+    );
+  };
 
-  // const handleMouse = e => {
-  //   console.log(e.pageX);
-  //   x.set(e.pageX);
-  //   y.set(e.pageY);
-  // };
+  useEffect(() => {
+    if (!inView) return;
+    x.set(elX);
+    y.set(elY);
+    setParentAttributes();
+  }, [elX, elY, transitionStart]);
+
+  useEffect(() => {
+    const resize = debounce(() => setParentAttributes(), 100);
+    window.addEventListener('resize', resize);
+    setParentAttributes();
+    return () => window.removeEventListener('resize', resize);
+  }, []);
 
   return (
     <div
       aria-hidden="true"
-      data-scroll
-      data-scroll-id="stamp"
-      data-scroll-position="top"
       className={classes}
       ref={ref}
       style={{
@@ -74,12 +79,11 @@ const Stamp = ({
         '--Stamp-iris': iris,
         '--Stamp-overlayBg': overlayBg,
       }}
-      // onMouseMove={handleMouse}
     >
       <div className="Stamp-inner">
         <motion.div
           className="Stamp-content"
-          ref={innerRef}
+          ref={contentRef}
           style={{
             y: moveY,
             x: moveX,
@@ -93,7 +97,6 @@ const Stamp = ({
             whileHover="hover"
             whileTap="tap"
             transition={stampVariants.transition}
-            {...(transitionStart && { exit: 'exit' })}
           >
             <motion.div
               animate={inView ? 'animate' : ''}
@@ -103,7 +106,7 @@ const Stamp = ({
               <StampSvg />
             </motion.div>
           </motion.a>
-          {transitionStart && (
+          {transitionStart && overlay && (
             <motion.div
               animate="exit"
               className="Stamp-overlay"

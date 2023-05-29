@@ -12,10 +12,10 @@
 
 .Stamp-inner, .Stamp-content, .Stamp-svg {
   $sizeMin: rem($space * 12);
-  $sizeMax: 27vw;
+  $sizeMax: rem($space * 22);
 
-  height: clamp($sizeMin, calc(#{$sizeMin} + 13vw), $sizeMax);
-  width: clamp($sizeMin, calc(#{$sizeMin} + 13vw), $sizeMax);
+  height: clamp($sizeMin, 30vw, $sizeMax);
+  width: clamp($sizeMin, 30vw, $sizeMax);
 }
 
 .Stamp-stamp {

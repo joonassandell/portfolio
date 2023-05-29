@@ -6,15 +6,6 @@ import {
 } from '@/lib/config';
 
 export const stampVariants = {
-  // exit: mobile => ({
-  //   scale: 0,
-  //   // rotate: 180,
-  //   skew: -45,
-  //   transition: {
-  //     ...transSecondary,
-  //     ...(mobile && { delay: extraDelay }),
-  //   },
-  // }),
   hover: {
     scale: 1.1,
   },
