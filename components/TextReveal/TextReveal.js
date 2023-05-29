@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { headingVariant, inVariant } from './TextReveal.animations';
 import c from 'classnames';
 
-const TextReveal = ({ animate, className, text }) => {
-  const classes = c(className, 'TextReveal Heading Heading--primary');
+const TextReveal = ({ animate, className, text, ...props }) => {
+  const classes = c(className, 'TextReveal Heading');
 
   const animateOptions = animate
     ? { ...animate }
@@ -17,15 +17,12 @@ const TextReveal = ({ animate, className, text }) => {
       className={classes}
       variants={headingVariant}
       {...animateOptions}
+      {...props}
     >
       {text.map((text, index) => {
         return (
           <div key={index} className="TextReveal-text">
-            <motion.span
-              className="TextReveal-text-inner"
-              // key={`text-${index}`}
-              variants={inVariant}
-            >
+            <motion.span className="TextReveal-text-inner" variants={inVariant}>
               {text}
             </motion.span>
           </div>

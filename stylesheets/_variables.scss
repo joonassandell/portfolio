@@ -1,7 +1,7 @@
 :root {
   // Base colors
-  --black: black;
-  --white: white;
+  --black: #000;
+  --white: #fff;
 
   // Grays
   --gray-10: #999999; // #{lighten($black, 60)};
@@ -29,6 +29,7 @@
 
   // Text colors
   --text-700: var(--primary-500);
+  --text-600: var(--primary-500);
   --text-400: #5e5e5e; // lighten($text-700, 30);
   --text-10: var(--primary-negative);
   --text-50: #a6a19a; // #{darken(desaturate($primary-negative, 45), 30)};
@@ -84,11 +85,12 @@
   --biocode-bg-1000: #00081F;
   --biocode-bg-900: #001141;
   --biocode-primary: #3757f9;
-  --biocode-heading: white;
-  --biocode-text-1000: white;
+  --biocode-primary-text: #3374ff;
+  --biocode-heading: var(--white);
+  --biocode-border-700: #26355d;
+  --biocode-text-1000: var(--white);
   --biocode-text-900: #a3abc2;
   --biocode-text-800: #858fad;
-  --biocode-text-400: var(--biocode-text-800);
 
   // =========
   // MQ

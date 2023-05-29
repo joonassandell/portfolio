@@ -1,8 +1,9 @@
-.Heading {}
+.Heading {
+  color: var(--heading);
+}
 
 .Heading--display {
   @include fontSize(20px, 20px, 999px, 20vw);
-  color: var(--text-700);
   font-weight: $heading-fontWeightLight;
   letter-spacing: -0.065em; // -0.05, -0.035em, 1em
   user-select: none;
@@ -11,9 +12,3 @@
     @include fontSize(92px, 92px);
   }
 }
-
-.Heading--primary {
-  @include fontSize(20px, 20px, 104px, 20vw);
-  text-transform: uppercase;
-}
-

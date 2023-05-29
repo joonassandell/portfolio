@@ -1,5 +1,7 @@
 .Info {
+  color: var(--text-700);
   position: relative;
+  z-index: 2;
 }
 
 .Info-ruler {
@@ -42,6 +44,7 @@
 }
 
 .Info-text {
+  color: var(--text-600);
   margin-bottom: rem($space-xl);
 
   @include mq(l) {

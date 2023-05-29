@@ -4,7 +4,7 @@ export const headingVariant = {
   in: (delay = 0) => ({
     transition: {
       delayChildren: delay ? delay : 0,
-      staggerChildren: 0.5,
+      staggerChildren: 0.3,
     },
   }),
 };

@@ -65,7 +65,9 @@ const Info = ({
                       <ConditionalWrapper
                         condition={client.href}
                         wrapper={children => (
-                          <Link href={client.href}>{children}</Link>
+                          <Link href={client.href} underline>
+                            {children}
+                          </Link>
                         )}
                       >
                         {client.name}

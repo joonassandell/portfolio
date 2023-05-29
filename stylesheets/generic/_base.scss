@@ -38,6 +38,12 @@
     pointer-events: none;
     touch-action: none;
   }
+
+  // https://github.com/locomotivemtl/locomotive-scroll/issues/353
+  &.has-scroll-smooth {
+    inset: 0;
+    position: fixed;
+  }
 }
 
 body {
