@@ -7,9 +7,14 @@ import { useAppContext } from '@/containers/App';
 import { useState } from 'react';
 import Link from '@/components/Link';
 import useScrollTo from '@/lib/useScrollTo';
+
 const home = getSitemap('home');
 const about = getSitemap('about', 'secondary');
 
+/**
+ * 1. Add slight callbackDelay after scroll to fix Hero Stamp center
+ *    calculations during automated scroll
+ */
 const Home = () => {
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
@@ -17,6 +22,7 @@ const Home = () => {
   const [currentHero, setCurrentHero] = useState('');
   const scrollTo = useScrollTo({
     scrollLock: true,
+    callbackDelay: 600, // [1.]
   });
 
   const handleClick = e => {
