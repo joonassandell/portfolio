@@ -10,7 +10,7 @@
     $root: true,
     $scaleValue: 1.25vw,
   );
-  background-color: var(--bg-1000);
+  background-color: var(--root-bg);
   color: var(--text-50);
   font-family: $font-family;
   -moz-osx-font-smoothing: grayscale;
@@ -21,13 +21,7 @@
   touch-action: pan-y;
   -webkit-touch-callout: none;
 
-  &.has-js {
-    @include mq(desktop) {
-      overflow: hidden;
-    }
-  }
-
-  // &.is-loading,
+  &.is-loading,
   &.is-scrollLock {
     overflow: hidden;
     position: fixed;
