@@ -44,9 +44,9 @@ const Biocode = ({ images }) => {
       <HeroBiocode />
       <Info
         client={{ name: biocode.title, href: 'https://biocode.io' }}
-        type={['Web service', 'Commission']}
+        type={['Web app', 'Web service', 'Commission']}
         heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
-        smallPrint="Made together with wonderful people at Mediasignal and Hasan & Partners."
+        smallPrint="Building together with awesome co-workers at Biocode."
         text={
           <p>
             After several iterations the Oras brand was modernised entirely in
@@ -55,8 +55,8 @@ const Biocode = ({ images }) => {
             highlight the brand’s new promise.
           </p>
         }
-        role={['UI/UX design', 'Web development', 'Concept strategy']}
-        year="2021"
+        role={['Product design', 'App development', 'Web development']}
+        year="2023"
       />
       <section className="grid">
         <div className="grid-col grid-col:6 grid-col:4@l">

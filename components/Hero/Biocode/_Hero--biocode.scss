@@ -1,86 +1,156 @@
 .Hero--biocode {
-  --Stamp-iris: #{$biocode-primary};
-  --Stamp-overlayBg: #{$biocode-bg};
-  background-color: $biocode-bg;
+  --Stamp-iris: var(--biocode-primary);
+
+  &:not(.-transition\:pre) {
+    .Hero-heading {
+      color: var(--biocode-heading);
+    }
+  }
+
+  .Hero-heading {
+    z-index: 3;
+  }
+
+  .Hero-pre {
+    z-index: 1;
+  }
 
   .Hero-figure {
-    height: 70vw;
-    min-height: rem($space * 15);
+    height: 100%;
     position: relative;
-    z-index: 3;
+  }
 
-    .Hero.-transition\:pre & {
-      cursor: pointer;
+  .Hero-figure-globe {
+    inset: 8% 0 auto -27%;
+    margin: 0;
+    position: absolute;
+    width: clamp(rem($space * 20), 70vw, rem($space * 36));
+
+    @include mq(xs) {
+      inset: 6% 0 auto -20%;
     }
 
     @include mq(s) {
-      height: 60vw;
-    }
-
-    @include mq(l) {
-      height: 40vw;
-    }
-  }
-
-  .Hero-figure-mask {
-    bottom: 0;
-    height: 70%;
-    margin: 0;
-    mask-image: url('/assets/biocode/biocode-b.svg');
-    mask-repeat: no-repeat;
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-    // z-index: 1;
-
-    @include mq(l) {
-      bottom: auto;
-      height: 90%;
-      top: 0;
+      top: 4%;
     }
 
     @include mq(xl) {
-      height: 100%;
-      margin-left: rem($space * 3);
+      inset: -2% -30% auto 0;
+      width: auto;
     }
   }
 
-  .Hero-figure-figure {
-    height: 100%;
-    margin: 0;
-    position: absolute;
-    width: 100%;
+  .Hero-figure-globe--pre {
+    transform: scale(0.99);
   }
 
-  .Hero-figure-figure--pre {
+  .Hero-figure-globe--initial {
+    // mask-image: linear-gradient(var(--black) 80%, transparent 95%);
+  }
+
+  &.-transition\:pre {
+    .Hero-bg {
+      bottom: -50vh;
+    }
+  }
+
+  .Hero-globe {
+    z-index: 4;
+  }
+
+  .Hero-icon {
+    z-index: 5;
+  }
+
+  .Hero-figure-icon {
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    inset: auto auto 27% 40%;
+    margin: 0;
+    padding: rem($space);
+    position: absolute;
+    transition: border-color $trans-primary;
+    width: clamp(rem($space * 6), 17vw, rem($space * 36));
+
+    @include mq(xs) {
+      inset: auto auto 23% 50%;
+    }
+
+    @include mq(l) {
+      inset: auto auto 20% 40%;
+    }
+
+    @include mq(xl) {
+      inset: auto auto 20% 60%;
+    }
+  }
+
+  &.is-transition, &:not(.Hero.-transition\:pre) {
+    .Hero-figure-icon {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .Hero-figureBg-bg {
+    background: var(--bg-50-opaque);
+    height: 100%;
+  }
+
+  .Hero-bg {
+    background: radial-gradient(70% rem($space * 30) at 70% 0, var(--biocode-bg-900), var(--biocode-bg)) no-repeat;
     z-index: 2;
   }
 
-  .Hero-figure-scroll {
-    // position: relative;
-    // top: rem($space * -2);
+  .Hero-textReveal {
+    align-items: center;
+    display: flex;
+    padding-top: 35vw;
+    position: absolute;
+    z-index: 5;
+
+    .TextReveal {
+      @include fontSize(16px, 18px, 52px, 3.5vw);
+      font-weight: 100;
+      margin: 0;
+    }
+
+    @include mq(l) {
+      padding-top: rem($space * 28);
+    }
   }
 
-  .Hero-figure-bg {
-    background: $bg-50-opaque;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    z-index: 1;
+  .Hero-textReveal-mobile {
+    --heading: var(--biocode-text-1000);
+    display: block;
+    font-weight: 100;
 
     @include mq(l) {
       display: none;
     }
   }
 
-  .Hero-textReveal {
-    color: $biocode-text;
-    mix-blend-mode: difference;
-    position: absolute;
-    z-index: 9999;
+  .Hero-textReveal-desktop {
+    --heading: var(--biocode-text-900);
+    padding-left: rem($space * 8);
+    text-align: right;
+
+    .TextReveal-text {
+      &:nth-child(2) {
+        color: var(--biocode-primary-text);
+      }
+    }
+
+    @include mq($until: l) {
+      display: none;
+    }
   }
 
   .Hero-content {
-    align-self: end;
+    text-align: right;
+
+    @include mq(xl) {
+      align-self: center;
+      text-align: left;
+    }
   }
 }

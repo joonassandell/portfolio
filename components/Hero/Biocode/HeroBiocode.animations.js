@@ -1,32 +1,19 @@
-import {
-  transPrimary,
-  transSecondary,
-  extraDelay,
-  transTertiary,
-} from '@/lib/config';
+import { transPrimary } from '@/lib/config';
+import { headingVariants as headingVars } from '../Hero.animations';
 
 export const headingVariants = {
-  exit: {
-    y: '-175%',
-    transition: {
-      ...transPrimary,
-      delay: extraDelay,
-    },
+  animate: {
+    color: 'var(--biocode-heading)',
+    ...headingVars.animate,
   },
 };
 
-export const figurePreVariants = {
-  exit: {
-    // clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)', // to top
-    clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // to bottom
-    transition: {
-      // ...transSecondary,
-      ...transPrimary,
-      // delay: extraDelay,
-    },
+export const maskVariants = {
+  animate: {
+    clipPath: `circle(150% at var(--Stamp-center-x) var(--Stamp-center-y))`,
+    transition: transPrimary,
   },
-  preTransition: {
-    // clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // from bottom
-    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // from top
+  initial: {
+    clipPath: `circle(0% at var(--Stamp-center-x) var(--Stamp-center-y))`,
   },
 };
