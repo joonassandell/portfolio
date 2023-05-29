@@ -1,10 +1,5 @@
-// .has-scroll-scrolling {
-//   .c-scrollbar {
-//     opacity: 0;
-//   }
-// }
-
 .c-scrollbar {
+  mix-blend-mode: difference;
   z-index: $locomotive-scrollBar-zIndex;
 
   :root.is-transition\:withDelay &,
@@ -12,4 +7,8 @@
     opacity: 0;
     pointer-events: none;
   }
+}
+
+.c-scrollbar_thumb {
+  background-color: var(--white);
 }
