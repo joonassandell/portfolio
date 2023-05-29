@@ -1,5 +1,5 @@
 .Template--oras {
-  background-color: $oras-bg;
+  --Template-bgColor: var(--oras-bg);
 
   .Info {
     @include mq($until: ml) {
