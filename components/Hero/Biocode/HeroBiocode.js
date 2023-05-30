@@ -35,6 +35,8 @@ const HeroBiocode = ({
         initialDelay,
         preTransition,
         transitionPre,
+        transitionPreOrInitial,
+        transitionInitial,
         transitionStartOrDefault,
       }) => {
         return (
@@ -127,18 +129,26 @@ const HeroBiocode = ({
             {transitionStartOrDefault && (
               <div className="Hero-textReveal wrap">
                 <TextReveal
+                  {...(transitionInitial && {
+                    animate: 'animate',
+                    initial: 'initial',
+                  })}
                   custom={{
                     delay: initialDelay ?? 0.3,
-                    enableInitial: transitionPre,
+                    enableInitial: transitionPreOrInitial,
                   }}
                   className="Hero-textReveal-mobile"
                   text={['We have to', 'reverse global', 'heating']}
                   hidden
                 />
                 <TextReveal
+                  {...(transitionInitial && {
+                    animate: 'animate',
+                    initial: 'initial',
+                  })}
                   custom={{
                     delay: initialDelay ?? 0.3,
-                    enableInitial: transitionPre,
+                    enableInitial: transitionPreOrInitial,
                   }}
                   className="Hero-textReveal-desktop"
                   text={['We have to reverse', 'global heating']}

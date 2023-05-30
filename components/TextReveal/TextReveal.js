@@ -19,7 +19,6 @@ const TextReveal = ({ className, custom, text, ...props }) => {
               className="TextReveal-text-inner"
               custom={custom}
               variants={inVariant}
-              {...props}
             >
               {text}
             </motion.span>
