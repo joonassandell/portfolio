@@ -33,7 +33,7 @@ export const figureBgVariants = {
 };
 
 export const dropVariants = {
-  animate: (delay = 0) => ({
+  animate: ({ delay } = { delay: 0 }) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
@@ -41,14 +41,17 @@ export const dropVariants = {
     },
     y: 0,
   }),
-  initial: {
-    opacity: 0,
-    y: -24,
+  initial: ({ enableInitial } = { enableInitial: true }) => {
+    if (!enableInitial) return;
+    return {
+      opacity: 0,
+      y: -24,
+    };
   },
 };
 
 export const dropVariants2 = {
-  animate: (delay = 0) => ({
+  animate: ({ delay } = { delay: 0 }) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
@@ -56,14 +59,17 @@ export const dropVariants2 = {
     },
     y: 0,
   }),
-  initial: {
-    opacity: 0,
-    y: -48,
+  initial: ({ enableInitial } = { enableInitial: true }) => {
+    if (!enableInitial) return;
+    return {
+      opacity: 0,
+      y: -48,
+    };
   },
 };
 
 export const dropVariants3 = {
-  animate: (delay = 0) => ({
+  animate: ({ delay } = { delay: 0 }) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
@@ -71,8 +77,11 @@ export const dropVariants3 = {
     },
     y: 0,
   }),
-  initial: {
-    opacity: 0,
-    y: -72,
+  initial: ({ enableInitial } = { enableInitial: true }) => {
+    if (!enableInitial) return;
+    return {
+      opacity: 0,
+      y: -72,
+    };
   },
 };

@@ -15,10 +15,9 @@ export const inVariant = {
     y: 0,
   },
   initial: ({ enableInitial } = { enableInitial: true }) => {
-    return enableInitial
-      ? {
-          y: '100%',
-        }
-      : {};
+    if (!enableInitial) return;
+    return {
+      y: '100%',
+    };
   },
 };

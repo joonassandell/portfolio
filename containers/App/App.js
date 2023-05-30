@@ -166,18 +166,11 @@ https://www.typescriptlang.org And this one too
   }, [html, transition]);
 
   /**
-   * Set proper transitions w/ delay when navigating back/forward
+   * Set template transition by default when navigating back/forward
    */
   useEffect(() => {
     router.beforePopState(({ url, as }) => {
-      const defaultTransition = transition && transition != 'template';
-
-      if (defaultTransition) {
-        window.location.href = as;
-        return false;
-      }
-
-      if (transition) {
+      if (transition === 'template') {
         setTimeout(() => {
           setTransition('template');
           router.push(url, as, { scroll: false });
@@ -188,6 +181,13 @@ https://www.typescriptlang.org And this one too
         return true;
       }
     });
+  }, [transition]);
+
+  /**
+   * Set initial transitions ready for animation (e.g. for Hero)
+   */
+  useEffect(() => {
+    if (transition === 'template') setTransitionInitial(true);
   }, [transition]);
 
   return (
@@ -220,9 +220,7 @@ https://www.typescriptlang.org And this one too
           type="font/woff2"
         />
       </Head>
-      {process.env.NODE_ENV === 'production' && (
-        <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
-      )}
+      <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       <AppContext.Provider
         value={{
           appState,

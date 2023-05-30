@@ -74,12 +74,15 @@ const HeroOras = ({
                   {transitionStartOrDefault && (
                     <motion.div
                       className="Hero-drop Hero-drop--1"
-                      {...(transitionPreOrInitial && {
+                      {...(transitionInitial && {
                         animate: 'animate',
-                        custom: initialDelay,
                         initial: 'initial',
-                        variants: dropVariants,
                       })}
+                      custom={{
+                        delay: initialDelay,
+                        enableInitial: transitionPreOrInitial,
+                      }}
+                      variants={dropVariants}
                     >
                       <Image
                         aria-hidden="true"
@@ -112,12 +115,15 @@ const HeroOras = ({
             {transitionStartOrDefault && (
               <motion.div
                 className="Hero-drop Hero-drop--2"
-                {...(transitionPreOrInitial && {
+                {...(transitionInitial && {
                   animate: 'animate',
-                  custom: initialDelay,
                   initial: 'initial',
-                  variants: dropVariants2,
                 })}
+                custom={{
+                  delay: initialDelay,
+                  enableInitial: transitionPreOrInitial,
+                }}
+                variants={dropVariants2}
               >
                 <Image
                   aria-hidden="true"
@@ -134,12 +140,15 @@ const HeroOras = ({
             )}
             <motion.div
               className="Hero-drop Hero-drop--3"
-              {...(transitionPreOrInitial && {
-                animate: transitionStartOrDefault ? 'animate' : '',
-                custom: initialDelay,
+              {...(transitionInitial && {
+                animate: 'animate',
                 initial: 'initial',
-                variants: dropVariants3,
               })}
+              custom={{
+                delay: initialDelay,
+                enableInitial: transitionPreOrInitial,
+              }}
+              variants={dropVariants3}
             >
               <div
                 data-scroll

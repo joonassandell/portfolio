@@ -2,7 +2,7 @@ import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { motion } from 'framer-motion';
 import { useAppContext } from '@/containers/App';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
 import Link from '@/components/Link';
@@ -27,23 +27,25 @@ const Hero = ({
     '-transition:pre': transitionPre,
     'is-transition': transitionStart,
   });
-  const { appState, setTransitionInitial } = useAppContext();
-  const { transitionInitial } = appState;
+  const { appState } = useAppContext();
+  const { transitionInitial: appTransitionInitial } = appState;
   const router = useRouter();
+  const ref = useRef(null);
   const Heading = transitionPre ? motion.h2 : motion.h1;
 
   /**
    * Pre transition: Transition before router change
    * Default state: On mount (e.g. after pre transition) or at page load
-   * Initial state: appState.transitionInitial === true
+   * Initial state: Default state and appState.transitionInitial === true
    */
   // Is ready for pre or initial transition
-  const transitionPreOrInitial = transitionPre || transitionInitial;
+  const transitionPreOrInitial = transitionPre || appTransitionInitial;
 
   // At transition start or at default state
   const transitionStartOrDefault = transitionStart || !transitionPre;
 
-  const ref = useRef(null);
+  // Trigger transition initial only if in default state
+  const transitionInitial = appTransitionInitial && !transitionPre;
 
   const passedProps = {
     initialDelay: transitionInitial ? 0.75 : null,
@@ -53,16 +55,6 @@ const Hero = ({
     transitionStartOrDefault,
   };
 
-  /**
-   * Set initial transition to true if the hero is not in pre transition state,
-   * so that initial animations are visible in 'template' transitions.
-   */
-  useEffect(() => {
-    if (!transitionInitial && !transitionPre) {
-      setTransitionInitial(true);
-    }
-  }, [transitionInitial, transitionPre]);
-
   return (
     <motion.section
       animate={
@@ -71,8 +63,10 @@ const Hero = ({
       className={classes}
       data-id={id}
       onAnimationComplete={() => {
-        if (transitionPre && transitionStart)
+        if (transitionPre && transitionStart) {
           router.push(href, null, { scroll: false });
+          console.log('Hero: Animation complete');
+        }
       }}
       initial="initial"
       ref={ref}
