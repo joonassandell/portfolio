@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimation, useCycle } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
@@ -25,14 +25,15 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import useScrollTo from '@/lib/useScrollTo';
 import NavItem from './HeaderNavItem';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
 const someLinks = links.social;
 
-const Header = props => {
+const Header = ({ navTitle }) => {
   const router = useRouter();
-  const [isOpen, setOpen] = useCycle(false, true);
+  const [isOpen, setOpen] = useState(null);
   const [hover, setHover] = useState(false);
   const [maskIsOpen, setMaskIsOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');
@@ -48,9 +49,11 @@ const Header = props => {
   const {
     appState: { html },
     setTransition,
+    setTransitionInitial,
   } = useAppContext();
   const scrollTo = useScrollTo();
   const maskRef = useRef(null);
+  const { scroll } = useLocomotiveScroll();
 
   const setArrowPosFromRef = ref => {
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
@@ -61,32 +64,33 @@ const Header = props => {
   };
 
   const btnArrow = useCallbackRef(null, ref => {
-    if (ref) {
-      setArrowPosFromRef(ref);
-    }
+    if (ref) setArrowPosFromRef(ref);
   });
 
   useEffect(() => {
     const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
     resize();
-
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
   }, [btnArrow.current]);
 
+  /**
+   * Handle open/close states. Note that in onAnimationComplete(s) some of the
+   * states are handled after the animations.
+   */
   const toggleOpen = ({ withMask = true } = {}) => {
+    isOpen ? setOpen(false) : setOpen(true);
     if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
     setDisabled(true);
-    setNavRevealTitle(props.navTitle);
+    setNavRevealTitle(navTitle);
 
     /**
-     * 1. This delay is here because otherwise the variants properties
-     *    (e.g. staggerChildren) from the parent variant (ctrlVariant) aren't
-     *    passed to the revealed elements. Couldn't get this to work
-     *    w/ AnimatePresence and exit props.
+     * Scroll could be triggered e.g. w/ pgUp/pgDown so disable/enable it if
+     * Header is open/closed. Note that scroll will stay stopped if header links
+     * are clicked but App takes care of enabling it after route change.
      */
-    setTimeout(() => setOpen(), 10); // [1.]
+    scroll && !scroll.scroll.stop ? scroll.stop() : scroll.start();
 
     if (withMask) {
       setMaskIsOpen(true);
@@ -113,22 +117,23 @@ const Header = props => {
 
     if (isOpen) {
       setDisabled(true);
-      setTransition(false);
+      setTransition(true);
+      setTransitionInitial(false);
     }
 
-    router.push(url, null, {
-      scroll: false,
-    });
+    /**
+     * Add slight delay to wait for the nav link animation to end before routing
+     * to new page. This prevents laggy transition which happens when url changes.
+     * Note that the :root.is-transition class disables the pointer-events (hover).
+     */
+    const isNavLink = e.target.classList.contains('Header-nav-link');
+    setTimeout(
+      () => router.push(url, null, { scroll: false }),
+      isNavLink ? 300 : 0,
+    );
   };
 
   useEffect(() => {
-    /**
-     * Test if connection is slow or header is open and add progress spinner.
-     * Polyfill this later or apply better solution.
-     *
-     * (navigator.connection && navigator.connection.downlink < 3)
-     * // console.log('Downlink speed:', navigator.connection.downlink);
-     */
     if (isOpen) {
       NProgress.configure({
         easing: easeCSS,
@@ -151,39 +156,37 @@ const Header = props => {
     }
   }, [isOpen]);
 
+  /**
+   * Handle closing if routes change
+   */
   useEffect(() => {
-    const closeStart = () => {
-      if (isOpen) {
-        setTransition(false);
+    if (isOpen) {
+      const closeStart = () => {
         setEnterExit({
           btnText: enterExitBtnTextIfNavOpen,
           btnArrow: enterExitBtnArrowIfNavOpen,
         });
-      }
-    };
+      };
 
-    const closeComplete = () => {
-      if (isOpen) {
+      const closeComplete = () => {
         toggleOpen({ withMask: false });
-        setTimeout(() => {
-          setEnterExit({
-            btnText: enterExitBtnText,
-            btnArrow: enterExitBtnArrow,
-          });
-        }, 500);
+        setEnterExit({
+          btnText: enterExitBtnText,
+          btnArrow: enterExitBtnArrow,
+        });
         setMask('closed');
-      }
-    };
+      };
 
-    router.events.on('routeChangeStart', closeStart);
-    router.events.on('routeChangeError', closeComplete);
-    router.events.on('routeChangeComplete', closeComplete);
+      router.events.on('routeChangeStart', closeStart);
+      router.events.on('routeChangeError', closeComplete);
+      router.events.on('routeChangeComplete', closeComplete);
 
-    return () => {
-      router.events.off('routeChangeStart', closeStart);
-      router.events.off('routeChangeError', closeComplete);
-      router.events.off('routeChangeComplete', closeComplete);
-    };
+      return () => {
+        router.events.off('routeChangeStart', closeStart);
+        router.events.off('routeChangeError', closeComplete);
+        router.events.off('routeChangeComplete', closeComplete);
+      };
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -221,16 +224,13 @@ const Header = props => {
   return (
     <>
       <motion.header
-        animate={isOpen ? 'open' : 'closed'}
-        className={c('Header', {
-          'is-disabled': disabled,
-          'is-open': isOpen && !disabled,
-        })}
+        animate={isOpen ? 'open' : isOpen === false ? 'closed' : ''}
+        className={c('Header', { 'is-disabled': disabled })}
         initial="initial"
         onAnimationComplete={() => {
           if (!isOpen) {
-            setOpenReveal(false);
             html.classList.remove('is-headerOpen');
+            setOpenReveal(false);
             setTimeout(() => setDisabled(false), 500);
           } else {
             setDisabled(false);
@@ -242,7 +242,11 @@ const Header = props => {
           <div className="Header-ctrl">
             <div className="Header-logo">
               <motion.div variants={ctrlItemOutVariant}>
-                <LinkRoll href="/" onClick={handleClick}>
+                <LinkRoll
+                  href="/"
+                  onClick={handleClick}
+                  {...(isOpen && { tabIndex: -1 })}
+                >
                   Joonas Sandell
                 </LinkRoll>
               </motion.div>
@@ -306,7 +310,7 @@ const Header = props => {
                     {...enterExit.btnText}
                   >
                     <motion.div variants={ctrlItemOutVariant}>
-                      {props.navTitle}
+                      {navTitle}
                     </motion.div>
                   </motion.div>
                 </AnimatePresence>
@@ -340,6 +344,7 @@ const Header = props => {
                     href={about.url}
                     isActive={about.url === router.pathname}
                     onClick={handleClick}
+                    {...(isOpen && { tabIndex: -1 })}
                   >
                     {about.navTitle}
                   </LinkRoll>
@@ -362,7 +367,12 @@ const Header = props => {
               </li>
               <li className="Header-secondary-item">
                 <motion.div variants={ctrlItemOutVariant}>
-                  <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
+                  <LinkRoll
+                    href={contact.url}
+                    {...(isOpen && { tabIndex: -1 })}
+                  >
+                    {contact.navTitle}
+                  </LinkRoll>
                 </motion.div>
                 {openReveal && (
                   <motion.div
@@ -387,7 +397,7 @@ const Header = props => {
           if (!isOpen) setMaskIsOpen(false);
         }}
         onAnimationStart={() => {
-          if (!isOpen) maskRef.current.scroll({ top: 0 });
+          if (mask == 'open') maskRef.current.scroll({ top: 0 });
         }}
         ref={maskRef}
       >
@@ -406,7 +416,7 @@ const Header = props => {
                       color={item.color}
                       key={item.navTitle}
                       name={item.navTitle}
-                      onClick={e => handleClick(e)}
+                      onClick={handleClick}
                       url={item.url}
                       year={item.year}
                     />

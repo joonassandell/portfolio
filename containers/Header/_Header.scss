@@ -1,16 +1,22 @@
+/**
+ * 1. For the mask scrolling and everything else to work below Header
+ * 2. Quick fix for Windows font rendering. This is needed because there's
+ *    mix-blend mode which adds odd text rendering in Windows.
+ * 3. Note that the :root.is-transition class disables the pointer-events
+ *    especially for the main nav link hovers. This is here to ensure the
+ *    events are disabled because the root class is removed before the mask is
+ *    animated away.
+ */
 .Header {
   inset: 0 0 auto 0;
   min-width: var(--root-minWidth);
   mix-blend-mode: difference;
   padding-top: rem($space-m);
-  pointer-events: none;
+  pointer-events: none; // [1.]
   position: fixed;
   z-index: $Header-zIndex;
 
-  /**
-   * Quick fix for Windows font rendering. This is needed because there's
-   * mix-blend mode in parent which adds odd text rendering in Windows.
-   */
+  // [2.]
   .is-windows & {
     .LinkRoll-char,
     .Header-button-text-item > div {
@@ -190,17 +196,13 @@
   top: 0;
 }
 
-/* ======
+/* =======================================
  * Mask
- * ====== */
+ * ======================================= */
 
 .Header-mask {
   background: var(--bg-1000);
   clip-path: circle(0% at 0px 0px);
-
-  // clip-path: circle(150% at 480px 64px) !important;
-  // display: flex !important;
-
   display: none;
   flex-direction: column;
   inset: 0;
@@ -210,6 +212,11 @@
 
   &.is-open {
     display: flex;
+  }
+
+  // [3.]
+  &.is-disabled {
+    pointer-events: none;
   }
 
   &:before {
@@ -355,10 +362,6 @@
     // @include mq($until: m) {
     //   margin-left: rem($space-s);
     // }
-  }
-
-  .Header-mask.is-disabled & {
-    pointer-events: none;
   }
 }
 
