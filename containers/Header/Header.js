@@ -25,6 +25,7 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import useScrollTo from '@/lib/useScrollTo';
 import NavItem from './HeaderNavItem';
+import { urlState } from '@/lib/useUrlState';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const about = getSitemap('about', 'secondary');
@@ -101,15 +102,17 @@ const Header = ({ navTitle }) => {
 
   const handleClick = e => {
     e.preventDefault();
-    const url = new URL(e.target.href).pathname;
-    const currUrl = router.pathname === url;
+    const {
+      active,
+      url: { href },
+    } = urlState(e.target.href);
 
-    if (!isOpen && currUrl) {
+    if (!isOpen && active) {
       scrollTo(0);
       return;
     }
 
-    if (isOpen && currUrl) {
+    if (isOpen && active) {
       setDisabled(true);
       toggleOpen();
       return;
@@ -128,7 +131,7 @@ const Header = ({ navTitle }) => {
      */
     const isNavLink = e.target.classList.contains('Header-nav-link');
     setTimeout(
-      () => router.push(url, null, { scroll: false }),
+      () => router.push(href, null, { scroll: false }),
       isNavLink ? 300 : 0,
     );
   };
@@ -342,7 +345,7 @@ const Header = ({ navTitle }) => {
                 <motion.div variants={ctrlItemOutVariant}>
                   <LinkRoll
                     href={about.url}
-                    isActive={about.url === router.pathname}
+                    isActive={urlState(about.url, router).active}
                     onClick={handleClick}
                     {...(isOpen && { tabIndex: -1 })}
                   >
@@ -356,7 +359,7 @@ const Header = ({ navTitle }) => {
                   >
                     <LinkRoll
                       href={about.url}
-                      isActive={about.url === router.pathname}
+                      isActive={urlState(about.url, router).active}
                       onClick={handleClick}
                       templateTransition={false}
                     >

@@ -10,6 +10,7 @@ import {
 import { default as NextLink } from 'next/link';
 import c from 'classnames';
 import { useAppContext } from '@/containers/App';
+import { useUrlState } from '@/lib/useUrlState';
 import ConditionalWrapper from '../ConditionalWrapper';
 
 const Link = ({
@@ -40,6 +41,8 @@ const Link = ({
     ? '_blank'
     : false;
   const hasHref = href && href.startsWith('/');
+  const { active, external } = useUrlState(href);
+  const activeOrExternal = active || external;
 
   return (
     <ConditionalWrapper
@@ -60,7 +63,7 @@ const Link = ({
         }}
         href={href}
         onClick={e => {
-          templateTransition && setTransition('template');
+          !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => {

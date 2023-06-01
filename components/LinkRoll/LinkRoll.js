@@ -9,6 +9,7 @@ import {
 } from './LinkRoll.animations';
 import c from 'classnames';
 import { isBoolean, isEmptyString } from '@/lib/utility';
+import { useUrlState } from '@/lib/useUrlState';
 import ConditionalWrapper from '../ConditionalWrapper';
 
 const LinkRoll = ({
@@ -20,6 +21,7 @@ const LinkRoll = ({
   tag,
   target,
   templateTransition = true,
+  ...props
 }) => {
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
@@ -35,6 +37,8 @@ const LinkRoll = ({
     ? '_blank'
     : false;
   const hasHref = href && href.startsWith('/');
+  const { active, external } = useUrlState(href);
+  const activeOrExternal = active || external;
 
   return (
     <ConditionalWrapper
@@ -49,7 +53,7 @@ const LinkRoll = ({
         animate={hover ? 'in' : 'out'}
         className={classes}
         onClick={e => {
-          templateTransition && setTransition('template');
+          !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         href={href}
@@ -58,6 +62,7 @@ const LinkRoll = ({
         onMouseLeave={() => setHover(false)}
         {...(href && linkTarget && { target: linkTarget })}
         {...(linkTarget === '_blank' && { rel: 'external' })}
+        {...props}
       >
         <motion.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, index) => {
