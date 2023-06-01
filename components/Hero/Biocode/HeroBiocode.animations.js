@@ -13,7 +13,7 @@ export const maskVariants = {
     clipPath: `circle(150% at var(--Stamp-center-x) var(--Stamp-center-y))`,
     transition: transPrimary,
   },
-  initial: ({ enableInitial } = { enableInitial: true }) => {
+  initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;
     return {
       clipPath: `circle(0% at var(--Stamp-center-x) var(--Stamp-center-y))`,

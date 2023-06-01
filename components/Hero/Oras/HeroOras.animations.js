@@ -1,4 +1,4 @@
-import { transSecondary, extraDelay, transTertiary } from '@/lib/config';
+import { transSecondary, transTertiary } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
 import { headingVariants as headingVars } from '../Hero.animations';
 
@@ -19,21 +19,20 @@ export const figureBgVariants = {
     opacity: parseFloat(getCSSVarValue('--oras-Hero-figureBgAlpha')),
     transition: {
       ...transSecondary,
-      delay: extraDelay,
     },
   },
 };
 
 export const dropVariants = {
-  animate: ({ delay } = { delay: 0 }) => ({
+  animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: delay + extraDelay,
+      delay,
     },
     y: 0,
   }),
-  initial: ({ enableInitial } = { enableInitial: true }) => {
+  initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;
     return {
       opacity: 0,
@@ -43,15 +42,15 @@ export const dropVariants = {
 };
 
 export const dropVariants2 = {
-  animate: ({ delay } = { delay: 0 }) => ({
+  animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.2 + delay + extraDelay,
+      delay: 0.2 + delay,
     },
     y: 0,
   }),
-  initial: ({ enableInitial } = { enableInitial: true }) => {
+  initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;
     return {
       opacity: 0,
@@ -61,15 +60,15 @@ export const dropVariants2 = {
 };
 
 export const dropVariants3 = {
-  animate: ({ delay } = { delay: 0 }) => ({
+  animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: delay + extraDelay,
+      delay: 0.1 + delay,
     },
     y: 0,
   }),
-  initial: ({ enableInitial } = { enableInitial: true }) => {
+  initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;
     return {
       opacity: 0,

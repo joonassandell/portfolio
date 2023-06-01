@@ -1,9 +1,4 @@
-import {
-  transPrimary,
-  extraDelay,
-  transPrimaryFast,
-  transTap,
-} from '@/lib/config';
+import { transPrimary, transPrimaryFast, transTap } from '@/lib/config';
 
 export const stampVariants = {
   hover: {
@@ -32,7 +27,6 @@ export const overlayVariants = {
     scale: [0, 10],
     transition: {
       ...transPrimary,
-      delay: extraDelay,
     },
   },
 };

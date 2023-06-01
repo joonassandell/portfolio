@@ -17,16 +17,16 @@ export const infoGridVariants = {
 };
 
 export const infoGridCellVariants = {
-  inView: delay => ({
+  inView: (delay = 0) => ({
     y: 0,
     opacity: 1,
     transition: {
       ...transTertiary,
-      ...(delay && { delay }),
+      delay,
     },
   }),
   hidden: {
     opacity: 0,
-    y: '5rem',
+    y: '3rem',
   },
 };

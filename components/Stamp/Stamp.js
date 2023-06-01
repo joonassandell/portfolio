@@ -122,11 +122,7 @@ export const Stamp = ({
           </motion.div>
         </motion.a>
         {transitionStart && overlay && (
-          <motion.div
-            animate="animate"
-            className="Stamp-overlay"
-            variants={overlayVariants}
-          />
+          <motion.div className="Stamp-overlay" variants={overlayVariants} />
         )}
       </motion.div>
     </div>
