@@ -39,17 +39,7 @@
   &.is-transition\:template\:exit {
     z-index: 0;
   }
-
-  // &.is-transition\:exit {
-  //   position: absolute;
-  //   z-index: 0;
-  // }
 }
-
-// .Template-inner {
-//   position: relative;
-//   z-index: 0;
-// }
 
 .Template-overlay {
   inset: 0;

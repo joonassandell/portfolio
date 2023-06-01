@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion';
 import { scrollSpeed } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import Hero, { HeroContent } from '@/components/Hero';
-import TextReveal from '@/components/TextReveal';
-import { headingVariants, maskVariants } from './HeroBiocode.animations';
+import { Hero, HeroContent } from '@/components/Hero';
+import { TextReveal } from '@/components/TextReveal';
+import {
+  headingVariants as hVariants,
+  maskVariants,
+} from './HeroBiocode.animations';
 import Image from 'next/image';
 
 const { url, year, id, title } = getSitemap('biocode');
 
-const HeroBiocode = ({
+export const HeroBiocode = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,
@@ -21,12 +24,12 @@ const HeroBiocode = ({
     <Hero
       className="Hero--biocode"
       heading={`Biocode — ${year}`}
-      headingVariants={headingVariants}
+      headingVariants={hVariants}
       href={url}
       id={id}
       onClick={onClick}
-      stampOverlay={false}
       stampAddVarsToParent={true}
+      stampOverlay={false}
       transition={transition}
       transitionHideStart={transitionHideStart}
       transitionStart={transitionStart}
@@ -173,5 +176,3 @@ const HeroBiocode = ({
     </Hero>
   );
 };
-
-export default HeroBiocode;

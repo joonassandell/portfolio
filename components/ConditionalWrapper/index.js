@@ -1,3 +1,1 @@
-import ConditionalWrapper from './ConditionalWrapper';
-
-export default ConditionalWrapper;
+export * from './ConditionalWrapper';

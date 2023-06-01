@@ -1,5 +1,9 @@
 const path = require('path');
 
+/**
+ * 1. This is here to make svgs import properly.
+ *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
+ */
 module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
@@ -14,13 +18,7 @@ module.exports = {
     return config;
   },
   images: {
-    // deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920, 2048, 3840],
-
-    /**
-     * This is here to make svgs import properly.
-     * https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
-     */
-    disableStaticImages: true,
+    disableStaticImages: true, // [1.]
   },
   async headers() {
     return [

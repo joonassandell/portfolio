@@ -1,12 +1,12 @@
 {
   "name": "joonassandell-portfolio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "create-component": "node ./utils/create-component",
-    "serve": "npm run build && npm run start",
+    "preview": "npm run build && npm run start",
     "start": "next start"
   },
   "dependencies": {

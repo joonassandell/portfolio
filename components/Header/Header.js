@@ -13,8 +13,8 @@ import {
 } from './Header.animations';
 import { useEffect, useState, useRef } from 'react';
 import { ButtonArrow } from '@/components/Button';
-import LinkRoll from '@/components/LinkRoll';
-import Link from '@/components/Link';
+import { LinkRoll } from '@/components/LinkRoll';
+import { Link } from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
 import { easeCSS, sitemap, links } from '@/lib/config';
@@ -23,8 +23,8 @@ import { useAppContext } from '../App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-import useScrollTo from '@/lib/useScrollTo';
-import NavItem from './HeaderNavItem';
+import { useScrollTo } from '@/lib/useScrollTo';
+import { NavItem } from './HeaderNavItem';
 import { urlState } from '@/lib/useUrlState';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
@@ -32,7 +32,7 @@ const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
 const someLinks = links.social;
 
-const Header = ({ navTitle }) => {
+export const Header = ({ navTitle }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(null);
   const [hover, setHover] = useState(false);
@@ -450,5 +450,3 @@ const Header = ({ navTitle }) => {
     </>
   );
 };
-
-export default Header;

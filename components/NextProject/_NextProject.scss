@@ -1,14 +1,14 @@
-.NextProject {}
+.NextProject {
+  background: var(--Template-bgColor);
+}
 
 .NextProject-link {
   @include fontSize(16px, 16px, 112px, 10vw);
+  color: var(--white);
   display: block;
-  padding-left: var(--wrap-spaceLeft);
+  mix-blend-mode: difference;
+  opacity: 1;
   z-index: 1;
-
-  .LinkRoll-text.-hover {
-    left: var(--wrap-spaceLeft);
-  }
 }
 
 .NextProject-inner {
@@ -17,12 +17,10 @@
 }
 
 .NextProject-figure {
-  left: 0;
+  inset: 0 auto auto 0;
   pointer-events: none;
   position: absolute;
-  top: 0;
   width: min(#{rem($space * 20)}, 45%);
-  will-change: transform;
 
   @include mq($from: m, $until: l) {
     width: rem($space * 16);

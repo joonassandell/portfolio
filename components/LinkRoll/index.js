@@ -1,3 +1,1 @@
-import LinkRoll from './LinkRoll';
-
-export default LinkRoll;
+export * from './LinkRoll';

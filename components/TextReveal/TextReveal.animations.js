@@ -1,17 +1,17 @@
-import { transPrimary } from '@/lib/config';
+import { transSecondary } from '@/lib/config';
 
 export const headingVariant = {
   animate: ({ delay } = { delay: 0 }) => ({
     transition: {
       delayChildren: delay,
-      staggerChildren: 0.3,
+      staggerChildren: 0.2,
     },
   }),
 };
 
 export const inVariant = {
   animate: {
-    transition: transPrimary,
+    transition: transSecondary,
     y: 0,
   },
   initial: ({ enableInitial } = { enableInitial: true }) => {

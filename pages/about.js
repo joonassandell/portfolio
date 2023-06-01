@@ -1,5 +1,5 @@
-import { Template } from '../containers/Template';
-import { getSitemap } from '../lib/utility';
+import { Template } from '@/components/Template';
+import { getSitemap } from '@/lib/utility';
 
 const about = getSitemap('about', 'secondary');
 const home = getSitemap('home');

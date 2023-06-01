@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
-import { useAppContext } from '@/containers/App';
+import { useAppContext } from '@/components/App';
 import c from 'classnames';
-import ConditionalWrapper from '../ConditionalWrapper';
+import { ConditionalWrapper } from '../ConditionalWrapper';
 import {
   bgVariants,
   bgHoverVariants,
@@ -14,7 +14,7 @@ import {
   pointerOutVariants,
 } from './ButtonEnter.animations';
 
-const ButtonEnter = ({
+export const ButtonEnter = ({
   className,
   children,
   href,
@@ -58,7 +58,6 @@ const ButtonEnter = ({
           setHover(true);
         }}
         onMouseLeave={() => setHover(false)}
-        // whileHover="in" // WHY THIS DOESN'T WORK?!
         whileTap="tap"
         variants={buttonVariants}
       >
@@ -70,7 +69,6 @@ const ButtonEnter = ({
         >
           <svg
             className="Button-arrow-svgPath"
-            // viewBox="0 0 37 34"
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.path
@@ -113,5 +111,3 @@ const ButtonEnter = ({
     </ConditionalWrapper>
   );
 };
-
-export default ButtonEnter;

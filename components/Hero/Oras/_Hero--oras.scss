@@ -2,6 +2,10 @@
   --Stamp-iris: var(--oras-primary);
   background-color: var(--oras-bg);
 
+  .Hero-heading-inner {
+    transform: translate3d(0, -150%, 0);
+  }
+
   .Hero-figure {
     height: 60vw;
     min-height: rem($space * 12);

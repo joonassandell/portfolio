@@ -1,12 +1,12 @@
 import { HeroBiocode } from '@/components/Hero';
-import { Template } from '@/containers/Template';
+import { Template } from '@/components/Template';
 import { getSitemap, getImage } from '@/lib/utility';
-import NextProject from '@/components/NextProject';
+import { NextProject } from '@/components/NextProject';
 import { mq, scrollSpeed } from '@/lib/config';
-import Info from '@/components/Info';
-import Figure from '@/components/Figure';
-import getImages from '@/lib/getImages';
-import useIsMobile from '@/lib/useIsMobile';
+import { Info } from '@/components/Info';
+import { Figure } from '@/components/Figure';
+import { getImages } from '@/lib/getImages';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 const biocode = getSitemap('biocode');
 const oras = getSitemap('oras');

@@ -1,8 +1,8 @@
 import { mq } from '@/lib/config';
 import { motion } from 'framer-motion';
-import Link from '../Link';
-import ConditionalWrapper from '../ConditionalWrapper';
-import useInView from '@/lib/useInView';
+import { Link } from '../Link';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
 import {
@@ -11,7 +11,7 @@ import {
   infoGridCellVariants,
 } from './Info.animations';
 
-const Info = ({
+export const Info = ({
   client = { name, href },
   heading,
   role = [],
@@ -123,5 +123,3 @@ const Info = ({
     </div>
   );
 };
-
-export default Info;

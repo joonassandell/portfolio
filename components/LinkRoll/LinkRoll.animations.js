@@ -1,14 +1,5 @@
 import { transPrimaryFastest } from '@/lib/config';
 
-// const trans = {
-//   // duration: transPrimaryFastest.duration,
-//   duration: 0.4,
-//   ease: transPrimaryFastest.ease,
-//   // ease: [0.215, 0.61, 0.355, 1],
-// };
-
-const trans = transPrimaryFastest;
-
 export const linkVariants = {
   in: {
     transition: {
@@ -28,11 +19,11 @@ export const characterOutVariants = {
     skewX: -50,
     opacity: 0,
     y: '-100%',
-    transition: trans,
+    transition: transPrimaryFastest,
   },
   out: {
     y: 0,
-    transition: trans,
+    transition: transPrimaryFastest,
   },
 };
 
@@ -41,12 +32,12 @@ export const characterInVariants = {
     opacity: 1,
     skewX: 0,
     y: 0,
-    transition: trans,
+    transition: transPrimaryFastest,
   },
   out: {
     opacity: 0,
     skewX: 50,
     y: '90%',
-    transition: trans,
+    transition: transPrimaryFastest,
   },
 };

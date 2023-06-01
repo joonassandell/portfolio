@@ -1,31 +1,17 @@
 import { motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import Title from '@/components/Title';
+import { Title } from '@/components/Title';
 import {
   overlayVariants,
   variantsWithTransition,
   variantsWithoutTransition,
 } from './Template.animations';
 import c from 'classnames';
-import { useAppContext } from '@/containers/App';
+import { useAppContext } from '@/components/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import Footer from '@/containers/Footer';
+import { Footer } from '@/components/Footer';
 
-// import { extraDelay } from '@/lib/config';
-// const extraDelayWithDelay = (extraDelay + 0.3) * 1000;
-// const Delayed = ({ children, waitBeforeShow = extraDelay }) => {
-//   const [isShown, setIsShown] = useState(false);
-
-//   useEffect(() => {
-//     setTimeout(() => {
-//       setIsShown(true);
-//     }, waitBeforeShow);
-//   }, [waitBeforeShow]);
-
-//   return isShown ? children : null;
-// };
-
-const Template = ({ children, name, title }) => {
+export const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
   const { transition, loading } = appState;
@@ -43,7 +29,6 @@ const Template = ({ children, name, title }) => {
   return (
     <>
       <Title title={title} />
-      {/* <Delayed waitBeforeShow={defaultTransition ? extraDelayWithDelay : 0}> */}
       <motion.div
         animate="animate"
         className={c('Template', {
@@ -84,9 +69,6 @@ const Template = ({ children, name, title }) => {
           />
         )}
       </motion.div>
-      {/* </Delayed> */}
     </>
   );
 };
-
-export default Template;

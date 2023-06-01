@@ -1,24 +1,14 @@
 import { useState, useRef } from 'react';
-import {
-  scrollSpeed as scrlSpeed,
-  transPrimary,
-  transTertiary,
-  transTertiaryFast,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
-  transSecondaryFast,
-  transSecondaryFastest,
-} from '@/lib/config';
+import { scrollSpeed as scrlSpeed, transTertiary } from '@/lib/config';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
-import useIsMobile from '@/lib/useIsMobile';
+import { useIsMobile } from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
 
-const Figure = ({
+export const Figure = ({
   alt,
   blurhash,
   className,
@@ -164,5 +154,3 @@ const Figure = ({
     </motion.div>
   );
 };
-
-export default Figure;

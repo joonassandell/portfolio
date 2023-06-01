@@ -9,9 +9,9 @@ import {
 import { debounce } from 'lodash';
 import { useMouse, useMeasure } from 'react-use';
 import { useEffect, useRef } from 'react';
-import useInView from '@/lib/useInView';
+import { useInView } from '@/lib/useInView';
 
-const Stamp = ({
+export const Stamp = ({
   addVarsToParent = false,
   className,
   color,
@@ -132,5 +132,3 @@ const Stamp = ({
     </div>
   );
 };
-
-export default Stamp;

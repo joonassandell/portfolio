@@ -1,15 +1,8 @@
-// =======================================
-// Application
-// =======================================
-
 // Config
 @import 'config';
 
 // Mixins
 @import 'mixins';
-
-// Splash screen
-@import '../containers/Splash';
 
 // Vendors
 @import 'locomotive-scroll/src/styles/base';
@@ -37,20 +30,19 @@
 @import 'components/Heading';
 @import 'components/Text';
 
-// Containers
-@import '../containers/App';
-@import '../containers/Header';
-@import '../containers/Footer';
-@import '../containers/Template';
-
 // Components
+@import '../components/App';
 @import '../components/Button';
+@import '../components/Figure';
+@import '../components/Footer';
+@import '../components/Header';
 @import '../components/Hero';
 @import '../components/Icon';
-@import '../components/Figure';
 @import '../components/Info';
 @import '../components/Link';
 @import '../components/LinkRoll';
 @import '../components/NextProject';
+@import '../components/Splash';
 @import '../components/Stamp';
+@import '../components/Template';
 @import '../components/TextReveal';

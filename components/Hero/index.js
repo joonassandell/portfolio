@@ -1,8 +1,4 @@
-import Hero from './Hero';
-import HeroOras from './Oras/HeroOras';
-import HeroBiocode from './Biocode/HeroBiocode';
-import HeroContent from './HeroContent';
-
-export { HeroContent, HeroBiocode, HeroOras };
-
-export default Hero;
+export * from './Hero';
+export * from './Oras/HeroOras';
+export * from './Biocode/HeroBiocode';
+export * from './HeroContent';

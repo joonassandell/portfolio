@@ -9,11 +9,11 @@ import {
 } from './Link.animations';
 import { default as NextLink } from 'next/link';
 import c from 'classnames';
-import { useAppContext } from '@/containers/App';
+import { useAppContext } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
-import ConditionalWrapper from '../ConditionalWrapper';
+import { ConditionalWrapper } from '../ConditionalWrapper';
 
-const Link = ({
+export const Link = ({
   arrow,
   className,
   children,
@@ -104,5 +104,3 @@ const Link = ({
     </ConditionalWrapper>
   );
 };
-
-export default Link;

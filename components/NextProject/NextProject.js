@@ -1,14 +1,12 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import LinkRoll from '@/components/LinkRoll';
+import { LinkRoll } from '@/components/LinkRoll';
 import { useEffect, useRef } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash';
 import { mapRange, getSitemap } from '@/lib/utility';
 import Image from 'next/image';
 
-// let prevMousePosX = 0;
-
-const NextProject = ({ id }) => {
+export const NextProject = ({ id }) => {
   const sitemap = getSitemap(id);
   const href = sitemap.url;
   const src = `/assets/${id}/joonassandell-${id}-thumbnail.jpg`;
@@ -66,8 +64,6 @@ const NextProject = ({ id }) => {
       );
       r.set(rotateAmount);
     }
-
-    // prevMousePosX = mousePosX;
   }, [mousePosX, mousePosY, mouseDistanceX]);
 
   /**
@@ -83,7 +79,7 @@ const NextProject = ({ id }) => {
   }, [mousePosX, height, width, figureWidthHalf, figureHeightHalf]);
 
   return (
-    <div ref={ref} className="NextProject">
+    <div ref={ref} className="NextProject wrap">
       <div ref={innerRef} className="NextProject-inner">
         <LinkRoll className="NextProject-link" href={href}>
           Next project
@@ -112,5 +108,3 @@ const NextProject = ({ id }) => {
     </div>
   );
 };
-
-export default NextProject;

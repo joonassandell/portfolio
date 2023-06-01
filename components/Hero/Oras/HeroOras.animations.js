@@ -1,19 +1,11 @@
-import {
-  transPrimary,
-  transSecondary,
-  extraDelay,
-  transTertiary,
-} from '@/lib/config';
-
+import { transSecondary, extraDelay, transTertiary } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
+import { headingVariants as headingVars } from '../Hero.animations';
 
 export const headingVariants = {
   animate: {
-    y: '-175%',
-    transition: {
-      ...transPrimary,
-      delay: extraDelay,
-    },
+    ...headingVars.animate,
+    y: '-150%',
   },
 };
 
@@ -73,7 +65,7 @@ export const dropVariants3 = {
     opacity: 1,
     transition: {
       ...transTertiary,
-      delay: 0.3 + delay + extraDelay,
+      delay: delay + extraDelay,
     },
     y: 0,
   }),
@@ -81,7 +73,7 @@ export const dropVariants3 = {
     if (!enableInitial) return;
     return {
       opacity: 0,
-      y: -72,
+      y: -80,
     };
   },
 };

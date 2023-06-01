@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { default as NextLink } from 'next/link';
-import { useAppContext } from '@/containers/App';
+import { useAppContext } from '@/components/App';
 import { useState } from 'react';
 import {
   characterInVariants,
@@ -10,9 +10,9 @@ import {
 import c from 'classnames';
 import { isBoolean, isEmptyString } from '@/lib/utility';
 import { useUrlState } from '@/lib/useUrlState';
-import ConditionalWrapper from '../ConditionalWrapper';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 
-const LinkRoll = ({
+export const LinkRoll = ({
   children,
   className,
   isActive,
@@ -109,5 +109,3 @@ const LinkRoll = ({
     </ConditionalWrapper>
   );
 };
-
-export default LinkRoll;

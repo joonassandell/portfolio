@@ -1,13 +1,4 @@
-import {
-  transPrimary,
-  transTertiary,
-  transTertiaryFast,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
-  transSecondaryFast,
-  transSecondaryFastest,
-} from '@/lib/config';
+import { transTertiary, transTertiaryFast } from '@/lib/config';
 
 export const clipVariants = {
   inView: {

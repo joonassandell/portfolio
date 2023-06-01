@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { splashVariants, textVariants } from './Splash.animations';
 
-const Splash = ({ loading, setLoadingEnd }) => {
+export const Splash = ({ loading, setLoadingEnd }) => {
   return (
     <AnimatePresence>
       {loading && (
@@ -14,7 +14,6 @@ const Splash = ({ loading, setLoadingEnd }) => {
           variants={splashVariants}
         >
           <div className="wrap">
-            {/* <header className="Splash-logo">Joonas Sandell</header> */}
             <h1 className="Splash-content">
               <div className="Splash-line Splash-line--subHeading">
                 <motion.span className="Splash-text" variants={textVariants}>
@@ -33,5 +32,3 @@ const Splash = ({ loading, setLoadingEnd }) => {
     </AnimatePresence>
   );
 };
-
-export default Splash;

@@ -1,6 +1,7 @@
 import {
   transPrimary,
   transPrimaryFast,
+  transPrimaryFastest,
   transSecondaryFast,
   transSecondaryFastest,
 } from '@/lib/config';
@@ -69,9 +70,6 @@ export const enterExitBtnArrow = {
   transition: { ...transPrimaryFast, delay: 0.03 },
 };
 
-/**
- * Mask
- */
 export const maskOpen = {
   transition: transPrimary,
 };
@@ -80,9 +78,6 @@ export const maskClose = {
   transition: transPrimary,
 };
 
-/**
- * Nav (in mask)
- */
 export const navVariant = {
   open: {
     transition: { delayChildren: 0.1, staggerChildren: 0.05 },
@@ -150,5 +145,64 @@ export const ctrlItemInVariant = {
   closed: {
     transition: transSecondaryFast,
     y: '3rem',
+  },
+};
+
+export const marqueeVariants = {
+  in: pos => {
+    if (pos === 'top') {
+      return {
+        y: ['-102%', '0%'],
+      };
+    }
+
+    if (pos === 'bottom') {
+      return {
+        y: ['102%', '0%'],
+      };
+    }
+  },
+  out: pos => {
+    if (pos === 'top') {
+      return {
+        y: '-102%',
+      };
+    }
+
+    if (pos === 'bottom') {
+      return {
+        y: '102%',
+      };
+    }
+  },
+  transition: transPrimaryFastest,
+};
+
+export const marqueeInnerVariants = {
+  in: pos => {
+    if (pos === 'top') {
+      return {
+        y: ['102%', '0%'],
+      };
+    }
+
+    if (pos === 'bottom') {
+      return {
+        y: ['-102%', '0%'],
+      };
+    }
+  },
+  out: pos => {
+    if (pos === 'top') {
+      return {
+        y: '102%',
+      };
+    }
+
+    if (pos === 'bottom') {
+      return {
+        y: '-102%',
+      };
+    }
   },
 };

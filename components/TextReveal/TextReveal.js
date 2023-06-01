@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { headingVariant, inVariant } from './TextReveal.animations';
 import c from 'classnames';
 
-const TextReveal = ({ className, custom, text, ...props }) => {
+export const TextReveal = ({ className, custom, text, ...props }) => {
   const classes = c(className, 'TextReveal Heading');
 
   return (
@@ -28,5 +28,3 @@ const TextReveal = ({ className, custom, text, ...props }) => {
     </motion.h2>
   );
 };
-
-export default TextReveal;

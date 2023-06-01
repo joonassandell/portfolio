@@ -1,14 +1,14 @@
 import { fadeOutVariants, scrollSpeed } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { motion } from 'framer-motion';
-import { useAppContext } from '@/containers/App';
+import { useAppContext } from '@/components/App';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
-import Link from '@/components/Link';
-import Stamp from '@/components/Stamp';
+import { Link } from '@/components/Link';
+import { Stamp } from '@/components/Stamp';
 
-const Hero = ({
+export const Hero = ({
   children,
   className,
   heading,
@@ -121,5 +121,3 @@ const Hero = ({
     </motion.section>
   );
 };
-
-export default Hero;

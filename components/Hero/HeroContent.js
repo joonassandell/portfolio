@@ -2,7 +2,7 @@ import { ButtonEnter } from '@/components/Button';
 import c from 'classnames';
 import { Fragment } from 'react';
 
-const HeroContent = ({
+export const HeroContent = ({
   heading,
   className,
   onClick,
@@ -39,5 +39,3 @@ const HeroContent = ({
     </div>
   );
 };
-
-export default HeroContent;

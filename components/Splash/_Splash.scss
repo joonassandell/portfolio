@@ -15,22 +15,6 @@
   }
 }
 
-// .Splash-logo {
-//   height: rem($space-ml);
-//   line-height: rem($space-ml);
-//   position: relative;
-//   top: rem(25px);
-
-//   @include mq(m) {
-//     @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
-//     top: rem(4px);
-//   }
-
-//   @include mq(l) {
-//     top: rem(8px);
-//   }
-// }
-
 .Splash-content {
   align-items: center;
   display: flex;
@@ -54,14 +38,11 @@
 
 .Splash-line--heading {
   @include heading(h3);
-  // @include fontSize(20px, 20px, 120px, 10vw);
-  // font-weight: $heading-fontWeightLight;
 }
 
 .Splash-text {
   animation: animate $trans-primary;
   display: block;
-  will-change: transform;
 }
 
 @keyframes animate {
@@ -71,25 +52,5 @@
 
   to {
     transform: translate3d(0, 0%, 0);
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  // @keyframes removeSafariInitialFlash {
-  //   from {
-  //     opacity: 0;
-  //     transform: translate3d(0, 100%, 0);
-  //   }
-
-  //   to {
-  //     opacity: 1;
-  //     transform: translate3d(0, 0%, 0);
-  //   }
-  // }
-
-  .Splash-text {
-    // animation: removeSafariInitialFlash $trans-primary;
-    animation: unset;
-    // will-change: opacity, transform;
   }
 }

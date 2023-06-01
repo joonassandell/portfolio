@@ -2,9 +2,9 @@ import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import { getSitemap, scrollLock } from '@/lib/utility';
-import useIsMobile from '@/lib/useIsMobile';
-import Splash from '@/containers/Splash';
-import Header from '@/containers/Header';
+import { useIsMobile } from '@/lib/useIsMobile';
+import { Splash } from '@/components/Splash';
+import { Header } from '@/components/Header';
 import {
   LocomotiveScrollProvider,
   useLocomotiveScroll,
@@ -34,7 +34,7 @@ export const App = ({ Component, pageProps, router }) => {
   const { asPath } = router;
 
   /* ======
-   * App state functions
+   * App set state functions
    * ====== */
 
   const setTransition = value => {

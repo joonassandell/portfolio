@@ -1,3 +1,1 @@
-import TextReveal from './TextReveal';
-
-export default TextReveal;
+export * from './TextReveal';

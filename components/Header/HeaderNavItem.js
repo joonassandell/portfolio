@@ -1,5 +1,5 @@
 import { motion, animate } from 'framer-motion';
-import { transPrimaryFastest } from '@/lib/config';
+import { marqueeVariants, marqueeInnerVariants } from './Header.animations';
 import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
 import React, { Fragment, useEffect, useState, useRef } from 'react';
@@ -7,76 +7,12 @@ import { useRouter } from 'next/router';
 import c from 'classnames';
 import EyeSvg from './eye.svg';
 
-const marqueeVariants = {
-  in: pos => {
-    if (pos === 'top') {
-      return {
-        // clipPath: 'polygon(0% 0%, 102% 0%, 102% 102%, 0% 102%)',
-        y: ['-102%', '0%'],
-      };
-    }
-
-    if (pos === 'bottom') {
-      return {
-        // clipPath: 'polygon(0% 0%, 102% 0%, 102% 102%, 0% 102%)',
-        y: ['102%', '0%'],
-      };
-    }
-  },
-  out: pos => {
-    if (pos === 'top') {
-      return {
-        y: '-102%',
-        // clipPath: 'polygon(0% 0%, 102% 0%, 102% 0%, 0% 0%)',
-      };
-    }
-
-    if (pos === 'bottom') {
-      return {
-        // clipPath: 'polygon(0% 102%, 102% 102%, 102% 102%, 0% 102%)',
-        y: '102%',
-      };
-    }
-  },
-  transition: transPrimaryFastest,
-};
-
-const marqueeInnerVariants = {
-  in: pos => {
-    if (pos === 'top') {
-      return {
-        y: ['102%', '0%'],
-      };
-    }
-
-    if (pos === 'bottom') {
-      return {
-        y: ['-102%', '0%'],
-      };
-    }
-  },
-  out: pos => {
-    if (pos === 'top') {
-      return {
-        y: '102%',
-      };
-    }
-
-    if (pos === 'bottom') {
-      return {
-        y: '-102%',
-      };
-    }
-  },
-};
-
-const NavItem = props => {
+export const NavItem = props => {
   const router = useRouter();
   const [hover, setHover] = useState(false);
   const [closestEdge, setClosestEdge] = useState(null);
   const [reveal, setReveal] = useState(false);
   const ref = useRef(null);
-  // const marquee = useAnimation();
   const marqueeRef = useRef(null);
 
   const findClosestEdge = e => {
@@ -108,23 +44,6 @@ const NavItem = props => {
       });
     }
   }, [reveal]);
-
-  // useEffect(() => {
-  //   const duration = width / 50 - width / 58;
-  //   if (hover === 'in') {
-  //   marquee.start({
-  //     // x: [null, '-50%', '0%'],
-  //     // x: [null, '-50%'],
-  //     x: ['0%', '-50%'],
-  //     transition: {
-  //       repeat: Infinity,
-  //       repeatType: 'loop',
-  //       duration: duration > 0 ? duration : 25,
-  //       ease: 'linear',
-  //     },
-  //   });
-  //   }
-  // }, [hover]);
 
   return (
     <motion.li
@@ -174,11 +93,7 @@ const NavItem = props => {
         >
           {reveal && (
             <motion.div
-              // animate={marquee}
               ref={marqueeRef}
-              // initial={{
-              //   x: '0%',
-              // }}
               className="Header-nav-marquee-inner-self"
             >
               {[...Array(10)].map((x, i) => {
@@ -198,45 +113,3 @@ const NavItem = props => {
     </motion.li>
   );
 };
-
-export default NavItem;
-
-// useEffect(() => {
-//   (async () => {
-//     if (hover) {
-//       if (closestEdge === 'top') {
-//         marquee.start({
-//           y: ['-102%', '0%'],
-//         });
-//         marqueeInner.start({
-//           y: ['102%', '0%'],
-//         });
-//       }
-//       if (closestEdge === 'bottom') {
-//         marquee.start({
-//           y: ['102%', '0%'],
-//         });
-//         marqueeInner.start({
-//           y: ['-102%', '0%'],
-//         });
-//       }
-//     } else {
-//       if (closestEdge === 'top') {
-//         marquee.start({
-//           y: '-102%',
-//         });
-//         marqueeInner.start({
-//           y: '102%',
-//         });
-//       }
-//       if (closestEdge === 'bottom') {
-//         marquee.start({
-//           y: '102%',
-//         });
-//         marqueeInner.start({
-//           y: '-102%',
-//         });
-//       }
-//     }
-//   })();
-// }, [hover, closestEdge]);

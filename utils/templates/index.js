@@ -1,7 +1,5 @@
 module.exports = componentName => ({
-  content: `import ${componentName} from './${componentName}';
-export default ${componentName};
-`,
+  content: `export * from './${componentName}';`,
   extension: `.js`,
   name: `index`,
 });

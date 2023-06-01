@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { scrollSpeed } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import Hero, { HeroContent } from '@/components/Hero';
+import { Hero, HeroContent } from '@/components/Hero';
 import {
+  headingVariants as hVariants,
   figureBgVariants,
   dropVariants,
   dropVariants2,
@@ -12,7 +13,7 @@ import Image from 'next/image';
 
 const oras = getSitemap('oras');
 
-const HeroOras = ({
+export const HeroOras = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,
@@ -22,12 +23,13 @@ const HeroOras = ({
     <Hero
       className="Hero--oras"
       heading="Oras — 2016"
+      headingVariants={hVariants}
       href={oras.url}
       id={oras.id}
       onClick={onClick}
+      transition={transition}
       transitionHideStart={transitionHideStart}
       transitionStart={transitionStart}
-      transition={transition}
     >
       {({
         transitionStartOrDefault,
@@ -175,5 +177,3 @@ const HeroOras = ({
     </Hero>
   );
 };
-
-export default HeroOras;

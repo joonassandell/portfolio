@@ -1,3 +1,1 @@
-import NextProject from './NextProject';
-
-export default NextProject;
+export * from './NextProject';

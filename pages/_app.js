@@ -1,5 +1,5 @@
 import '@/stylesheets/index.scss';
-import App from '@/containers/App';
+import { App } from '@/components/App';
 import { useEffect } from 'react';
 
 function NextApp({ Component, pageProps, router }) {

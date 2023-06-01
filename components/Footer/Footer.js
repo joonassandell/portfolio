@@ -1,9 +1,9 @@
 import { links } from '@/lib/config';
-import LinkRoll from '@/components/LinkRoll';
+import { LinkRoll } from '@/components/LinkRoll';
 
 const someLinks = links.social;
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="Footer wrap">
       <div className="Footer-inner">
@@ -22,17 +22,8 @@ const Footer = () => {
           &copy; {new Date().getFullYear()}
           <br />
           Joonas Sandell
-          <br />
-          {/* Built with <LinkRoll href="https://nextjs.org">
-            Next.js
-          </LinkRoll> &{' '}
-          <LinkRoll href="https://github.com/joonassandell/rebirth">
-            Rebirth
-          </LinkRoll> */}
         </p>
       </div>
     </footer>
   );
 };
-
-export default Footer;

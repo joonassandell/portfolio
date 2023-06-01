@@ -8,7 +8,7 @@ import {
 import { useEffect, useState } from 'react';
 import c from 'classnames';
 
-const ButtonArrow = ({
+export const ButtonArrow = ({
   active = false,
   hoverStart = false,
   hoverEnd = false,
@@ -142,5 +142,3 @@ const ButtonArrow = ({
     </motion.div>
   );
 };
-
-export default ButtonArrow;

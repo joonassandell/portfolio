@@ -1,6 +1,5 @@
 .Footer {
-  margin-top: rem($space-xxxxl);
-  padding-bottom: rem($space-l);
+  margin: rem($space-xxxl) 0 rem($space-l) 0;
   position: relative;
   z-index: $Footer-zIndex;
 
@@ -9,7 +8,7 @@
   }
 
   @include mq(m) {
-    padding-bottom: rem($space-xxxxl);
+    margin-bottom: rem($space-xxxxl);
   }
 }
 

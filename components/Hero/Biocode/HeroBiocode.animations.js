@@ -3,8 +3,8 @@ import { headingVariants as headingVars } from '../Hero.animations';
 
 export const headingVariants = {
   animate: {
-    color: 'var(--biocode-heading)',
     ...headingVars.animate,
+    color: 'var(--biocode-heading)',
   },
 };
 
