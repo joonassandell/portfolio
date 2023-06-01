@@ -25,48 +25,64 @@ const Stamp = ({
 }) => {
   const classes = c(className, 'Stamp');
   const [ref, { width, height }] = useMeasure();
-  const contentRef = useRef(null);
-  const inView = useInView(contentRef, 0, false);
+  const innerRef = useRef(null);
+  const inView = useInView(innerRef, 0, false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const { elX, elY } = useMouse(parentRef);
+  const { elX: mouseX, elY: mouseY } = useMouse(parentRef);
   const springOpts = {
     damping: 100,
     stiffness: 150,
   };
   const moveX = useSpring(
-    useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
+    useTransform(x, [0, -40, width / 2, width], [0, -40, 0, 40]),
     springOpts,
   );
   const moveY = useSpring(
-    useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
+    useTransform(y, [0, -40, height / 2, height], [0, -40, 0, 40]),
     springOpts,
   );
 
-  const setParentAttributes = () => {
-    if (!addVarsToParent) return;
-    if (!parentRef || !contentRef) return;
-    const { x, y, width, height } = contentRef.current.getBoundingClientRect();
+  const setParentAttributes = (moveX = 0, moveY = 0) => {
+    if (!parentRef || !innerRef) return;
+    const {
+      offsetHeight: height,
+      offsetLeft: x,
+      offsetTop: y,
+      offsetWidth: width,
+    } = innerRef.current;
+    const posX = `${x + width / 2 + moveX}px`;
+    const posY = `${y + height / 2 + moveY}px`;
+
     parentRef.current.setAttribute(
       'style',
-      `--Stamp-center-x: ${x + width / 2}px; --Stamp-center-y: ${
-        y + height / 2
-      }px;`,
+      `--Stamp-center-x: ${posX}; --Stamp-center-y: ${posY};`,
     );
   };
 
   useEffect(() => {
-    if (!inView) return;
-    x.set(elX);
-    y.set(elY);
-    setParentAttributes();
-  }, [elX, elY, transitionStart]);
+    if (!inView || transitionStart) return;
+    x.set(mouseX);
+    y.set(mouseY);
+  }, [mouseX, mouseY, inView, transitionStart]);
 
   useEffect(() => {
-    const resize = debounce(() => setParentAttributes(), 100);
+    if (!inView || !addVarsToParent || transitionStart) return;
+    setParentAttributes(moveX.current, moveY.current);
+  }, [moveX.current, moveY.current, inView, transitionStart]);
+
+  useEffect(() => {
+    if (!addVarsToParent) return;
+    const resize = debounce(
+      () => setParentAttributes(moveX.current, moveY.current),
+      100,
+    );
     window.addEventListener('resize', resize);
-    setParentAttributes();
     return () => window.removeEventListener('resize', resize);
+  }, [inView]);
+
+  useEffect(() => {
+    setParentAttributes();
   }, []);
 
   return (
@@ -80,41 +96,39 @@ const Stamp = ({
         '--Stamp-overlayBg': overlayBg,
       }}
     >
-      <div className="Stamp-inner">
-        <motion.div
-          className="Stamp-content"
-          ref={contentRef}
-          style={{
-            y: moveY,
-            x: moveX,
-          }}
+      <motion.div
+        className="Stamp-inner"
+        ref={innerRef}
+        style={{
+          y: moveY,
+          x: moveX,
+        }}
+      >
+        <motion.a
+          className="Stamp-stamp"
+          href={href}
+          onClick={onClick}
+          variants={stampVariants}
+          whileHover="hover"
+          whileTap="tap"
+          transition={stampVariants.transition}
         >
-          <motion.a
-            className="Stamp-stamp"
-            href={href}
-            onClick={onClick}
-            variants={stampVariants}
-            whileHover="hover"
-            whileTap="tap"
-            transition={stampVariants.transition}
+          <motion.div
+            animate={inView ? 'animate' : ''}
+            className="Stamp-svg"
+            variants={svgVariants}
           >
-            <motion.div
-              animate={inView ? 'animate' : ''}
-              className="Stamp-svg"
-              variants={svgVariants}
-            >
-              <StampSvg />
-            </motion.div>
-          </motion.a>
-          {transitionStart && overlay && (
-            <motion.div
-              animate="exit"
-              className="Stamp-overlay"
-              variants={overlayVariants}
-            />
-          )}
-        </motion.div>
-      </div>
+            <StampSvg />
+          </motion.div>
+        </motion.a>
+        {transitionStart && overlay && (
+          <motion.div
+            animate="animate"
+            className="Stamp-overlay"
+            variants={overlayVariants}
+          />
+        )}
+      </motion.div>
     </div>
   );
 };

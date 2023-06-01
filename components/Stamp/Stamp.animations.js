@@ -28,7 +28,7 @@ export const svgVariants = {
 };
 
 export const overlayVariants = {
-  exit: {
+  animate: {
     scale: [0, 10],
     transition: {
       ...transPrimary,

@@ -127,25 +127,14 @@
   pointer-events: all;
 
   .Stamp-inner {
-    left: -15%;
-    top: 5%;
+    inset: 0 0 0 -10%;
 
     @include mq(s) {
-      left: 0;
-      top: 10%;
+      inset: 0;
     }
 
     @include mq(m) {
-      left: -5%;
-    }
-
-    @include mq(l) {
-      left: -8%;
-      top: 0;
-    }
-
-    @include mq(xl) {
-      left: -13%;
+      inset: 5% 0 0 0;
     }
   }
 }

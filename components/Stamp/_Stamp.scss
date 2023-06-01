@@ -1,21 +1,21 @@
 .Stamp {
+  display: grid;
   inset: 0;
+  place-items: center;
   position: absolute;
   z-index: 0;
 }
 
 .Stamp-inner {
-  inset: 0;
-  margin: auto;
-  position: absolute;
+  position: relative;
 }
 
-.Stamp-inner, .Stamp-content, .Stamp-svg {
+.Stamp-inner, .Stamp-svg {
   $sizeMin: rem($space * 12);
   $sizeMax: rem($space * 22);
 
-  height: clamp($sizeMin, 30vw, $sizeMax);
-  width: clamp($sizeMin, 30vw, $sizeMax);
+  height: clamp($sizeMin, 31vw, $sizeMax);
+  width: clamp($sizeMin, 31vw, $sizeMax);
 }
 
 .Stamp-stamp {
