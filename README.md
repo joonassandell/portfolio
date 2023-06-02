@@ -5,6 +5,7 @@
 - [The Portfolio](http://joonassandell.com)
 - [Documentation](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
 - [Todo & Issues](https://www.notion.so/joonassandell/09255e8ef2934c50ae4cd8994bad29d6?v=3ac6de3229434d31b434db726dc4b0fc&pvs=4)
+- [Next.js Documentation](https://nextjs.org/docs)
 
 ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=joonassandell-portfolio&style=for-the-badge)
 
@@ -23,9 +24,10 @@ Aside from this readme, there is additional information about the whole project 
 - `npm run dev`: Run a Next.js development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally. When previewing app, set `NEXT_PUBLIC_ORIGIN` in [.env.local](.env.local) to `http://localhost:3000`. If previewing in LAN, then apply LAN origin (e.g. `http://192.168.0.110:3000`).
+- `npm run start`: Start the application in production mode. The application should be compiled with next build first.
 - `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (previews are like "staging")
 
-## Notes
+### Notes
 
 - Previews are deployed always locally so that the preview url stays the same. `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin server side so the env variable was created.
 - In development, project pages etc. may take a while because of the blurhash placeholder generation. After build build everything is fine.
@@ -36,3 +38,4 @@ Aside from this readme, there is additional information about the whole project 
 - [https://www.framer.com/docs/transition/###damping](https://www.framer.com/docs/transition/###damping)
 - [https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js](https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js)
 - [Initial template of this README](https://github.com/vercel/next.js/blob/canary/packages/create-next-app/templates/default/js/README-template.md)
+- [Learn Next.js](https://nextjs.org/learn)
