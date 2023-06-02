@@ -1,8 +1,8 @@
 # Joonas Sandell — Portfolio
 
-> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-- [The Portfolio](http://joonassandell.com)
+- [The Portfolio 🚀](http://joonassandell.com)
 - [Documentation](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
 - [Todo & Issues](https://www.notion.so/joonassandell/09255e8ef2934c50ae4cd8994bad29d6?v=3ac6de3229434d31b434db726dc4b0fc&pvs=4)
 - [Next.js Documentation](https://nextjs.org/docs)
