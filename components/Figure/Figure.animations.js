@@ -8,7 +8,7 @@ export const clipVariants = {
   },
   hidden: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-    scale: 1.07,
+    scale: 1.05,
   },
 };
 
@@ -41,7 +41,7 @@ export const moveVariants = {
   },
   hidden: {
     opacity: 0,
-    scale: 1.07,
+    scale: 1.05,
     y: '4rem',
   },
 };

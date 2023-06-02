@@ -11,35 +11,35 @@ import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
 export const Figure = ({
   alt,
   blurhash,
+  border,
+  borderRadius = true,
   className,
   height,
   mask = false,
-  size = '3:4',
-  placeholderColor,
-  scrolling = true,
+  priority,
   scrollDelay,
+  scrollImageSpeed = -3,
+  scrolling = true,
+  scrollOffset,
   scrollPosition,
   scrollSpeed = scrlSpeed,
-  scrollImageSpeed = -3,
-  scrollOffset,
-  priority,
+  size = '3:4',
   sizes,
-  transition,
   src,
+  transition,
   width,
   quality,
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
-    // '-placeholderColor': placeholderColor,
+    '-border': border,
+    '-border:radius': borderRadius,
   });
   const id = src.split('/').pop().split('.')[0];
   const ref = useRef(null);
   const isMobile = useIsMobile();
 
-  /**
-   * 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
-   */
+  // 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
   const offset =
     scrollOffset || scrollOffset === 0
       ? scrollOffset
@@ -74,7 +74,7 @@ export const Figure = ({
       : moveVariants;
 
   return (
-    <motion.div
+    <div
       className={classes}
       data-scroll
       ref={ref}
@@ -96,7 +96,7 @@ export const Figure = ({
       >
         <motion.div
           animate={inView ? 'inView' : ''}
-          className="Figure-figure-inner"
+          className="Figure-figure-main"
           initial="hidden"
           variants={figureVariants}
         >
@@ -113,9 +113,9 @@ export const Figure = ({
                   <BlurhashCanvas
                     className="Figure-blur-canvas"
                     hash={blurhash.hash}
-                    width={blurhash.height}
                     height={blurhash.width}
                     punch={1}
+                    width={blurhash.height}
                   />
                 </motion.div>
               )}
@@ -127,12 +127,12 @@ export const Figure = ({
               className="Figure-img"
               draggable="false"
               layout="responsive"
-              sizes={sizes}
-              src={src}
-              quality={quality}
               onLoadingComplete={() => {
                 setImageIsLoaded(true);
               }}
+              sizes={sizes}
+              src={src}
+              quality={quality}
               {...(priority && { priority: true })}
               {...imageSize}
             />
@@ -151,6 +151,6 @@ export const Figure = ({
           )}
         </motion.div>
       </figure>
-    </motion.div>
+    </div>
   );
 };

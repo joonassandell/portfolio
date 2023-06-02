@@ -1,4 +1,8 @@
 :root {
+  // =========
+  // Colors
+  // =========
+
   // Base
   --black: #000;
   --black-transparent: #0000;
@@ -12,6 +16,7 @@
   // Background
   --bg-1000: var(--black);
   --bg-900: #111;
+  --bg-100: #{darken(#fff, 5)};
   --bg-50: var(--white);
 
   --bg-gray-100-opaque-alpha: 0.15;
@@ -36,15 +41,26 @@
   --border-1000: var(--black);
   --border-900: #333333;
   --border-800: #4d4d4d;
+  --border-100: #{darken(#fff, 12)};
 
   // Root
   --root-bg: var(--bg-1000);
-  --root-minWidth: #{$root-minWidth};
-  --vh: 100vh;
 
   // Wrap
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
+
+  // =========
+  // Other tokens
+  // =========
+
+  // Border
+  --border-width: 1px;
+  --border-radius: 8px;
+
+  // Root
+  --root-minWidth: #{$root-minWidth};
+  --vh: 100vh;
 
   // =========
   // Oras
@@ -64,9 +80,11 @@
   // =========
 
   --biocode-bg-1000: #00081F;
-  --biocode-bg-900: #001141;
-  --biocode-bg: var(--biocode-bg-1000);
-  --biocode-border-1000: #26355d;
+  --biocode-bg-900: #000a29;
+  --biocode-bg-800: #001141;
+  --biocode-border-1000: #152043;
+  --biocode-border-900: #26355d;
+  --biocode-border-800: #445688;
   --biocode-heading: var(--white);
   --biocode-primary-text: #3374ff;
   --biocode-primary: #3757f9;
