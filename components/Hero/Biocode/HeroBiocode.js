@@ -45,7 +45,7 @@ export const HeroBiocode = ({
         return (
           <>
             {transitionPre && (
-              <div className="Hero-pre wrap grid -size:l">
+              <div className="Hero-pre wrap grid -gap:l -gap:row:0">
                 <div className={figureClasses}>
                   <figure className="Hero-figure-globe Hero-figure-globe--pre">
                     <div
@@ -60,9 +60,9 @@ export const HeroBiocode = ({
                         layout="responsive"
                         onClick={onClick}
                         priority
-                        quality="90"
+                        quality={90}
                         sizes="50vw"
-                        src="/assets/biocode/joonassandell-biocode-hero-globe-pre.png"
+                        src="/assets/biocode/hero/joonassandell-biocode-hero-globe-pre.png"
                         width={2480}
                       />
                     </div>
@@ -84,7 +84,7 @@ export const HeroBiocode = ({
               </div>
             )}
             <motion.div
-              className="Hero-globe wrap grid -size:l"
+              className="Hero-globe wrap grid -gap:l"
               custom={{ enableInitial: transitionPre }}
               variants={maskVariants}
             >
@@ -104,16 +104,16 @@ export const HeroBiocode = ({
                       layout="responsive"
                       onClick={onClick}
                       priority
-                      quality="90"
+                      quality={100}
                       sizes="50vw"
-                      src="/assets/biocode/joonassandell-biocode-hero-globe-initial.png"
+                      src="/assets/biocode/hero/joonassandell-biocode-hero-globe-initial.png"
                       width={2480}
                     />
                   </div>
                 </figure>
               </div>
             </motion.div>
-            <div className="Hero-icon wrap grid -size:l">
+            <div className="Hero-icon wrap grid -gap:l">
               <div className={figureClasses}>
                 <figure className="Hero-figure-icon">
                   <Image
@@ -123,7 +123,7 @@ export const HeroBiocode = ({
                     layout="responsive"
                     priority
                     sizes="25vw"
-                    src="/assets/biocode/joonassandell-biocode-icon.png"
+                    src="/assets/biocode/hero/joonassandell-biocode-icon.png"
                     width={800}
                   />
                 </figure>
@@ -159,7 +159,7 @@ export const HeroBiocode = ({
               </div>
             )}
             {transitionPre && (
-              <div className="Hero-figureBg wrap grid -size:l">
+              <div className="Hero-figureBg wrap grid -gap:l">
                 <div className={figureClasses}>
                   <div className="Hero-figureBg-bg" />
                 </div>

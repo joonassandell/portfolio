@@ -1,20 +1,41 @@
 .Template--biocode {
-  --Template-bgColor: var(--biocode-bg-1000);
-  --bg-100: var(--biocode-bg-900);
-  --border-1000: var(--biocode-border-1000);
-  --border-900: var(--biocode-border-900);
-  --border-800: var(--biocode-border-800);
-  --border-100: var(--biocode-border-1000);
-  --heading: var(--biocode-heading);
-  --link-hover: var(--biocode-text-1000);
-  --link: var(--biocode-text-1000);
-  --text-1000: var(--biocode-text-1000);
-  --text-900: var(--biocode-text-900);
-  --text-muted: var(--biocode-text-muted);
+  --Template-main-bg-color: var(--biocode-bg-50);
+  --Template-main-color: var(--biocode-text-1000);
 
-  .Info {
-    @include mq($until: ml) {
-      margin-top: rem($space * -4);
+  .Template-main {
+    section {
+      --bg-100: var(--biocode-bg-100);
+      --bg-50: var(--biocode-bg-50);
+
+      --border-1000: var(--biocode-border-300);
+      --border-1000: var(--biocode-border-300);
+      --border-900: var(--biocode-border-200);
+      --border-100: var(--biocode-border-100);
+      --hr: var(--biocode-border-200);
+
+      --heading: var(--biocode-heading);
+
+      --link-hover: var(--biocode-text-1000);
+      --link: var(--biocode-text-1000);
+
+      --text-1000: var(--biocode-text-1000);
+      --text-900: var(--biocode-text-900);
+      --text-muted: var(--biocode-text-muted);
     }
+  }
+
+  .Template-section {
+    &.theme\:light {
+      --Template-section-bg-color: var(--biocode-bg-50);
+    }
+  }
+
+  .Template-app {
+    margin-top: -10vw;
+    padding-top: 25vw;
+  }
+
+  @include mq($until: l) {
+    --border-radius: 4px;
   }
 }
