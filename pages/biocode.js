@@ -1,319 +1,311 @@
 import { HeroBiocode } from '@/components/Hero';
-import { Template } from '@/components/Template';
+import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { getSitemap, getImage } from '@/lib/utility';
 import { NextProject } from '@/components/NextProject';
 import { mq, scrollSpeed } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { getImages } from '@/lib/getImages';
-import { useIsMobile } from '@/lib/useIsMobile';
 
-const biocode = getSitemap('biocode');
-const oras = getSitemap('oras');
+const { id, title } = getSitemap('biocode');
 
 const Biocode = ({ images }) => {
-  const isMobile = useIsMobile();
-  const woman = getImage('joonassandell-oras-thumbnail', images);
-  const manSquare = getImage('joonassandell-oras-man-square', images);
-  const family = getImage('joonassandell-oras-product-family', images);
-  const kitchen = getImage('joonassandell-oras-ux-kitchen', images);
-  const homeHero = getImage('joonassandell-oras-home-hero', images);
-  const liveMore = getImage('joonassandell-oras-live-more-hero', images);
-  const lookBooked = getImage('joonassandell-oras-look-booked', images);
-  const single = getImage('joonassandell-oras-product-single', images);
-  const man = getImage('joonassandell-oras-man', images);
-  const productsOverview = getImage(
-    'joonassandell-oras-products-overview',
-    images,
-  );
-  const blog = getImage('joonassandell-oras-blog', images);
-  const heroSense = getImage('joonassandell-oras-hero-sense', images);
-  const s1 = getImage('joonassandell-oras-strategy-1', images);
-  const s2 = getImage('joonassandell-oras-strategy-2', images);
-  const s3 = getImage('joonassandell-oras-strategy-3', images);
-  const s4 = getImage('joonassandell-oras-strategy-4', images);
-  const s5 = getImage('joonassandell-oras-strategy-5', images);
-  const s6 = getImage('joonassandell-oras-strategy-6', images);
-  const s7 = getImage('joonassandell-oras-strategy-7', images);
-  const mobile = getImage('joonassandell-oras-mobile', images);
-  const mobile2 = getImage('joonassandell-oras-mobile-2', images);
-  const mobile3 = getImage('joonassandell-oras-mobile-3', images);
-
   return (
-    <Template name={biocode.id} title={biocode.title}>
-      <HeroBiocode />
-      <Info
-        client={{ name: biocode.title, href: 'https://biocode.io' }}
-        type={['Web app', 'Web service', 'Commission']}
-        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
-        smallPrint="Building together with awesome co-workers at Biocode."
-        text={
-          <p>
-            After several iterations the Oras brand was modernised entirely in
-            connection with the web service overhaul. The web service was used
-            to create a bold and distinct image of Oras and to strongly
-            highlight the brand’s new promise.
-          </p>
-        }
-        role={['Product design', 'App development', 'Web development']}
-        year="2023"
-      />
-      <section className="grid">
-        <div className="grid-col grid-col:6 grid-col:4@l">
-          <Figure
-            alt="Oras woman showering"
-            className="Template-img-1"
-            mask
-            priority
-            scrollOffset={isMobile ? 0 : '-25%'}
-            sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
-            transition="clip"
-            {...woman}
-          />
-        </div>
-        <div className="grid-col grid-col:5 -start:8 grid-col:4@l -start:8@l -align:end">
-          <Figure
-            alt="Oras man showering"
-            className="Template-img-2"
-            mask
-            priority
-            scrollOffset={isMobile ? 0 : '-25%'}
-            scrollSpeed={1}
-            sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
-            transition="clip"
-            {...manSquare}
-          />
-        </div>
-      </section>
-      <section className="Template-section -bg:gradient-10-50-10 -padding:bottom">
-        <div className="grid wrap">
-          <div className="grid-col grid-col:10@m -start:2@m">
+    <Template name={id} title={title}>
+      <TemplateMain>
+        <HeroBiocode />
+        <Info
+          client={{ name: title, href: 'https://biocode.io' }}
+          type={['Web app', 'Web service', 'Commission']}
+          heading="Biocode is Carbon footprint calculator that makes sense. It's aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
+          smallPrint="Building together with awesome co-workers at Biocode."
+          text={
+            <p>
+              After several iterations the Oras brand was modernised entirely in
+              connection with the web service overhaul. The web service was used
+              to create a bold and distinct image of Oras and to strongly
+              highlight the brand’s new promise.
+            </p>
+          }
+          role={['Product design', 'App development', 'Web development']}
+          year="2021—"
+        />
+        <TemplateSection gridGap="xl">
+          <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
-              alt="Oras product family"
+              alt="Biocode homepage and isometric Biocode application"
+              border
+              priority
               scrolling={false}
               sizes={`${mq.l} 80vw, 100vw`}
-              quality={90}
+              quality={100}
+              {...getImage('joonassandell-biocode-website-home-hero', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:10 grid-col:7@m">
+            <Figure
+              alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 40vw, 70vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-home-whoitsfor',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:10 grid-col:5@m -end -align:end">
+            <Figure
+              alt="Four main Biocode features and quote of Biocode's customer"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 40vw, 70vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-home-calculate',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:11 -start:2 grid-col:8@m -start:4@m">
+            <Figure
+              alt="Call to action to discover Biocode reporting service"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 60vw, 70vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-home-reporting',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:10 grid-col:7@m -start:2@m">
+            <Figure
+              border
+              src="/assets/biocode/joonassandell-biocode-website-home.mp4"
+              scrolling={false}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection gridGap="l" gridRowGap="default">
+          <div className="grid-col grid-col:6 grid-col:3@m">
+            <Figure
+              alt="Biocode application icon"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 20vw, 50vw`}
+              {...getImage('joonassandell-biocode-app-icon', images)}
               blurhash={false}
-              priority
-              {...family}
             />
           </div>
-        </div>
-      </section>
-      <section className="grid -size:l">
-        <div className="grid-col grid-col:10 grid-col:6@m">
-          <Figure
-            className="Template-videoBathroom"
-            alt="Oras lifestyle animation concept"
-            scrollSpeed={-1}
-            src="/assets/oras/joonassandell-oras-bathroom.mp4"
-            transition="clip"
-          />
-        </div>
-        <div className="grid-col grid-col:10 -end grid-col:6@m">
-          <Figure
-            alt="Oras get inspired animation concept"
-            scrollSpeed={0.5}
-            src="/assets/oras/joonassandell-oras-get-inspired.mp4"
-            transition="clip"
-          />
-        </div>
-      </section>
-      <section className="Template-section -bg:gradient-10-50-10">
-        <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:9@m">
+          <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
-              alt="Oras products overview"
+              alt="Biocode for producers mark"
+              border
               scrolling={false}
-              sizes={`${mq.m} 70vw, 100vw`}
+              sizes={`${mq.m} 20vw, 50vw`}
+              {...getImage('joonassandell-biocode-producer-mark', images)}
               blurhash={false}
-              priority
-              {...productsOverview}
             />
           </div>
-          <div className="grid-col grid-col:8@m -start:2@m">
+          <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
-              alt="Oras blog"
+              alt="Biocode for products mark"
+              border
               scrolling={false}
-              sizes={`${mq.m} 60vw, 100vw`}
-              {...blog}
-            />
-          </div>
-          <div className="grid-col grid-col:9@m -end">
-            <Figure
-              alt="Oras kitchen experience"
-              scrolling={false}
-              sizes={`${mq.m} 70vw, 100vw`}
+              sizes={`${mq.m} 20vw, 50vw`}
+              {...getImage('joonassandell-biocode-product-mark', images)}
               blurhash={false}
-              priority
-              {...kitchen}
             />
           </div>
-        </div>
-      </section>
-      <section className="Template-section">
-        <div className="wrap grid -size:full">
-          <div className="grid-col grid-col:7@m">
+          <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
-              alt="Oras homepage hero"
-              scrollSpeed={0.5}
-              sizes={`${mq.m} 70vw, 100vw`}
-              transition="clip"
-              {...homeHero}
-            />
-          </div>
-          <div className="grid-col grid-col:9 -start:4 grid-col:5@m -start:9@m -align:end">
-            <Figure
-              alt="Oras live more page hero"
-              scrollSpeed={-scrollSpeed}
-              sizes={`${mq.m} 33vw, 80vw`}
-              transition="clip"
-              {...liveMore}
-            />
-          </div>
-          <div className="grid-col grid-col:9 grid-col:8@m -start:4@m">
-            <Figure
-              alt="Oras look book cta"
+              alt="Biocode for reporting mark"
+              border
               scrolling={false}
-              sizes={`${mq.m} 80vw, 100vw`}
-              transition="clip"
-              {...lookBooked}
-            />
-          </div>
-        </div>
-      </section>
-      <section className="Template-section">
-        <Figure
-          alt="Oras sense faucet"
-          blurhash={false}
-          mask
-          priority
-          {...heroSense}
-        />
-      </section>
-      <section className="Template-section -bg:gradient-10-50-10">
-        <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:8@m">
-            <Figure
-              alt="Oras single product page"
-              scrolling={false}
-              sizes={`${mq.m} 80vw, 100vw`}
+              sizes={`${mq.m} 20vw, 50vw`}
+              {...getImage('joonassandell-biocode-report-mark', images)}
               blurhash={false}
-              priority
-              {...single}
             />
           </div>
-          <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
+        </TemplateSection>
+        <TemplateSection gridGap="l" gridRowGap="default">
+          <div className="grid-col grid-col:6 grid-col:4@m -align:end">
             <Figure
-              alt="Oras man showering"
-              mask
-              sizes={`${mq.m} 50vw, 33vw`}
-              {...man}
-            />
-          </div>
-        </div>
-      </section>
-      <section className="Template-section">
-        <div className="grid -size:l">
-          <div className="grid-col grid-col:10 grid-col:4@m -align:end">
-            <Figure
-              alt="Oras strategy 1"
-              scrolling={false}
-              sizes={`${mq.m} 33vw, 80vw`}
-              {...s5}
-            />
-          </div>
-          <div className="grid-col grid-col:10 -start:2 grid-col:7@m -start:5@m">
-            <Figure
-              alt="Oras strategy 2"
+              alt="Example of Biocode's easy to use card"
+              border
               scrolling={false}
               sizes={`${mq.m} 33vw, 50vw`}
-              {...s6}
-            />
-          </div>
-        </div>
-        <div className="grid -size:l wrap@m">
-          <div className="grid-col grid-col:10 -start:3 grid-col:7@m -start:1@m">
-            <Figure
-              alt="Oras strategy 3"
-              scrolling={false}
-              sizes={`${mq.m} 33vw, 80vw`}
-              quality={90}
-              {...s1}
-            />
-          </div>
-          <div className="grid-col grid-col:10 -start:2 grid-col:5@m -start:8@m">
-            <Figure
-              alt="Oras strategy 4"
-              scrolling={false}
-              sizes={`${mq.m} 33vw, 80vw`}
-              {...s2}
-            />
-          </div>
-        </div>
-        <div className="grid -size:l">
-          <div className="grid-col grid-col:10 grid-col:5@m">
-            <Figure
-              alt="Oras strategy 5"
-              scrolling={false}
-              sizes={`${mq.m} 33vw, 80vw`}
-              {...s3}
-            />
-            <div className="grid">
-              <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
-                <Figure
-                  alt="Oras strategy 6"
-                  scrolling={false}
-                  sizes={`${mq.m} 33vw, 50vw`}
-                  {...s7}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="grid-col grid-col:9 -start:4 grid-col:7@m -start:6@m">
-            <Figure
-              alt="Oras strategy 7"
-              scrolling={false}
-              sizes={`80vw`}
-              quality={90}
-              {...s4}
-            />
-          </div>
-        </div>
-      </section>
-      <section className="Template-section -padding:bottom">
-        <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
-            <Figure
-              alt="Oras homepage mobile"
-              priority
-              sizes={`${mq.m} 25vw, 50vw`}
               quality={100}
-              {...mobile}
+              {...getImage(
+                'joonassandell-biocode-website-card-easy-to-use',
+                images,
+              )}
             />
           </div>
-          <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
+          <div className="grid-col grid-col:8@m">
             <Figure
-              alt="Oras homepage mobile 2"
-              scrollSpeed={-scrollSpeed}
-              priority
-              sizes={`${mq.m} 25vw, 50vw`}
-              {...mobile2}
+              alt="About us page of Biocode homepage"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 60vw, 100vw`}
+              quality={100}
+              {...getImage('joonassandell-biocode-website-about', images)}
             />
           </div>
-        </div>
-        <div className="wrap grid -size:l">
-          <div className="grid-col grid-col:5 -start:7 grid-col:4@s grid-col:3@m">
+          <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
-              alt="Oras homepage mobile 3"
-              scrollSpeed={scrollSpeed * 2}
-              priority
-              sizes={`${mq.m} 25vw, 50vw`}
-              {...mobile3}
+              alt="Example of Biocode's agile card"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              quality={100}
+              {...getImage('joonassandell-biocode-website-card-agile', images)}
             />
           </div>
-        </div>
-      </section>
+          <div className="grid-col grid-col:6 grid-col:4@m">
+            <Figure
+              alt="Example of Biocode's insightful card"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-card-insightful',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:6 grid-col:4@m -end">
+            <Figure
+              alt="Example of Biocode's credible card"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 33vw, 50vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-card-credible',
+                images,
+              )}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection>
+          <div className="grid-col grid-col:11 grid-col:10@m">
+            <Figure
+              alt="Biocode feature page hero cards"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 70vw, 90w`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-features-hero',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:11 grid-col:9@m -start:2 -start:2@m">
+            <Figure
+              alt="Biocode feature page assessment image"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 60vw, 90w`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-features-assessments',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:10 grid-col:9@m -end">
+            <Figure
+              alt="Biocode feature page results image"
+              border
+              scrolling={false}
+              sizes={`${mq.l} 70vw, 80vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-website-features-results',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:10@l -start:2@l">
+            <Figure
+              alt="Biocode for producers app in dark mode"
+              border="var(--border-900)"
+              scrolling={false}
+              sizes={`${mq.l} 80vw, 100vw`}
+              quality={100}
+              {...getImage(
+                'joonassandell-biocode-app-producer-crop-dark',
+                images,
+              )}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection className="Template-app" paddingBottom theme="light">
+          <div className="grid-col grid-col:9@m">
+            <Figure
+              alt="Biocode app sign in page"
+              border
+              scrolling={false}
+              sizes={`${mq.l} 70vw, 100vw`}
+              {...getImage('joonassandell-biocode-app-auth', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:11 grid-col:9@m -end">
+            <Figure
+              alt="Biocode app for producers overview page"
+              border
+              scrolling={false}
+              sizes="70vw"
+              {...getImage(
+                'joonassandell-biocode-app-producer-overview',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:10 grid-col:6@m">
+            <Figure
+              alt="Biocode app for producers assessment page"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 50vw, 70vw`}
+              {...getImage('joonassandell-biocode-app-producer-crop', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:11 grid-col:6@m -end -align:end">
+            <Figure
+              alt="Example of Biocode's user interface elements"
+              border="var(--border-900)"
+              scrolling={false}
+              sizes={`${mq.m} 50vw, 90vw`}
+              {...getImage('joonassandell-biocode-app-ui', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:11 grid-col:8@m -start:3@m">
+            <Figure
+              alt="Another example of Biocode's user interface elements"
+              border="var(--border-900)"
+              scrolling={false}
+              sizes={`${mq.m} 70vw, 90vw`}
+              {...getImage('joonassandell-biocode-app-ui-2', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:8@m -end">
+            <Figure
+              alt="Biocode for producers application teaser image"
+              border
+              scrolling={false}
+              sizes={`${mq.m} 70vw, 100vw`}
+              {...getImage('joonassandell-biocode-app-producer-frame', images)}
+            />
+          </div>
+        </TemplateSection>
+      </TemplateMain>
       <NextProject id="oras" />
     </Template>
   );
@@ -322,8 +314,8 @@ const Biocode = ({ images }) => {
 export const getStaticProps = async () => {
   return {
     props: {
-      navTitle: biocode.title,
-      images: await getImages(oras.id),
+      navTitle: title,
+      images: await getImages(id),
     },
   };
 };
