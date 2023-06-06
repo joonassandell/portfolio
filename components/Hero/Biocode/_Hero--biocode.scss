@@ -87,7 +87,7 @@
 
   &.is-transition, &:not(.Hero.-transition\:pre) {
     .Hero-figure-icon {
-      border-color: var(--biocode-border-1000);
+      border-color: var(--biocode-border-200);
     }
   }
 
@@ -97,7 +97,7 @@
   }
 
   .Hero-bg {
-    background: radial-gradient(70% rem($space * 25) at 70% 0, var(--biocode-bg-800), var(--biocode-bg-1000)) no-repeat;
+    background: radial-gradient(70% rem($space * 25) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50)) no-repeat;
     z-index: 2;
   }
 

@@ -31,10 +31,10 @@ export const variantsWithoutTransition = {
 
 export const overlayVariants = {
   animate: {
-    backgroundColor: 'var(--Template-overlayColor)',
+    backgroundColor: 'var(--Template-overlay-color)',
     transition: transTemplate,
   },
   initial: {
-    backgroundColor: 'var(--Template-overlayColor-initial)',
+    backgroundColor: 'var(--Template-overlay-color-initial)',
   },
 };

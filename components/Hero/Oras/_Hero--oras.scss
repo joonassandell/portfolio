@@ -41,9 +41,9 @@
   }
 
   .Hero-figure-bg {
-    background: linear-gradient(180deg, var(--oras-Hero-figureBg) 0%, rgba(var(--oras-Hero-figureBgRgb), 0) 100%);
+    background: linear-gradient(180deg, var(--oras-Hero-figure-bg) 0%, rgba(var(--oras-Hero-figure-bg-rgb), 0) 100%);
     height: 100%;
-    opacity: var(--oras-Hero-figureBgAlpha);
+    opacity: var(--oras-Hero-figure-bg-alpha);
     position: relative;
     transform: scaleY(4);
     width: 100%;
@@ -56,8 +56,8 @@
   }
 
   &.-transition\:pre .Hero-figure-bg {
-    background: var(--oras-Hero-figureBg);
-    opacity: var(--oras-Hero-figurePreTransitionBgAlpha);
+    background: var(--oras-Hero-figure-bg);
+    opacity: var(--oras-Hero-figure-preTransitionBgAlpha);
     transform: scaleY(1);
 
     @include mq(s) {

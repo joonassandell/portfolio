@@ -13,10 +13,10 @@ export const figureBgVariants = {
   animate: {
     scaleY: 4,
     background: [
-      'linear-gradient(180deg, var(--oras-Hero-figureBg) 0%, rgba(var(--oras-Hero-figureBgRgb), 1) 100%)',
-      'linear-gradient(180deg, var(--oras-Hero-figureBg) 0%, rgba(var(--oras-Hero-figureBgRgb), 0) 100%)',
+      'linear-gradient(180deg, var(--oras-Hero-figure-bg) 0%, rgba(var(--oras-Hero-figure-bg-rgb), 1) 100%)',
+      'linear-gradient(180deg, var(--oras-Hero-figure-bg) 0%, rgba(var(--oras-Hero-figure-bg-rgb), 0) 100%)',
     ],
-    opacity: parseFloat(getCSSVarValue('--oras-Hero-figureBgAlpha')),
+    opacity: parseFloat(getCSSVarValue('--oras-Hero-figure-bg-alpha')),
     transition: {
       ...transSecondary,
     },

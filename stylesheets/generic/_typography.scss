@@ -1,7 +1,3 @@
-/* =======================================
- * Typography
- * ======================================= */
-
 p {
   margin: 0 0 rem($space-m);
 }
@@ -18,9 +14,9 @@ small {
 
 hr {
   border: 0;
-  border-top: rem(1px) solid var(--border-1000);
+  border-top: var(--border-width) solid var(--hr);
   display: block;
-  height: rem(1px);
+  height: var(--border-width);
   margin-bottom: rem($space-m);
   margin-top: 0;
   overflow: visible;
@@ -50,12 +46,6 @@ sub {
 sup {
   top: -0.5em;
 }
-
-// h1, h2, h3, h4, h5 {
-//   &:not(:first-child) {
-//     margin-top: rem($space-xl);
-//   }
-// }
 
 h1, .h1 {
   @include heading(h1);
