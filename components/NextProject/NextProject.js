@@ -79,7 +79,7 @@ export const NextProject = ({ id }) => {
   }, [mousePosX, height, width, figureWidthHalf, figureHeightHalf]);
 
   return (
-    <div ref={ref} className="NextProject wrap">
+    <section ref={ref} className="NextProject wrap">
       <div ref={innerRef} className="NextProject-inner">
         <LinkRoll className="NextProject-link" href={href}>
           Next project
@@ -105,6 +105,6 @@ export const NextProject = ({ id }) => {
           />
         </motion.figure>
       </div>
-    </div>
+    </section>
   );
 };

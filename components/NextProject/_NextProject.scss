@@ -1,5 +1,10 @@
+/**
+ * 1. Fix possible background leaking related to scroll transform glitches
+ */
 .NextProject {
-  background: var(--Template-bgColor);
+  background-color: var(--NextProject-bg-color, var(--Template-bg-color, var(--bg-50)));
+  margin: -1px 0; // [1.]
+  padding-top: rem($space-xxxl);
 }
 
 .NextProject-link {
@@ -12,12 +17,14 @@
 }
 
 .NextProject-inner {
-  padding: rem($space-xxl) 0 0 0;
+  padding: rem($space-xxl) 0;
   position: relative;
 }
 
 .NextProject-figure {
+  border-radius: 999px;
   inset: 0 auto auto 0;
+  overflow: hidden;
   pointer-events: none;
   position: absolute;
   width: min(#{rem($space * 20)}, 45%);
