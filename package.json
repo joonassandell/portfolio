@@ -3,12 +3,12 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
     "create-component": "node ./utils/create-component",
+    "deploy:preview": "vercel",
+    "dev": "next dev",
     "preview": "npm run build && npm run start",
-    "start": "next start",
-    "deploy:preview": "vercel"
+    "start": "next start"
   },
   "dependencies": {
     "blurhash": "^1.1.3",
@@ -35,7 +35,7 @@
     "@svgr/webpack": "^5.5.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "colors": "^1.4.0",
-    "sass": "^1.29.0",
-    "sass-mq": "^5.0.1"
+    "sass": "^1.62.1",
+    "sass-mq": "^6.0.0"
   }
 }

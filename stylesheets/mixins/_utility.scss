@@ -1,26 +1,24 @@
-// =======================================
-// Utilities
-// =======================================
+@use "sass:math";
 
 //
 // Strip units
 //
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+  @return math.div($num, $num * 0 + 1);
 }
 
 //
 // Convert pixels to em's
 //
 @function em($pixels, $context: $font-size) {
-  @return #{strip-unit($pixels) / strip-unit($context)}em;
+  @return #{math.div(strip-unit($pixels), strip-unit($context))}em;
 }
 
 //
 // Convert pixels to rem's
 //
 @function rem($pixels) {
-  @return strip-unit($pixels) / strip-unit($font-size) * 1rem;
+  @return #{math.div(strip-unit($pixels), strip-unit($font-size))}rem;
 }
 
 //

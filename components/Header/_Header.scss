@@ -477,7 +477,7 @@
   margin-right: rem($space-xs);
 
   &:not(:last-child) {
-    margin-bottom: rem($space / 8);
+    margin-bottom: rem($space * 0.125);
   }
 }
 

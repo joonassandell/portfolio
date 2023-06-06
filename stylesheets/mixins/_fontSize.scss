@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin fontSize(
   $minFontSize: $font-size,
   $lineHeight: $lineHeight,
@@ -29,9 +31,9 @@
 
   @if $lineHeight {
     @if unit($minFontSize) == 'rem' {
-      line-height: $lineHeight / px($minFontSize);
+      line-height: math.div($lineHeight, px($minFontSize));
     } @else {
-      line-height: $lineHeight / $minFontSize;
+      line-height: math.div($lineHeight, $minFontSize);
     }
   }
 }
