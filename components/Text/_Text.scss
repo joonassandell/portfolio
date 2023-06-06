@@ -1,0 +1,16 @@
+.Text {
+  &.-xl { @include text(xl); }
+  &.-l  { @include text(l);  }
+  &.-s  { @include text(s);  }
+  &.-xs { @include text(xs); }
+
+  > *:not(.Text) {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.-color\:light {
+    color: var(--text-muted);
+  }
+}

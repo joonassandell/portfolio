@@ -1,7 +1,3 @@
-// =======================================
-// Text related mixins
-// =======================================
-
 // ======
 // Text sizes & styles
 // ======
@@ -18,26 +14,11 @@
   } @else if $size == 'xs' {
     @include fontSize($font-size-xs, $lineHeight-xs);
   }
-
-  @if $style == 'subtitle' {
-    // text-transform: uppercase;
-    @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
-    color: var(--text-muted);
-  }
-
-  @if $style == 'meta' {
-    @if $size == null { @include fontSize($font-size-xs, $lineHeight-xs); }
-    color: var(--text-muted);
-  }
 }
 
 // ======
 // Truncate text
 // ======
-//
-// Force overly long spans of text to truncate
-// e.g. @include truncate(80%);
-// Where $truncation-boundary is a united measurement.
 
 @mixin textTruncate($truncation-boundary: 100%, $important: null) {
   $important: if($important, '!important', null);
@@ -64,14 +45,10 @@
 // Enables font kerning in all browsers.
 // http://blog.typekit.com/2014/02/05/kerning-on-the-web/
 // ======
-//
-// 1. Chrome (not Windows), Firefox, IE 10+
-// 2. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
-// 3. Safari 7 and future browsers
 
 @mixin textKern($important: null) {
   $important: if($important, '!important', null);
-  font-feature-settings: 'kern' 1 $important; // [1.]
-  font-kerning: normal $important; // [3.]
-  text-rendering: optimizeLegibility $important; // [2.]
+  font-feature-settings: 'kern' 1 $important;
+  font-kerning: normal $important;
+  text-rendering: optimizeLegibility $important;
 }

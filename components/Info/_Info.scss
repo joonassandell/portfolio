@@ -1,6 +1,10 @@
 .Info {
   position: relative;
   z-index: 2;
+
+  @include mq($until: ml) {
+    margin-top: rem($space * -4);
+  }
 }
 
 .Info-ruler {
@@ -12,22 +16,12 @@
   }
 }
 
-.Info-metaCol {
+.Info-meta {
   @include text(s);
 }
 
-.Info-roleCol {
-  display: flex;
-  flex-direction: column;
-
-  p {
-    margin-top: auto;
-    max-width: 20ch;
-
-    @include mq(l) {
-      margin-top: rem($space-m);
-    }
-  }
+.Info-meta-small {
+  max-width: 20ch;
 }
 
 .Info-heading {

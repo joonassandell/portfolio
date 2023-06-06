@@ -8,7 +8,7 @@
     font-weight: $heading-fontWeight;
   }
 
-  @if $margin and $size != 'h6' {
+  @if $margin {
     margin: 0 0 rem($space-m);
   }
 
@@ -23,7 +23,6 @@
   } @else if $size == 'h5' {
     @include fontSize($h5-fontSizeMin, $h5-lineHeight, $h5-fontSizeMax);
   } @else if $size == 'h6' {
-    @include text($style: subtitle);
-    @if $margin { margin: 0 0 rem($space-xxs); }
+    @include fontSize($h6-fontSizeMin, $h6-lineHeight, $h6-fontSizeMax);
   }
 }

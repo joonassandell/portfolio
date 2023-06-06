@@ -23,13 +23,13 @@
 @import 'helpers/display';
 @import 'helpers/grid';
 @import 'helpers/helper';
+@import 'helpers/margin';
 @import 'helpers/padding';
 @import 'helpers/scrollbar';
 @import 'helpers/wrap';
 
 // CSS Components
 @import 'components/Heading';
-@import 'components/Text';
 
 // Components
 @import '../components/App';
@@ -46,4 +46,5 @@
 @import '../components/Splash';
 @import '../components/Stamp';
 @import '../components/Template';
+@import '../components/Text';
 @import '../components/TextReveal';
