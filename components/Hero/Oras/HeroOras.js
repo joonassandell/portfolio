@@ -41,7 +41,7 @@ export const HeroOras = ({
         return (
           <>
             <div className="wrap">
-              <div className="grid -size:l">
+              <div className="grid -gap:l">
                 <div
                   className="
                   Hero-figure grid-col
@@ -65,7 +65,7 @@ export const HeroOras = ({
                       priority
                       quality="90"
                       sizes="33vw"
-                      src="/assets/oras/joonassandell-oras-hero.png"
+                      src="/assets/oras/hero/joonassandell-oras-hero.png"
                       width={2192}
                     />
                   </figure>
@@ -93,7 +93,7 @@ export const HeroOras = ({
                         layout="responsive"
                         priority
                         sizes="10vw"
-                        src="/assets/oras/joonassandell-oras-drop.png"
+                        src="/assets/oras/hero/joonassandell-oras-drop.png"
                         width={256}
                         quality="90"
                       />
@@ -134,7 +134,7 @@ export const HeroOras = ({
                   layout="responsive"
                   priority
                   sizes="10vw"
-                  src="/assets/oras/joonassandell-oras-drop.png"
+                  src="/assets/oras/hero/joonassandell-oras-drop.png"
                   width={256}
                   quality="90"
                 />
@@ -165,7 +165,7 @@ export const HeroOras = ({
                   layout="responsive"
                   priority
                   sizes="10vw"
-                  src="/assets/oras/joonassandell-oras-drop.png"
+                  src="/assets/oras/hero/joonassandell-oras-drop.png"
                   width={256}
                   quality="90"
                 />
