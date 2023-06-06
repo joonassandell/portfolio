@@ -1,12 +1,12 @@
 .Template {
-  --Template-overlayColor: var(--black);
-  --Template-overlayColor-initial: var(--black-transparent);
-  background-color: var(--Template-bgColor, var(--bg-50));
+  --Template-overlay-color: var(--black);
+  --Template-overlay-color-initial: var(--black-transparent);
+  background-color: var(--Template-bg-color, var(--bg-50));
   color: var(--Template-color, var(--text-1000));
   min-height: var(--vh);
   overflow: hidden;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 
   /**
@@ -47,23 +47,13 @@
   z-index: 1;
 }
 
-.Template-img-1.Figure {
-  @include mq(l) {
-    margin-top: rem($space * -6);
-  }
-}
-
-.Template-img-2.Figure {
-  margin-bottom: rem($space);
-
-  @include mq(m) {
-    margin-bottom: 0;
-    margin-top: rem($space * 12);
-  }
+.Template-main {
+  background-color: var(--Template-main-bg-color, inherit);
+  color: var(--Template-main-color, inherit);
 }
 
 .Template-section {
-  padding-top: 10vw;
+  background-color: var(--Template-section-bg-color);
 
   &.-bg\:50 {
     background: var(--bg-gray-50-opaque);
@@ -79,9 +69,5 @@
 
   &.-bg\:gradient-0-50-0 {
     background: linear-gradient(transparent, var(--bg-gray-50-opaque) 8%, var(--bg-gray-50-opaque) 92%, transparent);
-  }
-
-  &.-padding\:bottom {
-    padding-bottom: 10vw;
   }
 }
