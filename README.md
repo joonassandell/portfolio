@@ -1,6 +1,6 @@
 # Joonas Sandell — Portfolio
 
-> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This [Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 - [The Portfolio 🚀](http://joonassandell.com)
 - [Documentation](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
@@ -25,11 +25,11 @@ Aside from this readme, there is additional information about the whole project 
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally. When previewing app, set `NEXT_PUBLIC_ORIGIN` in [.env.local](.env.local) to `http://localhost:3000`. If previewing in LAN, then apply LAN origin (e.g. `http://192.168.0.110:3000`).
 - `npm run start`: Start the application in production mode. The application should be compiled with next build first.
-- `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (previews are like "staging")
+- `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state.
 
 ### Notes
 
-- Previews are deployed always locally so that the preview url stays the same. `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin server side so the env variable was created.
+- Previews are deployed always locally so that the preview url stays the same. `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created.
 - In development, project pages etc. may take a while because of the blurhash placeholder generation. After build build everything is fine.
 - Exit animations work in various components (e.g. `Template.js`) because `App.js` contains `AnimatePresence` which wraps all the pages/components.
 

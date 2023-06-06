@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "create-component": "node ./utils/create-component",
+    "create:component": "node ./utils/create-component",
     "deploy:preview": "vercel",
     "dev": "next dev",
     "preview": "npm run build && npm run start",
