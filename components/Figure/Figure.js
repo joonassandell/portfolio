@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
-import { scrollSpeed as scrlSpeed, transTertiary } from '@/lib/config';
+import { scrollSpeed as sSpeed, transTertiaryFastest } from '@/lib/config';
+import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
@@ -7,22 +8,24 @@ import { useIsMobile } from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
+const { NODE_ENV } = process.env;
 
 export const Figure = ({
   alt,
   blurhash,
+  background,
   border,
   borderRadius = true,
   className,
   height,
   mask = false,
-  priority,
+  priority = false,
   scrollDelay,
   scrollImageSpeed = -3,
   scrolling = true,
   scrollOffset,
   scrollPosition,
-  scrollSpeed = scrlSpeed,
+  scrollSpeed = sSpeed,
   size = '3:4',
   sizes,
   src,
@@ -32,12 +35,16 @@ export const Figure = ({
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
+    '-bg': background && !blurhash,
     '-border': border,
     '-border:radius': borderRadius,
   });
   const id = src.split('/').pop().split('.')[0];
   const ref = useRef(null);
   const isMobile = useIsMobile();
+
+  // Stop caching images in development
+  NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
 
   // 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
   const offset =
@@ -78,6 +85,11 @@ export const Figure = ({
       className={classes}
       data-scroll
       ref={ref}
+      style={{
+        ['--Figure-bg-color']:
+          isString(background) && !blurhash ? background : undefined,
+        ['--Figure-border-color']: isString(border) ? border : undefined,
+      }}
       {...(scrolling && mask && { 'data-scroll-id': id })}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(offset && { 'data-scroll-offset': offset })}
@@ -108,7 +120,7 @@ export const Figure = ({
                   className="Figure-blur"
                   exit={{ opacity: 0 }}
                   initial={{ opacity: 0 }}
-                  transition={transTertiary}
+                  transition={{ ...transTertiaryFastest, duration: 0.2 }}
                 >
                   <BlurhashCanvas
                     className="Figure-blur-canvas"
@@ -127,13 +139,11 @@ export const Figure = ({
               className="Figure-img"
               draggable="false"
               layout="responsive"
-              onLoadingComplete={() => {
-                setImageIsLoaded(true);
-              }}
+              onLoadingComplete={() => setImageIsLoaded(true)}
               sizes={sizes}
               src={src}
               quality={quality}
-              {...(priority && { priority: true })}
+              priority={priority}
               {...imageSize}
             />
           )}

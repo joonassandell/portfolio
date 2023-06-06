@@ -1,6 +1,11 @@
 .Figure {
   --Figure-border: var(--Figure-border-width, var(--border-width)) solid var(--Figure-border-color, var(--border-100));
-  margin-bottom: rem($space-xxl);
+
+  &.-bg {
+    .Figure-figure-main {
+      background: var(--Figure-bg-color, var(--bg-100));
+    }
+  }
 
   &.-border {
     .Figure-figure-main {
@@ -9,13 +14,19 @@
   }
 
   &.-border\:radius {
-    &, img, video, .Figure-figure-main {
-      border-radius: var(--border-radius);
+    .Figure-figure-main {
+      border-radius: var(--Figure-border-radius, var(--border-radius));
     }
   }
 
   &.-mask {
     overflow: hidden;
+
+    &.-border\:radius {
+      &, img, video, .Figure-figure-main {
+        border-radius: var(--border-radius);
+      }
+    }
   }
 }
 
@@ -24,16 +35,24 @@
 }
 
 .Figure-figure-main {
+  background-clip: padding-box;
   overflow: hidden;
   position: relative;
   transform-origin: top center;
 }
 
 .Figure-blur, .Figure-blur-canvas {
-  height: 100%;
   position: absolute;
-  width: 100%;
+}
+
+.Figure-blur {
+  inset: 0;
   z-index: 1;
+}
+
+.Figure-blur-canvas {
+  height: 100%;
+  width: 100%;
 }
 
 .Figure-video {
