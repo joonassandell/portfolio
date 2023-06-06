@@ -51,13 +51,10 @@
   --wrap-spaceLeft: #{$wrap-spaceLeft};
   --wrap-spaceRight: #{$wrap-spaceRight};
 
-  // =========
-  // Other tokens
-  // =========
-
   // Border
-  --border-width: 0.5px;
+  --border-width: 1px;
   --border-radius: 8px;
+  --border-width-thin: 0.5px;
 
   // Root
   --root-minWidth: #{$root-minWidth};
