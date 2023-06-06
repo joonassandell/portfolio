@@ -1,42 +1,56 @@
 .grid {
   --grid-gap: #{rem($grid-gap)};
-  column-gap: var(--grid-gap);
   display: grid;
-  grid-template-columns: repeat($grid-columns, 1fr);
-
-  > * {
-    --grid-span: 12;
-    grid-column: span var(--grid-span, #{$grid-columns}) / span var(--grid-span, #{$grid-columns});
-  }
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(#{$grid-columns}, 1fr);
 }
 
-
 /* ======
- * Sizing & Layout
+ * Gap
  * ====== */
 
 .grid {
-  &.-auto {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  &.-gap\:l {
+    --grid-gap: clamp(#{rem($grid-gap)}, #{$grid-gap-scale}, #{rem($grid-gap-l)});
 
-    > * { --grid-span: span; }
-  }
-
-  &.-size\:l {
-    @include mq(m) {
+    @include mq(l) {
       --grid-gap: #{rem($grid-gap-l)};
     }
   }
 
-  &.-size\:full { --grid-gap: 0; }
+  &.-gap\:xl {
+    --grid-gap: clamp(#{rem($grid-gap)}, #{$grid-gap-scale}, #{rem($grid-gap-xl)});
 
-  &.-justify\:center { justify-items: center; }
+    @include mq(l) {
+      --grid-gap: #{rem($grid-gap-xl)};
+    }
+  }
+
+  &.-gap\:0 {
+    gap: 0;
+  }
+
+  &.-gap\:row\:xl {
+    row-gap: #{rem($grid-gap-xl)};
+  }
+
+  &.-gap\:row\:l {
+    row-gap: #{rem($grid-gap-l)};
+  }
+
+  &.-gap\:row\:0 {
+    row-gap: 0;
+  }
 }
-
 
 /* ======
  * Columns
  * ====== */
+
+.grid-col {
+  --grid-span: #{$grid-columns};
+  grid-column: span var(--grid-span, #{$grid-columns}) / span var(--grid-span, #{$grid-columns});
+}
 
 @mixin gridColumns($breakpoint: null) {
   $breakpoint: if($breakpoint, \@#{$breakpoint}, null);
@@ -53,9 +67,7 @@
 .grid-col.-align\:end   { align-self: end; }
 .grid-col.-align\:center   { align-self: center; }
 
-
 @include gridColumns();
-// @include mq(xs) { @include gridColumns(xs); }
 @include mq(s) { @include gridColumns(s); }
 @include mq(m) { @include gridColumns(m); }
 @include mq(l) { @include gridColumns(l); }

@@ -1,7 +1,3 @@
-// =======================================
-// Config
-// =======================================
-
 // =========
 // Typography
 // =========
@@ -59,9 +55,9 @@ $h5-lineHeight: 28px;
 // =========
 
 $space: 16px;
-$space-xxs: $space / 3;
-$space-xs: $space / 2;
-$space-s: $space / 1.5;
+$space-xxs: $space * 0.333;
+$space-xs: $space * 0.5;
+$space-s: $space * 0.666;
 $space-m: $space * 1.5;
 $space-ml: $space * 2;
 $space-l: $space * 2.5;
@@ -73,7 +69,7 @@ $space-xxxxxl: $space * 7;
 $space-xxxxxxl: $space * 8;
 
 // =========
-// Wrap & grid settings
+// Wrap helper
 // =========
 
 $wrap-spaceLeft: 6.25%;
@@ -83,9 +79,19 @@ $wrap-spaceRight-m: $space-l;
 $wrap-spaceLeft-l: $space-xxl;
 $wrap-spaceRight-l: $space-xl;
 
+// =========
+// Grid helper
+// =========
+
 $grid-columns: 12;
+$grid-gap-scale: 5vw;
 $grid-gap: $space-m;
 $grid-gap-l: $space-xl;
+$grid-gap-xl: $space-xxl;
+
+// =========
+// Root
+// =========
 
 $root-minWidth: 320px;
 
@@ -191,5 +197,5 @@ $Button-fontSize: $font-size-xs;
 $Button-lineHeight: $lineHeight-xs;
 $Button-fontWeight: $font-weight;
 $Button-minHeight: $space-ml;
-$Button-spaceY: $space / 1.33;
+$Button-spaceY: $space * 0.75;
 $Button-spaceX: $space * 1.25;
