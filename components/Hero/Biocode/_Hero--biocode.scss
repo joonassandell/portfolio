@@ -63,7 +63,7 @@
   }
 
   .Hero-figure-icon {
-    border: 1px solid transparent;
+    border: var(--border-width) solid transparent;
     border-radius: 50%;
     inset: auto auto 27% 40%;
     margin: 0;
