@@ -1,21 +1,26 @@
 .Footer {
-  margin: rem($space-xxxl) 0 rem($space-l) 0;
-  position: relative;
-  z-index: $Footer-zIndex;
+  --link: var(--white);
+  background-color: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
+  color: var(--white);
+  padding-bottom: rem($space-l);
 
   @include mq($until: m) {
     @include text(s);
   }
 
   @include mq(m) {
-    margin-bottom: rem($space-xxxxl);
+    padding-bottom: rem($space-xxxxl);
   }
 }
 
 .Footer-inner {
+  border-top: 1px solid var(--Footer-border-color, var(--border-1000));
+}
+
+.Footer-main {
   align-items: flex-end;
-  border-top: 1px solid var(--border-1000);
   display: flex;
+  mix-blend-mode: difference;
   padding-top: rem($space-xl);
 
   @include mq(m) {
@@ -37,7 +42,7 @@
   margin-right: rem($space-xs);
 
   &:not(:last-child) {
-    margin-bottom: rem($space / 8);
+    margin-bottom: rem($space * 0.125);
   }
 }
 
