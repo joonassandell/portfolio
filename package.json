@@ -16,20 +16,19 @@
     "critters": "0.0.7",
     "framer-motion": "4.1.17",
     "glob": "^7.1.7",
-    "locomotive-scroll": "^4.1.2",
+    "locomotive-scroll": "^4.1.4",
     "lodash": "^4.17.21",
-    "next": "^11.1.2",
+    "next": "12.3.3",
     "nprogress": "^0.2.0",
     "plaiceholder": "^2.0.1",
     "react": "^17.0.2",
     "react-blurhash": "^0.1.3",
     "react-dom": "^17.0.2",
-    "react-locomotive-scroll": "^0.1.8",
+    "react-locomotive-scroll": "0.2.1",
     "react-use": "^17.2.1",
     "sharp": "^0.28.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "use-callback-ref": "^1.2.5",
-    "use-intersection": "^0.2.1"
+    "use-callback-ref": "^1.2.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
@@ -37,5 +36,8 @@
     "colors": "^1.4.0",
     "sass": "^1.62.1",
     "sass-mq": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.16.0"
   }
 }
