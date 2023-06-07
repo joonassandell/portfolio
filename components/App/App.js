@@ -284,26 +284,14 @@ const AppMain = ({
     if (loadingEnd && scroll) setTimeout(() => scroll.update(), 10);
   }, [loadingEnd]);
 
-  const hackClass = 'is-transition:template:after';
-
   return (
     <AnimatePresence
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
-
         if (scroll) {
-          if (templateTransition) {
-            html.classList.add(hackClass);
-
-            setTimeout(() => {
-              html.classList.remove(hackClass);
-            }, 300);
-          }
-
           scroll.destroy();
           scroll.init();
         }
-
         if (transition) setTransition(false);
       }}
     >
