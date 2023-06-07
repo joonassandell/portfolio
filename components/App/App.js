@@ -29,7 +29,6 @@ export const App = ({ Component, pageProps, router }) => {
   const [appState, setAppState] = useState(appContext);
   const mobile = useIsMobile();
   const { doc, html, loading, loadingEnd, transition } = appState;
-  const templateTransition = transition === 'template';
   const containerRef = useRef(null);
   const { asPath } = router;
 
@@ -197,14 +196,6 @@ https://www.typescriptlang.org And this one too
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.documentElement.classList.remove('no-js');
-              document.documentElement.classList.add('has-js');
-            `,
-          }}
-        />
         <link
           as="font"
           crossOrigin=""
@@ -254,7 +245,6 @@ https://www.typescriptlang.org And this one too
                 scrollLock={appState.scrollLock}
                 setScrollLock={setScrollLock}
                 setTransition={setTransition}
-                templateTransition={templateTransition}
                 transition={transition}
                 html={html}
               />
@@ -275,8 +265,6 @@ const AppMain = ({
   setScrollLock,
   setTransition,
   transition,
-  templateTransition,
-  html,
 }) => {
   const { scroll } = useLocomotiveScroll();
 
