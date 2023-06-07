@@ -21,7 +21,7 @@ export const Info = ({
   text,
   year,
 }) => {
-  const desktop = useMedia(mq.desktop);
+  const desktop = useMedia(mq.desktop, false);
   const rulerRef = useRef(null);
   const rulerInView = useInView(rulerRef);
   const gridRef = useRef(null);
