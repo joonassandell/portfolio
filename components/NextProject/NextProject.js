@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { LinkRoll } from '@/components/LinkRoll';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash';
 import { mapRange, getSitemap } from '@/lib/utility';
@@ -67,16 +67,17 @@ export const NextProject = ({ id }) => {
   }, [mousePosX, mousePosY, mouseDistanceX]);
 
   /**
-   * Set initials. Initials won't animate because the rotate/x/y.current
-   * conditions in style attrs below are zero initially
+   * Set initial position
    */
+  const [hovered, setHovered] = useState(false);
   useEffect(() => {
-    if (width && height && figureWidthHalf && figureHeightHalf && !mousePosX) {
+    if (width && height && figureWidthHalf && figureHeightHalf && !hovered) {
       r.set(-0.5);
       x.set(width - figureWidthHalf * 1.75);
       y.set(height - figureHeightHalf * 0.8);
+      setHovered(true);
     }
-  }, [mousePosX, height, width, figureWidthHalf, figureHeightHalf]);
+  }, [height, width, figureWidthHalf, figureHeightHalf, hovered]);
 
   return (
     <section ref={ref} className="NextProject wrap">
@@ -89,9 +90,9 @@ export const NextProject = ({ id }) => {
           className="NextProject-figure"
           ref={figureRef}
           style={{
-            rotate: rotate.current ? rotate : rotateTrans,
-            y: y.current ? moveY : moveYtrans,
-            x: x.current ? moveX : moveXtrans,
+            rotate: rotate,
+            y: moveY,
+            x: moveX,
           }}
         >
           <Image
