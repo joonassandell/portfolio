@@ -12,9 +12,7 @@ export const Footer = () => {
             {someLinks.map(link => {
               return (
                 <li className="Footer-links-item" key={link.id}>
-                  <LinkRoll href={link.url} underline>
-                    {link.title}
-                  </LinkRoll>
+                  <LinkRoll href={link.url}>{link.title}</LinkRoll>
                 </li>
               );
             })}
