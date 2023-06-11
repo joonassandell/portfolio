@@ -27,10 +27,6 @@ Aside from this readme, there is additional information about the whole project 
 - `npm run start`: Start the application in production mode. The application should be compiled with next build first.
 - `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state.
 
-### Issues
-
-- Oras, last drop is not animated to the end. Possibly related to locomotive-scroll/react-locomotive-scroll updates. Noticed in production.
-
 ### Notes
 
 - Previews are deployed always locally so that the preview url stays the same. `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created.

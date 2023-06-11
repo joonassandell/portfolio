@@ -239,6 +239,7 @@ https://www.typescriptlang.org And this one too
             <main className="App-main" data-scroll-container ref={containerRef}>
               <AppMain
                 Component={Component}
+                html={html}
                 innerKey={router.route}
                 loadingEnd={loadingEnd}
                 pageProps={pageProps}
@@ -246,7 +247,6 @@ https://www.typescriptlang.org And this one too
                 setScrollLock={setScrollLock}
                 setTransition={setTransition}
                 transition={transition}
-                html={html}
               />
             </main>
           </div>
@@ -265,6 +265,7 @@ const AppMain = ({
   setScrollLock,
   setTransition,
   transition,
+  html,
 }) => {
   const { scroll } = useLocomotiveScroll();
 
@@ -272,11 +273,20 @@ const AppMain = ({
     if (loadingEnd && scroll) setTimeout(() => scroll.update(), 10);
   }, [loadingEnd]);
 
+  const hackClass = 'is-transition:template:after';
+
   return (
     <AnimatePresence
       onExitComplete={() => {
         if (scrollLock) setScrollLock(false);
         if (scroll) {
+          if (transition === 'template') {
+            html.classList.add(hackClass);
+            setTimeout(() => {
+              html.classList.remove(hackClass);
+            }, 300);
+          }
+
           scroll.destroy();
           scroll.init();
         }
