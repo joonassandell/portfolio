@@ -30,7 +30,6 @@ Aside from this readme, there is additional information about the whole project 
 ### Issues
 
 - Oras, last drop is not animated to the end. Possibly related to locomotive-scroll/react-locomotive-scroll updates. Noticed in production.
-- Info: Not animating in, possible issue with useInView. Noticed in production.
 
 ### Notes
 
