@@ -8,7 +8,6 @@ import { useIsMobile } from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
-const { NODE_ENV } = process.env;
 
 export const Figure = ({
   alt,
@@ -43,8 +42,8 @@ export const Figure = ({
   const ref = useRef(null);
   const isMobile = useIsMobile();
 
-  // Stop caching images in development
-  NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
+  // Stop caching images in development, uncomment if you keep testing new images
+  // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
 
   // 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
   const offset =
