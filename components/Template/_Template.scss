@@ -27,10 +27,11 @@
   }
 
    /**
-   * After locomotive scroll is updated the animated elements will sometimes
-   * jump to their initial positions. This slight transition smoothens this issue.
+   * After locomotive scroll is updated the animated elements will jump to their
+   * initial positions which is sometimes visible. This slight transition
+   * smoothens this issue like it's intentional.
    */
-  :root.is-transition\:template\:after & {
+  :root.is-transition\:template\:withDelay & {
     [data-scroll-target] {
       transition: 0.3s;
     }

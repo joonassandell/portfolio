@@ -5,10 +5,7 @@ import { getSitemap, scrollLock } from '@/lib/utility';
 import { useIsMobile } from '@/lib/useIsMobile';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
-import {
-  LocomotiveScrollProvider,
-  useLocomotiveScroll,
-} from 'react-locomotive-scroll';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 
 const sitemap = getSitemap();
@@ -27,6 +24,7 @@ const AppContext = createContext({
 export const App = ({ Component, pageProps, router }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
+  const [animationComplete, setAnimationComplete] = useState();
   const mobile = useIsMobile();
   const { doc, html, loading, loadingEnd, transition } = appState;
   const containerRef = useRef(null);
@@ -144,7 +142,8 @@ https://www.typescriptlang.org And this one too
 
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
-   * Scrolling is enabled after the transition in <AppMain />
+   * Scrolling is enabled after the transition in onLocationChange. Note that
+   * for desktop the scrolling disabled in Template.
    */
   useEffect(() => {
     if (mobile && transition === 'template') {
@@ -158,9 +157,13 @@ https://www.typescriptlang.org And this one too
       html.classList.add('is-transition', 'is-transition:withDelay');
     }
 
+    const hackClass = 'is-transition:template:withDelay';
+    if (transition === 'template') html.classList.add(hackClass);
+
     if (!transition) {
       html.classList.remove('is-transition');
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
+      setTimeout(() => html.classList.remove(hackClass), 300);
     }
   }, [html, transition]);
 
@@ -232,69 +235,40 @@ https://www.typescriptlang.org And this one too
                 : 1,
             smooth: true,
           }}
-          watch={['Done manually']}
+          location={animationComplete}
+          watch={['No need for this, just suppress the error.']}
+          onLocationChange={scroll => {
+            if (scrollLock) setScrollLock(false);
+
+            /**
+             * With
+             * scroll.scroll.stop && scroll.start();
+             * scroll.scrollTo(0, { duration: 0, disableLerp: true });
+             * there will be a flash of images and scroll flickers etc. so
+             * rather destroy/init in the whole scroll.
+             */
+            scroll.destroy();
+            scroll.init();
+
+            if (transition) setTransition(false);
+          }}
         >
           <div className="App">
             <Header navTitle={pageProps.navTitle} />
             <main className="App-main" data-scroll-container ref={containerRef}>
-              <AppMain
-                Component={Component}
-                html={html}
-                innerKey={router.route}
-                loadingEnd={loadingEnd}
-                pageProps={pageProps}
-                scrollLock={appState.scrollLock}
-                setScrollLock={setScrollLock}
-                setTransition={setTransition}
-                transition={transition}
-              />
+              <AnimatePresence
+                onExitComplete={() => {
+                  console.log('App animation complete');
+                  setAnimationComplete(asPath);
+                }}
+              >
+                <Component {...pageProps} key={asPath} />
+              </AnimatePresence>
             </main>
           </div>
         </LocomotiveScrollProvider>
       </AppContext.Provider>
     </>
-  );
-};
-
-const AppMain = ({
-  Component,
-  innerKey,
-  pageProps,
-  loadingEnd,
-  scrollLock,
-  setScrollLock,
-  setTransition,
-  transition,
-  html,
-}) => {
-  const { scroll } = useLocomotiveScroll();
-
-  useEffect(() => {
-    if (loadingEnd && scroll) setTimeout(() => scroll.update(), 10);
-  }, [loadingEnd]);
-
-  const hackClass = 'is-transition:template:after';
-
-  return (
-    <AnimatePresence
-      onExitComplete={() => {
-        if (scrollLock) setScrollLock(false);
-        if (scroll) {
-          if (transition === 'template') {
-            html.classList.add(hackClass);
-            setTimeout(() => {
-              html.classList.remove(hackClass);
-            }, 300);
-          }
-
-          scroll.destroy();
-          scroll.init();
-        }
-        if (transition) setTransition(false);
-      }}
-    >
-      <Component {...pageProps} key={innerKey} />
-    </AnimatePresence>
   );
 };
 
