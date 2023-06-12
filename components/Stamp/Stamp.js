@@ -67,7 +67,8 @@ export const Stamp = ({
   }, [mouseX, mouseY, inView, transitionStart]);
 
   useEffect(() => {
-    if (!inView || !addVarsToParent || transitionStart) return;
+    if (!addVarsToParent) return;
+    if (!inView || transitionStart) return;
     setParentAttributes(moveX.current, moveY.current);
   }, [moveX.current, moveY.current, inView, transitionStart]);
 
@@ -82,6 +83,7 @@ export const Stamp = ({
   }, [inView]);
 
   useEffect(() => {
+    if (!addVarsToParent) return;
     setParentAttributes();
   }, []);
 
