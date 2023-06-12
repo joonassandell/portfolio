@@ -31,7 +31,7 @@ export const ButtonEnter = ({
     <ConditionalWrapper
       condition={href}
       wrapper={children => (
-        <Link href={href} passHref scroll={false}>
+        <Link href={href} legacyBehavior passHref scroll={false}>
           {children}
         </Link>
       )}

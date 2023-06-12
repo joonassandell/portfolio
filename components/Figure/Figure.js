@@ -137,7 +137,6 @@ export const Figure = ({
               alt={alt}
               className="Figure-img"
               draggable="false"
-              layout="responsive"
               onLoadingComplete={() => setImageIsLoaded(true)}
               sizes={sizes}
               src={src}

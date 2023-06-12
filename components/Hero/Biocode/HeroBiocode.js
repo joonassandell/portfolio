@@ -57,7 +57,6 @@ export const HeroBiocode = ({
                         alt="Light globe"
                         draggable="false"
                         height={2480}
-                        layout="responsive"
                         onClick={onClick}
                         priority
                         quality={90}
@@ -101,7 +100,6 @@ export const HeroBiocode = ({
                       alt="Globe"
                       draggable="false"
                       height={2480}
-                      layout="responsive"
                       onClick={onClick}
                       priority
                       quality={100}
@@ -120,7 +118,6 @@ export const HeroBiocode = ({
                     alt="Biocode icon"
                     draggable="false"
                     height={800}
-                    layout="responsive"
                     priority
                     sizes="25vw"
                     src="/assets/biocode/hero/joonassandell-biocode-icon.png"

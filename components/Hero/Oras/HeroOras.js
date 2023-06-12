@@ -61,7 +61,6 @@ export const HeroOras = ({
                       alt="Oras faucet"
                       draggable="false"
                       height={2552}
-                      layout="responsive"
                       priority
                       quality="90"
                       sizes="33vw"
@@ -87,10 +86,10 @@ export const HeroOras = ({
                       variants={dropVariants}
                     >
                       <Image
+                        alt="Oras drop"
                         aria-hidden="true"
                         draggable="false"
                         height={256}
-                        layout="responsive"
                         priority
                         sizes="10vw"
                         src="/assets/oras/hero/joonassandell-oras-drop.png"
@@ -128,10 +127,10 @@ export const HeroOras = ({
                 variants={dropVariants2}
               >
                 <Image
+                  alt="Oras drop"
                   aria-hidden="true"
                   draggable="false"
                   height={256}
-                  layout="responsive"
                   priority
                   sizes="10vw"
                   src="/assets/oras/hero/joonassandell-oras-drop.png"
@@ -159,10 +158,10 @@ export const HeroOras = ({
                 data-scroll-speed="1"
               >
                 <Image
+                  alt="Oras drop"
                   aria-hidden="true"
                   draggable="false"
                   height={256}
-                  layout="responsive"
                   priority
                   sizes="10vw"
                   src="/assets/oras/hero/joonassandell-oras-drop.png"
