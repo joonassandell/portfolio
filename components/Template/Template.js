@@ -1,4 +1,4 @@
-import { motion, useIsPresent } from 'framer-motion';
+import { AnimatePresence, motion, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Title } from '@/components/Title';
 import {
@@ -55,10 +55,12 @@ export const Template = ({ children, name, title }) => {
           transition: variantsWithTransition.transition,
         })}
       >
-        <div className="Template-inner" data-scroll-section>
-          {children}
-          <Footer />
-        </div>
+        <AnimatePresence>
+          <div className="Template-inner" data-scroll-section>
+            {children}
+            <Footer />
+          </div>
+        </AnimatePresence>
         {displayOverlay && (
           <motion.div
             animate="animate"
