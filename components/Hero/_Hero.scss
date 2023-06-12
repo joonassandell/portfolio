@@ -6,6 +6,9 @@
   --Hero-minHeight: #{rem($space * 32)};
   --Hero-height: 100vw;
   --Hero-maxHeight: 75vh;
+  --Stamp-center-x: 0px;
+  --Stamp-center-y: 0px;
+
   height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
   position: relative;
 
