@@ -14,7 +14,7 @@ import { Footer } from '@/components/Footer';
 export const Template = ({ children, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
-  const { transition, loading } = appState;
+  const { transition } = appState;
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const defaultTransition = transition && !templateTransition;
@@ -39,7 +39,7 @@ export const Template = ({ children, name, title }) => {
             templateTransition && animState === 'animExit',
         })}
         exit="exit"
-        key={name}
+        initial="initial"
         onAnimationStart={() => {
           if (animState === 'animStart' && templateTransition) {
             console.log('Template transition start:', title);
@@ -54,7 +54,6 @@ export const Template = ({ children, name, title }) => {
           variants: variantsWithTransition,
           transition: variantsWithTransition.transition,
         })}
-        {...(!loading && { initial: 'initial' })}
       >
         <div className="Template-inner" data-scroll-section>
           {children}

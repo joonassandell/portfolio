@@ -7,6 +7,7 @@ import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
+import { useRouter } from 'next/router';
 
 const sitemap = getSitemap();
 
@@ -21,14 +22,15 @@ const AppContext = createContext({
   transitionInitial: false,
 });
 
-export const App = ({ Component, pageProps, router }) => {
+export const App = ({ Component, pageProps }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const [animationComplete, setAnimationComplete] = useState();
   const mobile = useIsMobile();
   const { doc, html, loading, loadingEnd, transition } = appState;
   const containerRef = useRef(null);
-  const { asPath } = router;
+  const { asPath } = useRouter();
+  const router = useRouter();
 
   /* ======
    * App set state functions
@@ -257,6 +259,7 @@ https://www.typescriptlang.org And this one too
             <Header navTitle={pageProps.navTitle} />
             <main className="App-main" data-scroll-container ref={containerRef}>
               <AnimatePresence
+                initial={false}
                 onExitComplete={() => {
                   console.log('App animation complete');
                   setAnimationComplete(asPath);

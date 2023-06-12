@@ -10,7 +10,7 @@
   z-index: 1;
 
   /**
-   * This is the start animation
+   * This is the exit transition element
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
