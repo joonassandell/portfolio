@@ -25,7 +25,7 @@ Aside from this readme, there is additional information about the whole project 
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally. When previewing app, set `NEXT_PUBLIC_ORIGIN` in [.env.local](.env.local) to `http://localhost:3000`. If previewing in LAN, then apply LAN origin (e.g. `http://192.168.0.110:3000`).
 - `npm run start`: Start the application in production mode. The application should be compiled with next build first.
-- `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state. [Vercel CLI](https://vercel.com/docs/cli) needs to be installed. Linking and rights to the project obviously needed as well.
+- `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state. [Vercel CLI](https://vercel.com/docs/cli) needs to be installed. Linking and rights to the project are obviously needed as well.
 
 ### Notes
 
