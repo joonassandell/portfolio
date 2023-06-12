@@ -1,10 +1,20 @@
 const path = require('path');
 
+console.log(process.env);
+
 /**
  * 1. This is here to make svgs import properly.
  *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
  */
 module.exports = {
+  env: {
+    NEXT_PUBLIC_ORIGIN:
+      process.env.VERCEL_ENV === 'preview' && process.env.LOCAL_DEPLOYMENT
+        ? `https://joonassandell-portfolio-joonassandell.vercel.app`
+        : process.env.VERCEL_ENV === 'preview'
+        ? `https://${process.env.VERCEL_URL}`
+        : process.env.NEXT_PUBLIC_ORIGIN,
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
