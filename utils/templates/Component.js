@@ -8,5 +8,5 @@ export const ${componentName} = ({ className, children }) => {
 };
 
 `,
-  extension: `.js`,
+  extension: `.jsx`,
 });

@@ -1,3 +1,3 @@
-export * from './Template.js';
-export * from './TemplateMain.js';
-export * from './TemplateSection.js';
+export * from './Template';
+export * from './TemplateMain';
+export * from './TemplateSection';

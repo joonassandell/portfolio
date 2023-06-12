@@ -1,1 +1,1 @@
-export * from './Splash.js';
+export * from './Splash';
