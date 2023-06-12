@@ -171,11 +171,11 @@ export const Header = ({ navTitle }) => {
       };
 
       const closeComplete = () => {
+        toggleOpen();
         setEnterExit({
           btnText: enterExitBtnText,
           btnArrow: enterExitBtnArrow,
         });
-        toggleOpen();
       };
 
       router.events.on('routeChangeStart', closeStart);
@@ -218,7 +218,6 @@ export const Header = ({ navTitle }) => {
       }
 
       if (mask === 'closedReset') {
-        setMaskIsOpen(false);
         maskAnim.set({
           clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
         });
@@ -398,6 +397,9 @@ export const Header = ({ navTitle }) => {
           'is-open': maskIsOpen,
           'is-disabled': disabled,
         })}
+        onAnimationComplete={() => {
+          if (mask === 'closedReset') setMaskIsOpen(false);
+        }}
         ref={maskRef}
       >
         {maskIsOpen && (
