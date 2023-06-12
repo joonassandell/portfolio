@@ -16,6 +16,11 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
+  compiler: {
+    removeConsole: {
+      exclude: ['error', 'info'],
+    },
+  },
   experimental: { optimizeCss: true },
   webpack(config, { defaultLoaders }) {
     config.module.rules.push({
