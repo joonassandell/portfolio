@@ -1,7 +1,3 @@
-/* =======================================
- * Base
- * ======================================= */
-
 :root {
   @include fontSize(
     $minFontSize: $font-size,
@@ -28,6 +24,7 @@
     width: 100%;
   }
 
+  &.is-loading,
   &.is-transition {
     pointer-events: none;
     touch-action: none;
