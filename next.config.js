@@ -1,7 +1,5 @@
 const path = require('path');
 
-console.log(process.env);
-
 /**
  * 1. This is here to make svgs import properly.
  *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports

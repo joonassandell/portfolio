@@ -29,7 +29,7 @@ Aside from this readme, there is additional information about the whole project 
 
 ### Notes
 
-- `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the preview url matches.
+- `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date views don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.
 - In development, project pages etc. may take a while because of the blurhash placeholder generation. After build everything works fine.
 - Exit animations work in in `Template.js` because `App.js` contains `AnimatePresence`
 
