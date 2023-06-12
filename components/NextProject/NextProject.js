@@ -98,7 +98,6 @@ export const NextProject = ({ id }) => {
           <Image
             draggable="false"
             height={1920}
-            layout="responsive"
             priority
             sizes="50vw"
             src={src}

@@ -19,7 +19,7 @@ import c from 'classnames';
 import { debounce } from 'lodash';
 import { easeCSS, sitemap, links } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { useAppContext } from '../App';
+import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -94,7 +94,6 @@ export const Header = ({ navTitle }) => {
     scroll && !scroll.scroll.stop ? scroll.stop() : scroll.start();
 
     if (withMask) {
-      setMaskIsOpen(true);
       if (mask === 'closed' || mask === 'closedReset') setMask('open');
       if (mask === 'open' || mask === 'openReset') setMask('closed');
     }
@@ -172,12 +171,11 @@ export const Header = ({ navTitle }) => {
       };
 
       const closeComplete = () => {
-        toggleOpen({ withMask: false });
+        toggleOpen();
         setEnterExit({
           btnText: enterExitBtnText,
           btnArrow: enterExitBtnArrow,
         });
-        setMask('closed');
       };
 
       router.events.on('routeChangeStart', closeStart);
@@ -195,9 +193,12 @@ export const Header = ({ navTitle }) => {
   useEffect(() => {
     (async () => {
       if (mask === 'open') {
+        setMaskIsOpen(true);
+        // Timeout because of display property (none/flex) change
+        setTimeout(() => maskRef.current.scroll({ top: 0 }), 5);
         await maskAnim.start({
           clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          ...maskClose,
+          ...maskOpen,
         });
         setMask('openReset');
       }
@@ -205,7 +206,7 @@ export const Header = ({ navTitle }) => {
       if (mask === 'closed') {
         await maskAnim.start({
           clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          ...maskOpen,
+          ...maskClose,
         });
         setMask('closedReset');
       }
@@ -306,7 +307,7 @@ export const Header = ({ navTitle }) => {
                 )}
               </div>
               <div className="Header-button-text">
-                <AnimatePresence initial={false} exitBeforeEnter>
+                <AnimatePresence initial={false} mode="wait">
                   <motion.div
                     className="Header-button-text-item"
                     key={`Header-button-text-${router.route}`}
@@ -325,17 +326,17 @@ export const Header = ({ navTitle }) => {
                   </div>
                 )}
               </div>
-              <AnimatePresence initial={false} exitBeforeEnter>
+              <AnimatePresence initial={false} mode="wait">
                 <motion.div
                   className="Header-button-arrow"
-                  key={`Header-button-arrow-${router.route}`}
+                  key={router.route}
                   ref={btnArrow}
                   {...enterExit.btnArrow}
                 >
                   <ButtonArrow
                     active={isOpen}
-                    hoverEnd={hover === 'end' ? true : false}
-                    hoverStart={hover === 'start' ? true : false}
+                    hoverEnd={hover === 'end'}
+                    hoverStart={hover === 'start'}
                   />
                 </motion.div>
               </AnimatePresence>
@@ -397,10 +398,7 @@ export const Header = ({ navTitle }) => {
           'is-disabled': disabled,
         })}
         onAnimationComplete={() => {
-          if (!isOpen) setMaskIsOpen(false);
-        }}
-        onAnimationStart={() => {
-          if (mask == 'open') maskRef.current.scroll({ top: 0 });
+          if (mask === 'closedReset') setMaskIsOpen(false);
         }}
         ref={maskRef}
       >

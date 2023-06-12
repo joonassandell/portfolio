@@ -48,7 +48,7 @@ export const Link = ({
     <ConditionalWrapper
       condition={hasHref}
       wrapper={children => (
-        <NextLink href={href} passHref scroll={false}>
+        <NextLink href={href} legacyBehavior passHref scroll={false}>
           {children}
         </NextLink>
       )}
