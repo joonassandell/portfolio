@@ -6,12 +6,14 @@ export default function Document() {
       <Head>
         <link
           as="font"
+          crossOrigin=""
           href="/fonts/Px-Grotesk-Regular.woff2"
           rel="preload"
           type="font/woff2"
         />
         <link
           as="font"
+          crossOrigin=""
           href="/fonts/Px-Grotesk-Light.woff2"
           rel="preload"
           type="font/woff2"
