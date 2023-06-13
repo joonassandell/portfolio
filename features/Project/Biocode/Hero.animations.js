@@ -1,4 +1,4 @@
-import { transPrimary } from '@/lib/config';
+import { TRANS_PRIMARY } from '@/lib/config';
 import { headingVariants as headingVars } from '@/components/Hero';
 
 export const headingVariants = {
@@ -11,7 +11,7 @@ export const headingVariants = {
 export const maskVariants = {
   animate: {
     clipPath: `circle(150% at var(--Stamp-center-x) var(--Stamp-center-y))`,
-    transition: transPrimary,
+    transition: TRANS_PRIMARY,
   },
   initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;

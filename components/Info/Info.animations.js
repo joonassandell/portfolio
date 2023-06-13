@@ -1,9 +1,9 @@
-import { transPrimary, transTertiary } from '@/lib/config';
+import { TRANS_PRIMARY, TRANS_TERTIARY } from '@/lib/config';
 
 export const infoRulerVariants = {
   inView: {
     scaleX: 1,
-    transition: transPrimary,
+    transition: TRANS_PRIMARY,
   },
   hidden: {
     scaleX: 0,
@@ -21,7 +21,7 @@ export const infoGridCellVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      ...transTertiary,
+      ...TRANS_TERTIARY,
       delay,
     },
   }),

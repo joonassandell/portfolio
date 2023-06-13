@@ -1,6 +1,6 @@
 # Joonas Sandell — Portfolio
 
-> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This [Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This is a [Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 - [The Portfolio 🚀](http://joonassandell.com)
 - [Documentation](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
@@ -35,7 +35,7 @@ Aside from this readme, there is additional information about the whole project 
 
 #### About template transition and AnimatePresence
 
-Template transitions tested like in [this article](https://www.notion.so/joonassandell/Next-js-Page-Transitions-with-Framer-Motion-Max-Schmitt-ca79b293fcc54adab0f197a53b7833ad?pvs=4) with `mode="popLayout"`; see the stripped example below. It worked, however, it created issues with the locomotive-scroll resetting the scroll position (removing the transform from `<div className="Template-inner" data-scroll-section />`) for the exiting page which is why the current implementation still exists. If the popLayout needs to be added for some reason, the scroll position probably needs to be forced e.g. w/ [WebKitCSSMatrix](https://stackoverflow.com/questions/42267189/how-to-get-value-translatex-by-javascript).
+Template transitions have been tested like in [this article](https://www.notion.so/joonassandell/Next-js-Page-Transitions-with-Framer-Motion-Max-Schmitt-ca79b293fcc54adab0f197a53b7833ad?pvs=4) with `mode="popLayout"`: see the stripped example below. It worked, however, it created issues with the locomotive-scroll resetting the scroll position (removing the transform from `<div className="Template-inner" data-scroll-section />`) for the exiting page which is why the current implementation still exists. If the popLayout needs to be added for some reason, the scroll position probably needs to be forced e.g. w/ [WebKitCSSMatrix](https://stackoverflow.com/questions/42267189/how-to-get-value-translatex-by-javascript).
 
 ```jsx
 // App.js

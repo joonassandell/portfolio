@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
-import { scrollSpeed } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
-import {
-  headingVariants as hVariants,
-  maskVariants,
-} from './Hero.animations';
+import { headingVariants as hVariants, maskVariants } from './Hero.animations';
 import Image from 'next/image';
 
 const { url, year, id, title } = getSitemap('biocode');
@@ -51,7 +48,7 @@ export const BiocodeHero = ({
                     <div
                       data-scroll
                       data-scroll-target={`[data-scroll-id=${id}]`}
-                      data-scroll-speed={-scrollSpeed}
+                      data-scroll-speed={-SCROLL_SPEED}
                     >
                       <Image
                         alt="Light globe"
@@ -92,7 +89,7 @@ export const BiocodeHero = ({
                   <div
                     {...(!preTransition && {
                       'data-scroll': true,
-                      'data-scroll-speed': -scrollSpeed,
+                      'data-scroll-speed': -SCROLL_SPEED,
                       'data-scroll-target': `[data-scroll-id=${id}]`,
                     })}
                   >

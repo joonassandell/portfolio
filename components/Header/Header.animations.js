@@ -1,9 +1,9 @@
 import {
-  transPrimary,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondaryFast,
-  transSecondaryFastest,
+  TRANS_PRIMARY,
+  TRANS_PRIMARY_FAST,
+  TRANS_PRIMARY_FASTEST,
+  TRANS_SECONDARY_FAST,
+  TRANS_SECONDARY_FASTEST,
 } from '@/lib/config';
 
 /**
@@ -21,9 +21,9 @@ export const enterExitBtnTextIfNavOpen = {
   },
   exit: {
     opacity: 0,
-    transition: transSecondaryFastest,
+    transition: TRANS_SECONDARY_FASTEST,
   },
-  transition: { ...transSecondaryFast, delay: 0.3 },
+  transition: { ...TRANS_SECONDARY_FAST, delay: 0.3 },
 };
 
 export const enterExitBtnArrowIfNavOpen = {
@@ -38,9 +38,9 @@ export const enterExitBtnArrowIfNavOpen = {
   exit: {
     opacity: 0,
     y: '1rem',
-    transition: transSecondaryFastest,
+    transition: TRANS_SECONDARY_FASTEST,
   },
-  transition: { ...transSecondaryFastest, delay: 0.5 },
+  transition: { ...TRANS_SECONDARY_FASTEST, delay: 0.5 },
 };
 
 export const enterExitBtnText = {
@@ -55,9 +55,9 @@ export const enterExitBtnText = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...transPrimaryFast },
+    transition: { ...TRANS_PRIMARY_FAST },
   },
-  transition: transPrimaryFast,
+  transition: TRANS_PRIMARY_FAST,
 };
 
 export const enterExitBtnArrow = {
@@ -65,17 +65,17 @@ export const enterExitBtnArrow = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...transPrimaryFast, delay: 0.1 },
+    transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
   },
-  transition: { ...transPrimaryFast, delay: 0.03 },
+  transition: { ...TRANS_PRIMARY_FAST, delay: 0.03 },
 };
 
 export const maskOpen = {
-  transition: transPrimary,
+  transition: TRANS_PRIMARY,
 };
 
 export const maskClose = {
-  transition: transPrimary,
+  transition: TRANS_PRIMARY,
 };
 
 export const navVariant = {
@@ -90,17 +90,17 @@ export const navVariant = {
 export const navItemVariant = {
   open: {
     opacity: 1,
-    transition: transPrimaryFast,
+    transition: TRANS_PRIMARY_FAST,
     y: 0,
   },
   initial: {
     opacity: 0,
-    transition: transPrimaryFast,
+    transition: TRANS_PRIMARY_FAST,
     y: 88,
   },
   closed: {
     opacity: 0,
-    transition: transPrimaryFast,
+    transition: TRANS_PRIMARY_FAST,
     y: 88,
   },
 };
@@ -125,25 +125,25 @@ export const ctrlVariant = {
 
 export const ctrlItemOutVariant = {
   open: {
-    transition: transSecondaryFast,
+    transition: TRANS_SECONDARY_FAST,
     y: '-3rem',
   },
   closed: {
-    transition: transPrimaryFast,
+    transition: TRANS_PRIMARY_FAST,
     y: 0,
   },
 };
 
 export const ctrlItemInVariant = {
   open: {
-    transition: transPrimaryFast,
+    transition: TRANS_PRIMARY_FAST,
     y: 0,
   },
   initial: {
     y: '3rem',
   },
   closed: {
-    transition: transSecondaryFast,
+    transition: TRANS_SECONDARY_FAST,
     y: '3rem',
   },
 };
@@ -175,7 +175,7 @@ export const marqueeVariants = {
       };
     }
   },
-  transition: transPrimaryFastest,
+  transition: TRANS_PRIMARY_FASTEST,
 };
 
 export const marqueeInnerVariants = {

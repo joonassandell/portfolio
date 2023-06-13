@@ -2,7 +2,7 @@ import { OrasHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { getImage } from '@/lib/utility';
 import { NextProject } from '@/components/NextProject';
-import { mq, scrollSpeed } from '@/lib/config';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { useIsMobile } from '@/lib/useIsMobile';
@@ -38,7 +38,7 @@ export const OrasPage = ({ images, id, title }) => {
               mask
               priority
               scrollOffset={isMobile ? 0 : '-25%'}
-              sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
+              sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-thumbnail', images)}
             />
@@ -51,7 +51,7 @@ export const OrasPage = ({ images, id, title }) => {
               priority
               scrollOffset={isMobile ? 0 : '-25%'}
               scrollSpeed={1}
-              sizes={`${mq.l} 33vw, ${mq.s} 50vw, 33vw`}
+              sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-man-square', images)}
             />
@@ -67,7 +67,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras product family"
               scrolling={false}
-              sizes={`${mq.l} 80vw, 100vw`}
+              sizes={`${MQ.l} 80vw, 100vw`}
               quality={90}
               priority
               {...getImage('joonassandell-oras-product-family', images)}
@@ -99,7 +99,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras products overview"
               scrolling={false}
-              sizes={`${mq.m} 70vw, 100vw`}
+              sizes={`${MQ.m} 70vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-products-overview', images)}
               blurhash={false}
@@ -109,7 +109,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras blog"
               scrolling={false}
-              sizes={`${mq.m} 60vw, 100vw`}
+              sizes={`${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-oras-blog', images)}
             />
           </div>
@@ -117,7 +117,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras kitchen experience"
               scrolling={false}
-              sizes={`${mq.m} 70vw, 100vw`}
+              sizes={`${MQ.m} 70vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-ux-kitchen', images)}
               blurhash={false}
@@ -130,7 +130,7 @@ export const OrasPage = ({ images, id, title }) => {
               alt="Oras homepage hero"
               border
               scrollSpeed={0.5}
-              sizes={`${mq.m} 70vw, 100vw`}
+              sizes={`${MQ.m} 70vw, 100vw`}
               transition="clip"
               {...getImage('joonassandell-oras-home-hero', images)}
             />
@@ -138,8 +138,8 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:9 -start:4 grid-col:5@m -start:9@m -align:end">
             <Figure
               alt="Oras live more page hero"
-              scrollSpeed={-scrollSpeed}
-              sizes={`${mq.m} 33vw, 80vw`}
+              scrollSpeed={-SCROLL_SPEED}
+              sizes={`${MQ.m} 33vw, 80vw`}
               transition="clip"
               {...getImage('joonassandell-oras-live-more-hero', images)}
             />
@@ -148,7 +148,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras look book cta"
               scrolling={false}
-              sizes={`${mq.m} 80vw, 100vw`}
+              sizes={`${MQ.m} 80vw, 100vw`}
               transition="clip"
               {...getImage('joonassandell-oras-look-booked', images)}
             />
@@ -169,7 +169,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras single product page"
               scrolling={false}
-              sizes={`${mq.m} 80vw, 100vw`}
+              sizes={`${MQ.m} 80vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-product-single', images)}
               blurhash={false}
@@ -179,7 +179,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras man showering"
               mask
-              sizes={`${mq.m} 50vw, 33vw`}
+              sizes={`${MQ.m} 50vw, 33vw`}
               {...getImage('joonassandell-oras-man', images)}
             />
           </div>
@@ -191,7 +191,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 1"
                 border
                 scrolling={false}
-                sizes={`${mq.m} 33vw, 80vw`}
+                sizes={`${MQ.m} 33vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-5', images)}
               />
             </div>
@@ -200,7 +200,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 2"
                 border
                 scrolling={false}
-                sizes={`${mq.m} 33vw, 50vw`}
+                sizes={`${MQ.m} 33vw, 50vw`}
                 {...getImage('joonassandell-oras-strategy-6', images)}
               />
             </div>
@@ -211,7 +211,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 3"
                 border
                 scrolling={false}
-                sizes={`${mq.m} 33vw, 80vw`}
+                sizes={`${MQ.m} 33vw, 80vw`}
                 quality={90}
                 {...getImage('joonassandell-oras-strategy-1', images)}
               />
@@ -221,7 +221,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 4"
                 border
                 scrolling={false}
-                sizes={`${mq.m} 33vw, 80vw`}
+                sizes={`${MQ.m} 33vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-2', images)}
               />
             </div>
@@ -233,7 +233,7 @@ export const OrasPage = ({ images, id, title }) => {
                   alt="Oras strategy 5"
                   border
                   scrolling={false}
-                  sizes={`${mq.m} 33vw, 80vw`}
+                  sizes={`${MQ.m} 33vw, 80vw`}
                   {...getImage('joonassandell-oras-strategy-2', images)}
                 />
               </div>
@@ -241,7 +241,7 @@ export const OrasPage = ({ images, id, title }) => {
                 <Figure
                   alt="Oras strategy 6"
                   scrolling={false}
-                  sizes={`${mq.m} 33vw, 50vw`}
+                  sizes={`${MQ.m} 33vw, 50vw`}
                   {...getImage('joonassandell-oras-strategy-7', images)}
                 />
               </div>
@@ -269,7 +269,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras homepage mobile"
                 priority
-                sizes={`${mq.m} 25vw, 50vw`}
+                sizes={`${MQ.m} 25vw, 50vw`}
                 quality={100}
                 {...getImage('joonassandell-oras-mobile', images)}
               />
@@ -277,9 +277,9 @@ export const OrasPage = ({ images, id, title }) => {
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 2"
-                scrollSpeed={-scrollSpeed}
+                scrollSpeed={-SCROLL_SPEED}
                 priority
-                sizes={`${mq.m} 25vw, 50vw`}
+                sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-2', images)}
               />
             </div>
@@ -288,9 +288,9 @@ export const OrasPage = ({ images, id, title }) => {
             <div className="grid-col grid-col:5 -start:7 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 3"
-                scrollSpeed={scrollSpeed * 2}
+                scrollSpeed={SCROLL_SPEED * 2}
                 priority
-                sizes={`${mq.m} 25vw, 50vw`}
+                sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-3', images)}
               />
             </div>

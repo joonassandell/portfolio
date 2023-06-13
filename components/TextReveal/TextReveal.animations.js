@@ -1,4 +1,4 @@
-import { transSecondary } from '@/lib/config';
+import { TRANS_SECONDARY } from '@/lib/config';
 
 export const headingVariant = {
   animate: ({ delay = 0 } = {}) => ({
@@ -11,7 +11,7 @@ export const headingVariant = {
 
 export const inVariant = {
   animate: {
-    transition: transSecondary,
+    transition: TRANS_SECONDARY,
     y: 0,
   },
   initial: ({ enableInitial = true } = {}) => {

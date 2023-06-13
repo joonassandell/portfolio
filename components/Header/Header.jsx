@@ -17,7 +17,7 @@ import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { easeCSS, sitemap, links, content } from '@/lib/config';
+import { EASE_CSS, SITEMAP, LINKS, CONTENT } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
@@ -30,9 +30,9 @@ import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
-const someLinks = links.social;
+const someLinks = LINKS.social;
 
-export const Header = ({ navTitle = content.defaultNavTitle }) => {
+export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(null);
   const [hover, setHover] = useState(false);
@@ -138,7 +138,7 @@ export const Header = ({ navTitle = content.defaultNavTitle }) => {
   useEffect(() => {
     if (isOpen) {
       NProgress.configure({
-        easing: easeCSS,
+        easing: EASE_CSS,
         showSpinner: false,
         speed: 1200,
       });
@@ -411,7 +411,7 @@ export const Header = ({ navTitle = content.defaultNavTitle }) => {
               variants={navVariant}
             >
               <ul>
-                {sitemap.primary.map(item => {
+                {SITEMAP.primary.map(item => {
                   return (
                     <NavItem
                       color={item.color}

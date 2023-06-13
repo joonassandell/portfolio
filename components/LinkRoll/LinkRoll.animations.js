@@ -1,4 +1,4 @@
-import { transPrimaryFastest } from '@/lib/config';
+import { TRANS_PRIMARY_FASTEST } from '@/lib/config';
 
 export const linkVariants = {
   in: {
@@ -19,11 +19,11 @@ export const characterOutVariants = {
     skewX: -50,
     opacity: 0,
     y: '-100%',
-    transition: transPrimaryFastest,
+    transition: TRANS_PRIMARY_FASTEST,
   },
   out: {
     y: 0,
-    transition: transPrimaryFastest,
+    transition: TRANS_PRIMARY_FASTEST,
   },
 };
 
@@ -32,12 +32,12 @@ export const characterInVariants = {
     opacity: 1,
     skewX: 0,
     y: 0,
-    transition: transPrimaryFastest,
+    transition: TRANS_PRIMARY_FASTEST,
   },
   out: {
     opacity: 0,
     skewX: 50,
     y: '90%',
-    transition: transPrimaryFastest,
+    transition: TRANS_PRIMARY_FASTEST,
   },
 };

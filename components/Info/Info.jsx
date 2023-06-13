@@ -1,4 +1,4 @@
-import { mq } from '@/lib/config';
+import { MQ } from '@/lib/config';
 import { motion } from 'framer-motion';
 import { Link } from '@/components/Link';
 import { Text } from '@/components/Text';
@@ -21,7 +21,7 @@ export const Info = ({
   text,
   year,
 }) => {
-  const desktop = useMedia(mq.desktop, false);
+  const desktop = useMedia(MQ.desktop, false);
   const rulerRef = useRef(null);
   const rulerInView = useInView(rulerRef);
   const gridRef = useRef(null);

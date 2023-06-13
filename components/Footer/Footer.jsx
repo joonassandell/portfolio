@@ -1,7 +1,7 @@
-import { links } from '@/lib/config';
+import { LINKS } from '@/lib/config';
 import { LinkRoll } from '@/components/LinkRoll';
 
-const someLinks = links.social;
+const someLinks = LINKS.social;
 
 export const Footer = () => {
   return (

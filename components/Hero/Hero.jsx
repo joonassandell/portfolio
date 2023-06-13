@@ -1,4 +1,4 @@
-import { fadeOutVariants, scrollSpeed } from '@/lib/config';
+import { FADE_OUT_VARIANTS, SCROLL_SPEED } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { motion } from 'framer-motion';
 import { useAppContext } from '@/components/App';
@@ -70,7 +70,7 @@ export const Hero = ({
       }}
       initial="initial"
       ref={ref}
-      variants={transitionHideStart ? fadeOutVariants : {}}
+      variants={transitionHideStart ? FADE_OUT_VARIANTS : {}}
     >
       <div data-scroll-id={id} className="Hero-inner">
         <div className="Hero-heading wrap">
@@ -82,7 +82,7 @@ export const Hero = ({
             <div
               data-scroll
               data-scroll-target={`[data-scroll-id="${id}"]`}
-              data-scroll-speed={scrollSpeed}
+              data-scroll-speed={SCROLL_SPEED}
               data-scroll-direction="horizontal"
             >
               {heading}

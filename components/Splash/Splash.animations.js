@@ -1,9 +1,9 @@
 import {
-  transPrimary,
-  transPrimaryFast,
-  transPrimaryFastest,
-  transSecondary,
-  transTemplate,
+  TRANS_PRIMARY,
+  TRANS_PRIMARY_FAST,
+  TRANS_PRIMARY_FASTEST,
+  TRANS_SECONDARY,
+  TRANS_TEMPLATE,
 } from '@/lib/config';
 
 /**
@@ -13,10 +13,10 @@ export const splashVariants = {
   exit: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
     transition: {
-      ...transSecondary,
+      ...TRANS_SECONDARY,
       delay: 1.6,
       // delay: 0.4,
-      // delayChildren: transPrimary.duration,  // [1]
+      // delayChildren: TRANS_PRIMARY.duration,  // [1]
       // when: 'afterChildren',
     },
   },
@@ -28,7 +28,7 @@ export const splashVariants = {
 export const textVariants = {
   exit: {
     transition: {
-      ...transPrimary,
+      ...TRANS_PRIMARY,
       delay: 1.3, // [1]
     },
     y: '-100%',

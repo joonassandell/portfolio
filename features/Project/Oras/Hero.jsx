@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { scrollSpeed } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
 import {
@@ -54,7 +54,7 @@ export const OrasHero = ({
                   <figure
                     data-scroll
                     data-scroll-target={`[data-scroll-id=${oras.id}]`}
-                    data-scroll-speed={-scrollSpeed}
+                    data-scroll-speed={-SCROLL_SPEED}
                     className="Hero-figure-faucet"
                   >
                     <Image

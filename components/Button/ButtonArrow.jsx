@@ -1,9 +1,9 @@
 import { ArrowDown, ArrowUp } from '../Icon';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import {
-  transPrimary,
-  transPrimaryFast,
-  transPrimaryFastest,
+  TRANS_PRIMARY,
+  TRANS_PRIMARY_FAST,
+  TRANS_PRIMARY_FASTEST,
 } from '@/lib/config';
 import { useEffect, useState } from 'react';
 import c from 'classnames';
@@ -28,30 +28,30 @@ export const ButtonArrow = ({
       if (hoverStart && enableHover) {
         arrowIn.start({
           scaleY: 1,
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: 0,
         });
         bg.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: 0,
         });
         arrow.start({
-          transition: { ...transPrimaryFastest, delay: 0.1 },
+          transition: { ...TRANS_PRIMARY_FASTEST, delay: 0.1 },
           y: '3rem',
         });
       }
 
       if (hoverEnd && enableHover) {
         bg.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: '77%',
         });
         arrow.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: 0,
         });
         await arrowIn.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: '3rem',
         });
         arrowIn.set({
@@ -64,16 +64,16 @@ export const ButtonArrow = ({
         setActiveAnimation(true);
         setCloseVisible(true);
         arrow.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           scaleY: 6,
           y: '5rem',
         });
         bg.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: 0,
         });
         arrowIn.start({
-          transition: transPrimaryFast,
+          transition: TRANS_PRIMARY_FAST,
           y: '3rem',
         });
         setActive('end');
@@ -82,11 +82,11 @@ export const ButtonArrow = ({
       if (!active && activeState == 'end') {
         setCloseVisible(false);
         bg.start({
-          transition: { ...transPrimary, delay: 0.6 },
+          transition: { ...TRANS_PRIMARY, delay: 0.6 },
           y: '77%',
         });
         arrow.start({
-          transition: { ...transPrimaryFast, delay: 1 },
+          transition: { ...TRANS_PRIMARY_FAST, delay: 1 },
           scaleY: 1,
           y: 0,
         });
@@ -113,12 +113,12 @@ export const ButtonArrow = ({
           <motion.span
             animate={{
               scaleY: 1,
-              transition: transPrimaryFast,
+              transition: TRANS_PRIMARY_FAST,
               y: 0,
             }}
             exit={{
               scaleY: 6,
-              transition: { ...transPrimaryFast, delay: 0.5 },
+              transition: { ...TRANS_PRIMARY_FAST, delay: 0.5 },
               y: '-5rem',
             }}
             initial={{

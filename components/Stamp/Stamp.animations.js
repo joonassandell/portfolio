@@ -1,4 +1,4 @@
-import { transPrimary, transPrimaryFast, transTap } from '@/lib/config';
+import { TRANS_PRIMARY, TRANS_PRIMARY_FAST, TRANS_TAP } from '@/lib/config';
 
 export const stampVariants = {
   hover: {
@@ -6,9 +6,9 @@ export const stampVariants = {
   },
   tap: {
     scale: 1.05,
-    transition: transTap,
+    transition: TRANS_TAP,
   },
-  transition: transPrimaryFast,
+  transition: TRANS_PRIMARY_FAST,
 };
 
 export const svgVariants = {
@@ -26,7 +26,7 @@ export const overlayVariants = {
   animate: {
     scale: [0, 10],
     transition: {
-      ...transPrimary,
+      ...TRANS_PRIMARY,
     },
   },
 };

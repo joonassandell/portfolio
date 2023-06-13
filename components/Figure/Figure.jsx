@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { scrollSpeed as sSpeed, transTertiaryFastest } from '@/lib/config';
+import { SCROLL_SPEED as sSpeed, TRANS_TERTIARY_FASTEST } from '@/lib/config';
 import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -119,7 +119,7 @@ export const Figure = ({
                   className="Figure-blur"
                   exit={{ opacity: 0 }}
                   initial={{ opacity: 0 }}
-                  transition={{ ...transTertiaryFastest, duration: 0.2 }}
+                  transition={{ ...TRANS_TERTIARY_FASTEST, duration: 0.2 }}
                 >
                   <BlurhashCanvas
                     className="Figure-blur-canvas"

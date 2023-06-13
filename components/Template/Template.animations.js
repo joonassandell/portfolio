@@ -1,4 +1,4 @@
-import { transTemplate } from '@/lib/config';
+import { TRANS_TEMPLATE } from '@/lib/config';
 
 export const variantsWithTransition = {
   animate: {
@@ -10,7 +10,7 @@ export const variantsWithTransition = {
   initial: {
     y: 'var(--vh)',
   },
-  transition: transTemplate,
+  transition: TRANS_TEMPLATE,
 };
 
 export const variantsWithoutTransition = {
@@ -32,7 +32,7 @@ export const variantsWithoutTransition = {
 export const overlayVariants = {
   animate: {
     backgroundColor: 'var(--Template-overlay-color)',
-    transition: transTemplate,
+    transition: TRANS_TEMPLATE,
   },
   initial: {
     backgroundColor: 'var(--Template-overlay-color-initial)',

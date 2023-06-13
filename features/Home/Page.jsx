@@ -1,4 +1,4 @@
-import { fadeOutVariants } from '@/lib/config';
+import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { OrasHero, BiocodeHero } from '@/features/Project';
 import { motion } from 'framer-motion';
@@ -37,7 +37,7 @@ export const HomePage = ({ id, title }) => {
       <motion.div
         animate={animationHide ? 'hidden' : ''}
         className="Template-about"
-        variants={fadeOutVariants}
+        variants={FADE_OUT_VARIANTS}
       >
         <div className="wrap">
           <Link

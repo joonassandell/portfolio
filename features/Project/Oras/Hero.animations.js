@@ -1,4 +1,4 @@
-import { transSecondary, transTertiary } from '@/lib/config';
+import { TRANS_SECONDARY, TRANS_TERTIARY } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
 import { headingVariants as headingVars } from '@/components/Hero';
 
@@ -18,7 +18,7 @@ export const figureBgVariants = {
     ],
     opacity: parseFloat(getCSSVarValue('--oras-Hero-figure-bg-alpha')),
     transition: {
-      ...transSecondary,
+      ...TRANS_SECONDARY,
     },
   },
 };
@@ -27,7 +27,7 @@ export const dropVariants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
-      ...transTertiary,
+      ...TRANS_TERTIARY,
       delay,
     },
     y: 0,
@@ -45,7 +45,7 @@ export const dropVariants2 = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
-      ...transTertiary,
+      ...TRANS_TERTIARY,
       delay: 0.2 + delay,
     },
     y: 0,
@@ -63,7 +63,7 @@ export const dropVariants3 = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
-      ...transTertiary,
+      ...TRANS_TERTIARY,
       delay: 0.1 + delay,
     },
     y: 0,

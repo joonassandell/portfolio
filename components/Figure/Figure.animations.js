@@ -1,10 +1,10 @@
-import { transTertiary, transTertiaryFast } from '@/lib/config';
+import { TRANS_TERTIARY, TRANS_TERTIARY_FAST } from '@/lib/config';
 
 export const clipVariants = {
   inView: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
     scale: 1,
-    transition: transTertiary,
+    transition: TRANS_TERTIARY,
   },
   hidden: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
@@ -36,7 +36,7 @@ export const moveVariants = {
   inView: {
     opacity: 1,
     scale: 1,
-    transition: transTertiaryFast,
+    transition: TRANS_TERTIARY_FAST,
     y: 0,
   },
   hidden: {
