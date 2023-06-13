@@ -1,5 +1,16 @@
 const path = require('path');
 
+const {
+  NODE_ENV,
+  VERCEL_ENV,
+  VERCEL_URL,
+  NEXT_PUBLIC_ORIGIN,
+  LOCAL_DEPLOYMENT,
+} = process.env;
+const preview = VERCEL_ENV === 'preview';
+const production = NODE_ENV === 'production';
+const localOrPreviewBuild = production && (preview || !VERCEL_ENV);
+
 /**
  * 1. This is here to make svgs import properly.
  *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
@@ -7,16 +18,16 @@ const path = require('path');
 module.exports = {
   env: {
     NEXT_PUBLIC_ORIGIN:
-      process.env.VERCEL_ENV === 'preview' && process.env.LOCAL_DEPLOYMENT
+      preview && LOCAL_DEPLOYMENT
         ? `https://joonassandell-portfolio-joonassandell.vercel.app`
-        : process.env.VERCEL_ENV === 'preview'
-        ? `https://${process.env.VERCEL_URL}`
-        : process.env.NEXT_PUBLIC_ORIGIN,
+        : preview
+        ? `https://${VERCEL_URL}`
+        : NEXT_PUBLIC_ORIGIN,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
-  ...(process.env.NODE_ENV === 'production' && {
+  ...(!localOrPreviewBuild && {
     compiler: {
       removeConsole: {
         exclude: ['error', 'info'],
