@@ -5,13 +5,11 @@ import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useIsMobile } from '@/lib/useIsMobile';
-import { BlurhashCanvas } from 'react-blurhash';
 import c from 'classnames';
 import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
 
 export const Figure = ({
   alt,
-  blurhash,
   background,
   border,
   borderRadius = true,
@@ -31,6 +29,7 @@ export const Figure = ({
   transition,
   width,
   quality,
+  plaiceholder,
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
@@ -111,7 +110,7 @@ export const Figure = ({
           initial="hidden"
           variants={figureVariants}
         >
-          {!isVideo && blurhash && !priority && (
+          {!isVideo && !priority && plaiceholder && (
             <AnimatePresence>
               {!imageIsLoaded && (
                 <m.div
@@ -121,12 +120,11 @@ export const Figure = ({
                   initial={{ opacity: 0 }}
                   transition={{ ...TRANS_TERTIARY_FASTEST, duration: 0.2 }}
                 >
-                  <BlurhashCanvas
+                  <div
                     className="Figure-blur-canvas"
-                    hash={blurhash.hash}
-                    height={blurhash.width}
-                    punch={1}
-                    width={blurhash.height}
+                    style={{
+                      ...plaiceholder.css,
+                    }}
                   />
                 </m.div>
               )}

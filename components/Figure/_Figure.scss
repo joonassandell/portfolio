@@ -40,11 +40,14 @@
 
 .Figure-blur {
   inset: 0;
+  overflow: hidden;
   z-index: 1;
 }
 
 .Figure-blur-canvas {
+  filter: blur(24px);
   height: 100%;
+  transform: scale(1.5);
   width: 100%;
 }
 
