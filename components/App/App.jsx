@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import { getSitemap, scrollLock } from '@/lib/utility';
+import { scrollLock, isBrowser } from '@/lib/utility';
 import { useIsMobile } from '@/lib/useIsMobile';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
@@ -9,15 +9,11 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRouter } from 'next/router';
 
-const sitemap = getSitemap();
-
 const AppContext = createContext({
-  doc: null,
-  html: null,
-  history: [],
+  doc: isBrowser && document.documentElement,
+  html: isBrowser && document.querySelector('html'),
   loading: true,
   loadingEnd: false,
-  scrollLock: false,
   transition: false, // 'template', false, true
   transitionInitial: false,
 });
@@ -25,12 +21,11 @@ const AppContext = createContext({
 export const App = ({ Component, pageProps }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
+  const { doc, html, loading, loadingEnd, transition } = appState;
+  const { asPath, beforePopState, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState();
   const mobile = useIsMobile();
-  const { doc, html, loading, loadingEnd, transition } = appState;
   const containerRef = useRef(null);
-  const { asPath } = useRouter();
-  const router = useRouter();
 
   /* ======
    * App set state functions
@@ -50,17 +45,8 @@ export const App = ({ Component, pageProps }) => {
     }));
   };
 
-  const setScrollLock = enable => {
-    setAppState(prevState => ({
-      ...prevState,
-      scrollLock: enable,
-    }));
-
-    if (enable) {
-      scrollLock(true, html);
-    } else {
-      scrollLock(false, html);
-    }
+  const setScrollLock = bool => {
+    scrollLock(bool, html);
   };
 
   const setLoadingEnd = value => {
@@ -78,83 +64,47 @@ export const App = ({ Component, pageProps }) => {
     smoothscroll.polyfill();
 
     if (process.env.NODE_ENV === 'production') {
-      // prettier-ignore
       console.info(
-        `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲
-
-https://github.com/joonassandell/rebirth My styleguide in development
-https://nextjs.org I really recommend this
-https://www.typescriptlang.org And this one too
-      `
+        `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲`,
       );
     }
 
-    sitemap.map(site => {
-      if (site.url === '/oras') {
-        router.prefetch(site.url);
-      }
-    });
-
-    setAppState(prevState => ({
-      ...prevState,
-      doc: document.documentElement,
-      html: document.querySelector('html'),
-      loading: false,
-    }));
-  }, []);
-
-  /* ======
-   * History
-   * ====== */
-
-  useEffect(() => {
-    setAppState(prevState => ({
-      ...prevState,
-      history: [...prevState.history, asPath],
-    }));
-  }, [router.route]);
-
-  /* ======
-   * Various
-   * ====== */
-
-  useEffect(() => {
-    if (!doc) return;
+    (async () => {
+      const { isWindows } = await import('@/lib/detect');
+      if (isWindows) html.classList.add('is-windows');
+    })();
 
     const rootHeight = () =>
       doc.style.setProperty('--vh', `${window.innerHeight}px`);
     window.addEventListener('resize', rootHeight);
     rootHeight();
 
+    setAppState(prevState => ({
+      ...prevState,
+      loading: false,
+    }));
+
     () => window.removeEventListener('resize', rootHeight);
-  }, [doc]);
+  }, []);
+
+  /* ======
+   * Various
+   * ====== */
 
   useEffect(() => {
-    if (!html) return;
-    (async () => {
-      const { isWindows } = await import('@/lib/detect');
-      if (isWindows) html.classList.add('is-windows');
-    })();
-  }, [html]);
-
-  useEffect(() => {
-    if (!html) return;
     if (loadingEnd) html.classList.remove('is-loading');
-  }, [html, loadingEnd]);
+  }, [loadingEnd]);
 
   /**
    * Disable scrolling in mobile (non smooth) devices during template transition.
    * Scrolling is enabled after the transition in onLocationChange. Note that
-   * for desktop the scrolling disabled in Template.
+   * for desktop the scrolling is disabled in Template.
    */
   useEffect(() => {
-    if (mobile && transition === 'template') {
-      setScrollLock(true);
-    }
-  }, [transition]);
+    if (mobile && transition === 'template') setScrollLock(true);
+  }, [mobile, transition]);
 
   useEffect(() => {
-    if (!html || !loadingEnd) return;
     if (transition) {
       html.classList.add('is-transition', 'is-transition:withDelay');
     }
@@ -167,17 +117,17 @@ https://www.typescriptlang.org And this one too
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
       setTimeout(() => html.classList.remove(hackClass), 300);
     }
-  }, [html, transition]);
+  }, [transition]);
 
   /**
    * Set template transition by default when navigating back/forward
    */
   useEffect(() => {
-    router.beforePopState(({ url, as }) => {
+    beforePopState(({ url, as }) => {
       if (transition === 'template') {
         setTimeout(() => {
           setTransition('template');
-          router.push(url, as, { scroll: false });
+          push(url, as, { scroll: false });
         }, 500);
         return false;
       } else {
@@ -215,12 +165,6 @@ https://www.typescriptlang.org And this one too
         <LocomotiveScrollProvider
           containerRef={containerRef}
           options={{
-            multiplier:
-              typeof window !== 'undefined' &&
-              window.navigator &&
-              window.navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-                ? 3
-                : 1,
             smooth: true,
           }}
           location={animationComplete}
