@@ -6,12 +6,12 @@ import { TextReveal } from '@/components/TextReveal';
 import {
   headingVariants as hVariants,
   maskVariants,
-} from './HeroBiocode.animations';
+} from './Hero.animations';
 import Image from 'next/image';
 
 const { url, year, id, title } = getSitemap('biocode');
 
-export const HeroBiocode = ({
+export const BiocodeHero = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,

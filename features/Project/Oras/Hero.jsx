@@ -8,12 +8,12 @@ import {
   dropVariants,
   dropVariants2,
   dropVariants3,
-} from './HeroOras.animations';
+} from './Hero.animations';
 import Image from 'next/image';
 
 const oras = getSitemap('oras');
 
-export const HeroOras = ({
+export const OrasHero = ({
   onClick,
   transitionHideStart = false,
   transitionStart = false,

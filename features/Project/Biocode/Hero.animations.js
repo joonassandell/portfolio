@@ -1,5 +1,5 @@
 import { transPrimary } from '@/lib/config';
-import { headingVariants as headingVars } from '../Hero.animations';
+import { headingVariants as headingVars } from '@/components/Hero';
 
 export const headingVariants = {
   animate: {

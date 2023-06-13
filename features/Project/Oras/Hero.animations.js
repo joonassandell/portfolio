@@ -1,6 +1,6 @@
 import { transSecondary, transTertiary } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
-import { headingVariants as headingVars } from '../Hero.animations';
+import { headingVariants as headingVars } from '@/components/Hero';
 
 export const headingVariants = {
   animate: {
