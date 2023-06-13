@@ -201,20 +201,6 @@ https://www.typescriptlang.org And this one too
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no"
         />
-        <link
-          as="font"
-          crossOrigin=""
-          href="/fonts/Px-Grotesk-Regular.woff2"
-          rel="preload"
-          type="font/woff2"
-        />
-        <link
-          as="font"
-          crossOrigin=""
-          href="/fonts/Px-Grotesk-Light.woff2"
-          rel="preload"
-          type="font/woff2"
-        />
       </Head>
       <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       <AppContext.Provider

@@ -16,13 +16,14 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
-  compiler: {
-    removeConsole: {
-      exclude: ['error', 'info'],
+  ...(process.env.NODE_ENV === 'production' && {
+    compiler: {
+      removeConsole: {
+        exclude: ['error', 'info'],
+      },
     },
-  },
-  experimental: { optimizeCss: true },
-  webpack(config, { defaultLoaders }) {
+  }),
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],

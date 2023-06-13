@@ -1,22 +1,26 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript } from 'next/document';
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
-  render() {
-    return (
-      <Html className="is-loading">
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+export default function Document() {
+  return (
+    <Html className="is-loading" lang="en">
+      <Head>
+        <link
+          as="font"
+          href="/fonts/Px-Grotesk-Regular.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
+        <link
+          as="font"
+          href="/fonts/Px-Grotesk-Light.woff2"
+          rel="preload"
+          type="font/woff2"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }
-
-export default MyDocument;
