@@ -2,16 +2,12 @@ const path = require('path');
 
 const {
   ANALYZE,
-  NODE_ENV,
   VERCEL_ENV,
   VERCEL_URL,
   NEXT_PUBLIC_ORIGIN,
   LOCAL_DEPLOYMENT,
 } = process.env;
 const preview = VERCEL_ENV === 'preview';
-const production = NODE_ENV === 'production';
-const localOrPreviewBuild = production && (preview || !VERCEL_ENV);
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: ANALYZE === 'true',
 });
@@ -32,10 +28,10 @@ const config = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
-  ...(!localOrPreviewBuild && {
+  ...(VERCEL_ENV === 'production' && {
     compiler: {
       removeConsole: {
-        exclude: ['error', 'info'],
+        exclude: ['error', 'warning', 'info'],
       },
     },
   }),
