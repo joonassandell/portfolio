@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { SCROLL_SPEED as sSpeed, TRANS_TERTIARY_FASTEST } from '@/lib/config';
 import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useIsMobile } from '@/lib/useIsMobile';
 import { BlurhashCanvas } from 'react-blurhash';
@@ -105,7 +105,7 @@ export const Figure = ({
           scrollPosition && { 'data-scroll-position': scrollPosition })}
         {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
-        <motion.div
+        <m.div
           animate={inView ? 'inView' : ''}
           className="Figure-figure-main"
           initial="hidden"
@@ -114,7 +114,7 @@ export const Figure = ({
           {!isVideo && blurhash && !priority && (
             <AnimatePresence>
               {!imageIsLoaded && (
-                <motion.div
+                <m.div
                   animate={{ opacity: 1 }}
                   className="Figure-blur"
                   exit={{ opacity: 0 }}
@@ -128,7 +128,7 @@ export const Figure = ({
                     punch={1}
                     width={blurhash.height}
                   />
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
           )}
@@ -157,7 +157,7 @@ export const Figure = ({
               <source src={src} />
             </video>
           )}
-        </motion.div>
+        </m.div>
       </figure>
     </div>
   );

@@ -1,7 +1,7 @@
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { OrasHero, BiocodeHero } from '@/features/Project';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Template } from '@/components/Template';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
@@ -34,7 +34,7 @@ export const HomePage = ({ id, title }) => {
 
   return (
     <Template name={id} title={title}>
-      <motion.div
+      <m.div
         animate={animationHide ? 'hidden' : ''}
         className="Template-about"
         variants={FADE_OUT_VARIANTS}
@@ -59,7 +59,7 @@ export const HomePage = ({ id, title }) => {
             </h1>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       <BiocodeHero
         onClick={handleClick}

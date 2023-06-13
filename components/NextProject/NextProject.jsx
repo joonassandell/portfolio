@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { LinkRoll } from '@/components/LinkRoll';
 import { useEffect, useRef, useState } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
@@ -85,7 +85,7 @@ export const NextProject = ({ id }) => {
         <LinkRoll className="NextProject-link" href={href}>
           Next project
         </LinkRoll>
-        <motion.figure
+        <m.figure
           aria-hidden="true"
           className="NextProject-figure"
           ref={figureRef}
@@ -103,7 +103,7 @@ export const NextProject = ({ id }) => {
             src={src}
             width={1440}
           />
-        </motion.figure>
+        </m.figure>
       </div>
     </section>
   );

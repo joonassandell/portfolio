@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
@@ -79,7 +79,7 @@ export const BiocodeHero = ({
                 />
               </div>
             )}
-            <motion.div
+            <m.div
               className="Hero-globe wrap grid -gap:l"
               custom={{ enableInitial: transitionPre }}
               variants={maskVariants}
@@ -107,7 +107,7 @@ export const BiocodeHero = ({
                   </div>
                 </figure>
               </div>
-            </motion.div>
+            </m.div>
             <div className="Hero-icon wrap grid -gap:l">
               <div className={figureClasses}>
                 <figure className="Hero-figure-icon">
@@ -159,7 +159,7 @@ export const BiocodeHero = ({
                 </div>
               </div>
             )}
-            <motion.div
+            <m.div
               className="Hero-bg"
               custom={{ enableInitial: transitionPre }}
               variants={maskVariants}

@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, m, useAnimation } from 'framer-motion';
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
@@ -227,7 +227,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
 
   return (
     <>
-      <motion.header
+      <m.header
         animate={isOpen ? 'open' : isOpen === false ? 'closed' : ''}
         className={c('Header', { 'is-disabled': disabled })}
         initial="initial"
@@ -245,7 +245,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
         <div className="Header-main wrap">
           <div className="Header-ctrl">
             <div className="Header-logo">
-              <motion.div variants={ctrlItemOutVariant}>
+              <m.div variants={ctrlItemOutVariant}>
                 <LinkRoll
                   href="/"
                   onClick={handleClick}
@@ -253,9 +253,9 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                 >
                   Joonas Sandell
                 </LinkRoll>
-              </motion.div>
+              </m.div>
               {openReveal && (
-                <motion.div
+                <m.div
                   className="Header-logo-reveal"
                   variants={ctrlItemInVariant}
                 >
@@ -266,22 +266,22 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   >
                     Joonas Sandell
                   </LinkRoll>
-                </motion.div>
+                </m.div>
               )}
             </div>
             <div className="Header-separator">
-              <motion.div
+              <m.div
                 className="Header-separator-line"
                 variants={ctrlItemOutVariant}
               />
               {openReveal && (
-                <motion.div
+                <m.div
                   className="Header-separator-line Header-separator-line--reveal"
                   variants={ctrlItemInVariant}
                 />
               )}
             </div>
-            <motion.button
+            <m.button
               className="Header-button resetButton"
               onBlur={() => {
                 setHover('end');
@@ -296,38 +296,34 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
               onHoverStart={() => setHover('start')}
             >
               <div className="Header-button-textMobile">
-                <motion.div variants={ctrlItemOutVariant}>Menu</motion.div>
+                <m.div variants={ctrlItemOutVariant}>Menu</m.div>
                 {openReveal && (
-                  <motion.div
+                  <m.div
                     className="Header-button-textMobile-reveal"
                     variants={ctrlItemInVariant}
                   >
                     Menu
-                  </motion.div>
+                  </m.div>
                 )}
               </div>
               <div className="Header-button-text">
                 <AnimatePresence initial={false} mode="wait">
-                  <motion.div
+                  <m.div
                     className="Header-button-text-item"
                     key={`Header-button-text-${router.route}`}
                     {...enterExit.btnText}
                   >
-                    <motion.div variants={ctrlItemOutVariant}>
-                      {navTitle}
-                    </motion.div>
-                  </motion.div>
+                    <m.div variants={ctrlItemOutVariant}>{navTitle}</m.div>
+                  </m.div>
                 </AnimatePresence>
                 {openReveal && (
                   <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <motion.div variants={ctrlItemInVariant}>
-                      {navRevealTitle}
-                    </motion.div>
+                    <m.div variants={ctrlItemInVariant}>{navRevealTitle}</m.div>
                   </div>
                 )}
               </div>
               <AnimatePresence initial={false} mode="wait">
-                <motion.div
+                <m.div
                   className="Header-button-arrow"
                   key={router.route}
                   ref={btnArrow}
@@ -338,12 +334,12 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                     hoverEnd={hover === 'end'}
                     hoverStart={hover === 'start'}
                   />
-                </motion.div>
+                </m.div>
               </AnimatePresence>
-            </motion.button>
+            </m.button>
             <ul className="Header-secondary">
               <li className="Header-secondary-item">
-                <motion.div variants={ctrlItemOutVariant}>
+                <m.div variants={ctrlItemOutVariant}>
                   <LinkRoll
                     href={about.url}
                     isActive={urlState(about.url, router).active}
@@ -352,9 +348,9 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   >
                     {about.navTitle}
                   </LinkRoll>
-                </motion.div>
+                </m.div>
                 {openReveal && (
-                  <motion.div
+                  <m.div
                     className="Header-secondary-item-reveal"
                     variants={ctrlItemInVariant}
                   >
@@ -366,32 +362,32 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                     >
                       {about.navTitle}
                     </LinkRoll>
-                  </motion.div>
+                  </m.div>
                 )}
               </li>
               <li className="Header-secondary-item">
-                <motion.div variants={ctrlItemOutVariant}>
+                <m.div variants={ctrlItemOutVariant}>
                   <LinkRoll
                     href={contact.url}
                     {...(isOpen && { tabIndex: -1 })}
                   >
                     {contact.navTitle}
                   </LinkRoll>
-                </motion.div>
+                </m.div>
                 {openReveal && (
-                  <motion.div
+                  <m.div
                     className="Header-secondary-item-reveal"
                     variants={ctrlItemInVariant}
                   >
                     <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
-                  </motion.div>
+                  </m.div>
                 )}
               </li>
             </ul>
           </div>
         </div>
-      </motion.header>
-      <motion.div
+      </m.header>
+      <m.div
         animate={maskAnim}
         className={c('Header-mask scrollbar -color:negative', {
           'is-open': maskIsOpen,
@@ -404,7 +400,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
       >
         {maskIsOpen && (
           <>
-            <motion.nav
+            <m.nav
               animate={isOpen ? 'open' : 'closed'}
               className="Header-nav"
               initial="initial"
@@ -424,7 +420,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   );
                 })}
               </ul>
-            </motion.nav>
+            </m.nav>
             <footer className="Header-footer wrap">
               <ul className="Header-links">
                 {someLinks.map(link => {
@@ -444,7 +440,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
             </footer>
           </>
         )}
-      </motion.div>
+      </m.div>
     </>
   );
 };

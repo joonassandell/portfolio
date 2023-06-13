@@ -8,6 +8,7 @@ import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import smoothscroll from 'smoothscroll-polyfill';
 import { useRouter } from 'next/router';
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 const AppContext = createContext({
   doc: isBrowser && document.documentElement,
@@ -145,7 +146,7 @@ export const App = ({ Component, pageProps }) => {
   }, [transition]);
 
   return (
-    <>
+    <LazyMotion features={domAnimation} strict>
       <Head>
         <meta
           name="viewport"
@@ -201,7 +202,7 @@ export const App = ({ Component, pageProps }) => {
           </div>
         </LocomotiveScrollProvider>
       </AppContext.Provider>
-    </>
+    </LazyMotion>
   );
 };
 

@@ -45,7 +45,7 @@ Template transitions have been tested like in [this article](https://www.notion.
 
 // Template.js
 export const Template = forwardRef((props, forwadedRef) => (
-  <motion.div ref={forwadedRef} />
+  <m.div ref={forwadedRef} />
 ));
 
 // some-page.js

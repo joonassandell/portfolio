@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useIsPresent } from 'framer-motion';
+import { AnimatePresence, m, useIsPresent } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Title } from '@/components/Title';
 import {
@@ -29,7 +29,7 @@ export const Template = ({ children, name, title }) => {
   return (
     <>
       <Title title={title} />
-      <motion.div
+      <m.div
         animate="animate"
         className={c('Template', {
           [`Template--${name}`]: name,
@@ -62,14 +62,14 @@ export const Template = ({ children, name, title }) => {
           </div>
         </AnimatePresence>
         {displayOverlay && (
-          <motion.div
+          <m.div
             animate="animate"
             className="Template-overlay"
             initial="initial"
             variants={overlayVariants}
           />
         )}
-      </motion.div>
+      </m.div>
     </>
   );
 };

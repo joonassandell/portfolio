@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
@@ -68,12 +68,12 @@ export const OrasHero = ({
                       width={2192}
                     />
                   </figure>
-                  <motion.div
+                  <m.div
                     className="Hero-figure-bg"
                     variants={figureBgVariants}
                   />
                   {transitionStartOrDefault && (
-                    <motion.div
+                    <m.div
                       className="Hero-drop Hero-drop--1"
                       {...(transitionInitial && {
                         animate: 'animate',
@@ -96,7 +96,7 @@ export const OrasHero = ({
                         width={256}
                         quality="90"
                       />
-                    </motion.div>
+                    </m.div>
                   )}
                 </div>
                 <HeroContent
@@ -114,7 +114,7 @@ export const OrasHero = ({
               </div>
             </div>
             {transitionStartOrDefault && (
-              <motion.div
+              <m.div
                 className="Hero-drop Hero-drop--2"
                 {...(transitionInitial && {
                   animate: 'animate',
@@ -137,9 +137,9 @@ export const OrasHero = ({
                   width={256}
                   quality="90"
                 />
-              </motion.div>
+              </m.div>
             )}
-            <motion.div
+            <m.div
               className="Hero-drop Hero-drop--3"
               {...(transitionInitial && {
                 animate: 'animate',
@@ -169,7 +169,7 @@ export const OrasHero = ({
                   quality="90"
                 />
               </div>
-            </motion.div>
+            </m.div>
           </>
         );
       }}

@@ -1,5 +1,5 @@
 import StampSvg from './stamp.svg';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import c from 'classnames';
 import {
   stampVariants,
@@ -98,7 +98,7 @@ export const Stamp = ({
         '--Stamp-overlayBg': overlayBg,
       }}
     >
-      <motion.div
+      <m.div
         className="Stamp-inner"
         ref={innerRef}
         style={{
@@ -106,7 +106,7 @@ export const Stamp = ({
           x: moveX,
         }}
       >
-        <motion.a
+        <m.a
           className="Stamp-stamp"
           href={href}
           onClick={onClick}
@@ -115,18 +115,18 @@ export const Stamp = ({
           whileTap="tap"
           transition={stampVariants.transition}
         >
-          <motion.div
+          <m.div
             animate={inView ? 'animate' : ''}
             className="Stamp-svg"
             variants={svgVariants}
           >
             <StampSvg />
-          </motion.div>
-        </motion.a>
+          </m.div>
+        </m.a>
         {transitionStart && overlay && (
-          <motion.div className="Stamp-overlay" variants={overlayVariants} />
+          <m.div className="Stamp-overlay" variants={overlayVariants} />
         )}
-      </motion.div>
+      </m.div>
     </div>
   );
 };

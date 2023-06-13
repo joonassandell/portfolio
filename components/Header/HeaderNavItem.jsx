@@ -1,4 +1,4 @@
-import { motion, animate } from 'framer-motion';
+import { m, animate } from 'framer-motion';
 import { marqueeVariants, marqueeInnerVariants } from './Header.animations';
 import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
@@ -47,7 +47,7 @@ export const NavItem = props => {
   }, [reveal]);
 
   return (
-    <motion.li
+    <m.li
       className={c('Header-nav-item', {
         'is-active': router.pathname === props.url,
       })}
@@ -76,7 +76,7 @@ export const NavItem = props => {
           <EyeSvg className="Header-nav-link-eye" />
         </span>
       </Link>
-      <motion.div
+      <m.div
         animate={hover === 'in' ? 'in' : hover === 'out' ? 'out' : ''}
         aria-hidden="true"
         className="Header-nav-marquee"
@@ -91,17 +91,14 @@ export const NavItem = props => {
         variants={marqueeVariants}
         transition={marqueeVariants.transition}
       >
-        <motion.div
+        <m.div
           className="Header-nav-marquee-inner"
           custom={closestEdge == 'top' ? 'top' : 'bottom'}
           variants={marqueeInnerVariants}
           transition={marqueeVariants.transition}
         >
           {reveal && (
-            <motion.div
-              ref={marqueeRef}
-              className="Header-nav-marquee-inner-self"
-            >
+            <m.div ref={marqueeRef} className="Header-nav-marquee-inner-self">
               {[...Array(10)].map((x, i) => {
                 return (
                   <Fragment key={i}>
@@ -112,10 +109,10 @@ export const NavItem = props => {
                   </Fragment>
                 );
               })}
-            </motion.div>
+            </m.div>
           )}
-        </motion.div>
-      </motion.div>
-    </motion.li>
+        </m.div>
+      </m.div>
+    </m.li>
   );
 };

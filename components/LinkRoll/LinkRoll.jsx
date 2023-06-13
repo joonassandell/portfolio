@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { default as NextLink } from 'next/link';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ export const LinkRoll = ({
     'is-active': isActive,
     'has-active': isBoolean(isActive),
   });
-  const Tag = tag == 'span' ? motion.span : motion.a;
+  const Tag = tag == 'span' ? m.span : m.a;
   const linkTarget = target
     ? target
     : href.startsWith('http')
@@ -64,13 +64,13 @@ export const LinkRoll = ({
         {...(linkTarget === '_blank' && { rel: 'external' })}
         {...props}
       >
-        <motion.span className="LinkRoll-text" variants={linkVariants}>
+        <m.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, index) => {
             const empty = isEmptyString(char);
             empty ? (char = '.') : false;
 
             return (
-              <motion.span
+              <m.span
                 className={c('LinkRoll-char', {
                   '-empty': empty,
                 })}
@@ -79,11 +79,11 @@ export const LinkRoll = ({
                 {...(empty && { 'aria-hidden': 'true' })}
               >
                 {char}
-              </motion.span>
+              </m.span>
             );
           })}
-        </motion.span>
-        <motion.span
+        </m.span>
+        <m.span
           aria-hidden="true"
           className="LinkRoll-text -hover"
           variants={linkVariants}
@@ -93,7 +93,7 @@ export const LinkRoll = ({
             empty ? (char = '.') : false;
 
             return (
-              <motion.span
+              <m.span
                 className={c('LinkRoll-char', {
                   '-empty': empty,
                 })}
@@ -101,10 +101,10 @@ export const LinkRoll = ({
                 variants={characterInVariants}
               >
                 {char}
-              </motion.span>
+              </m.span>
             );
           })}
-        </motion.span>
+        </m.span>
       </Tag>
     </ConditionalWrapper>
   );

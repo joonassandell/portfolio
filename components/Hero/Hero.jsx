@@ -1,6 +1,6 @@
 import { FADE_OUT_VARIANTS, SCROLL_SPEED } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useAppContext } from '@/components/App';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
@@ -31,7 +31,7 @@ export const Hero = ({
   const { transitionInitial: appTransitionInitial } = appState;
   const router = useRouter();
   const ref = useRef(null);
-  const Heading = transitionPre ? motion.h2 : motion.h1;
+  const Heading = transitionPre ? m.h2 : m.h1;
 
   /**
    * Pre transition: Transition before router change
@@ -56,7 +56,7 @@ export const Hero = ({
   };
 
   return (
-    <motion.section
+    <m.section
       animate={
         transitionStart ? 'animate' : transitionHideStart ? 'hidden' : ''
       }
@@ -118,6 +118,6 @@ export const Hero = ({
           />
         )}
       </div>
-    </motion.section>
+    </m.section>
   );
 };

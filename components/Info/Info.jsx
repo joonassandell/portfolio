@@ -1,5 +1,5 @@
 import { MQ } from '@/lib/config';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Link } from '@/components/Link';
 import { Text } from '@/components/Text';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
@@ -37,7 +37,7 @@ export const Info = ({
         data-scroll-speed="0.5"
         ref={rulerRef}
       >
-        <motion.hr
+        <m.hr
           animate={rulerInView ? 'inView' : ''}
           className="Info-ruler"
           initial="hidden"
@@ -45,7 +45,7 @@ export const Info = ({
         />
       </div>
       <div className="grid">
-        <motion.div
+        <m.div
           animate={gridInView ? 'inView' : ''}
           className="Info-meta grid-col grid-col:5@l"
           data-scroll
@@ -54,7 +54,7 @@ export const Info = ({
           variants={infoGridVariants}
         >
           <div className="grid">
-            <motion.div
+            <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:8@s grid-col:9@m grid-col:5@l"
               variants={infoGridCellVariants}
             >
@@ -97,8 +97,8 @@ export const Info = ({
                   </ul>
                 </Text>
               </div>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
               variants={infoGridCellVariants}
             >
@@ -122,10 +122,10 @@ export const Info = ({
                   <small>{smallPrint}</small>
                 </p>
               </Text>
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           animate={textInView ? 'inView' : ''}
           className="grid-col grid-col:9@m grid-col:7@l"
           custom={desktop ? 0.3 : false}
@@ -138,7 +138,7 @@ export const Info = ({
           <div className="grid">
             <Text className="Info-text grid-col grid-col:6@s">{text}</Text>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

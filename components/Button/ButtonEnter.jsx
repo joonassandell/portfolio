@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/components/App';
@@ -25,7 +25,7 @@ export const ButtonEnter = ({
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
-  const Tag = href ? motion.a : motion.button;
+  const Tag = href ? m.a : m.button;
 
   return (
     <ConditionalWrapper
@@ -61,7 +61,7 @@ export const ButtonEnter = ({
         whileTap="tap"
         variants={buttonVariants}
       >
-        <motion.div
+        <m.div
           animate={arrowHover ? 'in' : 'initial'}
           className="Button-arrow"
           initial="initial"
@@ -71,7 +71,7 @@ export const ButtonEnter = ({
             className="Button-arrow-svgPath"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <motion.path
+            <m.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
               variants={pathInVariants}
@@ -81,28 +81,28 @@ export const ButtonEnter = ({
             className="Button-arrow-svgPath Button-arrow-svgPath--out"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <motion.path
+            <m.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
               variants={pathOutVariants}
             />
           </svg>
-          <motion.div
+          <m.div
             className="Button-arrow-pointer"
             variants={pointerInVariants}
           />
-          <motion.div
+          <m.div
             className="Button-arrow-pointer Button-arrow-pointer--out"
             variants={pointerOutVariants}
           />
-        </motion.div>
+        </m.div>
         <div className="hideVisually">{children}</div>
-        <motion.span
+        <m.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg"
           variants={bgVariants}
         />
-        <motion.span
+        <m.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg-hover"
           variants={bgHoverVariants}

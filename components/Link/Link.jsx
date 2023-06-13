@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowRight } from '../Icon';
 import {
@@ -34,7 +34,7 @@ export const Link = ({
     '-vertical': orientation === 'vertical',
     '-arrow': arrow,
   });
-  const Tag = tag == 'span' ? motion.span : motion.a;
+  const Tag = tag == 'span' ? m.span : m.a;
   const linkTarget = target
     ? target
     : href.startsWith('http')
@@ -76,15 +76,15 @@ export const Link = ({
         {...(href && linkTarget && { target: linkTarget })}
         {...(linkTarget === '_blank' && { rel: 'external' })}
       >
-        <motion.span
+        <m.span
           className="Link-text"
           variants={orientation === 'vertical' ? outVariantX : outVariant}
         >
           {children}
-        </motion.span>
+        </m.span>
         <AnimatePresence>
           {hover && (
-            <motion.span
+            <m.span
               animate="in"
               className="Link-text Link-text--reveal"
               exit="out"
@@ -92,7 +92,7 @@ export const Link = ({
               variants={orientation === 'vertical' ? inVariantX : inVariant}
             >
               {children}
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
         {arrow && (

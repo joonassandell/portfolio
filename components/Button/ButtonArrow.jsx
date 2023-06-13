@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUp } from '../Icon';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { m, useAnimation, AnimatePresence } from 'framer-motion';
 import {
   TRANS_PRIMARY,
   TRANS_PRIMARY_FAST,
@@ -105,12 +105,12 @@ export const ButtonArrow = ({
 
   return (
     <div className={classes}>
-      <motion.span animate={arrowIn} className="Button-icon Button-icon--in">
+      <m.span animate={arrowIn} className="Button-icon Button-icon--in">
         <ArrowDown />
-      </motion.span>
+      </m.span>
       <AnimatePresence onExitComplete={() => setActiveAnimation(false)}>
         {closeVisible && (
-          <motion.span
+          <m.span
             animate={{
               scaleY: 1,
               transition: TRANS_PRIMARY_FAST,
@@ -128,13 +128,13 @@ export const ButtonArrow = ({
             className="Button-icon Button-icon--close"
           >
             <ArrowUp />
-          </motion.span>
+          </m.span>
         )}
       </AnimatePresence>
-      <motion.span animate={arrow} className="Button-icon">
+      <m.span animate={arrow} className="Button-icon">
         <ArrowDown />
-      </motion.span>
-      <motion.span animate={bg} className="Button-bg" />
+      </m.span>
+      <m.span animate={bg} className="Button-bg" />
     </div>
   );
 };
