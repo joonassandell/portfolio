@@ -6,6 +6,7 @@ import React, { Fragment, useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
 import EyeSvg from './eye.svg';
+import Link from 'next/link';
 
 export const NavItem = props => {
   const router = useRouter();
@@ -64,12 +65,17 @@ export const NavItem = props => {
       }}
       variants={navItemVariant}
     >
-      <a className="Header-nav-link" href={props.url} onClick={props.onClick}>
+      <Link
+        className="Header-nav-link"
+        href={props.url}
+        onClick={props.onClick}
+        scroll={false}
+      >
         <span className="Header-nav-link-inner">
           <span className="Header-nav-link-text">{props.name}</span>
           <EyeSvg className="Header-nav-link-eye" />
         </span>
-      </a>
+      </Link>
       <motion.div
         animate={hover === 'in' ? 'in' : hover === 'out' ? 'out' : ''}
         aria-hidden="true"
