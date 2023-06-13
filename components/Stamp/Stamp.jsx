@@ -6,7 +6,7 @@ import {
   svgVariants,
   overlayVariants,
 } from './Stamp.animations';
-import { debounce } from 'lodash';
+import { debounce } from 'lodash-es';
 import { useMouse, useMeasure } from 'react-use';
 import { useEffect, useRef } from 'react';
 import { useInView } from '@/lib/useInView';

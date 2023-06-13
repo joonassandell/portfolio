@@ -1,6 +1,7 @@
 const path = require('path');
 
 const {
+  ANALYZE,
   NODE_ENV,
   VERCEL_ENV,
   VERCEL_URL,
@@ -11,11 +12,15 @@ const preview = VERCEL_ENV === 'preview';
 const production = NODE_ENV === 'production';
 const localOrPreviewBuild = production && (preview || !VERCEL_ENV);
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: ANALYZE === 'true',
+});
+
 /**
  * 1. This is here to make svgs import properly.
  *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
  */
-module.exports = {
+const config = {
   env: {
     NEXT_PUBLIC_ORIGIN:
       preview && LOCAL_DEPLOYMENT
@@ -60,3 +65,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withBundleAnalyzer(config);

@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { LinkRoll } from '@/components/LinkRoll';
 import { useEffect, useRef, useState } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
-import { clamp } from 'lodash';
+import { clamp } from 'lodash-es';
 import { mapRange, getSitemap } from '@/lib/utility';
 import Image from 'next/image';
 

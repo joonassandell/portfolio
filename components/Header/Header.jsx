@@ -16,7 +16,7 @@ import { ButtonArrow } from '@/components/Button';
 import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
 import c from 'classnames';
-import { debounce } from 'lodash';
+import { debounce } from 'lodash-es';
 import { EASE_CSS, SITEMAP, LINKS, CONTENT } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
