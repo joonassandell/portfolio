@@ -17,7 +17,7 @@ import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash';
-import { easeCSS, sitemap, links } from '@/lib/config';
+import { easeCSS, sitemap, links, content } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
@@ -32,7 +32,7 @@ const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
 const someLinks = links.social;
 
-export const Header = ({ navTitle }) => {
+export const Header = ({ navTitle = content.defaultNavTitle }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(null);
   const [hover, setHover] = useState(false);

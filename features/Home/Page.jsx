@@ -10,7 +10,7 @@ import { useScrollTo } from '@/lib/useScrollTo';
 
 const about = getSitemap('about', 'secondary');
 
-export const HomePage = ({ id }) => {
+export const HomePage = ({ id, title }) => {
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
@@ -33,7 +33,7 @@ export const HomePage = ({ id }) => {
   };
 
   return (
-    <Template name={id} title="Portfolio">
+    <Template name={id} title={title}>
       <motion.div
         animate={animationHide ? 'hidden' : ''}
         className="Template-about"
