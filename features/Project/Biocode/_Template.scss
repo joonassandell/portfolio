@@ -20,12 +20,17 @@
       --text-1000: var(--biocode-text-1000);
       --text-900: var(--biocode-text-900);
       --text-muted: var(--biocode-text-muted);
+
+      --Figure-placeholder-bg: var(--biocode-bg-50);
+      --Figure-glare-opacity: 0.05;
     }
   }
 
   .Template-section {
     &.theme\:light {
       --Template-section-bg-color: var(--biocode-bg-50);
+      --Figure-placeholder-bg: var(--biocode-bg-200);
+      --Figure-glare-opacity: 1;
     }
   }
 

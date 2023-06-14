@@ -71,7 +71,6 @@ export const OrasPage = ({ images, id, title }) => {
               quality={90}
               priority
               {...getImage('joonassandell-oras-product-family', images)}
-              blurhash={false}
             />
           </div>
         </TemplateSection>
@@ -102,7 +101,6 @@ export const OrasPage = ({ images, id, title }) => {
               sizes={`${MQ.m} 70vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-products-overview', images)}
-              blurhash={false}
             />
           </div>
           <div className="grid-col grid-col:8@m -start:2@m">
@@ -120,7 +118,6 @@ export const OrasPage = ({ images, id, title }) => {
               sizes={`${MQ.m} 70vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-ux-kitchen', images)}
-              blurhash={false}
             />
           </div>
         </TemplateSection>
@@ -161,7 +158,6 @@ export const OrasPage = ({ images, id, title }) => {
             mask
             priority
             {...getImage('joonassandell-oras-hero-sense', images)}
-            blurhash={false}
           />
         </TemplateSection>
         <TemplateSection className="-bg:gradient-0-50-0" paddingTop="15vw">
@@ -172,7 +168,6 @@ export const OrasPage = ({ images, id, title }) => {
               sizes={`${MQ.m} 80vw, 100vw`}
               priority
               {...getImage('joonassandell-oras-product-single', images)}
-              blurhash={false}
             />
           </div>
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
@@ -200,7 +195,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 2"
                 border
                 scrolling={false}
-                sizes={`${MQ.m} 33vw, 50vw`}
+                sizes="50vw"
                 {...getImage('joonassandell-oras-strategy-6', images)}
               />
             </div>
@@ -251,7 +246,7 @@ export const OrasPage = ({ images, id, title }) => {
                 alt="Oras strategy 7"
                 border
                 scrolling={false}
-                sizes={`80vw`}
+                sizes={`${MQ.m} 50vw, 80vw`}
                 quality={90}
                 {...getImage('joonassandell-oras-strategy-4', images)}
               />

@@ -32,10 +32,11 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Biocode homepage and isometric Biocode application"
               border
+              glare
               priority
+              quality={100}
               scrolling={false}
               sizes={`${MQ.l} 80vw, 100vw`}
-              quality={100}
               {...getImage('joonassandell-biocode-website-home-hero', images)}
             />
           </div>
@@ -133,9 +134,10 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Example of Biocode's easy to use card"
               border
+              glare
+              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-card-easy-to-use',
                 images,
@@ -146,9 +148,9 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="About us page of Biocode homepage"
               border
+              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 60vw, 100vw`}
-              quality={100}
               {...getImage('joonassandell-biocode-website-about', images)}
             />
           </div>
@@ -156,9 +158,10 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Example of Biocode's agile card"
               border
+              glare
+              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
-              quality={100}
               {...getImage('joonassandell-biocode-website-card-agile', images)}
             />
           </div>
@@ -166,9 +169,10 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Example of Biocode's insightful card"
               border
+              glare
+              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-card-insightful',
                 images,
@@ -179,9 +183,10 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Example of Biocode's credible card"
               border
+              glare
+              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-card-credible',
                 images,
@@ -277,7 +282,7 @@ export const BiocodePage = ({ images, id, title }) => {
           <div className="grid-col grid-col:11 grid-col:6@m -end -align:end">
             <Figure
               alt="Example of Biocode's user interface elements"
-              border="var(--border-900)"
+              border
               scrolling={false}
               sizes={`${MQ.m} 50vw, 90vw`}
               {...getImage('joonassandell-biocode-app-ui', images)}
@@ -286,7 +291,7 @@ export const BiocodePage = ({ images, id, title }) => {
           <div className="grid-col grid-col:11 grid-col:8@m -start:3@m">
             <Figure
               alt="Another example of Biocode's user interface elements"
-              border="var(--border-900)"
+              border
               scrolling={false}
               sizes={`${MQ.m} 70vw, 90vw`}
               {...getImage('joonassandell-biocode-app-ui-2', images)}
