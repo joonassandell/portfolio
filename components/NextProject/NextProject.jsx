@@ -7,8 +7,8 @@ import { mapRange, getSitemap } from '@/lib/utility';
 import Image from 'next/image';
 
 export const NextProject = ({ id }) => {
-  const sitemap = getSitemap(id);
-  const href = sitemap.url;
+  const { url, title } = getSitemap(id);
+  const href = url;
   const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef(null);
   const [innerRef, { width, height }] = useMeasure();
@@ -96,6 +96,7 @@ export const NextProject = ({ id }) => {
           }}
         >
           <Image
+            alt={`Next Project: ${title}`}
             draggable="false"
             height={1920}
             priority
