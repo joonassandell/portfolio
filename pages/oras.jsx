@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       navTitle,
-      images: await getImages(`./public/assets/${id}/*.{jpg,png}`),
+      images: await getImages(`./public/${id}/*.{jpg,png}`),
     },
   };
 };

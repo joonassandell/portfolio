@@ -64,7 +64,7 @@ export const OrasHero = ({
                       priority
                       quality="90"
                       sizes="33vw"
-                      src="/assets/oras/hero/joonassandell-oras-hero.png"
+                      src="/oras/hero/joonassandell-oras-hero.png"
                       width={2192}
                     />
                   </figure>
@@ -92,7 +92,7 @@ export const OrasHero = ({
                         height={256}
                         priority
                         sizes="10vw"
-                        src="/assets/oras/hero/joonassandell-oras-drop.png"
+                        src="/oras/hero/joonassandell-oras-drop.png"
                         width={256}
                         quality="90"
                       />
@@ -133,7 +133,7 @@ export const OrasHero = ({
                   height={256}
                   priority
                   sizes="10vw"
-                  src="/assets/oras/hero/joonassandell-oras-drop.png"
+                  src="/oras/hero/joonassandell-oras-drop.png"
                   width={256}
                   quality="90"
                 />
@@ -164,7 +164,7 @@ export const OrasHero = ({
                   height={256}
                   priority
                   sizes="10vw"
-                  src="/assets/oras/hero/joonassandell-oras-drop.png"
+                  src="/oras/hero/joonassandell-oras-drop.png"
                   width={256}
                   quality="90"
                 />

@@ -58,7 +58,7 @@ export const BiocodeHero = ({
                         priority
                         quality={90}
                         sizes="50vw"
-                        src="/assets/biocode/hero/joonassandell-biocode-hero-globe-pre.png"
+                        src="/biocode/hero/joonassandell-biocode-hero-globe-pre.png"
                         width={2480}
                       />
                     </div>
@@ -85,7 +85,7 @@ export const BiocodeHero = ({
               variants={maskVariants}
             >
               <div className={figureClasses}>
-                <figure className="Hero-figure-globe Hero-figure-globe--initial">
+                <figure className="Hero-figure-globe Hero-figure-globe--default">
                   <div
                     {...(!preTransition && {
                       'data-scroll': true,
@@ -101,7 +101,7 @@ export const BiocodeHero = ({
                       priority
                       quality={100}
                       sizes="50vw"
-                      src="/assets/biocode/hero/joonassandell-biocode-hero-globe-initial.png"
+                      src="/biocode/hero/joonassandell-biocode-hero-globe.png"
                       width={2480}
                     />
                   </div>
@@ -117,7 +117,7 @@ export const BiocodeHero = ({
                     height={800}
                     priority
                     sizes="25vw"
-                    src="/assets/biocode/hero/joonassandell-biocode-icon.png"
+                    src="/biocode/hero/joonassandell-biocode-icon.png"
                     width={800}
                   />
                 </figure>

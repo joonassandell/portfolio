@@ -82,7 +82,7 @@ export const BiocodePage = ({ images, id, title }) => {
           <div className="grid-col grid-col:10 grid-col:7@m -start:2@m">
             <Figure
               border
-              src="/assets/biocode/joonassandell-biocode-website-home.mp4"
+              src="/biocode/joonassandell-biocode-website-home.mp4"
               scrolling={false}
             />
           </div>

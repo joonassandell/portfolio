@@ -9,7 +9,7 @@ import Image from 'next/image';
 export const NextProject = ({ id }) => {
   const sitemap = getSitemap(id);
   const href = sitemap.url;
-  const src = `/assets/${id}/joonassandell-${id}-thumbnail.jpg`;
+  const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef(null);
   const [innerRef, { width, height }] = useMeasure();
   const [figureRef, { width: figureWidth, height: figureHeight }] =

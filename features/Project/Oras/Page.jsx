@@ -80,7 +80,7 @@ export const OrasPage = ({ images, id, title }) => {
               className="Template-videoBathroom"
               alt="Oras lifestyle animation concept"
               scrollSpeed={-1}
-              src="/assets/oras/joonassandell-oras-bathroom.mp4"
+              src="/oras/joonassandell-oras-bathroom.mp4"
               transition="clip"
             />
           </div>
@@ -88,7 +88,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras get inspired animation concept"
               scrollSpeed={0.5}
-              src="/assets/oras/joonassandell-oras-get-inspired.mp4"
+              src="/oras/joonassandell-oras-get-inspired.mp4"
               transition="clip"
             />
           </div>
