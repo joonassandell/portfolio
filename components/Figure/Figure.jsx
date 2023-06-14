@@ -4,7 +4,6 @@ import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
-import { useIsMobile } from '@/lib/useIsMobile';
 import c from 'classnames';
 import {
   clipVariants,
@@ -27,7 +26,7 @@ export const Figure = ({
   scrollDelay,
   scrollImageSpeed = -3,
   scrolling = true,
-  scrollOffset,
+  scrollOffset = 0,
   scrollPosition,
   scrollSpeed = sSpeed,
   sizes = '100vw',
@@ -36,6 +35,10 @@ export const Figure = ({
   width,
   quality,
 }) => {
+  if (!src) {
+    console.error('Figure: src is not defined');
+    return null;
+  }
   const classes = c(className, 'Figure', {
     '-mask': mask,
     '-bg': background,
@@ -44,32 +47,15 @@ export const Figure = ({
   });
   const id = src.split('/').pop().split('.')[0];
   const ref = useRef(null);
-  const isMobile = useIsMobile();
-
-  // Stop caching images in development, uncomment if you keep testing new images
-  // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
-
-  // 1.'-25%': Maybe start the scroll effect a bit earlier by default for masks
-  const offset =
-    scrollOffset || scrollOffset === 0
-      ? scrollOffset
-      : mask && isMobile
-      ? 0
-      : mask
-      ? 0 // [1.]
-      : 0;
-  const inView = useInView(ref, offset);
+  const figureVariants = transition === 'move' ? moveVariants : clipVariants;
+  const inView = useInView(ref, scrollOffset);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
-  useInViewVideo(refVideo, offset);
+  useInViewVideo(refVideo, scrollOffset);
 
-  let figureVariants =
-    transition === 'move'
-      ? moveVariants
-      : transition === 'clip'
-      ? clipVariants
-      : '';
+  // Stop caching images in development, uncomment if you keep testing new images
+  // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
 
   return (
     <div
@@ -82,7 +68,7 @@ export const Figure = ({
       }}
       {...(scrolling && mask && { 'data-scroll-id': id })}
       {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
-      {...(offset && { 'data-scroll-offset': offset })}
+      {...(scrollOffset && { 'data-scroll-offset': scrollOffset })}
       {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
       {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
     >
