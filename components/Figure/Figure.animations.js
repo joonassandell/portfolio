@@ -1,47 +1,53 @@
-import { TRANS_TERTIARY, TRANS_TERTIARY_FAST } from '@/lib/config';
+import {
+  TRANS_TERTIARY,
+  TRANS_TERTIARY_FAST,
+  TRANS_TERTIARY_FASTEST,
+} from '@/lib/config';
 
 export const clipVariants = {
-  inView: {
+  animate: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
     scale: 1,
     transition: TRANS_TERTIARY,
   },
-  hidden: {
+  initial: {
     clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
-    scale: 1.05,
+    scale: 1.07,
   },
 };
 
-/**
- * Added if mask figure is visible after hero transition from homepage.
- * This may not be necessary.
- *
- * NOTE: Transitions and transforms are overridden and forced in styles based on
- * media query. Couldn't figure out how to set variants based on media query
- * without getting errors from react/nexjs.
- */
-// export const maskVariants = {
-//   inView: {
-//     ...clipVariants.inView,
-//     // opacity: 1,
-//   },
-//   hidden: {
-//     ...clipVariants.hidden,
-//     // opacity: 0,
-//   },
-// };
-export const maskVariants = {};
-
 export const moveVariants = {
-  inView: {
+  animate: {
     opacity: 1,
     scale: 1,
     transition: TRANS_TERTIARY_FAST,
     y: 0,
   },
-  hidden: {
+  initial: {
     opacity: 0,
-    scale: 1.05,
+    scale: 1.07,
     y: '4rem',
+  },
+};
+
+export const placeholderVariants = {
+  exit: { opacity: 0, transition: TRANS_TERTIARY_FASTEST },
+};
+
+export const placeholderGlareVariants = {
+  animate: {
+    backgroundPosition: ['200% 0%', '0% 0%'],
+    transition: {
+      ...TRANS_TERTIARY,
+      repeat: Infinity,
+      repeatDelay: 0.2,
+    },
+  },
+};
+
+export const glareVariants = {
+  animate: {
+    ...placeholderGlareVariants.animate,
+    transition: TRANS_TERTIARY,
   },
 };

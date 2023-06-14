@@ -1,12 +1,18 @@
 import { useState, useRef } from 'react';
-import { SCROLL_SPEED as sSpeed, TRANS_TERTIARY_FASTEST } from '@/lib/config';
+import { SCROLL_SPEED as sSpeed } from '@/lib/config';
 import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useIsMobile } from '@/lib/useIsMobile';
 import c from 'classnames';
-import { clipVariants, moveVariants, maskVariants } from './Figure.animations';
+import {
+  clipVariants,
+  moveVariants,
+  glareVariants,
+  placeholderVariants,
+  placeholderGlareVariants,
+} from './Figure.animations';
 
 export const Figure = ({
   alt,
@@ -14,6 +20,7 @@ export const Figure = ({
   border,
   borderRadius = true,
   className,
+  glare,
   height,
   mask = false,
   priority = false,
@@ -23,17 +30,15 @@ export const Figure = ({
   scrollOffset,
   scrollPosition,
   scrollSpeed = sSpeed,
-  size = '3:4',
-  sizes,
+  sizes = '100vw',
   src,
-  transition,
+  transition = 'move',
   width,
   quality,
-  plaiceholder,
 }) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
-    '-bg': background && !blurhash,
+    '-bg': background,
     '-border': border,
     '-border:radius': borderRadius,
   });
@@ -58,25 +63,13 @@ export const Figure = ({
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
   useInViewVideo(refVideo, offset);
-  const imageSize = {
-    height: height
-      ? height
-      : size === '3:4'
-      ? 1920
-      : size === '1:1'
-      ? 1440
-      : null,
-    width: width ? width : size === '3:4' ? 1440 : size === '1:1' ? 1440 : null,
-  };
 
   let figureVariants =
     transition === 'move'
       ? moveVariants
       : transition === 'clip'
       ? clipVariants
-      : mask
-      ? maskVariants
-      : moveVariants;
+      : '';
 
   return (
     <div
@@ -84,8 +77,7 @@ export const Figure = ({
       data-scroll
       ref={ref}
       style={{
-        ['--Figure-bg-color']:
-          isString(background) && !blurhash ? background : undefined,
+        ['--Figure-bg-color']: isString(background) ? background : undefined,
         ['--Figure-border-color']: isString(border) ? border : undefined,
       }}
       {...(scrolling && mask && { 'data-scroll-id': id })}
@@ -105,26 +97,24 @@ export const Figure = ({
         {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <m.div
-          animate={inView ? 'inView' : ''}
+          animate={inView ? 'animate' : ''}
           className="Figure-figure-main"
-          initial="hidden"
+          initial="initial"
           variants={figureVariants}
         >
-          {!isVideo && !priority && plaiceholder && (
+          {glare && <m.div className="Figure-glare" variants={glareVariants} />}
+          {!isVideo && !priority && (
             <AnimatePresence>
               {!imageIsLoaded && (
                 <m.div
-                  animate={{ opacity: 1 }}
-                  className="Figure-blur"
-                  exit={{ opacity: 0 }}
-                  initial={{ opacity: 0 }}
-                  transition={{ ...TRANS_TERTIARY_FASTEST, duration: 0.2 }}
+                  className="Figure-placeholder"
+                  exit="exit"
+                  variants={placeholderVariants}
                 >
-                  <div
-                    className="Figure-blur-canvas"
-                    style={{
-                      ...plaiceholder.css,
-                    }}
+                  <m.div
+                    animate={inView ? 'animate' : false}
+                    className="Figure-placeholder-glare"
+                    variants={placeholderGlareVariants}
                   />
                 </m.div>
               )}
@@ -135,12 +125,13 @@ export const Figure = ({
               alt={alt}
               className="Figure-img"
               draggable="false"
+              height={height}
               onLoadingComplete={() => setImageIsLoaded(true)}
+              priority={priority}
+              quality={quality}
               sizes={sizes}
               src={src}
-              quality={quality}
-              priority={priority}
-              {...imageSize}
+              width={width}
             />
           )}
           {isVideo && (
