@@ -1,6 +1,6 @@
 import { OrasHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage } from '@/lib/utility';
+import { getImage, getSitemap } from '@/lib/utility';
 import { NextProject } from '@/components/NextProject';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
@@ -9,6 +9,7 @@ import { useIsMobile } from '@/lib/useIsMobile';
 
 export const OrasPage = ({ images, id, title }) => {
   const isMobile = useIsMobile();
+  const { id: nextProjectId } = getSitemap('biocode');
 
   return (
     <Template name={id} title={title}>
@@ -37,7 +38,7 @@ export const OrasPage = ({ images, id, title }) => {
               className="Template-figure-1"
               mask
               priority
-              scrollOffset={isMobile ? 0 : '-25%'}
+              inViewOffset={isMobile ? 0 : -1}
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-thumbnail', images)}
@@ -49,8 +50,7 @@ export const OrasPage = ({ images, id, title }) => {
               className="Template-figure-2"
               mask
               priority
-              scrollOffset={isMobile ? 0 : '-25%'}
-              scrollSpeed={1}
+              inViewOffset={isMobile ? 0 : -1}
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-man-square', images)}
@@ -66,10 +66,10 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
               alt="Oras product family"
+              priority
               scrolling={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               quality={90}
-              priority
               {...getImage('joonassandell-oras-product-family', images)}
             />
           </div>
@@ -77,8 +77,8 @@ export const OrasPage = ({ images, id, title }) => {
         <TemplateSection wrap={false} paddingTop={false}>
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
-              className="Template-videoBathroom"
               alt="Oras lifestyle animation concept"
+              className="Template-videoBathroom"
               scrollSpeed={-1}
               src="/oras/joonassandell-oras-bathroom.mp4"
               transition="clip"
@@ -97,9 +97,9 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
+              priority
               scrolling={false}
               sizes={`${MQ.m} 70vw, 100vw`}
-              priority
               {...getImage('joonassandell-oras-products-overview', images)}
             />
           </div>
@@ -114,9 +114,9 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:9@m -end">
             <Figure
               alt="Oras kitchen experience"
+              priority
               scrolling={false}
               sizes={`${MQ.m} 70vw, 100vw`}
-              priority
               {...getImage('joonassandell-oras-ux-kitchen', images)}
             />
           </div>
@@ -135,7 +135,7 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:9 -start:4 grid-col:5@m -start:9@m -align:end">
             <Figure
               alt="Oras live more page hero"
-              scrollSpeed={-SCROLL_SPEED}
+              scrollSpeed="negative"
               sizes={`${MQ.m} 33vw, 80vw`}
               transition="clip"
               {...getImage('joonassandell-oras-live-more-hero', images)}
@@ -164,9 +164,9 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
+              priority
               scrolling={false}
               sizes={`${MQ.m} 80vw, 100vw`}
-              priority
               {...getImage('joonassandell-oras-product-single', images)}
             />
           </div>
@@ -272,8 +272,8 @@ export const OrasPage = ({ images, id, title }) => {
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 2"
-                scrollSpeed={-SCROLL_SPEED}
                 priority
+                scrollSpeed="negative"
                 sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-2', images)}
               />
@@ -283,8 +283,8 @@ export const OrasPage = ({ images, id, title }) => {
             <div className="grid-col grid-col:5 -start:7 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 3"
-                scrollSpeed={SCROLL_SPEED * 2}
                 priority
+                scrollSpeed={SCROLL_SPEED * 2}
                 sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-3', images)}
               />
@@ -292,7 +292,7 @@ export const OrasPage = ({ images, id, title }) => {
           </div>
         </TemplateSection>
       </TemplateMain>
-      <NextProject id="biocode" />
+      <NextProject id={nextProjectId} />
     </Template>
   );
 };
