@@ -1,4 +1,5 @@
 import {
+  EASE_TERTIARY,
   TRANS_TERTIARY,
   TRANS_TERTIARY_FAST,
   TRANS_TERTIARY_FASTEST,
@@ -36,9 +37,10 @@ export const placeholderVariants = {
 
 export const placeholderGlareVariants = {
   animate: {
-    backgroundPosition: ['200% 0%', '0% 0%'],
+    backgroundPosition: ['200% 0%', '-10% 0%'],
     transition: {
-      ...TRANS_TERTIARY,
+      duration: TRANS_TERTIARY.duration + 0.1,
+      ease: EASE_TERTIARY,
       repeat: Infinity,
       repeatDelay: 0.2,
     },

@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { SCROLL_SPEED as sSpeed } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
@@ -21,6 +21,7 @@ export const Figure = ({
   className,
   glare,
   height,
+  inViewOffset = 0,
   mask = false,
   priority = false,
   scrollDelay,
@@ -28,7 +29,7 @@ export const Figure = ({
   scrolling = true,
   scrollOffset = 0,
   scrollPosition,
-  scrollSpeed = sSpeed,
+  scrollSpeed = SCROLL_SPEED,
   sizes = '100vw',
   src,
   transition = 'move',
@@ -48,11 +49,15 @@ export const Figure = ({
   const id = src.split('/').pop().split('.')[0];
   const ref = useRef(null);
   const figureVariants = transition === 'move' ? moveVariants : clipVariants;
-  const inView = useInView(ref, scrollOffset);
-  const [imageIsLoaded, setImageIsLoaded] = useState(false);
+  const inView = useInView(ref, inViewOffset);
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [glareEnd, setGlareEnd] = useState(false);
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
-  useInViewVideo(refVideo, scrollOffset);
+  useInViewVideo(refVideo, inViewOffset);
+  scrollSpeed === 'negative'
+    ? (scrollSpeed = -SCROLL_SPEED)
+    : (scrollSpeed = scrollSpeed);
 
   // Stop caching images in development, uncomment if you keep testing new images
   // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
@@ -88,10 +93,16 @@ export const Figure = ({
           initial="initial"
           variants={figureVariants}
         >
-          {glare && <m.div className="Figure-glare" variants={glareVariants} />}
+          {glare && !glareEnd && (
+            <m.div
+              className="Figure-glare"
+              onAnimationComplete={() => setGlareEnd(true)}
+              variants={glareVariants}
+            />
+          )}
           {!isVideo && !priority && (
             <AnimatePresence>
-              {!imageIsLoaded && (
+              {!imgLoaded && (
                 <m.div
                   className="Figure-placeholder"
                   exit="exit"
@@ -112,7 +123,7 @@ export const Figure = ({
               className="Figure-img"
               draggable="false"
               height={height}
-              onLoadingComplete={() => setImageIsLoaded(true)}
+              onLoadingComplete={() => setImgLoaded(true)}
               priority={priority}
               quality={quality}
               sizes={sizes}
