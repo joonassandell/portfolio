@@ -1,12 +1,14 @@
 import { BiocodeHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage } from '@/lib/utility';
+import { getImage, getSitemap } from '@/lib/utility';
 import { NextProject } from '@/components/NextProject';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 
 export const BiocodePage = ({ images, id, title }) => {
+  const { id: nextProjectId } = getSitemap('oras');
+
   return (
     <Template name={id} title={title}>
       <TemplateMain>
@@ -18,16 +20,18 @@ export const BiocodePage = ({ images, id, title }) => {
           smallPrint="Building together with awesome co-workers at Biocode."
           text={
             <p>
-              After several iterations the Oras brand was modernised entirely in
-              connection with the web service overhaul. The web service was used
-              to create a bold and distinct image of Oras and to strongly
-              highlight the brand’s new promise.
+              I'm currently working for Biocode as a lead producer designer and
+              front-end developer. I'm responsible for crafting our design
+              system and making sure our application's code stays manageable.
+              Work samples here are mainly from the latest brand redesign which
+              included iconography, logo design and website renewal from my
+              part. 🚀
             </p>
           }
           role={['Product design', 'App development', 'Web development']}
-          year="2021—"
+          year="2020—"
         />
-        <TemplateSection gridGap="xl">
+        <TemplateSection gridGap="xl" paddingTop="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Biocode homepage and isometric Biocode application"
@@ -44,7 +48,6 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
               border
-              scrolling={false}
               sizes={`${MQ.m} 40vw, 70vw`}
               quality={100}
               {...getImage(
@@ -57,7 +60,7 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Four main Biocode features and quote of Biocode's customer"
               border
-              scrolling={false}
+              scrollSpeed="negative"
               sizes={`${MQ.m} 40vw, 70vw`}
               quality={100}
               {...getImage(
@@ -82,62 +85,61 @@ export const BiocodePage = ({ images, id, title }) => {
           <div className="grid-col grid-col:10 grid-col:7@m -start:2@m">
             <Figure
               border
+              glare
               src="/biocode/joonassandell-biocode-website-home.mp4"
-              scrolling={false}
+              scrollSpeed={2}
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="l" gridRowGap="default">
+        <TemplateSection gridRowGap="default">
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode application icon"
               border
-              scrolling={false}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-app-icon', images)}
-              blurhash={false}
             />
           </div>
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode for producers mark"
               border
-              scrolling={false}
+              inViewOffset={0.3}
+              scrollSpeed={SCROLL_SPEED + 0.3}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-producer-mark', images)}
-              blurhash={false}
             />
           </div>
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode for products mark"
               border
-              scrolling={false}
+              inViewOffset={0.6}
+              scrollSpeed={SCROLL_SPEED + 0.6}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-product-mark', images)}
-              blurhash={false}
             />
           </div>
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode for reporting mark"
               border
-              scrolling={false}
+              inViewOffset={0.9}
+              scrollSpeed={SCROLL_SPEED + 0.9}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-report-mark', images)}
-              blurhash={false}
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="l" gridRowGap="default">
+        <TemplateSection gridRowGap="default">
           <div className="grid-col grid-col:6 grid-col:4@m -align:end">
             <Figure
               alt="Example of Biocode's easy to use card"
               border
               glare
-              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
+              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-card-easy-to-use',
                 images,
@@ -148,9 +150,9 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="About us page of Biocode homepage"
               border
-              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 60vw, 100vw`}
+              quality={100}
               {...getImage('joonassandell-biocode-website-about', images)}
             />
           </div>
@@ -159,9 +161,9 @@ export const BiocodePage = ({ images, id, title }) => {
               alt="Example of Biocode's agile card"
               border
               glare
-              quality={100}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
+              quality={100}
               {...getImage('joonassandell-biocode-website-card-agile', images)}
             />
           </div>
@@ -170,8 +172,9 @@ export const BiocodePage = ({ images, id, title }) => {
               alt="Example of Biocode's insightful card"
               border
               glare
-              quality={100}
+              inViewOffset={0.3}
               scrolling={false}
+              quality={100}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage(
                 'joonassandell-biocode-website-card-insightful',
@@ -184,9 +187,10 @@ export const BiocodePage = ({ images, id, title }) => {
               alt="Example of Biocode's credible card"
               border
               glare
-              quality={100}
+              inViewOffset={0.6}
               scrolling={false}
               sizes={`${MQ.m} 33vw, 50vw`}
+              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-card-credible',
                 images,
@@ -194,12 +198,12 @@ export const BiocodePage = ({ images, id, title }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection>
+        <TemplateSection gridGap="xl">
           <div className="grid-col grid-col:11 grid-col:10@m">
             <Figure
               alt="Biocode feature page hero cards"
               border
-              scrolling={false}
+              scrollSpeed={1}
               sizes={`${MQ.m} 70vw, 90w`}
               quality={100}
               {...getImage(
@@ -221,11 +225,20 @@ export const BiocodePage = ({ images, id, title }) => {
               )}
             />
           </div>
+          <div className="grid-col grid-col:6 -start:3 grid-col:3@m -start:1@m -align:center">
+            <Figure
+              alt="Mobile view of Biocode's homepage"
+              glare
+              scrolling={false}
+              sizes={`${MQ.m} 25vw, 33vw`}
+              quality={100}
+              {...getImage('joonassandell-biocode-website-mobile', images)}
+            />
+          </div>
           <div className="grid-col grid-col:10 grid-col:9@m -end">
             <Figure
               alt="Biocode feature page results image"
               border
-              scrolling={false}
               sizes={`${MQ.l} 70vw, 80vw`}
               quality={100}
               {...getImage(
@@ -237,7 +250,7 @@ export const BiocodePage = ({ images, id, title }) => {
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Biocode for producers app in dark mode"
-              border="var(--border-900)"
+              border
               scrolling={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               quality={100}
@@ -308,7 +321,7 @@ export const BiocodePage = ({ images, id, title }) => {
           </div>
         </TemplateSection>
       </TemplateMain>
-      <NextProject id="oras" />
+      <NextProject id={nextProjectId} />
     </Template>
   );
 };
