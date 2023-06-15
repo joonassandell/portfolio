@@ -15,13 +15,16 @@ Aside from this readme, there is additional information about the whole project 
 
 ### Getting started
 
-1. Clone this repository `git clone git@github.com:joonassandell/joonassandell-portfolio.git` and navigate to the directory
-2. `npm install`
-3. `npm run dev`
+```
+git clone git@github.com:joonassandell/joonassandell-portfolio.git
+cd joonassandell-portfolio
+npm install
+npm run dev
+```
 
 ### Scripts
 
-- `npm run dev`: Run a Next.js development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result
+- `npm run dev`: Run a development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally. When previewing app, set `NEXT_PUBLIC_ORIGIN` in [.env.local](.env.local) to `http://localhost:3000`. If previewing in LAN, then apply LAN origin (e.g. `http://192.168.0.110:3000`).
 - `npm run start`: Start the application in production mode. The application should be compiled with next build first.
