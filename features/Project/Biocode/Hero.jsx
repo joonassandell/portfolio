@@ -5,6 +5,9 @@ import { Hero, HeroContent } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
 import { headingVariants, maskVariants } from './Hero.animations';
 import Image from 'next/image';
+import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.png';
+import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
+import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
 const { url, id, title } = getSitemap('biocode');
 
@@ -53,13 +56,11 @@ export const BiocodeHero = ({
                       <Image
                         alt="Light globe"
                         draggable="false"
-                        height={2480}
                         onClick={onClick}
                         priority
-                        quality={90}
                         sizes="50vw"
-                        src="/biocode/hero/joonassandell-biocode-hero-globe-pre.png"
-                        width={2480}
+                        src={heroImagePre}
+                        quality="90"
                       />
                     </div>
                   </figure>
@@ -96,13 +97,11 @@ export const BiocodeHero = ({
                     <Image
                       alt="Globe"
                       draggable="false"
-                      height={2480}
                       onClick={onClick}
                       priority
-                      quality={100}
                       sizes="50vw"
-                      src="/biocode/hero/joonassandell-biocode-hero-globe.png"
-                      width={2480}
+                      src={heroImage}
+                      quality="100"
                     />
                   </div>
                 </figure>
@@ -114,11 +113,9 @@ export const BiocodeHero = ({
                   <Image
                     alt="Biocode icon"
                     draggable="false"
-                    height={800}
-                    priority
                     sizes="25vw"
-                    src="/biocode/hero/joonassandell-biocode-icon.png"
-                    width={800}
+                    src={icon}
+                    priority
                   />
                 </figure>
               </div>
