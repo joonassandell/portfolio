@@ -3,12 +3,6 @@
  *    with heading after template transition
  */
 .Hero {
-  --Hero-minHeight: #{rem($space * 32)};
-  --Hero-height: 100vw;
-  --Hero-maxHeight: 75vh;
-  --Stamp-center-x: 0px;
-  --Stamp-center-y: 0px;
-
   height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
   position: relative;
 
@@ -61,7 +55,7 @@
   margin: 0 0 0 rem(-$space-xs);
   pointer-events: all;
   position: absolute;
-  transform: translate3d(0, -175%, 0);
+  transform: translate3d(0, -150%, 0);
   white-space: nowrap;
 
   .Hero.-transition\:pre & {
@@ -124,6 +118,25 @@
   @include mq($until: l) {
     display: none;
   }
+}
+
+.Hero-figureBg {
+  height: 100%;
+  width: 100%;
+
+  .Hero.-transition\:pre & {
+    background: var(--Hero-figure-bg);
+    opacity: var(--Hero-figure-pre-bg-alpha);
+    transform: scaleY(1);
+  }
+}
+
+.Hero-figureBg--animate {
+  background: linear-gradient(180deg, var(--Hero-figure-bg) 0%, rgba(var(--Hero-figure-bg-rgb), 0) 100%);
+  opacity: var(--Hero-figure-bg-alpha);
+  position: relative;
+  transform: scaleY(4);
+  z-index: 1;
 }
 
 .Hero-stamp.Stamp {

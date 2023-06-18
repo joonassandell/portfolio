@@ -1,0 +1,11 @@
+:root {
+  --Hero-minHeight: #{rem($space * 32)};
+  --Hero-height: 100vw;
+  --Hero-maxHeight: 75vh;
+  --Hero-figure-bg: var(--black);
+  --Hero-figure-bg-alpha: 0.15;
+  --Hero-figure-bg-rgb: 0, 0, 0;
+  --Hero-figure-pre-bg-alpha: 0.06;
+  --Stamp-center-x: 0px;
+  --Stamp-center-y: 0px;
+}
