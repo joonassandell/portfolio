@@ -33,6 +33,7 @@
 
 .Hero-inner {
   min-height: 100vh; // [1.]
+  pointer-events: none;
 
   > * {
     inset: 0;
@@ -148,14 +149,14 @@
   pointer-events: all;
 
   .Stamp-inner {
-    inset: 0 0 0 -10%;
+    inset: 0 0 0 -10vw;
 
     @include mq(s) {
       inset: 0;
     }
 
     @include mq(m) {
-      inset: 5% 0 0 0;
+      inset: 5vw 0 0 0;
     }
   }
 }
