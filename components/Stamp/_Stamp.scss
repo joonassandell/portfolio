@@ -44,7 +44,7 @@
 }
 
 .Stamp-overlay {
-  background: var(--Stamp-overlayBg, var(--white));
+  background: var(--Stamp-overlay, var(--white));
   border-radius: 50%;
   inset: 0;
   position: absolute;

@@ -14,12 +14,9 @@ import { useInView } from '@/lib/useInView';
 export const Stamp = ({
   addVarsToParent = false,
   className,
-  color,
   href,
-  iris,
   onClick,
   overlay = true,
-  overlayBg,
   parentRef,
   transitionStart,
 }) => {
@@ -35,13 +32,17 @@ export const Stamp = ({
     stiffness: 150,
   };
   const moveX = useSpring(
-    useTransform(x, [0, -40, width / 2, width], [0, -40, 0, 40]),
+    useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
     springOpts,
   );
   const moveY = useSpring(
-    useTransform(y, [0, -40, height / 2, height], [0, -40, 0, 40]),
+    useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
     springOpts,
   );
+
+  // Stop animating on mount
+  !mouseX && !mouseY && moveX.set(0);
+  !mouseY && !mouseX && moveY.set(0);
 
   const setParentAttributes = (moveX = 0, moveY = 0) => {
     if (!parentRef || !innerRef) return;
@@ -88,16 +89,7 @@ export const Stamp = ({
   }, []);
 
   return (
-    <div
-      aria-hidden="true"
-      className={classes}
-      ref={ref}
-      style={{
-        '--Stamp-color': color,
-        '--Stamp-iris': iris,
-        '--Stamp-overlayBg': overlayBg,
-      }}
-    >
+    <div aria-hidden="true" className={classes} ref={ref}>
       <m.div
         className="Stamp-inner"
         ref={innerRef}
