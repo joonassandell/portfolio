@@ -2,7 +2,7 @@ import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { OrasHero, BiocodeHero, MediasignalHero } from '@/features/Project';
 import { m } from 'framer-motion';
-import { Template } from '@/components/Template';
+import { Template, TemplateMain } from '@/components/Template';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
 import { Link } from '@/components/Link';
@@ -34,55 +34,59 @@ export const HomePage = ({ id, title }) => {
 
   return (
     <Template name={id} title={title}>
-      <m.div
-        animate={animationHide ? 'hidden' : ''}
-        className="Template-about"
-        variants={FADE_OUT_VARIANTS}
-      >
-        <div className="wrap">
-          <Link
-            href={about.url}
-            className="Template-about-mobile"
-            orientation="vertical"
-            underline
-          >
-            About me
-          </Link>
-          <div className="Template-about-desktop">
-            <h1>
-              I'm a designer, creative developer and sometimes even a music
-              producer from Helsinki, Finland. Read more{' '}
-              <Link href={about.url} underline>
-                about me
-              </Link>{' '}
-              or just keep scrolling for selected works.
-            </h1>
+      <TemplateMain>
+        <m.div
+          animate={animationHide ? 'hidden' : ''}
+          className="Template-about"
+          variants={FADE_OUT_VARIANTS}
+        >
+          <div className="wrap">
+            <Link
+              href={about.url}
+              className="Template-about-mobile"
+              orientation="vertical"
+              underline
+            >
+              About me
+            </Link>
+            <div className="Template-about-desktop">
+              <h1>
+                I'm a designer, creative developer and sometimes even a music
+                producer from Helsinki, Finland. Read more{' '}
+                <Link href={about.url} underline>
+                  about me
+                </Link>{' '}
+                or just keep scrolling for selected works.
+              </h1>
+            </div>
           </div>
+        </m.div>
+        <div className="Template-heros">
+          <BiocodeHero
+            onClick={handleClick}
+            transitionStart={currentHero === 'biocode' && animation}
+            transition="pre"
+            transitionHideStart={currentHero != 'biocode' && animationHide}
+          />
+          <OrasHero
+            onClick={handleClick}
+            transitionStart={currentHero === 'oras' && animation}
+            transition="pre"
+            transitionHideStart={currentHero != 'oras' && animationHide}
+          />
+          <MediasignalHero
+            onClick={handleClick}
+            transitionStart={currentHero === 'mediasignal' && animation}
+            transition="pre"
+            transitionHideStart={currentHero != 'mediasignal' && animationHide}
+          />
+          <div
+            data-id="test"
+            onClick={handleClick}
+            style={{ height: '300vh' }}
+          />
         </div>
-      </m.div>
-
-      <BiocodeHero
-        onClick={handleClick}
-        transitionStart={currentHero === 'biocode' && animation}
-        transition="pre"
-        transitionHideStart={currentHero != 'biocode' && animationHide}
-      />
-
-      <OrasHero
-        onClick={handleClick}
-        transitionStart={currentHero === 'oras' && animation}
-        transition="pre"
-        transitionHideStart={currentHero != 'oras' && animationHide}
-      />
-
-      <MediasignalHero
-        onClick={handleClick}
-        transitionStart={currentHero === 'mediasignal' && animation}
-        transition="pre"
-        transitionHideStart={currentHero != 'mediasignal' && animationHide}
-      />
-
-      <div data-id="test" onClick={handleClick} style={{ height: '300vh' }} />
+      </TemplateMain>
     </Template>
   );
 };

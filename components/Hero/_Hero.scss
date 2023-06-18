@@ -7,9 +7,14 @@
   position: relative;
 
   &.-transition\:pre {
+    @for $i from 0 through 10 {
+      &:nth-child(#{$i}) {
+        z-index: #{11 - $i};
+      }
+    }
+
     background-color: var(--cream-50);
     box-shadow: inset 0 -1px 0 var(--border-1000);
-    z-index: $Footer-zIndex + 1;
   }
 
   @include mq(s) {

@@ -23,7 +23,7 @@ export const Hero = ({
   transition = null,
 }) => {
   const transitionPre = transition === 'pre';
-  const classes = c(className, 'Hero', {
+  const classes = c('Hero', className, {
     '-transition:pre': transitionPre,
     'is-transition': transitionStart,
   });
