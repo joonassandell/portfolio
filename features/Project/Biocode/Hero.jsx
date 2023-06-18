@@ -3,10 +3,10 @@ import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
-import { headingVariants as hVariants, maskVariants } from './Hero.animations';
+import { headingVariants, maskVariants } from './Hero.animations';
 import Image from 'next/image';
 
-const { url, year, id, title } = getSitemap('biocode');
+const { url, id, title } = getSitemap('biocode');
 
 export const BiocodeHero = ({
   onClick,
@@ -20,8 +20,8 @@ export const BiocodeHero = ({
   return (
     <Hero
       className="Hero--biocode"
-      heading={`Biocode — ${year}`}
-      headingVariants={hVariants}
+      heading={`Biocode — ${new Date().getFullYear()}`}
+      headingVariants={headingVariants}
       href={url}
       id={id}
       onClick={onClick}
@@ -153,9 +153,9 @@ export const BiocodeHero = ({
               </div>
             )}
             {transitionPre && (
-              <div className="Hero-figureBg wrap grid -gap:l">
+              <div className="wrap grid -gap:l">
                 <div className={figureClasses}>
-                  <div className="Hero-figureBg-bg" />
+                  <div className="Hero-figureBg" />
                 </div>
               </div>
             )}

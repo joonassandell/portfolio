@@ -6,7 +6,7 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 
-export const BiocodePage = ({ images, id, title }) => {
+export const BiocodePage = ({ images, id, title, year }) => {
   const { id: nextProjectId } = getSitemap('oras');
 
   return (
@@ -25,11 +25,11 @@ export const BiocodePage = ({ images, id, title }) => {
               system and making sure our application's code stays manageable.
               Work samples here are mainly from the latest brand redesign which
               included iconography, logo design and website renewal from my
-              part. 🚀
+              part.
             </p>
           }
           role={['Product design', 'App development', 'Web development']}
-          year="2020—"
+          year={year}
         />
         <TemplateSection gridGap="xl" paddingTop="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">

@@ -5,6 +5,7 @@ export const headingVariants = {
   animate: {
     ...headingVars.animate,
     color: 'var(--biocode-heading)',
+    y: '-175%',
   },
 };
 
