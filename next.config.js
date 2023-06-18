@@ -12,10 +12,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: ANALYZE === 'true',
 });
 
-/**
- * 1. This is here to make svgs import properly.
- *    https://nextjs.org/docs/basic-features/image-optimization#disable-static-imports
- */
 const config = {
   env: {
     NEXT_PUBLIC_ORIGIN:
@@ -42,9 +38,6 @@ const config = {
     });
 
     return config;
-  },
-  images: {
-    disableStaticImages: true, // [1.]
   },
   async headers() {
     return [

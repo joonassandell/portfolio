@@ -34,7 +34,6 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^13.4.5",
     "@svgr/webpack": "^8.0.1",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "colors": "^1.4.0",
     "sass": "^1.63.3",
     "sass-mq": "^6.0.0"
