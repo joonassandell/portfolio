@@ -2,10 +2,6 @@
   --Stamp-iris: var(--oras-primary);
   background-color: var(--oras-bg);
 
-  .Hero-heading-inner {
-    transform: translate3d(0, -150%, 0);
-  }
-
   .Hero-figure {
     height: 60vw;
     min-height: rem($space * 12);
@@ -16,13 +12,12 @@
     }
   }
 
-  .Hero-figure-faucet {
-    ---height: 67vw;
-    display: block;
+  .Hero-figure-figure {
+    --width: 67vw;
     margin: 0 0 0 rem($space * -3.5);
     position: absolute;
     top: rem($space * 5);
-    width: clamp(rem($space * 12), var(---height), rem($space * 32));
+    width: clamp(rem($space * 12), var(--width), rem($space * 32));
     z-index: 3;
 
     .Hero.-transition\:pre & {
@@ -30,36 +25,24 @@
     }
 
     @include mq(s) {
-      ---height: 55vw;
+      --width: 55vw;
       top: rem($space * 6);
     }
 
     @include mq(l) {
-      ---height: 45vw;
+      --width: 45vw;
       margin-left: rem($space * -7);
     }
   }
 
-  .Hero-figure-bg {
-    background: linear-gradient(180deg, var(--oras-Hero-figure-bg) 0%, rgba(var(--oras-Hero-figure-bg-rgb), 0) 100%);
-    height: 100%;
-    opacity: var(--oras-Hero-figure-bg-alpha);
-    position: relative;
-    transform: scaleY(4);
-    width: 100%;
-    z-index: 1;
-
+  .Hero-figureBg {
     @include mq(l) {
       margin-left: rem(-$space);
       width: calc(100% + #{rem($space)});
     }
   }
 
-  &.-transition\:pre .Hero-figure-bg {
-    background: var(--oras-Hero-figure-bg);
-    opacity: var(--oras-Hero-figure-preTransitionBgAlpha);
-    transform: scaleY(1);
-
+  &.-transition\:pre .Hero-figureBg {
     @include mq(s) {
       height: 85%;
     }

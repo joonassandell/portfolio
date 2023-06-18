@@ -1,35 +1,23 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent } from '@/components/Hero';
-import {
-  headingVariants as hVariants,
-  figureBgVariants,
-  dropVariants,
-  dropVariants2,
-  dropVariants3,
-} from './Hero.animations';
+import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
+import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
 import Image from 'next/image';
+import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
+import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 
 const oras = getSitemap('oras');
 
-export const OrasHero = ({
-  onClick,
-  transitionHideStart = false,
-  transitionStart = false,
-  transition = null,
-}) => {
+export const OrasHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--oras"
       heading="Oras — 2016"
-      headingVariants={hVariants}
       href={oras.url}
       id={oras.id}
       onClick={onClick}
-      transition={transition}
-      transitionHideStart={transitionHideStart}
-      transitionStart={transitionStart}
+      {...props}
     >
       {({
         transitionStartOrDefault,
@@ -44,32 +32,30 @@ export const OrasHero = ({
               <div className="grid -gap:l">
                 <div
                   className="
-                  Hero-figure grid-col
-                  grid-col:7 -start:6
-                  grid-col:6@s -start:7@s
-                  grid-col:4@l -start:7@l
-                "
+                    Hero-figure grid-col
+                    grid-col:7 -start:6
+                    grid-col:6@s -start:7@s
+                    grid-col:4@l
+                  "
                   onClick={onClick}
                 >
                   <figure
                     data-scroll
                     data-scroll-target={`[data-scroll-id=${oras.id}]`}
                     data-scroll-speed={-SCROLL_SPEED}
-                    className="Hero-figure-faucet"
+                    className="Hero-figure-figure"
                   >
                     <Image
                       alt="Oras faucet"
                       draggable="false"
-                      height={2552}
                       priority
-                      quality="90"
                       sizes="33vw"
-                      src="/oras/hero/joonassandell-oras-hero.png"
-                      width={2192}
+                      src={heroImage}
+                      quality="90"
                     />
                   </figure>
                   <m.div
-                    className="Hero-figure-bg"
+                    className="Hero-figureBg Hero-figureBg--animate"
                     variants={figureBgVariants}
                   />
                   {transitionStartOrDefault && (
@@ -89,11 +75,9 @@ export const OrasHero = ({
                         alt="Oras drop"
                         aria-hidden="true"
                         draggable="false"
-                        height={256}
                         priority
                         sizes="10vw"
-                        src="/oras/hero/joonassandell-oras-drop.png"
-                        width={256}
+                        src={drop}
                         quality="90"
                       />
                     </m.div>
@@ -130,11 +114,9 @@ export const OrasHero = ({
                   alt="Oras drop"
                   aria-hidden="true"
                   draggable="false"
-                  height={256}
                   priority
                   sizes="10vw"
-                  src="/oras/hero/joonassandell-oras-drop.png"
-                  width={256}
+                  src={drop}
                   quality="90"
                 />
               </m.div>
@@ -161,11 +143,9 @@ export const OrasHero = ({
                   alt="Oras drop"
                   aria-hidden="true"
                   draggable="false"
-                  height={256}
                   priority
                   sizes="10vw"
-                  src="/oras/hero/joonassandell-oras-drop.png"
-                  width={256}
+                  src={drop}
                   quality="90"
                 />
               </div>
