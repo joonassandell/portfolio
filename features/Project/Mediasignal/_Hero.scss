@@ -1,0 +1,63 @@
+.Hero--mediasignal {
+  --Stamp-overlay: var(--mediasignal-secondary);
+  --Stamp-iris: var(--mediasignal-primary);
+  background-color: var(--mediasignal-bg);
+
+  .Hero-heading-inner {
+    transform: translate3d(0, -150%, 0);
+  }
+
+  .Hero-figure {
+    position: relative;
+  }
+
+  .Hero-figure-figure {
+    --width: 90vw;
+    inset: rem($space * 2) 0 0 rem($space * -3.5);
+    margin: 0;
+    position: absolute;
+    width: clamp(rem($space * 22), var(--width), rem($space * 52));
+    z-index: 3;
+
+    @include mq(m) {
+      --width: 80vw;
+    }
+
+    @include mq(l) {
+      --width: 64vw;
+      inset:  rem($space * 3) 0 0 rem($space * -5);
+    }
+  }
+
+  .Hero-figure-figure-inner {
+    transform: translate(rem($space * 10), rem($space * 8));
+  }
+
+  &.-transition\:pre .Hero-figure-figure-inner {
+    transform: translate(0, 0);
+  }
+
+  .Hero-content {
+    align-self: center;
+  }
+
+  &.is-transition {
+    .Hero-content, .Hero-link {
+      z-index: 0;
+    }
+  }
+
+  .Hero-stamp.Stamp {
+    .Stamp-inner {
+      inset: 0 0 0 6vw;
+
+      @include mq(m) {
+        inset: 3vw 0 0 10vw;
+      }
+
+      @include mq(l) {
+        inset: 3vw 0 0 20vw;
+      }
+    }
+  }
+}

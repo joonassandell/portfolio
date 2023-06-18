@@ -1,3 +1,5 @@
+.p\:0 { padding: 0 !important; }
+
 .pb\:15vw { padding-bottom: 15vw; }
 .pb\:10vw { padding-bottom: 10vw; }
 .pb\:5vw { padding-bottom: 5vw; }
@@ -7,3 +9,13 @@
 .pt\:10vw { padding-top: 10vw; }
 .pt\:5vw { padding-top: 5vw; }
 .pt\:xxl { padding-top: rem($space-xxl); }
+
+.pl\:0 {
+  padding-left: 0 !important;
+
+  @include mq($until: l) {
+    &\@until\:l {
+      padding-left: 0 !important;
+    }
+  }
+}

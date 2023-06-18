@@ -1,6 +1,6 @@
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { OrasHero, BiocodeHero } from '@/features/Project';
+import { OrasHero, BiocodeHero, MediasignalHero } from '@/features/Project';
 import { m } from 'framer-motion';
 import { Template } from '@/components/Template';
 import { useAppContext } from '@/components/App';
@@ -73,6 +73,13 @@ export const HomePage = ({ id, title }) => {
         transitionStart={currentHero === 'oras' && animation}
         transition="pre"
         transitionHideStart={currentHero != 'oras' && animationHide}
+      />
+
+      <MediasignalHero
+        onClick={handleClick}
+        transitionStart={currentHero === 'mediasignal' && animation}
+        transition="pre"
+        transitionHideStart={currentHero != 'mediasignal' && animationHide}
       />
 
       <div data-id="test" onClick={handleClick} style={{ height: '300vh' }} />
