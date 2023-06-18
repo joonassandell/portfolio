@@ -89,11 +89,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                   href={oras.url}
                   onClick={onClick}
                   transitionPre={transitionPre}
-                  role={[
-                    'UI, UX design',
-                    'Concept strategy',
-                    'Web development',
-                  ]}
+                  role={['UI/UX design', 'Concept strategy', 'Web development']}
                 />
               </div>
             </div>
