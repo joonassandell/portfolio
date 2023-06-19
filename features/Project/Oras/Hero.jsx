@@ -7,13 +7,13 @@ import Image from 'next/image';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 
-const { url, id, title } = getSitemap('oras');
+const { url, id, title, year } = getSitemap('oras');
 
 export const OrasHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--oras"
-      heading="Oras — 2016"
+      heading={`Oras — ${year}`}
       href={url}
       id={id}
       onClick={onClick}
