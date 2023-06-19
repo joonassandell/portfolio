@@ -11,12 +11,7 @@ import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
 const { url, id, title } = getSitemap('biocode');
 
-export const BiocodeHero = ({
-  onClick,
-  transitionHideStart = false,
-  transitionStart = false,
-  transition = null,
-}) => {
+export const BiocodeHero = ({ onClick, ...props }) => {
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
 
@@ -30,9 +25,7 @@ export const BiocodeHero = ({
       onClick={onClick}
       stampAddVarsToParent={true}
       stampOverlay={false}
-      transition={transition}
-      transitionHideStart={transitionHideStart}
-      transitionStart={transitionStart}
+      {...props}
     >
       {({
         initialDelay,
@@ -56,7 +49,6 @@ export const BiocodeHero = ({
                       <Image
                         alt="Light globe"
                         draggable="false"
-                        onClick={onClick}
                         priority
                         sizes="50vw"
                         src={heroImagePre}
@@ -70,13 +62,12 @@ export const BiocodeHero = ({
                   heading={title}
                   href={url}
                   onClick={onClick}
-                  transitionPre={transitionPre}
-                  transitionStart={transitionStart}
                   role={[
                     'Product design',
                     'App development',
                     'Web development',
                   ]}
+                  transitionPre={transitionPre}
                 />
               </div>
             )}
@@ -97,7 +88,6 @@ export const BiocodeHero = ({
                     <Image
                       alt="Globe"
                       draggable="false"
-                      onClick={onClick}
                       priority
                       sizes="50vw"
                       src={heroImage}

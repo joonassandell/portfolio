@@ -27,19 +27,15 @@ export const MediasignalHero = ({ onClick, ...props }) => {
               href={url}
               onClick={onClick}
               transitionPre={transitionPre}
-              role={[
-                'UI/UX/Brand design',
-                'Web development',
-                'Concept strategy',
-              ]}
+              role={['UI/UX design', 'Brand design', 'Web development']}
             />
             <div
               className="
-                  Hero-figure grid-col
-                  grid-col:7
-                  grid-col:6@s
-                  grid-col:5@l -start:4@l
-                "
+                Hero-figure grid-col
+                grid-col:7
+                grid-col:6@s
+                grid-col:5@l -start:4@l
+              "
               onClick={onClick}
             >
               <figure

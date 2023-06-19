@@ -3,21 +3,15 @@
   background-color: var(--oras-bg);
 
   .Hero-figure {
-    height: 60vw;
-    min-height: rem($space * 12);
-    position: relative;
-
-    @include mq(l) {
-      height: 40vw;
-    }
+    height: clamp(rem($space * 14), 55vw, rem($space * 28));
   }
 
   .Hero-figure-figure {
-    --width: 67vw;
-    margin: 0 0 0 rem($space * -3.5);
+    --width: 55vw;
+    inset: rem($space * 4) 0 0 rem($space * -3);
+    margin: 0;
     position: absolute;
-    top: rem($space * 5);
-    width: clamp(rem($space * 12), var(--width), rem($space * 32));
+    width: clamp(rem($space * 17), var(--width), rem($space * 32));
     z-index: 3;
 
     .Hero.-transition\:pre & {
@@ -25,30 +19,13 @@
     }
 
     @include mq(s) {
-      --width: 55vw;
-      top: rem($space * 6);
+      --width: 50vw;
+      inset: rem($space * 6) 0 0 rem($space * -3.5);
     }
 
     @include mq(l) {
       --width: 45vw;
-      margin-left: rem($space * -7);
-    }
-  }
-
-  .Hero-figureBg {
-    @include mq(l) {
-      margin-left: rem(-$space);
-      width: calc(100% + #{rem($space)});
-    }
-  }
-
-  &.-transition\:pre .Hero-figureBg {
-    @include mq(s) {
-      height: 85%;
-    }
-
-    @include mq(l) {
-      height: 100%;
+      left: rem($space * -5);
     }
   }
 
@@ -75,9 +52,8 @@
     position: absolute;
 
     @include mq(m) {
-      left: -20%;
+      inset: rem(-$space-xl) auto auto rem($space * -3);
       max-width: rem($space * 6);
-      top: rem(-$space-xl);
     }
   }
 
@@ -101,6 +77,19 @@
 
     @include mq(l) {
       bottom: 10%;
+    }
+  }
+
+  .Hero-stamp.Stamp {
+    .Stamp-inner {
+
+      @include mq($until: s) {
+        inset: -3vw 0 0 -10vw;
+      }
+
+      @include mq(l) {
+        inset: 2vw 0 0 -12vw;
+      }
     }
   }
 }

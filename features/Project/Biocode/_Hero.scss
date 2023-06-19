@@ -19,11 +19,6 @@
     z-index: 1;
   }
 
-  .Hero-figure {
-    height: 100%;
-    position: relative;
-  }
-
   .Hero-figure-globe {
     inset: 8% 0 auto -27%;
     margin: 0;
@@ -49,7 +44,7 @@
   }
 
   .Hero-figure-globe--default {
-    // mask-image: linear-gradient(var(--black) 80%, transparent 95%);
+    mask-image: linear-gradient(var(--black) 80%, transparent 95%);
   }
 
   &.-transition\:pre {
@@ -96,7 +91,7 @@
   }
 
   .Hero-bg {
-    background: radial-gradient(70% rem($space * 25) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50)) no-repeat;
+    background: radial-gradient(70% rem($space * 20) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50)) no-repeat;
     z-index: 2;
   }
 

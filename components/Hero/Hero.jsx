@@ -17,10 +17,10 @@ export const Hero = ({
   id,
   onClick,
   stampOverlay = true,
-  stampAddVarsToParent = false,
-  transitionHideStart = false,
-  transitionStart = false,
-  transition = null,
+  stampAddVarsToParent,
+  transitionHideStart,
+  transitionStart,
+  transition,
 }) => {
   const transitionPre = transition === 'pre';
   const classes = c('Hero', className, {

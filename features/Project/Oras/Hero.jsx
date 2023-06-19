@@ -7,15 +7,15 @@ import Image from 'next/image';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 
-const oras = getSitemap('oras');
+const { url, id, title } = getSitemap('oras');
 
 export const OrasHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--oras"
       heading="Oras — 2016"
-      href={oras.url}
-      id={oras.id}
+      href={url}
+      id={id}
       onClick={onClick}
       {...props}
     >
@@ -35,13 +35,12 @@ export const OrasHero = ({ onClick, ...props }) => {
                     Hero-figure grid-col
                     grid-col:7 -start:6
                     grid-col:6@s -start:7@s
-                    grid-col:4@l
+                    grid-col:4@l -start:6@l
                   "
-                  onClick={onClick}
                 >
                   <figure
                     data-scroll
-                    data-scroll-target={`[data-scroll-id=${oras.id}]`}
+                    data-scroll-target={`[data-scroll-id=${id}]`}
                     data-scroll-speed={-SCROLL_SPEED}
                     className="Hero-figure-figure"
                   >
@@ -84,9 +83,9 @@ export const OrasHero = ({ onClick, ...props }) => {
                   )}
                 </div>
                 <HeroContent
-                  className="grid-col grid-col:2 -start:11"
-                  heading={oras.title}
-                  href={oras.url}
+                  className="grid-col grid-col:3 -start:10"
+                  heading={title}
+                  href={url}
                   onClick={onClick}
                   transitionPre={transitionPre}
                   role={['UI/UX design', 'Concept strategy', 'Web development']}
@@ -132,7 +131,7 @@ export const OrasHero = ({ onClick, ...props }) => {
               <div
                 data-scroll
                 data-scroll-delay="0.15"
-                data-scroll-target={`[data-scroll-id=${oras.id}]`}
+                data-scroll-target={`[data-scroll-id=${id}]`}
                 data-scroll-speed="1"
               >
                 <Image

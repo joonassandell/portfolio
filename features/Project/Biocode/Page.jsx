@@ -29,7 +29,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             </p>
           }
           role={['Product design', 'App development', 'Web development']}
-          year={year}
+          year="2021—"
         />
         <TemplateSection gridGap="xl" paddingTop="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
