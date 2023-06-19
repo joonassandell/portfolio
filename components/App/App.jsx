@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
-import { scrollLock, isBrowser } from '@/lib/utility';
-import { useIsMobile } from '@/lib/useIsMobile';
+import { isBrowser } from '@/lib/utility';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
@@ -25,7 +24,6 @@ export const App = ({ Component, pageProps }) => {
   const { doc, html, loading, loadingEnd, transition } = appState;
   const { asPath, beforePopState, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState();
-  const mobile = useIsMobile();
   const containerRef = useRef(null);
 
   /* ======
@@ -44,10 +42,6 @@ export const App = ({ Component, pageProps }) => {
       ...prevState,
       transitionInitial: value,
     }));
-  };
-
-  const setScrollLock = bool => {
-    scrollLock(bool, html);
   };
 
   const setLoadingEnd = value => {
@@ -95,15 +89,6 @@ export const App = ({ Component, pageProps }) => {
   useEffect(() => {
     if (loadingEnd) html.classList.remove('is-loading');
   }, [loadingEnd]);
-
-  /**
-   * Disable scrolling in mobile (non smooth) devices during template transition.
-   * Scrolling is enabled after the transition in onLocationChange. Note that
-   * for desktop the scrolling is disabled in Template.
-   */
-  useEffect(() => {
-    if (mobile && transition === 'template') setScrollLock(true);
-  }, [mobile, transition]);
 
   useEffect(() => {
     if (transition) {
@@ -158,7 +143,6 @@ export const App = ({ Component, pageProps }) => {
         value={{
           appState,
           setLoadingEnd,
-          setScrollLock,
           setTransition,
           setTransitionInitial,
         }}
@@ -167,12 +151,17 @@ export const App = ({ Component, pageProps }) => {
           containerRef={containerRef}
           options={{
             smooth: true,
+            smartphone: {
+              smooth: true,
+            },
+            tablet: {
+              smooth: true,
+            },
+            touchMultiplier: 4,
           }}
           location={animationComplete}
           watch={['No need for this, just suppress the error.']}
           onLocationChange={scroll => {
-            if (scrollLock) setScrollLock(false);
-
             /**
              * With
              * scroll.scroll.stop && scroll.start();

@@ -17,8 +17,7 @@
   touch-action: pan-y;
   -webkit-touch-callout: none;
 
-  &.is-loading,
-  &.is-scrollLock {
+  &.is-loading {
     overflow: hidden;
     position: fixed;
     width: 100%;
