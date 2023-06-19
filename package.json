@@ -12,9 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "blurhash": "^2.0.5",
     "classnames": "^2.3.2",
-    "critters": "0.0.18",
     "framer-motion": "10.12.16",
     "glob": "^10.2.7",
     "locomotive-scroll": "^4.1.4",
