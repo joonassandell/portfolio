@@ -58,7 +58,7 @@ export const Info = ({
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:8@s grid-col:9@m grid-col:5@l"
               variants={infoGridCellVariants}
             >
-              <div className="grid-col grid-col:3@s grid-col:4@m grid-col:12@l">
+              <div className="grid-col grid-col:4@s grid-col:12@l">
                 <Text marginBottom="xxSmall" color="light">
                   Client
                 </Text>
@@ -77,7 +77,7 @@ export const Info = ({
                   </p>
                 </Text>
               </div>
-              <div className="grid-col grid-col:3@s grid-col:4@m grid-col:12@l">
+              <div className="grid-col grid-col:4@s grid-col:12@l">
                 <Text marginBottom="xxSmall" color="light">
                   Year
                 </Text>
@@ -85,7 +85,7 @@ export const Info = ({
                   <p>{year}</p>
                 </Text>
               </div>
-              <div className="grid-col grid-col:4@s grid-col:4@m grid-col:12@l">
+              <div className="grid-col grid-col:4@s grid-col:12@l">
                 <Text marginBottom="xxSmall" color="light">
                   Project type
                 </Text>
@@ -136,7 +136,9 @@ export const Info = ({
         >
           <h2 className="Info-heading h4">{heading}</h2>
           <div className="grid">
-            <Text className="Info-text grid-col grid-col:6@s">{text}</Text>
+            <Text className="Info-text grid-col grid-col:7@s grid-col:6@l">
+              {text}
+            </Text>
           </div>
         </m.div>
       </div>
