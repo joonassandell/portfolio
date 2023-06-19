@@ -5,7 +5,6 @@ import { isBrowser } from '@/lib/utility';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
-import smoothscroll from 'smoothscroll-polyfill';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
 
@@ -56,8 +55,6 @@ export const App = ({ Component, pageProps }) => {
    * ====== */
 
   useEffect(() => {
-    smoothscroll.polyfill();
-
     if (process.env.NODE_ENV === 'production') {
       console.info(
         `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲`,
