@@ -41,28 +41,12 @@ body {
   margin: 0;
 }
 
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:focus-visible {
-    outline: $focus-outlineWidth solid var(--link);
-  }
-}
-
-figure {
+:where(figure) {
   all: unset;
   display: block;
 }
 
-ul {
+:where(ul) {
   all: unset;
   list-style: none;
 }
@@ -99,3 +83,20 @@ img {
   height: auto;
   vertical-align: middle;
 }
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: $focus-outlineWidth solid var(--link);
+  }
+}
+
