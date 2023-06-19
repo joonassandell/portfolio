@@ -21,7 +21,7 @@ export const ButtonArrow = ({
   const bg = useAnimation();
   const arrow = useAnimation();
   const arrowIn = useAnimation();
-  const classes = c(className, 'Button Button--arrow');
+  const classes = c('Button Button--arrow', className);
 
   useEffect(() => {
     (async () => {

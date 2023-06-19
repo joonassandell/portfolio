@@ -282,7 +282,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
               )}
             </div>
             <m.button
-              className="Header-button resetButton"
+              className="Header-button reset"
               onBlur={() => {
                 setHover('end');
                 setTimeout(() => setHover(false), 100);

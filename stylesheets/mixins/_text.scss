@@ -27,28 +27,3 @@
   text-overflow: ellipsis $important;
   white-space: nowrap $important;
 }
-
-
-// ======
-// Image replacement / text hiding
-// ======
-
-@mixin textHide($important: null) {
-  $important: if($important, '!important', null);
-  overflow: hidden $important;
-  text-indent: 1000% $important;
-  white-space: nowrap $important;
-}
-
-
-// ======
-// Enables font kerning in all browsers.
-// http://blog.typekit.com/2014/02/05/kerning-on-the-web/
-// ======
-
-@mixin textKern($important: null) {
-  $important: if($important, '!important', null);
-  font-feature-settings: 'kern' 1 $important;
-  font-kerning: normal $important;
-  text-rendering: optimizeLegibility $important;
-}

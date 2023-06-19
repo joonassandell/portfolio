@@ -1,29 +1,10 @@
 .Button {
-  @include fontSize($Button-fontSize, $Button-lineHeight);
-  align-items: center;
-  background-color: transparent;
-  border: $Button-borderWidth solid transparent;
-  border-radius: $border-radius;
+  all: unset;
   cursor: pointer;
   display: inline-flex;
-  font-weight: $Button-fontWeight;
-  min-height: rem($Button-minHeight);
-  padding: rem(($Button-spaceY) - ($Button-borderWidth * 2)) rem($Button-spaceX);
   position: relative;
   user-select: none;
-  vertical-align: top;
-
-  &:focus-visible {
-    outline: 0;
-  }
-}
-
-.Button-text {
-  pointer-events: none;
-
-  + .Button-icon {
-    margin-left: rem($space-xs);
-  }
+  vertical-align: middle;
 }
 
 .Button-icon {
@@ -31,8 +12,4 @@
   display: inline-flex;
   justify-content: center;
   pointer-events: none;
-
-  + .Button-text {
-    margin-left: rem($space-xs);
-  }
 }

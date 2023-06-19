@@ -21,7 +21,6 @@
 
   .Hero-figure-globe {
     inset: 8% 0 auto -27%;
-    margin: 0;
     position: absolute;
     width: clamp(rem($space * 20), 70vw, rem($space * 36));
 
@@ -43,10 +42,6 @@
     transform: scale(0.99);
   }
 
-  .Hero-figure-globe--default {
-    mask-image: linear-gradient(var(--black) 80%, transparent 95%);
-  }
-
   &.-transition\:pre {
     .Hero-bg {
       bottom: -50vh;
@@ -65,7 +60,6 @@
     border: var(--border-width) solid transparent;
     border-radius: 50%;
     inset: auto auto 27% 40%;
-    margin: 0;
     padding: rem($space);
     position: absolute;
     transition: border-color $trans-primary;

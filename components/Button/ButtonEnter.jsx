@@ -21,7 +21,7 @@ export const ButtonEnter = ({
   onClick,
   templateTransition = false,
 }) => {
-  const classes = c(className, 'Button Button--enter');
+  const classes = c('Button Button--enter', className);
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);

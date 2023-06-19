@@ -1,21 +1,10 @@
-// =======================================
-// Mixins
-// =======================================
-
 // Vendors
 @import 'sass-mq/mq';
 
 // Mixins
-@import 'mixins/color';
 @import 'mixins/display';
-@import 'mixins/dropdown';
 @import 'mixins/fontSize';
 @import 'mixins/heading';
-@import 'mixins/position';
-@import 'mixins/shapeArrow';
-@import 'mixins/shapeMenu';
-@import 'mixins/shapeTriangle';
 @import 'mixins/text';
 @import 'mixins/utility';
 @import 'mixins/various';
-@import 'mixins/quantityQuery';

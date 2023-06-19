@@ -90,7 +90,7 @@ export const Info = ({
                   Project type
                 </Text>
                 <Text>
-                  <ul className="resetList">
+                  <ul>
                     {type.map((r, i) => (
                       <li key={i}>{r}</li>
                     ))}
@@ -107,7 +107,7 @@ export const Info = ({
                   Role
                 </Text>
                 <Text className="grid-col">
-                  <ul className="resetList">
+                  <ul>
                     {role.map((r, i) => (
                       <li key={i}>{r}</li>
                     ))}

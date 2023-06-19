@@ -49,17 +49,19 @@
   }
 
   .Button-bg {
-    @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background-color: var(--cream-50);
-    border: $Button-borderWidth solid var(--border-1000);
+    border: 2px solid var(--border-1000);
     border-radius: 4px 4px 4px 16px;
+    inset: -2px;
+    position: absolute;
     z-index: 1;
   }
 
   .Button-bg-hover {
-    @include positionAbsoluteFill($offset: -$Button-borderWidth);
     background: var(--bg-1000);
     border-radius: 4px 4px 4px 16px;
+    inset: -2px;
+    position: absolute;
     z-index: 0;
 
     @include mq($until: s) {

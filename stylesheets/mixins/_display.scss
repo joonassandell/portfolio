@@ -1,20 +1,13 @@
-// =======================================
-// Hide and show stuff
-// =======================================
-//
-// 1. Completely remove from the flow but leave available to screen readers.
-//    http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-
 @mixin display($type: 'hideVisually', $important: null) {
   @if $important { $important: !important; }
 
   @if $type == 'hideVisually' { // [1.]
-    position: absolute $important;
-    overflow: hidden $important;
-    width: 1px $important;
-    height: 1px $important;
-    padding: 0 $important;
     border: 0 $important;
     clip: rect(1px, 1px, 1px, 1px) $important;
+    height: 1px $important;
+    overflow: hidden $important;
+    padding: 0 $important;
+    position: absolute $important;
+    width: 1px $important;
   }
 }

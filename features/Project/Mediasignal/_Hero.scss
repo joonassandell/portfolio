@@ -10,7 +10,6 @@
   .Hero-figure-figure {
     --width: 90vw;
     inset: rem($space * 2) 0 0 rem($space * -3.5);
-    margin: 0;
     position: absolute;
     width: clamp(rem($space * 24), var(--width), rem($space * 52));
     z-index: 3;
