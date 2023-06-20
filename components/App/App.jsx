@@ -16,6 +16,7 @@ const AppContext = createContext({
   transition: false, // 'template', false, true
   transitionInitial: false,
 });
+let scrollOnUpdateOnce = false;
 
 export const App = ({ Component, pageProps }) => {
   const appContext = useAppContext();
@@ -157,7 +158,7 @@ export const App = ({ Component, pageProps }) => {
             touchMultiplier: 4,
           }}
           location={animationComplete}
-          watch={['No need for this, just suppress the error.']}
+          watch={[loadingEnd]}
           onLocationChange={scroll => {
             /**
              * With
@@ -170,6 +171,13 @@ export const App = ({ Component, pageProps }) => {
             scroll.init();
 
             if (transition) setTransition(false);
+          }}
+          onUpdate={scroll => {
+            if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
+            if (!scrollOnUpdateOnce && loadingEnd) {
+              scrollOnUpdateOnce = true;
+              scroll.start();
+            }
           }}
         >
           <div className="App">

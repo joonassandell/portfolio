@@ -18,12 +18,10 @@
   -webkit-touch-callout: none;
 
   &.is-loading {
-    overflow: hidden;
+    inset: 0;
     position: fixed;
-    width: 100%;
   }
 
-  &.is-loading,
   &.is-transition {
     pointer-events: none;
     touch-action: none;
