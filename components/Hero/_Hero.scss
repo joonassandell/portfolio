@@ -23,7 +23,7 @@
 
   @include mq(l) {
     --Hero-minHeight: #{rem($space * 42)};
-    --Hero-height: 100vh; // [1.]
+    --Hero-height: var(--vh); // [1.]
   }
 
   @include mq(xxl) {
@@ -32,7 +32,7 @@
 }
 
 .Hero-inner {
-  min-height: 100vh; // [1.]
+  min-height: var(--vh); // [1.]
   pointer-events: none;
 
   > * {
@@ -58,7 +58,7 @@
   bottom: rem($space-xl);
   display: flex;
   height: 25%;
-  margin: 0 0 0 rem(-$space);
+  margin: 0 0 0 rem(-$space-xs);
   pointer-events: all;
   position: absolute;
   transform: translate3d(0, -150%, 0);
