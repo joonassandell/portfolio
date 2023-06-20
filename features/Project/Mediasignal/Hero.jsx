@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
+import { SCROLL_SPEED, MQ } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
@@ -18,7 +18,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
       onClick={onClick}
       {...props}
     >
-      {({ transitionPre }) => {
+      {({ transitionPre, transitionInitial }) => {
         return (
           <div className="wrap grid -gap:l pl:0@until:l">
             <HeroContent
@@ -46,15 +46,20 @@ export const MediasignalHero = ({ onClick, ...props }) => {
               >
                 <m.div
                   className="Hero-figure-figure-inner"
+                  custom={{ enableInitial: transitionInitial }}
+                  {...(transitionInitial && {
+                    animate: 'animate',
+                    initial: 'initial',
+                  })}
                   variants={figureInnerVariants}
                 >
                   <Image
-                    alt="Mediasignal homepage in iPad"
+                    alt="Mediasignal homepage sketch in iPad"
                     draggable="false"
                     priority
-                    sizes="33vw"
+                    sizes={`${MQ.l} 70vw, 90vw`}
                     src={heroImage}
-                    quality="90"
+                    // quality="90"
                   />
                 </m.div>
               </figure>
