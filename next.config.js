@@ -24,6 +24,7 @@ const config = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'stylesheets')],
   },
+  experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {
     compiler: {
       removeConsole: {
