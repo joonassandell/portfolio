@@ -9,7 +9,7 @@ import { useIsMobile } from '@/lib/useIsMobile';
 
 export const OrasPage = ({ images, id, title }) => {
   const isMobile = useIsMobile();
-  const { id: nextProjectId } = getSitemap('biocode');
+  const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
     <Template name={id} title={title}>
