@@ -19,6 +19,7 @@ export const TemplateSection = ({
     '-gap:0': grid && gridGap === false,
     '-gap:row:xl': grid && (gridRowGap === 'xl' || gridGap === 'xl'),
     '-gap:row:l': grid && gridRowGap === 'l',
+    '-gap:row:0': grid && gridRowGap === false,
     'pt:xxl': paddingTop === 'xxl',
     'pt:10vw': paddingTop === '10vw',
     'pt:15vw': paddingTop === '15vw',

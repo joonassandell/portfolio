@@ -5,12 +5,11 @@
   color: var(--Template-color, var(--text-1000));
   min-height: var(--vh);
   overflow: hidden;
-  top: 0;
   width: 100%;
   z-index: 1;
 
   /**
-   * This is the exit transition element
+   * This is the enter transition template
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
@@ -26,7 +25,7 @@
     }
   }
 
-   /**
+  /**
    * After locomotive scroll is updated the animated elements will jump to their
    * initial positions which is sometimes visible. This slight transition
    * smoothens this issue like it's intentional.
@@ -39,6 +38,7 @@
 
   &.is-transition\:template {
     position: relative;
+    top: 0;
   }
 
   &.is-transition\:template\:exit {
