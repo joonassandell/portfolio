@@ -18,7 +18,6 @@ const about = getSitemap('about', 'secondary');
 
 export const HomePage = ({ id, title }) => {
   const { setTransition, setTransitionInitial } = useAppContext();
-  const [animationHide, setAnimationHide] = useState(false);
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState('');
@@ -43,10 +42,7 @@ export const HomePage = ({ id, title }) => {
     setCurrentHero(el.dataset.id);
     setTimeout(
       () => {
-        scrollTo(el, () => {
-          setAnimationHide(true);
-          setAnimation(true);
-        });
+        scrollTo(el, () => setAnimation(true));
       },
       needsExtraSpace ? 220 : 0,
     );
@@ -56,7 +52,7 @@ export const HomePage = ({ id, title }) => {
     <Template className={extraSpace && 'is-extraSpace'} name={id} title={title}>
       <TemplateMain>
         <m.div
-          animate={animationHide ? 'hidden' : ''}
+          animate={animation ? 'hidden' : false}
           className="Template-about"
           variants={FADE_OUT_VARIANTS}
         >
@@ -86,25 +82,21 @@ export const HomePage = ({ id, title }) => {
             onClick={handleClick}
             transitionStart={currentHero === 'biocode' && animation}
             transition="pre"
-            transitionHideStart={currentHero != 'biocode' && animationHide}
           />
           <OrasHero
             onClick={handleClick}
             transitionStart={currentHero === 'oras' && animation}
             transition="pre"
-            transitionHideStart={currentHero != 'oras' && animationHide}
           />
           <MediasignalHero
             onClick={handleClick}
             transitionStart={currentHero === 'mediasignal' && animation}
             transition="pre"
-            transitionHideStart={currentHero != 'mediasignal' && animationHide}
           />
           <MoreWorkHero
             onClick={handleClick}
             transitionStart={currentHero === 'more-work' && animation}
             transition="pre"
-            transitionHideStart={currentHero != 'more-work' && animationHide}
           />
         </div>
       </TemplateMain>

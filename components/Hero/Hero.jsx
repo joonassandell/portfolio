@@ -1,4 +1,4 @@
-import { FADE_OUT_VARIANTS, SCROLL_SPEED } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { m } from 'framer-motion';
 import { useAppContext } from '@/components/App';
@@ -18,7 +18,6 @@ export const Hero = ({
   onClick,
   stampOverlay = true,
   stampAddVarsToParent,
-  transitionHideStart,
   transitionStart,
   transition,
 }) => {
@@ -57,9 +56,7 @@ export const Hero = ({
 
   return (
     <m.section
-      animate={
-        transitionStart ? 'animate' : transitionHideStart ? 'hidden' : ''
-      }
+      animate={transitionStart ? 'animate' : false}
       className={classes}
       data-id={id}
       onAnimationComplete={() => {
@@ -70,7 +67,6 @@ export const Hero = ({
       }}
       initial="initial"
       ref={ref}
-      variants={transitionHideStart ? FADE_OUT_VARIANTS : {}}
     >
       <div data-scroll-id={id} className="Hero-inner">
         <div className="Hero-heading wrap">
