@@ -264,7 +264,7 @@
   }
 
   @include mq(m) {
-    @for $i from 2 through 12 {
+    @for $i from 2 through 4 {
       &:nth-child(#{$i}) {
         .Header-nav-link {
           &:before {
@@ -274,7 +274,7 @@
       }
     }
 
-    @for $i from 6 through 8 {
+    @for $i from 5 through 6 {
       &:nth-child(#{$i}) {
         .Header-nav-link {
           &:before {
@@ -294,27 +294,6 @@
         .Header-nav-link-eye {
           margin-right: rem($space);
         }
-      }
-    }
-
-    &:nth-child(5) {
-      .Header-nav-link {
-        &:before {
-          flex: 1;
-        }
-
-        &:after {
-          flex: 0;
-          flex-basis: calc((var(--wrap-spaceRight) - #{rem($space-s)}));
-        }
-      }
-
-      .Header-nav-link-inner {
-        flex-direction: row-reverse;
-      }
-
-      .Header-nav-link-eye {
-        margin-right: rem($space);
       }
     }
   }
