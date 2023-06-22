@@ -18,7 +18,7 @@ export const BiocodeHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--biocode"
-      heading={`Biocode — ${new Date().getFullYear()}`}
+      heading={`${title} — ${new Date().getFullYear()}`}
       headingVariants={headingVariants}
       href={url}
       id={id}

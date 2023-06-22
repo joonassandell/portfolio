@@ -1,11 +1,7 @@
 .Hero--mediasignal {
-  --Stamp-overlay: var(--mediasignal-secondary);
+  --Stamp-overlay: var(--mediasignal-bg);
   --Stamp-iris: var(--mediasignal-primary);
   background-color: var(--mediasignal-bg);
-
-  .Hero-heading-inner {
-    transform: translate3d(0, -150%, 0);
-  }
 
   .Hero-figure-figure {
     --width: 90vw;

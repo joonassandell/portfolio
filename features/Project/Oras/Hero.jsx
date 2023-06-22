@@ -13,7 +13,7 @@ export const OrasHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--oras"
-      heading={`Oras — ${year}`}
+      heading={`${title} — ${year}`}
       href={url}
       id={id}
       onClick={onClick}

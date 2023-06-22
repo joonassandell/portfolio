@@ -13,10 +13,6 @@
     width: clamp(rem($space * 17), var(--width), rem($space * 32));
     z-index: 3;
 
-    .Hero.-transition\:pre & {
-      cursor: pointer;
-    }
-
     @include mq(s) {
       --width: 50vw;
       inset: rem($space * 6) 0 0 rem($space * -3.5);
@@ -81,7 +77,6 @@
 
   .Hero-stamp.Stamp {
     .Stamp-inner {
-
       @include mq($until: s) {
         inset: -3vw 0 0 -10vw;
       }

@@ -12,7 +12,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--mediasignal"
-      heading={`Mediasignal — ${year}`}
+      heading={`${title} — ${year}`}
       href={url}
       id={id}
       onClick={onClick}
@@ -30,12 +30,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
               role={['UI/UX design', 'Brand design', 'Web development']}
             />
             <div
-              className="
-                Hero-figure grid-col
-                grid-col:7
-                grid-col:6@s
-                grid-col:5@l -start:4@l
-              "
+              className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l"
               onClick={onClick}
             >
               <figure
@@ -59,7 +54,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
                     priority
                     sizes={`${MQ.l} 70vw, 90vw`}
                     src={heroImage}
-                    // quality="90"
+                    quality={95}
                   />
                 </m.div>
               </figure>

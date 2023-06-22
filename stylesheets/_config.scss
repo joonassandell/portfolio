@@ -150,15 +150,14 @@ $trans-secondaryFastest: 0.3s $ease-secondary;
 // Z-indexes
 // =======================================
 
-$App-zIndex: 1000;
-$locomotive-scrollBar-zIndex: 2000;
-$nprogress-zIndex: 2000;
+$Splash-zIndex: 1000;
+$locomotive-scrollBar-zIndex: 900;
+$nprogress-zIndex: 900;
+$App-zIndex: 800;
 
-$Splash-zIndex: 3000;
-$Header-zIndex: 900;
-$Header-maskZindex: 800;
-$App-mainZindex: 700;
-$Footer-zIndex: 0;
+$Header-zIndex: 1000;
+$Header-maskZindex: 900;
+$App-mainZindex: 800;
 
 // =======================================
 // Icon
