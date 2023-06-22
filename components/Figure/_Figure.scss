@@ -37,8 +37,11 @@
 
 .Figure-placeholder {
   background-color: var(--Figure-placeholder-bg, var(--bg-100));
-  overflow: hidden;
   z-index: 1;
+
+  .Figure:not(.-border) & {
+    inset: var(--border-width-negative);
+  }
 }
 
 .Figure-placeholder-glare, .Figure-glare {

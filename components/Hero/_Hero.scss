@@ -14,7 +14,7 @@
     }
 
     background-color: var(--cream-50);
-    box-shadow: inset 0 calc(var(--border-width) * -1) 0 var(--border-1000);
+    box-shadow: inset 0 var(--border-width-negative) 0 var(--border-1000);
   }
 
   @include mq(s) {
