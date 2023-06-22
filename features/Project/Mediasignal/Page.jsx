@@ -37,7 +37,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal homepage"
               priority
-              quality={100}
               scrolling={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               {...getImage('joonassandell-mediasignal-home', images)}
@@ -49,7 +48,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal blog page"
               scrollSpeed={0.5}
-              sizes={`${MQ.m} 50vw, 100vw`}
+              sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-blog-screen', images)}
             />
           </div>
@@ -57,21 +56,21 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal company page"
               scrollSpeed="negative"
-              sizes={`${MQ.m} 50vw, 100vw`}
+              sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-company-screen', images)}
             />
           </div>
           <div className="grid-col grid-col:10 grid-col:6@m -start:4@m">
             <Figure
               alt="Alternate Mediasignal homepage"
-              sizes={`${MQ.m} 50vw, 100vw`}
+              sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-home-screen', images)}
             />
           </div>
           <div className="grid-col grid-col:10 -start:3 grid-col:6@m -start:2@m">
             <Figure
               alt="Mediasignal navigation"
-              sizes={`${MQ.m} 50vw, 100vw`}
+              sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage(
                 'joonassandell-mediasignal-navigation-screen',
                 images,
@@ -84,7 +83,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal business card"
               mask
-              priority
               {...getImage('joonassandell-mediasignal-business-card', images)}
             />
           </div>
