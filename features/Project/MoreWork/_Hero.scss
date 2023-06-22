@@ -1,0 +1,33 @@
+.Hero--moreWork {
+  --Stamp-overlay: var(--moreWork-bg);
+  --Stamp-iris: var(--moreWork-primary);
+  background-color: var(--moreWork-bg);
+
+  .Hero-figure-figure {
+    --width: 45vw;
+    inset: rem(-$space) -35vw 0 auto;
+    position: absolute;
+    width: clamp(rem($space * 11), var(--width), rem($space * 22));
+    z-index: 3;
+  }
+
+  .Hero-figure-figure--bottom {
+    inset: auto rem(-$space-m) rem($space-xxxl) auto;
+  }
+
+  .Hero-content {
+    align-self: center;
+  }
+
+  &.is-transition {
+    .Hero-content, .Hero-link {
+      z-index: 0;
+    }
+  }
+
+  .Hero-stamp.Stamp {
+    .Stamp-inner {
+      inset: 0 0 0 -3.5vw;
+    }
+  }
+}
