@@ -1,8 +1,10 @@
 import { Template, TemplateMain } from '@/components/Template';
+import { Title } from '@/components/Title';
 
 export const AboutPage = ({ id, title }) => {
   return (
-    <Template name={id} title={title}>
+    <Template id={id}>
+      <Title title={title} />
       <TemplateMain>
         <h1>H1 heading dolor sit amet consectetur</h1>
         <p>
@@ -49,4 +51,4 @@ export const AboutPage = ({ id, title }) => {
       </TemplateMain>
     </Template>
   );
-}
+};

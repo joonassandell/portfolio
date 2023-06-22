@@ -5,12 +5,14 @@ import { NextProject } from '@/components/NextProject';
 import { MQ } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
+import { Title } from '@/components/Title';
 
 export const MediasignalPage = ({ images, id, title, year }) => {
   const { id: nextProjectId } = getSitemap('biocode');
 
   return (
-    <Template name={id} title={title}>
+    <Template id={id}>
+      <Title title={title} />
       <TemplateMain>
         <MediasignalHero />
         <Info

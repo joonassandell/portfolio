@@ -6,13 +6,15 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { useIsMobile } from '@/lib/useIsMobile';
+import { Title } from '@/components/Title';
 
 export const OrasPage = ({ images, id, title }) => {
   const isMobile = useIsMobile();
   const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
-    <Template name={id} title={title}>
+    <Template name={id}>
+      <Title title={title} />
       <TemplateMain>
         <OrasHero />
         <Info
