@@ -11,7 +11,7 @@ import { useAppContext } from '@/components/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { Footer } from '@/components/Footer';
 
-export const Template = ({ children, name, title }) => {
+export const Template = ({ children, className, name, title }) => {
   const [animState, setAnimState] = useState(null);
   const { appState } = useAppContext();
   const { transition } = appState;
@@ -31,8 +31,7 @@ export const Template = ({ children, name, title }) => {
       <Title title={title} />
       <m.div
         animate="animate"
-        className={c('Template', {
-          [`Template--${name}`]: name,
+        className={c('Template', `Template--${name}`, className, {
           'is-transition:exit': defaultTransition && animState === 'animExit',
           'is-transition:template': templateTransition,
           'is-transition:template:exit':
