@@ -134,11 +134,9 @@
   }
 
   .Hero-content {
-    text-align: right;
-
-    @include mq(xl) {
-      align-self: center;
-      text-align: left;
+    @include mq($until: xl) {
+      align-self: start;
+      text-align: right;
     }
   }
 }

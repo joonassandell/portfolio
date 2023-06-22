@@ -15,10 +15,6 @@
     inset: auto rem(-$space-m) rem($space-xxxl) auto;
   }
 
-  .Hero-content {
-    align-self: center;
-  }
-
   &.is-transition {
     .Hero-content, .Hero-link {
       z-index: 0;

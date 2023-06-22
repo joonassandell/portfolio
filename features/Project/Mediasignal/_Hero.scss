@@ -28,10 +28,6 @@
     transform: translate(0, 0);
   }
 
-  .Hero-content {
-    align-self: center;
-  }
-
   &.is-transition {
     .Hero-content, .Hero-link {
       z-index: 0;

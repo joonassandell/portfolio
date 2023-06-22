@@ -103,6 +103,7 @@
 }
 
 .Hero-content {
+  align-self: center;
   pointer-events: all;
   position: relative;
   z-index: 4;
@@ -118,10 +119,6 @@
 
 .Hero-content-text {
   margin-bottom: rem($space-m);
-
-  @include mq($until: l) {
-    display: none;
-  }
 }
 
 .Hero-figureBg {
