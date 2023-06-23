@@ -32,6 +32,7 @@ npm run dev
 
 ### Notes
 
+- When navigating from some project to another page, template transition is triggered and in App.jsx template transition sets transitionInitial to true. This causes the active hero in the project page to trigger the initial transition which is unwanted. This animation is not visible though because the default state CSS in some of of the heros override it. This should be fixed to not triger the initial animation in the active project page because it's the correct way.
 - During loading (`is-loading` class and effect in `App.tsx`) prevents user from scrolling when Splash screen is visible
 - Using scroll offsets with locomotive-scroll seems to be almost impossible because the elements sometimes jump (e.g. Figure) depending on the vieport height and the elements height. I guess this happens because the elements are not in locomotives "in view" and don't know how to calculate the scroll position before that. Even if using scroll targets, no luck.
 - `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date views don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.

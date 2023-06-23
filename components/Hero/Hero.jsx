@@ -22,33 +22,37 @@ export const Hero = ({
   transition,
 }) => {
   const transitionPre = transition === 'pre';
+  const { appState } = useAppContext();
+  const { transitionInitial: appTransitionInitial } = appState;
+  const { push } = useRouter();
+  const ref = useRef(null);
+  const Heading = transitionPre ? m.h2 : m.h1;
   const classes = c('Hero', className, {
     '-transition:pre': transitionPre,
     'is-transition': transitionStart,
   });
-  const { appState } = useAppContext();
-  const { transitionInitial: appTransitionInitial } = appState;
-  const router = useRouter();
-  const ref = useRef(null);
-  const Heading = transitionPre ? m.h2 : m.h1;
 
   /**
    * Pre transition: Transition before router change
    * Default state: On mount (e.g. after pre transition) or at page load
    * Initial state: Default state and appState.transitionInitial === true
    */
+  // Default state
+  const transitionDefault = !transitionPre && !appTransitionInitial;
+
   // Is ready for pre or initial transition
   const transitionPreOrInitial = transitionPre || appTransitionInitial;
 
   // At transition start or at default state
   const transitionStartOrDefault = transitionStart || !transitionPre;
 
-  // Trigger transition initial only if in default state
+  // Trigger transition initial only if not in pre transition state
   const transitionInitial = appTransitionInitial && !transitionPre;
 
   const passedProps = {
     initialDelay: transitionInitial ? 0.75 : null,
     transitionPre,
+    transitionDefault,
     transitionInitial,
     transitionPreOrInitial,
     transitionStartOrDefault,
@@ -61,7 +65,7 @@ export const Hero = ({
       data-id={id}
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
-          router.push(href, null, { scroll: false });
+          push(href, null, { scroll: false });
           console.log('Hero: Animation complete');
         }
       }}
