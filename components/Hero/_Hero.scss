@@ -37,7 +37,6 @@
 
   > * {
     inset: 0;
-    pointer-events: none;
     position: absolute;
   }
 
@@ -61,12 +60,11 @@
   margin: 0 0 0 rem(-$space-xs);
   pointer-events: all;
   position: absolute;
-  transform: translate3d(0, -150%, 0);
+  transform: translate(0, -150%);
   white-space: nowrap;
 
   .Hero.-transition\:pre & {
-    cursor: pointer;
-    transform: translate3d(0, 0, 0);
+    transform: translate(0, 0);
   }
 
   @include mq(m) {
@@ -93,10 +91,6 @@
   position: absolute;
   z-index: 4;
 
-  > .grid {
-    place-items: end;
-  }
-
   @include mq(l) {
     display: none;
   }
@@ -104,6 +98,9 @@
 
 .Hero-content {
   align-self: center;
+  display: grid;
+  gap: rem($grid-gap);
+  place-items: start;
   pointer-events: all;
   position: relative;
   z-index: 4;
@@ -114,11 +111,7 @@
 }
 
 .Hero-content-heading {
-  margin-bottom: rem($space-xs);
-}
-
-.Hero-content-text {
-  margin-bottom: rem($space-m);
+  margin-bottom: rem(-$space);
 }
 
 .Hero-figureBg {

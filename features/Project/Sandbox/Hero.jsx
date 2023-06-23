@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { SCROLL_SPEED, MQ } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
@@ -41,9 +41,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
                       animate: 'animate',
                       initial: 'initial',
                     })}
-                    {...(transitionDefault && {
-                      initial: 'animate',
-                    })}
+                    {...(transitionDefault && { initial: 'animate' })}
                     variants={figureInnerVariants}
                   >
                     <Image

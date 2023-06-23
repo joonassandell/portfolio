@@ -7,17 +7,26 @@ export const Text = ({
   marginBottom,
   size,
   tag,
+  ...props
 }) => {
-  const classes = c(className, 'Text', {
-    '-size:xl': size === 'xLarge',
-    '-size:l': size === 'large',
-    '-size:s': size === 'small',
-    '-size:xs': size === 'xSmall',
-    '-color:light': color === 'light',
-    'mb:xxs': marginBottom === 'xxSmall',
-  });
+  const classes = c(
+    'Text',
+    {
+      '-size:xl': size === 'xLarge',
+      '-size:l': size === 'large',
+      '-size:s': size === 'small',
+      '-size:xs': size === 'xSmall',
+      '-color:light': color === 'light',
+      'mb:xxs': marginBottom === 'xxSmall',
+    },
+    className,
+  );
 
   const Tag = tag ?? 'div';
 
-  return <Tag className={classes}>{children}</Tag>;
+  return (
+    <Tag className={classes} {...props}>
+      {children}
+    </Tag>
+  );
 };

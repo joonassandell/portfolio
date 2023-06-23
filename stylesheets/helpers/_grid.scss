@@ -48,6 +48,16 @@
 }
 
 /* ======
+ * Align
+ * ====== */
+
+.grid {
+  &.-place\:end {
+    place-items: end;
+  }
+}
+
+/* ======
  * Columns
  * ====== */
 

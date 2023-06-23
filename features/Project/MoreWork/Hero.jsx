@@ -21,10 +21,7 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
       {({ transitionPre }) => {
         return (
           <div className="wrap grid -gap:l pl:0">
-            <div
-              className="Hero-figure grid-col grid-col:6 grid-col:6@l"
-              onClick={onClick}
-            >
+            <div className="Hero-figure grid-col grid-col:6 grid-col:6@l">
               <figure
                 data-scroll
                 data-scroll-target={`[data-scroll-id=${id}]`}
@@ -65,10 +62,10 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
               onClick={onClick}
               transitionPre={transitionPre}
               role={[
-                'UI/UX design',
-                'App development',
-                'Web development',
-                'All sorts…',
+                'Bonnier Books,',
+                'Hankkija, Fair trade,',
+                'Omoroi and',
+                'many others…',
               ]}
             />
           </div>

@@ -27,10 +27,14 @@ export const Hero = ({
   const { push } = useRouter();
   const ref = useRef(null);
   const Heading = transitionPre ? m.h2 : m.h1;
-  const classes = c('Hero', className, {
-    '-transition:pre': transitionPre,
-    'is-transition': transitionStart,
-  });
+  const classes = c(
+    'Hero',
+    {
+      '-transition:pre': transitionPre,
+      'is-transition': transitionStart,
+    },
+    className,
+  );
 
   /**
    * Pre transition: Transition before router change
@@ -73,7 +77,10 @@ export const Hero = ({
       ref={ref}
     >
       <div data-scroll-id={id} className="Hero-inner">
-        <div className="Hero-heading wrap">
+        <div
+          className="Hero-heading wrap"
+          {...(transitionPre && { 'aria-hidden': true })}
+        >
           <Heading
             className="Hero-heading-inner Heading Heading--display"
             onClick={onClick}
@@ -91,18 +98,16 @@ export const Hero = ({
         </div>
         {children(passedProps)}
         {transitionPre && (
-          <div className="Hero-link wrap">
-            <div className="grid -placeEnd">
-              <div className="grid-col">
-                <Link
-                  arrow
-                  href={href}
-                  onClick={onClick}
-                  templateTransition={false}
-                >
-                  View project
-                </Link>
-              </div>
+          <div className="Hero-link wrap grid -place:end">
+            <div className="grid-col">
+              <Link
+                arrow
+                href={href}
+                onClick={onClick}
+                templateTransition={false}
+              >
+                View project
+              </Link>
             </div>
           </div>
         )}

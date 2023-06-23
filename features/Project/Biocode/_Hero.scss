@@ -12,11 +12,17 @@
   }
 
   .Hero-heading-inner {
-    transform: translate3d(0, -175%, 0);
+    transform: translate(0, -175%);
   }
 
-  .Hero-pre, .Hero-link {
+  .Hero-pre {
     z-index: 1;
+  }
+
+  &.is-transition {
+    .Hero-link {
+      z-index: 0;
+    }
   }
 
   .Hero-figure-globe {
@@ -136,6 +142,7 @@
   .Hero-content {
     @include mq($until: xl) {
       align-self: start;
+      place-items: end;
       text-align: right;
     }
   }

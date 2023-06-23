@@ -1,13 +1,14 @@
 import { ButtonEnter } from '@/components/Button';
+import { Text } from '@/components/Text';
 import c from 'classnames';
 import { Fragment } from 'react';
 
 export const HeroContent = ({
-  heading,
   className,
-  onClick,
+  heading,
   href,
-  role = [],
+  onClick,
+  role,
   transitionPre,
 }) => {
   if (!transitionPre) return null;
@@ -15,11 +16,12 @@ export const HeroContent = ({
 
   return (
     <div className={classes}>
-      <p aria-hidden="true" className="Hero-content-heading h5">
+      {/* Hero heading is aligned before and used as the main heading */}
+      <Text aria-hidden="true" className="Hero-content-heading h5">
         {heading}
-      </p>
-      <p className="Hero-content-text Text -s">
-        {role.map((r, i, arr) => {
+      </Text>
+      <Text className="mb:0" size="small" tag="p">
+        {role?.map((r, i, arr) => {
           const br = arr.length - 1 != i ? <br /> : null;
           return (
             <Fragment key={i}>
@@ -28,12 +30,8 @@ export const HeroContent = ({
             </Fragment>
           );
         })}
-      </p>
-      <ButtonEnter
-        className="Hero-content-button"
-        href={href}
-        onClick={onClick}
-      >
+      </Text>
+      <ButtonEnter href={href} onClick={onClick}>
         View {heading} project
       </ButtonEnter>
     </div>
