@@ -29,10 +29,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
               transitionPre={transitionPre}
               role={['UI/UX design', 'Brand design', 'Web development']}
             />
-            <div
-              className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l"
-              onClick={onClick}
-            >
+            <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
               <figure
                 data-scroll
                 data-scroll-target={`[data-scroll-id=${id}]`}
@@ -41,11 +38,11 @@ export const MediasignalHero = ({ onClick, ...props }) => {
               >
                 <m.div
                   className="Hero-figure-figure-inner"
-                  custom={{ enableInitial: transitionInitial }}
                   {...(transitionInitial && {
                     animate: 'animate',
                     initial: 'initial',
                   })}
+                  custom={{ enableInitial: transitionInitial }}
                   variants={figureInnerVariants}
                 >
                   <Image

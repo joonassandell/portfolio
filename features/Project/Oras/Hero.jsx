@@ -50,7 +50,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                       priority
                       sizes="33vw"
                       src={heroImage}
-                      quality="90"
+                      quality={90}
                     />
                   </figure>
                   <m.div
@@ -77,7 +77,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                         priority
                         sizes="10vw"
                         src={drop}
-                        quality="90"
+                        quality={90}
                       />
                     </m.div>
                   )}
@@ -112,7 +112,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                   priority
                   sizes="10vw"
                   src={drop}
-                  quality="90"
+                  quality={90}
                 />
               </m.div>
             )}
@@ -141,7 +141,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                   priority
                   sizes="10vw"
                   src={drop}
-                  quality="90"
+                  quality={90}
                 />
               </div>
             </m.div>

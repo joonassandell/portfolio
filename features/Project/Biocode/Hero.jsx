@@ -29,7 +29,6 @@ export const BiocodeHero = ({ onClick, ...props }) => {
     >
       {({
         initialDelay,
-        preTransition,
         transitionPre,
         transitionPreOrInitial,
         transitionInitial,
@@ -79,7 +78,7 @@ export const BiocodeHero = ({ onClick, ...props }) => {
               <div className={figureClasses}>
                 <figure className="Hero-figure-globe Hero-figure-globe--default">
                   <div
-                    {...(!preTransition && {
+                    {...(!transitionPre && {
                       'data-scroll': true,
                       'data-scroll-speed': -SCROLL_SPEED,
                       'data-scroll-target': `[data-scroll-id=${id}]`,
