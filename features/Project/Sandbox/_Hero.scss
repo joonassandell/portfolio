@@ -4,33 +4,33 @@
   background-color: var(--sandbox-bg);
 
   .Hero-figure {
-    height: clamp(rem($space * 14), 45vw, rem($space * 26));
+    height: clamp(rem($space * 14), 45vw, rem($space * 27));
   }
 
   .Hero-figure-figure {
     --width: 55vw;
-    inset: rem($space * 4) 0 0 rem($space * -3);
+    inset: rem($space * 6) 0 0 rem($space * -5);
     position: absolute;
-    width: clamp(rem($space * 16), var(--width), rem($space * 32));
+    width: clamp(rem($space * 15), var(--width), rem($space * 32));
     z-index: 3;
 
     @include mq(s) {
       --width: 100%;
-      inset: rem($space * 4) 0 0 -25%;
+      left: -25%;
     }
 
     @include mq(m) {
-      --width: 90%;
+      --width: 80%;
     }
 
     @include mq(l) {
-      --width: 120%;
-      left: -50%;
+      --width: 140%;
+      left: -70%;
     }
 
-    @include mq(xl) {
-      --width: 100%;
-      left: -50%;
+    @include mq(xxl) {
+      --width: 115%;
+      left: -57.5%;
     }
   }
 
@@ -46,12 +46,10 @@
 
   .Hero-stamp.Stamp {
     .Stamp-inner {
-      @include mq(s) {
-        inset: 0 0 0 -20vw;
-      }
+      inset: 0 0 0 -20vw;
 
       @include mq(l) {
-        inset: 0 0 0 3vw;
+        inset: 0 0 0 -25vw;
       }
     }
   }

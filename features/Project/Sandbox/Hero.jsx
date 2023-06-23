@@ -26,7 +26,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
                 className="
                   Hero-figure grid-col
                   grid-col:7 -start:6
-                  grid-col:5@l -start:4@l
+                  grid-col:4@l -start:6@l
                 "
               >
                 <figure
@@ -62,7 +62,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
                 />
               </div>
               <HeroContent
-                className="grid-col grid-col:3 -start:9"
+                className="grid-col grid-col:3"
                 heading={title}
                 href={url}
                 onClick={onClick}
