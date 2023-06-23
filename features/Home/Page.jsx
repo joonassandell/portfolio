@@ -5,6 +5,7 @@ import {
   BiocodeHero,
   MediasignalHero,
   MoreWorkHero,
+  SandboxHero,
 } from '@/features/Project';
 import { m } from 'framer-motion';
 import { Template, TemplateMain } from '@/components/Template';
@@ -21,10 +22,8 @@ export const HomePage = ({ id, title }) => {
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState('');
-  const scrollTo = useScrollTo({
-    scrollLock: true,
-  });
+  const [currentHero, setCurrentHero] = useState(null);
+  const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
 
   const handleClick = e => {
@@ -34,17 +33,11 @@ export const HomePage = ({ id, title }) => {
 
     const el = e.currentTarget.closest('[data-id]');
     const needsExtraSpace = scroll.scroll.instance.limit.y < el.offsetTop;
-
-    if (needsExtraSpace) {
-      setExtraSpace(true);
-      scroll.update();
-    }
+    needsExtraSpace && setExtraSpace(true) && scroll.update();
 
     setCurrentHero(el.dataset.id);
     setTimeout(
-      () => {
-        scrollTo(el, () => setAnimation(true));
-      },
+      () => scrollTo(el, () => setAnimation(true)),
       needsExtraSpace ? 220 : 0,
     );
   };
@@ -93,6 +86,11 @@ export const HomePage = ({ id, title }) => {
           <MediasignalHero
             onClick={handleClick}
             transitionStart={currentHero === 'mediasignal' && animation}
+            transition="pre"
+          />
+          <SandboxHero
+            onClick={handleClick}
+            transitionStart={currentHero === 'sandbox' && animation}
             transition="pre"
           />
           <MoreWorkHero

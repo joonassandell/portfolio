@@ -8,7 +8,7 @@ import { Figure } from '@/components/Figure';
 import { Title } from '@/components/Title';
 
 export const MediasignalPage = ({ images, id, title, year }) => {
-  const { id: nextProjectId } = getSitemap('biocode');
+  const { id: nextProjectId } = getSitemap('sandbox');
 
   return (
     <Template id={id}>

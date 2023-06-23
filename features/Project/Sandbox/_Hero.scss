@@ -1,0 +1,58 @@
+.Hero--sandbox {
+  --Stamp-iris: var(--sandbox-primary);
+  --Stamp-overlay: var(--sandbox-bg);
+  background-color: var(--sandbox-bg);
+
+  .Hero-figure {
+    height: clamp(rem($space * 14), 45vw, rem($space * 26));
+  }
+
+  .Hero-figure-figure {
+    --width: 55vw;
+    inset: rem($space * 4) 0 0 rem($space * -3);
+    position: absolute;
+    width: clamp(rem($space * 16), var(--width), rem($space * 32));
+    z-index: 3;
+
+    @include mq(s) {
+      --width: 100%;
+      inset: rem($space * 4) 0 0 -25%;
+    }
+
+    @include mq(m) {
+      --width: 90%;
+    }
+
+    @include mq(l) {
+      --width: 120%;
+      left: -50%;
+    }
+
+    @include mq(xl) {
+      --width: 100%;
+      left: -50%;
+    }
+  }
+
+  .Hero-content {
+    align-self: end;
+  }
+
+  &.is-transition {
+    .Hero-content, .Hero-link {
+      z-index: 0;
+    }
+  }
+
+  .Hero-stamp.Stamp {
+    .Stamp-inner {
+      @include mq(s) {
+        inset: 0 0 0 -20vw;
+      }
+
+      @include mq(l) {
+        inset: 0 0 0 3vw;
+      }
+    }
+  }
+}

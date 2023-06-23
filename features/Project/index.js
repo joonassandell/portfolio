@@ -9,3 +9,6 @@ export * from './Oras/Page';
 
 export * from './MoreWork/Hero';
 export * from './MoreWork/Page';
+
+export * from './Sandbox/Hero';
+export * from './Sandbox/Page';
