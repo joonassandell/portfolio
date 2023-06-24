@@ -1,4 +1,5 @@
 :root {
-  --moreWork-bg: var(--white);
+  // Alternatives: #{lighten(#CCCFC8, 10)}, var(--cream-200), #E6E5E3, var(--white)
+  --moreWork-bg: #CCCFC8;
   --moreWork-primary: blue;
 }

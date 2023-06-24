@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { SCROLL_SPEED, MQ } from '@/lib/config';
+import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
 import Image from 'next/image';
@@ -12,7 +12,7 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
   return (
     <Hero
       className="Hero--moreWork"
-      heading={`More work — ${year}`}
+      heading={`${title} — ${year}`}
       href={url}
       id={id}
       onClick={onClick}
