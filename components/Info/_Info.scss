@@ -16,12 +16,8 @@
   }
 }
 
-.Info-meta {
-  @include text(s);
-}
-
 .Info-meta-small {
-  max-width: 20ch;
+  text-wrap: balance;
 }
 
 .Info-heading {
@@ -39,6 +35,7 @@
 .Info-text {
   color: var(--text-900);
   margin-bottom: rem($space-xl);
+  text-wrap: balance;
 
   @include mq(l) {
     margin-bottom: 0;

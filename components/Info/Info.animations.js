@@ -1,29 +1,34 @@
 import { TRANS_PRIMARY, TRANS_TERTIARY } from '@/lib/config';
 
-export const infoRulerVariants = {
-  inView: {
+export const rulerVariants = {
+  animate: {
     scaleX: 1,
     transition: TRANS_PRIMARY,
   },
-  hidden: {
+  initial: {
     scaleX: 0,
   },
 };
 
-export const infoGridVariants = {
-  inView: {
-    transition: { staggerChildren: 0.15 },
+export const gridVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+    },
   },
 };
 
-export const infoGridCellVariants = {
-  inView: {
-    y: 0,
+export const colVariants = {
+  animate: (delay = 0) => ({
     opacity: 1,
-    transition: TRANS_TERTIARY,
-  },
-  hidden: {
+    y: 0,
+    transition: {
+      ...TRANS_TERTIARY,
+      ...(delay && { delay }),
+    },
+  }),
+  initial: {
     opacity: 0,
-    y: '3rem',
+    y: '4rem',
   },
 };

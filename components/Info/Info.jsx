@@ -6,11 +6,7 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import {
-  infoRulerVariants,
-  infoGridVariants,
-  infoGridCellVariants,
-} from './Info.animations';
+import { rulerVariants, gridVariants, colVariants } from './Info.animations';
 
 export const Info = ({
   client,
@@ -35,35 +31,34 @@ export const Info = ({
       <div
         data-scroll
         data-scroll-position="top"
-        data-scroll-speed="0.5"
+        data-scroll-speed={0.5}
         ref={rulerRef}
       >
         <m.hr
-          animate={rulerInView ? 'inView' : ''}
+          animate={rulerInView && 'animate'}
           className="Info-ruler"
-          initial="hidden"
-          variants={infoRulerVariants}
+          initial="initial"
+          variants={rulerVariants}
         />
       </div>
       <div className="grid">
         <m.div
-          animate={gridInView ? 'inView' : ''}
+          animate={gridInView && 'animate'}
           className="Info-meta grid-col grid-col:5@l"
-          data-scroll
-          initial="hidden"
+          initial="initial"
           ref={gridRef}
-          variants={infoGridVariants}
+          variants={gridVariants}
         >
           <div className="grid">
             <m.div
-              className="grid -gap:column:0 grid-col grid-col:6 grid-col:8@s grid-col:9@m grid-col:5@l"
-              variants={infoGridCellVariants}
+              className="grid -gap:column:0 grid-col grid-col:6 grid-col:9@m grid-col:5@l"
+              variants={colVariants}
             >
-              <div className="grid-col grid-col:4@s grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light">
+              <div className="grid-col grid-col:4@m grid-col:12@l">
+                <Text marginBottom="xxSmall" color="light" size="small">
                   Client
                 </Text>
-                <Text>
+                <Text size="small">
                   <p>
                     <ConditionalWrapper
                       condition={href}
@@ -78,19 +73,19 @@ export const Info = ({
                   </p>
                 </Text>
               </div>
-              <div className="grid-col grid-col:4@s grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light">
+              <div className="grid-col grid-col:4@m grid-col:12@l">
+                <Text marginBottom="xxSmall" color="light" size="small">
                   Year
                 </Text>
-                <Text>
+                <Text size="small">
                   <p>{year}</p>
                 </Text>
               </div>
-              <div className="grid-col grid-col:4@s grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light">
+              <div className="grid-col grid-col:4@m grid-col:12@l">
+                <Text marginBottom="xxSmall" color="light" size="small">
                   Project type
                 </Text>
-                <Text>
+                <Text size="small">
                   <ul>
                     {type.map((r, i) => (
                       <li key={i}>{r}</li>
@@ -101,13 +96,13 @@ export const Info = ({
             </m.div>
             <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
-              variants={infoGridCellVariants}
+              variants={colVariants}
             >
               <div className="grid-col">
-                <Text marginBottom="xxSmall" color="light">
+                <Text marginBottom="xxSmall" color="light" size="small">
                   Role
                 </Text>
-                <Text className="grid-col">
+                <Text className="grid-col" size="small">
                   <ul>
                     {role.map((r, i) => (
                       <li key={i}>{r}</li>
@@ -127,19 +122,16 @@ export const Info = ({
           </div>
         </m.div>
         <m.div
-          animate={textInView ? 'inView' : ''}
-          className="grid-col grid-col:9@m grid-col:7@l"
-          custom={desktop ? 0.3 : false}
-          data-scroll
-          initial="hidden"
+          animate={textInView && 'animate'}
+          className="grid-col grid-col:9@m grid-col:7@l grid-col:6@xl"
+          custom={desktop ? 0.4 : false}
+          initial="initial"
           ref={textRef}
-          variants={infoGridCellVariants}
+          variants={colVariants}
         >
           <h2 className="Info-heading h4">{heading}</h2>
           <div className="grid">
-            <Text className="Info-text grid-col grid-col:7@s grid-col:6@xl">
-              {text}
-            </Text>
+            <Text className="Info-text grid-col grid-col:7@s">{text}</Text>
           </div>
         </m.div>
       </div>
