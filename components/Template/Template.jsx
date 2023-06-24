@@ -9,6 +9,7 @@ import c from 'classnames';
 import { useAppContext } from '@/components/App';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import { Footer } from '@/components/Footer';
+import { camelCase } from 'lodash-es';
 
 export const Template = ({ children, className, id }) => {
   const [animState, setAnimState] = useState(null);
@@ -28,7 +29,7 @@ export const Template = ({ children, className, id }) => {
   return (
     <m.div
       animate="animate"
-      className={c('Template', `Template--${id}`, className, {
+      className={c('Template', `Template--${camelCase(id)}`, className, {
         'is-transition:exit': defaultTransition && animState === 'animExit',
         'is-transition:template': templateTransition,
         'is-transition:template:exit':
