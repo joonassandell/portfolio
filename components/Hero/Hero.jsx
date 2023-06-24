@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import c from 'classnames';
 import { Link } from '@/components/Link';
 import { Stamp } from '@/components/Stamp';
+import { Heading } from '@/components/Heading';
 
 export const Hero = ({
   children,
@@ -26,7 +27,6 @@ export const Hero = ({
   const { transitionInitial: appTransitionInitial } = appState;
   const { push } = useRouter();
   const ref = useRef(null);
-  const Heading = transitionPre ? m.h2 : m.h1;
   const classes = c(
     'Hero',
     {
@@ -64,7 +64,7 @@ export const Hero = ({
 
   return (
     <m.section
-      animate={transitionStart ? 'animate' : false}
+      animate={transitionStart && 'animate'}
       className={classes}
       data-id={id}
       onAnimationComplete={() => {
@@ -82,8 +82,10 @@ export const Hero = ({
           {...(transitionPre && { 'aria-hidden': true })}
         >
           <Heading
-            className="Hero-heading-inner Heading Heading--display"
+            className="Hero-heading-inner"
             onClick={onClick}
+            size="display"
+            tag={transitionPre ? m.h2 : m.h1}
             variants={headingVariants}
           >
             <div
