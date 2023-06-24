@@ -1,0 +1,24 @@
+.SubInfo {
+  .grid-col {
+    transform-origin: top left;
+  }
+}
+
+.SubInfo-ruler {
+  margin-bottom: rem($space-l);
+  transform-origin: top left;
+
+  @include mq(s) {
+    margin-bottom: rem($space-xl);
+  }
+
+  @include mq(l) {
+    max-width: 25%;
+  }
+}
+
+.SubInfo-text {
+  @include mq(s) {
+    margin-top: rem($space);
+  }
+}
