@@ -7,7 +7,7 @@
 // Vendors
 @import 'locomotive-scroll/src/styles/base';
 @import 'locomotive-scroll/src/styles/scrollbar';
-@import 'nprogress/nprogress.css';
+@import 'nprogress/nprogress';
 @import 'stylesheets/vendors/nprogress';
 @import 'stylesheets/vendors/locomotive-scroll';
 
@@ -28,15 +28,13 @@
 @import 'helpers/scrollbar';
 @import 'helpers/wrap';
 
-// CSS Components
-@import 'components/Heading';
-
 // Components
 @import '../components/App';
 @import '../components/Button';
 @import '../components/Figure';
 @import '../components/Footer';
 @import '../components/Header';
+@import '../components/Heading';
 @import '../components/Hero';
 @import '../components/Icon';
 @import '../components/Info';
