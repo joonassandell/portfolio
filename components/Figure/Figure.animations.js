@@ -20,13 +20,13 @@ export const clipVariants = {
 export const moveVariants = {
   animate: {
     opacity: 1,
-    scale: 1,
+    scaleY: 1,
     transition: TRANS_TERTIARY_FAST,
     y: 0,
   },
   initial: {
     opacity: 0,
-    scale: 1.07,
+    scaleY: 1.3,
     y: '4rem',
   },
 };

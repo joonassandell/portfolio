@@ -21,7 +21,7 @@ export const Figure = ({
   className,
   glare,
   height,
-  inViewOffset = 0,
+  inViewOffset = 0.1,
   mask = false,
   priority = false,
   scrollDelay,
