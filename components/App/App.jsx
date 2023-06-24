@@ -8,11 +8,13 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
 
+const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
+
 const AppContext = createContext({
   doc: isBrowser && document.documentElement,
   html: isBrowser && document.querySelector('html'),
-  loading: true,
-  loadingEnd: false,
+  loading: DISABLE_LOADING ? false : true,
+  loadingEnd: DISABLE_LOADING ? true : false,
   transition: false, // 'template', false, true
   transitionInitial: false,
 });
@@ -136,7 +138,9 @@ export const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=no"
         />
       </Head>
-      <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
+      {!DISABLE_LOADING && (
+        <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
+      )}
       <AppContext.Provider
         value={{
           appState,
@@ -173,10 +177,12 @@ export const App = ({ Component, pageProps }) => {
             if (transition) setTransition(false);
           }}
           onUpdate={scroll => {
-            if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
-            if (!scrollOnUpdateOnce && loadingEnd) {
-              scrollOnUpdateOnce = true;
-              scroll.start();
+            if (!DISABLE_LOADING) {
+              if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
+              if (!scrollOnUpdateOnce && loadingEnd) {
+                scrollOnUpdateOnce = true;
+                scroll.start();
+              }
             }
           }}
         >

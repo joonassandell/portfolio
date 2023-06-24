@@ -26,18 +26,22 @@ npm run dev
 
 - `npm run dev`: Run a development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result
 - `npm run build`: Build the application
-- `npm run preview`: Build the application and preview it locally. When previewing app, set `NEXT_PUBLIC_ORIGIN` in [.env.local](.env.local) to `http://localhost:3000`. If previewing in LAN, then apply LAN origin (e.g. `http://192.168.0.110:3000`).
+- `npm run preview`: Build the application and preview it locally
 - `npm run start`: Start the application in production mode. The application should be compiled with next build first.
 - `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state. [Vercel CLI](https://vercel.com/docs/cli) needs to be installed. Linking and rights to the project are obviously needed as well.
+
+**Read the environment variable descriptions in [.env.development](./.env.development)**
 
 ### Notes
 
 - When navigating from some project to another page, template transition is triggered and in App.jsx template transition sets transitionInitial to true. This causes the active hero in the project page to trigger the initial transition which is unwanted. This animation is not visible though because the default state CSS in some of of the heros override it. This should be fixed to not triger the initial animation in the active project page because it's the correct way.
-- During loading (`is-loading` class and effect in `App.tsx`) prevents user from scrolling when Splash screen is visible
+- During loading (`is-loading` class and effect in `App.tsx`) prevents user from scrolling when Splash screen is visible. Class `is-loading` also prevents possible overflow jumps caused by initial scrollbar.
 - Using scroll offsets with locomotive-scroll seems to be almost impossible because the elements sometimes jump (e.g. Figure) depending on the vieport height and the elements height. I guess this happens because the elements are not in locomotives "in view" and don't know how to calculate the scroll position before that. Even if using scroll targets, no luck.
 - `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date views don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.
 - In development, project pages etc. may take a while because of the image generation. After build everything works fine.
 - Exit animations work in in `Template.jsx` because `App.jsx` contains `AnimatePresence`
+- `Splash.jsx` has CSS animation as starting animation so that it triggers faster. This is especially visible with slow connections. Critical CSS makes this possible.
+- If using repeating useInView (`const inView = useInView(ref, 0, false)`) then `animate` prop should be triggered like so `animate={inView ? 'animate' : ''}`. It doesn't work e.g. with `animate={inView ? 'animate' : false}` or `animate={inView && 'animate'}`
 
 #### About template transition and AnimatePresence
 
