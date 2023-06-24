@@ -20,7 +20,7 @@ export const Stamp = ({
   parentRef,
   transitionStart,
 }) => {
-  const classes = c(className, 'Stamp');
+  const classes = c('Stamp', className);
   const [ref, { width, height }] = useMeasure();
   const innerRef = useRef(null);
   const inView = useInView(innerRef, 0, false);
@@ -106,6 +106,7 @@ export const Stamp = ({
           whileHover="hover"
           whileTap="tap"
           transition={stampVariants.transition}
+          tabIndex="-1"
         >
           <m.div
             animate={inView ? 'animate' : ''}

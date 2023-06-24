@@ -13,7 +13,7 @@ import {
 } from './Info.animations';
 
 export const Info = ({
-  client = { name, href },
+  client,
   heading,
   role = [],
   smallPrint,
@@ -21,6 +21,7 @@ export const Info = ({
   text,
   year,
 }) => {
+  const { name, href } = client || {};
   const desktop = useMedia(MQ.desktop, false);
   const rulerRef = useRef(null);
   const rulerInView = useInView(rulerRef);
@@ -65,14 +66,14 @@ export const Info = ({
                 <Text>
                   <p>
                     <ConditionalWrapper
-                      condition={client.href}
+                      condition={href}
                       wrapper={children => (
-                        <Link href={client.href} underline>
+                        <Link href={href} underline>
                           {children}
                         </Link>
                       )}
                     >
-                      {client.name}
+                      {name}
                     </ConditionalWrapper>
                   </p>
                 </Text>
@@ -136,7 +137,7 @@ export const Info = ({
         >
           <h2 className="Info-heading h4">{heading}</h2>
           <div className="grid">
-            <Text className="Info-text grid-col grid-col:7@s grid-col:6@l">
+            <Text className="Info-text grid-col grid-col:7@s grid-col:6@xl">
               {text}
             </Text>
           </div>

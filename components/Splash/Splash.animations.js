@@ -1,10 +1,4 @@
-import {
-  TRANS_PRIMARY,
-  TRANS_PRIMARY_FAST,
-  TRANS_PRIMARY_FASTEST,
-  TRANS_SECONDARY,
-  TRANS_TEMPLATE,
-} from '@/lib/config';
+import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 
 /**
  * 1. This is here to wait the CSS animation to end

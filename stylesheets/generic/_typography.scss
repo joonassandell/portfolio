@@ -17,8 +17,7 @@ hr {
   border-top: var(--border-width) solid var(--hr);
   display: block;
   height: var(--border-width);
-  margin-bottom: rem($space-m);
-  margin-top: 0;
+  margin: 0 0 rem($space-m) 0;
   overflow: visible;
   padding: 0;
 }
