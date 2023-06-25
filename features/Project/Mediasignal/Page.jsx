@@ -37,7 +37,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal homepage"
               priority
-              scroll={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               {...getImage('joonassandell-mediasignal-home', images)}
             />
@@ -47,6 +46,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Mediasignal blog page"
+              scroll
               scrollSpeed={0.5}
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-blog-screen', images)}
@@ -55,6 +55,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 -end grid-col:6@m">
             <Figure
               alt="Mediasignal company page"
+              scroll
               scrollSpeed="negative"
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-company-screen', images)}
@@ -63,6 +64,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 grid-col:6@m -start:4@m">
             <Figure
               alt="Alternate Mediasignal homepage"
+              scroll
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-home-screen', images)}
             />
@@ -70,6 +72,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 -start:3 grid-col:6@m -start:2@m">
             <Figure
               alt="Mediasignal navigation"
+              scroll
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage(
                 'joonassandell-mediasignal-navigation-screen',
@@ -89,6 +92,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:6">
             <Figure
               alt="Mediasignal logomark in light background"
+              scroll
               sizes="50vw"
               {...getImage('joonassandell-mediasignal-logomark', images)}
             />
@@ -97,6 +101,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal logomark in dark background"
               inViewOffset={0.5}
+              scroll
               scrollSpeed={3}
               sizes="50vw"
               {...getImage('joonassandell-mediasignal-logomark-dark', images)}
@@ -112,7 +117,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Logomark"
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-1', images)}
             />
@@ -121,7 +125,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Logomark safe area"
               inViewOffset={0.3}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-2', images)}
             />
@@ -130,7 +133,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Visual element"
               inViewOffset={0.6}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-3', images)}
             />
@@ -138,7 +140,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Typography"
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-4', images)}
             />
@@ -147,7 +148,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Imagery"
               inViewOffset={0.3}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-5', images)}
             />
@@ -156,7 +156,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Colors"
               inViewOffset={0.6}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-6', images)}
             />
@@ -164,7 +163,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Identity & Communications"
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-7', images)}
             />
@@ -173,7 +171,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Brand refreshment"
               inViewOffset={0.3}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-8', images)}
             />
@@ -182,7 +179,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             <Figure
               alt="Mediasignal brand book: Concept"
               inViewOffset={0.6}
-              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-mediasignal-brand-9', images)}
             />
@@ -192,6 +188,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:11 grid-col:10@m">
             <Figure
               alt="Mediasignal company page"
+              scroll
               scrollSpeed={1}
               sizes={`${MQ.m} 70vw, 90w`}
               {...getImage('joonassandell-mediasignal-company', images)}
@@ -200,7 +197,6 @@ export const MediasignalPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:11 grid-col:10@m -end">
             <Figure
               alt="Mediasignal references page"
-              scroll={false}
               sizes={`${MQ.m} 60vw, 90w`}
               {...getImage('joonassandell-mediasignal-work', images)}
             />

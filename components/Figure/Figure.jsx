@@ -24,7 +24,7 @@ export const Figure = ({
   inViewOffset = 0.1,
   mask = false,
   priority = false,
-  scroll = true,
+  scroll = false,
   scrollDelay,
   scrollImageSpeed = -3,
   scrollOffset = 0,
@@ -55,6 +55,7 @@ export const Figure = ({
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
   useInViewVideo(refVideo, inViewOffset);
+  scroll = scroll || mask;
   scrollSpeed === 'negative'
     ? (scrollSpeed = -SCROLL_SPEED)
     : (scrollSpeed = scrollSpeed);
@@ -125,10 +126,10 @@ export const Figure = ({
               height={height}
               onLoadingComplete={() => setImgLoaded(true)}
               priority={priority}
-              quality={quality}
               sizes={sizes}
               src={src}
               width={width}
+              quality={quality}
             />
           )}
           {isVideo && (
