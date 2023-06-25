@@ -1,0 +1,33 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  @include heading(null);
+}
+
+h1, .h1 {
+  @include heading(h1, false, false, false);
+}
+
+h2, .h2 {
+  @include heading(h2, false, false, false);
+}
+
+h3, .h3 {
+  @include heading(h3, false, false, false);
+}
+
+h4, .h4 {
+  @include heading(h4, false, false, false);
+}
+
+h5, .h5 {
+  @include heading(h5, false, false, false);
+}
+
+h6, .h6 {
+  @include heading(h6, false, false, false);
+}
+

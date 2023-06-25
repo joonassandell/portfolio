@@ -6,6 +6,7 @@
   @if $base {
     font-family: $heading-fontFamily;
     font-weight: $heading-fontWeight;
+    text-wrap: balance;
   }
 
   @if $margin {
