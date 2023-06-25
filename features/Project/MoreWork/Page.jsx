@@ -22,8 +22,8 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           text={
             <p>
               I assume you have already noticed my keen focus on creating
-              polished interfaces and meaningful experiences. So, I might as
-              well deliver you some more.
+              polished interfaces and meaningful experiences. So, I thought I
+              might as well deliver you some more.
             </p>
           }
           role={[
@@ -34,10 +34,11 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           smallPrint="Some projects may present initial designs and prototypes."
           year={year}
         />
-        <TemplateSection gridRowGap="default" paddingTop="10vw">
+        <TemplateSection gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
-            type={['Web service', 'Commission']}
+            heading="Hankkija"
+            role={['UI/UX design', 'Web development']}
             text={
               <p>
                 Hankkija Finnish Feed Innovations have their roots in the long
@@ -48,14 +49,14 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
                 well.
               </p>
             }
-            role={['UI/UX design', 'Web development']}
+            type={['Web service', 'Commission']}
             year={2020}
           />
           <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
-              alt="Hankkija website in mobile"
+              alt="Hankkija website in phone"
               scrolling={false}
-              sizes={`${MQ.m} 60vw, 100vw`}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-hankkija-mobile', images)}
             />
           </div>
@@ -70,6 +71,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 grid-col:5@m">
             <Figure
               alt="Another Hankkija homepage"
+              inViewOffset={0.5}
               scrolling={false}
               sizes={`${MQ.m} 40vw, 80vw`}
               {...getImage('joonassandell-hankkija-home-2', images)}
@@ -81,6 +83,48 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               scrolling={false}
               sizes={`${MQ.m} 33vw, 80vw`}
               {...getImage('joonassandell-hankkija-views', images)}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection gridRowGap="l" paddingTop="15vw">
+          <div className="grid-col grid-col:10@m grid-col:6@l">
+            <Figure
+              alt="Omoroi homepage"
+              scrolling={false}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage('joonassandell-omoroi-home', images)}
+            />
+          </div>
+          <SubInfo
+            client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
+            heading="Omoroi"
+            role={['UI/UX design', 'Web development']}
+            text={
+              <p>
+                Omoroi is your friend in software development and automation and
+                they love developing software and everything that comes with it.
+                Omoroi wanted me to design and develop them a website that
+                reflected their company brand, so I delivered one with some
+                "version control" inspired aesthetics 🤓
+              </p>
+            }
+            type={['Web service']}
+            year={2020}
+          />
+          <div className="grid-col grid-col:6@m">
+            <Figure
+              alt="Omoroi homepage animation"
+              scrolling={false}
+              src="/more-work/joonassandell-omoroi-home-animation.mp4"
+            />
+          </div>
+          <div className="grid-col grid-col:10 -end grid-col:6@m">
+            <Figure
+              alt="Omoroi mobile views"
+              inViewOffset={0.5}
+              scrolling={false}
+              sizes={`${MQ.m} 50vw, 80vw`}
+              {...getImage('joonassandell-omoroi-mobile', images)}
             />
           </div>
         </TemplateSection>

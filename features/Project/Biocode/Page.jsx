@@ -50,7 +50,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
               border
-              sizes={`${MQ.m} 40vw, 70vw`}
+              sizes={`${MQ.m} 60vw, 70vw`}
               quality={100}
               {...getImage(
                 'joonassandell-biocode-website-home-whoitsfor',
