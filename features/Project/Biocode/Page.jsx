@@ -41,7 +41,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
               glare
               priority
               quality={100}
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               {...getImage('joonassandell-biocode-website-home-hero', images)}
             />
@@ -75,7 +75,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Call to action to discover Biocode reporting service"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 60vw, 70vw`}
               quality={100}
               {...getImage(
@@ -139,7 +139,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
               alt="Example of Biocode's easy to use card"
               border
               glare
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
               {...getImage(
@@ -152,7 +152,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="About us page of Biocode homepage"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 60vw, 100vw`}
               quality={100}
               {...getImage('joonassandell-biocode-website-about', images)}
@@ -163,7 +163,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
               alt="Example of Biocode's agile card"
               border
               glare
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
               {...getImage('joonassandell-biocode-website-card-agile', images)}
@@ -175,7 +175,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
               border
               glare
               inViewOffset={0.3}
-              scrolling={false}
+              scroll={false}
               quality={100}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage(
@@ -190,7 +190,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
               border
               glare
               inViewOffset={0.6}
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
               {...getImage(
@@ -218,7 +218,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode feature page assessment image"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 60vw, 90w`}
               quality={100}
               {...getImage(
@@ -231,7 +231,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Mobile view of Biocode's homepage"
               glare
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 25vw, 33vw`}
               quality={100}
               {...getImage('joonassandell-biocode-website-mobile', images)}
@@ -253,7 +253,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode for producers app in dark mode"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               quality={100}
               {...getImage(
@@ -268,7 +268,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode app sign in page"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 70vw, 100vw`}
               {...getImage('joonassandell-biocode-app-auth', images)}
             />
@@ -277,7 +277,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode app for producers overview page"
               border
-              scrolling={false}
+              scroll={false}
               sizes="70vw"
               {...getImage(
                 'joonassandell-biocode-app-producer-overview',
@@ -289,7 +289,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode app for producers assessment page"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-biocode-app-producer-crop', images)}
             />
@@ -298,7 +298,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Example of Biocode's user interface elements"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 50vw, 90vw`}
               {...getImage('joonassandell-biocode-app-ui', images)}
             />
@@ -307,7 +307,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Another example of Biocode's user interface elements"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 90vw`}
               {...getImage('joonassandell-biocode-app-ui-2', images)}
             />
@@ -316,7 +316,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
             <Figure
               alt="Biocode for producers application teaser image"
               border
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-biocode-app-producer-frame', images)}
             />

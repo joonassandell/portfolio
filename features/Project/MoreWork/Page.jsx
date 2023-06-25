@@ -53,14 +53,14 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
               alt="HW-Company home page animation"
-              scrolling={false}
+              scroll={false}
               src="/more-work/joonassandell-hw-company-home-animation.mp4"
             />
           </div>
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="HW-Company home page"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-hw-company-home', images)}
             />
@@ -68,7 +68,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 grid-col:4@m">
             <Figure
               alt="HW-Company products page"
-              scrolling={false}
+              scroll={false}
               inViewOffset={0.5}
               sizes={`${MQ.m} 33vw, 80vw`}
               {...getImage('joonassandell-hw-company-products', images)}
@@ -92,7 +92,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-omoroi-home', images)}
             />
@@ -116,7 +116,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:6@m">
             <Figure
               alt="Omoroi homepage animation"
-              scrolling={false}
+              scroll={false}
               src="/more-work/joonassandell-omoroi-home-animation.mp4"
             />
           </div>
@@ -124,7 +124,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             <Figure
               alt="Omoroi mobile views"
               inViewOffset={0.5}
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 50vw, 80vw`}
               {...getImage('joonassandell-omoroi-mobile', images)}
             />
@@ -148,7 +148,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
               alt="Hankkija website in phone"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 50vw, ${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-hankkija-mobile', images)}
             />
@@ -156,7 +156,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Hankkija homepage"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-hankkija-home', images)}
             />
@@ -165,7 +165,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             <Figure
               alt="Another Hankkija homepage"
               inViewOffset={0.5}
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 40vw, 80vw`}
               {...getImage('joonassandell-hankkija-home-2', images)}
             />
@@ -173,7 +173,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10 -start:3 grid-col:6@m">
             <Figure
               alt="Hankkija subpages"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 33vw, 80vw`}
               {...getImage('joonassandell-hankkija-views', images)}
             />
@@ -193,7 +193,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-hukka-mobile', images)}
             />
@@ -232,7 +232,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:9@m -end">
             <Figure
               alt="Hukka dashboard desktop view"
-              scrolling={false}
+              scroll={false}
               sizes="80vw"
               {...getImage('joonassandell-hukka', images)}
             />
@@ -256,7 +256,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
               alt="Academic bookstore home page"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
               {...getImage(
                 'joonassandell-academic-bookstore-home-initial',
@@ -267,7 +267,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Initial Academic bookstore home page"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-academic-bookstore-home', images)}
             />

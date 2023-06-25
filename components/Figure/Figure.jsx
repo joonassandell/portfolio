@@ -24,9 +24,9 @@ export const Figure = ({
   inViewOffset = 0.1,
   mask = false,
   priority = false,
+  scroll = true,
   scrollDelay,
   scrollImageSpeed = -3,
-  scrolling = true,
   scrollOffset = 0,
   scrollPosition,
   scrollSpeed = SCROLL_SPEED,
@@ -71,21 +71,21 @@ export const Figure = ({
         ['--Figure-bg-color']: isString(background) ? background : undefined,
         ['--Figure-border-color']: isString(border) ? border : undefined,
       }}
-      {...(scrolling && mask && { 'data-scroll-id': id })}
-      {...(scrolling && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
+      {...(scroll && mask && { 'data-scroll-id': id })}
+      {...(scroll && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
       {...(scrollOffset && { 'data-scroll-offset': scrollOffset })}
       {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
-      {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+      {...(scroll && scrollDelay && { 'data-scroll-delay': scrollDelay })}
     >
       <figure
         className="Figure-figure"
-        {...(scrolling && mask && { 'data-scroll': true })}
-        {...(scrolling && mask && { 'data-scroll-speed': scrollImageSpeed })}
-        {...(scrolling &&
+        {...(scroll && mask && { 'data-scroll': true })}
+        {...(scroll && mask && { 'data-scroll-speed': scrollImageSpeed })}
+        {...(scroll &&
           mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
-        {...(scrolling &&
+        {...(scroll &&
           scrollPosition && { 'data-scroll-position': scrollPosition })}
-        {...(scrolling && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+        {...(scroll && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <m.div
           animate={inView ? 'animate' : ''}

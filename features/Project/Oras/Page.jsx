@@ -69,7 +69,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras product family"
               priority
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.l} 80vw, 100vw`}
               quality={90}
               {...getImage('joonassandell-oras-product-family', images)}
@@ -100,7 +100,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras products overview"
               priority
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-oras-products-overview', images)}
             />
@@ -108,7 +108,7 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:8@m -start:2@m">
             <Figure
               alt="Oras blog"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-oras-blog', images)}
             />
@@ -117,7 +117,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras kitchen experience"
               priority
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-oras-ux-kitchen', images)}
             />
@@ -146,7 +146,7 @@ export const OrasPage = ({ images, id, title }) => {
           <div className="grid-col grid-col:9 grid-col:8@m -start:4@m">
             <Figure
               alt="Oras look book cta"
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 80vw, 100vw`}
               transition="clip"
               {...getImage('joonassandell-oras-look-booked', images)}
@@ -167,7 +167,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras single product page"
               priority
-              scrolling={false}
+              scroll={false}
               sizes={`${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-oras-product-single', images)}
             />
@@ -187,7 +187,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras strategy 1"
                 border
-                scrolling={false}
+                scroll={false}
                 sizes={`${MQ.m} 33vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-5', images)}
               />
@@ -196,7 +196,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras strategy 2"
                 border
-                scrolling={false}
+                scroll={false}
                 sizes="50vw"
                 {...getImage('joonassandell-oras-strategy-6', images)}
               />
@@ -207,7 +207,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras strategy 3"
                 border
-                scrolling={false}
+                scroll={false}
                 sizes={`${MQ.m} 33vw, 80vw`}
                 quality={90}
                 {...getImage('joonassandell-oras-strategy-1', images)}
@@ -217,7 +217,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras strategy 4"
                 border
-                scrolling={false}
+                scroll={false}
                 sizes={`${MQ.m} 33vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-2', images)}
               />
@@ -229,7 +229,7 @@ export const OrasPage = ({ images, id, title }) => {
                 <Figure
                   alt="Oras strategy 5"
                   border
-                  scrolling={false}
+                  scroll={false}
                   sizes={`${MQ.m} 33vw, 80vw`}
                   {...getImage('joonassandell-oras-strategy-2', images)}
                 />
@@ -237,7 +237,7 @@ export const OrasPage = ({ images, id, title }) => {
               <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
                 <Figure
                   alt="Oras strategy 6"
-                  scrolling={false}
+                  scroll={false}
                   sizes={`${MQ.m} 33vw, 50vw`}
                   {...getImage('joonassandell-oras-strategy-7', images)}
                 />
@@ -247,7 +247,7 @@ export const OrasPage = ({ images, id, title }) => {
               <Figure
                 alt="Oras strategy 7"
                 border
-                scrolling={false}
+                scroll={false}
                 sizes={`${MQ.m} 50vw, 80vw`}
                 quality={90}
                 {...getImage('joonassandell-oras-strategy-4', images)}
