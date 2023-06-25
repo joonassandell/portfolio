@@ -1,5 +1,6 @@
 import { ButtonEnter } from '@/components/Button';
 import { Text } from '@/components/Text';
+import { Heading } from '@/components/Heading';
 import c from 'classnames';
 import { Fragment } from 'react';
 
@@ -17,9 +18,14 @@ export const HeroContent = ({
   return (
     <div className={classes}>
       {/* Hero heading is aligned before and used as the main heading */}
-      <Text aria-hidden="true" className="Hero-content-heading h5">
+      <Heading
+        aria-hidden="true"
+        className="Hero-content-heading"
+        size="h5"
+        tag="div"
+      >
         {heading}
-      </Text>
+      </Heading>
       <Text className="mb:0" size="small" tag="p">
         {role?.map((r, i, arr) => {
           const br = arr.length - 1 != i ? <br /> : null;

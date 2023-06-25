@@ -2,6 +2,7 @@ import { MQ } from '@/lib/config';
 import { m } from 'framer-motion';
 import { Link } from '@/components/Link';
 import { Text } from '@/components/Text';
+import { Heading } from '@/components/Heading';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
@@ -55,42 +56,38 @@ export const Info = ({
               variants={colVariants}
             >
               <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                   Client
                 </Text>
-                <Text size="small">
-                  <p>
-                    <ConditionalWrapper
-                      condition={href}
-                      wrapper={children => (
-                        <Link href={href} underline>
-                          {children}
-                        </Link>
-                      )}
-                    >
-                      {name}
-                    </ConditionalWrapper>
-                  </p>
+                <Text size="small" tag="p">
+                  <ConditionalWrapper
+                    condition={href}
+                    wrapper={children => (
+                      <Link href={href} underline>
+                        {children}
+                      </Link>
+                    )}
+                  >
+                    {name}
+                  </ConditionalWrapper>
                 </Text>
               </div>
               <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                   Year
                 </Text>
-                <Text size="small">
-                  <p>{year}</p>
+                <Text size="small" tag="p">
+                  {year}
                 </Text>
               </div>
               <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                   Project type
                 </Text>
-                <Text size="small">
-                  <ul>
-                    {type.map((r, i) => (
-                      <li key={i}>{r}</li>
-                    ))}
-                  </ul>
+                <Text size="small" tag="ul">
+                  {type.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
                 </Text>
               </div>
             </m.div>
@@ -99,24 +96,21 @@ export const Info = ({
               variants={colVariants}
             >
               <div className="grid-col">
-                <Text marginBottom="xxSmall" color="light" size="small">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                   Role
                 </Text>
-                <Text className="grid-col" size="small">
-                  <ul>
-                    {role.map((r, i) => (
-                      <li key={i}>{r}</li>
-                    ))}
-                  </ul>
+                <Text className="grid-col" size="small" tag="ul">
+                  {role.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
                 </Text>
               </div>
               <Text
                 className="Info-meta-small grid-col -align:end"
                 color="light"
+                tag="small"
               >
-                <p>
-                  <small>{smallPrint}</small>
-                </p>
+                {smallPrint}
               </Text>
             </m.div>
           </div>
@@ -129,9 +123,13 @@ export const Info = ({
           ref={textRef}
           variants={colVariants}
         >
-          <h2 className="Info-heading h4">{heading}</h2>
+          <Heading className="Info-heading" tag="h2" size="h4">
+            {heading}
+          </Heading>
           <div className="grid">
-            <Text className="Info-text grid-col grid-col:7@s">{text}</Text>
+            <Text className="Info-text grid-col grid-col:8@s grid-col:7@m">
+              {text}
+            </Text>
           </div>
         </m.div>
       </div>

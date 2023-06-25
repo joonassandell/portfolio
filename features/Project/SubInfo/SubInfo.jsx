@@ -32,7 +32,7 @@ export const SubInfo = ({
       />
       <m.div
         animate={gridInView ? 'animate' : ''}
-        className="grid -gap:ro:l"
+        className="grid"
         initial="initial"
         ref={gridRef}
         variants={gridVariants}
@@ -48,61 +48,55 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={colVariants}
         >
-          <Text marginBottom="xxSmall" color="light" size="small">
+          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Client & Year
           </Text>
-          <Text size="small">
-            <p>
-              <ConditionalWrapper
-                condition={href}
-                wrapper={children => (
-                  <Link href={href} underline>
-                    {children}
-                  </Link>
-                )}
-              >
-                {name}
-              </ConditionalWrapper>
-              {' ✳︎ '}
-              {year}
-            </p>
+          <Text size="small" tag="p">
+            <ConditionalWrapper
+              condition={href}
+              wrapper={children => (
+                <Link href={href} underline>
+                  {children}
+                </Link>
+              )}
+            >
+              {name}
+            </ConditionalWrapper>
+            {' ✳︎ '}
+            {year}
           </Text>
         </m.div>
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
           variants={colVariants}
         >
-          <Text marginBottom="xxSmall" color="light" size="small">
+          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Role
           </Text>
-          <Text size="small">
-            <ul>
-              {role.map((r, i) => (
-                <li key={i}>{r}</li>
-              ))}
-            </ul>
+          <Text size="small" tag="ul">
+            {role.map((r, i) => (
+              <li key={i}>{r}</li>
+            ))}
           </Text>
         </m.div>
         <m.div
-          className="grid-col grid-col:6 grid-col:4@s -en"
+          className="grid-col grid-col:6 grid-col:4@s"
           variants={colVariants}
         >
-          <Text marginBottom="xxSmall" color="light" size="small">
+          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Project type
           </Text>
-          <Text size="small">
-            <ul>
-              {type.map((r, i) => (
-                <li key={i}>{r}</li>
-              ))}
-            </ul>
+          <Text size="small" tag="ul">
+            {type.map((r, i) => (
+              <li key={i}>{r}</li>
+            ))}
           </Text>
         </m.div>
         <m.div
-          className="SubInfo-text grid-col grid-col:6@m -start:5@s grid-col:8@l -start:1@l"
+          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:8@l -start:1@l"
           variants={colVariants}
         >
-          {text}
+          <Text>{text}</Text>
         </m.div>
       </m.div>
     </div>

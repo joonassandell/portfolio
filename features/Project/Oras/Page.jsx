@@ -21,7 +21,7 @@ export const OrasPage = ({ images, id, title }) => {
           client={{ name: title }}
           type={['Web service', 'Commission']}
           heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
-          smallPrint="Made together with wonderful people at Mediasignal and Hasan & Partners."
+          smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
           text={
             <p>
               After several iterations the Oras brand was modernised entirely in

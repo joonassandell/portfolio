@@ -19,7 +19,7 @@ export const BiocodePage = ({ images, id, title, year }) => {
           client={{ name: title, href: 'https://biocode.io' }}
           type={['Web app', 'Web service', 'Commission']}
           heading="Biocode is Carbon footprint calculator that makes sense. It's aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
-          smallPrint="Building together with awesome co-workers at Biocode."
+          smallPrint="Building together with awesome co-workers from Biocode."
           text={
             <p>
               I'm currently working for Biocode as a lead producer designer and
