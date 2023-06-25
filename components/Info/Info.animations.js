@@ -29,6 +29,6 @@ export const colVariants = {
   }),
   initial: {
     opacity: 0,
-    y: '4rem',
+    y: '8rem',
   },
 };

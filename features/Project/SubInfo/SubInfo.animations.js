@@ -28,6 +28,6 @@ export const colVariants = {
   initial: {
     opacity: 0,
     skewY: 10,
-    y: '3rem',
+    y: '8rem',
   },
 };
