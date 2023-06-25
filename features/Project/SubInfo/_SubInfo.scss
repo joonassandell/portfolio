@@ -2,6 +2,10 @@
   .grid-col {
     transform-origin: top left;
   }
+
+  @include mq($until: l) {
+    order: -1;
+  }
 }
 
 .SubInfo-ruler {
@@ -18,6 +22,8 @@
 }
 
 .SubInfo-text {
+  text-wrap: balance;
+
   @include mq(s) {
     margin-top: rem($space);
   }

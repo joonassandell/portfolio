@@ -38,11 +38,11 @@ export const SubInfo = ({
         variants={gridVariants}
       >
         {heading && (
-          <div className="grid-col">
+          <m.div className="grid-col" variants={colVariants}>
             <Heading className="mb:0" size="h4">
               {heading}
             </Heading>
-          </div>
+          </m.div>
         )}
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
