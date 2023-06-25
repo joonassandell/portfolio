@@ -32,10 +32,100 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             'Web development',
             'Concept strategies',
           ]}
-          smallPrint="Some projects may present initial designs and prototypes."
+          smallPrint="Some projects may present initial designs and prototypes"
           year={year}
         />
-        <TemplateSection gridRowGap="l" paddingTop="10vw">
+        <TemplateSection gridRowGap="l" paddingTop="15vw">
+          <SubInfo
+            client={{ name: 'Bonnier Books' }}
+            heading="Academic Bookstore"
+            role={['UI/UX design', 'Web development', 'App development']}
+            text={
+              <p>
+                The Academic Bookstore's ambition is to be a quality bookstore
+                in modern time. The Academic Bookstore has a long-standing
+                commitment to reading and life-long learning.
+              </p>
+            }
+            type={['Web service', 'E-commerce', 'Commission']}
+            year={2016}
+          />
+          <div className="grid-col grid-col:7@m grid-col:6@l">
+            <Figure
+              alt="Academic bookstore home page"
+              scrolling={false}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage(
+                'joonassandell-academic-bookstore-home-initial',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:8@m">
+            <Figure
+              alt="Initial Academic bookstore home page"
+              scrolling={false}
+              sizes={`${MQ.m} 70vw, 100vw`}
+              {...getImage('joonassandell-academic-bookstore-home', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:4@m">
+            <Text>
+              <p>
+                Bonnier Books signed a deal to acquire the operations of Finnish
+                bookstore chain Academic Bookstore from Stockmann. The client
+                wanted us to create them a new website to reflect this change in
+                operations.
+              </p>
+              <p>
+                This change required rapid actions, so we quickly crafted
+                initial webpage which then developed to an e-commerce store.
+              </p>
+              <p>
+                We also developed a web application called "Lukupassi" to
+                encourage people to read more.
+              </p>
+              <Text color="light">
+                <small>
+                  Crafted together with professionals from Mediasignal
+                </small>
+              </Text>
+            </Text>
+          </div>
+        </TemplateSection>
+        <TemplateSection gridGap="default" paddingTop="10vw" wrap={false}>
+          <div className="grid-col grid-col:5 grid-col:3@m">
+            <Figure
+              alt="Academic bookstore brand imagery of children reading"
+              mask
+              sizes={`${MQ.m} 25vw, 40vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:6 grid-col:4@m -align:end">
+            <Figure
+              alt="Academic bookstore brand imagery of woman reading"
+              mask
+              inViewOffset={0.5}
+              scrollSpeed="negative"
+              sizes={`${MQ.m} 33vw, 50vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand-2', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:6 grid-col:5@m">
+            <Figure
+              alt="Academic bookstore brand imagery of man reading"
+              mask
+              inViewOffset={0.5}
+              sizes={`${MQ.m} 40vw, 50vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand', images)}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection gridRowGap="l" paddingTop="20vw">
           <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company"
@@ -73,18 +163,22 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               sizes={`${MQ.m} 33vw, 80vw`}
               {...getImage('joonassandell-hw-company-products', images)}
             />
-            <Text className="mt:xl" tag="p">
-              I was asked to design and develop website for the companys newly
-              updated brand. The main goal was to improve HW-Company's brand,
-              improve usability, and give website users a comprehensive picture
-              of HW-Company's activities around the world.
-            </Text>
-            <Text color="light" tag="small">
-              Built together with awesome people from Porkka & Kuutsa.
+            <Text className="mt:xl">
+              <p>
+                I was asked to design and develop website for the companys newly
+                updated brand. The main goal was to improve HW-Company's brand,
+                improve usability, and give website users a comprehensive
+                picture of HW-Company's activities around the world.
+              </p>
+              <Text color="light">
+                <small>
+                  Built together with awesome people from Porkka & Kuutsa
+                </small>
+              </Text>
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" paddingTop="20vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija"
@@ -133,14 +227,17 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
           <div className="grid-col grid-col:10@s grid-col:4@m">
-            <Text tag="p">
-              I had the honor to design and develop Hankkija's new international
-              website. The fresh user interface innovated the client to expand
-              the design to other marketing materials as well.
+            <Text>
+              <p>
+                I had the honor to design and develop Hankkija's new
+                international website. The fresh user interface innovated the
+                client to expand the design to other marketing materials as
+                well.
+              </p>
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" paddingTop="20vw">
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
