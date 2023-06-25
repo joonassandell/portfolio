@@ -1,6 +1,6 @@
 .Hero--oras {
   --Stamp-iris: var(--oras-primary);
-  background-color: var(--oras-bg);
+  background-color: var(--oras-bg-50);
 
   .Hero-figure {
     height: clamp(rem($space * 14), 55vw, rem($space * 28));

@@ -1,7 +1,7 @@
 .Hero--moreWork {
-  --Stamp-overlay: var(--moreWork-bg);
+  --Stamp-overlay: var(--moreWork-bg-50);
   --Stamp-iris: var(--moreWork-primary);
-  background-color: var(--moreWork-bg);
+  background-color: var(--moreWork-bg-50);
 
   .Hero-figure-figure {
     --width: 45vw;
