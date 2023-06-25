@@ -5,7 +5,7 @@ import { Hero, HeroContent } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
 import { headingVariants, maskVariants } from './Hero.animations';
 import Image from 'next/image';
-import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.png';
+import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
