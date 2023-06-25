@@ -70,7 +70,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               sizes={`${MQ.m} 33vw, 80vw`}
               {...getImage('joonassandell-hw-company-products', images)}
             />
-            <Text className="mt:xl">
+            <Text animate className="mt:xl">
               <p>
                 I was asked to design and develop website for the companys newly
                 updated brand. The main goal was to improve HW-Company's brand,
@@ -169,7 +169,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
           <div className="grid-col grid-col:10@s grid-col:4@m">
-            <Text>
+            <Text animate>
               <p>
                 I had the honor to design and develop Hankkija's new
                 international website. The fresh user interface innovated the
@@ -202,7 +202,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             year={2019}
           />
           <div className="grid-col grid-col:3@m">
-            <Text>
+            <Text animate>
               <p>
                 Luke needed an application for their food waste research
                 project, so we build them one with Laravel and React.
@@ -259,7 +259,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
           <div className="grid-col grid-col:4@m">
-            <Text>
+            <Text animate>
               <p>
                 Bonnier Books signed a deal to acquire the operations of Finnish
                 bookstore chain Academic Bookstore from Stockmann. The client
