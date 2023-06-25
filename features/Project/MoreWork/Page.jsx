@@ -37,96 +37,6 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         />
         <TemplateSection gridRowGap="l" paddingTop="15vw">
           <SubInfo
-            client={{ name: 'Bonnier Books' }}
-            heading="Academic Bookstore"
-            role={['UI/UX design', 'Web development', 'App development']}
-            text={
-              <p>
-                The Academic Bookstore's ambition is to be a quality bookstore
-                in modern time. The Academic Bookstore has a long-standing
-                commitment to reading and life-long learning.
-              </p>
-            }
-            type={['Web service', 'E-commerce', 'Commission']}
-            year={2016}
-          />
-          <div className="grid-col grid-col:7@m grid-col:6@l">
-            <Figure
-              alt="Academic bookstore home page"
-              scrolling={false}
-              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
-              {...getImage(
-                'joonassandell-academic-bookstore-home-initial',
-                images,
-              )}
-            />
-          </div>
-          <div className="grid-col grid-col:8@m">
-            <Figure
-              alt="Initial Academic bookstore home page"
-              scrolling={false}
-              sizes={`${MQ.m} 70vw, 100vw`}
-              {...getImage('joonassandell-academic-bookstore-home', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:4@m">
-            <Text>
-              <p>
-                Bonnier Books signed a deal to acquire the operations of Finnish
-                bookstore chain Academic Bookstore from Stockmann. The client
-                wanted us to create them a new website to reflect this change in
-                operations.
-              </p>
-              <p>
-                This change required rapid actions, so we quickly crafted
-                initial webpage which then developed to an e-commerce store.
-              </p>
-              <p>
-                We also developed a web application called "Lukupassi" to
-                encourage people to read more.
-              </p>
-              <Text color="light">
-                <small>
-                  Crafted together with professionals from Mediasignal
-                </small>
-              </Text>
-            </Text>
-          </div>
-        </TemplateSection>
-        <TemplateSection gridGap="default" paddingTop="10vw" wrap={false}>
-          <div className="grid-col grid-col:5 grid-col:3@m">
-            <Figure
-              alt="Academic bookstore brand imagery of children reading"
-              mask
-              sizes={`${MQ.m} 25vw, 40vw`}
-              transition="clip"
-              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:6 grid-col:4@m -align:end">
-            <Figure
-              alt="Academic bookstore brand imagery of woman reading"
-              mask
-              inViewOffset={0.5}
-              scrollSpeed="negative"
-              sizes={`${MQ.m} 33vw, 50vw`}
-              transition="clip"
-              {...getImage('joonassandell-academic-bookstore-brand-2', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:6 grid-col:5@m">
-            <Figure
-              alt="Academic bookstore brand imagery of man reading"
-              mask
-              inViewOffset={0.5}
-              sizes={`${MQ.m} 40vw, 50vw`}
-              transition="clip"
-              {...getImage('joonassandell-academic-bookstore-brand', images)}
-            />
-          </div>
-        </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="20vw">
-          <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company"
             role={['UI/UX design', 'Web development']}
@@ -176,6 +86,48 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
                 </small>
               </Text>
             </Text>
+          </div>
+        </TemplateSection>
+        <TemplateSection gridRowGap="l" paddingTop="20vw">
+          <div className="grid-col grid-col:10@m grid-col:6@l">
+            <Figure
+              alt="Omoroi homepage"
+              scrolling={false}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage('joonassandell-omoroi-home', images)}
+            />
+          </div>
+          <SubInfo
+            client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
+            heading="Omoroi"
+            role={['UI/UX design', 'Web development']}
+            text={
+              <p>
+                Omoroi is your friend in software development and automation and
+                they love developing software and everything that comes with it.
+                Omoroi wanted me to design and develop them a website that
+                reflected their company brand, so I delivered one with some
+                "version control" inspired aesthetics 🤓
+              </p>
+            }
+            type={['Web service']}
+            year={2020}
+          />
+          <div className="grid-col grid-col:6@m">
+            <Figure
+              alt="Omoroi homepage animation"
+              scrolling={false}
+              src="/more-work/joonassandell-omoroi-home-animation.mp4"
+            />
+          </div>
+          <div className="grid-col grid-col:10 -end grid-col:6@m">
+            <Figure
+              alt="Omoroi mobile views"
+              inViewOffset={0.5}
+              scrolling={false}
+              sizes={`${MQ.m} 50vw, 80vw`}
+              {...getImage('joonassandell-omoroi-mobile', images)}
+            />
           </div>
         </TemplateSection>
         <TemplateSection gridRowGap="l" paddingTop="20vw">
@@ -240,42 +192,139 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection gridRowGap="l" paddingTop="20vw">
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
-              alt="Omoroi homepage"
+              alt="Hukka dashboard mobile view"
               scrolling={false}
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
-              {...getImage('joonassandell-omoroi-home', images)}
+              {...getImage('joonassandell-hukka-mobile', images)}
             />
           </div>
           <SubInfo
-            client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
-            heading="Omoroi"
-            role={['UI/UX design', 'Web development']}
+            client={{ name: 'Luke', href: 'https://luke.fi' }}
+            heading="Hukka"
+            role={['UI/UX design', 'App development']}
             text={
               <p>
-                Omoroi is your friend in software development and automation and
-                they love developing software and everything that comes with it.
-                Omoroi wanted me to design and develop them a website that
-                reflected their company brand, so I delivered one with some
-                "version control" inspired aesthetics 🤓
+                Natural Resources Institute Finland (Luke) is a research
+                organisation that builds sustainable future and well-being from
+                renewable natural resources.
               </p>
             }
-            type={['Web service']}
-            year={2020}
+            type={['Web application']}
+            year={2019}
           />
-          <div className="grid-col grid-col:6@m">
+          <div className="grid-col grid-col:3@m">
+            <Text>
+              <p>
+                Luke needed an application for their food waste research
+                project, so we build them one with Laravel and React.
+              </p>
+              <p>
+                In the feedback survey 97% of the users mentioned that the user
+                interface was extremely easy to use. 💪
+              </p>
+              <Text color="light">
+                <small>
+                  Built together with awesome people from Mediasignal
+                </small>
+              </Text>
+            </Text>
+          </div>
+          <div className="grid-col grid-col:9@m -end">
             <Figure
-              alt="Omoroi homepage animation"
+              alt="Hukka dashboard desktop view"
               scrolling={false}
-              src="/more-work/joonassandell-omoroi-home-animation.mp4"
+              sizes="80vw"
+              {...getImage('joonassandell-hukka', images)}
             />
           </div>
-          <div className="grid-col grid-col:10 -end grid-col:6@m">
+        </TemplateSection>
+        <TemplateSection gridRowGap="l" paddingTop="15vw">
+          <SubInfo
+            client={{ name: 'Bonnier Books' }}
+            heading="Academic Bookstore"
+            role={['UI/UX design', 'Web development', 'App development']}
+            text={
+              <p>
+                The Academic Bookstore's ambition is to be a quality bookstore
+                in modern time. The Academic Bookstore has a long-standing
+                commitment to reading and life-long learning.
+              </p>
+            }
+            type={['Web service', 'E-commerce', 'Commission']}
+            year={2016}
+          />
+          <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
-              alt="Omoroi mobile views"
-              inViewOffset={0.5}
+              alt="Academic bookstore home page"
               scrolling={false}
-              sizes={`${MQ.m} 50vw, 80vw`}
-              {...getImage('joonassandell-omoroi-mobile', images)}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage(
+                'joonassandell-academic-bookstore-home-initial',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:8@m">
+            <Figure
+              alt="Initial Academic bookstore home page"
+              scrolling={false}
+              sizes={`${MQ.m} 70vw, 100vw`}
+              {...getImage('joonassandell-academic-bookstore-home', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:4@m">
+            <Text>
+              <p>
+                Bonnier Books signed a deal to acquire the operations of Finnish
+                bookstore chain Academic Bookstore from Stockmann. The client
+                wanted us to create them a new website to reflect this change in
+                operations.
+              </p>
+              <p>
+                This change required rapid actions, so we quickly crafted
+                initial webpage which then developed to an e-commerce store.
+              </p>
+              <p>
+                We also developed a web application called "Lukupassi" to
+                encourage people to read more.
+              </p>
+              <Text color="light">
+                <small>
+                  Crafted together with professionals from Mediasignal
+                </small>
+              </Text>
+            </Text>
+          </div>
+        </TemplateSection>
+        <TemplateSection paddingTop="10vw" wrap={false}>
+          <div className="grid-col grid-col:5 grid-col:3@m">
+            <Figure
+              alt="Academic bookstore brand imagery of children reading"
+              mask
+              sizes={`${MQ.m} 25vw, 40vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:6 grid-col:4@m -align:end">
+            <Figure
+              alt="Academic bookstore brand imagery of woman reading"
+              mask
+              inViewOffset={0.5}
+              scrollSpeed="negative"
+              sizes={`${MQ.m} 33vw, 50vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand-2', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:6 grid-col:5@m">
+            <Figure
+              alt="Academic bookstore brand imagery of man reading"
+              mask
+              inViewOffset={0.5}
+              sizes={`${MQ.m} 40vw, 50vw`}
+              transition="clip"
+              {...getImage('joonassandell-academic-bookstore-brand', images)}
             />
           </div>
         </TemplateSection>
