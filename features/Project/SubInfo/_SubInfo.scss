@@ -9,7 +9,7 @@
 }
 
 .SubInfo-ruler {
-  margin-bottom: rem($space-l);
+  margin-bottom: rem($space-ml);
   transform-origin: top left;
 
   @include mq(s) {

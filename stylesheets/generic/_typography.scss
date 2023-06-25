@@ -10,6 +10,7 @@ strong {
 small {
   @include text(xs);
   display: inline-block;
+  margin: 0 0 rem($space-m);
 }
 
 hr {

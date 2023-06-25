@@ -14,8 +14,8 @@ export const Info = ({
   heading,
   role = [],
   smallPrint,
-  type = [],
   text,
+  type = [],
   year,
 }) => {
   const { name, href } = client || {};
@@ -108,9 +108,8 @@ export const Info = ({
               <Text
                 className="Info-meta-small grid-col -align:end"
                 color="light"
-                tag="small"
               >
-                {smallPrint}
+                <small>{smallPrint}</small>
               </Text>
             </m.div>
           </div>

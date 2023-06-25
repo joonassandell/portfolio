@@ -11,15 +11,15 @@ export const SubInfo = ({
   client,
   heading,
   role = [],
+  text,
   type = [],
   year,
-  text,
 }) => {
   const { name, href } = client || {};
   const rulerRef = useRef(null);
-  const rulerInView = useInView(rulerRef);
+  const rulerInView = useInView(rulerRef, 0.5);
   const gridRef = useRef(null);
-  const gridInView = useInView(gridRef);
+  const gridInView = useInView(gridRef, 0.5);
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">

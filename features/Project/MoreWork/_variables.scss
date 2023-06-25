@@ -1,5 +1,4 @@
 :root {
-  // Alternatives: #{lighten(#CCCFC8, 10)}, var(--cream-200), #E6E5E3, var(--white)
   --moreWork-bg: #CCCFC8;
   --moreWork-bg-100: #{darken(#CCCFC8, 10)};
   --moreWork-text-muted: #{darken(#CCCFC8, 50)};

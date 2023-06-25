@@ -13,7 +13,7 @@ export const rulerVariants = {
 export const gridVariants = {
   animate: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };

@@ -29,7 +29,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
             </p>
           }
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
-          smallPrint="Made together with professionals in Porkka & Kuutsa and Mediasignal."
+          smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
           year={year}
         />
         <TemplateSection gridGap="xl" paddingTop="10vw">
