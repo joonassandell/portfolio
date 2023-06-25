@@ -1,11 +1,33 @@
+/**
+ * These variables should rather be scoped under .Hero but then framer-motion
+ * doesn't know how to read the figure values for some reason. So, for clarity
+ * all variables are added here.
+ *
+ * 1. For locomotive-scroll to work properly and not trigger a movement e.g.
+ *    with heading after template transition
+ */
 :root {
   --Hero-minHeight: #{rem($space * 33)};
   --Hero-height: 100vw;
   --Hero-maxHeight: 75vh;
+
   --Hero-figure-bg: var(--black);
   --Hero-figure-bg-alpha: 0.15;
   --Hero-figure-bg-rgb: 0, 0, 0;
   --Hero-figure-pre-bg-alpha: 0.06;
-  --Stamp-center-x: 0px;
-  --Stamp-center-y: 0px;
+
+  --Hero-inner-minHeight: var(--vh);  // [1.]
+
+  @include mq(s) {
+    --Hero-maxHeight: #{rem($space * 48)};
+  }
+
+  @include mq(l) {
+    --Hero-minHeight: #{rem($space * 42)};
+    --Hero-height: var(--vh); // [1.]
+  }
+
+  @include mq(xxl) {
+    --Hero-minHeight: #{rem($space * 44)};
+  }
 }
