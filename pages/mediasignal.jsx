@@ -2,17 +2,16 @@ import { MediasignalPage } from '@/features/Project';
 import { getSitemap } from '@/lib/utility';
 import { getImages } from '@/lib/getImages';
 
-const { id, navTitle, ...sitemap } = getSitemap('mediasignal');
-
-export default function Page({ images }) {
-  return <MediasignalPage id={id} images={images} {...sitemap} />;
+export default function Page({ ...props }) {
+  return <MediasignalPage {...props} />;
 }
 
 export const getStaticProps = async () => {
+  const { images, ...sitemap } = getSitemap('mediasignal');
   return {
     props: {
-      navTitle,
-      images: await getImages(`./public/${id}/*.{jpg,png}`),
+      images: await getImages(images),
+      ...sitemap,
     },
   };
 };

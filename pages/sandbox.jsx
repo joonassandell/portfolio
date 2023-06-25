@@ -2,17 +2,16 @@ import { SandboxPage } from '@/features/Project';
 import { getSitemap } from '@/lib/utility';
 import { getImages } from '@/lib/getImages';
 
-const { id, navTitle, ...sitemap } = getSitemap('sandbox');
-
-export default function Page({ images }) {
-  return <SandboxPage id={id} images={images} {...sitemap} />;
+export default function Page({ ...props }) {
+  return <SandboxPage {...props} />;
 }
 
 export const getStaticProps = async () => {
+  const { images, ...sitemap } = getSitemap('sandbox');
   return {
     props: {
-      navTitle,
-      images: await getImages(`./public/${id}/*.{jpg,png}`),
+      images: await getImages(images),
+      ...sitemap,
     },
   };
 };

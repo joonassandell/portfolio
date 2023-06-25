@@ -2,17 +2,16 @@ import { OrasPage } from '@/features/Project';
 import { getSitemap } from '@/lib/utility';
 import { getImages } from '@/lib/getImages';
 
-const { id, navTitle, ...sitemap } = getSitemap('oras');
-
-export default function Page({ images }) {
-  return <OrasPage id={id} images={images} {...sitemap} />;
+export default function Page({ ...props }) {
+  return <OrasPage {...props} />;
 }
 
 export const getStaticProps = async () => {
+  const { images, ...sitemap } = getSitemap('oras');
   return {
     props: {
-      navTitle,
-      images: await getImages(`./public/${id}/*.{jpg,png}`),
+      images: await getImages(images),
+      ...sitemap,
     },
   };
 };
