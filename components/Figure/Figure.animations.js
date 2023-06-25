@@ -5,14 +5,20 @@ import {
   TRANS_TERTIARY_FASTEST,
 } from '@/lib/config';
 
+/**
+ * 1. From top to bottom
+ * 2. From bottom to top
+ */
 export const clipVariants = {
   animate: {
-    clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // [1.]
+    // clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', // [2.]
     scale: 1,
     transition: TRANS_TERTIARY,
   },
   initial: {
-    clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)',
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)', // [1.]
+    // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // [2.]
     scale: 1.07,
   },
 };
