@@ -1,4 +1,6 @@
 .Text {
+  text-wrap: balance;
+
   &.-size\:xl { @include text(xl); }
   &.-size\:l  { @include text(l);  }
   &.-size\:s  { @include text(s);  }

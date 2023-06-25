@@ -16,10 +16,6 @@
   }
 }
 
-.Info-meta-small {
-  text-wrap: balance;
-}
-
 .Info-heading {
   margin-top: rem($space-m);
 
@@ -35,7 +31,6 @@
 .Info-text {
   color: var(--text-900);
   margin-bottom: rem($space-xl);
-  text-wrap: balance;
 
   @include mq(l) {
     margin-bottom: 0;

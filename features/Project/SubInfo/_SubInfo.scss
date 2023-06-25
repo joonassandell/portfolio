@@ -22,8 +22,6 @@
 }
 
 .SubInfo-text {
-  text-wrap: balance;
-
   @include mq(s) {
     margin-top: rem($space);
   }
