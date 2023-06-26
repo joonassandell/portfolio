@@ -245,14 +245,11 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             type={['Web service', 'E-commerce', 'Commission']}
             year={2016}
           />
-          <div className="grid-col grid-col:7@m grid-col:6@l">
+          <div className="grid-col grid-col:8 grid-col:6@m grid-col:4@l -end -align:center">
             <Figure
-              alt="Initial Academic bookstore home page"
-              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
-              {...getImage(
-                'joonassandell-academic-bookstore-home-initial',
-                images,
-              )}
+              alt="Academic bookstore brand imagery of children reading"
+              sizes={`${MQ.m} 33vw, ${MQ.m} 50vw, 70vw`}
+              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
             />
           </div>
           <div className="grid-col grid-col:8@m">
@@ -288,35 +285,24 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         </TemplateSection>
         <TemplateSection
           id="academic-bookstore-brand-images"
-          paddingTop="10vw"
+          paddingTop="5vw"
           wrap={false}
         >
-          <div className="grid-col grid-col:5 grid-col:3@m">
-            <Figure
-              alt="Academic bookstore brand imagery of children reading"
-              mask
-              sizes={`${MQ.m} 25vw, 40vw`}
-              transition="clip"
-              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:6 grid-col:4@m -align:end">
+          <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
               mask
-              inViewOffset={0.5}
-              scrollSpeed="negative"
-              sizes={`${MQ.m} 33vw, 50vw`}
+              scrollImageSpeed={-2}
+              sizes="50vw"
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand-2', images)}
             />
           </div>
-          <div className="grid-col grid-col:6 grid-col:5@m">
+          <div className="grid-col grid-col:6 -align:end">
             <Figure
               alt="Academic bookstore brand imagery of man reading"
               mask
-              inViewOffset={0.5}
-              sizes={`${MQ.m} 40vw, 50vw`}
+              sizes="50vw"
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand', images)}
             />
