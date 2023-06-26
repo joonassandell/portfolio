@@ -50,7 +50,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             type={['Web service', 'E-commerce', 'Commission']}
             year={2018}
           />
-          <div className="grid-col grid-col:7@m grid-col:6@l">
+          <div className="grid-col grid-col:8@m -end grid-col:6@l">
             <Figure
               alt="HW-Company home page animation"
               src="/more-work/joonassandell-hw-company-home-animation.mp4"
@@ -64,13 +64,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
           <div className="grid-col grid-col:10 grid-col:4@m">
-            <Figure
-              alt="HW-Company products page"
-              inViewOffset={0.5}
-              sizes={`${MQ.m} 33vw, 80vw`}
-              {...getImage('joonassandell-hw-company-products', images)}
-            />
-            <Text animate className="mt:xl">
+            <Text animate>
               <p>
                 I was asked to design and develop website for the companys newly
                 updated brand. The main goal was to improve HW-Company's brand,
@@ -83,6 +77,13 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
                 </small>
               </Text>
             </Text>
+          </div>
+          <div className="grid-col grid-col:7@m -start:6@m -start:5@l">
+            <Figure
+              alt="HW-Company products page"
+              sizes={`${MQ.m} 60vw, 100vw`}
+              {...getImage('joonassandell-hw-company-products', images)}
+            />
           </div>
         </TemplateSection>
         <TemplateSection id="omoroi" gridRowGap="l" paddingTop="20vw">
@@ -283,11 +284,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection
-          id="academic-bookstore-brand-images"
-          paddingTop="5vw"
-          wrap={false}
-        >
+        <TemplateSection id="academic-bookstore-brand-images" paddingTop="5vw">
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
