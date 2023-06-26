@@ -35,7 +35,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           smallPrint="Some projects may present initial designs and prototypes"
           year={year}
         />
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection id="hw-company" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company"
@@ -85,7 +85,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="omoroi" gridRowGap="l" paddingTop="20vw">
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
@@ -124,7 +124,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="hankkija" gridRowGap="l" paddingTop="20vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija"
@@ -179,7 +179,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="hukka" gridRowGap="l" paddingTop="20vw">
           <div className="grid-col grid-col:10@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
@@ -226,7 +226,11 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection
+          id="academic-bookstore"
+          gridRowGap="l"
+          paddingTop="15vw"
+        >
           <SubInfo
             client={{ name: 'Bonnier Books' }}
             heading="Academic Bookstore"
@@ -243,7 +247,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           />
           <div className="grid-col grid-col:7@m grid-col:6@l">
             <Figure
-              alt="Academic bookstore home page"
+              alt="Initial Academic bookstore home page"
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
               {...getImage(
                 'joonassandell-academic-bookstore-home-initial',
@@ -253,7 +257,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           </div>
           <div className="grid-col grid-col:8@m">
             <Figure
-              alt="Initial Academic bookstore home page"
+              alt="Academic bookstore home page"
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-academic-bookstore-home', images)}
             />
@@ -282,7 +286,11 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="10vw" wrap={false}>
+        <TemplateSection
+          id="academic-bookstore-brand-images"
+          paddingTop="10vw"
+          wrap={false}
+        >
           <div className="grid-col grid-col:5 grid-col:3@m">
             <Figure
               alt="Academic bookstore brand imagery of children reading"
@@ -311,6 +319,42 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               sizes={`${MQ.m} 40vw, 50vw`}
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand', images)}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection id="rubik" gridRowGap="l" paddingTop="15vw">
+          <SubInfo
+            client={{ name: 'Mediasignal' }}
+            heading="Rubik"
+            role={['Product design', 'App development']}
+            text={
+              <>
+                <p>
+                  Rubik is a product information management (PIM) system which
+                  helps clients to easily manage, integrate and share their
+                  product portfolios. I was leading the product design and was
+                  partially involved in the front-end development.
+                </p>
+                <Text color="light">
+                  <small>Built together with people from Mediasignal</small>
+                </Text>
+              </>
+            }
+            type={['Web application', 'Commission']}
+            year={2016}
+          />
+          <div className="grid-col grid-col:9@m grid-col:6@l">
+            <Figure
+              alt="Hukka dashboard mobile view"
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage('joonassandell-rubik-products-custom', images)}
+            />
+          </div>
+          <div className="grid-col grid-col:9@m -start:4@m grid-col:8@l -start:1@l">
+            <Figure
+              alt="HW-Company home page"
+              sizes={`${MQ.l} 70vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage('joonassandell-rubik-products', images)}
             />
           </div>
         </TemplateSection>
