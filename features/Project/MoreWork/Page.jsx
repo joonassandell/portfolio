@@ -199,7 +199,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
                 renewable natural resources.
               </p>
             }
-            type={['Web application']}
+            type={['Web application', 'Commission']}
             year={2019}
           />
           <div className="grid-col grid-col:3@m">
@@ -246,11 +246,14 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             type={['Web service', 'E-commerce', 'Commission']}
             year={2016}
           />
-          <div className="grid-col grid-col:8 grid-col:6@m grid-col:4@l -end -align:center">
+          <div className="grid-col grid-col:8 grid-col:6@m -end -align:center">
             <Figure
-              alt="Academic bookstore brand imagery of children reading"
+              alt="Academic bookstore initial home page"
               sizes={`${MQ.m} 33vw, ${MQ.m} 50vw, 70vw`}
-              {...getImage('joonassandell-academic-bookstore-brand-3', images)}
+              {...getImage(
+                'joonassandell-academic-bookstore-home-initial',
+                images,
+              )}
             />
           </div>
           <div className="grid-col grid-col:8@m">
@@ -328,16 +331,61 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           />
           <div className="grid-col grid-col:9@m grid-col:6@l">
             <Figure
-              alt="Hukka dashboard mobile view"
+              alt="Rubik products page"
               sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-rubik-products-custom', images)}
             />
           </div>
           <div className="grid-col grid-col:9@m -start:4@m grid-col:8@l -start:1@l">
             <Figure
-              alt="HW-Company home page"
+              alt="Rubik customized products page"
               sizes={`${MQ.l} 70vw, ${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-rubik-products', images)}
+            />
+          </div>
+        </TemplateSection>
+        <TemplateSection id="takk" gridRowGap="l" paddingTop="20vw">
+          <div className="grid-col grid-col:10@m grid-col:6@l">
+            <Figure
+              alt="TAKK homepage in laptop"
+              sizes={`${MQ.l} 50vw, ${MQ.m} 80vw, 100vw`}
+              {...getImage('joonassandell-takk-home', images)}
+            />
+          </div>
+          <SubInfo
+            client={{ name: 'TAKK' }}
+            heading="TAKK"
+            role={['UI/UX design', 'Web development']}
+            text={
+              <p>
+                Tampere Adult Education Centre, TAKK, is a multisectoral
+                vocational educator and working life developer. Annually, there
+                are over 11k students, and the number of employees is around
+                260.
+              </p>
+            }
+            type={['Web service', 'Commission']}
+            year={2017}
+          />
+          <div className="grid-col grid-col:3@m">
+            <Text animate>
+              <p>
+                The service offers target group-specific information and easy
+                access to TAKK's training offerings.
+              </p>
+              <p>
+                TAKK appreciated our versatile expertise, from planning tasks to
+                demanding technical forms of implementation.
+              </p>
+              <Text color="light">
+                <small>Built together with people from Mediasignal</small>
+              </Text>
+            </Text>
+          </div>
+          <div className="grid-col grid-col:9@m -end">
+            <Figure
+              alt="TAKK home page animation"
+              src="/more-work/joonassandell-takk-home.mp4"
             />
           </div>
         </TemplateSection>
