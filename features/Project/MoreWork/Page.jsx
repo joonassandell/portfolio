@@ -78,15 +78,15 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               </Text>
             </Text>
           </div>
-          <div className="grid-col grid-col:11 -start:2 grid-col:7@m -start:6@m -start:5@l">
+          <div className="grid-col grid-col:7@m -start:6@m -start:5@l">
             <Figure
               alt="HW-Company products page"
-              sizes={`${MQ.m} 60vw, 90vw`}
+              sizes={`${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-hw-company-products', images)}
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="omoroi" gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="omoroi" gridRowGap="l" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
@@ -110,22 +110,22 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             type={['Web service']}
             year={2020}
           />
-          <div className="grid-col grid-col:11 -start:2 grid-col:6@m -start:1@m">
+          <div className="grid-col grid-col:6@m -start:1@m">
             <Figure
               alt="Omoroi homepage animation"
               src="/more-work/joonassandell-omoroi-home-animation.mp4"
             />
           </div>
-          <div className="grid-col grid-col:10 -end grid-col:6@m">
+          <div className="grid-col grid-col:6@m">
             <Figure
               alt="Omoroi mobile views"
               inViewOffset={0.5}
-              sizes={`${MQ.m} 50vw, 80vw`}
+              sizes={`${MQ.m} 50vw, 100vw`}
               {...getImage('joonassandell-omoroi-mobile', images)}
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="hankkija" gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="hankkija" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija"
@@ -180,7 +180,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection id="hukka" gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="hukka" gridRowGap="l" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
@@ -246,10 +246,10 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             type={['Web service', 'E-commerce', 'Commission']}
             year={2016}
           />
-          <div className="grid-col grid-col:10 grid-col:8@m grid-col:6@l -end -align:center">
+          <div className="grid-col grid-col:8@m grid-col:6@l -end -align:center">
             <Figure
               alt="Academic bookstore initial home page"
-              sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 90vw`}
+              sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
               {...getImage(
                 'joonassandell-academic-bookstore-home-initial',
                 images,
@@ -287,7 +287,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection id="academic-bookstore-brand-images" paddingTop="5vw">
+        <TemplateSection paddingTop="xxl">
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
@@ -336,15 +336,15 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               {...getImage('joonassandell-rubik-products-custom', images)}
             />
           </div>
-          <div className="grid-col grid-col:11 -start:2 grid-col:9@m -start:4@m -start:1@l">
+          <div className="grid-col grid-col:11 -start:2 grid-col:9@m -start:4@m grid-col:8@l -start:1@l">
             <Figure
               alt="Rubik customized products page"
-              sizes={`${MQ.m} 80vw, 90vw`}
+              sizes={`${MQ.m} 70vw, ${MQ.m} 80vw, 90vw`}
               {...getImage('joonassandell-rubik-products', images)}
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="takk" gridRowGap="l" paddingTop="20vw">
+        <TemplateSection id="takk" gridRowGap="l" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="TAKK homepage in laptop"
@@ -408,14 +408,14 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           />
           <div className="grid-col grid-col:11 grid-col:8@m -start:5@m grid-col:6@l -start:7@l">
             <Figure
-              alt="Rubik products page"
+              alt="Finnpark kivisydän guidance service first phase in TV"
               sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 90vw`}
               {...getImage('joonassandell-finnpark-parking-guidance', images)}
             />
           </div>
           <div className="grid-col grid-col:11 -start:2 grid-col:8@m -start:1@m">
             <Figure
-              alt="Rubik customized products page"
+              alt="Finnpark kivisydän guidance service second phase in TV"
               sizes={`${MQ.m} 70vw, 90vw`}
               {...getImage('joonassandell-finnpark-parking-guidance-2', images)}
             />
