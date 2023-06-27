@@ -38,7 +38,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection id="hw-company" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'HW-Company' }}
-            heading="HW-Company"
+            heading="HW-Company 🏌️"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
@@ -96,7 +96,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           </div>
           <SubInfo
             client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
-            heading="Omoroi"
+            heading="Omoroi 🧑‍💻"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
@@ -104,7 +104,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
                 they love developing software and everything that comes with it.
                 Omoroi wanted me to design and develop them a website that
                 reflected their company brand, so I delivered one with some
-                "version control" inspired aesthetics 🤓
+                "version control" inspired aesthetics.
               </p>
             }
             type={['Web service']}
@@ -128,7 +128,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection id="hankkija" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
-            heading="Hankkija"
+            heading="Hankkija 🍃"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
@@ -190,7 +190,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           </div>
           <SubInfo
             client={{ name: 'Luke', href: 'https://luke.fi' }}
-            heading="Hukka"
+            heading="Hukka 🥒"
             role={['UI/UX design', 'App development']}
             text={
               <p>
@@ -234,7 +234,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         >
           <SubInfo
             client={{ name: 'Bonnier Books' }}
-            heading="Academic Bookstore"
+            heading="Academic Bookstore 📚"
             role={['UI/UX design', 'Web development', 'App development']}
             text={
               <p>
@@ -311,7 +311,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection id="rubik" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Mediasignal' }}
-            heading="Rubik"
+            heading="Rubik 📦"
             role={['Product design', 'App development']}
             text={
               <>
@@ -354,7 +354,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
           </div>
           <SubInfo
             client={{ name: 'TAKK' }}
-            heading="TAKK"
+            heading="TAKK 🧑‍🎓"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
@@ -392,7 +392,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection id="finnpark" gridRowGap="l" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Finnpark' }}
-            heading="Parking Guidance App"
+            heading="Parking Guidance App 🛞"
             role={['Product design', 'App development']}
             text={
               <p>
@@ -425,7 +425,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               <p>
                 Among many parking applications we built for Finnpark, this one
                 was the most interesting to me because this platform and
-                environment differed from the usual applications I'm used to
+                environment differed from the usual applications I was used to
                 building. I was responsible for the UI/UX design and front-end
                 development.
               </p>
@@ -440,13 +440,12 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <TemplateSection id="various" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Various' }}
-            heading="Glimpses from the past"
+            heading="Glimpses from the past 🥹"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
-                Various archived projects from my work history. Featuring
-                clients such as Fair Trade, Avecra, City of Tampere and
-                Vapriikki.
+                Various projects from my work history. Featuring clients such as
+                Fair Trade, Avecra, City of Tampere and Vapriikki.
               </p>
             }
             type={['Web services', 'Web applications', 'Commissions']}
