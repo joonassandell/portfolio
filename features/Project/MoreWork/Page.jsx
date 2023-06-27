@@ -437,6 +437,90 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
+        <TemplateSection id="various" paddingTop="15vw">
+          <SubInfo
+            client={{ name: 'Various' }}
+            heading="Glimpses from the past"
+            role={['UI/UX design', 'Web development']}
+            text={
+              <p>
+                Various archived projects from my work history. Featuring
+                clients such as Fair Trade, Avecra, City of Tampere and
+                Vapriikki.
+              </p>
+            }
+            type={['Web services', 'Web applications', 'Commissions']}
+            year={'2010—2018'}
+          />
+        </TemplateSection>
+        <TemplateSection
+          className="Template-figureGrid"
+          grid={false}
+          gridRowGap="default"
+          paddingBottom="15vw"
+          paddingTop="xxl"
+        >
+          <Figure
+            alt="Jatke project page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-jatke', images)}
+          />
+          <Figure
+            alt="Fair trade home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-fair-trade', images)}
+          />
+          <Figure
+            alt="Vapriikki home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-vapriikki', images)}
+          />
+          <Figure
+            alt="Avecra homepage"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-avecra', images)}
+          />
+          <Figure
+            alt="Vapriikki brand guide landing page: Terrakotta"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-vapriikki-terrakotta', images)}
+          />
+          <Figure
+            alt="Vapriikki Dora Jung landing page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-vapriikki-dora-jung', images)}
+          />
+          <Figure
+            alt="Enervent home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-enervent', images)}
+          />
+          <Figure
+            alt="Hotelzon home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-hotelzon', images)}
+          />
+          <Figure
+            alt="Steiner school home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-steiner-school', images)}
+          />
+          <Figure
+            alt="Piece of heaven home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-piece-of-heaven', images)}
+          />
+          <Figure
+            alt="Finnish winter day home page"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-finnish-winter-day', images)}
+          />
+          <Figure
+            alt="Vapriikki brand guide landing page: Strong"
+            sizes={`${MQ.l} 33vw, 50vw`}
+            {...getImage('joonassandell-vapriikki-figures', images)}
+          />
+        </TemplateSection>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>

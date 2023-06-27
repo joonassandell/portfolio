@@ -3,4 +3,19 @@
   --Figure-placeholder-bg: var(--moreWork-bg-100);
   --Figure-glare-opacity: 0.3;
   --text-muted: var(--moreWork-text-muted);
+
+  .Template-figureGrid {
+    --grid-gap: #{rem($grid-gap)};
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mq(m) {
+      --grid-gap: #{rem($grid-gap-l)};
+    }
+
+    @include mq(l) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
