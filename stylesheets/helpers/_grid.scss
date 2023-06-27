@@ -72,14 +72,13 @@
   @for $i from 1 through $grid-columns {
     .grid-col\:#{$i}#{$breakpoint} { --grid-span: #{$i}; }
     .grid-col.-start\:#{$i}#{$breakpoint} { grid-column-start: #{$i}; }
-    .grid-col.-end\:#{$i+1}#{$breakpoint} { grid-column-end: #{$i+1}; }
   }
 }
 
 .grid-col.-start { grid-column-start: 1; }
-.grid-col.-end   { grid-column-end: -1; }
-.grid-col.-align\:end   { align-self: end; }
-.grid-col.-align\:center   { align-self: center; }
+.grid-col.-end { grid-column-end: -1; }
+.grid-col.-align\:end { align-self: end; }
+.grid-col.-align\:center { align-self: center; }
 
 @include gridColumns();
 @include mq(s) { @include gridColumns(s); }
