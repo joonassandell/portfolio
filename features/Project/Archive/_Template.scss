@@ -1,0 +1,12 @@
+.Template--moreWork.Template--archive {
+  .Template-figureGrid {
+    --grid-gap: #{rem($grid-gap)};
+    display: grid;
+    gap: var(--grid-gap);
+
+    @include mq(m) {
+      --grid-gap: #{rem($grid-gap-l)};
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

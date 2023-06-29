@@ -6,10 +6,12 @@ import { MQ } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Text } from '@/components/Text';
+import { Link } from '@/components/Link';
 import { Title } from '@/components/Title';
 
 export const MoreWorkPage = ({ images, id, title, year }) => {
   const { id: nextProjectId } = getSitemap('biocode');
+  const archive = getSitemap('archive');
 
   return (
     <Template id={id}>
@@ -437,87 +439,40 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection id="various" paddingTop="15vw">
+        <TemplateSection
+          id="archive"
+          gridRowGap="l"
+          paddingBottom="15vw"
+          paddingTop="15vw"
+        >
+          <div className="grid-col grid-col:6@l">
+            <Figure
+              alt="Jatke homepage in laptop"
+              sizes={`${MQ.l} 50vw, 100vw`}
+              {...getImage('joonassandell-archive', images)}
+            />
+          </div>
           <SubInfo
             client={{ name: 'Various' }}
-            heading="Glimpses from the past 🥹"
+            heading="Glimpses from the past 📜"
             role={['UI/UX design', 'Web development']}
             text={
-              <p>
-                Various projects from my work history. Featuring clients such as
-                Fair Trade, Avecra, City of Tampere and Vapriikki.
-              </p>
+              <>
+                <p>
+                  Want to see even more? Then checkout the
+                  <Link href={archive.url} underline>
+                    archive
+                  </Link>{' '}
+                  featuring clients such as Fair Trade, Avecra, City of Tampere
+                  and Vapriikki.
+                </p>
+                <Link arrow href={archive.url}>
+                  Archive
+                </Link>
+              </>
             }
             type={['Web services', 'Web applications', 'Commissions']}
-            year={'2010—2018'}
-          />
-        </TemplateSection>
-        <TemplateSection
-          className="Template-figureGrid"
-          grid={false}
-          gridRowGap="default"
-          paddingBottom="15vw"
-          paddingTop="xxl"
-        >
-          <Figure
-            alt="Jatke project page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-jatke', images)}
-          />
-          <Figure
-            alt="Fair trade home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-fair-trade', images)}
-          />
-          <Figure
-            alt="Vapriikki home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-vapriikki', images)}
-          />
-          <Figure
-            alt="Avecra homepage"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-avecra', images)}
-          />
-          <Figure
-            alt="Vapriikki brand guide landing page: Terrakotta"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-vapriikki-terrakotta', images)}
-          />
-          <Figure
-            alt="Vapriikki Dora Jung landing page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-vapriikki-dora-jung', images)}
-          />
-          <Figure
-            alt="Enervent home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-enervent', images)}
-          />
-          <Figure
-            alt="Hotelzon home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-hotelzon', images)}
-          />
-          <Figure
-            alt="Steiner school home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-steiner-school', images)}
-          />
-          <Figure
-            alt="Piece of heaven home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-piece-of-heaven', images)}
-          />
-          <Figure
-            alt="Finnish winter day home page"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-finnish-winter-day', images)}
-          />
-          <Figure
-            alt="Vapriikki brand guide landing page: Strong"
-            sizes={`${MQ.l} 33vw, 50vw`}
-            {...getImage('joonassandell-vapriikki-figures', images)}
+            year={archive.year}
           />
         </TemplateSection>
       </TemplateMain>

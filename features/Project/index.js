@@ -1,4 +1,7 @@
 // Projects
+export * from './Archive/Hero';
+export * from './Archive/Page';
+
 export * from './Biocode/Hero';
 export * from './Biocode/Page';
 
