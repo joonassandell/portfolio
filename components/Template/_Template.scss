@@ -6,14 +6,14 @@
   min-height: var(--vh);
   overflow: hidden;
   width: 100%;
-  z-index: 1;
 
   /**
    * This is the enter transition template
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
-    z-index: 0;
+    top: 0;
+    z-index: 1;
 
     /**
      * Hack to remove the applied scroll values from the new view.
@@ -36,12 +36,9 @@
     }
   }
 
-  &.is-transition\:template {
+  &.is-transition\:template\:exit {
     position: relative;
     top: 0;
-  }
-
-  &.is-transition\:template\:exit {
     z-index: 0;
   }
 }
