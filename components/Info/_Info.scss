@@ -1,7 +1,4 @@
 .Info {
-  position: relative;
-  z-index: 2;
-
   @include mq($until: ml) {
     margin-top: rem($space * -4);
   }

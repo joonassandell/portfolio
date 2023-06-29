@@ -5,6 +5,17 @@
   height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
   position: relative;
 
+  /**
+   * Keep the following couple of elements on top of the potential scaled
+   * hero background
+   */
+  &:not(.-transition\:pre) {
+    + *, + * + * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
   &.-transition\:pre {
     @for $i from 0 through 10 {
       &:nth-child(#{$i}) {

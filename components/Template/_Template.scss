@@ -59,8 +59,6 @@
 
 .Template-section {
   background-color: var(--Template-section-bg-color);
-  position: relative;
-  z-index: 2;
 
   &.-bg\:50 {
     background: var(--bg-gray-50-opaque);
