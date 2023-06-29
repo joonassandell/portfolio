@@ -98,7 +98,7 @@ export const Hero = ({
             </div>
           </Heading>
         </div>
-        {children(passedProps)}
+        {typeof children === 'function' ? children(passedProps) : children}
         {transitionPre && (
           <div className="Hero-link wrap grid -place:end">
             <div className="grid-col">
