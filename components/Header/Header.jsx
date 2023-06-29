@@ -407,18 +407,20 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
               variants={navVariant}
             >
               <ul>
-                {SITEMAP.primary.map(item => {
-                  return (
-                    <NavItem
-                      color={item.color}
-                      key={item.navTitle}
-                      name={item.navTitle}
-                      onClick={handleClick}
-                      url={item.url}
-                      year={item.year}
-                    />
-                  );
-                })}
+                {SITEMAP.primary
+                  .filter(item => !item.hidden)
+                  .map(item => {
+                    return (
+                      <NavItem
+                        color={item.color}
+                        key={item.navTitle}
+                        name={item.navTitle}
+                        onClick={handleClick}
+                        url={item.url}
+                        year={item.year}
+                      />
+                    );
+                  })}
               </ul>
             </m.nav>
             <footer className="Header-footer wrap">
