@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
-import { textVariants } from './Text.animations';
+import { TEXT_VARIANTS_DEFAULT } from '@/lib/config';
 import c from 'classnames';
 
 export const Text = ({
@@ -37,7 +37,7 @@ export const Text = ({
         animate: inView ? 'animate' : '',
         initial: 'initial',
         ref,
-        variants: textVariants,
+        variants: TEXT_VARIANTS_DEFAULT,
       })}
       {...props}
     >

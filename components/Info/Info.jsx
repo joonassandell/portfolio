@@ -1,4 +1,4 @@
-import { MQ } from '@/lib/config';
+import { MQ, RULER_VARIANTS, TEXT_VARIANTS_DEFAULT } from '@/lib/config';
 import { m } from 'framer-motion';
 import { Link } from '@/components/Link';
 import { Text } from '@/components/Text';
@@ -7,7 +7,6 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import { rulerVariants, gridVariants, colVariants } from './Info.animations';
 
 export const Info = ({
   client,
@@ -39,7 +38,7 @@ export const Info = ({
           animate={rulerInView && 'animate'}
           className="Info-ruler"
           initial="initial"
-          variants={rulerVariants}
+          variants={RULER_VARIANTS}
         />
       </div>
       <div className="grid">
@@ -48,12 +47,18 @@ export const Info = ({
           className="Info-meta grid-col grid-col:5@l"
           initial="initial"
           ref={gridRef}
-          variants={gridVariants}
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
         >
           <div className="grid">
             <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:9@m grid-col:5@l"
-              variants={colVariants}
+              variants={TEXT_VARIANTS_DEFAULT}
             >
               <div className="grid-col grid-col:4@m grid-col:12@l">
                 <Text marginBottom="xxSmall" color="light" size="small" tag="p">
@@ -93,7 +98,7 @@ export const Info = ({
             </m.div>
             <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
-              variants={colVariants}
+              variants={TEXT_VARIANTS_DEFAULT}
             >
               <div className="grid-col">
                 <Text marginBottom="xxSmall" color="light" size="small" tag="p">
@@ -120,7 +125,7 @@ export const Info = ({
           custom={desktop ? 0.4 : false}
           initial="initial"
           ref={textRef}
-          variants={colVariants}
+          variants={TEXT_VARIANTS_DEFAULT}
         >
           <Heading className="Info-heading" tag="h2" size="h4">
             {heading}
