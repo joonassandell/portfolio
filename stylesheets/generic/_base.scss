@@ -81,6 +81,32 @@ img {
   vertical-align: middle;
 }
 
+p {
+  margin: 0 0 rem($space-m);
+}
+
+b,
+strong {
+  font-weight: $font-weightStrong;
+}
+
+small {
+  @include text(xs);
+  display: inline-block;
+  margin: 0 0 rem($space-m);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border-width) solid var(--hr);
+  display: block;
+  height: var(--border-width);
+  margin: 0 0 rem($space-m) 0;
+  overflow: visible;
+  padding: 0;
+}
+
+
 * {
   &,
   &:before,

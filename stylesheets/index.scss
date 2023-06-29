@@ -15,12 +15,12 @@
 @import 'stylesheets/generic/base';
 @import 'stylesheets/generic/fonts';
 @import 'stylesheets/generic/heading';
-@import 'stylesheets/generic/typography';
 
 // Variables
 @import 'variables';
 
 // Helpers
+@import 'helpers/background';
 @import 'helpers/display';
 @import 'helpers/grid';
 @import 'helpers/helper';
