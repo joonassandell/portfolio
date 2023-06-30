@@ -61,12 +61,7 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
               href={url}
               onClick={onClick}
               transitionPre={transitionPre}
-              role={[
-                'Bonnier Books,',
-                'Hankkija, Fair trade,',
-                'Omoroi and',
-                'many others…',
-              ]}
+              role={['Web services', 'Web applications']}
             />
           </div>
         );

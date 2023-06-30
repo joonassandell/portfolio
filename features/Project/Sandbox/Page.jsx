@@ -19,17 +19,17 @@ export const SandboxPage = ({ images, id, title, year }) => {
         <SandboxHero />
         <Info
           client={{ name: 'Various & Myself' }}
-          type={['Web services', 'Web applications']}
-          heading="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugiat sapiente vero hic assumenda, pariatur ullam tenetur, cum vitae culpa sequi quisquam necessitatibus ipsa nesciunt ex, rem non? Sunt, soluta."
+          heading="Welcome to the playground! Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
+          role={['UI/UX design']}
           text={
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-              fugiat sapiente vero hic assumenda, pariatur ullam tenetur, cum
-              vitae culpa sequi quisquam necessitatibus ipsa nesciunt ex, rem
-              non? Sunt, soluta.
+              I rarely do design without purpose because otherwise it's just eye
+              candy. These pieces are mainly based on prototypes which didn't
+              end up to the end product for one reason or another. Additionally,
+              to some samples I've given a bit wilder touch afterwards.
             </p>
           }
-          role={['UI/UX design']}
+          type={['Various concepts of web services and applications']}
           year={year}
         />
         <TemplateSection gridRowGap="l" paddingTop="15vw">
@@ -43,6 +43,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10@m -start:3@m">
             <Figure
               alt="Another charity home page"
+              scroll={mqM}
               sizes={`${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-charity-home-2', images)}
             />
@@ -52,8 +53,6 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
             <Figure
               alt="VR Company solutions page"
-              scroll={mqM}
-              scrollSpeed={-1}
               sizes={`${MQ.m} 40vw, 90vw`}
               {...getImage('joonassandell-vr-company-solutions', images)}
             />
@@ -61,6 +60,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:11 -start:2 grid-col:7@m -start:6@m">
             <Figure
               alt="VR Company home page"
+              scroll={mqM}
               sizes={`${MQ.m} 60vw, 90vw`}
               {...getImage('joonassandell-vr-company-home', images)}
             />
@@ -110,6 +110,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:10@m -start:3@m">
             <Figure
               alt="Another animal welfare home page"
+              scroll={mqM}
               sizes={`${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-animal-welfare-home-2', images)}
             />
@@ -126,6 +127,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:5@m">
             <Figure
               alt="Biocode early home page"
+              scroll={mqM}
               sizes={`${MQ.m} 40vw, 100vw`}
               {...getImage('joonassandell-biocode-home', images)}
             />
@@ -142,6 +144,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:5@m -align:end">
             <Figure
               alt="Joonas Sandell portfolio sketch 2016"
+              scroll={mqM}
               sizes={`${MQ.m} 40vw, 100vw`}
               {...getImage('joonassandell-portfolio-2016', images)}
             />
@@ -149,6 +152,8 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:5@m">
             <Figure
               alt="Shopping mall app"
+              scroll={mqM}
+              scrollSpeed={-1}
               sizes={`${MQ.m} 40vw, 100vw`}
               {...getImage('joonassandell-shopping-mall-app', images)}
             />
@@ -164,6 +169,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="404 concept animation"
+              scroll={mqM}
               src="/sandbox/joonassandell-404-concept.mp4"
             />
           </div>

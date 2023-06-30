@@ -1,7 +1,7 @@
 .Hero--sandbox {
   --Stamp-iris: var(--sandbox-primary);
-  --Stamp-overlay: var(--sandbox-bg);
-  background-color: var(--sandbox-bg);
+  --Stamp-overlay: var(--sandbox-bg-50);
+  background-color: var(--sandbox-bg-50);
 
   .Hero-figure {
     height: clamp(rem($space * 14), 45vw, rem($space * 27));
