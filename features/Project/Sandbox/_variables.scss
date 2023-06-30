@@ -1,5 +1,7 @@
 :root {
-  --sandbox-bg: #e1bca7;
+  --sandbox-bg-200: #{darken(#e1bca7, 10)}; // #d49f81
+  --sandbox-bg-100: #{darken(#e1bca7, 5)}; // #dbae94
+  --sandbox-bg-50: #e1bca7; // #{lighten(#e1bca7, 11)};
   --sandbox-primary: #e1bca7;
   --sandbox-text-muted: #573928;
 }

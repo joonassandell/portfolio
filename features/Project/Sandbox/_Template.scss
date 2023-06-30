@@ -1,4 +1,6 @@
 .Template--sandbox {
-  --Template-bg-color: var(--sandbox-bg);
+  --Template-bg-color: var(--sandbox-bg-50);
+  --Figure-placeholder-bg: var(--sandbox-bg-100);
+  --Figure-glare-opacity: 0.2;
   --text-muted: var(--sandbox-text-muted);
 }
