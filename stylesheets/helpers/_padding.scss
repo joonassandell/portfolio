@@ -1,15 +1,15 @@
 .p\:0 { padding: 0 !important; }
 
-.pt\:20vw { padding-top: 20vw; }
-.pt\:15vw { padding-top: 15vw; }
-.pt\:10vw { padding-top: 10vw; }
-.pt\:5vw { padding-top: 5vw; }
-.pt\:xxl { padding-top: rem($space-xxl); }
+.pt\:20vw { padding-top: 20vw !important; }
+.pt\:15vw { padding-top: 15vw !important; }
+.pt\:10vw { padding-top: 10vw !important; }
+.pt\:5vw { padding-top: 5vw !important; }
+.pt\:xxl { padding-top: rem($space-xxl) !important; }
 
-.pb\:15vw { padding-bottom: 15vw; }
-.pb\:10vw { padding-bottom: 10vw; }
-.pb\:5vw { padding-bottom: 5vw; }
-.pb\:xxl { padding-bottom: rem($space-xxl); }
+.pb\:15vw { padding-bottom: 15vw !important; }
+.pb\:10vw { padding-bottom: 10vw !important; }
+.pb\:5vw { padding-bottom: 5vw !important; }
+.pb\:xxl { padding-bottom: rem($space-xxl) !important; }
 
 .pl\:0 {
   padding-left: 0 !important;
@@ -20,3 +20,5 @@
     }
   }
 }
+
+.pr\:0 { padding-right: 0 !important; }

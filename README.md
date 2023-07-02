@@ -42,6 +42,7 @@ npm run dev
 - Exit animations work in in `Template.jsx` because `App.jsx` contains `AnimatePresence`
 - `Splash.jsx` has CSS animation as starting animation so that it triggers faster. This is especially visible with slow connections. Critical CSS makes this possible.
 - If using repeating useInView (`const inView = useInView(ref, 0, false)`) then `animate` prop should be triggered like so `animate={inView ? 'animate' : ''}`. It doesn't work e.g. with `animate={inView ? 'animate' : false}` or `animate={inView && 'animate'}`
+- Usage of `var(--vh)` (which contains window height) exists to prevent possible layout jumps in mobile. Jumps could happen `100vh` is used instead. Should consider the new viewport units at some point.
 
 #### About template transition and AnimatePresence
 

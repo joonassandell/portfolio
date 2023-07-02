@@ -1,5 +1,5 @@
 module.exports = componentName => ({
-  content: `@import "${componentName}.scss";
+  content: `@import "${componentName}";
 `,
   extension: `.scss`,
   name: '_index',

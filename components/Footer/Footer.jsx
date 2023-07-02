@@ -1,9 +1,9 @@
 import { LINKS } from '@/lib/config';
 import { LinkRoll } from '@/components/LinkRoll';
 
-const someLinks = LINKS.social;
-
 export const Footer = () => {
+  const someLinks = LINKS.social;
+
   return (
     <footer className="Footer wrap">
       <div className="Footer-inner">

@@ -1,4 +1,8 @@
-.mt\:xl { margin-top: rem($space-xl); }
+.mt\:xl { margin-top: rem($space-xl) !important; }
 
+.mb { margin-bottom: rem($space) !important; }
+.mb\:m { margin-bottom: rem($space-m) !important; }
+.mb\:l { margin-bottom: rem($space-l) !important; }
+.mb\:xl { margin-bottom: rem($space-xl) !important; }
 .mb\:0 { margin-bottom: 0 !important; }
 .mb\:xxs { margin-bottom: rem($space-xxs) !important; }
