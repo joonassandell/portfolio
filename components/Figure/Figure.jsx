@@ -26,7 +26,7 @@ export const Figure = ({
   priority = false,
   scroll = false,
   scrollDelay,
-  scrollImageSpeed = -3,
+  scrollImageSpeed = SCROLL_SPEED * -2,
   scrollOffset = 0,
   scrollPosition,
   scrollSpeed = SCROLL_SPEED,
@@ -83,16 +83,12 @@ export const Figure = ({
     >
       <figure
         className="Figure-figure"
-        {...(scroll && mask && { 'data-scroll': true })}
-        {...(scroll && mask && { 'data-scroll-speed': scrollImageSpeed })}
-        {...(scroll &&
-          mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
-        {...(scroll &&
-          mask &&
+        {...(mask && { 'data-scroll': true })}
+        {...(mask && { 'data-scroll-speed': scrollImageSpeed })}
+        {...(mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
+        {...(mask &&
           scrollPosition && { 'data-scroll-position': scrollPosition })}
-        {...(scroll &&
-          mask &&
-          scrollDelay && { 'data-scroll-delay': scrollDelay })}
+        {...(mask && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <m.div
           animate={inView ? 'animate' : ''}
