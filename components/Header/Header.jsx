@@ -342,8 +342,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                 <m.div variants={ctrlItemOutVariant}>
                   <LinkRoll
                     href={about.url}
-                    isActive={urlState(about.url, router).active}
                     onClick={handleClick}
+                    underline={urlState(about.url, router).active}
                     {...(isOpen && { tabIndex: -1 })}
                   >
                     {about.navTitle}
@@ -356,9 +356,9 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   >
                     <LinkRoll
                       href={about.url}
-                      isActive={urlState(about.url, router).active}
                       onClick={handleClick}
                       templateTransition={false}
+                      underline={urlState(about.url, router).active}
                     >
                       {about.navTitle}
                     </LinkRoll>

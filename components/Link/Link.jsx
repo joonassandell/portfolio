@@ -18,7 +18,6 @@ export const Link = ({
   className,
   children,
   href,
-  isActive,
   onClick,
   orientation,
   target,
@@ -30,7 +29,6 @@ export const Link = ({
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
     '-underline': underline,
-    'is-active': isActive,
     '-vertical': orientation === 'vertical',
     '-arrow': arrow,
   });

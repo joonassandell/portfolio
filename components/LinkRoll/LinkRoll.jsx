@@ -15,20 +15,20 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 export const LinkRoll = ({
   children,
   className,
-  isActive,
   href,
   onClick,
   tag,
   target,
   templateTransition = true,
+  underline,
   ...props
 }) => {
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const characters = children.split('');
   const classes = c(className, 'LinkRoll', {
-    'is-active': isActive,
-    'has-active': isBoolean(isActive),
+    'has-underline': isBoolean(underline),
+    '-underline': underline,
   });
   const Tag = tag == 'span' ? m.span : m.a;
   const linkTarget = target

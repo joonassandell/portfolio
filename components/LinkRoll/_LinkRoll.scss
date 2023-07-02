@@ -30,26 +30,29 @@
 
 /* ======
  * Modifiers
- * ====== */
+ * ======
+ *
+ * 1.To transition the change to underline if the underline is used as
+ *   active state (e.g. in Header)
+ */
 
 .LinkRoll {
-  &.has-active {
+  // [1.]
+  &.has-underline {
     .LinkRoll-char {
       &:after {
         border-bottom-style: solid;
-        border-bottom-width: 1px;
-        bottom: rem(2px);
+        border-bottom-width: var(--border-width);
         content: '';
-        left: 0;
+        inset: auto 0 rem(2px) 0;
         opacity: 0;
         position: absolute;
         transition: opacity $trans-primary;
-        width: 100%;
       }
     }
   }
 
-  &.is-active {
+  &.-underline {
     .LinkRoll-char {
       &:after {
         opacity: 1;

@@ -22,7 +22,7 @@ export const AboutPage = ({ id, title }) => {
     'Helsinki, Finland.',
     'Currently working for',
     <>
-      <LinkRoll href="https://biocode.io" isActive>
+      <LinkRoll href="https://biocode.io" underline>
         Biocode
       </LinkRoll>
       .
@@ -34,7 +34,7 @@ export const AboutPage = ({ id, title }) => {
     'based in Helsinki, Finland.',
     <>
       Currently working for{' '}
-      <LinkRoll href="https://biocode.io" isActive>
+      <LinkRoll href="https://biocode.io" underline>
         Biocode
       </LinkRoll>
       .

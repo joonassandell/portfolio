@@ -19,21 +19,17 @@
 
   &:after {
     border-bottom-style: solid;
-    border-bottom-width: 1px;
-    bottom: rem(2px);
+    border-bottom-width: var(--border-width);
     content: '';
-    left: 0;
+    inset: auto 0 rem(2px) 0;
     opacity: 0;
     position: absolute;
     transition: opacity $trans-primary;
-    width: 100%;
   }
 }
 
 .Link-text--reveal {
-  left: 0;
   position: absolute;
-  top: 0;
 }
 
 .Link-icon {
@@ -49,8 +45,7 @@
  * ====== */
 
 .Link {
-  &.-underline,
-  &.is-active {
+  &.-underline {
     .Link-text, .Link-text--reveal {
       &:after {
         opacity: 1;
@@ -66,9 +61,8 @@
       &:after {
         border-bottom-width: 0;
         border-left-style: solid;
-        border-left-width: 1px;
-        bottom: 0;
-        top: 0;
+        border-left-width: var(--border-width);
+        inset: 0 auto 0 0;
       }
     }
   }
