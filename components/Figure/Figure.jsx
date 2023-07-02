@@ -71,6 +71,9 @@ export const Figure = ({
       style={{
         ['--Figure-bg-color']: isString(background) ? background : undefined,
         ['--Figure-border-color']: isString(border) ? border : undefined,
+        ['--Figure-border-radius']: isString(borderRadius)
+          ? borderRadius
+          : undefined,
       }}
       {...(scroll && mask && { 'data-scroll-id': id })}
       {...(scroll && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
@@ -85,8 +88,11 @@ export const Figure = ({
         {...(scroll &&
           mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
         {...(scroll &&
+          mask &&
           scrollPosition && { 'data-scroll-position': scrollPosition })}
-        {...(scroll && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+        {...(scroll &&
+          mask &&
+          scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <m.div
           animate={inView ? 'animate' : ''}
