@@ -54,7 +54,7 @@
   bottom: rem($space-xl);
   display: flex;
   height: 25%;
-  margin: 0 0 0 rem(-$space-xs);
+  margin-bottom: 0;
   pointer-events: all;
   position: absolute;
   transform: translate(0, -150%);
@@ -62,10 +62,6 @@
 
   .Hero.-transition\:pre & {
     transform: translate(0, 0);
-  }
-
-  @include mq(m) {
-    margin-left: rem(-$space-m);
   }
 
   @include mq(l) {
