@@ -1,6 +1,6 @@
-import { TRANS_SECONDARY } from '@/lib/config';
+import { TRANS_PRIMARY } from '@/lib/config';
 
-export const headingVariant = {
+export const parentVariant = {
   animate: ({ delay = 0 } = {}) => ({
     transition: {
       delayChildren: delay,
@@ -9,14 +9,18 @@ export const headingVariant = {
   }),
 };
 
-export const inVariant = {
+export const textVariant = {
   animate: {
-    transition: TRANS_SECONDARY,
+    opacity: 1,
+    skewX: 0,
     y: 0,
+    transition: TRANS_PRIMARY,
   },
   initial: ({ enableInitial = true } = {}) => {
     if (!enableInitial) return;
     return {
+      opacity: 0,
+      skewX: -50,
       y: '100%',
     };
   },

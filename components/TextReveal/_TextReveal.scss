@@ -1,9 +1,8 @@
-.TextReveal {}
+.TextReveal, .TextReveal-text, .TextReveal-text-inner {
+  display: block;
+  width: fit-content;
+}
 
 .TextReveal-text {
   overflow: hidden;
-}
-
-.TextReveal-text-inner {
-  display: block;
 }

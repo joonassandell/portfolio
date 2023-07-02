@@ -105,7 +105,6 @@
     .TextReveal {
       @include fontSize(16px, 18px, 52px, 3.5vw);
       font-weight: 100;
-      margin: 0;
     }
 
     @include mq(l) {
@@ -115,7 +114,6 @@
 
   .Hero-textReveal-mobile {
     --heading: var(--biocode-text-1000);
-    display: block;
     font-weight: 100;
 
     @include mq(l) {

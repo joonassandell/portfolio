@@ -3,6 +3,7 @@ import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
+import { Heading } from '@/components/Heading';
 import { headingVariants, maskVariants } from './Hero.animations';
 import Image from 'next/image';
 import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
@@ -28,10 +29,8 @@ export const BiocodeHero = ({ onClick, ...props }) => {
       {...props}
     >
       {({
-        initialDelay,
         transitionPre,
         transitionPreOrInitial,
-        transitionInitial,
         transitionStartOrDefault,
       }) => {
         return (
@@ -111,31 +110,23 @@ export const BiocodeHero = ({ onClick, ...props }) => {
             </div>
             {transitionStartOrDefault && (
               <div className="Hero-textReveal wrap">
-                <TextReveal
-                  {...(transitionInitial && {
-                    animate: 'animate',
-                    initial: 'initial',
-                  })}
-                  custom={{
-                    delay: initialDelay ?? 0.3,
-                    enableInitial: transitionPreOrInitial,
-                  }}
-                  className="Hero-textReveal-mobile"
-                  text={['We have to', 'reverse global', 'heating']}
-                  hidden
-                />
-                <TextReveal
-                  {...(transitionInitial && {
-                    animate: 'animate',
-                    initial: 'initial',
-                  })}
-                  custom={{
-                    delay: initialDelay ?? 0.3,
-                    enableInitial: transitionPreOrInitial,
-                  }}
-                  className="Hero-textReveal-desktop"
-                  text={['We have to reverse', 'global heating']}
-                />
+                <Heading className="Hero-textReveal-mobile mb:0" size={null}>
+                  <TextReveal
+                    custom={{
+                      enableInitial: transitionPreOrInitial,
+                    }}
+                    text={['We have to', 'reverse global', 'heating']}
+                    hidden
+                  />
+                </Heading>
+                <Heading className="Hero-textReveal-desktop mb:0" size={null}>
+                  <TextReveal
+                    custom={{
+                      enableInitial: transitionPreOrInitial,
+                    }}
+                    text={['We have to reverse', 'global heating']}
+                  />
+                </Heading>
               </div>
             )}
             {transitionPre && (
