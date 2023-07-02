@@ -1,3 +1,31 @@
 .Template--about {
-  --Template-bg-color: wheat;
+  --Template-bg-color: var(--cream-50);
+  --Template-main-bg-color: var(--cream-50);
+
+  .Template-main {
+    padding-top: 60vw;
+
+    @include mq(m) {
+      padding-top: 40vw;
+    }
+  }
+
+  .Template-figureCol {
+    @include mq($until: s) {
+      order: 1;
+    }
+  }
+
+  .Template-heading {
+    --heading: var(--white);
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 1;
+  }
+
+  .Template-figure {
+    inset: 0 0 auto 0;
+    position: absolute;
+    z-index: 0;
+  }
 }
