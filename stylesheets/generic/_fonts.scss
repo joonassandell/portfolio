@@ -3,8 +3,8 @@
   font-family: 'Px Grotesk';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/Px-Grotesk-Regular.woff2') format('woff2'),
-       url('/fonts/Px-Grotesk-Regular.woff') format('woff');
+  src: url('/static/fonts/Px-Grotesk-Regular.woff2') format('woff2'),
+       url('/static/fonts/Px-Grotesk-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -12,6 +12,6 @@
   font-family: 'Px Grotesk';
   font-style: normal;
   font-weight: 100;
-  src: url('/fonts/Px-Grotesk-Light.woff2') format('woff2'),
-       url('/fonts/Px-Grotesk-Light.woff') format('woff');
+  src: url('/static/fonts/Px-Grotesk-Light.woff2') format('woff2'),
+       url('/static/fonts/Px-Grotesk-Light.woff') format('woff');
 }

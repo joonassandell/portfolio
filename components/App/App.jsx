@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Head from 'next/head';
 import { isBrowser } from '@/lib/utility';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
+import { AppHead } from './';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 
@@ -132,12 +132,7 @@ export const App = ({ Component, pageProps }) => {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-      </Head>
+      <AppHead />
       {!DISABLE_LOADING && (
         <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       )}
