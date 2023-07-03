@@ -4,9 +4,60 @@ import { useRouter } from 'next/router';
 export const AppHead = () => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
   const { asPath } = useRouter();
+  const title = 'Joonas Sandell';
+  const description =
+    'Portfolio of Joonas Sandell — Designer, creative developer and sometimes even a music producer from Helsinki, Finland. Areas of expertise include Product & Visual design, Web & Mobile services, Branding and Software development.';
 
   return (
     <Head>
+      {/* Common */}
+      <title>{title}</title>
+      <meta content={description} name="description" key="description" />
+
+      {/* Open Graph */}
+      <meta content={title} property="og:title" key="og:title" />
+      <meta
+        content={description}
+        property="og:description"
+        key="og:description"
+      />
+      <meta content="joonassandell.com" property="og:site_name" />
+      <meta content={`${ORIGIN}/static/og-image.jpg`} property="og:image" />
+      <meta content="website" property="og:type" />
+      <meta content={`${ORIGIN}${asPath}`} property="og:url" />
+      <meta content="en" property="og:locale" />
+
+      {/* Twitter */}
+      <meta content={title} property="twitter:title" key="twitter:title" />
+      <meta
+        content={description}
+        property="twitter:description"
+        key="twitter:description"
+      />
+      <meta content="summary_large_image" property="twitter:card" />
+      <meta
+        content={`${ORIGIN}/static/og-image.jpg`}
+        property="twitter:image"
+      />
+      <meta content="@joonassandell" property="twitter:site" />
+      <meta content="@joonassandell" property="twitter:creator" />
+
+      {/* Icons */}
+      <link
+        href="/static/apple-touch-icon.png"
+        rel="apple-touch-icon"
+        sizes="180x180"
+      />
+      <link color="#f5eddb" href="/static/favicon.svg" rel="mask-icon" />
+      <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
+      <link href="/static/favicon.ico" rel="icon" sizes="any" />
+
+      {/* Other */}
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <meta name="theme-color" content="black" key="theme-color" />
       <link
         as="font"
         crossOrigin="anonymous"
@@ -20,26 +71,6 @@ export const AppHead = () => {
         href="/static/fonts/Px-Grotesk-Light.woff2"
         rel="preload"
         type="font/woff2"
-      />
-      <meta content="Joonas Sandell" property="og:site_name" />
-      <meta content={`${ORIGIN}/static/og-image.jpg`} property="og:image" />
-      <meta content="website" property="og:type" />
-      <meta content={`${ORIGIN}${asPath}`} property="og:url" />
-      <meta content="en" property="og:locale" />
-      <meta content="summary_large_image" name="twitter:card" />
-      <meta content={`${ORIGIN}/static/og-image.jpg`} name="twitter:image" />
-      <meta content="@joonassandell" name="twitter:site" />
-      <link
-        href="/static/apple-touch-icon.png"
-        rel="apple-touch-icon"
-        sizes="180x180"
-      />
-      <link color="#f5eddb" href="/static/favicon.svg" rel="mask-icon" />
-      <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
-      <link href="/static/favicon.ico" rel="icon" sizes="any" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
     </Head>
   );

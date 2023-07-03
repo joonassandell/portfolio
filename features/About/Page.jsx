@@ -1,7 +1,7 @@
 import { Template, TemplateMain } from '@/components/Template';
 import { SCROLL_SPEED, MQ } from '@/lib/config';
 import { getLink } from '@/lib/utility';
-import { Title } from '@/components/Title';
+import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Text } from '@/components/Text';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -43,7 +43,7 @@ export const AboutPage = ({ id, title }) => {
 
   return (
     <Template id={id}>
-      <Title title={title} />
+      <Head title={title} />
       <TemplateMain>
         <div className="Template-heading wrap pr:0">
           <Heading

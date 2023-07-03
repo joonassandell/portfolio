@@ -6,7 +6,7 @@ import { MQ } from '@/lib/config';
 import { useMedia } from 'react-use';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
-import { Title } from '@/components/Title';
+import { Head } from '@/components/Head';
 
 export const SandboxPage = ({ images, id, title, year }) => {
   const { id: nextProjectId } = getSitemap('more-work');
@@ -14,7 +14,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
 
   return (
     <Template id={id}>
-      <Title title={title} />
+      <Head title={title} />
       <TemplateMain>
         <SandboxHero />
         <Info

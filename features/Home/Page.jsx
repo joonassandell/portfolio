@@ -14,11 +14,9 @@ import { useState } from 'react';
 import { Link } from '@/components/Link';
 import { useScrollTo } from '@/lib/useScrollTo';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
-import { Title } from '@/components/Title';
 
-const about = getSitemap('about', 'secondary');
-
-export const HomePage = ({ id, title }) => {
+export const HomePage = ({ id }) => {
+  const about = getSitemap('about', 'secondary');
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
@@ -44,7 +42,6 @@ export const HomePage = ({ id, title }) => {
 
   return (
     <Template className={extraSpace && 'is-extraSpace'} id={id}>
-      <Title title={title} />
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}

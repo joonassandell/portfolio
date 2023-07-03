@@ -5,14 +5,14 @@ import { NextProject } from '@/components/NextProject';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
-import { Title } from '@/components/Title';
+import { Head } from '@/components/Head';
 
-export const BiocodePage = ({ images, id, title, year }) => {
+export const BiocodePage = ({ images, id, title }) => {
   const { id: nextProjectId } = getSitemap('oras');
 
   return (
     <Template id={id}>
-      <Title title={title} />
+      <Head title={title} />
       <TemplateMain>
         <BiocodeHero />
         <Info

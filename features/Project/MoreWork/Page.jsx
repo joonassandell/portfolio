@@ -7,7 +7,7 @@ import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Text } from '@/components/Text';
 import { Link } from '@/components/Link';
-import { Title } from '@/components/Title';
+import { Head } from '@/components/Head';
 
 export const MoreWorkPage = ({ images, id, title, year }) => {
   const { id: nextProjectId } = getSitemap('biocode');
@@ -15,7 +15,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
 
   return (
     <Template id={id}>
-      <Title title={title} />
+      <Head title={title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info

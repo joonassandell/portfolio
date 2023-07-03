@@ -6,7 +6,7 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { useIsMobile } from '@/lib/useIsMobile';
-import { Title } from '@/components/Title';
+import { Head } from '@/components/Head';
 
 export const OrasPage = ({ images, id, title }) => {
   const isMobile = useIsMobile();
@@ -14,20 +14,20 @@ export const OrasPage = ({ images, id, title }) => {
 
   return (
     <Template name={id}>
-      <Title title={title} />
+      <Head title={title} />
       <TemplateMain>
         <OrasHero />
         <Info
           client={{ name: title }}
           type={['Web service', 'Commission']}
-          heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
+          heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe's leading faucet manufacturer."
           smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
           text={
             <p>
               After several iterations the Oras brand was modernised entirely in
               connection with the web service overhaul. The web service was used
               to create a bold and distinct image of Oras and to strongly
-              highlight the brand’s new promise.
+              highlight the brand's new promise.
             </p>
           }
           role={['UI/UX design', 'Web development', 'Concept strategy']}
