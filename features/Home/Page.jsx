@@ -47,7 +47,7 @@ export const HomePage = ({ id, title }) => {
       <Title title={title} />
       <TemplateMain>
         <m.div
-          animate={animation ? 'hidden' : false}
+          animate={animation ? 'animate' : ''}
           className="Template-about"
           variants={FADE_OUT_VARIANTS}
         >

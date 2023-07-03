@@ -1,10 +1,11 @@
 import { m } from 'framer-motion';
 import { Link } from '@/components/Link';
 import { Text } from '@/components/Text';
+import { Hr } from '@/components/Hr';
 import { Heading } from '@/components/Heading';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
-import { TEXT_VARIANTS_DEFAULT, RULER_VARIANTS } from '@/lib/config';
+import { TEXT_VARIANTS } from '@/lib/config';
 import { useRef } from 'react';
 
 export const SubInfo = ({
@@ -16,20 +17,12 @@ export const SubInfo = ({
   year,
 }) => {
   const { name, href } = client || {};
-  const rulerRef = useRef(null);
-  const rulerInView = useInView(rulerRef, 0.5);
   const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, 0.5);
+  const gridInView = useInView(gridRef);
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">
-      <m.hr
-        animate={rulerInView && 'animate'}
-        className="SubInfo-ruler"
-        initial="initial"
-        ref={rulerRef}
-        variants={RULER_VARIANTS}
-      />
+      <Hr className="SubInfo-ruler" />
       <m.div
         animate={gridInView && 'animate'}
         className="grid"
@@ -44,7 +37,7 @@ export const SubInfo = ({
         }}
       >
         {heading && (
-          <m.div className="grid-col" variants={TEXT_VARIANTS_DEFAULT}>
+          <m.div className="grid-col" variants={TEXT_VARIANTS}>
             <Heading className="mb:0" size="h4">
               {heading}
             </Heading>
@@ -52,7 +45,7 @@ export const SubInfo = ({
         )}
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS_DEFAULT}
+          variants={TEXT_VARIANTS}
         >
           <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Client & Year
@@ -74,7 +67,7 @@ export const SubInfo = ({
         </m.div>
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS_DEFAULT}
+          variants={TEXT_VARIANTS}
         >
           <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Role
@@ -87,7 +80,7 @@ export const SubInfo = ({
         </m.div>
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS_DEFAULT}
+          variants={TEXT_VARIANTS}
         >
           <Text marginBottom="xxSmall" color="light" size="small" tag="p">
             Project type
@@ -100,7 +93,7 @@ export const SubInfo = ({
         </m.div>
         <m.div
           className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:8@l -start:1@l"
-          variants={TEXT_VARIANTS_DEFAULT}
+          variants={TEXT_VARIANTS}
         >
           <Text>{text}</Text>
         </m.div>

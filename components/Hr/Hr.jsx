@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import c from 'classnames';
 import { useRef } from 'react';
-import { RULER_VARIANTS } from '@/lib/config';
+import { hrVariants } from './Hr.animations';
 import { useInView } from '@/lib/useInView';
 
 export const Hr = ({ className }) => {
@@ -15,7 +15,7 @@ export const Hr = ({ className }) => {
       className={classes}
       initial="initial"
       ref={ref}
-      variants={RULER_VARIANTS}
+      variants={hrVariants}
     />
   );
 };

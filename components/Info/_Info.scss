@@ -1,27 +1,10 @@
 .Info {
+  .grid-col {
+    transform-origin: top left;
+  }
+
   @include mq($until: ml) {
     margin-top: rem($space * -4);
-  }
-}
-
-.Info-ruler {
-  margin-bottom: rem($space-l);
-  transform-origin: top left;
-
-  @include mq(l) {
-    margin-bottom: rem($space-xxxl);
-  }
-}
-
-.Info-heading {
-  margin-top: rem($space-m);
-
-  @include mq(s) {
-    margin-bottom: rem($space-l);
-  }
-
-  @include mq(m) {
-    margin-top: 0;
   }
 }
 

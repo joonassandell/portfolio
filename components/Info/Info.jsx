@@ -1,6 +1,7 @@
-import { MQ, RULER_VARIANTS, TEXT_VARIANTS_DEFAULT } from '@/lib/config';
+import { MQ, TEXT_VARIANTS } from '@/lib/config';
 import { m } from 'framer-motion';
 import { Link } from '@/components/Link';
+import { Hr } from '@/components/Hr';
 import { Text } from '@/components/Text';
 import { Heading } from '@/components/Heading';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
@@ -18,125 +19,116 @@ export const Info = ({
   year,
 }) => {
   const { name, href } = client || {};
-  const desktop = useMedia(MQ.desktop, false);
-  const rulerRef = useRef(null);
-  const rulerInView = useInView(rulerRef);
+  const mqL = useMedia(MQ.l, false);
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
   const textRef = useRef(null);
   const textInView = useInView(textRef);
 
   return (
-    <section className="Info wrap">
+    <section className="Info wrap grid -gap:row:xl">
       <div
         data-scroll
         data-scroll-position="top"
         data-scroll-speed={0.5}
-        ref={rulerRef}
+        className="grid-col"
       >
-        <m.hr
-          animate={rulerInView && 'animate'}
-          className="Info-ruler"
-          initial="initial"
-          variants={RULER_VARIANTS}
-        />
+        <Hr className="Info-ruler mb:0" />
       </div>
-      <div className="grid">
-        <m.div
-          animate={gridInView && 'animate'}
-          className="Info-meta grid-col grid-col:5@l"
-          initial="initial"
-          ref={gridRef}
-          variants={{
-            animate: {
-              transition: {
-                staggerChildren: 0.2,
-              },
+      <m.div
+        animate={gridInView && 'animate'}
+        className="Info-meta grid-col grid-col:5@l"
+        initial="initial"
+        ref={gridRef}
+        variants={{
+          animate: {
+            transition: {
+              staggerChildren: 0.2,
             },
-          }}
-        >
-          <div className="grid">
-            <m.div
-              className="grid -gap:column:0 grid-col grid-col:6 grid-col:9@m grid-col:5@l"
-              variants={TEXT_VARIANTS_DEFAULT}
-            >
-              <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
-                  Client
-                </Text>
-                <Text size="small" tag="p">
-                  <ConditionalWrapper
-                    condition={href}
-                    wrapper={children => (
-                      <Link href={href} underline>
-                        {children}
-                      </Link>
-                    )}
-                  >
-                    {name}
-                  </ConditionalWrapper>
-                </Text>
-              </div>
-              <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
-                  Year
-                </Text>
-                <Text size="small" tag="p">
-                  {year}
-                </Text>
-              </div>
-              <div className="grid-col grid-col:4@m grid-col:12@l">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
-                  Project type
-                </Text>
-                <Text size="small" tag="ul">
-                  {type.map((r, i) => (
-                    <li key={i}>{r}</li>
-                  ))}
-                </Text>
-              </div>
-            </m.div>
-            <m.div
-              className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
-              variants={TEXT_VARIANTS_DEFAULT}
-            >
-              <div className="grid-col">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
-                  Role
-                </Text>
-                <Text className="grid-col" size="small" tag="ul">
-                  {role.map((r, i) => (
-                    <li key={i}>{r}</li>
-                  ))}
-                </Text>
-              </div>
-              <Text
-                className="Info-meta-small grid-col -align:end"
-                color="light"
-              >
-                <small>{smallPrint}</small>
+          },
+        }}
+      >
+        <div className="grid">
+          <m.div
+            className="grid -gap:column:0 grid-col grid-col:6 grid-col:9@m grid-col:5@l"
+            variants={TEXT_VARIANTS}
+          >
+            <div className="grid-col grid-col:4@m grid-col:12@l">
+              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                Client
               </Text>
-            </m.div>
-          </div>
-        </m.div>
-        <m.div
-          animate={textInView && 'animate'}
-          className="grid-col grid-col:9@m grid-col:7@l grid-col:6@xl"
-          custom={desktop ? 0.4 : false}
-          initial="initial"
-          ref={textRef}
-          variants={TEXT_VARIANTS_DEFAULT}
-        >
-          <Heading className="Info-heading" tag="h2" size="h4">
-            {heading}
-          </Heading>
-          <div className="grid">
-            <Text className="Info-text grid-col grid-col:8@s grid-col:7@m">
-              {text}
+              <Text size="small" tag="p">
+                <ConditionalWrapper
+                  condition={href}
+                  wrapper={children => (
+                    <Link href={href} underline>
+                      {children}
+                    </Link>
+                  )}
+                >
+                  {name}
+                </ConditionalWrapper>
+              </Text>
+            </div>
+            <div className="grid-col grid-col:4@m grid-col:12@l">
+              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                Year
+              </Text>
+              <Text size="small" tag="p">
+                {year}
+              </Text>
+            </div>
+            <div className="grid-col grid-col:4@m grid-col:12@l">
+              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                Project type
+              </Text>
+              <Text size="small" tag="ul">
+                {type.map((r, i) => (
+                  <li key={i}>{r}</li>
+                ))}
+              </Text>
+            </div>
+          </m.div>
+          <m.div
+            className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
+            variants={TEXT_VARIANTS}
+          >
+            <div className="grid-col">
+              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                Role
+              </Text>
+              <Text className="grid-col" size="small" tag="ul">
+                {role.map((r, i) => (
+                  <li key={i}>{r}</li>
+                ))}
+              </Text>
+            </div>
+            <Text className="Info-meta-small grid-col -align:end" color="light">
+              <small>{smallPrint}</small>
             </Text>
-          </div>
-        </m.div>
-      </div>
+          </m.div>
+        </div>
+      </m.div>
+      <m.div
+        animate={textInView && 'animate'}
+        className="grid-col grid-col:9@m grid-col:7@l grid-col:6@xl"
+        custom={{ delay: mqL ? 0.4 : 0 }}
+        initial="initial"
+        ref={textRef}
+        variants={TEXT_VARIANTS}
+      >
+        <Heading className="Info-heading mb:l" tag="h2" size="h4">
+          {heading}
+        </Heading>
+        <div className="grid">
+          <Text
+            animate
+            className="Info-text grid-col grid-col:8@s grid-col:7@m"
+          >
+            {text}
+          </Text>
+        </div>
+      </m.div>
     </section>
   );
 };
