@@ -65,8 +65,9 @@ export const App = ({ Component, pageProps }) => {
     }
 
     (async () => {
-      const { isWindows } = await import('@/lib/detect');
+      const { isWindows, isIphoneSafari } = await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
+      if (isIphoneSafari) html.classList.add('is-iphoneSafari');
     })();
 
     const rootHeight = () =>

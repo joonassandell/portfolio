@@ -8,6 +8,16 @@
   width: 100%;
 
   /**
+   * Little detail for iPhone Safari which blends the layout nicely with the
+   * theme-color in dark mode. Blends nicely if the Tab Bar is used.
+   */
+  .is-iphoneSafari & {
+    @media (prefers-color-scheme: dark) {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+  }
+
+  /**
    * This is the enter transition template
    */
   &:last-child:not(:only-child).is-transition\:template {
