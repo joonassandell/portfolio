@@ -20,9 +20,3 @@
     max-width: 25%;
   }
 }
-
-.SubInfo-text {
-  @include mq(s) {
-    margin-top: rem($space);
-  }
-}

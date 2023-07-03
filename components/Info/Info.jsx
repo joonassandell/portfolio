@@ -26,18 +26,18 @@ export const Info = ({
   const textInView = useInView(textRef);
 
   return (
-    <section className="Info wrap grid -gap:row:xl">
+    <section className="Info wrap grid -gap:row:l">
       <div
         data-scroll
         data-scroll-position="top"
         data-scroll-speed={0.5}
         className="grid-col"
       >
-        <Hr className="Info-ruler mb:0" />
+        <Hr className="mb:0@until:l" />
       </div>
       <m.div
         animate={gridInView && 'animate'}
-        className="Info-meta grid-col grid-col:5@l"
+        className="grid-col grid-col:5@l"
         initial="initial"
         ref={gridRef}
         variants={{
@@ -103,7 +103,7 @@ export const Info = ({
                 ))}
               </Text>
             </div>
-            <Text className="Info-meta-small grid-col -align:end" color="light">
+            <Text className="grid-col -align:end" color="light">
               <small>{smallPrint}</small>
             </Text>
           </m.div>
@@ -117,7 +117,7 @@ export const Info = ({
         ref={textRef}
         variants={TEXT_VARIANTS}
       >
-        <Heading className="Info-heading mb:l" tag="h2" size="h4">
+        <Heading className="mb:l" tag="h2" size="h4">
           {heading}
         </Heading>
         <div className="grid">

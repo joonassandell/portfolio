@@ -102,8 +102,9 @@ export const AboutPage = ({ id, title }) => {
                 I’m Joonas — Front-end developer, art director and sometimes
                 even a music producer. I have a strong passion for all aspects
                 of product and visual design, including web and mobile services,
-                branding and animations. I love designing in the browser but I
-                work a lot with Figma as well.
+                branding and software development. I love designing in the
+                browser but I work a lot with Figma and other design tools as
+                well.
               </p>
             </Text>
             <Text animate className="mb:m">

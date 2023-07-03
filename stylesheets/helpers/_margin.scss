@@ -4,5 +4,22 @@
 .mb\:m { margin-bottom: rem($space-m) !important; }
 .mb\:l { margin-bottom: rem($space-l) !important; }
 .mb\:xl { margin-bottom: rem($space-xl) !important; }
-.mb\:0 { margin-bottom: 0 !important; }
+.mt\:s {
+  margin-top: rem($space-s) !important;
+
+  @include mq(s) {
+    &\@s {
+      margin-top: rem($space-s) !important;
+    }
+  }
+}
 .mb\:xxs { margin-bottom: rem($space-xxs) !important; }
+.mb\:0 {
+  margin-bottom: 0 !important;
+
+  @include mq($until: l) {
+    &\@until\:l {
+      margin-bottom: 0 !important;
+    }
+  }
+}

@@ -12,7 +12,7 @@
   }
 
   .Hero-figure-figure--bottom {
-    inset: auto rem(-$space-m) rem($space-xxxl) auto;
+    inset: auto rem(-$space-m) rem($space-xxxl + $space) auto;
   }
 
   &.is-transition {
