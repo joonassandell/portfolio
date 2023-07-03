@@ -26,14 +26,14 @@ export const clipVariants = {
 export const moveVariants = {
   animate: {
     opacity: 1,
-    scale: 1,
+    skewY: 0,
     transition: TRANS_TERTIARY_FAST,
     y: 0,
   },
   initial: {
     opacity: 0,
-    scale: 1.1,
-    y: '4rem',
+    skewY: 10,
+    y: '5rem',
   },
 };
 
@@ -56,6 +56,9 @@ export const placeholderGlareVariants = {
 export const glareVariants = {
   animate: {
     ...placeholderGlareVariants.animate,
-    transition: TRANS_TERTIARY,
+    transition: {
+      ...TRANS_TERTIARY,
+      duration: TRANS_TERTIARY.duration + 0.3,
+    },
   },
 };
