@@ -7,6 +7,8 @@ import {
 } from '@/lib/config';
 
 /**
+ * Header, Logo, Separator etc.
+ *
  * Note that these enter/exit animations rely heavily on the mask animation, so
  * if you add too much delay things may look shit, so keep them in sync.
  */
@@ -70,44 +72,6 @@ export const enterExitBtnArrow = {
   transition: { ...TRANS_PRIMARY_FAST, delay: 0.03 },
 };
 
-export const maskOpen = {
-  transition: TRANS_PRIMARY,
-};
-
-export const maskClose = {
-  transition: TRANS_PRIMARY,
-};
-
-export const navVariant = {
-  open: {
-    transition: { delayChildren: 0.1, staggerChildren: 0.05 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
-};
-
-export const navItemVariant = {
-  open: {
-    opacity: 1,
-    transition: TRANS_PRIMARY_FAST,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    transition: TRANS_PRIMARY_FAST,
-    y: 88,
-  },
-  closed: {
-    opacity: 0,
-    transition: TRANS_PRIMARY_FAST,
-    y: 88,
-  },
-};
-
-/**
- * Logo, Separator etc.
- */
 export const ctrlVariant = {
   open: {
     transition: {
@@ -145,6 +109,47 @@ export const ctrlItemInVariant = {
   closed: {
     transition: TRANS_SECONDARY_FAST,
     y: '3rem',
+  },
+};
+
+/**
+ * Mask
+ */
+export const maskOpen = {
+  transition: TRANS_PRIMARY,
+};
+
+export const maskClose = {
+  transition: TRANS_PRIMARY,
+};
+
+/**
+ * Navigation
+ */
+export const navVariant = {
+  open: {
+    transition: { delayChildren: 0.1, staggerChildren: 0.05 },
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+};
+
+export const navItemVariant = {
+  open: {
+    opacity: 1,
+    transition: TRANS_PRIMARY_FAST,
+    y: 0,
+  },
+  initial: {
+    opacity: 0,
+    transition: TRANS_PRIMARY_FAST,
+    y: 88,
+  },
+  closed: {
+    opacity: 0,
+    transition: TRANS_PRIMARY_FAST,
+    y: 88,
   },
 };
 

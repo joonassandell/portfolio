@@ -240,12 +240,12 @@
 }
 
 .Header-nav {
-  margin: max(20vh, #{rem($space * 6)}) auto auto;
+  margin: max(16.5vh, #{rem($space * 7)}) auto auto;
   width: 100%;
   z-index: 0;
 
   @include mq(m) {
-    margin-top: max(20vh, #{rem($space * 9)});
+    margin-top: max(25vh, #{rem($space * 9)});
   }
 }
 
@@ -396,21 +396,16 @@
 }
 
 .Header-footer {
-  align-items: flex-end;
-  color: var(--text-50);
+  --link: var(--text-50);
   display: flex;
-  margin: max(10vh, #{rem($space * 5)}) 0 rem($space-xl) 0;
-
-  a {
-    color: var(--text-50);
-  }
+  margin: max(7.5vh, #{rem($space-l)}) 0 rem($space-ml) 0;
 
   @include mq($until: m) {
     @include text(s);
   }
 
   @include mq(m) {
-    margin-top: max(12.5vh, #{rem($space * 6)});
+    margin-bottom: rem($space-xl);
   }
 
   @include mq(l) {
@@ -418,21 +413,29 @@
   }
 }
 
-.Header-links {
+.Header-footer-links {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-}
+  gap: rem($space-xs);
 
-.Header-links-item {
-  margin-right: rem($space-xs);
-
-  &:not(:last-child) {
-    margin-bottom: rem($space * 0.125);
+  @include mq(l) {
+    gap: rem($space * 0.125);
   }
 }
 
-.Header-copyright {
-  margin: 0 0 0 auto;
+.Header-footer-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
   text-align: right;
+
+  @include mq(m) {
+    .Header-links {
+      display: none;
+    }
+  }
+}
+
+.Header-footer-copyright {
+  margin: auto 0 0 0;
 }

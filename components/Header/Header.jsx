@@ -10,6 +10,7 @@ import {
   maskClose,
   maskOpen,
   navVariant,
+  navItemVariant,
 } from './Header.animations';
 import { useEffect, useState, useRef } from 'react';
 import { ButtonArrow } from '@/components/Button';
@@ -413,7 +414,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                     return (
                       <NavItem
                         color={item.color}
-                        key={item.navTitle}
+                        key={item.id}
                         name={item.navTitle}
                         onClick={handleClick}
                         url={item.url}
@@ -423,11 +424,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   })}
               </ul>
             </m.nav>
-            <footer className="Header-footer wrap">
-              <ul className="Header-links">
+            <m.footer
+              animate={!isOpen ? 'closed' : ''}
+              className="Header-footer wrap"
+              variants={navItemVariant}
+            >
+              <ul className="Header-footer-links">
                 {someLinks.map(link => {
                   return (
-                    <li className="Header-links-item" key={link.id}>
+                    <li key={link.id}>
                       <Link href={link.url} underline>
                         {link.title}
                       </Link>
@@ -435,11 +440,24 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   );
                 })}
               </ul>
-              <p className="Header-copyright">
-                &copy; {new Date().getFullYear()} <br />
-                Joonas Sandell
-              </p>
-            </footer>
+              <div className="Header-footer-right">
+                <ul className="Header-footer-links">
+                  {SITEMAP.secondary.map(item => {
+                    return (
+                      <li key={item.id}>
+                        <Link href={item.url} underline>
+                          {item.navTitle}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p className="Header-footer-copyright">
+                  &copy; {new Date().getFullYear()} <br />
+                  Joonas Sandell
+                </p>
+              </div>
+            </m.footer>
           </>
         )}
       </m.div>
