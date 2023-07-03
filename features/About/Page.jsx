@@ -75,7 +75,13 @@ export const AboutPage = ({ id, title }) => {
         </div>
         <div id="about" className="Template-mainContent wrap grid pt:10vw">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
-            <Heading size="h4">
+            <Heading
+              size="h4"
+              {...(mqS && {
+                'data-scroll': true,
+                'data-scroll-speed': SCROLL_SPEED,
+              })}
+            >
               <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
             </Heading>
           </div>
@@ -90,13 +96,7 @@ export const AboutPage = ({ id, title }) => {
               {...profileImage2}
             />
           </div>
-          <div
-            className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:7@l"
-            {...(mqS && {
-              'data-scroll': true,
-              'data-scroll-speed': SCROLL_SPEED,
-            })}
-          >
+          <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:7@l">
             <Text animate className="mb:m">
               <p>
                 I’m Joonas — Front-end developer, art director and sometimes
@@ -135,13 +135,13 @@ export const AboutPage = ({ id, title }) => {
             data-scroll
             data-scroll-direction="horizontal"
             data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED}
+            data-scroll-speed={SCROLL_SPEED * 4}
             size="h2"
             tag="div"
           >
             <TextReveal
               text={[
-                'Art direction — Product design — Visual design — Web & mobile design — Interaction design — Animation',
+                'Art direction — Product design — Visual design — Web & mobile design — Interaction design — Animation — Art direction',
               ]}
             />
           </Heading>
@@ -150,7 +150,7 @@ export const AboutPage = ({ id, title }) => {
             data-scroll
             data-scroll-direction="horizontal"
             data-scroll-position="left"
-            data-scroll-speed={-SCROLL_SPEED}
+            data-scroll-speed={SCROLL_SPEED * -4}
             size="h2"
             tag="div"
           >
@@ -165,7 +165,7 @@ export const AboutPage = ({ id, title }) => {
             data-scroll
             data-scroll-direction="horizontal"
             data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED}
+            data-scroll-speed={SCROLL_SPEED * 2}
             size="h2"
             tag="div"
           >
@@ -180,13 +180,13 @@ export const AboutPage = ({ id, title }) => {
             data-scroll
             data-scroll-direction="horizontal"
             data-scroll-position="left"
-            data-scroll-speed={-SCROLL_SPEED}
+            data-scroll-speed={SCROLL_SPEED * -2}
             size="h2"
             tag="div"
           >
             <TextReveal
               text={[
-                'Photoshop — Illustrator — Rive — Figma — Sketch — Indesign — Design systems',
+                'Design systems — Photoshop — Illustrator — Rive — Figma — Sketch — Indesign — Design systems',
               ]}
             />
           </Heading>
