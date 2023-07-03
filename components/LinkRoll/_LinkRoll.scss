@@ -1,10 +1,17 @@
+/**
+ * 1. Fixes odd issue in Chromium where there sometimes seems to be extra text
+ *    element under the animating elements
+ * 2. To transition the change to underline if the underline is used as
+ *    active state (e.g. in Header)
+ */
 .LinkRoll {
   display: inline-flex;
   overflow: hidden;
   position: relative;
   transition: opacity $trans-primaryFastest;
+  will-change: opacity; // [1.]
 
-  &:where(:hover) {
+  &:where(&:hover) {
     opacity: var(--link-hover-opacity);
   }
 }
@@ -30,14 +37,10 @@
 
 /* ======
  * Modifiers
- * ======
- *
- * 1.To transition the change to underline if the underline is used as
- *   active state (e.g. in Header)
- */
+ * ======  */
 
 .LinkRoll {
-  // [1.]
+  // [2.]
   &.has-underline {
     .LinkRoll-char {
       &:after {

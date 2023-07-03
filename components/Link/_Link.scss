@@ -1,3 +1,7 @@
+/**
+ * 1. Fixes odd issue in Chromium where there sometimes seems to be extra text
+ *    element under the animating elements
+ */
 .Link {
   align-items: center;
   display: inline-flex;
@@ -6,8 +10,9 @@
   pointer-events: all;
   position: relative;
   transition: opacity $trans-primaryFastest;
+  will-change: opacity; // [1.]
 
-  &:where(:hover) {
+  &:where(&:hover) {
     opacity: var(--link-hover-opacity);
   }
 }
@@ -16,16 +21,6 @@
   display: block;
   pointer-events: none;
   position: relative;
-
-  &:after {
-    border-bottom-style: solid;
-    border-bottom-width: var(--border-width);
-    content: '';
-    inset: auto 0 rem(2px) 0;
-    opacity: 0;
-    position: absolute;
-    transition: opacity $trans-primary;
-  }
 }
 
 .Link-text--reveal {
@@ -46,6 +41,18 @@
 
 .Link {
   &.-underline {
+    .Link-text {
+      &:after {
+        border-bottom-style: solid;
+        border-bottom-width: var(--border-width);
+        content: '';
+        inset: auto 0 rem(2px) 0;
+        opacity: 0;
+        position: absolute;
+        transition: opacity $trans-primary;
+      }
+    }
+
     .Link-text, .Link-text--reveal {
       &:after {
         opacity: 1;
