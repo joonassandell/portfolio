@@ -430,7 +430,7 @@
   text-align: right;
 
   @include mq(m) {
-    .Header-links {
+    .Header-footer-links {
       display: none;
     }
   }

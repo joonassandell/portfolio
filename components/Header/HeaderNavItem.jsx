@@ -2,17 +2,18 @@ import { m, animate } from 'framer-motion';
 import { marqueeVariants, marqueeInnerVariants } from './Header.animations';
 import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
-import React, { Fragment, useEffect, useState, useRef } from 'react';
+import { Fragment, useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'classnames';
 import EyeSvg from './eye.svg';
 import Link from 'next/link';
 
-export const NavItem = props => {
+export const NavItem = ({ url, color, onClick, name, year }) => {
   const router = useRouter();
   const [hover, setHover] = useState(false);
-  const [closestEdge, setClosestEdge] = useState(null);
+  const [closestEdge, setClosestEdge] = useState('top');
   const [reveal, setReveal] = useState(false);
+  const [revealTimeout, setRevealTimeout] = useState(null);
   const ref = useRef(null);
   const marqueeRef = useRef(null);
 
@@ -26,9 +27,9 @@ export const NavItem = props => {
   };
 
   useEffect(() => {
-    if (reveal) {
-      if (!marqueeRef.current) return;
-      const width = marqueeRef.current.clientWidth;
+    if (reveal && marqueeRef.current) {
+      const { current } = marqueeRef;
+      const width = current.clientWidth;
       const duration = width / 50 - width / 58;
       const controls = animate('-50%', '0%', {
         duration: duration > 0 ? duration : 25,
@@ -36,11 +37,11 @@ export const NavItem = props => {
         repeat: Infinity,
         repeatType: 'loop',
         onUpdate(value) {
-          if (!marqueeRef.current) {
+          if (!current) {
             controls.stop();
             return;
           }
-          marqueeRef.current.style.transform = `translateX(${value}) translateZ(0px)`;
+          current.style.transform = `translateX(${value}) translateZ(0px)`;
         },
       });
     }
@@ -49,7 +50,7 @@ export const NavItem = props => {
   return (
     <m.li
       className={c('Header-nav-item', {
-        'is-active': router.pathname === props.url,
+        'is-active': router.pathname === url,
       })}
       onMouseEnter={e => {
         findClosestEdge(e);
@@ -60,40 +61,38 @@ export const NavItem = props => {
         findClosestEdge(e);
         setHover('out');
       }}
-      style={{
-        '--Header-marquee-iris': props.color,
-      }}
+      style={{ '--Header-marquee-iris': color }}
       variants={navItemVariant}
     >
-      <Link
-        className="Header-nav-link"
-        href={props.url}
-        onClick={props.onClick}
-        scroll={false}
-      >
+      <Link className="Header-nav-link" href={url} onClick={onClick}>
         <span className="Header-nav-link-inner">
-          <span className="Header-nav-link-text">{props.name}</span>
+          <span className="Header-nav-link-text">{name}</span>
           <EyeSvg className="Header-nav-link-eye" />
         </span>
       </Link>
       <m.div
-        animate={hover === 'in' ? 'in' : hover === 'out' ? 'out' : ''}
+        animate={hover}
         aria-hidden="true"
         className="Header-nav-marquee"
-        custom={closestEdge === 'top' ? 'top' : 'bottom'}
+        custom={closestEdge}
         initial="out"
         onAnimationStart={() => {
-          if (hover === 'in') setReveal(true);
+          if (hover === 'in') {
+            revealTimeout && clearTimeout(revealTimeout);
+            setReveal(true);
+          }
         }}
         onAnimationComplete={() => {
-          if (hover === 'out') setReveal(false);
+          if (hover === 'out') {
+            setRevealTimeout(setTimeout(() => setReveal(false), 100));
+          }
         }}
         variants={marqueeVariants}
         transition={marqueeVariants.transition}
       >
         <m.div
           className="Header-nav-marquee-inner"
-          custom={closestEdge == 'top' ? 'top' : 'bottom'}
+          custom={closestEdge}
           variants={marqueeInnerVariants}
           transition={marqueeVariants.transition}
         >
@@ -102,9 +101,9 @@ export const NavItem = props => {
               {[...Array(10)].map((x, i) => {
                 return (
                   <Fragment key={i}>
-                    <span>{props.name}</span>
+                    <span>{name}</span>
                     <EyeSvg className="Header-nav-marquee-eye" />
-                    <span>{props.year}</span>
+                    <span>{year}</span>
                     <EyeSvg className="Header-nav-marquee-eye" />
                   </Fragment>
                 );
