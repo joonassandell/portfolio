@@ -254,8 +254,8 @@ export const BiocodePage = ({ images, id, title }) => {
             <Figure
               alt="Biocode for producers app in dark mode"
               border
-              scroll
               sizes={`${MQ.l} 80vw, 100vw`}
+              transition="clip"
               quality={100}
               {...getImage(
                 'joonassandell-biocode-app-producer-crop-dark',
@@ -264,7 +264,12 @@ export const BiocodePage = ({ images, id, title }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection className="Template-app" paddingBottom theme="light">
+        <TemplateSection
+          className="Template-app"
+          paddingTop={false}
+          paddingBottom
+          theme="light"
+        >
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Biocode app sign in page"

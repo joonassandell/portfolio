@@ -37,7 +37,7 @@
     position: absolute;
   }
 
-  > :where(.wrap) {
+  > :where(.wrap):not(.Hero-link) {
     @include mq($until: l) {
       padding-right: 0;
     }
@@ -81,7 +81,6 @@
   inset: auto 0 rem($space-m + 2px) 0;
   padding-right: var(--wrap-spaceRight);
   pointer-events: all;
-  position: absolute;
   z-index: 4;
 
   @include mq(l) {

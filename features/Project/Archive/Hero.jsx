@@ -34,7 +34,7 @@ export const ArchiveHero = ({ onClick, ...props }) => {
                     animate: 'animate',
                     initial: 'initial',
                   })}
-                  custom={{ enableInitial: transitionInitial }}
+                  custom={{ delay: 0.1 }}
                   variants={figureInnerVariants}
                 >
                   <Image
