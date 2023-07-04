@@ -37,23 +37,23 @@ export const Hero = ({
   );
 
   /**
-   * Pre transition: Transition before router change
    * Default state: On mount (e.g. after pre transition or at page load)
+   * Pre transition: Transition before router change
    * Initial state: Default state and appState.transitionInitial === true
    */
-  // Default state
-  const transitionDefault = !transitionPre && !appTransitionInitial;
-
   // At transition start or at default state
   const transitionStartOrDefault = transitionStart || !transitionPre;
 
   // Trigger transition initial only if not in pre transition state
   const transitionInitial = appTransitionInitial && !transitionPre;
 
+  // No transitions state (default state when no transitions should happen)
+  const noTransition = !transitionPre && !appTransitionInitial;
+
   const passedProps = {
-    transitionPre,
-    transitionDefault,
+    noTransition,
     transitionInitial,
+    transitionPre,
     transitionStartOrDefault,
   };
 

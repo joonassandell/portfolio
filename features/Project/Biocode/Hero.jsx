@@ -27,7 +27,7 @@ export const BiocodeHero = ({ onClick, ...props }) => {
       stampOverlay={false}
       {...props}
     >
-      {({ transitionPre, transitionStartOrDefault, transitionDefault }) => {
+      {({ transitionPre, transitionStartOrDefault, noTransition }) => {
         return (
           <>
             {transitionPre && (
@@ -109,13 +109,13 @@ export const BiocodeHero = ({ onClick, ...props }) => {
                   <TextReveal
                     hidden
                     text={['We have to', 'reverse global', 'heating']}
-                    {...(transitionDefault && { initial: 'animate' })}
+                    {...(noTransition && { initial: 'animate' })}
                   />
                 </Heading>
                 <Heading className="Hero-textReveal-desktop mb:0" size={null}>
                   <TextReveal
                     text={['We have to reverse', 'global heating']}
-                    {...(transitionDefault && { initial: 'animate' })}
+                    {...(noTransition && { initial: 'animate' })}
                   />
                 </Heading>
               </div>

@@ -18,7 +18,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
       onClick={onClick}
       {...props}
     >
-      {({ transitionPre, transitionInitial, transitionDefault }) => {
+      {({ transitionPre, transitionInitial, noTransition }) => {
         return (
           <div className="wrap grid -gap:l pl:0@until:l">
             <HeroContent
@@ -42,7 +42,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
                     animate: 'animate',
                     initial: 'initial',
                   })}
-                  {...(transitionDefault && { initial: 'animate' })}
+                  {...(noTransition && { initial: 'animate' })}
                   custom={{ delay: transitionInitial ? 0.1 : 0 }}
                   variants={figureInnerVariants}
                 >

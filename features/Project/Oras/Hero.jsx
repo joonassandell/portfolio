@@ -22,7 +22,7 @@ export const OrasHero = ({ onClick, ...props }) => {
     >
       {({
         transitionStartOrDefault,
-        transitionDefault,
+        noTransition,
         transitionPre,
         transitionInitial,
       }) => {
@@ -64,7 +64,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                         animate: 'animate',
                         initial: 'initial',
                       })}
-                      {...(transitionDefault && { initial: 'animate' })}
+                      {...(noTransition && { initial: 'animate' })}
                       custom={{ delay: transitionInitial ? dropDelay : 0 }}
                       variants={dropVariants}
                     >
@@ -97,7 +97,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                   animate: 'animate',
                   initial: 'initial',
                 })}
-                {...(transitionDefault && { initial: 'animate' })}
+                {...(noTransition && { initial: 'animate' })}
                 custom={{ delay: transitionInitial ? dropDelay : 0 }}
                 variants={dropVariants2}
               >
@@ -118,7 +118,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                 animate: 'animate',
                 initial: 'initial',
               })}
-              {...(transitionDefault && { initial: 'animate' })}
+              {...(noTransition && { initial: 'animate' })}
               custom={{ delay: transitionInitial ? dropDelay : 0 }}
               variants={dropVariants3}
             >

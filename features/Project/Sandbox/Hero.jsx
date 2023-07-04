@@ -18,7 +18,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
       onClick={onClick}
       {...props}
     >
-      {({ transitionPre, transitionDefault, transitionInitial }) => {
+      {({ transitionPre, noTransition, transitionInitial }) => {
         return (
           <div className="wrap">
             <div className="grid -gap:l">
@@ -41,7 +41,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
                       animate: 'animate',
                       initial: 'initial',
                     })}
-                    {...(transitionDefault && { initial: 'animate' })}
+                    {...(noTransition && { initial: 'animate' })}
                     variants={figureInnerVariants}
                   >
                     <Image
