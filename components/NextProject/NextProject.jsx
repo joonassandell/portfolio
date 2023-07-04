@@ -9,7 +9,6 @@ import Image from 'next/image';
 
 export const NextProject = ({ id }) => {
   const { url, title } = getSitemap(id);
-  const href = url;
   const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef(null);
   const [innerRef, { width, height }] = useMeasure();
@@ -17,39 +16,41 @@ export const NextProject = ({ id }) => {
     useMeasure();
   const figureWidthHalf = figureWidth / 2;
   const figureHeightHalf = figureHeight / 2;
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const r = useMotionValue(-0.5);
   let { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
     bound: true,
     whenHovered: true,
   });
+  const spring = { damping: 120, stiffness: 800 };
+
+  /**
+   * Move: Horizontal
+   */
+  const x = useMotionValue(0);
+  const moveX = useSpring(x, spring);
+
+  /**
+   * Move: Vertical
+   */
+  const y = useMotionValue(0);
+  const moveY = useSpring(y, spring);
+
+  /**
+   * Rotate
+   */
+  const r = useMotionValue(-0.5);
   const prevMousePosX = x.current + figureWidthHalf;
   const direction = mousePosX < prevMousePosX ? 'left' : 'right';
   const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100);
-  const spring = {
-    damping: 120,
-    stiffness: 800,
-  };
-  const moveXtrans = useTransform(
-    x,
-    [-figureWidthHalf, width],
-    [-figureWidthHalf, width],
-  );
-  const moveX = useSpring(moveXtrans, spring);
-  const moveYtrans = useTransform(
-    y,
-    [-figureHeightHalf, height],
-    [-figureHeightHalf, height],
-  );
-  const moveY = useSpring(moveYtrans, spring);
   const rotateTrans = useTransform(r, [-1, 0, 1], [-30, 0, 30]);
   const rotate = useSpring(rotateTrans, spring);
 
+  /**
+   * Transform figure
+   */
   useEffect(() => {
-    if (mousePosX) x.set(mousePosX - figureWidthHalf);
-    if (mousePosY) y.set(mousePosY - figureHeightHalf);
     if (mouseDistanceX && mousePosX && mousePosY) {
+      x.set(mousePosX - figureWidthHalf);
+      y.set(mousePosY - figureHeightHalf);
       const rotateAmount = mapRange(
         mouseDistanceX,
         0,
@@ -62,21 +63,21 @@ export const NextProject = ({ id }) => {
   }, [mousePosX, mousePosY, mouseDistanceX]);
 
   /**
-   * Set initial position
+   * Set initial figure position
    */
   const [initial, setInitial] = useState(false);
   useEffect(() => {
     if (width && height && figureWidth && figureHeight) {
-      x.set(width - figureWidthHalf * 1.75);
+      x.set(width - figureWidthHalf);
       y.set(height - figureHeightHalf * 0.8);
       setTimeout(() => setInitial(true), 500);
     }
   }, [height, width, figureWidth, figureHeight]);
 
   return (
-    <section ref={ref} className="NextProject wrap">
-      <div ref={innerRef} className="NextProject-inner">
-        <LinkRoll className="NextProject-link" href={href}>
+    <section ref={ref} className="NextProject">
+      <div ref={innerRef} className="NextProject-inner wrap">
+        <LinkRoll className="NextProject-link" href={url}>
           Next project
         </LinkRoll>
         <m.figure

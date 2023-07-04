@@ -10,14 +10,14 @@
 .NextProject-link {
   @include fontSize(16px, 16px, 112px, 10vw);
   color: var(--white);
-  display: block;
   mix-blend-mode: difference;
   opacity: 1;
   z-index: 1;
 }
 
 .NextProject-inner {
-  padding: rem($space-xxl) 0;
+  padding-bottom: rem($space-xxl);
+  padding-top: rem($space-xxl);
   position: relative;
 }
 
