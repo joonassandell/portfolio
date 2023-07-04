@@ -12,45 +12,45 @@ export const AppHead = () => {
     <Head>
       {/* Common */}
       <title>{title}</title>
-      <meta content={description} name="description" key="description" />
+      <meta name="description" content={description} key="description" />
 
       {/* Open Graph */}
-      <meta content={title} property="og:title" key="og:title" />
+      <meta property="og:title" content={title} key="og:title" />
       <meta
-        content={description}
         property="og:description"
+        content={description}
         key="og:description"
       />
-      <meta content="Joonas Sandell" property="og:site_name" />
-      <meta content={`${ORIGIN}/static/og-image.jpg`} property="og:image" />
-      <meta content="website" property="og:type" />
-      <meta content={`${ORIGIN}${asPath}`} property="og:url" />
-      <meta content="en" property="og:locale" />
+      <meta property="og:site_name" content="Joonas Sandell" />
+      <meta property="og:image" content={`${ORIGIN}/static/og-image.jpg`} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${ORIGIN}${asPath}`} />
+      <meta property="og:locale" content="en" />
 
       {/* Twitter */}
-      <meta content={title} property="twitter:title" key="twitter:title" />
+      <meta property="twitter:title" content={title} key="twitter:title" />
       <meta
-        content={description}
         property="twitter:description"
+        content={description}
         key="twitter:description"
       />
-      <meta content="summary_large_image" property="twitter:card" />
+      <meta property="twitter:card" content="summary_large_image" />
       <meta
-        content={`${ORIGIN}/static/og-image.jpg`}
         property="twitter:image"
+        content={`${ORIGIN}/static/og-image.jpg`}
       />
-      <meta content="@joonassandell" property="twitter:site" />
-      <meta content="@joonassandell" property="twitter:creator" />
+      <meta property="twitter:site" content="@joonassandell" />
+      <meta property="twitter:creator" content="@joonassandell" />
 
       {/* Icons */}
       <link
-        href="/static/apple-touch-icon.png"
         rel="apple-touch-icon"
+        href="/static/apple-touch-icon.png"
         sizes="180x180"
       />
-      <link color="#f5eddb" href="/static/favicon.svg" rel="mask-icon" />
-      {/* <link href="/static/favicon.ico" rel="icon" sizes="any" /> */}
-      <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
+      <link rel="mask-icon" color="#f5eddb" href="/static/favicon.svg" />
+      <link rel="icon" href="/static/favicon.ico" sizes="any" />
+      <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
 
       {/* Other */}
       <meta
@@ -59,17 +59,17 @@ export const AppHead = () => {
       />
       <meta name="theme-color" content="black" key="theme-color" />
       <link
+        rel="preload"
         as="font"
         crossOrigin="anonymous"
         href="/static/fonts/Px-Grotesk-Regular.woff2"
-        rel="preload"
         type="font/woff2"
       />
       <link
+        rel="preload"
         as="font"
         crossOrigin="anonymous"
         href="/static/fonts/Px-Grotesk-Light.woff2"
-        rel="preload"
         type="font/woff2"
       />
     </Head>

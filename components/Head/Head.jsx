@@ -8,25 +8,25 @@ export const Head = ({ title, description, children }) => {
       {title && (
         <>
           <title>{pageTitle}</title>
-          <meta content={pageTitle} property="og:title" key="og:title" />
+          <meta property="og:title" content={pageTitle} key="og:title" />
           <meta
-            content={pageTitle}
             property="twitter:title"
+            content={pageTitle}
             key="twitter:title"
           />
         </>
       )}
       {description && (
         <>
-          <meta content={description} name="description" key="description" />
+          <meta name="description" content={description} key="description" />
           <meta
-            content={description}
             property="og:description"
+            content={description}
             key="og:description"
           />
           <meta
-            content={description}
             property="twitter:description"
+            content={description}
             key="twitter:description"
           />
         </>
