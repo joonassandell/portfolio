@@ -9,12 +9,9 @@ export const dropVariants = {
     },
     y: 0,
   }),
-  initial: ({ enableInitial = true } = {}) => {
-    if (!enableInitial) return;
-    return {
-      opacity: 0,
-      y: -24,
-    };
+  initial: {
+    opacity: 0,
+    y: -24,
   },
 };
 
@@ -27,12 +24,9 @@ export const dropVariants2 = {
     },
     y: 0,
   }),
-  initial: ({ enableInitial = true } = {}) => {
-    if (!enableInitial) return;
-    return {
-      opacity: 0,
-      y: -48,
-    };
+  initial: {
+    opacity: 0,
+    y: -48,
   },
 };
 
@@ -45,11 +39,8 @@ export const dropVariants3 = {
     },
     y: 0,
   }),
-  initial: ({ enableInitial = true } = {}) => {
-    if (!enableInitial) return;
-    return {
-      opacity: 0,
-      y: -80,
-    };
+  initial: {
+    opacity: 0,
+    y: -80,
   },
 };

@@ -7,9 +7,10 @@ import Image from 'next/image';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 
-const { url, id, title, year } = getSitemap('oras');
-
 export const OrasHero = ({ onClick, ...props }) => {
+  const { url, id, title, year } = getSitemap('oras');
+  const dropDelay = 0.75;
+
   return (
     <Hero
       className="Hero--oras"
@@ -21,9 +22,8 @@ export const OrasHero = ({ onClick, ...props }) => {
     >
       {({
         transitionStartOrDefault,
-        initialDelay,
+        transitionDefault,
         transitionPre,
-        transitionPreOrInitial,
         transitionInitial,
       }) => {
         return (
@@ -64,10 +64,8 @@ export const OrasHero = ({ onClick, ...props }) => {
                         animate: 'animate',
                         initial: 'initial',
                       })}
-                      custom={{
-                        delay: initialDelay,
-                        enableInitial: transitionPreOrInitial,
-                      }}
+                      {...(transitionDefault && { initial: 'animate' })}
+                      custom={{ delay: transitionInitial ? dropDelay : 0 }}
                       variants={dropVariants}
                     >
                       <Image
@@ -99,10 +97,8 @@ export const OrasHero = ({ onClick, ...props }) => {
                   animate: 'animate',
                   initial: 'initial',
                 })}
-                custom={{
-                  delay: initialDelay,
-                  enableInitial: transitionPreOrInitial,
-                }}
+                {...(transitionDefault && { initial: 'animate' })}
+                custom={{ delay: transitionInitial ? dropDelay : 0 }}
                 variants={dropVariants2}
               >
                 <Image
@@ -122,10 +118,8 @@ export const OrasHero = ({ onClick, ...props }) => {
                 animate: 'animate',
                 initial: 'initial',
               })}
-              custom={{
-                delay: initialDelay,
-                enableInitial: transitionPreOrInitial,
-              }}
+              {...(transitionDefault && { initial: 'animate' })}
+              custom={{ delay: transitionInitial ? dropDelay : 0 }}
               variants={dropVariants3}
             >
               <div
