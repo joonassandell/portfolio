@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 export const AppHead = () => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
   const { asPath } = useRouter();
-  const title = 'Joonas Sandell — Designer & Creative developer';
+  const title = 'Joonas Sandell — Designer & developer';
   const description =
-    'Portfolio of Joonas Sandell — Designer and developer of things that usually appear on screens. Areas of expertise include Product & Visual design, Web & Mobile services, Branding and Software development.';
+    'Portfolio of Joonas Sandell, designer and creative developer of things that usually appear on screens.';
 
   return (
     <Head>
@@ -21,11 +21,11 @@ export const AppHead = () => {
         content={description}
         key="og:description"
       />
-      <meta property="og:site_name" content="Joonas Sandell" />
       <meta property="og:image" content={`${ORIGIN}/static/og-image.jpg`} />
+      <meta property="og:locale" content="en" />
+      <meta property="og:site_name" content="Joonas Sandell" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${ORIGIN}${asPath}`} />
-      <meta property="og:locale" content="en" />
 
       {/* Twitter */}
       <meta property="twitter:title" content={title} key="twitter:title" />
@@ -35,12 +35,12 @@ export const AppHead = () => {
         key="twitter:description"
       />
       <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:creator" content="@joonassandell" />
       <meta
         property="twitter:image"
         content={`${ORIGIN}/static/og-image.jpg`}
       />
       <meta property="twitter:site" content="@joonassandell" />
-      <meta property="twitter:creator" content="@joonassandell" />
 
       {/* Icons */}
       <link
@@ -48,9 +48,9 @@ export const AppHead = () => {
         href="/static/apple-touch-icon.png"
         sizes="180x180"
       />
-      <link rel="mask-icon" color="#f5eddb" href="/static/favicon.svg" />
       <link rel="icon" href="/static/favicon.ico" sizes="any" />
       <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+      <link rel="mask-icon" color="#f5eddb" href="/static/favicon.svg" />
 
       {/* Other */}
       <meta
