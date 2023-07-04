@@ -10,9 +10,8 @@ import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
-const { url, id, title } = getSitemap('biocode');
-
 export const BiocodeHero = ({ onClick, ...props }) => {
+  const { url, id, title } = getSitemap('biocode');
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
 
@@ -28,11 +27,7 @@ export const BiocodeHero = ({ onClick, ...props }) => {
       stampOverlay={false}
       {...props}
     >
-      {({
-        transitionPre,
-        transitionPreOrInitial,
-        transitionStartOrDefault,
-      }) => {
+      {({ transitionPre, transitionStartOrDefault, transitionDefault }) => {
         return (
           <>
             {transitionPre && (
@@ -112,19 +107,15 @@ export const BiocodeHero = ({ onClick, ...props }) => {
               <div className="Hero-textReveal wrap">
                 <Heading className="Hero-textReveal-mobile mb:0" size={null}>
                   <TextReveal
-                    custom={{
-                      enableInitial: transitionPreOrInitial,
-                    }}
-                    text={['We have to', 'reverse global', 'heating']}
                     hidden
+                    text={['We have to', 'reverse global', 'heating']}
+                    {...(transitionDefault && { initial: 'animate' })}
                   />
                 </Heading>
                 <Heading className="Hero-textReveal-desktop mb:0" size={null}>
                   <TextReveal
-                    custom={{
-                      enableInitial: transitionPreOrInitial,
-                    }}
                     text={['We have to reverse', 'global heating']}
+                    {...(transitionDefault && { initial: 'animate' })}
                   />
                 </Heading>
               </div>
