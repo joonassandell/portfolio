@@ -14,12 +14,15 @@ export const Info = ({
   heading,
   role = [],
   smallPrint,
+  tech,
   text,
   type = [],
   year,
 }) => {
   const { name, href } = client || {};
   const mqL = useMedia(MQ.l, false);
+  const mqM = useMedia(MQ.m, false);
+  const mqMmax = useMedia(MQ.mMax, false);
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
   const textRef = useRef(null);
@@ -50,43 +53,64 @@ export const Info = ({
       >
         <div className="grid">
           <m.div
-            className="grid -gap:column:0 grid-col grid-col:6 grid-col:9@m grid-col:5@l"
+            className="grid -gap:column:0 -gap:row:l grid-col grid-col:6 grid-col:9@m grid-col:5@l"
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col grid-col:4@m grid-col:12@l">
               <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                 Client
               </Text>
-              <Text size="small" tag="p">
-                <ConditionalWrapper
-                  condition={href}
-                  wrapper={children => (
-                    <Link href={href} underline>
-                      {children}
-                    </Link>
-                  )}
-                >
-                  {name}
-                </ConditionalWrapper>
+              <Text size="small">
+                <p>
+                  <ConditionalWrapper
+                    condition={href}
+                    wrapper={children => (
+                      <Link href={href} underline>
+                        {children}
+                      </Link>
+                    )}
+                  >
+                    {name}
+                  </ConditionalWrapper>
+                </p>
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l">
               <Text marginBottom="xxSmall" color="light" size="small" tag="p">
                 Year
               </Text>
-              <Text size="small" tag="p">
-                {year}
+              <Text size="small">
+                <p>{year}</p>
               </Text>
             </div>
-            <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
-                Project type
-              </Text>
-              <Text size="small" tag="ul">
-                {type.map((r, i) => (
-                  <li key={i}>{r}</li>
-                ))}
-              </Text>
+            <div className="grid-col grid-col:4@m grid-col:12@l grid -gap-column:0">
+              <div className="grid-col">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                  Project type
+                </Text>
+                <Text size="small" tag="ul">
+                  {type.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </Text>
+              </div>
+              {tech && mqM && !mqL && (
+                <div className="grid-col">
+                  <Text
+                    marginBottom="xxSmall"
+                    color="light"
+                    size="small"
+                    tag="p"
+                  >
+                    Tech
+                  </Text>
+                  <Text className="grid-col" size="small" tag="ul">
+                    {tech.map((r, i) => (
+                      <li key={i}>{r}</li>
+                    ))}
+                  </Text>
+                </div>
+              )}
             </div>
           </m.div>
           <m.div
@@ -94,7 +118,7 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col">
-              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+              <Text marginBottom="xxSmall" color="light" size="small">
                 Role
               </Text>
               <Text className="grid-col" size="small" tag="ul">
@@ -103,6 +127,18 @@ export const Info = ({
                 ))}
               </Text>
             </div>
+            {tech && (mqL || mqMmax) && (
+              <div className="grid-col">
+                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                  Tech
+                </Text>
+                <Text className="grid-col" size="small" tag="ul">
+                  {tech.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </Text>
+              </div>
+            )}
             <Text className="grid-col -align:end" color="light">
               <small>{smallPrint}</small>
             </Text>
