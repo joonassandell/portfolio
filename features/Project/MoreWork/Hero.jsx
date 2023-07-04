@@ -6,9 +6,9 @@ import Image from 'next/image';
 import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';
 import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';
 
-const { url, year, id, title } = getSitemap('more-work');
-
 export const MoreWorkHero = ({ onClick, ...props }) => {
+  const { url, year, id, title } = getSitemap('more-work');
+
   return (
     <Hero
       className="Hero--moreWork"

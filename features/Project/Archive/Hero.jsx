@@ -6,9 +6,9 @@ import { figureInnerVariants } from '@/features/Project/Mediasignal/Hero.animati
 import Image from 'next/image';
 import heroImage from '@/public/archive/hero/joonassandell-archive-hero.png';
 
-const { url, year, id, title } = getSitemap('archive');
-
 export const ArchiveHero = ({ onClick, ...props }) => {
+  const { url, year, id, title } = getSitemap('archive');
+
   return (
     <Hero
       className="Hero--mediasignal Hero--archive"

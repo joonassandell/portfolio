@@ -6,9 +6,9 @@ import { figureInnerVariants } from './Hero.animations';
 import Image from 'next/image';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
 
-const { url, id, title, year } = getSitemap('sandbox');
-
 export const SandboxHero = ({ onClick, ...props }) => {
+  const { url, id, title, year } = getSitemap('sandbox');
+
   return (
     <Hero
       className="Hero--sandbox"
