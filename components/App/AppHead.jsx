@@ -49,8 +49,8 @@ export const AppHead = () => {
         sizes="180x180"
       />
       <link color="#f5eddb" href="/static/favicon.svg" rel="mask-icon" />
-      <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
       <link href="/static/favicon.ico" rel="icon" sizes="any" />
+      <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
 
       {/* Other */}
       <meta
