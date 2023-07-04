@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 export const AppHead = () => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
   const { asPath } = useRouter();
-  const title = 'Joonas Sandell';
+  const title = 'Joonas Sandell — Designer & Creative developer';
   const description =
-    'Portfolio of Joonas Sandell — Designer, creative developer and sometimes even a music producer from Helsinki, Finland. Areas of expertise include Product & Visual design, Web & Mobile services, Branding and Software development.';
+    'Portfolio of Joonas Sandell — Designer and developer of things that usually appear on screens. Areas of expertise include Product & Visual design, Web & Mobile services, Branding and Software development.';
 
   return (
     <Head>
@@ -21,7 +21,7 @@ export const AppHead = () => {
         property="og:description"
         key="og:description"
       />
-      <meta content="joonassandell.com" property="og:site_name" />
+      <meta content="Joonas Sandell" property="og:site_name" />
       <meta content={`${ORIGIN}/static/og-image.jpg`} property="og:image" />
       <meta content="website" property="og:type" />
       <meta content={`${ORIGIN}${asPath}`} property="og:url" />
@@ -49,7 +49,7 @@ export const AppHead = () => {
         sizes="180x180"
       />
       <link color="#f5eddb" href="/static/favicon.svg" rel="mask-icon" />
-      <link href="/static/favicon.ico" rel="icon" sizes="any" />
+      {/* <link href="/static/favicon.ico" rel="icon" sizes="any" /> */}
       <link href="/static/favicon.svg" rel="icon" type="image/svg+xml" />
 
       {/* Other */}
