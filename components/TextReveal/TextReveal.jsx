@@ -4,27 +4,19 @@ import { useInView } from '@/lib/useInView';
 import { parentVariant, textVariant } from './TextReveal.animations';
 import c from 'classnames';
 
-export const TextReveal = ({
-  animate = true,
-  className,
-  custom,
-  text,
-  ...props
-}) => {
+export const TextReveal = ({ className, custom, text, ...props }) => {
   const classes = c('TextReveal', className);
   const ref = useRef(null);
   const inView = useInView(ref);
 
   return (
     <m.span
+      animate={inView && 'animate'}
       className={classes}
-      {...(animate && {
-        animate: inView && 'animate',
-        custom,
-        initial: 'initial',
-        ref,
-        variants: parentVariant,
-      })}
+      custom={custom}
+      initial="initial"
+      ref={ref}
+      variants={parentVariant}
       {...props}
     >
       {text.map((text, index) => {

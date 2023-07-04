@@ -16,12 +16,9 @@ export const textVariant = {
     y: 0,
     transition: TRANS_PRIMARY,
   },
-  initial: ({ enableInitial = true } = {}) => {
-    if (!enableInitial) return;
-    return {
-      opacity: 0,
-      skewX: -50,
-      y: '100%',
-    };
+  initial: {
+    opacity: 0,
+    skewX: -50,
+    y: '100%',
   },
 };
