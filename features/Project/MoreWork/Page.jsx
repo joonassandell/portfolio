@@ -20,8 +20,13 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
         <MoreWorkHero />
         <Info
           client={{ name: 'Various' }}
-          type={['Web services', 'Web applications', 'Commissions']}
           heading="So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I've crafted for a diverse set of clients."
+          role={[
+            'UI/UX/Brand designs',
+            'Web development',
+            'Concept strategies',
+          ]}
+          smallPrint="Some projects may present initial designs and prototypes"
           text={
             <p>
               I assume you have already noticed my keen focus on creating
@@ -29,12 +34,7 @@ export const MoreWorkPage = ({ images, id, title, year }) => {
               might as well deliver you some more.
             </p>
           }
-          role={[
-            'UI/UX/Brand designs',
-            'Web development',
-            'Concept strategies',
-          ]}
-          smallPrint="Some projects may present initial designs and prototypes"
+          type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
         <TemplateSection id="hw-company" gridRowGap="l" paddingTop="15vw">

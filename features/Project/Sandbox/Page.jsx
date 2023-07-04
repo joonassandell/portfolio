@@ -19,7 +19,7 @@ export const SandboxPage = ({ images, id, title, year }) => {
         <SandboxHero />
         <Info
           client={{ name: 'Various & Myself' }}
-          heading="Welcome to the playground! Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
+          heading="Welcome to the playground. Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
           role={['UI/UX design']}
           text={
             <p>

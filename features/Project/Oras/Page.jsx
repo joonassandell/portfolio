@@ -19,9 +19,10 @@ export const OrasPage = ({ images, id, title }) => {
         <OrasHero />
         <Info
           client={{ name: title }}
-          type={['Web service', 'Commission']}
           heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe's leading faucet manufacturer."
+          role={['UI/UX design', 'Web development', 'Concept strategy']}
           smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
+          tech={['TYPO3']}
           text={
             <p>
               After several iterations the Oras brand was modernised entirely in
@@ -30,7 +31,7 @@ export const OrasPage = ({ images, id, title }) => {
               highlight the brand's new promise.
             </p>
           }
-          role={['UI/UX design', 'Web development', 'Concept strategy']}
+          type={['Web service', 'Commission']}
           year="2016"
         />
         <TemplateSection wrap={false} paddingTop={false} gridGap="default">

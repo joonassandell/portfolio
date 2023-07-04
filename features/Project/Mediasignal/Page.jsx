@@ -17,8 +17,10 @@ export const MediasignalPage = ({ images, id, title, year }) => {
         <MediasignalHero />
         <Info
           client={{ name: title, href: 'https://mediasignal.fi/en' }}
-          type={['Web service', 'Branding', 'Commission']}
           heading="Mediasignal is building digital services and customer experiences according to their customer's vision. The company is renewing digital business' and strengthening brands with a creative touch."
+          smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
+          role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
+          tech={['WP, GSAP']}
           text={
             <p>
               I worked for Mediasignal over half a decade and was involved in
@@ -28,8 +30,7 @@ export const MediasignalPage = ({ images, id, title, year }) => {
               crafting, business card design and website renewal.
             </p>
           }
-          role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
-          smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
+          type={['Web service', 'Branding', 'Commission']}
           year={year}
         />
         <TemplateSection gridGap="xl" paddingTop="10vw">
