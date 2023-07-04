@@ -5,52 +5,32 @@
   position: fixed;
   user-select: none;
   z-index: $Splash-zIndex;
-
-  @include mq(m) {
-    padding-top: rem($space-ml);
-  }
-
-  @include mq(l) {
-    padding-top: rem($space-l);
-  }
 }
 
-.Splash-content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  left: var(--wrap-spaceLeft);
+.Splash-main {
+  display: grid;
+  inset: 0;
+  place-content: center;
   position: absolute;
-  right: var(--wrap-spaceRight);
   text-align: center;
-  top: 0;
 }
 
-.Splash-line {
+.Splash-row {
   overflow: hidden;
-}
-
-.Splash-line--subHeading {
-  @include text(xl);
-}
-
-.Splash-line--heading {
-  @include heading(h3);
 }
 
 .Splash-text {
   animation: animate 1s $ease;
-  display: block;
 }
 
 @keyframes animate {
   from {
-    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+    transform: translateY(100%) skewX(-50deg) translateZ(0);
   }
 
   to {
-    transform: translate3d(0, 0%, 0);
+    opacity: 1;
+    transform: translateY(0%) skewX(0deg) translateZ(0);
   }
 }

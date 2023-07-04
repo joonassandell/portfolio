@@ -1,5 +1,7 @@
 import { AnimatePresence, m } from 'framer-motion';
 import { splashVariants, textVariants } from './Splash.animations';
+import { Text } from '@/components/Text';
+import { Heading } from '@/components/Heading';
 
 export const Splash = ({ loading, setLoadingEnd }) => {
   return (
@@ -13,19 +15,17 @@ export const Splash = ({ loading, setLoadingEnd }) => {
           onAnimationComplete={() => setLoadingEnd(true)}
           variants={splashVariants}
         >
-          <div className="wrap">
-            <h1 className="Splash-content">
-              <div className="Splash-line Splash-line--subHeading">
-                <m.span className="Splash-text" variants={textVariants}>
-                  Portfolio of
-                </m.span>
-              </div>
-              <div className="Splash-line Splash-line--heading">
-                <m.span className="Splash-text" variants={textVariants}>
-                  Joonas Sandell
-                </m.span>
-              </div>
-            </h1>
+          <div className="Splash-main">
+            <Text className="Splash-row" size="xLarge">
+              <m.div className="Splash-text" variants={textVariants}>
+                Portfolio of
+              </m.div>
+            </Text>
+            <Heading className="Splash-row" size="h3" tag="div">
+              <m.div className="Splash-text" variants={textVariants}>
+                Joonas Sandell
+              </m.div>
+            </Heading>
           </div>
         </m.div>
       )}
