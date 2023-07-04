@@ -6,9 +6,9 @@ import { figureInnerVariants } from './Hero.animations';
 import Image from 'next/image';
 import heroImage from '@/public/mediasignal/hero/joonassandell-mediasignal-hero.png';
 
-const { url, year, id, title } = getSitemap('mediasignal');
-
 export const MediasignalHero = ({ onClick, ...props }) => {
+  const { url, year, id, title } = getSitemap('mediasignal');
+
   return (
     <Hero
       className="Hero--mediasignal"
@@ -18,7 +18,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
       onClick={onClick}
       {...props}
     >
-      {({ transitionPre, transitionInitial }) => {
+      {({ transitionPre, transitionInitial, transitionDefault }) => {
         return (
           <div className="wrap grid -gap:l pl:0@until:l">
             <HeroContent
@@ -42,7 +42,8 @@ export const MediasignalHero = ({ onClick, ...props }) => {
                     animate: 'animate',
                     initial: 'initial',
                   })}
-                  custom={{ enableInitial: transitionInitial }}
+                  {...(transitionDefault && { initial: 'animate' })}
+                  custom={{ delay: transitionInitial ? 0.1 : 0 }}
                   variants={figureInnerVariants}
                 >
                   <Image
