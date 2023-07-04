@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash-es';
 import { mapRange, getSitemap } from '@/lib/utility';
+import { TRANS_PRIMARY_FAST } from '@/lib/config';
 import Image from 'next/image';
 
 export const NextProject = ({ id }) => {
@@ -18,7 +19,7 @@ export const NextProject = ({ id }) => {
   const figureHeightHalf = figureHeight / 2;
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const r = useMotionValue(0);
+  const r = useMotionValue(-0.5);
   let { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
     bound: true,
     whenHovered: true,
@@ -26,10 +27,9 @@ export const NextProject = ({ id }) => {
   const prevMousePosX = x.current + figureWidthHalf;
   const direction = mousePosX < prevMousePosX ? 'left' : 'right';
   const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100);
-
   const spring = {
     damping: 120,
-    stiffness: 800, // 1200,
+    stiffness: 800,
   };
   const moveXtrans = useTransform(
     x,
@@ -47,14 +47,9 @@ export const NextProject = ({ id }) => {
   const rotate = useSpring(rotateTrans, spring);
 
   useEffect(() => {
-    if (mousePosX) {
-      x.set(mousePosX - figureWidthHalf);
-    }
-    if (mousePosY) {
-      y.set(mousePosY - figureHeightHalf);
-    }
-
-    if (mouseDistanceX) {
+    if (mousePosX) x.set(mousePosX - figureWidthHalf);
+    if (mousePosY) y.set(mousePosY - figureHeightHalf);
+    if (mouseDistanceX && mousePosX && mousePosY) {
       const rotateAmount = mapRange(
         mouseDistanceX,
         0,
@@ -69,15 +64,14 @@ export const NextProject = ({ id }) => {
   /**
    * Set initial position
    */
-  const [hovered, setHovered] = useState(false);
+  const [initial, setInitial] = useState(false);
   useEffect(() => {
-    if (width && height && figureWidthHalf && figureHeightHalf && !hovered) {
-      r.set(-0.5);
+    if (width && height && figureWidth && figureHeight) {
       x.set(width - figureWidthHalf * 1.75);
       y.set(height - figureHeightHalf * 0.8);
-      setHovered(true);
+      setTimeout(() => setInitial(true), 500);
     }
-  }, [height, width, figureWidthHalf, figureHeightHalf, hovered]);
+  }, [height, width, figureWidth, figureHeight]);
 
   return (
     <section ref={ref} className="NextProject wrap">
@@ -87,10 +81,17 @@ export const NextProject = ({ id }) => {
         </LinkRoll>
         <m.figure
           aria-hidden="true"
+          animate={
+            initial && {
+              opacity: 1,
+              transition: TRANS_PRIMARY_FAST,
+            }
+          }
           className="NextProject-figure"
+          initial={{ opacity: 0 }}
           ref={figureRef}
           style={{
-            rotate: rotate,
+            rotate,
             y: moveY,
             x: moveX,
           }}
