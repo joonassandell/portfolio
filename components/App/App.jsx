@@ -7,6 +7,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { AppHead } from './';
+import { Analytics } from '@vercel/analytics/react';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 
@@ -134,6 +135,7 @@ export const App = ({ Component, pageProps }) => {
   return (
     <LazyMotion features={domAnimation} strict>
       <AppHead />
+      <Analytics debug={false} />
       {!DISABLE_LOADING && (
         <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       )}
