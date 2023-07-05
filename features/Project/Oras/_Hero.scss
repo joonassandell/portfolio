@@ -24,6 +24,16 @@
     }
   }
 
+  // Fix jumping, this is stupid :/
+  &.-transition\:pre .Hero-figure-figure {
+    top: rem($space * -1);
+    @media (min-width: em(700px)) { top: rem($space * -0.55); }
+    @media (min-width: em(550px)) { top: rem($space * -1.1); }
+    @include mq(xxs) { top: rem($space * -0.95); }
+    @include mq(s) { top: rem($space * 0.45); }
+    @include mq(m) { top: rem($space * -1.2); }
+  }
+
   .Hero-content {
     align-self: end;
   }

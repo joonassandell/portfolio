@@ -41,6 +41,7 @@ export const OrasHero = ({ onClick, ...props }) => {
                   <figure
                     data-scroll
                     data-scroll-target={`[data-scroll-id=${id}]`}
+                    data-scroll-position="top"
                     data-scroll-speed={-SCROLL_SPEED}
                     className="Hero-figure-figure"
                   >
