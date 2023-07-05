@@ -12,8 +12,8 @@ import { Analytics } from '@vercel/analytics/react';
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 
 const AppContext = createContext({
-  doc: isBrowser && document.documentElement,
-  html: isBrowser && document.querySelector('html'),
+  detect: {},
+  html: isBrowser && document.documentElement,
   loading: DISABLE_LOADING ? false : true,
   loadingEnd: DISABLE_LOADING ? true : false,
   transition: false, // 'template', false, true
@@ -24,7 +24,7 @@ let scrollOnUpdateOnce = false;
 export const App = ({ Component, pageProps }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
-  const { doc, html, loading, loadingEnd, transition } = appState;
+  const { html, loading, loadingEnd, transition } = appState;
   const { asPath, beforePopState, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState();
   const containerRef = useRef(null);
@@ -66,13 +66,24 @@ export const App = ({ Component, pageProps }) => {
     }
 
     (async () => {
-      const { isWindows, isIphoneSafari } = await import('@/lib/detect');
+      const { isWindows, isIphoneSafari, hasTouch } = await import(
+        '@/lib/detect'
+      );
       if (isWindows) html.classList.add('is-windows');
       if (isIphoneSafari) html.classList.add('is-iphoneSafari');
+
+      setAppState(prevState => ({
+        ...prevState,
+        detect: {
+          hasTouch,
+          isWindows,
+          isIphoneSafari,
+        },
+      }));
     })();
 
     const rootHeight = () =>
-      doc.style.setProperty('--vh', `${window.innerHeight}px`);
+      html.style.setProperty('--vh', `${window.innerHeight}px`);
     window.addEventListener('resize', rootHeight);
     rootHeight();
 
