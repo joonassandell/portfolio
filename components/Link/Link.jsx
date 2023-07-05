@@ -54,21 +54,13 @@ export const Link = ({
       <Tag
         animate={hover ? 'in' : 'out'}
         className={classes}
-        onBlur={() => {
-          if (hover) {
-            setHover(false);
-          }
-        }}
         href={href}
         onClick={e => {
           !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
-        onFocus={() => {
-          if (!hover) {
-            setHover(true);
-          }
-        }}
+        onBlur={() => setHover(false)}
+        onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         {...(href && linkTarget && { target: linkTarget })}

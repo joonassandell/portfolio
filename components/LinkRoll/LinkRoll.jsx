@@ -52,12 +52,14 @@ export const LinkRoll = ({
       <Tag
         animate={hover ? 'in' : 'out'}
         className={classes}
+        href={href}
+        initial="out"
         onClick={e => {
           !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
-        href={href}
-        initial="out"
+        onBlur={() => setHover(false)}
+        onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         {...(href && linkTarget && { target: linkTarget })}
@@ -67,7 +69,7 @@ export const LinkRoll = ({
         <m.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, index) => {
             const empty = isEmptyString(char);
-            empty ? (char = '.') : false;
+            empty ? (char = '\u00A0') : false;
 
             return (
               <m.span
@@ -76,7 +78,6 @@ export const LinkRoll = ({
                 })}
                 key={index}
                 variants={characterOutVariants}
-                {...(empty && { 'aria-hidden': 'true' })}
               >
                 {char}
               </m.span>
@@ -90,7 +91,7 @@ export const LinkRoll = ({
         >
           {characters.map((char, index) => {
             const empty = isEmptyString(char);
-            empty ? (char = '.') : false;
+            empty ? (char = '\u00A0') : false;
 
             return (
               <m.span
