@@ -10,15 +10,15 @@ export const parentVariant = {
 };
 
 export const textVariant = {
-  animate: {
+  animate: ({ transition = TRANS_PRIMARY } = {}) => ({
     opacity: 1,
     skewX: 0,
     y: 0,
-    transition: TRANS_PRIMARY,
-  },
-  initial: {
+    transition,
+  }),
+  initial: ({ y = '100%' } = {}) => ({
     opacity: 0,
     skewX: -50,
-    y: '100%',
-  },
+    y,
+  }),
 };

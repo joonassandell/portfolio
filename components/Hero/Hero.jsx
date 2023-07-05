@@ -1,4 +1,4 @@
-import { SCROLL_SPEED } from '@/lib/config';
+import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
 import { headingVariants as headingVars } from './Hero.animations';
 import { m } from 'framer-motion';
 import { useAppContext } from '@/components/App';
@@ -8,6 +8,7 @@ import c from 'classnames';
 import { Link } from '@/components/Link';
 import { Stamp } from '@/components/Stamp';
 import { Heading } from '@/components/Heading';
+import { TextReveal } from '@/components/TextReveal';
 
 export const Hero = ({
   children,
@@ -89,7 +90,14 @@ export const Hero = ({
               data-scroll-speed={SCROLL_SPEED}
               data-scroll-direction="horizontal"
             >
-              {heading}
+              <TextReveal
+                custom={...transitionPre && {
+                  y: '60%',
+                  transition: TRANS_TERTIARY_FAST,
+                }}
+                text={[heading]}
+                {...(noTransition && { initial: 'animate' })}
+              />
             </div>
           </Heading>
         </div>
