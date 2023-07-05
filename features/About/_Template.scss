@@ -3,7 +3,7 @@
   --Template-main-bg-color: var(--cream-50);
 
   .Template-main {
-    padding-top: 60vw;
+    padding-top: 62.5vw;
 
     @include mq(m) {
       padding-top: 40vw;
@@ -23,9 +23,23 @@
     z-index: 1;
   }
 
+
   .Template-figure {
-    inset: 0 0 auto 0;
+    inset: 0;
     position: absolute;
     z-index: 0;
+  }
+
+  .Template-figure-cube {
+    inset: 75vw 0 0 -10vw;
+    pointer-events: none;
+    position: absolute;
+    width: 40vw;
+
+    @include mq(m) {
+      inset: 9vw 0 0 30vw;
+      opacity: 0.6;
+      width: 30vw;
+    }
   }
 }

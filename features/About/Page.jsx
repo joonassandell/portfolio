@@ -12,6 +12,7 @@ import { Hr } from '@/components/Hr';
 import { useMedia } from 'react-use';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
+import cubeImage from '@/public/about/line-cube.png';
 
 export const AboutPage = ({ id, title }) => {
   const mqS = useMedia(MQ.s, false);
@@ -71,11 +72,24 @@ export const AboutPage = ({ id, title }) => {
               transition="clip"
               {...profileImage}
             />
+            <Figure
+              aria-hidden="true"
+              borderRadius={false}
+              className="Template-figure-cube"
+              alt="Line cube"
+              priority
+              scroll
+              scrollPosition="top"
+              scrollSpeed={-3}
+              sizes={`${MQ.m} 30vw, 40vw`}
+              {...cubeImage}
+            />
           </div>
         </div>
         <div id="about" className="Template-mainContent wrap grid pt:10vw">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
             <Heading
+              className="Template-subHeading"
               size="h4"
               {...(mqS && {
                 'data-scroll': true,
