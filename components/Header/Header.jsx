@@ -18,7 +18,7 @@ import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
 import c from 'classnames';
 import { debounce } from 'lodash-es';
-import { EASE_CSS, SITEMAP, LINKS, CONTENT } from '@/lib/config';
+import { EASE_CSS, SITEMAP, LINKS, CONTENT, MQ } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
@@ -29,6 +29,7 @@ import { NavItem } from './HeaderNavItem';
 import { urlState } from '@/lib/useUrlState';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import FocusTrap from 'focus-trap-react';
+import { useMedia } from 'react-use';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
@@ -36,6 +37,7 @@ const someLinks = LINKS.social;
 
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   const router = useRouter();
+  const { asPath, events, push } = router;
   const [isOpen, setOpen] = useState(null);
   const [hover, setHover] = useState(false);
   const [maskIsOpen, setMaskIsOpen] = useState(false);
@@ -58,6 +60,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   } = useAppContext();
   const scrollTo = useScrollTo();
   const maskRef = useRef(null);
+  const mqM = useMedia(MQ.m, false);
   const { scroll } = useLocomotiveScroll();
 
   const setArrowPosFromRef = ref => {
@@ -133,12 +136,12 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
      * Note that the :root.is-transition class disables the pointer-events (hover).
      */
     const isNavLink = e.target.classList.contains('Header-nav-link');
-    setTimeout(
-      () => router.push(href, null, { scroll: false }),
-      isNavLink ? 300 : 0,
-    );
+    setTimeout(() => push(href, null, { scroll: false }), isNavLink ? 300 : 0);
   };
 
+  /**
+   * Handle closing and progress loader if routes change
+   */
   useEffect(() => {
     if (isOpen) {
       NProgress.configure({
@@ -147,34 +150,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
         speed: 1200,
       });
 
-      const changeStart = () => NProgress.start();
-      const changeComplete = () => NProgress.done();
-
-      router.events.on('routeChangeStart', changeStart);
-      router.events.on('routeChangeError', changeComplete);
-      router.events.on('routeChangeComplete', changeComplete);
-
-      return () => {
-        router.events.off('routeChangeStart', changeStart);
-        router.events.off('routeChangeError', changeComplete);
-        router.events.off('routeChangeComplete', changeComplete);
-      };
-    }
-  }, [isOpen]);
-
-  /**
-   * Handle closing if routes change
-   */
-  useEffect(() => {
-    if (isOpen) {
-      const closeStart = () => {
+      const changeStart = () => {
+        NProgress.start();
         setEnterExit({
           btnText: enterExitBtnTextIfNavOpen,
           btnArrow: enterExitBtnArrowIfNavOpen,
         });
       };
-
-      const closeComplete = () => {
+      const changeComplete = () => {
+        NProgress.done();
         toggleOpen();
         setEnterExit({
           btnText: enterExitBtnText,
@@ -182,14 +166,14 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
         });
       };
 
-      router.events.on('routeChangeStart', closeStart);
-      router.events.on('routeChangeError', closeComplete);
-      router.events.on('routeChangeComplete', closeComplete);
+      events.on('routeChangeStart', changeStart);
+      events.on('routeChangeError', changeComplete);
+      events.on('routeChangeComplete', changeComplete);
 
       return () => {
-        router.events.off('routeChangeStart', closeStart);
-        router.events.off('routeChangeError', closeComplete);
-        router.events.off('routeChangeComplete', closeComplete);
+        events.off('routeChangeStart', changeStart);
+        events.off('routeChangeError', changeComplete);
+        events.off('routeChangeComplete', changeComplete);
       };
     }
   }, [isOpen]);
@@ -206,7 +190,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   }, [isOpen, disabled]);
 
   /**
-   * Disable keys if mask is animating
+   * Disable keydowns if mask is animating
    */
   useEffect(() => {
     if (disabled) {
@@ -357,7 +341,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   <AnimatePresence initial={false} mode="wait">
                     <m.div
                       className="Header-button-text-item"
-                      key={`Header-button-text-${router.route}`}
+                      key={asPath}
                       {...enterExit.btnText}
                     >
                       <m.div variants={ctrlItemOutVariant}>{navTitle}</m.div>
@@ -374,9 +358,11 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                 <AnimatePresence initial={false} mode="wait">
                   <m.div
                     className="Header-button-arrow"
-                    key={router.route}
                     ref={btnArrow}
-                    {...enterExit.btnArrow}
+                    {...(mqM && {
+                      ...enterExit.btnArrow,
+                      key: asPath,
+                    })}
                   >
                     <ButtonArrow
                       active={isOpen}
