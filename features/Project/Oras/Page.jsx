@@ -5,11 +5,9 @@ import { NextProject } from '@/components/NextProject';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
-import { useIsMobile } from '@/lib/useIsMobile';
 import { Head } from '@/components/Head';
 
 export const OrasPage = ({ images, id, title }) => {
-  const isMobile = useIsMobile();
   const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
@@ -39,7 +37,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras woman showering"
               className="Template-figure-1"
-              inViewOffset={isMobile ? 0 : -1}
+              inViewOffset={-1}
               mask
               priority
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
@@ -51,7 +49,7 @@ export const OrasPage = ({ images, id, title }) => {
             <Figure
               alt="Oras man showering"
               className="Template-figure-2"
-              inViewOffset={isMobile ? 0 : -1}
+              inViewOffset={-1}
               mask
               priority
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
