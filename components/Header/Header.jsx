@@ -74,13 +74,13 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     resize();
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
-  }, [btnArrow.current]);
+  }, []);
 
   /**
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
    * states are handled after the animations.
    */
-  const toggleOpen = ({ withMask = true } = {}) => {
+  const toggleOpen = () => {
     isOpen ? setOpen(false) : setOpen(true);
     if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
@@ -94,10 +94,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
      */
     scroll && !scroll.scroll.stop ? scroll.stop() : scroll.start();
 
-    if (withMask) {
-      if (mask === 'closed' || mask === 'closedReset') setMask('open');
-      if (mask === 'open' || mask === 'openReset') setMask('closed');
-    }
+    if (mask === 'closed' || mask === 'closedReset') setMask('open');
+    if (mask === 'open' || mask === 'openReset') setMask('closed');
   };
 
   const handleClick = e => {
@@ -224,7 +222,11 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
         });
       }
     })();
-  }, [mask, arrowPos]);
+  }, [mask, arrowPos.x, arrowPos.y]);
+
+  useEffect(() => {
+    if (mask === 'closedReset' && !disabled) setMaskIsOpen(false);
+  }, [mask, disabled]);
 
   return (
     <>
@@ -236,7 +238,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
           if (!isOpen) {
             html.classList.remove('is-headerOpen');
             setOpenReveal(false);
-            setTimeout(() => setDisabled(false), 500);
+            setTimeout(() => setDisabled(false), 700);
           } else {
             setDisabled(false);
           }
@@ -394,9 +396,6 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
           'is-open': maskIsOpen,
           'is-disabled': disabled,
         })}
-        onAnimationComplete={() => {
-          if (mask === 'closedReset') setMaskIsOpen(false);
-        }}
         ref={maskRef}
       >
         {maskIsOpen && (
