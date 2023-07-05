@@ -4,6 +4,13 @@
   color: var(--white);
   padding-bottom: rem($space-l);
 
+  a {
+    &:focus-visible {
+      background-color: var(--white);
+      color: var(--black);
+    }
+  }
+
   @include mq($until: m) {
     @include text(s);
   }
