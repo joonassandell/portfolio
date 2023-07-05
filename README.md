@@ -69,6 +69,8 @@ export default Page;
 - [https://www.framer.com/docs/transition/###damping](https://www.framer.com/docs/transition/###damping)
 - [https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js](https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js)
 - [Initial template of this README](https://github.com/vercel/next.js/blob/canary/packages/create-next-app/templates/default/js/README-template.md)
+- [https://github.com/focus-trap/focus-trap-react](https://github.com/focus-trap/focus-trap-react)
+- [https://github.com/focus-trap/focus-trap#createoptions](https://github.com/focus-trap/focus-trap#createoptions)
 - [Vercel Generated URLs](https://vercel.com/docs/concepts/deployments/generated-urls)
 - [Vercel System Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables)
 - [Learn Next.js](https://nextjs.org/learn)

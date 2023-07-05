@@ -7,7 +7,9 @@
  *    events are disabled because the root class is removed before the mask is
  *    animated away.
  */
-.Header {
+.Header {}
+
+.Header-main {
   inset: 0 0 auto 0;
   min-width: var(--root-minWidth);
   mix-blend-mode: difference;
@@ -40,7 +42,7 @@
     pointer-events: all;
   }
 
-  .Header.is-disabled & {
+  .Header-main.is-disabled & {
     pointer-events: none;
   }
 }
@@ -61,6 +63,8 @@
 }
 
 .Header-logo {
+  --link: var(--white);
+  --link-hover-opacity: 1;
   display: flex;
   flex-direction: column;
   margin: 0 auto 0 0;
@@ -69,8 +73,10 @@
   z-index: 1;
 
   a {
-    color: var(--white);
-    opacity: 1;
+    &:focus-visible {
+      background-color: var(--white);
+      color: var(--black);
+    }
   }
 
   @include mq(m) {
@@ -119,6 +125,13 @@
   display: flex;
   margin: 0;
   z-index: 1;
+
+  &:focus-visible {
+    .Button--arrow {
+      outline: var(--border-width) solid var(--white);
+      outline-offset: 3px;
+    }
+  }
 }
 
 .Header-button-textMobile {
@@ -171,6 +184,7 @@
 }
 
 .Header-secondary {
+  --link: var(--white);
   display: none;
 
   @include mq(m) {
@@ -179,7 +193,10 @@
     margin-left: auto;
 
     a {
-      color: var(--white);
+      &:focus-visible {
+        background-color: var(--white);
+        color: var(--black);
+      }
     }
   }
 }
@@ -399,6 +416,13 @@
   --link: var(--text-50);
   display: flex;
   margin: max(7.5vh, #{rem($space-l)}) 0 rem($space-ml) 0;
+
+  a {
+    &:focus-visible {
+      background-color: var(--white);
+      color: var(--black);
+    }
+  }
 
   @include mq($until: m) {
     @include text(s);

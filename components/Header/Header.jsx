@@ -28,6 +28,7 @@ import { useScrollTo } from '@/lib/useScrollTo';
 import { NavItem } from './HeaderNavItem';
 import { urlState } from '@/lib/useUrlState';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import FocusTrap from 'focus-trap-react';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
@@ -44,6 +45,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
   const [navRevealTitle, setNavRevealTitle] = useState(null);
+  const [btnFocus, setBtnFocus] = useState(false);
+  const btnRef = useRef(null);
   const [enterExit, setEnterExit] = useState({
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
@@ -84,6 +87,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     isOpen ? setOpen(false) : setOpen(true);
     if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
+    if (isOpen && btnFocus) btnRef.current.blur();
+
     setDisabled(true);
     setNavRevealTitle(navTitle);
 
@@ -189,6 +194,31 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     }
   }, [isOpen]);
 
+  /**
+   * Handle closing with ESC key
+   */
+  useEffect(() => {
+    if (isOpen && !disabled) {
+      const esc = e => e.key === 'Escape' && toggleOpen();
+      html.addEventListener('keydown', esc);
+      return () => html.removeEventListener('keydown', esc);
+    }
+  }, [isOpen, disabled]);
+
+  /**
+   * Disable keys if mask is animating
+   */
+  useEffect(() => {
+    if (disabled) {
+      const keys = e => e.preventDefault();
+      html.addEventListener('keydown', keys);
+      return () => html.removeEventListener('keydown', keys);
+    }
+  }, [disabled]);
+
+  /**
+   * Mask
+   */
   useEffect(() => {
     (async () => {
       if (mask === 'open') {
@@ -229,237 +259,254 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   }, [mask, disabled]);
 
   return (
-    <>
-      <m.header
-        animate={isOpen ? 'open' : isOpen === false ? 'closed' : ''}
-        className={c('Header', { 'is-disabled': disabled })}
-        initial="initial"
-        onAnimationComplete={() => {
-          if (!isOpen) {
-            html.classList.remove('is-headerOpen');
-            setOpenReveal(false);
-            setTimeout(() => setDisabled(false), 700);
-          } else {
-            setDisabled(false);
-          }
-        }}
-        variants={ctrlVariant}
+    <FocusTrap
+      active={isOpen}
+      focusTrapOptions={{ initialFocus: false, returnFocusOnDeactivate: false }}
+    >
+      <header
+        className="Header"
+        onMouseDown={() => btnFocus && setBtnFocus(false)}
       >
-        <div className="Header-main wrap">
-          <div className="Header-ctrl">
-            <div className="Header-logo">
-              <m.div variants={ctrlItemOutVariant}>
-                <LinkRoll
-                  href="/"
-                  onClick={handleClick}
-                  {...(isOpen && { tabIndex: -1 })}
-                >
-                  Joonas Sandell
-                </LinkRoll>
-              </m.div>
-              {openReveal && (
-                <m.div
-                  className="Header-logo-reveal"
-                  variants={ctrlItemInVariant}
-                >
+        <m.div
+          animate={isOpen ? 'open' : isOpen === false ? 'closed' : ''}
+          className={c('Header-main', { 'is-disabled': disabled })}
+          initial="initial"
+          onAnimationComplete={() => {
+            if (!isOpen) {
+              html.classList.remove('is-headerOpen');
+              setOpenReveal(false);
+              setTimeout(() => {
+                if (btnFocus) btnRef.current.focus();
+                setDisabled(false);
+              }, 700);
+            } else {
+              setDisabled(false);
+            }
+          }}
+          variants={ctrlVariant}
+        >
+          <div className="Header-wrap wrap">
+            <div className="Header-ctrl">
+              <div className="Header-logo">
+                <m.div variants={ctrlItemOutVariant}>
                   <LinkRoll
                     href="/"
                     onClick={handleClick}
-                    templateTransition={false}
+                    {...(isOpen && { tabIndex: -1 })}
                   >
                     Joonas Sandell
                   </LinkRoll>
                 </m.div>
-              )}
-            </div>
-            <div className="Header-separator">
-              <m.div
-                className="Header-separator-line"
-                variants={ctrlItemOutVariant}
-              />
-              {openReveal && (
-                <m.div
-                  className="Header-separator-line Header-separator-line--reveal"
-                  variants={ctrlItemInVariant}
-                />
-              )}
-            </div>
-            <m.button
-              className="Header-button resetButton"
-              onBlur={() => {
-                setHover('end');
-                setTimeout(() => setHover(false), 100);
-              }}
-              onClick={() => toggleOpen()}
-              onFocus={() => setHover('start')}
-              onHoverEnd={() => {
-                setHover('end');
-                setTimeout(() => setHover(false), 100);
-              }}
-              onHoverStart={() => setHover('start')}
-            >
-              <div className="Header-button-textMobile">
-                <m.div variants={ctrlItemOutVariant}>Menu</m.div>
                 {openReveal && (
                   <m.div
-                    className="Header-button-textMobile-reveal"
-                    variants={ctrlItemInVariant}
-                  >
-                    Menu
-                  </m.div>
-                )}
-              </div>
-              <div className="Header-button-text">
-                <AnimatePresence initial={false} mode="wait">
-                  <m.div
-                    className="Header-button-text-item"
-                    key={`Header-button-text-${router.route}`}
-                    {...enterExit.btnText}
-                  >
-                    <m.div variants={ctrlItemOutVariant}>{navTitle}</m.div>
-                  </m.div>
-                </AnimatePresence>
-                {openReveal && (
-                  <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <m.div variants={ctrlItemInVariant}>{navRevealTitle}</m.div>
-                  </div>
-                )}
-              </div>
-              <AnimatePresence initial={false} mode="wait">
-                <m.div
-                  className="Header-button-arrow"
-                  key={router.route}
-                  ref={btnArrow}
-                  {...enterExit.btnArrow}
-                >
-                  <ButtonArrow
-                    active={isOpen}
-                    hoverEnd={hover === 'end'}
-                    hoverStart={hover === 'start'}
-                  />
-                </m.div>
-              </AnimatePresence>
-            </m.button>
-            <ul className="Header-secondary">
-              <li className="Header-secondary-item">
-                <m.div variants={ctrlItemOutVariant}>
-                  <LinkRoll
-                    href={about.url}
-                    onClick={handleClick}
-                    underline={urlState(about.url, router).active}
-                    {...(isOpen && { tabIndex: -1 })}
-                  >
-                    {about.navTitle}
-                  </LinkRoll>
-                </m.div>
-                {openReveal && (
-                  <m.div
-                    className="Header-secondary-item-reveal"
+                    className="Header-logo-reveal"
                     variants={ctrlItemInVariant}
                   >
                     <LinkRoll
-                      href={about.url}
+                      href="/"
                       onClick={handleClick}
                       templateTransition={false}
+                    >
+                      Joonas Sandell
+                    </LinkRoll>
+                  </m.div>
+                )}
+              </div>
+              <div className="Header-separator">
+                <m.div
+                  className="Header-separator-line"
+                  variants={ctrlItemOutVariant}
+                />
+                {openReveal && (
+                  <m.div
+                    className="Header-separator-line Header-separator-line--reveal"
+                    variants={ctrlItemInVariant}
+                  />
+                )}
+              </div>
+              <m.button
+                className="Header-button resetButton"
+                onBlur={() => {
+                  setHover('end');
+                  setTimeout(() => setHover(false), 100);
+                }}
+                onClick={() => toggleOpen()}
+                onFocus={() => {
+                  setHover('start');
+                  setBtnFocus(true);
+                }}
+                onHoverEnd={() => {
+                  setHover('end');
+                  setTimeout(() => setHover(false), 100);
+                }}
+                onHoverStart={() => setHover('start')}
+                ref={btnRef}
+              >
+                <div className="Header-button-textMobile">
+                  <m.div variants={ctrlItemOutVariant}>Menu</m.div>
+                  {openReveal && (
+                    <m.div
+                      className="Header-button-textMobile-reveal"
+                      variants={ctrlItemInVariant}
+                    >
+                      Menu
+                    </m.div>
+                  )}
+                </div>
+                <div className="Header-button-text">
+                  <AnimatePresence initial={false} mode="wait">
+                    <m.div
+                      className="Header-button-text-item"
+                      key={`Header-button-text-${router.route}`}
+                      {...enterExit.btnText}
+                    >
+                      <m.div variants={ctrlItemOutVariant}>{navTitle}</m.div>
+                    </m.div>
+                  </AnimatePresence>
+                  {openReveal && (
+                    <div className="Header-button-text-item Header-button-text-item--reveal">
+                      <m.div variants={ctrlItemInVariant}>
+                        {navRevealTitle}
+                      </m.div>
+                    </div>
+                  )}
+                </div>
+                <AnimatePresence initial={false} mode="wait">
+                  <m.div
+                    className="Header-button-arrow"
+                    key={router.route}
+                    ref={btnArrow}
+                    {...enterExit.btnArrow}
+                  >
+                    <ButtonArrow
+                      active={isOpen}
+                      hoverEnd={hover === 'end'}
+                      hoverStart={hover === 'start'}
+                    />
+                  </m.div>
+                </AnimatePresence>
+              </m.button>
+              <ul className="Header-secondary">
+                <li className="Header-secondary-item">
+                  <m.div variants={ctrlItemOutVariant}>
+                    <LinkRoll
+                      href={about.url}
+                      onClick={handleClick}
                       underline={urlState(about.url, router).active}
+                      {...(isOpen && { tabIndex: -1 })}
                     >
                       {about.navTitle}
                     </LinkRoll>
                   </m.div>
-                )}
-              </li>
-              <li className="Header-secondary-item">
-                <m.div variants={ctrlItemOutVariant}>
-                  <LinkRoll
-                    href={contact.url}
-                    {...(isOpen && { tabIndex: -1 })}
-                  >
-                    {contact.navTitle}
-                  </LinkRoll>
-                </m.div>
-                {openReveal && (
-                  <m.div
-                    className="Header-secondary-item-reveal"
-                    variants={ctrlItemInVariant}
-                  >
-                    <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
-                  </m.div>
-                )}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </m.header>
-      <m.div
-        animate={maskAnim}
-        className={c('Header-mask scrollbar -color:negative', {
-          'is-open': maskIsOpen,
-          'is-disabled': disabled,
-        })}
-        ref={maskRef}
-      >
-        {maskIsOpen && (
-          <>
-            <m.nav
-              animate={isOpen ? 'open' : 'closed'}
-              className="Header-nav"
-              initial="initial"
-              variants={navVariant}
-            >
-              <ul>
-                {SITEMAP.primary
-                  .filter(item => !item.hidden)
-                  .map(item => {
-                    return (
-                      <NavItem
-                        color={item.color}
-                        key={item.id}
-                        name={item.navTitle}
+                  {openReveal && (
+                    <m.div
+                      className="Header-secondary-item-reveal"
+                      variants={ctrlItemInVariant}
+                    >
+                      <LinkRoll
+                        href={about.url}
                         onClick={handleClick}
-                        url={item.url}
-                        year={item.year}
-                      />
-                    );
-                  })}
+                        templateTransition={false}
+                        underline={urlState(about.url, router).active}
+                      >
+                        {about.navTitle}
+                      </LinkRoll>
+                    </m.div>
+                  )}
+                </li>
+                <li className="Header-secondary-item">
+                  <m.div variants={ctrlItemOutVariant}>
+                    <LinkRoll
+                      href={contact.url}
+                      {...(isOpen && { tabIndex: -1 })}
+                    >
+                      {contact.navTitle}
+                    </LinkRoll>
+                  </m.div>
+                  {openReveal && (
+                    <m.div
+                      className="Header-secondary-item-reveal"
+                      variants={ctrlItemInVariant}
+                    >
+                      <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
+                    </m.div>
+                  )}
+                </li>
               </ul>
-            </m.nav>
-            <m.footer
-              animate={!isOpen ? 'closed' : ''}
-              className="Header-footer wrap"
-              variants={navItemVariant}
-            >
-              <ul className="Header-footer-links">
-                {someLinks.map(link => {
-                  return (
-                    <li key={link.id}>
-                      <Link href={link.url} underline>
-                        {link.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="Header-footer-right">
+            </div>
+          </div>
+        </m.div>
+        <m.div
+          animate={maskAnim}
+          className={c('Header-mask scrollbar -color:negative', {
+            'is-open': maskIsOpen,
+            'is-disabled': disabled,
+          })}
+          ref={maskRef}
+        >
+          {maskIsOpen && (
+            <>
+              <m.nav
+                animate={isOpen ? 'open' : 'closed'}
+                className="Header-nav"
+                initial="initial"
+                variants={navVariant}
+              >
+                <ul>
+                  {SITEMAP.primary
+                    .filter(item => !item.hidden)
+                    .map(item => {
+                      return (
+                        <NavItem
+                          color={item.color}
+                          key={item.id}
+                          name={item.navTitle}
+                          onClick={handleClick}
+                          url={item.url}
+                          year={item.year}
+                        />
+                      );
+                    })}
+                </ul>
+              </m.nav>
+              <m.footer
+                animate={!isOpen ? 'closed' : ''}
+                className="Header-footer wrap"
+                variants={navItemVariant}
+              >
                 <ul className="Header-footer-links">
-                  {SITEMAP.secondary.map(item => {
+                  {someLinks.map(link => {
                     return (
-                      <li key={item.id}>
-                        <Link href={item.url} underline>
-                          {item.navTitle}
+                      <li key={link.id}>
+                        <Link href={link.url} underline>
+                          {link.title}
                         </Link>
                       </li>
                     );
                   })}
                 </ul>
-                <p className="Header-footer-copyright">
-                  &copy; {new Date().getFullYear()} <br />
-                  Joonas Sandell
-                </p>
-              </div>
-            </m.footer>
-          </>
-        )}
-      </m.div>
-    </>
+                <div className="Header-footer-right">
+                  <ul className="Header-footer-links">
+                    {SITEMAP.secondary.map(item => {
+                      return (
+                        <li key={item.id}>
+                          <Link href={item.url} underline>
+                            {item.navTitle}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <p className="Header-footer-copyright">
+                    &copy; {new Date().getFullYear()} <br />
+                    Joonas Sandell
+                  </p>
+                </div>
+              </m.footer>
+            </>
+          )}
+        </m.div>
+      </header>
+    </FocusTrap>
   );
 };
