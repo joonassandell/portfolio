@@ -24,15 +24,6 @@
     position: fixed;
     top: 0;
     z-index: 1;
-
-    /**
-     * Hack to remove the applied scroll values from the new view.
-     * Why are those even there?!
-     * This happens sometimes at least w/ Chromium, so keep this.
-     */
-    [data-scroll-section], [data-scroll] {
-      transform: none !important;
-    }
   }
 
   /**
