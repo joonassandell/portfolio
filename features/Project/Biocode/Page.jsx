@@ -41,8 +41,8 @@ export const BiocodePage = ({ images, id, title }) => {
               border
               glare
               priority
-              quality={100}
               sizes={`${MQ.l} 80vw, 100vw`}
+              quality={100}
               {...getImage('joonassandell-biocode-website-home-hero', images)}
             />
           </div>

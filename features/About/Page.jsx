@@ -89,7 +89,6 @@ export const AboutPage = ({ id, title }) => {
         <div id="about" className="Template-mainContent wrap grid pt:10vw">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
             <Heading
-              className="Template-subHeading"
               size="h4"
               {...(mqS && {
                 'data-scroll': true,

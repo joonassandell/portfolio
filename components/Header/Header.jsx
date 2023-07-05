@@ -476,7 +476,11 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                     {SITEMAP.secondary.map(item => {
                       return (
                         <li key={item.id}>
-                          <Link href={item.url} underline>
+                          <Link
+                            href={item.url}
+                            templateTransition={false}
+                            underline
+                          >
                             {item.navTitle}
                           </Link>
                         </li>

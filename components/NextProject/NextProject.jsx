@@ -6,6 +6,7 @@ import { clamp } from 'lodash-es';
 import { mapRange, getSitemap } from '@/lib/utility';
 import { TRANS_PRIMARY_FAST } from '@/lib/config';
 import Image from 'next/image';
+import { MQ } from '@/lib/config';
 
 export const NextProject = ({ id }) => {
   const { url, title } = getSitemap(id);
@@ -102,7 +103,7 @@ export const NextProject = ({ id }) => {
             draggable="false"
             height={1920}
             priority
-            sizes="50vw"
+            sizes={`${MQ.l} 33vw, 50vw`}
             src={src}
             width={1440}
           />
