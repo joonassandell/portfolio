@@ -118,7 +118,8 @@ hr {
   }
 
   &:focus-visible {
-    outline: $focus-outlineWidth solid var(--link);
+    background-color: var(--bg-1000);
+    color: var(--text-50);
   }
 }
 
