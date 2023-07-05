@@ -7,6 +7,8 @@ import { useRouter } from 'next/router';
 import c from 'classnames';
 import EyeSvg from './eye.svg';
 import Link from 'next/link';
+import { useAppContext } from '@/components/App';
+import { urlState } from '@/lib/useUrlState';
 
 export const NavItem = ({ url, color, onClick, name, year }) => {
   const router = useRouter();
@@ -16,6 +18,11 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
   const [revealTimeout, setRevealTimeout] = useState(null);
   const ref = useRef(null);
   const marqueeRef = useRef(null);
+  const {
+    appState: {
+      detect: { hasTouch },
+    },
+  } = useAppContext();
 
   const findClosestEdge = e => {
     const x = e.pageX - ref.current.offsetLeft;
@@ -50,7 +57,7 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
   return (
     <m.li
       className={c('Header-nav-item', {
-        'is-active': router.pathname === url,
+        'is-active': urlState(url, router).active,
       })}
       ref={ref}
       style={{ '--Header-marquee-iris': color }}
@@ -71,7 +78,7 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
         }}
         onClick={e => {
           onClick(e);
-          setHover('out');
+          if (!hasTouch) setHover('out');
         }}
       >
         <span className="Header-nav-link-inner">

@@ -327,6 +327,7 @@
   &:before, &:after {
     border-top: var(--border-width-thin) solid var(--border-900);
     content: '';
+    transition: border-color $trans-primary;
   }
 
   &:before {
@@ -337,6 +338,12 @@
   &:after {
     flex: 1;
     margin-left: rem($space-s);
+  }
+
+  .Header-nav-item.is-active & {
+    &:before, &:after {
+      border-color: var(--border-50);
+    }
   }
 }
 

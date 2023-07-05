@@ -40,6 +40,7 @@
   --border-900: #333333;
   --border-800: #4d4d4d;
   --border-100: #{darken(#fff, 12)};
+  --border-50: var(--white);
   --hr: var(--black);
 
   // Root
