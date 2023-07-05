@@ -86,13 +86,14 @@ export const AboutPage = ({ id, title }) => {
             />
           </div>
         </div>
-        <div id="about" className="Template-mainContent wrap grid pt:10vw">
+        <div id="about" className="Template-mainContent wrap grid pt:15vw">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
             <Heading
               size="h4"
               {...(mqS && {
                 'data-scroll': true,
                 'data-scroll-speed': SCROLL_SPEED,
+                'data-scroll-position': 'top',
               })}
             >
               <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
@@ -102,6 +103,7 @@ export const AboutPage = ({ id, title }) => {
             <Figure
               alt="Joonas Sandell"
               borderRadius="var(--border-radius-pill)"
+              inViewOffset={1}
               mask
               priority
               sizes={`${MQ.m} 25vw, 70vw`}
