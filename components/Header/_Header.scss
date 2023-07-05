@@ -341,7 +341,7 @@
   }
 
   .Header-nav-item.is-active & {
-    &:before, &:after {
+    &:after {
       border-color: var(--border-50);
     }
   }

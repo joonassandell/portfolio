@@ -177,7 +177,7 @@ export const BiocodePage = ({ images, id, title }) => {
               alt="Example of Biocode's insightful card"
               border
               glare
-              inViewOffset={0.3}
+              inViewOffset={0.4}
               quality={100}
               sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage(
@@ -191,7 +191,7 @@ export const BiocodePage = ({ images, id, title }) => {
               alt="Example of Biocode's credible card"
               border
               glare
-              inViewOffset={0.6}
+              inViewOffset={0.7}
               sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
               {...getImage(

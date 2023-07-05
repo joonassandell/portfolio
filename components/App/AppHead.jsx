@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 export const AppHead = () => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
   const { asPath } = useRouter();
-  const title = 'Joonas Sandell — Designer & developer';
+  const title = 'Joonas Sandell — Designer & Developer';
   const description =
-    'Portfolio of Joonas Sandell, designer and creative developer of things that usually appear on screens.';
+    'Portfolio of Joonas Sandell, UI/UX designer and creative developer of things that usually appear on screens.';
 
   return (
     <Head>
