@@ -52,19 +52,28 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
       className={c('Header-nav-item', {
         'is-active': router.pathname === url,
       })}
-      onMouseEnter={e => {
-        findClosestEdge(e);
-        setHover('in');
-      }}
       ref={ref}
-      onMouseLeave={e => {
-        findClosestEdge(e);
-        setHover('out');
-      }}
       style={{ '--Header-marquee-iris': color }}
       variants={navItemVariant}
     >
-      <Link className="Header-nav-link" href={url} onClick={onClick}>
+      <Link
+        className="Header-nav-link"
+        href={url}
+        onBlur={() => setHover('out')}
+        onFocus={() => setHover('in')}
+        onMouseEnter={e => {
+          findClosestEdge(e);
+          setHover('in');
+        }}
+        onMouseLeave={e => {
+          findClosestEdge(e);
+          setHover('out');
+        }}
+        onClick={e => {
+          onClick(e);
+          setHover('out');
+        }}
+      >
         <span className="Header-nav-link-inner">
           <span className="Header-nav-link-text">{name}</span>
           <EyeSvg className="Header-nav-link-eye" />
