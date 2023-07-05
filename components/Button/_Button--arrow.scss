@@ -11,10 +11,10 @@
   height: rem($space * 2.25);
   justify-content: center;
   margin-left: rem($space);
-  -webkit-mask-image: -webkit-radial-gradient(var(--white), var(--white)); // [1.]
   overflow: hidden;
   padding: 0;
   width: rem($space * 2.25);
+  z-index: 0; // [1.]
 
   .Button-icon {
     position: absolute;
