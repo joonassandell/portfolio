@@ -121,19 +121,24 @@ export const App = ({ Component, pageProps }) => {
   /**
    * Set template transition by default when navigating back/forward
    */
+  const [popStateTimeout, setPopStateTimeout] = useState(null);
   useEffect(() => {
     beforePopState(({ url, as }) => {
+      popStateTimeout && clearTimeout(popStateTimeout);
       if (transition === 'template') {
-        setTimeout(() => {
-          setTransition('template');
-          push(url, as, { scroll: false });
-        }, 500);
+        setPopStateTimeout(
+          setTimeout(() => {
+            setTransition('template');
+            push(url, as, { scroll: false });
+          }, 500),
+        );
         return false;
       } else {
         setTransition('template');
         return true;
       }
     });
+    return () => popStateTimeout && clearTimeout(popStateTimeout);
   }, [transition]);
 
   /**
