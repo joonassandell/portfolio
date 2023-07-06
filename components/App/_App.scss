@@ -6,6 +6,7 @@
 }
 
 .App-main {
+  min-height: 100vh;
   position: relative;
   z-index: $App-mainZindex;
 }

@@ -166,10 +166,16 @@ export const App = ({ Component, pageProps }) => {
         <LocomotiveScrollProvider
           containerRef={containerRef}
           options={{
-            smooth: true,
+            class: '@',
+            draggingClass: 'is-drag',
+            initClass: 'is-init',
+            scrollbarClass: 'ScrollBar',
+            scrollingClass: 'is-scroll',
             smartphone: {
               smooth: true,
             },
+            smooth: true,
+            smoothClass: 'is-smooth',
             tablet: {
               smooth: true,
             },
