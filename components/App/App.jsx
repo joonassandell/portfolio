@@ -173,16 +173,8 @@ export const App = ({ Component, pageProps }) => {
           location={animationComplete}
           watch={[loadingEnd]}
           onLocationChange={scroll => {
-            /**
-             * With
-             * scroll.scroll.stop && scroll.start();
-             * scroll.scrollTo(0, { duration: 0, disableLerp: true });
-             * there will be a flash of images and scroll flickers etc. so
-             * rather destroy/init in the whole scroll.
-             */
-            scroll.destroy();
-            scroll.init();
-
+            scroll.scroll.stop && scroll.start();
+            scroll.scrollTo(0, { duration: 0, disableLerp: true });
             if (transition) setTransition(false);
           }}
           onUpdate={scroll => {
