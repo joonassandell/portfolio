@@ -65,6 +65,10 @@ export default Page;
 
 ## Links
 
+- [https://github.com/quentinhocde/loconative-scroll](https://github.com/quentinhocde/loconative-scroll)
+- [https://scroll.locomotive.ca/docs/#/attributes](https://scroll.locomotive.ca/docs/#/attributes)
+- [https://github.com/locomotivemtl/locomotive-scroll](https://github.com/locomotivemtl/locomotive-scroll)
+- [https://github.com/studio-freight/lenis#instance-methods](https://github.com/studio-freight/lenis#instance-methods)
 - [https://www.framer.com/docs/transition/###damping](https://www.framer.com/docs/transition/###damping)
 - [https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js](https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js)
 - [Initial template of this README](https://github.com/vercel/next.js/blob/canary/packages/create-next-app/templates/default/js/README-template.md)
