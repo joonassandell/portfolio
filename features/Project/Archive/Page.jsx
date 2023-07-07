@@ -18,12 +18,12 @@ export const ArchivePage = ({ images, id, title, year }) => {
         <Info
           client={{ name: 'Various' }}
           type={['Web services', 'Web applications', 'Commissions']}
-          heading="You really must like my stuff since you are already in the archive page! This collection contains mainly thumbnail images of my past work."
+          heading="You really must like my stuff since you are already in the archive page. This collection contains mainly thumbnail images of my past work."
           text={
             <>
               <p>
-                Featuring clients such as Fair Trade, Avecra, Jatke, Hotelzon,
-                Steiner school, City of Tampere and Vapriikki.
+                Featuring clients such as Fair Trade, Avecra, Jatke, City of
+                Tampere and Vapriikki.
               </p>
               <p>
                 I'll be updating this page every now and then since I'm not yet
