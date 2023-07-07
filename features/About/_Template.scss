@@ -10,10 +10,9 @@
     }
   }
 
-  .Template-figureCol {
-    @include mq($until: s) {
-      order: 1;
-    }
+  .Template-cube, .Template-cube-2, .Template-ball {
+    pointer-events: none;
+    position: absolute;
   }
 
   .Template-heading {
@@ -23,6 +22,17 @@
     z-index: 1;
   }
 
+  .Template-profileCol {
+    @include mq($until: s) {
+      order: 1;
+    }
+  }
+
+  .Template-profile {
+    @include mq(xl) {
+      max-width: rem($space * 18);
+    }
+  }
 
   .Template-figure {
     inset: 0;
@@ -30,15 +40,42 @@
     z-index: 0;
   }
 
-  .Template-figure-cube {
+  .Template-cube {
     inset: 75vw 0 0 -10vw;
-    pointer-events: none;
-    position: absolute;
+    width: 40vw;
+
+    @include mq(s) {
+      inset: 9vw 0 0 30vw;
+      // opacity: 0.6;
+      width: 30vw;
+    }
+  }
+
+  .Template-about {
+    position: relative;
+    z-index: 1;
+  }
+
+  .Template-cube-2 {
+    inset: 35vw -20vw 0 auto;
+    width: 35vw;
+
+    @include mq(s) {
+      inset: 0 -15vw 0 auto;
+      width: 30vw;
+    }
+  }
+
+  .Template-clients {
+    position: relative;
+  }
+
+  .Template-ball {
+    inset: 70vw -15vw 0 auto;
     width: 40vw;
 
     @include mq(m) {
-      inset: 9vw 0 0 30vw;
-      opacity: 0.6;
+      inset: 10vw auto auto -10vw;
       width: 30vw;
     }
   }

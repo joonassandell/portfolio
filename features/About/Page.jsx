@@ -1,3 +1,4 @@
+import { m } from 'framer-motion';
 import { Template, TemplateMain } from '@/components/Template';
 import { SCROLL_SPEED, MQ } from '@/lib/config';
 import { getLink } from '@/lib/utility';
@@ -13,6 +14,7 @@ import { useMedia } from 'react-use';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 import cubeImage from '@/public/about/line-cube.png';
+import ballImage from '@/public/about/line-ball.png';
 
 export const AboutPage = ({ id, title }) => {
   const mqS = useMedia(MQ.s, false);
@@ -75,18 +77,18 @@ export const AboutPage = ({ id, title }) => {
             <Figure
               aria-hidden="true"
               borderRadius={false}
-              className="Template-figure-cube"
+              className="Template-cube"
               alt="Line cube"
               priority
               scroll
               scrollPosition="top"
-              scrollSpeed={-3}
+              scrollSpeed={3}
               sizes={`${MQ.m} 30vw, 40vw`}
               {...cubeImage}
             />
           </div>
         </div>
-        <div id="about" className="Template-mainContent wrap grid pt:15vw">
+        <div id="about" className="Template-about wrap grid pt:15vw">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
             <Heading
               size="h4"
@@ -98,16 +100,41 @@ export const AboutPage = ({ id, title }) => {
             >
               <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
             </Heading>
+            <div
+              data-s
+              data-s-speed={SCROLL_SPEED * -2}
+              data-s-position="top"
+              className="Template-cube-2"
+            >
+              <m.div
+                animate={{
+                  rotate: 360,
+                  transition: {
+                    duration: 20,
+                    ease: 'linear',
+                    repeat: Infinity,
+                  },
+                }}
+              >
+                <Figure
+                  alt="Another line cube"
+                  aria-hidden="true"
+                  borderRadius={false}
+                  inViewOffset={-1}
+                  sizes={`${MQ.m} 30vw, 40vw`}
+                  {...cubeImage}
+                />
+              </m.div>
+            </div>
           </div>
-          <div className="Template-figureCol grid-col grid-col:8 grid-col:3@s">
+          <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
             <Figure
               alt="Joonas Sandell"
+              className="Template-profile"
               borderRadius="var(--border-radius-pill)"
-              inViewOffset={1}
-              mask
               priority
-              sizes={`${MQ.m} 25vw, 70vw`}
-              transition="clip"
+              scrollPosition="top"
+              sizes={`${MQ.s} 33vw, 70vw`}
               {...profileImage2}
             />
           </div>
@@ -140,7 +167,7 @@ export const AboutPage = ({ id, title }) => {
             </Text>
           </div>
         </div>
-        <div id="skills">
+        <div id="skills" className="Template-skills">
           <div className="wrap">
             <Text animate className="mb:xl pt:10vw">
               Wow, such services and skills 🤹‍♂️
@@ -207,7 +234,18 @@ export const AboutPage = ({ id, title }) => {
             />
           </Heading>
         </div>
-        <div id="clients" className="wrap grid pt:10vw">
+        <div id="clients" className="Template-clients wrap grid pt:10vw">
+          <Figure
+            alt="Line ball"
+            aria-hidden="true"
+            borderRadius={false}
+            className="Template-ball"
+            priority
+            scroll
+            scrollSpeed={-3}
+            sizes={`${MQ.m} 30vw, 40vw`}
+            {...ballImage}
+          />
           <div className="grid-col grid-col:6@s -start:6@s -start:7@m">
             <Hr className="mb:l" />
             <Heading className="mm" size="h4">
@@ -225,7 +263,7 @@ export const AboutPage = ({ id, title }) => {
               Coxa,
               Dahl,
               Ekovilla,
-              Evervent,
+              Enervent,
               Fair trade,
               Finefoods,
               Finnpark,
@@ -265,7 +303,7 @@ export const AboutPage = ({ id, title }) => {
           <div className="grid-col grid-col:4@m -align:center -en">
             <Text animate className="mb:m" size="large">
               Visit my social profiles found from the footer and follow if you
-              like, thanks!
+              like 🤙
             </Text>
           </div>
         </div>
