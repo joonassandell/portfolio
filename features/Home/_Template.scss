@@ -3,21 +3,24 @@
 
   .Template-about {
     position: relative;
-    z-index: 999;
+    z-index: $Header-zIndex - 1;
   }
 
   .Template-about-mobile {
-    height: max-content;
-    left: var(--wrap-spaceLeft);
+    display: grid;
+    height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
     margin-left: rem(-4px);
+    padding-bottom: 25vw;
+    place-content: center;
+    pointer-events: none;
     position: absolute;
-    top: 45vw;
     width: auto;
-    z-index: 999;
 
-    @include mq(s) {
-      display: none;
+    > .Link {
+      pointer-events: all;
     }
+
+    @include mq(s) {  display: none; }
   }
 
   .Template-about-desktop {
@@ -25,28 +28,30 @@
 
     > h1 {
       @include text(m);
+      pointer-events: all;
     }
 
     @include mq(s) {
-      display: grid;
-      max-width: 25ch;
+      display: block;
+      height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
+      max-width: 20ch;
+      padding-top: 25vw;
+      pointer-events: none;
       position: absolute;
-      top: 25vw;
       z-index: 98;
+    }
+
+    @include mq(m) {
+      max-width: 28ch;
     }
 
     @include mq(ml) {
       max-width: 35ch;
 
-      > h1 {
-        @include text(l);
-      }
+      > h1 { @include text(l); }
     }
 
-    @include mq(l) {
-      max-width: 35ch;
-      top: rem($space * 15);
-    }
+    @include mq(l) { padding-top: rem($space * 15); }
   }
 
   .Template-heros {

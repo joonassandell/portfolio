@@ -12,6 +12,7 @@ import { Template, TemplateMain } from '@/components/Template';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
 import { Link } from '@/components/Link';
+import { Heading } from '@/components/Heading';
 import { useScrollTo } from '@/lib/useScrollTo';
 import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
 
@@ -41,7 +42,7 @@ export const HomePage = ({ id }) => {
   };
 
   return (
-    <Template className={extraSpace && 'is-extraSpace'} id={id}>
+    <Template className={extraSpace ? 'is-extraSpace' : ''} id={id}>
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}
@@ -49,23 +50,20 @@ export const HomePage = ({ id }) => {
           variants={FADE_OUT_VARIANTS}
         >
           <div className="wrap">
-            <Link
-              href={about.url}
-              className="Template-about-mobile"
-              orientation="vertical"
-              underline
-            >
-              About me
-            </Link>
+            <div className="Template-about-mobile" hidden>
+              <Link href={about.url} orientation="vertical" underline>
+                About me
+              </Link>
+            </div>
             <div className="Template-about-desktop">
-              <h1>
+              <Heading size={null} tag="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
                 <Link href={about.url} underline>
                   about me
                 </Link>{' '}
                 or just keep scrolling for selected works.
-              </h1>
+              </Heading>
             </div>
           </div>
         </m.div>
