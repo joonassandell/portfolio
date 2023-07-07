@@ -34,15 +34,14 @@ npm run dev
 
 ### Notes
 
-- When navigating from some project to another page, template transition is triggered and in App.jsx template transition sets transitionInitial to true. This causes the active hero in the project page to trigger the initial transition which is unwanted. This animation is not visible though because the default state CSS in some of of the heros override it. This should be fixed to not triger the initial animation in the active project page because it's the correct way.
 - During loading (`is-loading` class and effect in `App.tsx`) prevents user from scrolling when Splash screen is visible. Class `is-loading` also prevents possible overflow jumps caused by initial scrollbar.
 - Using scroll offsets with locomotive-scroll seems to be almost impossible because the elements sometimes jump (e.g. Figure) depending on the vieport height and the elements height. I guess this happens because the elements are not in locomotives "in view" and don't know how to calculate the scroll position before that. Even if using scroll targets, no luck.
-- `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date views don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.
+- `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date urls don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.
 - In development, project pages etc. may take a while because of the image generation. After build everything works fine.
 - Exit animations work in in `Template.jsx` because `App.jsx` contains `AnimatePresence`
 - `Splash.jsx` has CSS animation as starting animation so that it triggers faster. This is especially visible with slow connections. Critical CSS makes this possible.
 - If using repeating useInView (`const inView = useInView(ref, 0, false)`) then `animate` prop should be triggered like so `animate={inView ? 'animate' : ''}`. It doesn't work e.g. with `animate={inView ? 'animate' : false}` or `animate={inView && 'animate'}`
-- Usage of `var(--vh)` (which contains window height) exists to prevent possible layout jumps in mobile. Jumps could happen `100vh` is used instead. Should consider the new viewport units at some point.
+- Usage of `var(--vh)` ("viewport height" which contains window height) exists to prevent possible layout jumps in mobile. Jumps could happen `100vh` is used instead. Should consider the new viewport units at some point.
 
 #### About template transition and AnimatePresence
 

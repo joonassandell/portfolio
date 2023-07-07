@@ -59,10 +59,16 @@ export const App = ({ Component, pageProps }) => {
    * ====== */
 
   useEffect(() => {
+    // prettier-ignore
     if (process.env.NODE_ENV === 'production') {
-      console.info(
-        `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲`,
-      );
+    console.info(
+      `Made by me with Next.js, TypeScript, Rebirth and tears. 🥲
+
+Since you're here, here are some milestones:
+
+- Convert to use native scroll. Dev version here: https://joonassandell-portfolio-hsok0a7ey-joonassandell.vercel.app
+- Add couple of missing projects
+- Fix accessibility issues found`);
     }
 
     (async () => {
