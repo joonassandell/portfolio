@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { default as NextLink } from 'next/link';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
@@ -67,16 +67,14 @@ export const LinkRoll = ({
         {...props}
       >
         <m.span className="LinkRoll-text" variants={linkVariants}>
-          {characters.map((char, index) => {
+          {characters.map((char, i) => {
             const empty = isEmptyString(char);
             empty ? (char = '\u00A0') : false;
 
             return (
               <m.span
-                className={c('LinkRoll-char', {
-                  '-empty': empty,
-                })}
-                key={index}
+                className={c('LinkRoll-char', { '-empty': empty })}
+                key={i}
                 variants={characterOutVariants}
               >
                 {char}
@@ -84,28 +82,33 @@ export const LinkRoll = ({
             );
           })}
         </m.span>
-        <m.span
-          aria-hidden="true"
-          className="LinkRoll-text -hover"
-          variants={linkVariants}
-        >
-          {characters.map((char, index) => {
-            const empty = isEmptyString(char);
-            empty ? (char = '\u00A0') : false;
+        <AnimatePresence>
+          {hover && (
+            <m.span
+              animate="in"
+              className="LinkRoll-text -hover"
+              exit="out"
+              hidden
+              initial="out"
+              variants={linkVariants}
+            >
+              {characters.map((char, i) => {
+                const empty = isEmptyString(char);
+                empty ? (char = '\u00A0') : false;
 
-            return (
-              <m.span
-                className={c('LinkRoll-char', {
-                  '-empty': empty,
-                })}
-                key={index}
-                variants={characterInVariants}
-              >
-                {char}
-              </m.span>
-            );
-          })}
-        </m.span>
+                return (
+                  <m.span
+                    className={c('LinkRoll-char', { '-empty': empty })}
+                    key={i}
+                    variants={characterInVariants}
+                  >
+                    {char}
+                  </m.span>
+                );
+              })}
+            </m.span>
+          )}
+        </AnimatePresence>
       </Tag>
     </ConditionalWrapper>
   );
