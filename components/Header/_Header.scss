@@ -135,6 +135,7 @@
 }
 
 .Header-button-textMobile {
+  display: block;
   line-height: rem($space-ml);
   margin-right: rem($space-s);
   overflow: hidden;
@@ -160,6 +161,7 @@
 }
 
 .Header-button-text-item {
+  display: block;
   margin-right: rem($space);
   overflow: hidden;
   text-align: left;

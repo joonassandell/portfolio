@@ -15,13 +15,13 @@ import { ConditionalWrapper } from '../ConditionalWrapper';
 
 export const Link = ({
   arrow,
-  className,
   children,
+  className,
   href,
   onClick,
   orientation,
-  target,
   tag = 'a',
+  target,
   templateTransition = true,
   underline,
 }) => {
@@ -78,6 +78,7 @@ export const Link = ({
               animate="in"
               className="Link-text -hover"
               exit="out"
+              hidden
               initial="initial"
               variants={orientation === 'vertical' ? inVariantX : inVariant}
             >

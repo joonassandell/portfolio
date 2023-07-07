@@ -276,7 +276,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   <LinkRoll
                     href="/"
                     onClick={handleClick}
-                    {...(isOpen && { tabIndex: -1 })}
+                    {...(isOpen && { tabIndex: -1, hidden: true })}
                   >
                     Joonas Sandell
                   </LinkRoll>
@@ -326,7 +326,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                 onHoverStart={() => setHover('start')}
                 ref={btnRef}
               >
-                <div className="Header-button-textMobile">
+                <div className="Header-button-textMobile" hidden>
                   <m.div variants={ctrlItemOutVariant}>Menu</m.div>
                   {openReveal && (
                     <m.div
@@ -343,6 +343,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                       className="Header-button-text-item"
                       key={asPath}
                       {...enterExit.btnText}
+                      {...(isOpen && { hidden: true })}
                     >
                       <m.div variants={ctrlItemOutVariant}>{navTitle}</m.div>
                     </m.div>
@@ -379,7 +380,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                       href={about.url}
                       onClick={handleClick}
                       underline={urlState(about.url, router).active}
-                      {...(isOpen && { tabIndex: -1 })}
+                      {...(isOpen && { tabIndex: -1, hidden: true })}
                     >
                       {about.navTitle}
                     </LinkRoll>
@@ -404,7 +405,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   <m.div variants={ctrlItemOutVariant}>
                     <LinkRoll
                       href={contact.url}
-                      {...(isOpen && { tabIndex: -1 })}
+                      {...(isOpen && { tabIndex: -1, hidden: true })}
                     >
                       {contact.navTitle}
                     </LinkRoll>

@@ -105,7 +105,7 @@ export const ButtonArrow = ({
 
   return (
     <div className={classes}>
-      <m.span animate={arrowIn} className="Button-icon Button-icon--in">
+      <m.span animate={arrowIn} className="Button-icon Button-icon--in" hidden>
         <ArrowDown />
       </m.span>
       <AnimatePresence onExitComplete={() => setActiveAnimation(false)}>
