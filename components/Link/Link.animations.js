@@ -3,7 +3,7 @@ import { TRANS_PRIMARY_FAST, TRANS_PRIMARY_FASTEST } from '@/lib/config';
 export const outVariant = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
-    y: '-105%',
+    y: '-110%',
   },
   out: {
     transition: TRANS_PRIMARY_FAST,
@@ -28,7 +28,7 @@ export const inVariant = {
 export const outVariantX = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
-    x: '100%',
+    x: '110%',
   },
   out: {
     transition: TRANS_PRIMARY_FAST,

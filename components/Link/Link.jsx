@@ -76,7 +76,7 @@ export const Link = ({
           {hover && (
             <m.span
               animate="in"
-              className="Link-text Link-text--reveal"
+              className="Link-text -hover"
               exit="out"
               initial="initial"
               variants={orientation === 'vertical' ? inVariantX : inVariant}
