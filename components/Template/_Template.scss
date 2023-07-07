@@ -30,7 +30,7 @@
      * Why are those even there?! This happens sometimes at least w/ Chromium,
      * so keep this.
      */
-    [data-scroll-section], [data-scroll] {
+    [data-s-section], [data-s] {
       transform: none !important;
     }
   }
@@ -41,7 +41,7 @@
    * smoothens this issue like it's intentional.
    */
   :root.is-transition\:template\:withDelay & {
-    [data-scroll-target] {
+    [data-s-target] {
       transition: 0.3s ease-in-out;
     }
   }

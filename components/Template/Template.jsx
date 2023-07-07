@@ -53,7 +53,7 @@ export const Template = ({ children, className, id }) => {
       })}
     >
       <AnimatePresence>
-        <div className="Template-inner" data-scroll-section>
+        <div className="Template-inner" data-s-section>
           {children}
           <Footer />
         </div>

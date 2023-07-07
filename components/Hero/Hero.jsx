@@ -72,7 +72,7 @@ export const Hero = ({
       initial="initial"
       ref={ref}
     >
-      <div data-scroll-id={id} className="Hero-inner">
+      <div data-s-id={id} className="Hero-inner">
         <div
           className="Hero-heading wrap"
           {...(transitionPre && { 'aria-hidden': true })}
@@ -85,10 +85,10 @@ export const Hero = ({
             variants={headingVariants}
           >
             <div
-              data-scroll
-              data-scroll-target={`[data-scroll-id="${id}"]`}
-              data-scroll-speed={SCROLL_SPEED}
-              data-scroll-direction="horizontal"
+              data-s
+              data-s-target={`[data-s-id="${id}"]`}
+              data-s-speed={SCROLL_SPEED}
+              data-s-direction="horizontal"
             >
               <TextReveal
                 custom={...transitionPre && {

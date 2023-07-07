@@ -169,6 +169,7 @@ export const App = ({ Component, pageProps }) => {
             class: '@',
             draggingClass: 'is-drag',
             initClass: 'is-init',
+            name: 's',
             scrollbarClass: 'ScrollBar',
             scrollingClass: 'is-scroll',
             smartphone: {
@@ -200,7 +201,7 @@ export const App = ({ Component, pageProps }) => {
         >
           <div className="App">
             <Header navTitle={pageProps.navTitle} />
-            <main className="App-main" data-scroll-container ref={containerRef}>
+            <main className="App-main" data-s-container ref={containerRef}>
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => {

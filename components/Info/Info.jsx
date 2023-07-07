@@ -30,12 +30,7 @@ export const Info = ({
 
   return (
     <section className="Info wrap grid -gap:row:l">
-      <div
-        data-scroll
-        data-scroll-position="top"
-        data-scroll-speed={0.5}
-        className="grid-col"
-      >
+      <div data-s data-s-position="top" data-s-speed={0.5} className="grid-col">
         <Hr className="mb:0@until:l" />
       </div>
       <m.div

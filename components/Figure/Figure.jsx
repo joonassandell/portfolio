@@ -66,7 +66,7 @@ export const Figure = ({
   return (
     <div
       className={classes}
-      data-scroll
+      data-s
       ref={ref}
       style={{
         ['--Figure-bg-color']: isString(background) ? background : undefined,
@@ -75,20 +75,19 @@ export const Figure = ({
           ? borderRadius
           : undefined,
       }}
-      {...(scroll && mask && { 'data-scroll-id': id })}
-      {...(scroll && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
-      {...(scrollOffset && { 'data-scroll-offset': scrollOffset })}
-      {...(scrollPosition && { 'data-scroll-position': scrollPosition })}
-      {...(scroll && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+      {...(scroll && mask && { 'data-s-id': id })}
+      {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
+      {...(scrollOffset && { 'data-s-offset': scrollOffset })}
+      {...(scrollPosition && { 'data-s-position': scrollPosition })}
+      {...(scroll && scrollDelay && { 'data-s-delay': scrollDelay })}
     >
       <figure
         className="Figure-figure"
-        {...(mask && { 'data-scroll': true })}
-        {...(mask && { 'data-scroll-speed': scrollImageSpeed })}
-        {...(mask && { 'data-scroll-target': `[data-scroll-id="${id}"]` })}
-        {...(mask &&
-          scrollPosition && { 'data-scroll-position': scrollPosition })}
-        {...(mask && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+        {...(mask && { 'data-s': true })}
+        {...(mask && { 'data-s-speed': scrollImageSpeed })}
+        {...(mask && { 'data-s-target': `[data-s-id="${id}"]` })}
+        {...(mask && scrollPosition && { 'data-s-position': scrollPosition })}
+        {...(mask && scrollDelay && { 'data-s-delay': scrollDelay })}
       >
         <m.div
           animate={inView ? 'animate' : ''}

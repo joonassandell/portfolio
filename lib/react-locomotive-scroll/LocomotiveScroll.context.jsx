@@ -21,26 +21,13 @@ export function LocomotiveScrollProvider({
   const LocomotiveScrollRef = useRef(null);
   const [height] = useDebounce(containerHeight, 100);
 
-  if (!watch) {
-    console.warn(
-      'react-locomotive-scroll: you did not add any props to watch. Scroll may have weird behaviours if the instance is not updated when the route changes',
-    );
-  }
-
   useEffect(() => {
     (async () => {
       try {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
-        const dataScrollContainer = document.querySelector(
-          '[data-scroll-container]',
-        );
-
-        if (!dataScrollContainer) {
-          console.warn(
-            `react-locomotive-scroll: [data-scroll-container] dataset was not found. You likely forgot to add it which will prevent Locomotive Scroll to work.`,
-          );
-        }
+        const dataScrollContainer =
+          document.querySelector('[data-s-container]');
 
         LocomotiveScrollRef.current = new LocomotiveScroll({
           el: dataScrollContainer ?? undefined,

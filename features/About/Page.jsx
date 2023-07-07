@@ -49,10 +49,10 @@ export const AboutPage = ({ id, title }) => {
         <div className="Template-heading wrap pr:0">
           <Heading
             className="white-space:nowrap mb:0"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED}
+            data-s
+            data-s-direction="horizontal"
+            data-s-position="left"
+            data-s-speed={SCROLL_SPEED}
             size="display"
             tag="h1"
           >
@@ -91,9 +91,9 @@ export const AboutPage = ({ id, title }) => {
             <Heading
               size="h4"
               {...(mqS && {
-                'data-scroll': true,
-                'data-scroll-speed': SCROLL_SPEED,
-                'data-scroll-position': 'top',
+                'data-s': true,
+                'data-s-speed': SCROLL_SPEED,
+                'data-s-position': 'top',
               })}
             >
               <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
@@ -148,10 +148,10 @@ export const AboutPage = ({ id, title }) => {
           </div>
           <Heading
             className="white-space:nowrap"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED * 4}
+            data-s
+            data-s-direction="horizontal"
+            data-s-position="left"
+            data-s-speed={SCROLL_SPEED * 4}
             size="h2"
             tag="div"
           >
@@ -163,10 +163,10 @@ export const AboutPage = ({ id, title }) => {
           </Heading>
           <Heading
             className="white-space:nowrap flex justify-content:end"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED * -4}
+            data-s
+            data-s-direction="horizontal"
+            data-s-position="left"
+            data-s-speed={SCROLL_SPEED * -4}
             size="h2"
             tag="div"
           >
@@ -178,10 +178,10 @@ export const AboutPage = ({ id, title }) => {
           </Heading>
           <Heading
             className="white-space:nowrap"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED * 2}
+            data-s
+            data-s-direction="horizontal"
+            data-s-position="left"
+            data-s-speed={SCROLL_SPEED * 2}
             size="h2"
             tag="div"
           >
@@ -193,10 +193,10 @@ export const AboutPage = ({ id, title }) => {
           </Heading>
           <Heading
             className="white-space:nowrap flex justify-content:end"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED * -2}
+            data-s
+            data-s-direction="horizontal"
+            data-s-position="left"
+            data-s-speed={SCROLL_SPEED * -2}
             size="h2"
             tag="div"
           >

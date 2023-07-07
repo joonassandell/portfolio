@@ -39,10 +39,10 @@ export const OrasHero = ({ onClick, ...props }) => {
                   "
                 >
                   <figure
-                    data-scroll
-                    data-scroll-target={`[data-scroll-id=${id}]`}
-                    data-scroll-position="top"
-                    data-scroll-speed={-SCROLL_SPEED}
+                    data-s
+                    data-s-target={`[data-s-id=${id}]`}
+                    data-s-position="top"
+                    data-s-speed={-SCROLL_SPEED}
                     className="Hero-figure-figure"
                   >
                     <Image
@@ -124,10 +124,10 @@ export const OrasHero = ({ onClick, ...props }) => {
               variants={dropVariants3}
             >
               <div
-                data-scroll
-                data-scroll-delay="0.15"
-                data-scroll-target={`[data-scroll-id=${id}]`}
-                data-scroll-speed="1"
+                data-s
+                data-s-delay="0.15"
+                data-s-target={`[data-s-id=${id}]`}
+                data-s-speed="1"
               >
                 <Image
                   alt="Oras drop"

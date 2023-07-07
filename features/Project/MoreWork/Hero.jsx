@@ -23,9 +23,9 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
           <div className="wrap grid -gap:l pl:0">
             <div className="Hero-figure grid-col grid-col:6 grid-col:6@l">
               <figure
-                data-scroll
-                data-scroll-target={`[data-scroll-id=${id}]`}
-                data-scroll-speed={-SCROLL_SPEED}
+                data-s
+                data-s-target={`[data-s-id=${id}]`}
+                data-s-speed={-SCROLL_SPEED}
                 className="Hero-figure-figure"
               >
                 <Image
@@ -37,9 +37,9 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
                 />
               </figure>
               <figure
-                data-scroll
-                data-scroll-target={`[data-scroll-id=${id}]`}
-                data-scroll-speed={SCROLL_SPEED}
+                data-s
+                data-s-target={`[data-s-id=${id}]`}
+                data-s-speed={SCROLL_SPEED}
                 className="Hero-figure-figure Hero-figure-figure--bottom"
               >
                 <Image

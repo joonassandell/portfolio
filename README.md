@@ -46,7 +46,7 @@ npm run dev
 
 #### About template transition and AnimatePresence
 
-Template transitions have been tested like in [this article](https://www.notion.so/joonassandell/Next-js-Page-Transitions-with-Framer-Motion-Max-Schmitt-ca79b293fcc54adab0f197a53b7833ad?pvs=4) with `mode="popLayout"`: see the stripped example below. It worked, however, it created issues with the locomotive-scroll resetting the scroll position (removing the transform from `<div className="Template-inner" data-scroll-section />`) for the exiting page which is why the current implementation still exists. If the popLayout needs to be added for some reason, the scroll position probably needs to be forced e.g. w/ [WebKitCSSMatrix](https://stackoverflow.com/questions/42267189/how-to-get-value-translatex-by-javascript).
+Template transitions have been tested like in [this article](https://www.notion.so/joonassandell/Next-js-Page-Transitions-with-Framer-Motion-Max-Schmitt-ca79b293fcc54adab0f197a53b7833ad?pvs=4) with `mode="popLayout"`: see the stripped example below. It worked, however, it created issues with the locomotive-scroll resetting the scroll position (removing the transform from `<div className="Template-inner" data-s-section />`) for the exiting page which is why the current implementation still exists. If the popLayout needs to be added for some reason, the scroll position probably needs to be forced e.g. w/ [WebKitCSSMatrix](https://stackoverflow.com/questions/42267189/how-to-get-value-translatex-by-javascript).
 
 ```jsx
 // App.jsx

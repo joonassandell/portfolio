@@ -35,9 +35,9 @@ export const BiocodeHero = ({ onClick, ...props }) => {
                 <div className={figureClasses}>
                   <figure className="Hero-figure-globe Hero-figure-globe--pre">
                     <div
-                      data-scroll
-                      data-scroll-target={`[data-scroll-id=${id}]`}
-                      data-scroll-speed={-SCROLL_SPEED}
+                      data-s
+                      data-s-target={`[data-s-id=${id}]`}
+                      data-s-speed={-SCROLL_SPEED}
                     >
                       <Image
                         alt="Light globe"
@@ -73,9 +73,9 @@ export const BiocodeHero = ({ onClick, ...props }) => {
                 <figure className="Hero-figure-globe Hero-figure-globe--default">
                   <div
                     {...(!transitionPre && {
-                      'data-scroll': true,
-                      'data-scroll-speed': -SCROLL_SPEED,
-                      'data-scroll-target': `[data-scroll-id=${id}]`,
+                      'data-s': true,
+                      'data-s-speed': -SCROLL_SPEED,
+                      'data-s-target': `[data-s-id=${id}]`,
                     })}
                   >
                     <Image
