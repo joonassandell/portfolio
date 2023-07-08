@@ -18,7 +18,7 @@
   }
 
   /**
-   * This is the enter transition template
+   * This is the enter transition
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
@@ -26,9 +26,8 @@
     z-index: 1;
 
     /**
-     * Hack to remove the applied scroll values from the new view.
-     * Why are those even there?! This happens sometimes at least w/ Chromium,
-     * so keep this.
+     * Hack to remove the applied scroll values from the new view. Why are those
+     * even there?! This happens sometimes at least w/ Chromium.
      */
     [data-s-section], [data-s] {
       transform: none !important;
@@ -41,8 +40,8 @@
    * smoothens this issue like it's intentional.
    */
   :root.is-transition\:template\:withDelay & {
-    [data-s-target] {
-      transition: 0.3s ease-in-out;
+    [data-s-target]:not([data-s-prevent]) {
+      transition: 0.2s ease-in-out;
     }
   }
 

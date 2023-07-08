@@ -25,7 +25,8 @@ export const Hero = ({
 }) => {
   const transitionPre = transition === 'pre';
   const { appState } = useAppContext();
-  const { transitionInitial: appTransitionInitial } = appState;
+  const { transitionInitial: appTransitionInitial, transition: appTransition } = appState;
+  const templateTransition = appTransition === 'template';
   const { push } = useRouter();
   const ref = useRef(null);
   const classes = c(
@@ -56,6 +57,7 @@ export const Hero = ({
     transitionInitial,
     transitionPre,
     transitionStartOrDefault,
+    templateTransition,
   };
 
   return (
@@ -109,7 +111,7 @@ export const Hero = ({
                 arrow
                 href={href}
                 onClick={onClick}
-                templateTransition={false}
+                transitionTemplate={false}
               >
                 View project
               </Link>

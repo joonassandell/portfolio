@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
+import { SCROLL_SPEED, JUMP_FIX_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
 import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
@@ -21,10 +21,11 @@ export const OrasHero = ({ onClick, ...props }) => {
       {...props}
     >
       {({
-        transitionStartOrDefault,
         noTransition,
-        transitionPre,
         transitionInitial,
+        transitionPre,
+        transitionStartOrDefault,
+        templateTransition,
       }) => {
         return (
           <>
@@ -38,22 +39,30 @@ export const OrasHero = ({ onClick, ...props }) => {
                     grid-col:4@l -start:6@l
                   "
                 >
-                  <figure
-                    data-s
-                    data-s-target={`[data-s-id=${id}]`}
-                    data-s-position="top"
-                    data-s-speed={-SCROLL_SPEED}
+                  <m.div
                     className="Hero-figure-figure"
+                    {...(transitionPre && {
+                      animate: 'animate',
+                      initial: templateTransition && 'initial',
+                      variants: JUMP_FIX_VARIANTS,
+                    })}
                   >
-                    <Image
-                      alt="Oras faucet"
-                      draggable="false"
-                      priority
-                      sizes="33vw"
-                      src={heroImage}
-                      quality={90}
-                    />
-                  </figure>
+                    <figure
+                      data-s
+                      data-s-target={`[data-s-id=${id}]`}
+                      data-s-prevent
+                      data-s-speed={-SCROLL_SPEED}
+                    >
+                      <Image
+                        alt="Oras faucet"
+                        draggable="false"
+                        priority
+                        sizes="33vw"
+                        src={heroImage}
+                        quality={90}
+                      />
+                    </figure>
+                  </m.div>
                   <m.div
                     className="Hero-figureBg Hero-figureBg--animate"
                     variants={figureBgVariants}
