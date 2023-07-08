@@ -1,6 +1,6 @@
 import { m } from 'framer-motion';
 import { Template, TemplateMain } from '@/components/Template';
-import { SCROLL_SPEED, MQ } from '@/lib/config';
+import { SCROLL_SPEED, MQ, JUMP_FIX_VARIANTS } from '@/lib/config';
 import { getLink } from '@/lib/utility';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
@@ -13,6 +13,7 @@ import { Hr } from '@/components/Hr';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
+import { useAppContext } from '@/components/App';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 import cubeImage from '@/public/about/line-cube.png';
@@ -22,6 +23,9 @@ export const AboutPage = ({ id, title }) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
+  const { appState } = useAppContext();
+  const { transition } = appState;
+  const templateTransition = transition === 'template';
   const subHeadingMobile = [
     "I'm creative developer",
     'and designer based in',
@@ -133,17 +137,23 @@ export const AboutPage = ({ id, title }) => {
               </m.div>
             </div>
           </div>
-          <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
+          <m.div
+            animate="animate"
+            className="Template-profileCol grid-col grid-col:8 grid-col:4@s"
+            initial={templateTransition && 'initial'}
+            variants={JUMP_FIX_VARIANTS}
+          >
             <Figure
               alt="Joonas Sandell"
               className="Template-profile"
-              borderRadius="var(--border-radius-pill)"
-              priority
-              scrollPosition="top"
-              sizes={`${MQ.s} 33vw, 70vw`}
+              borderRadius={false}
+              mask
+              scrollSpeed={-0.5}
+              scrollPrevent
+              sizes={`${MQ.s} 25vw, 70vw`}
               {...profileImage2}
             />
-          </div>
+          </m.div>
           <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:7@l">
             <Text animate className="mb:m">
               <p>
@@ -175,7 +185,7 @@ export const AboutPage = ({ id, title }) => {
         </div>
         <div id="skills" className="Template-skills">
           <div className="wrap">
-            <Text animate className="mb:xl pt:10vw">
+            <Text animate className="mb:xl pt:15vw">
               Wow, such services and skills 🤹‍♂️
             </Text>
           </div>

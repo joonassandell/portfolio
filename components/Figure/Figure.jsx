@@ -29,6 +29,7 @@ export const Figure = ({
   scrollImageSpeed = SCROLL_SPEED * -2,
   scrollOffset = 0,
   scrollPosition,
+  scrollPrevent,
   scrollSpeed = SCROLL_SPEED,
   sizes = '100vw',
   src,
@@ -75,6 +76,7 @@ export const Figure = ({
           ? borderRadius
           : undefined,
       }}
+      {...(scroll && scrollPrevent && { 'data-s-prevent': true })}
       {...(scroll && mask && { 'data-s-id': id })}
       {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
       {...(scrollOffset && { 'data-s-offset': scrollOffset })}

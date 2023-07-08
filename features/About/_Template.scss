@@ -30,7 +30,7 @@
 
   .Template-profile {
     @include mq(xl) {
-      max-width: rem($space * 18);
+      max-width: rem($space * 20);
     }
   }
 
