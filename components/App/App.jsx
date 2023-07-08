@@ -72,19 +72,12 @@ Since you're here, here are some milestones:
     }
 
     (async () => {
-      const { isWindows, isIphoneSafari, hasTouch } = await import(
-        '@/lib/detect'
-      );
+      const { isWindows, hasTouch } = await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
-      if (isIphoneSafari) html.classList.add('is-iphoneSafari');
 
       setAppState(prevState => ({
         ...prevState,
-        detect: {
-          hasTouch,
-          isWindows,
-          isIphoneSafari,
-        },
+        detect: { hasTouch, isWindows },
       }));
     })();
 
