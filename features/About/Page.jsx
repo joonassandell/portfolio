@@ -11,6 +11,8 @@ import { TextReveal } from '@/components/TextReveal';
 import { Figure } from '@/components/Figure';
 import { Hr } from '@/components/Hr';
 import { useMedia } from 'react-use';
+import { useRef } from 'react';
+import { useInView } from '@/lib/useInView';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 import cubeImage from '@/public/about/line-cube.png';
@@ -18,7 +20,8 @@ import ballImage from '@/public/about/line-ball.png';
 
 export const AboutPage = ({ id, title }) => {
   const mqS = useMedia(MQ.s, false);
-
+  const cubeImageAnim = useRef(null);
+  const cubeImageInView = useInView(cubeImageAnim, 0, false);
   const subHeadingMobile = [
     "I'm creative developer",
     'and designer based in',
@@ -31,7 +34,6 @@ export const AboutPage = ({ id, title }) => {
       .
     </>,
   ];
-
   const subHeadingDesktop = [
     "I'm creative developer and designer",
     'based in Helsinki, Finland.',
@@ -107,12 +109,16 @@ export const AboutPage = ({ id, title }) => {
               className="Template-cube-2"
             >
               <m.div
-                animate={{
-                  rotate: 360,
-                  transition: {
-                    duration: 20,
-                    ease: 'linear',
-                    repeat: Infinity,
+                animate={cubeImageInView ? 'animate' : ''}
+                ref={cubeImageAnim}
+                variants={{
+                  animate: {
+                    rotate: 360,
+                    transition: {
+                      duration: 20,
+                      ease: 'linear',
+                      repeat: Infinity,
+                    },
                   },
                 }}
               >
