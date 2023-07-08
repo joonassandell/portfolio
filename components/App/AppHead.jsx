@@ -52,6 +52,10 @@ export const AppHead = () => {
       <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
       <link rel="mask-icon" color="#f5eddb" href="/static/favicon.svg" />
 
+      {/* Web app */}
+      <meta name="apple-mobile-web-app-title" content="Joonas Sandell" />
+      <meta name="application-name" content="Joonas Sandell" />
+
       {/* Other */}
       <meta
         name="viewport"
