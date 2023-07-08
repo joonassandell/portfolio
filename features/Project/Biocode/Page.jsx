@@ -7,12 +7,12 @@ import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 
-export const BiocodePage = ({ images, id, title }) => {
+export const BiocodePage = ({ images, id, title, themeColor }) => {
   const { id: nextProjectId } = getSitemap('oras');
 
   return (
     <Template id={id}>
-      <Head title={title} />
+      <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <BiocodeHero />
         <Info

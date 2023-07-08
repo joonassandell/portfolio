@@ -7,7 +7,7 @@ import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png'
 import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';
 
 export const MoreWorkHero = ({ onClick, ...props }) => {
-  const { url, year, id, title } = getSitemap('more-work');
+  const { url, year, id, title, themeColor } = getSitemap('more-work');
 
   return (
     <Hero
@@ -16,6 +16,7 @@ export const MoreWorkHero = ({ onClick, ...props }) => {
       href={url}
       id={id}
       onClick={onClick}
+      themeColor={themeColor}
       {...props}
     >
       {({ transitionPre }) => {

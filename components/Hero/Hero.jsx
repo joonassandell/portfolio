@@ -20,6 +20,7 @@ export const Hero = ({
   onClick,
   stampOverlay = true,
   stampAddVarsToParent,
+  themeColor,
   transitionStart,
   transition,
 }) => {
@@ -65,6 +66,7 @@ export const Hero = ({
       animate={transitionStart && 'animate'}
       className={classes}
       data-id={id}
+      data-theme-color={themeColor}
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
           push(href, null, { scroll: false });

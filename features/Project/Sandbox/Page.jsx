@@ -8,13 +8,13 @@ import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 
-export const SandboxPage = ({ images, id, title, year }) => {
+export const SandboxPage = ({ images, id, title, year, themeColor }) => {
   const { id: nextProjectId } = getSitemap('more-work');
   const mqM = useMedia(MQ.m, false);
 
   return (
     <Template id={id}>
-      <Head title={title} />
+      <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <SandboxHero />
         <Info

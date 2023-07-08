@@ -14,12 +14,14 @@ import { useState } from 'react';
 import { Link } from '@/components/Link';
 import { Heading } from '@/components/Heading';
 import { useScrollTo } from '@/lib/useScrollTo';
+import { Head } from '@/components/Head';
 import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
 
 export const HomePage = ({ id }) => {
   const about = getSitemap('about', 'secondary');
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
+  const [themeColor, setThemeColor] = useState();
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState(null);
   const scrollTo = useScrollTo({ scrollLock: true });
@@ -34,6 +36,7 @@ export const HomePage = ({ id }) => {
     const needsExtraSpace = scroll.scroll.instance.limit.y < el.offsetTop;
     needsExtraSpace && setExtraSpace(true) && scroll.update();
 
+    setThemeColor(el.dataset.themeColor);
     setCurrentHero(el.dataset.id);
     setTimeout(
       () => scrollTo(el, () => setAnimation(true)),
@@ -43,6 +46,7 @@ export const HomePage = ({ id }) => {
 
   return (
     <Template className={extraSpace ? 'is-extraSpace' : ''} id={id}>
+      <Head themeColor={themeColor} />
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}

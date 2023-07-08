@@ -7,7 +7,7 @@ import Image from 'next/image';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
 
 export const SandboxHero = ({ onClick, ...props }) => {
-  const { url, id, title, year } = getSitemap('sandbox');
+  const { url, id, title, year, themeColor } = getSitemap('sandbox');
 
   return (
     <Hero
@@ -16,6 +16,7 @@ export const SandboxHero = ({ onClick, ...props }) => {
       href={url}
       id={id}
       onClick={onClick}
+      themeColor={themeColor}
       {...props}
     >
       {({ transitionPre, noTransition, transitionInitial }) => {

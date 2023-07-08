@@ -11,7 +11,7 @@ import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.pn
 import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
 export const BiocodeHero = ({ onClick, ...props }) => {
-  const { url, id, title } = getSitemap('biocode');
+  const { url, id, title, themeColor } = getSitemap('biocode');
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
 
@@ -25,6 +25,7 @@ export const BiocodeHero = ({ onClick, ...props }) => {
       onClick={onClick}
       stampAddVarsToParent={true}
       stampOverlay={false}
+      themeColor={themeColor}
       {...props}
     >
       {({ transitionPre, transitionStartOrDefault, noTransition }) => {

@@ -7,12 +7,12 @@ import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 
-export const MediasignalPage = ({ images, id, title, year }) => {
+export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
   const { id: nextProjectId } = getSitemap('sandbox');
 
   return (
     <Template id={id}>
-      <Head title={title} />
+      <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <MediasignalHero />
         <Info

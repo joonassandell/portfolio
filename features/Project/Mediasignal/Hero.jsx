@@ -7,7 +7,7 @@ import Image from 'next/image';
 import heroImage from '@/public/mediasignal/hero/joonassandell-mediasignal-hero.png';
 
 export const MediasignalHero = ({ onClick, ...props }) => {
-  const { url, year, id, title } = getSitemap('mediasignal');
+  const { url, year, id, title, themeColor } = getSitemap('mediasignal');
 
   return (
     <Hero
@@ -16,6 +16,7 @@ export const MediasignalHero = ({ onClick, ...props }) => {
       href={url}
       id={id}
       onClick={onClick}
+      themeColor={themeColor}
       {...props}
     >
       {({ transitionPre, transitionInitial, noTransition }) => {

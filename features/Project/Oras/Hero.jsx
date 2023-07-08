@@ -8,7 +8,7 @@ import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 
 export const OrasHero = ({ onClick, ...props }) => {
-  const { url, id, title, year } = getSitemap('oras');
+  const { url, id, title, year, themeColor } = getSitemap('oras');
   const dropDelay = 0.75;
 
   return (
@@ -18,6 +18,7 @@ export const OrasHero = ({ onClick, ...props }) => {
       href={url}
       id={id}
       onClick={onClick}
+      themeColor={themeColor}
       {...props}
     >
       {({

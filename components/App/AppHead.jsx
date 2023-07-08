@@ -57,7 +57,7 @@ export const AppHead = () => {
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <meta name="theme-color" content="black" key="theme-color" />
+      <meta name="theme-color" content="#f5eddb" key="theme-color" />
       <link
         rel="preload"
         as="font"

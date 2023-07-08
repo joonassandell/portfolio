@@ -7,12 +7,12 @@ import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 
-export const OrasPage = ({ images, id, title }) => {
+export const OrasPage = ({ images, id, title, themeColor }) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
     <Template name={id}>
-      <Head title={title} />
+      <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <OrasHero />
         <Info

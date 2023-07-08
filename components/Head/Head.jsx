@@ -1,6 +1,6 @@
 import { default as NextHead } from 'next/head';
 
-export const Head = ({ title, description, children }) => {
+export const Head = ({ title, description, children, themeColor }) => {
   const pageTitle = title ? `Joonas Sandell${title ? ' — ' + title : ''}` : '';
 
   return (
@@ -30,6 +30,9 @@ export const Head = ({ title, description, children }) => {
             key="twitter:description"
           />
         </>
+      )}
+      {themeColor && (
+        <meta name="theme-color" content={themeColor} key="theme-color" />
       )}
       {children}
     </NextHead>

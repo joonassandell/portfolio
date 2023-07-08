@@ -9,13 +9,13 @@ import { Text } from '@/components/Text';
 import { Link } from '@/components/Link';
 import { Head } from '@/components/Head';
 
-export const MoreWorkPage = ({ images, id, title, year }) => {
+export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
   const { id: nextProjectId } = getSitemap('biocode');
   const archive = getSitemap('archive');
 
   return (
     <Template id={id}>
-      <Head title={title} />
+      <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <MoreWorkHero />
         <Info
