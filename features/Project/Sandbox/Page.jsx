@@ -20,16 +20,16 @@ export const SandboxPage = ({ images, id, title, year }) => {
         <Info
           client={{ name: 'Various & Myself' }}
           heading="Welcome to the playground. Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
-          role={['UI/UX design']}
+          role={['UI/UX design', 'Visual design']}
           text={
             <p>
               I rarely do design without purpose because otherwise it's just eye
-              candy. These pieces are mainly based on prototypes which didn't
+              candy. Some of these pieces are based on prototypes which didn't
               end up to the end product for one reason or another. Additionally,
               to some samples I've given a bit wilder touch afterwards.
             </p>
           }
-          type={['Various concepts of web services and applications']}
+          type={['Web services', 'Applications', 'Concepts']}
           year={year}
         />
         <TemplateSection gridRowGap="l" paddingTop="15vw">
