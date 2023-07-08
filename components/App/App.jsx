@@ -72,12 +72,15 @@ Since you're here, here are some milestones:
     }
 
     (async () => {
-      const { isWindows, hasTouch } = await import('@/lib/detect');
+      const { isIphoneSafari, isWindows, hasTouch, hasThemeColor } =
+        await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
+      if (hasThemeColor) html.classList.add('has-themeColor');
+      if (isIphoneSafari) html.classList.add('is-iPhoneSafari');
 
       setAppState(prevState => ({
         ...prevState,
-        detect: { hasTouch, isWindows },
+        detect: { hasThemeColor, hasTouch, isWindows },
       }));
     })();
 

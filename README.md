@@ -34,6 +34,7 @@ npm run dev
 
 ### Notes
 
+- There are slight details applied for iPhone mobile safari. Especially to make the site look better when the "Tab Bar" is used in the iOS Safari settings (I thinks it's default).
 - During loading (`is-loading` class and effect in `App.tsx`) prevents user from scrolling when Splash screen is visible. Class `is-loading` also prevents possible overflow jumps caused by initial scrollbar.
 - Using scroll offsets with locomotive-scroll seems to be almost impossible because the elements sometimes jump (e.g. Figure) depending on the vieport height and the elements height. I guess this happens because the elements are not in locomotives "in view" and don't know how to calculate the scroll position before that. Even if using scroll targets, no luck.
 - `urlState` fn needs the origin url (`NEXT_PUBLIC_ORIGIN`) which needs to match the domain it's used in. Couldn't figure out how to get the origin (= protocol & domain) server side so the env variable was created. `NEXT_PUBLIC_ORIGIN` is set in `next.config.js` to set working origins for each type of deployment. Branch up-to-date urls don't set this properly by design, instead, view the unique URLs. Previews that are deployed locally should use the `LOCAL_DEPLOYMENT=true` build env so that the up-to-date preview url matches.

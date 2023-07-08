@@ -1,9 +1,17 @@
 .Hero--biocode {
   --Stamp-iris: var(--biocode-primary);
 
-  &:not(.-transition\:pre) {
+  &:not(&.-transition\:pre) {
     .Hero-heading {
       color: var(--biocode-heading);
+    }
+  }
+
+  .is-iPhoneSafari & {
+    &.-transition\:pre {
+      .Hero-figureBg {
+        border-radius: var(--border-radius-l) 0 0 0;
+      }
     }
   }
 
@@ -91,8 +99,15 @@
   }
 
   .Hero-bg {
-    background: radial-gradient(70% rem($space * 20) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50)) no-repeat;
+    background: radial-gradient(70% rem($space * 22) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50));
     z-index: 2;
+  }
+
+  .has-themeColor & {
+    .Hero-bg {
+      background: linear-gradient(180deg, var(--biocode-bg-50), transparent 15%),
+                  radial-gradient(70% rem($space * 22) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50));
+    }
   }
 
   .Hero-textReveal {
