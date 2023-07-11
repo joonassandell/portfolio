@@ -11,7 +11,7 @@ import { AppHead } from './';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
-const PRODUCTION = process.env.NODE_ENV;
+const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const AppContext = createContext({
   detect: {},
