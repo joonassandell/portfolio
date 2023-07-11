@@ -6,10 +6,12 @@ import { Header } from '@/components/Header';
 import { LocomotiveScrollProvider } from '@/lib/react-locomotive-scroll';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
+import Script from 'next/script';
 import { AppHead } from './';
-import { Analytics } from '@vercel/analytics/react';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
+const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+const PRODUCTION = process.env.NODE_ENV;
 
 const AppContext = createContext({
   detect: {},
@@ -25,7 +27,7 @@ export const App = ({ Component, pageProps }) => {
   const appContext = useAppContext();
   const [appState, setAppState] = useState(appContext);
   const { html, loading, loadingEnd, transition } = appState;
-  const { asPath, beforePopState, push } = useRouter();
+  const { asPath, beforePopState, push, events } = useRouter();
   const [animationComplete, setAnimationComplete] = useState();
   const containerRef = useRef(null);
 
@@ -150,10 +152,41 @@ Since you're here, here are some milestones:
     if (transition === 'template') setTransitionInitial(true);
   }, [transition]);
 
+  /**
+   * Send GA page views
+   */
+  useEffect(() => {
+    if (PRODUCTION) {
+      const handleRouteChange = url => {
+        window.gtag('config', GOOGLE_ANALYTICS, {
+          page_path: url,
+        });
+      };
+      events.on('routeChangeComplete', handleRouteChange);
+      return () => events.off('routeChangeComplete', handleRouteChange);
+    }
+  }, [events]);
+
   return (
     <LazyMotion features={domAnimation} strict>
       <AppHead />
-      <Analytics debug={false} />
+      {PRODUCTION && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}
+          />
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname
+              });
+            `}
+          </Script>
+        </>
+      )}
       {!DISABLE_LOADING && (
         <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
       )}
