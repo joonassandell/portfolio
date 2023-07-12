@@ -1,6 +1,6 @@
 /**
  * 1. For the mask scrolling and everything else to work below Header
- * 2. Quick fix for Windows font rendering. This is needed because there's
+ * 2. Fix for Windows font rendering. This is needed because there's
  *    mix-blend mode which adds odd text rendering in Windows.
  * 3. Note that the :root.is-transition class disables the pointer-events
  *    especially for the main nav link hovers. This is here to ensure the

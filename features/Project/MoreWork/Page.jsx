@@ -98,7 +98,7 @@ export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
           </div>
           <SubInfo
             client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
-            heading="Omoroi 🧑‍💻"
+            heading="Omoroi 👨🏻‍💻"
             role={['UI/UX design', 'Web development']}
             text={
               <p>
@@ -191,7 +191,7 @@ export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
             />
           </div>
           <SubInfo
-            client={{ name: 'Luke', href: 'https://luke.fi' }}
+            client={{ name: 'Luke' }}
             heading="Hukka 🥒"
             role={['UI/UX design', 'App development']}
             text={
@@ -356,7 +356,7 @@ export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
           </div>
           <SubInfo
             client={{ name: 'TAKK' }}
-            heading="TAKK 🧑‍🎓"
+            heading="TAKK 👩🏻‍🎓"
             role={['UI/UX design', 'Web development']}
             text={
               <p>

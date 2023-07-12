@@ -1,8 +1,21 @@
+/**
+ * 1. See _Header.scss
+ */
 .Footer {
   --link: var(--white);
   background-color: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
   color: var(--white);
   padding-bottom: rem($space-l);
+
+  // [1.]
+  .is-windows & {
+    .LinkRoll-char,
+    .Footer-copyright {
+      background: var(--white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 
   a {
     &:focus-visible {
