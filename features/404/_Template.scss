@@ -1,0 +1,15 @@
+.Template--404 {
+  .Template-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .Template-main {
+    display: grid;
+    margin-bottom: auto;
+    padding: 30vh 0 rem($space-xxxl) 0;
+    place-content: center;
+    place-items: center;
+  }
+}
