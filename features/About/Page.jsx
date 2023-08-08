@@ -178,7 +178,7 @@ export const AboutPage = ({ id, title }) => {
                 <Link href={getLink('soundcloud').url} underline>
                   create music
                 </Link>
-                , follow eSports, play games (mainly DayZ) and bicycle.
+                , follow eSports, play games and bicycle.
               </p>
             </Text>
           </div>
