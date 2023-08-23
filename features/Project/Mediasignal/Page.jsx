@@ -20,7 +20,7 @@ export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
           heading="Mediasignal is building digital services and customer experiences according to their customer's vision. The company is renewing digital business' and strengthening brands with a creative touch."
           smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
-          tech={['WP, GSAP']}
+          tech={['WP, GSAP', 'Vanilla stack']}
           text={
             <p>
               I worked for Mediasignal over half a decade and was involved in
