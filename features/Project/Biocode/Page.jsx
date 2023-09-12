@@ -23,7 +23,7 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
           tech={['Next.js, Headless', 'React, GraphQL', 'Framer motion']}
           text={
             <p>
-              I'm currently working for Biocode as a lead producer designer and
+              I'm currently working for Biocode as lead product designer and
               front-end developer. I'm responsible for crafting our design
               system and making sure our application's code stays manageable.
               Work samples here are mainly from the latest brand redesign which
