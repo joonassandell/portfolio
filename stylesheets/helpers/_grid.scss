@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .grid {
   --grid-gap: #{rem($grid-gap)};
   display: grid;

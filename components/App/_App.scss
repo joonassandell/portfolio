@@ -1,3 +1,6 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .App {
   min-height: var(--vh);
   overflow: hidden;

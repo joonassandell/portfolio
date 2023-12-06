@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 #nprogress {
   $width: rem(2px);
   height: $width;

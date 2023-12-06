@@ -1,54 +1,48 @@
-// Config
-@import 'config';
-
-// Mixins
-@import 'mixins';
-
 // Vendors
-@import 'nprogress/nprogress';
-@import 'stylesheets/vendors/nprogress';
-@import 'stylesheets/vendors/locomotive-scroll';
+@forward 'nprogress/nprogress';
+@forward 'stylesheets/vendors/nprogress';
+@forward 'stylesheets/vendors/locomotive-scroll';
 
 // Generic
-@import 'stylesheets/generic/base';
-@import 'stylesheets/generic/fonts';
-@import 'stylesheets/generic/heading';
+@forward 'stylesheets/generic/base';
+@forward 'stylesheets/generic/fonts';
+@forward 'stylesheets/generic/heading';
 
 // Variables
-@import 'variables';
+@forward 'variables';
 
 // Helpers
-@import 'helpers/background';
-@import 'helpers/display';
-@import 'helpers/grid';
-@import 'helpers/helper';
-@import 'helpers/margin';
-@import 'helpers/padding';
-@import 'helpers/scrollbar';
-@import 'helpers/wrap';
+@forward 'helpers/background';
+@forward 'helpers/display';
+@forward 'helpers/grid';
+@forward 'helpers/helper';
+@forward 'helpers/margin';
+@forward 'helpers/padding';
+@forward 'helpers/scrollbar';
+@forward 'helpers/wrap';
 
 // Components
-@import '../components/App';
-@import '../components/Button';
-@import '../components/Figure';
-@import '../components/Footer';
-@import '../components/Header';
-@import '../components/Heading';
-@import '../components/Hero';
-@import '../components/Hr';
-@import '../components/Icon';
-@import '../components/Info';
-@import '../components/Link';
-@import '../components/LinkRoll';
-@import '../components/NextProject';
-@import '../components/Splash';
-@import '../components/Stamp';
-@import '../components/Template';
-@import '../components/Text';
-@import '../components/TextReveal';
+@forward 'components/App';
+@forward 'components/Button';
+@forward 'components/Figure';
+@forward 'components/Footer';
+@forward 'components/Header';
+@forward 'components/Heading';
+@forward 'components/Hero';
+@forward 'components/Hr';
+@forward 'components/Icon';
+@forward 'components/Info';
+@forward 'components/Link';
+@forward 'components/LinkRoll';
+@forward 'components/NextProject';
+@forward 'components/Splash';
+@forward 'components/Stamp';
+@forward 'components/Template';
+@forward 'components/Text';
+@forward 'components/TextReveal';
 
-// Features
-@import '../features/404';
-@import '../features/About';
-@import '../features/Home';
-@import '../features/Project';
+// // Features
+@forward 'features/404';
+@forward 'features/About';
+@forward 'features/Home';
+@forward 'features/Project';

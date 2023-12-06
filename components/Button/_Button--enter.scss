@@ -1,3 +1,6 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .Button--enter {
   border: 2px solid transparent;
   padding: ($space-l) $space ($space * 0.8) ($space-xs);

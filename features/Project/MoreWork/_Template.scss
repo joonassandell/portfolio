@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Template--moreWork {
   --Template-bg-color: var(--moreWork-bg-50);
   --Figure-placeholder-bg: var(--moreWork-bg-100);

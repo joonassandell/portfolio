@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .bg\:50 {
   background: var(--bg-gray-50-opaque);
 }

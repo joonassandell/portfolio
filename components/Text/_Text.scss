@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Text {
   text-wrap: balance;
   transform-origin: top left;

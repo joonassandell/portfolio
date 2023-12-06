@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 /**
  * 1. For the mask scrolling and everything else to work below Header
  * 2. Fix for Windows font rendering. This is needed because there's

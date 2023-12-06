@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .scrollbar {
   --scrollbar-size: .4rem;
   --scrollbar-minLength: 1rem;

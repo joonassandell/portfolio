@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Hero--oras {
   --Stamp-iris: var(--oras-primary);
   background-color: var(--oras-bg-50);

@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .TextReveal, .TextReveal-text, .TextReveal-text-inner {
   display: block;
   width: fit-content;

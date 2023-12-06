@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .wrap {
   padding-left: var(--wrap-spaceLeft);
   padding-right: var(--wrap-spaceRight);

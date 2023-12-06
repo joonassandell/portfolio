@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 :root {
   --mediasignal-bg-100: #{darken(#c8d9e0, 10)};
   --mediasignal-bg-50: var(--mediasignal-secondary);

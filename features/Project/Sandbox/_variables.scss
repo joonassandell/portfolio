@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 :root {
   --sandbox-bg-200: #{darken(#e1bca7, 10)}; // #d49f81
   --sandbox-bg-100: #{darken(#e1bca7, 5)}; // #dbae94

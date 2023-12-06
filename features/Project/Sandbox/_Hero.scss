@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Hero--sandbox {
   --Stamp-iris: var(--sandbox-primary);
   --Stamp-overlay: var(--sandbox-bg-50);

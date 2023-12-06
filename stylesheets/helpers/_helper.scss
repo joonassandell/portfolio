@@ -1,4 +1,8 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .reset { all: unset; }
+
 .resetButton {
   all: unset;
   cursor: pointer;

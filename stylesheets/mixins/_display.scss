@@ -1,3 +1,5 @@
+@use "stylesheets/config" as *;
+
 @mixin display($type: 'hideVisually', $important: null) {
   @if $important { $important: !important; }
 

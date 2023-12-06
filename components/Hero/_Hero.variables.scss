@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 /**
  * These variables should rather be scoped under .Hero but then framer-motion
  * doesn't know how to read the figure values for some reason. So, for clarity

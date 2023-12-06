@@ -1,26 +1,26 @@
 // Projects
-@import 'Archive/Hero';
-@import 'Archive/Template';
+@forward  'Archive/Hero';
+@forward  'Archive/Template';
 
-@import 'Biocode/variables';
-@import 'Biocode/Hero';
-@import 'Biocode/Template';
+@forward  'Biocode/variables';
+@forward  'Biocode/Hero';
+@forward  'Biocode/Template';
 
-@import 'Mediasignal/variables';
-@import 'Mediasignal/Hero';
-@import 'Mediasignal/Template';
+@forward  'Mediasignal/variables';
+@forward  'Mediasignal/Hero';
+@forward  'Mediasignal/Template';
 
-@import 'Oras/variables';
-@import 'Oras/Hero';
-@import 'Oras/Template';
+@forward  'Oras/variables';
+@forward  'Oras/Hero';
+@forward  'Oras/Template';
 
-@import 'MoreWork/variables';
-@import 'MoreWork/Hero';
-@import 'MoreWork/Template';
+@forward  'MoreWork/variables';
+@forward  'MoreWork/Hero';
+@forward  'MoreWork/Template';
 
-@import 'Sandbox/variables';
-@import 'Sandbox/Hero';
-@import 'Sandbox/Template';
+@forward  'Sandbox/variables';
+@forward  'Sandbox/Hero';
+@forward  'Sandbox/Template';
 
 // Components
-@import 'SubInfo/SubInfo';
+@forward  'SubInfo/SubInfo';

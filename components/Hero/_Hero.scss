@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Hero {
   --Stamp-center-x: 0px;
   --Stamp-center-y: 0px;

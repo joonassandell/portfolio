@@ -37,7 +37,7 @@ generatedTemplates.forEach(template => {
 console.log(
   `Successfully created component under: ${componentDirectory.green}
 Add: ${
-    `@import '../components/${componentName}';`.yellow
+    `@forward 'components/${componentName}';`.yellow
   } to ./stylesheets/index.scss
   `,
 );

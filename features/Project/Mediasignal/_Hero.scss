@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Hero--mediasignal {
   --Stamp-overlay: var(--mediasignal-bg-50);
   --Stamp-iris: var(--mediasignal-primary);

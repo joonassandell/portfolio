@@ -22,7 +22,7 @@ const config = {
         : NEXT_PUBLIC_ORIGIN,
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'stylesheets')],
+    includePaths: [path.join(__dirname)],
   },
   experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {

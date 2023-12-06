@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Template--sandbox {
   --Template-bg-color: var(--sandbox-bg-50);
   --Figure-placeholder-bg: var(--sandbox-bg-100);

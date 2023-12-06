@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 @font-face {
   font-display: block;
   font-family: 'Px Grotesk';

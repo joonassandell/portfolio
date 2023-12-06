@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Template--home {
   --Template-bg-color: var(--cream-50);
 

@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 /**
  * Hide visually and from screen readers, but maintain layout
  */

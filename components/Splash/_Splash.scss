@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Splash {
   background-color: var(--root-bg);
   color: var(--cream-50);

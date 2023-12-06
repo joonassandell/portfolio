@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 :root {
   @include fontSize(
     $minFontSize: $font-size,

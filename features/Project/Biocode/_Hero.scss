@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Hero--biocode {
   --Stamp-iris: var(--biocode-primary);
 

@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "stylesheets/config" as *;
+@use "utility" as *;
 
 @mixin fontSize(
   $minFontSize: $font-size,

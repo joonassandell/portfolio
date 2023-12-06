@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 :root {
   --biocode-bg-200: #001141;
   --biocode-bg-100: #000a29;

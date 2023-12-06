@@ -1,10 +1,12 @@
 // Vendors
-@import 'sass-mq/mq';
+@use 'config';
+
+// Vendors
+@forward 'sass-mq/mq' with ($breakpoints: config.$breakpoints);
 
 // Mixins
-@import 'mixins/display';
-@import 'mixins/fontSize';
-@import 'mixins/heading';
-@import 'mixins/text';
-@import 'mixins/utility';
-@import 'mixins/various';
+@forward 'mixins/display';
+@forward 'mixins/fontSize';
+@forward 'mixins/heading';
+@forward 'mixins/text';
+@forward 'mixins/utility';

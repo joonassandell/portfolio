@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .p\:0 { padding: 0 !important; }
 
 .pt\:20vw { padding-top: 20vw !important; }

@@ -1,3 +1,6 @@
+@use "stylesheets/config" as *;
+@use "stylesheets/mixins" as *;
+
 .Template--moreWork.Template--archive {
   .Template-figureGrid {
     --grid-gap: #{rem($grid-gap)};

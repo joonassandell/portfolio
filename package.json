@@ -35,7 +35,7 @@
     "colors": "^1.4.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-sort-media-queries": "^5.2.0",
-    "sass": "^1.63.6",
+    "sass": "^1.69.5",
     "sass-mq": "^6.0.0"
   },
   "engines": {
