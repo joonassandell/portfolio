@@ -2,7 +2,7 @@ import { m } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
 import { TEXT_VARIANTS } from '@/lib/config';
-import c from 'classnames';
+import c from 'clsx';
 
 export const Text = ({
   animate,

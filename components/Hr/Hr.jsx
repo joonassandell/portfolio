@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import c from 'classnames';
+import c from 'clsx';
 import { useRef } from 'react';
 import { hrVariants } from './Hr.animations';
 import { useInView } from '@/lib/useInView';

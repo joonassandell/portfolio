@@ -1,7 +1,7 @@
 import { ButtonEnter } from '@/components/Button';
 import { Text } from '@/components/Text';
 import { Heading } from '@/components/Heading';
-import c from 'classnames';
+import c from 'clsx';
 import { Fragment } from 'react';
 
 export const HeroContent = ({

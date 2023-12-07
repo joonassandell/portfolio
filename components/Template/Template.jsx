@@ -5,7 +5,7 @@ import {
   variantsWithTransition,
   variantsWithoutTransition,
 } from './Template.animations';
-import c from 'classnames';
+import c from 'clsx';
 import { useAppContext } from '@/components/App';
 import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
 import { Footer } from '@/components/Footer';

@@ -8,7 +8,7 @@ import {
   outVariantX,
 } from './Link.animations';
 import { default as NextLink } from 'next/link';
-import c from 'classnames';
+import c from 'clsx';
 import { useAppContext } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import { ConditionalWrapper } from '../ConditionalWrapper';

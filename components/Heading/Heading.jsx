@@ -1,4 +1,4 @@
-import c from 'classnames';
+import c from 'clsx';
 
 export const Heading = ({
   className,

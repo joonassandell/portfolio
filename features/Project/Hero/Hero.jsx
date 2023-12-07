@@ -4,7 +4,7 @@ import { m } from 'framer-motion';
 import { useAppContext } from '@/components/App';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
-import c from 'classnames';
+import c from 'clsx';
 import { Link } from '@/components/Link';
 import { Stamp } from '@/features/Project/Stamp';
 import { Heading } from '@/components/Heading';

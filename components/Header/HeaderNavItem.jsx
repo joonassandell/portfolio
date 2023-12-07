@@ -4,7 +4,7 @@ import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
 import { Fragment, useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import c from 'classnames';
+import c from 'clsx';
 import EyeSvg from './eye.svg';
 import Link from 'next/link';
 import { useAppContext } from '@/components/App';

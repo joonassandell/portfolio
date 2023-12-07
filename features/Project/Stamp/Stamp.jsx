@@ -1,6 +1,6 @@
 import StampSvg from './stamp.svg';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import c from 'classnames';
+import c from 'clsx';
 import {
   stampVariants,
   svgVariants,

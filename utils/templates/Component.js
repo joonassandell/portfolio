@@ -1,5 +1,5 @@
 module.exports = componentName => ({
-  content: `import c from 'classnames';
+  content: `import c from 'clsx';
 
 export const ${componentName} = ({ className, children }) => {
   const classes = c('${componentName}', className);

@@ -5,7 +5,7 @@ import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowRightIconLong from './icons/arrow-right-long.svg';
 import CrossIcon from './icons/cross.svg';
 import React from 'react';
-import c from 'classnames';
+import c from 'clsx';
 
 export const ArrowDown = props => (
   <ArrowDownIcon className={c('Icon Icon--arrowDown', props.className)} />

@@ -6,7 +6,7 @@ import {
   TRANS_PRIMARY_FASTEST,
 } from '@/lib/config';
 import { useEffect, useState } from 'react';
-import c from 'classnames';
+import c from 'clsx';
 
 export const ButtonArrow = ({
   active = false,

@@ -2,7 +2,7 @@ import { m } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/components/App';
-import c from 'classnames';
+import c from 'clsx';
 import { ConditionalWrapper } from '../ConditionalWrapper';
 import {
   bgVariants,

@@ -4,7 +4,7 @@ import { isString } from '@/lib/utility';
 import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
 import { useInView, useInViewVideo } from '@/lib/useInView';
-import c from 'classnames';
+import c from 'clsx';
 import {
   clipVariants,
   moveVariants,

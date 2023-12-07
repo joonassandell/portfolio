@@ -7,7 +7,7 @@ import {
   characterOutVariants,
   linkVariants,
 } from './LinkRoll.animations';
-import c from 'classnames';
+import c from 'clsx';
 import { isBoolean, isEmptyString } from '@/lib/utility';
 import { useUrlState } from '@/lib/useUrlState';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';

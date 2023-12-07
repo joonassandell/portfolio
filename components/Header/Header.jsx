@@ -16,7 +16,7 @@ import { useEffect, useState, useRef } from 'react';
 import { ButtonArrow } from '@/components/Button';
 import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
-import c from 'classnames';
+import c from 'clsx';
 import { debounce } from 'lodash-es';
 import { EASE_CSS, SITEMAP, LINKS, CONTENT, MQ } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
