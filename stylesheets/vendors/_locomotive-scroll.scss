@@ -33,7 +33,7 @@ body {
   opacity: 0;
   position: absolute;
   transform-origin: center right;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform var(--trans-primary-fastest), opacity var(--trans-primary-fastest);
   width: 11px;
   z-index: var(--z-index-800);
 
@@ -50,20 +50,28 @@ body {
     opacity: 0;
     pointer-events: none;
   }
+
+  @include mq(s) {
+    width: 13px;
+  }
 }
 
 .ScrollBar_thumb {
   background-color: var(--white);
-  border-radius: 10px;
+  border-radius: var(--border-radius-pill);
   cursor: grab;
-  margin: 2px;
+  inset: 0 0 auto auto;
+  margin: 3px;
   opacity: 0.5;
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 7px;
-
+  width: 3px;
+  
   .is-drag & {
     cursor: grabbing;
+  }
+  
+  @include mq(s) {
+    margin: 2px;
+    width: 7px;
   }
 }
