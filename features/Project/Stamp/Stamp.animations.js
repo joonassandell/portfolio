@@ -15,7 +15,7 @@ export const svgVariants = {
   animate: {
     rotate: 360,
     transition: {
-      duration: 12,
+      duration: 20,
       ease: 'linear',
       repeat: Infinity,
     },
