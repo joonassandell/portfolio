@@ -218,7 +218,7 @@
  * ======================================= */
 
 .Header-mask {
-  background: var(--bg-1000);
+  background: var(--bg-900);
   clip-path: circle(0% at 0px 0px);
   display: none;
   flex-direction: column;
@@ -237,7 +237,7 @@
   }
 
   &:before {
-    background: linear-gradient(var(--bg-1000) 40%, transparent);
+    background: linear-gradient(var(--bg-900) 40%, transparent);
     content: '';
     height: rem($space * 8);
     left: 0;
@@ -330,7 +330,7 @@
   padding: rem($space-s) 0;
 
   &:before, &:after {
-    border-top: var(--border-width-thin) solid var(--border-900);
+    border-top: var(--border-width-thin) solid var(--border-800);
     content: '';
     transition: border-color var(--trans-primary);
   }
@@ -374,7 +374,7 @@
 
   path {
     &:first-child {
-      stroke: var(--border-800);
+      stroke: var(--border-700);
       stroke-width: 4px;
     }
   }
@@ -382,7 +382,7 @@
 
 .Header-nav-marquee {
   background: var(--tone-50);
-  color: var(--text-1000);
+  color: var(--text-900);
   inset: 0;
   overflow: hidden;
   pointer-events: none;

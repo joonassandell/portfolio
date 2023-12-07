@@ -27,7 +27,7 @@
 
   svg {
     path {
-      fill: var(--Stamp-color, var(--text-1000));
+      fill: var(--Stamp-color, var(--text-900));
 
       &:first-child, &:nth-last-child(4) {
         fill: none;

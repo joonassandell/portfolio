@@ -8,7 +8,7 @@
     $root: true,
     $scaleValue: 1.25vw,
   );
-  background-color: var(--bg-1000);
+  background-color: var(--bg-900);
   color: var(--text-50);
   font-family: var(--font-family-sans);
   -moz-osx-font-smoothing: grayscale;
@@ -56,12 +56,12 @@ body {
 }
 
 ::-moz-selection {
-  background: var(--bg-1000);
+  background: var(--bg-900);
   color: var(--tone-50);
 }
 
 ::selection {
-  background: var(--bg-1000);
+  background: var(--bg-900);
   color: var(--tone-50);
 }
 
@@ -120,7 +120,7 @@ hr {
   }
 
   &:focus-visible {
-    background-color: var(--bg-1000);
+    background-color: var(--bg-900);
     color: var(--text-50);
   }
 }

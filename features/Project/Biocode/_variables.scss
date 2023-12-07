@@ -3,20 +3,21 @@
 
 :root {
   --biocode-bg-200: #001141;
-  --biocode-bg-100: #000a29;
-  --biocode-bg-50: #00081F; // #{darken(#00081F, 1)};
+  --biocode-bg-100: #000A29;
+  --biocode-bg-50: #00081F;
 
-  --biocode-border-300: #445688;
-  --biocode-border-200: #{rgba(#586DBB, 0.23)}; // #26355d;
-  --biocode-border-100: #{rgba(#586DBB, 0.12)}; // #152043;
+  --biocode-border-300: #23348b;
+  --biocode-border-200: hsl(230 30% 40% / 0.35);
+  --biocode-border-100: #{rgba(#586DBB, 0.12)};
+  --biocode-border-200: hsl(230 30% 40% / 0.25);
 
-  --biocode-primary: #3757f9;
-  --biocode-primary-text: #3374ff;
+  --biocode-primary: #3A59F9;
+  --biocode-primary-text: #3377FF;
 
   --biocode-heading: var(--white);
 
-  --biocode-text-1000: var(--white);
-  --biocode-text-900: #a3abc2;
+  --biocode-text-900: var(--white);
+  --biocode-text-800: #a3abc2;
   --biocode-text-mute: #858fad;
 }
 

@@ -3,25 +3,25 @@
 
 .Template--biocode {
   --Template-main-bg-color: var(--biocode-bg-50);
-  --Template-main-color: var(--biocode-text-1000);
+  --Template-main-color: var(--biocode-text-900);
 
   .Template-main {
     section {
       --bg-100: var(--biocode-bg-100);
       --bg-50: var(--biocode-bg-50);
 
-      --border-1000: var(--biocode-border-300);
-      --border-900: var(--biocode-border-200);
+      --border-900: var(--biocode-border-300);
+      --border-800: var(--biocode-border-200);
       --border-100: var(--biocode-border-200);
       --hr: var(--biocode-border-200);
 
       --heading: var(--biocode-heading);
 
-      --link-hover: var(--biocode-text-1000);
-      --link: var(--biocode-text-1000);
+      --link-hover: var(--biocode-text-900);
+      --link: var(--biocode-text-900);
 
-      --text-1000: var(--biocode-text-1000);
       --text-900: var(--biocode-text-900);
+      --text-800: var(--biocode-text-800);
       --text-mute: var(--biocode-text-mute);
 
       --Figure-placeholder-bg: var(--biocode-bg-50);

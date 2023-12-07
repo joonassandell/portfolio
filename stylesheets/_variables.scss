@@ -11,8 +11,8 @@
   --tone-50: #F5EDDB;
 
   // Color: Background
-  --bg-1000: var(--black);
-  --bg-900: #111111;
+  --bg-900: var(--black);
+  --bg-800: #111111;
   --bg-100: #F2F2F2;
   --bg-50: var(--white);
 
@@ -22,8 +22,8 @@
   --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
 
   // Color: Text
-  --text-1000: #111111;
   --text-900: #111111;
+  --text-800: #111111;
   --text-50: var(--white);
   --text-mute: #5E5E5E;
 
@@ -31,13 +31,13 @@
   --heading: inherit;
 
   // Color: Link
-  --link: var(--text-1000);
+  --link: var(--text-900);
   --link-hover-opacity: 0.6;
 
   // Color: Border
-  --border-1000: var(--black);
-  --border-900: #333333;
-  --border-800: #4D4D4D;
+  --border-900: var(--black);
+  --border-800: #333333;
+  --border-700: #4D4D4D;
   --border-100: #E0E0E0;
   --border-50: var(--white);
   --hr: var(--black);
