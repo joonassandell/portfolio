@@ -36,7 +36,7 @@
     width: rem($space * 16);
   }
 
-  @include mq(xxxxxl) {
+  @include mq('5xl') {
     width: rem($space * 18);
   }
 }

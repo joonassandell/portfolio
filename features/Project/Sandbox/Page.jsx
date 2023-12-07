@@ -66,7 +66,7 @@ export const SandboxPage = ({ images, id, title, year, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="xxl">
+        <TemplateSection paddingTop="2xl">
           <div className="grid-col grid-col:8@m -end">
             <Figure
               alt="VR Company home page carousel animation"
@@ -91,7 +91,7 @@ export const SandboxPage = ({ images, id, title, year, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="xxl">
+        <TemplateSection paddingTop="2xl">
           <div className="grid-col">
             <Figure
               alt="Third art school home page"
@@ -133,7 +133,7 @@ export const SandboxPage = ({ images, id, title, year, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="xxl" gridGap="xl">
+        <TemplateSection paddingTop="2xl" gridGap="xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="CV of Joonas Sandell"
@@ -165,7 +165,7 @@ export const SandboxPage = ({ images, id, title, year, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingBottom="15vw" paddingTop="xxl">
+        <TemplateSection paddingBottom="15vw" paddingTop="2xl">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="404 concept animation"

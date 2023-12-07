@@ -16,7 +16,7 @@ export const Splash = ({ loading, setLoadingEnd }) => {
           variants={splashVariants}
         >
           <div className="Splash-main">
-            <Text className="Splash-row" size="xLarge">
+            <Text className="Splash-row" size="xl">
               <m.div className="Splash-text" variants={textVariants}>
                 Portfolio of
               </m.div>

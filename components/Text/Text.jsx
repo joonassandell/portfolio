@@ -17,12 +17,12 @@ export const Text = ({
   const classes = c(
     'Text',
     {
-      '-size:xl': size === 'xLarge',
-      '-size:l': size === 'large',
-      '-size:s': size === 'small',
-      '-size:xs': size === 'xSmall',
+      '-size:xl': size === 'xl',
+      '-size:l': size === 'l',
+      '-size:s': size === 's',
+      '-size:xs': size === 'xs',
       '-color:light': color === 'light',
-      'mb:xxs': marginBottom === 'xxSmall',
+      'mb:2xs': marginBottom === '2xs',
     },
     className,
   );

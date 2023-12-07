@@ -30,7 +30,7 @@
     --Hero-height: var(--vh); // [1.]
   }
 
-  @include mq(xxl) {
+  @include mq('2xl') {
     --Hero-min-height: #{rem($space * 44)};
   }
 }

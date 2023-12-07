@@ -117,7 +117,7 @@
   position: absolute;
   width: 100%;
 
-  @include mq(xxxxl) {
+  @include mq('4xl') {
     height: 3px;
   }
 }

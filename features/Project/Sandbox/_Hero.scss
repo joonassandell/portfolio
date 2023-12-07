@@ -31,7 +31,7 @@
       left: -70%;
     }
 
-    @include mq(xxl) {
+    @include mq('2xl') {
       --width: 115%;
       left: -57.5%;
     }

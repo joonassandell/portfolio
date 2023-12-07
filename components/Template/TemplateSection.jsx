@@ -7,7 +7,7 @@ export const TemplateSection = ({
   gridGap = 'l',
   gridRowGap = 'xl',
   paddingBottom,
-  paddingTop = 'xxl',
+  paddingTop = '2xl',
   theme,
   wrap = true,
   ...props
@@ -21,7 +21,7 @@ export const TemplateSection = ({
     '-gap:row:xl': grid && (gridRowGap === 'xl' || gridGap === 'xl'),
     '-gap:row:l': grid && gridRowGap === 'l',
     '-gap:row:0': grid && gridRowGap === false,
-    'pt:xxl': paddingTop === 'xxl',
+    'pt:2xl': paddingTop === '2xl',
     'pt:5vw': paddingTop === '5vw',
     'pt:10vw': paddingTop === '10vw',
     'pt:15vw': paddingTop === '15vw',

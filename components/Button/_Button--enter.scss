@@ -14,12 +14,12 @@
     position: relative;
     z-index: 2;
 
-    @include mq(xxxxl) {
+    @include mq('4xl') {
       margin-bottom: rem($space * -0.15);
       margin-left: rem($space * -0.15);
     }
 
-    @include mq(xxxxxxl) {
+    @include mq('6xl') {
       margin-bottom: rem($space * -0.2);
       margin-left: rem($space * -0.3);
     }
@@ -78,17 +78,17 @@
     transform: scale(0.75);
   }
 
-  @include mq(xxxl) {
+  @include mq('3xl') {
     margin-top: rem($space-m);
     transform: scale(1.1);
     transform-origin: bottom left;
   }
 
-  @include mq(xxxxl) {
+  @include mq('4xl') {
     transform: scale(1.2);
   }
 
-  @include mq(xxxxxl) {
+  @include mq('5xl') {
     transform: scale(1.5);
   }
 }

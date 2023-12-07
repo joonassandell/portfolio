@@ -52,10 +52,10 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+              <Text marginBottom="2xs" color="light" size="s" tag="p">
                 Client
               </Text>
-              <Text size="small">
+              <Text size="s">
                 <p>
                   <ConditionalWrapper
                     condition={href}
@@ -71,19 +71,19 @@ export const Info = ({
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+              <Text marginBottom="2xs" color="light" size="s" tag="p">
                 Year
               </Text>
-              <Text size="small">
+              <Text size="s">
                 <p>{year}</p>
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l grid -gap-column:0">
               <div className="grid-col">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                <Text marginBottom="2xs" color="light" size="s" tag="p">
                   Project type
                 </Text>
-                <Text size="small" tag="ul">
+                <Text size="s" tag="ul">
                   {type.map((r, i) => (
                     <li key={i}>{r}</li>
                   ))}
@@ -91,15 +91,10 @@ export const Info = ({
               </div>
               {tech && mqM && !mqL && (
                 <div className="grid-col">
-                  <Text
-                    marginBottom="xxSmall"
-                    color="light"
-                    size="small"
-                    tag="p"
-                  >
+                  <Text marginBottom="2xs" color="light" size="s" tag="p">
                     Tech
                   </Text>
-                  <Text className="grid-col" size="small" tag="ul">
+                  <Text className="grid-col" size="s" tag="ul">
                     {tech.map((r, i) => (
                       <li key={i}>{r}</li>
                     ))}
@@ -113,10 +108,10 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col">
-              <Text marginBottom="xxSmall" color="light" size="small">
+              <Text marginBottom="2xs" color="light" size="s">
                 Role
               </Text>
-              <Text className="grid-col" size="small" tag="ul">
+              <Text className="grid-col" size="s" tag="ul">
                 {role.map((r, i) => (
                   <li key={i}>{r}</li>
                 ))}
@@ -124,10 +119,10 @@ export const Info = ({
             </div>
             {tech && (mqL || mqMmax) && (
               <div className="grid-col">
-                <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+                <Text marginBottom="2xs" color="light" size="s" tag="p">
                   Tech
                 </Text>
-                <Text className="grid-col" size="small" tag="ul">
+                <Text className="grid-col" size="s" tag="ul">
                   {tech.map((r, i) => (
                     <li key={i}>{r}</li>
                   ))}

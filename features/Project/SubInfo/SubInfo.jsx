@@ -47,10 +47,10 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+          <Text marginBottom="2xs" color="light" size="s" tag="p">
             Client & Year
           </Text>
-          <Text size="small" tag="p">
+          <Text size="s" tag="p">
             <ConditionalWrapper
               condition={href}
               wrapper={children => (
@@ -69,10 +69,10 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+          <Text marginBottom="2xs" color="light" size="s" tag="p">
             Role
           </Text>
-          <Text size="small" tag="ul">
+          <Text size="s" tag="ul">
             {role.map((r, i) => (
               <li key={i}>{r}</li>
             ))}
@@ -82,10 +82,10 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="xxSmall" color="light" size="small" tag="p">
+          <Text marginBottom="2xs" color="light" size="s" tag="p">
             Project type
           </Text>
-          <Text size="small" tag="ul">
+          <Text size="s" tag="ul">
             {type.map((r, i) => (
               <li key={i}>{r}</li>
             ))}

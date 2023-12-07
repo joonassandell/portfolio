@@ -289,7 +289,7 @@ export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="xxl">
+        <TemplateSection paddingTop="2xl">
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"

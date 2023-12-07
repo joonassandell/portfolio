@@ -26,7 +26,7 @@ export const HeroContent = ({
       >
         {heading}
       </Heading>
-      <Text className="mb:0" size="small" tag="p">
+      <Text className="mb:0" size="s" tag="p">
         {role?.map((r, i, arr) => {
           const br = arr.length - 1 != i ? <br /> : null;
           return (

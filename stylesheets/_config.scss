@@ -46,7 +46,7 @@ $h6-line-height: 26px;
 // =========
 
 $space: 16px;
-$space-xxs: $space * 0.333;
+$space-2xs: $space * 0.333;
 $space-xs: $space * 0.5;
 $space-s: $space * 0.666;
 $space-m: $space * 1.5;
@@ -64,18 +64,18 @@ $space-6xl: $space * 8;
 // =========
 
 $breakpoints: (
-  xxxs: 320px,
-  xxs: 360px,
+  '3xs': 320px,
+  '2xs': 360px,
   xs: 480px,
   s: 600px,
   m: 768px,
   ml: 900px,
   l: 1024px,
   xl: 1140px,
-  xxl: 1280px,
-  xxxl: 1528px,
-  xxxxl: 1680px,
-  xxxxxl: 1920px,
-  xxxxxxl: 2560px,
-  xxxxxxxl: 3840px,
+  '2xl': 1280px,
+  '3xl': 1528px,
+  '4xl': 1680px,
+  '5xl': 1920px,
+  '6xl': 2560px,
+  '7xl': 3840px,
 );

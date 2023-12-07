@@ -16,7 +16,7 @@
     margin-left: rem(-$space-m);
   }
 
-  @include mq($until: xxs) {
+  @include mq($until: '2xs') {
     @include fontSize(92px, 92px);
   }
 }

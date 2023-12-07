@@ -317,7 +317,7 @@ export const AboutPage = ({ id, title }) => {
             </Heading>
           </div>
           <div className="grid-col grid-col:4@m -align:center -en">
-            <Text animate className="mb:m" size="large">
+            <Text animate className="mb:m" size="l">
               Visit my social profiles found from the footer and follow if you
               like 🤙
             </Text>

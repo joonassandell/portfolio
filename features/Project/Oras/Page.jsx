@@ -179,7 +179,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
           </div>
         </TemplateSection>
         <TemplateSection grid={false} wrap={false} paddingTop="15vw">
-          <div className="grid -gap:l -gap:row:xl pb:xxl">
+          <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid-col grid-col:10 grid-col:4@m -align:end">
               <Figure
                 alt="Oras strategy 1"
@@ -197,7 +197,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
               />
             </div>
           </div>
-          <div className="grid -gap:l -gap:row:xl pb:xxl wrap@m">
+          <div className="grid -gap:l -gap:row:xl pb:2xl wrap@m">
             <div className="grid-col grid-col:10 -start:3 grid-col:7@m -start:1@m">
               <Figure
                 alt="Oras strategy 3"
@@ -216,7 +216,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
               />
             </div>
           </div>
-          <div className="grid -gap:l -gap:row:xl pb:xxl">
+          <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid -gap:row:xl grid-col grid-col:10 grid-col:5@m">
               <div className="grid-col">
                 <Figure
@@ -251,7 +251,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
           paddingTop="10vw"
           paddingBottom="15vw"
         >
-          <div className="grid -gap:l pb:xxl">
+          <div className="grid -gap:l pb:2xl">
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile"
