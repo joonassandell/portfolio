@@ -2,8 +2,8 @@
 @use "stylesheets/mixins" as *;
 
 .Template--about {
-  --Template-bg-color: var(--cream-50);
-  --Template-main-bg-color: var(--cream-50);
+  --Template-bg-color: var(--tone-50);
+  --Template-main-bg-color: var(--tone-50);
 
   .Template-main {
     padding-top: 62.5vw;

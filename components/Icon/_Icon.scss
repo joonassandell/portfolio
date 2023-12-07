@@ -4,8 +4,8 @@
 .Icon {
   display: inline-block;
   fill: currentColor;
-  height: rem($Icon-size);
-  width: rem($Icon-size);
+  height: var(--icon-size-l);
+  width: var(--icon-size-l);
 }
 
 .Icon--arrowRightLong {

@@ -17,7 +17,7 @@ export const bgVariants = {
     transition: { ...TRANS_PRIMARY_FAST },
   },
   out: {
-    backgroundColor: 'var(--cream-50)',
+    backgroundColor: 'var(--tone-50)',
     transition: { ...TRANS_PRIMARY_FASTEST },
   },
 };

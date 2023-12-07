@@ -3,7 +3,7 @@
 
 .Button--enter {
   border: 2px solid transparent;
-  padding: ($space-l) $space ($space * 0.8) ($space-xs);
+  padding: $space-l $space ($space * 0.8) $space-xs;
 
   .Button-arrow {
     align-items: flex-start;
@@ -53,7 +53,7 @@
   }
 
   .Button-bg {
-    background-color: var(--cream-50);
+    background-color: var(--tone-50);
     border: 2px solid var(--border-1000);
     border-radius: 4px 4px 4px 16px;
     inset: -2px;

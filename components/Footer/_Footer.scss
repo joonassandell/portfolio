@@ -32,7 +32,7 @@
   }
 
   @include mq(m) {
-    padding-bottom: rem($space-xxxxl);
+    padding-bottom: rem($space-4xl);
   }
 }
 
@@ -47,7 +47,7 @@
   padding-top: rem($space-xl);
 
   @include mq(m) {
-    padding-top: rem($space-xxl);
+    padding-top: rem($space-2xl);
   }
 }
 

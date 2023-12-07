@@ -2,14 +2,14 @@
 @use "stylesheets/mixins" as *;
 
 .wrap {
-  padding-left: var(--wrap-spaceLeft);
-  padding-right: var(--wrap-spaceRight);
+  padding-left: var(--wrap-space-left);
+  padding-right: var(--wrap-space-right);
   width: 100%;
 
   &\@m {
     @include mq(m) {
-      padding-left: var(--wrap-spaceLeft);
-      padding-right: var(--wrap-spaceRight);
+      padding-left: var(--wrap-space-left);
+      padding-right: var(--wrap-space-right);
       width: 100%;
     }
   }

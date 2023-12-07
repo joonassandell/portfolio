@@ -79,7 +79,7 @@
     inset: auto auto 27% 40%;
     padding: rem($space);
     position: absolute;
-    transition: border-color $trans-primary;
+    transition: border-color var(--trans-primary);
     width: clamp(rem($space * 6), 17vw, rem($space * 36));
 
     @include mq(xs) {

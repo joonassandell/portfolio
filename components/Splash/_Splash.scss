@@ -2,12 +2,12 @@
 @use "stylesheets/mixins" as *;
 
 .Splash {
-  background-color: var(--root-bg);
-  color: var(--cream-50);
+  background-color: var(--bg-1000);
+  color: var(--text-50);
   inset: 0;
   position: fixed;
   user-select: none;
-  z-index: $Splash-zIndex;
+  z-index: var(--z-index-900);
 }
 
 .Splash-main {
@@ -23,7 +23,7 @@
 }
 
 .Splash-text {
-  animation: animate 1s $ease;
+  animation: animate 1s var(--ease);
 }
 
 @keyframes animate {

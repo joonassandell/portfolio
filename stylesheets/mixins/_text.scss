@@ -7,15 +7,15 @@
 
 @mixin text($size: null, $style: null) {
   @if $size == 'xl' {
-    @include fontSize($font-size, $lineHeight-xl, $font-size-xl);
+    @include fontSize($font-size, $line-height-xl, $font-size-xl);
   } @else if $size == 'l' {
-    @include fontSize($font-size, $lineHeight-l, $font-size-l);
+    @include fontSize($font-size, $line-height-l, $font-size-l);
   } @else if $size == 'm' {
-    @include fontSize($font-size, $lineHeight);
+    @include fontSize($font-size, $line-height);
   } @else if $size == 's' {
-    @include fontSize($font-size-s, $lineHeight-s);
+    @include fontSize($font-size-s, $line-height-s);
   } @else if $size == 'xs' {
-    @include fontSize($font-size-xs, $lineHeight-xs);
+    @include fontSize($font-size-xs, $line-height-xs);
   }
 }
 

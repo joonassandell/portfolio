@@ -4,7 +4,7 @@
 
 @mixin fontSize(
   $minFontSize: $font-size,
-  $lineHeight: $lineHeight,
+  $lineHeight: $line-height,
   $maxFontSize: null,
   $scaleValue: 1vw,
   $scaleFontSize: $minFontSize,

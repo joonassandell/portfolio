@@ -2,22 +2,18 @@
 @use "stylesheets/mixins" as *;
 
 :root {
-  // =========
-  // Colors
-  // =========
-
-  // Base
-  --black: #000;
+  // Color: Base
+  --black: #000000;
   --black-transparent: #0000;
-  --white: #fff;
+  --white: #FFFFFF;
 
-  // Brand
-  --cream-50: #f5eddb;
+  // Color: Tone
+  --tone-50: #F5EDDB;
 
-  // Background
+  // Color: Background
   --bg-1000: var(--black);
-  --bg-900: #111;
-  --bg-100: #{darken(#fff, 5)};
+  --bg-900: #111111;
+  --bg-100: #F2F2F2;
   --bg-50: var(--white);
 
   --bg-gray-100-opaque-alpha: 0.15;
@@ -25,37 +21,48 @@
   --bg-gray-50-opaque-alpha: 0.06;
   --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
 
-  // Text
-  --text-1000: #111;
-  --text-900: #111;
+  // Color: Text
+  --text-1000: #111111;
+  --text-900: #111111;
   --text-50: var(--white);
-  --text-muted: #5e5e5e;
+  --text-mute: #5E5E5E;
 
-  // Heading
+  // Color: Heading
   --heading: inherit;
 
-  // Link
+  // Color: Link
   --link: var(--text-1000);
   --link-hover-opacity: 0.6;
 
-  // Border
+  // Color: Border
   --border-1000: var(--black);
   --border-900: #333333;
-  --border-800: #4d4d4d;
-  --border-100: #{darken(#fff, 12)};
+  --border-800: #4D4D4D;
+  --border-100: #E0E0E0;
   --border-50: var(--white);
   --hr: var(--black);
 
-  // Root
-  --root-bg: var(--bg-1000);
+  // Typography
+  --font-family-sans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+  --font-weight-medium: 400;
+  --font-weight-strong: bolder;
 
-  // =========
-  // Other
-  // =========
+  --heading-font-family: inherit;
+  --heading-font-weight: 400;
+  --heading-font-weight-light: 100;
 
   // Wrap
-  --wrap-spaceLeft: #{$wrap-spaceLeft};
-  --wrap-spaceRight: #{$wrap-spaceRight};
+  --wrap-space-left: 6.25%;
+  --wrap-space-right: 6.25%;
+
+  // Grid
+  --grid-gap-scale: 5vw;
+  --grid-gap-m: #{rem($space-m)};
+  --grid-gap-l: #{rem($space-xl)};
+  --grid-gap-xl: #{rem($space-2xl)};
 
   // Border
   --border-width-negative: -1px;
@@ -65,17 +72,37 @@
   --border-radius-pill: 999px;
   --border-width-thin: 0.5px;
 
+  // Transitions & Easings
+  --ease: cubic-bezier(0.68, 0, 0.1, 1);
+  --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
+
+  --trans-primary: 1.3s var(--ease);
+  --trans-primary-fast: 0.6s var(--ease);
+  --trans-primary-fastest: 0.3s var(--ease);
+
+  --trans-secondary: 1s var(--ease-secondary);
+  --trans-secondary-fast: 0.6s var(--ease-secondary);
+  --trans-secondary-fastest: 0.3s var(--ease-secondary);
+
   // Root
-  --root-minWidth: #{$root-minWidth};
+  --root-min-width: 320px;
   --vh: 100vh;
 
+  // Size
+  --icon-size-l: #{rem(32px)};
+
+  // Z index
+  --z-index-900: 900;
+  --z-index-800: 800;
+  --z-index-700: 700;
+
   @include mq(m) {
-    --wrap-spaceLeft: #{rem($wrap-spaceLeft-m)};
-    --wrap-spaceRight: #{rem($wrap-spaceRight-m)};
+    --wrap-space-left: #{rem($space-l)};
+    --wrap-space-right: #{rem($space-l)};
   }
 
   @include mq(l) {
-    --wrap-spaceLeft: #{rem($wrap-spaceLeft-l)};
-    --wrap-spaceRight: #{rem($wrap-spaceRight-l)};
+    --wrap-space-left: #{rem($space-2xl)};
+    --wrap-space-right: #{rem($space-xl)};
   }
 }

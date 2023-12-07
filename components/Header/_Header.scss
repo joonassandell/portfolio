@@ -14,12 +14,12 @@
 
 .Header-main {
   inset: 0 0 auto 0;
-  min-width: var(--root-minWidth);
+  min-width: var(--root-min-width);
   mix-blend-mode: difference;
   padding-top: rem($space-m);
   pointer-events: none; // [1.]
   position: fixed;
-  z-index: $Header-zIndex;
+  z-index: var(--z-index-900);
 
   // [2.]
   .is-windows & {
@@ -61,7 +61,7 @@
   line-height: rem($space-ml);
 
   @include mq(m) {
-    @include fontSize($h5-fontSizeMin, false, $h5-fontSizeMax);
+    @include fontSize($h5-font-size-min, false, $h5-font-size-max);
   }
 }
 
@@ -225,7 +225,7 @@
   inset: 0;
   min-width: 300px;
   position: fixed;
-  z-index: $Header-maskZindex;
+  z-index: var(--z-index-800);
 
   &.is-open {
     display: flex;
@@ -269,7 +269,7 @@
 .Header-nav-item {
   overflow: hidden;
   position: relative;
-  transition: border-radius $trans-primaryFastest;
+  transition: border-radius var(--trans-primary-fastest);
   z-index: 1;
 
    &:last-child {
@@ -285,7 +285,7 @@
       &:nth-child(#{$i}) {
         .Header-nav-link {
           &:before {
-            flex-basis: calc((var(--wrap-spaceLeft) + #{rem($space)}) * #{$i});
+            flex-basis: calc((var(--wrap-space-left) + #{rem($space)}) * #{$i});
           }
         }
       }
@@ -300,7 +300,7 @@
 
           &:after {
             flex: 0;
-            flex-basis: calc((var(--wrap-spaceLeft) + #{rem($space * 4)}) * #{$i - 4});
+            flex-basis: calc((var(--wrap-space-left) + #{rem($space * 4)}) * #{$i - 4});
           }
         }
 
@@ -318,7 +318,7 @@
 
 .Header-nav-marquee, .Header-nav-link {
   @include fontSize(14px, 14px, 72px, 3.5vw);
-  font-weight: $heading-fontWeightLight;
+  font-weight: var(--heading-font-weight-light);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -332,11 +332,11 @@
   &:before, &:after {
     border-top: var(--border-width-thin) solid var(--border-900);
     content: '';
-    transition: border-color $trans-primary;
+    transition: border-color var(--trans-primary);
   }
 
   &:before {
-    flex-basis: calc(var(--wrap-spaceLeft) - #{rem($space-s)});
+    flex-basis: calc(var(--wrap-space-left) - #{rem($space-s)});
     margin-right: rem($space-s);
   }
 
@@ -381,7 +381,7 @@
 }
 
 .Header-nav-marquee {
-  background: var(--cream-50);
+  background: var(--tone-50);
   color: var(--text-1000);
   inset: 0;
   overflow: hidden;
@@ -440,7 +440,7 @@
   }
 
   @include mq(l) {
-    margin-bottom: rem($space-xxl);
+    margin-bottom: rem($space-2xl);
   }
 }
 

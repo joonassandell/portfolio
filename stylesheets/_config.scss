@@ -3,56 +3,43 @@
 // =========
 
 $font-size: 16px;
-$lineHeight: 24px;
+$line-height: 24px;
 
 $font-size-xl: 22px;
-$lineHeight-xl: 22px;
+$line-height-xl: 22px;
 
 $font-size-l: 19px;
-$lineHeight-l: 22px;
+$line-height-l: 22px;
 
 $font-size-s: 15px;
-$lineHeight-s: 20px;
+$line-height-s: 20px;
 
 $font-size-xs: 13px;
-$lineHeight-xs: 20px;
+$line-height-xs: 20px;
 
-$font-familySans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-familyMono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-"Courier New", monospace;
-$font-familySerif: serif;
-$font-family: $font-familySans;
-$font-weight: 400;
-$font-weightStrong: bolder;
+$h1-font-size-min: 40px;
+$h1-font-size-max: 102px;
+$h1-line-height: 40px;
 
-$heading-fontFamily: inherit;
-$heading-fontWeight: 400;
-$heading-fontWeightLight: 100;
+$h2-font-size-min: 32px;
+$h2-font-size-max: 48px;
+$h2-line-height: 34px;
 
-$h1-fontSizeMin: 40px;
-$h1-fontSizeMax: 102px;
-$h1-lineHeight: 40px;
+$h3-font-size-min: 28px;
+$h3-font-size-max: 40px;
+$h3-line-height: 36px;
 
-$h2-fontSizeMin: 32px;
-$h2-fontSizeMax: 48px;
-$h2-lineHeight: 34px;
+$h4-font-size-min: 24px;
+$h4-font-size-max: 32px;
+$h4-line-height: 28px;
 
-$h3-fontSizeMin: 28px;
-$h3-fontSizeMax: 40px;
-$h3-lineHeight: 36px;
+$h5-font-size-min: 18px;
+$h5-font-size-max: 24px;
+$h5-line-height: 26px;
 
-$h4-fontSizeMin: 24px;
-$h4-fontSizeMax: 32px;
-$h4-lineHeight: 28px;
-
-$h5-fontSizeMin: 18px;
-$h5-fontSizeMax: 24px;
-$h5-lineHeight: 26px;
-
-$h6-fontSizeMin: 18px;
-$h6-fontSizeMax: 24px;
-$h6-lineHeight: 26px;
+$h6-font-size-min: 18px;
+$h6-font-size-max: 24px;
+$h6-line-height: 26px;
 
 // =========
 // Spacing and sizing
@@ -66,38 +53,11 @@ $space-m: $space * 1.5;
 $space-ml: $space * 2;
 $space-l: $space * 2.5;
 $space-xl: $space * 3;
-$space-xxl: $space * 4;
-$space-xxxl: $space * 5;
-$space-xxxxl: $space * 6;
-$space-xxxxxl: $space * 7;
-$space-xxxxxxl: $space * 8;
-
-// =========
-// Wrap helper
-// =========
-
-$wrap-spaceLeft: 6.25%;
-$wrap-spaceRight: 6.25%;
-$wrap-spaceLeft-m: $space-l;
-$wrap-spaceRight-m: $space-l;
-$wrap-spaceLeft-l: $space-xxl;
-$wrap-spaceRight-l: $space-xl;
-
-// =========
-// Grid helper
-// =========
-
-$grid-columns: 12;
-$grid-gap-scale: 5vw;
-$grid-gap: $space-m;
-$grid-gap-l: $space-xl;
-$grid-gap-xl: $space-xxl;
-
-// =========
-// Root
-// =========
-
-$root-minWidth: 320px;
+$space-2xl: $space * 4;
+$space-3xl: $space * 5;
+$space-4xl: $space * 6;
+$space-5xl: $space * 7;
+$space-6xl: $space * 8;
 
 // =========
 // Breakpoints
@@ -119,38 +79,3 @@ $breakpoints: (
   xxxxxxl: 2560px,
   xxxxxxxl: 3840px,
 );
-
-// =======================================
-// Transitions & easings
-// =======================================
-
-$ease: cubic-bezier(0.68, 0, 0.1, 1);
-$ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
-
-$trans-primary: 1.3s $ease;
-$trans-primaryFast: 0.6s $ease;
-$trans-primaryFastest: 0.3s $ease;
-
-$trans-secondary: 1s $ease-secondary;
-$trans-secondaryFast: 0.6s $ease-secondary;
-$trans-secondaryFastest: 0.3s $ease-secondary;
-
-// =======================================
-// Z-indexes
-// =======================================
-
-$Splash-zIndex: 1000;
-$locomotive-scrollBar-zIndex: 900;
-$nprogress-zIndex: 900;
-$App-zIndex: 800;
-
-$Header-zIndex: 1000;
-$Header-maskZindex: 900;
-$App-mainZindex: 800;
-
-// =======================================
-// Icon
-// =======================================
-
-$Icon-size: 32px;
-$Icon-size-s: 24px;

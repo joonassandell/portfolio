@@ -7,7 +7,7 @@
 .NextProject {
   background-color: var(--NextProject-bg-color, var(--Template-bg-color, var(--bg-50)));
   margin: -1px 0; // [1.]
-  padding-top: rem($space-xxxl);
+  padding-top: rem($space-3xl);
 }
 
 .NextProject-link {
@@ -19,8 +19,8 @@
 }
 
 .NextProject-inner {
-  padding-bottom: rem($space-xxl);
-  padding-top: rem($space-xxl);
+  padding-bottom: rem($space-2xl);
+  padding-top: rem($space-2xl);
   position: relative;
 }
 

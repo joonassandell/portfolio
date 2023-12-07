@@ -5,7 +5,7 @@
   --Template-bg-color: var(--oras-bg-50);
 
   .Template-figure-1.Figure {
-    margin: rem($space-m) 0 rem($space-xxl) 0;
+    margin: rem($space-m) 0 rem($space-2xl) 0;
 
     @include mq(l) {
       margin-top: rem($space * -6);

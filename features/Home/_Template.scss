@@ -2,11 +2,11 @@
 @use "stylesheets/mixins" as *;
 
 .Template--home {
-  --Template-bg-color: var(--cream-50);
+  --Template-bg-color: var(--tone-50);
 
   .Template-about {
     position: relative;
-    z-index: $Header-zIndex - 1;
+    z-index: calc(var(--z-index-900) - 1);
   }
 
   .Template-about-mobile {

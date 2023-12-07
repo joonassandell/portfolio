@@ -11,7 +11,7 @@
   transform: rotate(90deg);
   transform-origin: left;
   width: var(--vh);
-  z-index: $nprogress-zIndex;
+  z-index: var(--z-index-800);
 
   .bar {
     // background: $bg-10;
@@ -21,7 +21,7 @@
   }
 
   .peg {
-    box-shadow: 0 0 30px var(--cream-50), 0 0 8px var(--cream-50);
+    box-shadow: 0 0 30px var(--tone-50), 0 0 8px var(--tone-50);
     transform: translate(0, 0);
     width: rem($space);
   }

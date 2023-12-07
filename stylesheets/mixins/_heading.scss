@@ -8,8 +8,8 @@
   }
 
   @if $base {
-    font-family: $heading-fontFamily;
-    font-weight: $heading-fontWeight;
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
     text-wrap: balance;
   }
 
@@ -18,16 +18,16 @@
   }
 
   @if $size == 'h1' {
-    @include fontSize($h1-fontSizeMin, $h1-lineHeight, $h1-fontSizeMax);
+    @include fontSize($h1-font-size-min, $h1-line-height, $h1-font-size-max);
   } @else if $size == 'h2' {
-    @include fontSize($h2-fontSizeMin, $h2-lineHeight, $h2-fontSizeMax);
+    @include fontSize($h2-font-size-min, $h2-line-height, $h2-font-size-max);
   } @else if $size == 'h3' {
-    @include fontSize($h3-fontSizeMin, $h3-lineHeight, $h3-fontSizeMax);
+    @include fontSize($h3-font-size-min, $h3-line-height, $h3-font-size-max);
   } @else if $size == 'h4' {
-    @include fontSize($h4-fontSizeMin, $h4-lineHeight, $h4-fontSizeMax);
+    @include fontSize($h4-font-size-min, $h4-line-height, $h4-font-size-max);
   } @else if $size == 'h5' {
-    @include fontSize($h5-fontSizeMin, $h5-lineHeight, $h5-fontSizeMax);
+    @include fontSize($h5-font-size-min, $h5-line-height, $h5-font-size-max);
   } @else if $size == 'h6' {
-    @include fontSize($h6-fontSizeMin, $h6-lineHeight, $h6-fontSizeMax);
+    @include fontSize($h6-font-size-min, $h6-line-height, $h6-font-size-max);
   }
 }

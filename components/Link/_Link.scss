@@ -11,7 +11,7 @@
   overflow: hidden;
   pointer-events: all;
   position: relative;
-  transition: opacity $trans-primaryFastest;
+  transition: opacity var(--trans-primary-fastest);
   will-change: opacity; // [1.]
 
   &:where(&:hover) {
@@ -50,7 +50,7 @@
         content: '';
         inset: auto 0 rem(2px) 0;
         position: absolute;
-        transition: opacity $trans-primary;
+        transition: opacity var(--trans-primary);
       }
     }
   }

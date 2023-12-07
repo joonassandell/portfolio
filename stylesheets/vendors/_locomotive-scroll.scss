@@ -35,7 +35,7 @@ body {
   transform-origin: center right;
   transition: transform 0.3s, opacity 0.3s;
   width: 11px;
-  z-index: $locomotive-scrollBar-zIndex;
+  z-index: var(--z-index-800);
 
   &:hover {
     transform: scaleX(1.45);
