@@ -4,7 +4,7 @@
 .Hero {
   --Stamp-center-x: 0px;
   --Stamp-center-y: 0px;
-  height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
+  height: clamp(var(--Hero-min-height), var(--Hero-height), var(--Hero-max-height));
   position: relative;
 
   /**
@@ -31,7 +31,7 @@
 }
 
 .Hero-inner {
-  min-height: var(--Hero-inner-minHeight);
+  min-height: var(--Hero-inner-min-height);
   pointer-events: none;
 
   > * {

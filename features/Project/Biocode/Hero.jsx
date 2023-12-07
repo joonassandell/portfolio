@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent } from '@/components/Hero';
+import { Hero, HeroContent } from '@/features/Project/Hero';
 import { TextReveal } from '@/components/TextReveal';
 import { Heading } from '@/components/Heading';
 import { headingVariants, maskVariants } from './Hero.animations';

@@ -10,27 +10,27 @@
  *    with heading after template transition
  */
 :root {
-  --Hero-minHeight: #{rem($space * 33)};
+  --Hero-min-height: #{rem($space * 33)};
   --Hero-height: 100vw;
-  --Hero-maxHeight: 75vh;
+  --Hero-max-height: 75vh;
 
   --Hero-figure-bg: var(--black);
   --Hero-figure-bg-alpha: 0.15;
   --Hero-figure-bg-rgb: 0, 0, 0;
   --Hero-figure-pre-bg-alpha: 0.06;
 
-  --Hero-inner-minHeight: var(--vh);  // [1.]
+  --Hero-inner-min-height: var(--vh);  // [1.]
 
   @include mq(s) {
-    --Hero-maxHeight: #{rem($space * 48)};
+    --Hero-max-height: #{rem($space * 48)};
   }
 
   @include mq(l) {
-    --Hero-minHeight: #{rem($space * 42)};
+    --Hero-min-height: #{rem($space * 42)};
     --Hero-height: var(--vh); // [1.]
   }
 
   @include mq(xxl) {
-    --Hero-minHeight: #{rem($space * 44)};
+    --Hero-min-height: #{rem($space * 44)};
   }
 }

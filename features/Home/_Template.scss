@@ -11,7 +11,7 @@
 
   .Template-about-mobile {
     display: grid;
-    height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
+    height: clamp(var(--Hero-min-height), var(--Hero-height), var(--Hero-max-height));
     margin-left: rem(-4px);
     padding-bottom: 25vw;
     place-content: center;
@@ -36,7 +36,7 @@
 
     @include mq(s) {
       display: block;
-      height: clamp(var(--Hero-minHeight), var(--Hero-height), var(--Hero-maxHeight));
+      height: clamp(var(--Hero-min-height), var(--Hero-height), var(--Hero-max-height));
       max-width: 20ch;
       padding-top: 25vw;
       pointer-events: none;

@@ -1,26 +1,29 @@
 // Projects
-@forward  'Archive/Hero';
-@forward  'Archive/Template';
+@forward 'Archive/Hero';
+@forward 'Archive/Template';
 
-@forward  'Biocode/variables';
-@forward  'Biocode/Hero';
-@forward  'Biocode/Template';
+@forward 'Biocode/variables';
+@forward 'Biocode/Hero';
+@forward 'Biocode/Template';
 
-@forward  'Mediasignal/variables';
-@forward  'Mediasignal/Hero';
-@forward  'Mediasignal/Template';
+@forward 'Mediasignal/variables';
+@forward 'Mediasignal/Hero';
+@forward 'Mediasignal/Template';
 
-@forward  'Oras/variables';
-@forward  'Oras/Hero';
-@forward  'Oras/Template';
+@forward 'Oras/variables';
+@forward 'Oras/Hero';
+@forward 'Oras/Template';
 
-@forward  'MoreWork/variables';
-@forward  'MoreWork/Hero';
-@forward  'MoreWork/Template';
+@forward 'MoreWork/variables';
+@forward 'MoreWork/Hero';
+@forward 'MoreWork/Template';
 
-@forward  'Sandbox/variables';
-@forward  'Sandbox/Hero';
-@forward  'Sandbox/Template';
+@forward 'Sandbox/variables';
+@forward 'Sandbox/Hero';
+@forward 'Sandbox/Template';
 
 // Components
-@forward  'SubInfo/SubInfo';
+@forward 'Hero';
+@forward 'NextProject';
+@forward 'Stamp';
+@forward 'SubInfo';

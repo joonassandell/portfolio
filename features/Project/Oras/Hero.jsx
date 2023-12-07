@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED, JUMP_FIX_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
+import { Hero, HeroContent, figureBgVariants } from '@/features/Project/Hero';
 import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
 import Image from 'next/image';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';

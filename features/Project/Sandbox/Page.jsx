@@ -1,7 +1,7 @@
 import { SandboxHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
+import { NextProject } from '@/features/Project/NextProject';
 import { MQ } from '@/lib/config';
 import { useMedia } from 'react-use';
 import { Info } from '@/components/Info';
