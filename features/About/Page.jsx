@@ -135,6 +135,7 @@ export const AboutPage = ({ id, title }) => {
                   borderRadius={false}
                   inViewOffset={-1}
                   sizes={`${MQ.m} 30vw, 40vw`}
+                  priority
                   {...cubeImage}
                 />
               </m.div>
