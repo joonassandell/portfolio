@@ -21,7 +21,7 @@ export const AppHead = () => {
         content={description}
         key="og:description"
       />
-      <meta property="og:image" content={`${ORIGIN}/static/og-image.jpg`} />
+      <meta property="og:image" content={`${ORIGIN}/static/og-image.jpg?v=2`} />
       <meta property="og:locale" content="en" />
       <meta property="og:site_name" content="Joonas Sandell" />
       <meta property="og:type" content="website" />
@@ -38,19 +38,19 @@ export const AppHead = () => {
       <meta property="twitter:creator" content="@joonassandell" />
       <meta
         property="twitter:image"
-        content={`${ORIGIN}/static/og-image.jpg`}
+        content={`${ORIGIN}/static/og-image.jpg?v=2`}
       />
       <meta property="twitter:site" content="@joonassandell" />
 
       {/* Icons */}
       <link
         rel="apple-touch-icon"
-        href="/static/apple-touch-icon.png"
+        href="/static/apple-touch-icon.png?v=2"
         sizes="180x180"
       />
-      <link rel="icon" href="/static/favicon.ico" sizes="any" />
-      <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
-      <link rel="mask-icon" color="#f5eddb" href="/static/favicon.svg" />
+      <link rel="icon" href="/static/favicon.ico?v=2" sizes="any" />
+      <link rel="icon" href="/static/favicon.svg?v=2" type="image/svg+xml" />
+      <link rel="mask-icon" color="#F5EDDB" href="/static/favicon.svg?v=2" />
 
       {/* Web app */}
       <meta name="apple-mobile-web-app-title" content="Joonas Sandell" />
@@ -61,7 +61,7 @@ export const AppHead = () => {
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <meta name="theme-color" content="#f5eddb" key="theme-color" />
+      <meta name="theme-color" content="#EEEAE5" key="theme-color" />
       <link
         rel="preload"
         as="font"
