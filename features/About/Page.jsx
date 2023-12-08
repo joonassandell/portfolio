@@ -27,10 +27,10 @@ export const AboutPage = ({ id, title }) => {
   const { transition } = appState;
   const templateTransition = transition === 'template';
   const subHeadingMobile = [
-    "I'm creative developer",
-    'and designer based in',
-    'Helsinki, Finland.',
-    'Currently working for',
+    "I'm creative developer ",
+    'and designer based in ',
+    'Helsinki, Finland. ',
+    'Currently working for ',
     <>
       <LinkRoll href="https://biocode.io" underline>
         Biocode
@@ -52,7 +52,10 @@ export const AboutPage = ({ id, title }) => {
 
   return (
     <Template id={id}>
-      <Head title={title} />
+      <Head
+        title={title}
+        description="I'm creative developer and designer based in Helsinki, Finland."
+      />
       <TemplateMain>
         <div className="Template-heading wrap pr:0">
           <Heading

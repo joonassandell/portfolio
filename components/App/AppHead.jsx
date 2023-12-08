@@ -56,6 +56,22 @@ export const AppHead = () => {
       <meta name="apple-mobile-web-app-title" content="Joonas Sandell" />
       <meta name="application-name" content="Joonas Sandell" />
 
+      {/* Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Joonas Sandell',
+            email: 'mailto:me@joonassandell.com',
+            jobTitle: 'Designer & Developer',
+            url: 'https://joonassandell.com',
+            image: `${ORIGIN}/static/joonassandell.jpg`,
+          }),
+        }}
+      />
+
       {/* Other */}
       <meta
         name="viewport"
