@@ -43,10 +43,8 @@
   --hr: var(--black);
 
   // Typography
-  --font-family-sans: 'Px Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-  Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-  "Courier New", monospace;
+  --font-family-sans: 'Px Grotesk', sans-serif;
+  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-weight-medium: 400;
   --font-weight-strong: bolder;
 
