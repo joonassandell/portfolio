@@ -127,7 +127,7 @@ export const Figure = ({
               className="Figure-img"
               draggable="false"
               height={height}
-              onLoadingComplete={() => setImgLoaded(true)}
+              onLoad={() => setImgLoaded(true)}
               priority={priority}
               sizes={sizes}
               src={src}
