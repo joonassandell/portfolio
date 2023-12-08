@@ -120,13 +120,12 @@ export const App = ({ Component, pageProps }) => {
   const [popStateTimeout, setPopStateTimeout] = useState(null);
   useEffect(() => {
     beforePopState(({ url, as }) => {
-      popStateTimeout && clearTimeout(popStateTimeout);
       if (transition === 'template') {
         setPopStateTimeout(
           setTimeout(() => {
             setTransition('template');
             push(url, as, { scroll: false });
-          }, 500),
+          }, 800),
         );
         return false;
       } else {
