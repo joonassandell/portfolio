@@ -77,6 +77,12 @@
 
   a {
     &:focus-visible {
+      @at-root .is-windows & {
+        .LinkRoll-char {
+          -webkit-text-fill-color: var(--black);
+        }
+      }
+      
       background-color: var(--white);
       color: var(--black);
     }
@@ -194,6 +200,12 @@
 
     a {
       &:focus-visible {
+        @at-root .is-windows & {
+          .LinkRoll-char {
+            -webkit-text-fill-color: var(--black);
+          }
+        }
+
         background-color: var(--white);
         color: var(--black);
       }
