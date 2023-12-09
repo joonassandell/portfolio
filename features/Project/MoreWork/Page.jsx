@@ -1,5 +1,5 @@
 import { MoreWorkHero } from '@/features/Project';
-import { SubInfo } from '@/components/Subinfo';
+import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { getImage, getSitemap } from '@/lib/utility';
 import { NextProject } from '@/components/NextProject';
