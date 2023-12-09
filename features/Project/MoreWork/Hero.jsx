@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent, figureBgVariants } from '@/features/Project/Hero';
+import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
 import Image from 'next/image';
 import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';
 import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';

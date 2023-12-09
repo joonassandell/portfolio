@@ -1,7 +1,7 @@
 import { OrasHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/features/Project/NextProject';
+import { NextProject } from '@/components/NextProject';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';

@@ -16,6 +16,3 @@ export * from './MoreWork/Page';
 
 export * from './Sandbox/Hero';
 export * from './Sandbox/Page';
-
-// Components
-export * from './SubInfo/SubInfo';

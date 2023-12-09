@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'clsx';
 import { Link } from '@/components/Link';
-import { Stamp } from '@/features/Project/Stamp';
+import { Stamp } from '@/components/Stamp';
 import { Heading } from '@/components/Heading';
 import { TextReveal } from '@/components/TextReveal';
 
