@@ -6,7 +6,7 @@
     "analyze": "ANALYZE=true npm run build",
     "build": "next build",
     "create:component": "node ./utils/create-component",
-    "deploy:preview": "vercel --build-env LOCAL_DEPLOYMENT=true",
+    "deploy:preview": "vercel deploy",
     "dev": "next dev",
     "preview": "npm run build && npm run start",
     "start": "next start"

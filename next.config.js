@@ -1,12 +1,6 @@
 const path = require('path');
 
-const {
-  ANALYZE,
-  VERCEL_ENV,
-  VERCEL_URL,
-  NEXT_PUBLIC_ORIGIN,
-  LOCAL_DEPLOYMENT,
-} = process.env;
+const { ANALYZE, VERCEL_ENV, VERCEL_URL, NEXT_PUBLIC_ORIGIN } = process.env;
 const preview = VERCEL_ENV === 'preview';
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: ANALYZE === 'true',
@@ -14,12 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const config = {
   env: {
-    NEXT_PUBLIC_ORIGIN:
-      preview && LOCAL_DEPLOYMENT
-        ? `https://joonassandell-portfolio-joonassandell.vercel.app`
-        : preview
-        ? `https://${VERCEL_URL}`
-        : NEXT_PUBLIC_ORIGIN,
+    NEXT_PUBLIC_ORIGIN: preview ? `https://${VERCEL_URL}` : NEXT_PUBLIC_ORIGIN,
   },
   sassOptions: {
     includePaths: [path.join(__dirname)],
