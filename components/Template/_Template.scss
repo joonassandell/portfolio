@@ -19,7 +19,8 @@
      * Hack to remove the applied scroll values from the new view. Why are those
      * even there?! This happens sometimes at least w/ Chromium.
      */
-    [data-s-section], [data-s] {
+    [data-s-section],
+    [data-s] {
       transform: none !important;
     }
   }
@@ -50,7 +51,7 @@
 
 .Template-main {
   background-color: var(--Template-main-bg-color, inherit);
-  color: var(--Template-main-color, inherit);
+  color: var(--Template-main-color, currentColor);
 }
 
 .Template-section {

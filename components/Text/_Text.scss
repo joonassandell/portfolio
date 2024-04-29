@@ -1,14 +1,24 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
 .Text {
-  text-wrap: balance;
+  text-wrap: pretty;
   transform-origin: top left;
 
-  &.-size\:xl { @include text(xl); }
-  &.-size\:l  { @include text(l);  }
-  &.-size\:s  { @include text(s);  }
-  &.-size\:xs { @include text(xs); }
+  &.-size\:xl {
+    @include text(xl);
+  }
+
+  &.-size\:l {
+    @include text(l);
+  }
+
+  &.-size\:s {
+    @include text(s);
+  }
+
+  &.-size\:xs {
+    @include text(xs);
+  }
 
   > *:not(.Text) {
     &:last-child {

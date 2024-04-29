@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Stamp {
   display: grid;
@@ -13,7 +13,8 @@
   position: relative;
 }
 
-.Stamp-inner, .Stamp-svg {
+.Stamp-inner,
+.Stamp-svg {
   $sizeMin: rem($space * 12);
   $sizeMax: rem($space * 22);
 
@@ -29,7 +30,8 @@
     path {
       fill: var(--Stamp-color, var(--text-900));
 
-      &:first-child, &:nth-last-child(4) {
+      &:first-child,
+      &:nth-last-child(4) {
         fill: none;
 
         @include mq($until: l) {

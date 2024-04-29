@@ -1,16 +1,19 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
-/**
- * 1. See _Header.scss
- */
 .Footer {
-  --link: var(--white);
-  background-color: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
-  color: var(--white);
+  --focus-visible-bg: var(--text-50);
+  --focus-visible-fg: var(--bg-900);
+  --link: var(--text-50);
+
+  background-color: var(
+    --Footer-bg-color,
+    var(--Template-bg-color, var(--bg-50))
+  );
+  color: var(--text-50);
   padding-bottom: rem($space-l);
 
-  // [1.]
+  // See _Header.scss
   .is-windows & {
     .LinkRoll-char,
     .Footer-copyright {
@@ -24,12 +27,9 @@
     &:focus-visible {
       @at-root .is-windows & {
         .LinkRoll-char {
-          -webkit-text-fill-color: var(--black);
+          -webkit-text-fill-color: var(--focus-visible-fg);
         }
       }
-      
-      background-color: var(--white);
-      color: var(--black);
     }
   }
 
@@ -43,7 +43,8 @@
 }
 
 .Footer-inner {
-  border-top: 1px solid var(--Footer-border-color, var(--border-900));
+  border-top: var(--border-width) solid
+    var(--Footer-border-color, var(--border-900));
 }
 
 .Footer-main {
@@ -60,7 +61,7 @@
 .Footer-links {
   display: flex;
   flex-direction: column;
-  gap: rem($space * 0.125);
+  gap: rem($space-4xs);
 
   @include mq(m) {
     flex-direction: row;

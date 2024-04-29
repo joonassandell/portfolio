@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 /**
  * 1. For the mask scrolling and everything else to work below Header
@@ -10,7 +10,11 @@
  *    events are disabled because the root class is removed before the mask is
  *    animated away.
  */
-.Header {}
+.Header {
+  --focus-visible-bg: var(--text-50);
+  --focus-visible-fg: var(--bg-900);
+  --link: var(--text-50);
+}
 
 .Header-main {
   inset: 0 0 auto 0;
@@ -40,7 +44,9 @@
   }
 }
 
-.Header-logo, .Header-button, .Header-secondary {
+.Header-logo,
+.Header-button,
+.Header-secondary {
   :root:not(.is-transition) & {
     pointer-events: all;
   }
@@ -66,7 +72,6 @@
 }
 
 .Header-logo {
-  --link: var(--white);
   --link-hover-opacity: 1;
   display: flex;
   flex-direction: column;
@@ -79,12 +84,9 @@
     &:focus-visible {
       @at-root .is-windows & {
         .LinkRoll-char {
-          -webkit-text-fill-color: var(--black);
+          -webkit-text-fill-color: var(--focus-visible-fg);
         }
       }
-      
-      background-color: var(--white);
-      color: var(--black);
     }
   }
 
@@ -119,13 +121,9 @@
 .Header-separator-line {
   background: var(--white);
   display: block;
-  height: 2px;
+  height: var(--border-width-l);
   position: absolute;
   width: 100%;
-
-  @include mq('4xl') {
-    height: 3px;
-  }
 }
 
 .Header-button {
@@ -190,7 +188,6 @@
 }
 
 .Header-secondary {
-  --link: var(--white);
   display: none;
 
   @include mq(m) {
@@ -202,12 +199,9 @@
       &:focus-visible {
         @at-root .is-windows & {
           .LinkRoll-char {
-            -webkit-text-fill-color: var(--black);
+            -webkit-text-fill-color: var(--focus-visible-fg);
           }
         }
-
-        background-color: var(--white);
-        color: var(--black);
       }
     }
   }
@@ -235,7 +229,7 @@
   display: none;
   flex-direction: column;
   inset: 0;
-  min-width: 300px;
+  min-width: var(--root-min-width);
   position: fixed;
   z-index: var(--z-index-800);
 
@@ -284,9 +278,10 @@
   transition: border-radius var(--trans-primary-fastest);
   z-index: 1;
 
-   &:last-child {
+  &:last-child {
     .Header-nav-link {
-      &:before, &:after {
+      &:before,
+      &:after {
         border: 0;
       }
     }
@@ -312,7 +307,9 @@
 
           &:after {
             flex: 0;
-            flex-basis: calc((var(--wrap-space-left) + #{rem($space * 4)}) * #{$i - 4});
+            flex-basis: calc(
+              (var(--wrap-space-left) + #{rem($space * 4)}) * #{$i - 4}
+            );
           }
         }
 
@@ -328,9 +325,10 @@
   }
 }
 
-.Header-nav-marquee, .Header-nav-link {
+.Header-nav-marquee,
+.Header-nav-link {
   @include fontSize(14px, 14px, 72px, 3.5vw);
-  font-weight: var(--heading-font-weight-light);
+  font-weight: var(--heading-font-weight-100);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -341,7 +339,8 @@
   display: flex;
   padding: rem($space-s) 0;
 
-  &:before, &:after {
+  &:before,
+  &:after {
     border-top: var(--border-width-thin) solid var(--border-800);
     content: '';
     transition: border-color var(--trans-primary);
@@ -358,6 +357,7 @@
   }
 
   .Header-nav-item.is-active & {
+    &:before,
     &:after {
       border-color: var(--border-50);
     }
@@ -432,7 +432,6 @@
 }
 
 .Header-footer {
-  --link: var(--text-50);
   display: flex;
   margin: max(7.5vh, #{rem($space-l)}) 0 rem($space-ml) 0;
 
@@ -462,7 +461,7 @@
   gap: rem($space-xs);
 
   @include mq(l) {
-    gap: rem($space * 0.125);
+    gap: rem($space-4xs);
   }
 }
 

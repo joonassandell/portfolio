@@ -62,7 +62,7 @@ export const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      console.info('Made by me with Next.js, TypeScript and tears. 🥲');
+      console.info('Made by me with Next.js, Framer Motion and tears. 🥲');
     }
 
     (async () => {

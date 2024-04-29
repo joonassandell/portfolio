@@ -1,8 +1,6 @@
-@use 'stylesheets/config' as *;
-@use 'stylesheets/mixins' as *;
-
 .Figure {
-  --Figure-border: var(--Figure-border-width, var(--border-width-thin)) solid var(--Figure-border-color, var(--border-100));
+  --Figure-border: var(--Figure-border-width, var(--border-width-thin)) solid
+    var(--Figure-border-color, var(--border-100));
 
   &.-bg {
     .Figure-figure-main {
@@ -17,7 +15,12 @@
   }
 
   &.-border\:radius {
-    &, .Figure-figure-main, img, video, .Figure-placeholder, .Figure-glare {
+    &,
+    .Figure-figure-main,
+    img,
+    video,
+    .Figure-placeholder,
+    .Figure-glare {
       border-radius: var(--Figure-border-radius, var(--border-radius));
     }
   }
@@ -33,7 +36,9 @@
   transform-origin: top center;
 }
 
-.Figure-placeholder, .Figure-placeholder-glare, .Figure-glare {
+.Figure-placeholder,
+.Figure-placeholder-glare,
+.Figure-glare {
   inset: 0;
   position: absolute;
 }
@@ -47,12 +52,13 @@
   }
 }
 
-.Figure-placeholder-glare, .Figure-glare {
+.Figure-placeholder-glare,
+.Figure-glare {
   background-image: linear-gradient(
     -45deg,
     transparent 20%,
     var(--Figure-glare-bg, var(--white)),
-    transparent 50%,
+    transparent 50%
   );
   background-repeat: no-repeat;
   background-size: 350% 100%;

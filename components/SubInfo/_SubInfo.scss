@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .SubInfo {
   .grid-col {

@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 /**
  * 1. Fixes odd issue in Chromium where there sometimes seems to be extra text
@@ -14,7 +14,7 @@
   transition: opacity var(--trans-primary-fastest);
   will-change: opacity; // [1.]
 
-  &:where(&:hover) {
+  &:where(:hover) {
     opacity: var(--link-hover-opacity);
   }
 }
@@ -37,9 +37,9 @@
   right: 0;
 }
 
-/* ======
- * Modifiers
- * ====== */
+/* =======================================
+ * Variants
+ * ======================================= */
 
 .Link {
   &.-underline {
@@ -48,7 +48,7 @@
         border-bottom-style: solid;
         border-bottom-width: var(--border-width);
         content: '';
-        inset: auto 0 rem(2px) 0;
+        inset: auto 0 rem($space-4xs) 0;
         position: absolute;
         transition: opacity var(--trans-primary);
       }
