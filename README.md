@@ -1,13 +1,20 @@
-# Joonas Sandell — Portfolio
+<img width="96" src="public/static/logo.svg" alt="Joonas Sandell Logomark">
 
-> Portfolio of Joonas Sandell hosted in [Vercel](http://joonassandell.com). This is a [Next.js](https://nextjs.org/) project bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio of Joonas Sandell
+
+<p>
+  <a href="http://joonassandell.com">
+    <img src="https://img.shields.io/github/deployments/joonassandell/joonassandell-portfolio/production?style=flat&logo=vercel&label=vercel">
+  </a>
+</p>
+
+Welcome to the source code of [joonassandell.com](http://joonassandell.com). This is a [Next.js](https://nextjs.org/) app bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+Even though there's no explicit `LICENSE` included my hope is that you'll utilize it solely for educational purposes, to study and gain insights. Please refrain from engaging in any commercial activities with the code, such as selling it or using it to develop your own website. This approach has been effective previously, and I aim to maintain the code open for everyone. However, if I detect any unauthorized usage online, I may have to make this repository private again. Your cooperation and understanding are greatly appreciated!
 
 - [The Portfolio 🚀](http://joonassandell.com)
 - [Documentation](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
 - [Todo & Issues](https://www.notion.so/joonassandell/09255e8ef2934c50ae4cd8994bad29d6?v=3ac6de3229434d31b434db726dc4b0fc&pvs=4)
-- [Next.js Documentation](https://nextjs.org/docs)
-
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=joonassandell-portfolio&style=for-the-badge)
 
 ## Development
 
@@ -24,13 +31,13 @@ npm run dev
 
 ### Scripts
 
-- `npm run dev`: Run a development server and open [http://localhost:3000](http://localhost:3000) with your browser to see the result
+- `npm run dev`: Run a development server and open [localhost:3000](http://localhost:3000) with your browser to see the result
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally
-- `npm run start`: Start the application in production mode. The application should be compiled with next build first.
+- `npm run start`: Start the application in production mode. The application should be compiled with build first.
 - `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel (preview is like "staging"). Note that this deploys your local copy no matter of the git commit state. [Vercel CLI](https://vercel.com/docs/cli) needs to be installed. Linking and rights to the project are obviously needed as well.
 
-**Read the environment variable descriptions in [.env.development](./.env.development)**
+Read environment variable descriptions from [.env.development](.env.development).
 
 ### Notes
 
@@ -69,12 +76,12 @@ export default Page;
 - [https://github.com/quentinhocde/loconative-scroll](https://github.com/quentinhocde/loconative-scroll)
 - [https://scroll.locomotive.ca/docs/#/attributes](https://scroll.locomotive.ca/docs/#/attributes)
 - [https://github.com/locomotivemtl/locomotive-scroll](https://github.com/locomotivemtl/locomotive-scroll)
-- [https://github.com/studio-freight/lenis#instance-methods](https://github.com/studio-freight/lenis#instance-methods)
 - [https://www.framer.com/docs/transition/###damping](https://www.framer.com/docs/transition/###damping)
 - [https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js](https://github.com/codrops/RapidImageHoverMenu/blob/master/src/js/menuItem.js)
 - [Initial template of this README](https://github.com/vercel/next.js/blob/canary/packages/create-next-app/templates/default/js/README-template.md)
 - [https://github.com/focus-trap/focus-trap-react](https://github.com/focus-trap/focus-trap-react)
 - [https://github.com/focus-trap/focus-trap#createoptions](https://github.com/focus-trap/focus-trap#createoptions)
+- [https://overreacted.io/making-setinterval-declarative-with-react-hooks/](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)
 - [Vercel Generated URLs](https://vercel.com/docs/concepts/deployments/generated-urls)
 - [Vercel System Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables/system-environment-variables)
 - [Learn Next.js](https://nextjs.org/learn)
