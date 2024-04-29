@@ -13,26 +13,17 @@
   font-family: var(--font-family-sans);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  inset: 0;
   min-width: var(--root-min-width);
+  position: fixed;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   touch-action: pan-y;
   -webkit-touch-callout: none;
 
-  &.is-loading {
-    inset: 0;
-    position: fixed;
-  }
-
   &.is-transition {
     pointer-events: none;
     touch-action: none;
-  }
-
-  // https://github.com/locomotivemtl/locomotive-scroll/issues/353
-  &.is-smooth {
-    inset: 0;
-    position: fixed;
   }
 }
 
