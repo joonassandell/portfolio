@@ -1,10 +1,10 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 /**
- * These variables should rather be scoped under .Hero but then framer-motion
+ * These tokens should rather be scoped under .Hero but then framer-motion
  * doesn't know how to read the figure values for some reason. So, for clarity
- * all variables are added here.
+ * all tokens are added here.
  *
  * 1. For locomotive-scroll to work properly and not trigger a movement e.g.
  *    with heading after template transition
@@ -19,7 +19,7 @@
   --Hero-figure-bg-rgb: 0, 0, 0;
   --Hero-figure-pre-bg-alpha: 0.06;
 
-  --Hero-inner-min-height: var(--vh);  // [1.]
+  --Hero-inner-min-height: var(--vh); // [1.]
 
   @include mq(s) {
     --Hero-max-height: #{rem($space * 48)};
