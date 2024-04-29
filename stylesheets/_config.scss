@@ -45,19 +45,22 @@ $h6-line-height: 26px;
 // Spacing and sizing
 // =========
 
+$space-5xs: 1px;
+$space-4xs: 2px;
+$space-3xs: 3px;
+$space-2xs: 4px;
+$space-xs: 8px;
+$space-s: 12px;
 $space: 16px;
-$space-2xs: $space * 0.333;
-$space-xs: $space * 0.5;
-$space-s: $space * 0.666;
-$space-m: $space * 1.5;
-$space-ml: $space * 2;
-$space-l: $space * 2.5;
-$space-xl: $space * 3;
-$space-2xl: $space * 4;
-$space-3xl: $space * 5;
-$space-4xl: $space * 6;
-$space-5xl: $space * 7;
-$space-6xl: $space * 8;
+$space-m: 24px;
+$space-ml: 32px;
+$space-l: 40px;
+$space-xl: 48px;
+$space-2xl: 64px;
+$space-3xl: 80px;
+$space-4xl: 96px;
+$space-5xl: 112px;
+$space-6xl: 128px;
 
 // =========
 // Breakpoints

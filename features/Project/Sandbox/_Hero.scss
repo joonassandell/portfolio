@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Hero--sandbox {
   --Stamp-iris: var(--sandbox-primary);
@@ -42,7 +42,8 @@
   }
 
   &.is-transition {
-    .Hero-content, .Hero-link {
+    .Hero-content,
+    .Hero-link {
       z-index: 0;
     }
   }

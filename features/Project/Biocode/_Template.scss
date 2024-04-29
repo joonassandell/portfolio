@@ -1,5 +1,4 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
 .Template--biocode {
   --Template-main-bg-color: var(--biocode-bg-50);

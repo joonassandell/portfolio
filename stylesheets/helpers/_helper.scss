@@ -1,7 +1,6 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
-
-.reset { all: unset; }
+.reset {
+  all: unset;
+}
 
 .resetButton {
   all: unset;

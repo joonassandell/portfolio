@@ -1,8 +1,8 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 #nprogress {
-  $width: rem(2px);
+  $width: rem($space-4xs);
   height: $width;
   left: $width / 2;
   mix-blend-mode: difference;
@@ -14,9 +14,11 @@
   z-index: var(--z-index-800);
 
   .bar {
-    // background: $bg-10;
-    background: linear-gradient(to right, rgba(#f6eee3, 0) 0%, rgba(#f6eee3, 0.7));
-    // background: linear-gradient(to right, rgba($bg-10, 0) 0%, rgba($bg-10, 1));
+    background: linear-gradient(
+      to right,
+      rgba(#ffffff, 0) 0%,
+      rgba(#ffffff, 0.7)
+    );
     height: $width;
   }
 

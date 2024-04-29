@@ -9,9 +9,9 @@ import { Head } from '@/components/Head';
 
 export const OrasPage = ({ images, id, title, themeColor }) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
-
+  console.log(id);
   return (
-    <Template name={id}>
+    <Template id={id}>
       <Head title={title} themeColor={themeColor} />
       <TemplateMain>
         <OrasHero />

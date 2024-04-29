@@ -1,5 +1,5 @@
-@use "sass:math";
-@use "stylesheets/config" as *;
+@use 'sass:math';
+@use 'stylesheets/config';
 
 //
 // Strip units
@@ -11,7 +11,7 @@
 //
 // Convert pixels to em's
 //
-@function em($pixels, $context: $font-size) {
+@function em($pixels, $context: config.$font-size) {
   @return #{math.div(strip-unit($pixels), strip-unit($context))}em;
 }
 
@@ -19,16 +19,15 @@
 // Convert pixels to rem's
 //
 @function rem($pixels) {
-  @return #{math.div(strip-unit($pixels), strip-unit($font-size))}rem;
+  @return #{math.div(strip-unit($pixels), strip-unit(config.$font-size))}rem;
 }
 
 //
 // Convert rem's to pixels
 //
 @function px($rem) {
-  @return strip-unit($rem) * strip-unit($font-size) * 1px;
+  @return strip-unit($rem) * strip-unit(config.$font-size) * 1px;
 }
-
 
 //
 // Check if number is even
@@ -56,21 +55,22 @@
 //
 @function camelize($string) {
   $progress: $string;
-  $result: "";
-  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
+  $result: '';
+  $exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.';
+
+  @return $result;
 
   @while str-length($progress) > 0 {
     $char: str-slice($progress, 1, 1);
 
     @if contain($exclude, $char) {
-      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+      $progress: capitalize(str-slice($progress, 2, 2)) +
+        str-slice($progress, 3);
     } @else {
       $result: $result + $char;
       $progress: str-slice($progress, 2);
     }
- }
-
-  @return $result;
+  }
 }
 
 //
@@ -80,9 +80,8 @@
   @return capitalize(camelize($string));
 }
 
-
 //
-// Convert hext to rgb
+// Convert hex to rgb
 //
 @function hexToRgb($hex) {
   @return red($hex), green($hex), blue($hex);

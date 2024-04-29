@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Template--home {
   --Template-bg-color: var(--tone-50);
@@ -11,7 +11,11 @@
 
   .Template-about-mobile {
     display: grid;
-    height: clamp(var(--Hero-min-height), var(--Hero-height), var(--Hero-max-height));
+    height: clamp(
+      var(--Hero-min-height),
+      var(--Hero-height),
+      var(--Hero-max-height)
+    );
     margin-left: rem(-4px);
     padding-bottom: 25vw;
     place-content: center;
@@ -23,7 +27,9 @@
       pointer-events: all;
     }
 
-    @include mq(s) {  display: none; }
+    @include mq(s) {
+      display: none;
+    }
   }
 
   .Template-about-desktop {
@@ -36,7 +42,11 @@
 
     @include mq(s) {
       display: block;
-      height: clamp(var(--Hero-min-height), var(--Hero-height), var(--Hero-max-height));
+      height: clamp(
+        var(--Hero-min-height),
+        var(--Hero-height),
+        var(--Hero-max-height)
+      );
       max-width: 20ch;
       padding-top: 25vw;
       pointer-events: none;
@@ -51,10 +61,14 @@
     @include mq(ml) {
       max-width: 35ch;
 
-      > h1 { @include text(l); }
+      > h1 {
+        @include text(l);
+      }
     }
 
-    @include mq(l) { padding-top: rem($space * 15); }
+    @include mq(l) {
+      padding-top: rem($space * 15);
+    }
   }
 
   .Template-heros {

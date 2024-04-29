@@ -1,49 +1,49 @@
 // Vendors
-@forward 'nprogress/nprogress';
-@forward 'stylesheets/vendors/nprogress';
-@forward 'stylesheets/vendors/locomotive-scroll';
+@use 'nprogress/nprogress';
+@use 'stylesheets/vendors/nprogress' as *;
+@use 'stylesheets/vendors/locomotive-scroll';
 
 // Generic
-@forward 'stylesheets/generic/base';
-@forward 'stylesheets/generic/fonts';
-@forward 'stylesheets/generic/heading';
+@use 'stylesheets/generic/base';
+@use 'stylesheets/generic/fonts';
+@use 'stylesheets/generic/heading';
 
 // Variables
-@forward 'variables';
+@use 'variables';
 
 // Helpers
-@forward 'helpers/background';
-@forward 'helpers/display';
-@forward 'helpers/grid';
-@forward 'helpers/helper';
-@forward 'helpers/margin';
-@forward 'helpers/padding';
-@forward 'helpers/scrollbar';
-@forward 'helpers/wrap';
+@use 'helpers/background';
+@use 'helpers/display';
+@use 'helpers/grid';
+@use 'helpers/helper';
+@use 'helpers/margin';
+@use 'helpers/padding';
+@use 'helpers/scrollbar';
+@use 'helpers/wrap';
 
 // Components
-@forward 'components/App';
-@forward 'components/Button';
-@forward 'components/Figure';
-@forward 'components/Footer';
-@forward 'components/Header';
-@forward 'components/Heading';
-@forward 'components/Hero';
-@forward 'components/Hr';
-@forward 'components/Icon';
-@forward 'components/Info';
-@forward 'components/Link';
-@forward 'components/LinkRoll';
-@forward 'components/NextProject';
-@forward 'components/Splash';
-@forward 'components/Stamp';
-@forward 'components/SubInfo';
-@forward 'components/Template';
-@forward 'components/Text';
-@forward 'components/TextReveal';
+@use 'components/App';
+@use 'components/Button';
+@use 'components/Figure';
+@use 'components/Footer';
+@use 'components/Header';
+@use 'components/Heading';
+@use 'components/Hero';
+@use 'components/Hr';
+@use 'components/Icon';
+@use 'components/Info';
+@use 'components/Link';
+@use 'components/LinkRoll';
+@use 'components/NextProject';
+@use 'components/Splash';
+@use 'components/Stamp';
+@use 'components/SubInfo';
+@use 'components/Template';
+@use 'components/Text';
+@use 'components/TextReveal';
 
 // Features
-@forward 'features/404';
-@forward 'features/About';
-@forward 'features/Home';
-@forward 'features/Project';
+@use 'features/404' as *;
+@use 'features/About';
+@use 'features/Home';
+@use 'features/Project';

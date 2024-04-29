@@ -13,7 +13,11 @@
 ) {
   @if not $root {
     @if $scaling == 'scale' and $maxFontSize {
-      font-size: clamp(rem($minFontSize), calc(#{rem($scaleFontSize)} + #{$scaleValue}), rem($maxFontSize));
+      font-size: clamp(
+        rem($minFontSize),
+        calc(#{rem($scaleFontSize)} + #{$scaleValue}),
+        rem($maxFontSize)
+      );
     } @else {
       font-size: rem($minFontSize);
     }

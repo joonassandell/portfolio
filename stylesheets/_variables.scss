@@ -1,19 +1,23 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 :root {
-  // Color: Base
+  /* =======================================
+   * Color tokens
+   * ======================================= */
+
+  // Base
   --black: #000000;
   --black-transparent: #0000;
-  --white: #FFFFFF;
+  --white: #ffffff;
 
-  // Color: Tone
-  --tone-50: #EEEAE5;
+  // Tone
+  --tone-50: #eeeae5;
 
-  // Color: Background
+  // Background
   --bg-900: var(--black);
   --bg-800: #111111;
-  --bg-100: #F2F2F2;
+  --bg-100: #f2f2f2;
   --bg-50: var(--white);
 
   --bg-gray-100-opaque-alpha: 0.15;
@@ -21,36 +25,48 @@
   --bg-gray-50-opaque-alpha: 0.06;
   --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
 
-  // Color: Text
+  // Text
   --text-900: #111111;
   --text-800: #111111;
   --text-50: var(--white);
-  --text-mute: #5E5E5E;
+  --text-mute: #5e5e5e;
 
-  // Color: Heading
+  // Heading
   --heading: inherit;
 
-  // Color: Link
+  // Link
   --link: var(--text-900);
   --link-hover-opacity: 0.6;
 
-  // Color: Border
+  // Focus
+  --focus-visible-bg: var(--bg-900);
+  --focus-visible-fg: var(--tone-50);
+
+  // Border
   --border-900: var(--black);
   --border-800: #333333;
-  --border-700: #4D4D4D;
-  --border-100: #E0E0E0;
+  --border-700: #4d4d4d;
+  --border-100: #e0e0e0;
   --border-50: var(--white);
   --hr: var(--black);
 
+  /* =======================================
+   * Base tokens
+   * ======================================= */
+
+  // Base
+  --root-min-width: 320px;
+  --vh: 100vh;
+
   // Typography
   --font-family-sans: 'Px Grotesk', sans-serif;
-  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-weight-medium: 400;
-  --font-weight-strong: bolder;
+  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  --font-weight-700: bolder;
+  --font-weight-400: 400;
 
-  --heading-font-family: inherit;
-  --heading-font-weight: 400;
-  --heading-font-weight-light: 100;
+  --heading-font-weight: var(--font-weight-400);
+  --heading-font-weight-100: 100;
 
   // Wrap
   --wrap-space-left: 6.25%;
@@ -65,6 +81,7 @@
   // Border
   --border-width-negative: -1px;
   --border-width: 1px;
+  --border-width-l: 2px;
   --border-radius: 8px;
   --border-radius-l: 16px;
   --border-radius-pill: 999px;
@@ -82,17 +99,21 @@
   --trans-secondary-fast: 0.6s var(--ease-secondary);
   --trans-secondary-fastest: 0.3s var(--ease-secondary);
 
-  // Root
-  --root-min-width: 320px;
-  --vh: 100vh;
-
-  // Size
+  // Icon
   --icon-size-l: #{rem(32px)};
+
+  // Scrollbar
+  --scrollbar-thumb: #{rgba(#000, 0.2)};
+  --scrollbar-thumb-negative: #{rgba(#fff, 0.15)};
 
   // Z index
   --z-index-900: 900;
   --z-index-800: 800;
   --z-index-700: 700;
+
+  /* =======================================
+   * Media queries
+   * ======================================= */
 
   @include mq(m) {
     --wrap-space-left: #{rem($space-l)};
@@ -102,5 +123,9 @@
   @include mq(l) {
     --wrap-space-left: #{rem($space-2xl)};
     --wrap-space-right: #{rem($space-xl)};
+  }
+
+  @include mq('4xl') {
+    --border-width-l: 3px;
   }
 }

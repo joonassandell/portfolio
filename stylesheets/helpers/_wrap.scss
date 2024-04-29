@@ -1,5 +1,4 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
 .wrap {
   padding-left: var(--wrap-space-left);

@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Hero--oras {
   --Stamp-iris: var(--oras-primary);
@@ -32,7 +32,8 @@
   }
 
   &.is-transition {
-    .Hero-content, .Hero-link {
+    .Hero-content,
+    .Hero-link {
       z-index: 0;
     }
   }

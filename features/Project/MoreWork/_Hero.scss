@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Hero--moreWork {
   --Stamp-overlay: var(--moreWork-bg-50);
@@ -19,7 +19,8 @@
   }
 
   &.is-transition {
-    .Hero-content, .Hero-link {
+    .Hero-content,
+    .Hero-link {
       z-index: 0;
     }
   }

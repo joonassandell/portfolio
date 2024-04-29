@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Hero--mediasignal {
   --Stamp-overlay: var(--mediasignal-bg-50);
@@ -19,7 +19,7 @@
 
     @include mq(l) {
       --width: 64vw;
-      inset:  rem($space * 3) 0 0 rem($space * -5);
+      inset: rem($space * 3) 0 0 rem($space * -5);
     }
   }
 
@@ -32,7 +32,8 @@
   }
 
   &.is-transition {
-    .Hero-content, .Hero-link {
+    .Hero-content,
+    .Hero-link {
       z-index: 0;
     }
   }

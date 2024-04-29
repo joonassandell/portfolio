@@ -1,5 +1,4 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
 .grid {
   --grid-gap: var(--grid-gap-m);
@@ -8,13 +7,17 @@
   grid-template-columns: repeat(12, 1fr);
 }
 
-/* ======
+/* =======================================
  * Gap
- * ====== */
+ * ======================================= */
 
 .grid {
   &.-gap\:l {
-    --grid-gap: clamp(var(--grid-gap-m), var(--grid-gap-scale), var(--grid-gap-l));
+    --grid-gap: clamp(
+      var(--grid-gap-m),
+      var(--grid-gap-scale),
+      var(--grid-gap-l)
+    );
 
     @include mq(l) {
       --grid-gap: var(--grid-gap-l);
@@ -22,7 +25,11 @@
   }
 
   &.-gap\:xl {
-    --grid-gap: clamp(var(--grid-gap-m), var(--grid-gap-scale), var(--grid-gap-xl));
+    --grid-gap: clamp(
+      var(--grid-gap-m),
+      var(--grid-gap-scale),
+      var(--grid-gap-xl)
+    );
 
     @include mq(l) {
       --grid-gap: var(--grid-gap-xl);
@@ -50,9 +57,9 @@
   }
 }
 
-/* ======
- * Align
- * ====== */
+/* =======================================
+ * Placement
+ * ======================================= */
 
 .grid {
   &.-place\:end {
@@ -60,9 +67,9 @@
   }
 }
 
-/* ======
+/* =======================================
  * Columns
- * ====== */
+ * ======================================= */
 
 .grid-col {
   --grid-span: 12;
@@ -73,18 +80,45 @@
   $breakpoint: if($breakpoint, \@#{$breakpoint}, null);
 
   @for $i from 1 through 12 {
-    .grid-col\:#{$i}#{$breakpoint} { --grid-span: #{$i}; }
-    .grid-col.-start\:#{$i}#{$breakpoint} { grid-column-start: #{$i}; }
+    .grid-col\:#{$i}#{$breakpoint} {
+      --grid-span: #{$i};
+    }
+    .grid-col.-start\:#{$i}#{$breakpoint} {
+      grid-column-start: #{$i};
+    }
   }
 }
 
-.grid-col.-start { grid-column-start: 1; }
-.grid-col.-end { grid-column-end: -1; }
-.grid-col.-align\:end { align-self: end; }
-.grid-col.-align\:center { align-self: center; }
+.grid-col.-start {
+  grid-column-start: 1;
+}
+
+.grid-col.-end {
+  grid-column-end: -1;
+}
+
+.grid-col.-align\:end {
+  align-self: end;
+}
+
+.grid-col.-align\:center {
+  align-self: center;
+}
 
 @include gridColumns();
-@include mq(s) { @include gridColumns(s); }
-@include mq(m) { @include gridColumns(m); }
-@include mq(l) { @include gridColumns(l); }
-@include mq(xl) { @include gridColumns(xl); }
+
+@include mq(s) {
+  @include gridColumns(s);
+}
+
+@include mq(m) {
+  @include gridColumns(m);
+}
+
+@include mq(l) {
+  @include gridColumns(l);
+}
+
+@include mq(xl) {
+  @include gridColumns(xl);
+}

@@ -1,12 +1,12 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 :root {
   @include fontSize(
     $minFontSize: $font-size,
     $maxFontSize: 999px,
     $root: true,
-    $scaleValue: 1.25vw,
+    $scaleValue: 1.25vw
   );
   background-color: var(--bg-900);
   color: var(--text-50);
@@ -36,23 +36,37 @@
   }
 }
 
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
 body {
   margin: 0;
 }
 
-:where(figure) {
-  all: unset;
-  display: block;
-}
-
 :where(ul) {
-  all: unset;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 :where(a) {
   color: var(--link);
   text-decoration: none;
+}
+
+:where(:focus) {
+  outline: 0;
+}
+
+:where(:focus-visible) {
+  background-color: var(--focus-visible-bg);
+  color: var(--focus-visible-fg);
+  outline: 0;
 }
 
 ::-moz-selection {
@@ -73,32 +87,34 @@ img::-moz-selection {
   background: transparent;
 }
 
-img,
-video {
+:where(figure) {
+  margin: 0;
+}
+
+:where(img, video) {
   max-width: 100%;
 }
 
-img {
+:where(img) {
   height: auto;
   vertical-align: middle;
 }
 
-p {
+:where(p) {
   margin: 0 0 rem($space-m);
 }
 
-b,
-strong {
-  font-weight: var(--font-weight-strong);
+:where(b, strong) {
+  font-weight: var(--font-weight-700);
 }
 
-small {
+:where(small) {
   @include text(xs);
   display: inline-block;
   margin: 0 0 rem($space-m);
 }
 
-hr {
+:where(hr) {
   border: 0;
   border-top: var(--border-width) solid var(--hr);
   display: block;
@@ -107,21 +123,3 @@ hr {
   overflow: visible;
   padding: 0;
 }
-
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:focus-visible {
-    background-color: var(--bg-900);
-    color: var(--text-50);
-  }
-}
-

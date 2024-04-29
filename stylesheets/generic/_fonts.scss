@@ -1,13 +1,10 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
-
 @font-face {
   font-display: block;
   font-family: 'Px Grotesk';
   font-style: normal;
   font-weight: 400;
   src: url('/static/fonts/Px-Grotesk-Regular.woff2') format('woff2'),
-       url('/static/fonts/Px-Grotesk-Regular.woff') format('woff');
+    url('/static/fonts/Px-Grotesk-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -16,5 +13,5 @@
   font-style: normal;
   font-weight: 100;
   src: url('/static/fonts/Px-Grotesk-Light.woff2') format('woff2'),
-       url('/static/fonts/Px-Grotesk-Light.woff') format('woff');
+    url('/static/fonts/Px-Grotesk-Light.woff') format('woff');
 }

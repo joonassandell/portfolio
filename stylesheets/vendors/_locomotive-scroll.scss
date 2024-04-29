@@ -1,9 +1,8 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
-/* ======
+/* =======================================
  * Base
- * ====== */
+ * ======================================= */
 
 :root {
   &.is-scroll-smooth {
@@ -22,9 +21,9 @@ body {
   }
 }
 
-/* ======
+/* =======================================
  * Scrollbar
- * ====== */
+ * ======================================= */
 
 .ScrollBar {
   height: 100%;
@@ -33,7 +32,8 @@ body {
   opacity: 0;
   position: absolute;
   transform-origin: center right;
-  transition: transform var(--trans-primary-fastest), opacity var(--trans-primary-fastest);
+  transition: transform var(--trans-primary-fastest),
+    opacity var(--trans-primary-fastest);
   width: 11px;
   z-index: var(--z-index-800);
 
@@ -41,7 +41,9 @@ body {
     transform: scaleX(1.45);
   }
 
-  &:hover, :root.is-scroll &, :root.is-drag & {
+  &:hover,
+  :root.is-scroll &,
+  :root.is-drag & {
     opacity: 1;
   }
 
@@ -57,7 +59,7 @@ body {
 }
 
 .ScrollBar_thumb {
-  background-color: var(--white);
+  background-color: var(--bg-50);
   border-radius: var(--border-radius-pill);
   cursor: grab;
   inset: 0 0 auto auto;
@@ -65,11 +67,11 @@ body {
   opacity: 0.5;
   position: absolute;
   width: 3px;
-  
+
   .is-drag & {
     cursor: grabbing;
   }
-  
+
   @include mq(s) {
     margin: 2px;
     width: 7px;

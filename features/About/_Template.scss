@@ -1,5 +1,5 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Template--about {
   --Template-bg-color: var(--tone-50);
@@ -13,7 +13,9 @@
     }
   }
 
-  .Template-cube, .Template-cube-2, .Template-ball {
+  .Template-cube,
+  .Template-cube-2,
+  .Template-ball {
     pointer-events: none;
     position: absolute;
   }

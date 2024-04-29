@@ -1,14 +1,8 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
 .Hero--biocode {
   --Stamp-iris: var(--biocode-primary);
-
-  &:not(&.-transition\:pre) {
-    .Hero-heading {
-      color: var(--biocode-heading);
-    }
-  }
 
   .is-iPhoneSafari & {
     &.-transition\:pre {
@@ -95,21 +89,30 @@
     }
   }
 
-  &.is-transition, &:not(.Hero.-transition\:pre) {
+  &.is-transition,
+  &:not(.Hero.-transition\:pre) {
     .Hero-figure-icon {
       border-color: var(--biocode-border-200);
     }
   }
 
   .Hero-bg {
-    background: radial-gradient(70% rem($space * 22) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50));
+    background: radial-gradient(
+      70% rem($space * 22) at 70% 0,
+      var(--biocode-bg-200),
+      var(--biocode-bg-50)
+    );
     z-index: 2;
   }
 
   .has-themeColor & {
     .Hero-bg {
       background: linear-gradient(180deg, var(--biocode-bg-50), transparent 15%),
-                  radial-gradient(70% rem($space * 22) at 70% 0, var(--biocode-bg-200), var(--biocode-bg-50));
+        radial-gradient(
+          70% rem($space * 22) at 70% 0,
+          var(--biocode-bg-200),
+          var(--biocode-bg-50)
+        );
     }
   }
 

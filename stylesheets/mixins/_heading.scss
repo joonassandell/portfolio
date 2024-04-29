@@ -1,6 +1,6 @@
-@use "stylesheets/config" as *;
-@use "fontSize" as *;
-@use "utility" as *;
+@use 'stylesheets/config' as *;
+@use 'fontSize' as *;
+@use 'utility' as *;
 
 @mixin heading($size: h1, $base: true, $margin: true, $color: true) {
   @if $color and $size != h6 {
@@ -8,7 +8,7 @@
   }
 
   @if $base {
-    font-family: var(--heading-font-family);
+    font-family: inherit;
     font-weight: var(--heading-font-weight);
     text-wrap: balance;
   }

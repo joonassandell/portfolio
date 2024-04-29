@@ -1,5 +1,4 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/mixins' as *;
 
 .Template--moreWork.Template--archive {
   .Template-figureGrid {
@@ -8,7 +7,7 @@
     gap: var(--grid-gap);
 
     @include mq(m) {
-      --grid-gap:  var(--grid-gap-l);
+      --grid-gap: var(--grid-gap-l);
       grid-template-columns: repeat(2, 1fr);
     }
   }
