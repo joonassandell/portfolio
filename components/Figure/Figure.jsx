@@ -104,7 +104,7 @@ export const Figure = ({
               variants={glareVariants}
             />
           )}
-          {!isVideo && !priority && (
+          {!isVideo && (
             <AnimatePresence>
               {!imgLoaded && (
                 <m.div
