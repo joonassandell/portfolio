@@ -8,6 +8,8 @@ import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import Script from 'next/script';
 import { AppHead } from './';
+import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
+import NProgress from 'nprogress';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
@@ -88,7 +90,7 @@ export const App = ({ Component, pageProps }) => {
       loading: false,
     }));
 
-    () => window.removeEventListener('resize', rootHeight);
+    return () => window.removeEventListener('resize', rootHeight);
   }, []);
 
   /* ======
@@ -113,6 +115,38 @@ export const App = ({ Component, pageProps }) => {
       setTimeout(() => html.classList.remove(hackClass), 300);
     }
   }, [transition]);
+
+  /**
+   * Add loader with nprogress for slow networks
+   */
+  useEffect(() => {
+    let timeout;
+
+    NProgress.configure({
+      easing: EASE_CSS,
+      showSpinner: false,
+    });
+
+    const changeStart = () => {
+      timeout = setTimeout(() => NProgress.start(), SLOW_NETWORK_DELAY);
+    };
+
+    const changeComplete = () => {
+      clearTimeout(timeout);
+      if (NProgress.status) NProgress.done();
+    };
+
+    events.on('routeChangeStart', changeStart);
+    events.on('routeChangeError', changeComplete);
+    events.on('routeChangeComplete', changeComplete);
+
+    return () => {
+      clearTimeout(timeout);
+      events.off('routeChangeStart', changeStart);
+      events.off('routeChangeError', changeComplete);
+      events.off('routeChangeComplete', changeComplete);
+    };
+  }, []);
 
   /**
    * Set template transition by default when navigating back/forward

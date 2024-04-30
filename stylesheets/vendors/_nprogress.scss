@@ -2,29 +2,29 @@
 @use 'stylesheets/mixins' as *;
 
 #nprogress {
-  $width: rem($space-4xs);
-  height: $width;
-  left: $width / 2;
+  height: $space-2xs;
+  inset: 0 0 auto 0;
   mix-blend-mode: difference;
+  pointer-events: none;
   position: fixed;
-  top: 0;
-  transform: rotate(90deg);
-  transform-origin: left;
-  width: var(--vh);
   z-index: var(--z-index-800);
 
   .bar {
-    background: linear-gradient(
-      to right,
-      rgba(#ffffff, 0) 0%,
-      rgba(#ffffff, 0.7)
-    );
-    height: $width;
+    background: var(--bg-50);
+    height: inherit;
   }
 
   .peg {
-    box-shadow: 0 0 30px var(--tone-50), 0 0 8px var(--tone-50);
-    transform: translate(0, 0);
-    width: rem($space);
+    display: none;
+  }
+
+  @include mqPointer() {
+    display: none;
+  }
+}
+
+:root {
+  &.nprogress-busy {
+    cursor: wait;
   }
 }

@@ -18,12 +18,11 @@ import { LinkRoll } from '@/components/LinkRoll';
 import { Link } from '@/components/Link';
 import c from 'clsx';
 import { debounce } from 'lodash-es';
-import { EASE_CSS, SITEMAP, LINKS, CONTENT, MQ } from '@/lib/config';
+import { SITEMAP, LINKS, CONTENT, MQ } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
-import NProgress from 'nprogress';
 import { useScrollTo } from '@/lib/useScrollTo';
 import { NavItem } from './HeaderNavItem';
 import { urlState } from '@/lib/useUrlState';
@@ -143,39 +142,31 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
    * Handle closing and progress loader if routes change
    */
   useEffect(() => {
-    if (isOpen) {
-      NProgress.configure({
-        easing: EASE_CSS,
-        showSpinner: false,
-        speed: 1200,
+    if (!isOpen) return;
+
+    const changeStart = () => {
+      setEnterExit({
+        btnText: enterExitBtnTextIfNavOpen,
+        btnArrow: enterExitBtnArrowIfNavOpen,
       });
+    };
+    const changeComplete = () => {
+      toggleOpen();
+      setEnterExit({
+        btnText: enterExitBtnText,
+        btnArrow: enterExitBtnArrow,
+      });
+    };
 
-      const changeStart = () => {
-        NProgress.start();
-        setEnterExit({
-          btnText: enterExitBtnTextIfNavOpen,
-          btnArrow: enterExitBtnArrowIfNavOpen,
-        });
-      };
-      const changeComplete = () => {
-        NProgress.done();
-        toggleOpen();
-        setEnterExit({
-          btnText: enterExitBtnText,
-          btnArrow: enterExitBtnArrow,
-        });
-      };
+    events.on('routeChangeStart', changeStart);
+    events.on('routeChangeError', changeComplete);
+    events.on('routeChangeComplete', changeComplete);
 
-      events.on('routeChangeStart', changeStart);
-      events.on('routeChangeError', changeComplete);
-      events.on('routeChangeComplete', changeComplete);
-
-      return () => {
-        events.off('routeChangeStart', changeStart);
-        events.off('routeChangeError', changeComplete);
-        events.off('routeChangeComplete', changeComplete);
-      };
-    }
+    return () => {
+      events.off('routeChangeStart', changeStart);
+      events.off('routeChangeError', changeComplete);
+      events.off('routeChangeComplete', changeComplete);
+    };
   }, [isOpen]);
 
   /**
