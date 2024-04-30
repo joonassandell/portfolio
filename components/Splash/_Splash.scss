@@ -1,3 +1,6 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .Splash {
   background-color: var(--bg-900);
   color: var(--text-50);
@@ -11,6 +14,7 @@
   display: grid;
   inset: 0;
   place-content: center;
+  place-items: center;
   position: absolute;
   text-align: center;
 }
@@ -20,10 +24,31 @@
 }
 
 .Splash-text {
-  animation: animate 1s var(--ease);
+  animation: Splash-text 1s var(--ease);
 }
 
-@keyframes animate {
+.Splash-loader {
+  animation: Splash-loader 1s var(--slow-network-delay) steps(4) infinite;
+  aspect-ratio: 10;
+  background: radial-gradient(
+      circle closest-side,
+      var(--bg-50) 90%,
+      transparent
+    )
+    0 / calc(100% / 3) 100% space;
+  clip-path: inset(0 100% 0 0);
+  margin-top: rem($space-s * -1);
+  transition: opacity var(--trans-primary-fastest);
+  width: $space-l;
+}
+
+.Splash:has(.Splash-text[style*='transform']) {
+  .Splash-loader {
+    opacity: 0;
+  }
+}
+
+@keyframes Splash-text {
   from {
     opacity: 0;
     transform: translateY(100%) skewX(-50deg) translateZ(0);
@@ -32,5 +57,11 @@
   to {
     opacity: 1;
     transform: translateY(0%) skewX(0deg) translateZ(0);
+  }
+}
+
+@keyframes Splash-loader {
+  to {
+    clip-path: inset(0 -33.333% 0 0);
   }
 }

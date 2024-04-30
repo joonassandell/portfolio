@@ -26,6 +26,7 @@ export const Splash = ({ loading, setLoadingEnd }) => {
                 Joonas Sandell
               </m.div>
             </Heading>
+            <div className="Splash-loader" />
           </div>
         </m.div>
       )}
