@@ -61,6 +61,7 @@ export const NextProject = ({ id }) => {
       );
       r.set(rotateAmount);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosX, mousePosY, mouseDistanceX]);
 
   /**
@@ -73,6 +74,7 @@ export const NextProject = ({ id }) => {
       y.set(height - figureHeightHalf * 0.8);
       setTimeout(() => setInitial(true), 500);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height, width, figureWidth, figureHeight]);
 
   return (

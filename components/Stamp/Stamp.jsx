@@ -65,12 +65,14 @@ export const Stamp = ({
     if (!inView || transitionStart) return;
     x.set(mouseX);
     y.set(mouseY);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mouseX, mouseY, inView, transitionStart]);
 
   useEffect(() => {
     if (!addVarsToParent) return;
     if (!inView || transitionStart) return;
     setParentAttributes(moveX.current, moveY.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moveX.current, moveY.current, inView, transitionStart]);
 
   useEffect(() => {
@@ -81,11 +83,13 @@ export const Stamp = ({
     );
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
   useEffect(() => {
     if (!addVarsToParent) return;
     setParentAttributes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

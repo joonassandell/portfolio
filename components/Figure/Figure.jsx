@@ -38,17 +38,13 @@ export const Figure = ({
   width,
   quality,
 }) => {
-  if (!src) {
-    console.error('Figure: src is not defined');
-    return null;
-  }
   const classes = c(className, 'Figure', {
     '-mask': mask,
     '-bg': background,
     '-border': border,
     '-border:radius': borderRadius,
   });
-  const id = src.split('/').pop().split('.')[0];
+  const id = src?.split('/').pop().split('.')[0];
   const ref = useRef(null);
   const figureVariants = transition === 'move' ? moveVariants : clipVariants;
   const inView = useInView(ref, inViewOffset);

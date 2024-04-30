@@ -93,7 +93,16 @@ export const ButtonArrow = ({
         setActive('start');
       }
     })();
-  }, [active, enableHover, activeState, hoverEnd, hoverStart]);
+  }, [
+    active,
+    enableHover,
+    activeState,
+    hoverEnd,
+    hoverStart,
+    arrow,
+    arrowIn,
+    bg,
+  ]);
 
   useEffect(() => {
     arrowIn.set({
@@ -101,7 +110,7 @@ export const ButtonArrow = ({
       y: '-5rem',
     });
     bg.set({ y: '77%' });
-  }, []);
+  }, [arrowIn, bg]);
 
   return (
     <div className={classes}>

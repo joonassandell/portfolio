@@ -27,6 +27,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
 # Misc
 .DS_Store
 *.pem

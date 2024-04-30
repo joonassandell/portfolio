@@ -26,7 +26,8 @@ export const Hero = ({
 }) => {
   const transitionPre = transition === 'pre';
   const { appState } = useAppContext();
-  const { transitionInitial: appTransitionInitial, transition: appTransition } = appState;
+  const { transitionInitial: appTransitionInitial, transition: appTransition } =
+    appState;
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
   const ref = useRef(null);
@@ -95,10 +96,12 @@ export const Hero = ({
               data-s-direction="horizontal"
             >
               <TextReveal
-                custom={...transitionPre && {
-                  y: '60%',
-                  transition: TRANS_TERTIARY_FAST,
-                }}
+                custom={
+                  transitionPre && {
+                    y: '60%',
+                    transition: TRANS_TERTIARY_FAST,
+                  }
+                }
                 text={[heading]}
                 {...(noTransition && { initial: 'animate' })}
               />

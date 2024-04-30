@@ -91,7 +91,7 @@ export const App = ({ Component, pageProps }) => {
     }));
 
     return () => window.removeEventListener('resize', rootHeight);
-  }, []);
+  }, [html]);
 
   /* ======
    * Various
@@ -99,7 +99,7 @@ export const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (loadingEnd) html.classList.remove('is-loading');
-  }, [loadingEnd]);
+  }, [loadingEnd, html]);
 
   useEffect(() => {
     if (transition) {
@@ -114,7 +114,7 @@ export const App = ({ Component, pageProps }) => {
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
       setTimeout(() => html.classList.remove(hackClass), 300);
     }
-  }, [transition]);
+  }, [transition, html]);
 
   /**
    * Add loader with nprogress for slow networks
@@ -146,7 +146,7 @@ export const App = ({ Component, pageProps }) => {
       events.off('routeChangeError', changeComplete);
       events.off('routeChangeComplete', changeComplete);
     };
-  }, []);
+  }, [events]);
 
   /**
    * Set template transition by default when navigating back/forward
@@ -168,7 +168,7 @@ export const App = ({ Component, pageProps }) => {
       }
     });
     return () => popStateTimeout && clearTimeout(popStateTimeout);
-  }, [transition]);
+  }, [transition, beforePopState, push, popStateTimeout]);
 
   /**
    * Set initial transitions ready for animation (e.g. for Hero)

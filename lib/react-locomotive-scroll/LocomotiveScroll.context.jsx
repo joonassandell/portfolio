@@ -44,6 +44,7 @@ export function LocomotiveScrollProvider({
       LocomotiveScrollRef.current?.destroy();
       setIsReady(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(
@@ -58,6 +59,7 @@ export function LocomotiveScrollProvider({
         onUpdate(LocomotiveScrollRef.current);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     watch ? [...watch, height] : [height],
   );
 
@@ -71,6 +73,7 @@ export function LocomotiveScrollProvider({
     if (onLocationChange) {
       onLocationChange(LocomotiveScrollRef.current);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   return (
