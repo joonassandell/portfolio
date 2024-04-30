@@ -9,7 +9,7 @@ import { Head } from '@/components/Head';
 
 export const OrasPage = ({ images, id, title, themeColor }) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
-  console.log(id);
+
   return (
     <Template id={id}>
       <Head title={title} themeColor={themeColor} />
@@ -99,7 +99,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
-              priority
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-oras-products-overview', images)}
             />
@@ -114,7 +113,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
           <div className="grid-col grid-col:9@m -end">
             <Figure
               alt="Oras kitchen experience"
-              priority
               sizes={`${MQ.m} 70vw, 100vw`}
               {...getImage('joonassandell-oras-ux-kitchen', images)}
             />
@@ -156,7 +154,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
             alt="Oras sense faucet"
             borderRadius={false}
             mask
-            priority
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateSection>
@@ -164,7 +161,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
-              priority
               sizes={`${MQ.m} 80vw, 100vw`}
               {...getImage('joonassandell-oras-product-single', images)}
             />
@@ -255,7 +251,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile"
-                priority
                 scroll
                 sizes={`${MQ.m} 25vw, 50vw`}
                 quality={100}
@@ -265,7 +260,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 2"
-                priority
                 scroll
                 scrollSpeed="negative"
                 sizes={`${MQ.m} 25vw, 50vw`}
@@ -277,7 +271,6 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
             <div className="grid-col grid-col:5 -start:7 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile 3"
-                priority
                 scroll
                 scrollSpeed={SCROLL_SPEED * 2}
                 sizes={`${MQ.m} 25vw, 50vw`}

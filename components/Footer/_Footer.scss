@@ -2,14 +2,11 @@
 @use 'stylesheets/mixins' as *;
 
 .Footer {
-  --focus-visible-bg: var(--text-50);
-  --focus-visible-fg: var(--bg-900);
+  --focus-visible-bg: var(--bg-50);
+  --focus-visible-fg: var(--text-900);
   --link: var(--text-50);
 
-  background-color: var(
-    --Footer-bg-color,
-    var(--Template-bg-color, var(--bg-50))
-  );
+  background: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
   color: var(--text-50);
   padding-bottom: rem($space-l);
 
@@ -17,7 +14,7 @@
   .is-windows & {
     .LinkRoll-char,
     .Footer-copyright {
-      background: var(--white);
+      background: var(--bg-50);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

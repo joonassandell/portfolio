@@ -40,7 +40,7 @@
 
   // Focus
   --focus-visible-bg: var(--bg-900);
-  --focus-visible-fg: var(--tone-50);
+  --focus-visible-fg: var(--text-50);
 
   // Border
   --border-900: var(--black);
@@ -56,6 +56,7 @@
 
   // Base
   --root-min-width: 320px;
+  --slow-network-delay: 1s;
   --vh: 100vh;
 
   // Typography

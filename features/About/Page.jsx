@@ -88,6 +88,7 @@ export const AboutPage = ({ id, title }) => {
               borderRadius={false}
               className="Template-cube"
               alt="Line cube"
+              placeholder={false}
               priority
               scroll
               scrollPosition="top"
@@ -135,7 +136,7 @@ export const AboutPage = ({ id, title }) => {
                   borderRadius={false}
                   inViewOffset={-1}
                   sizes={`${MQ.m} 30vw, 40vw`}
-                  priority
+                  placeholder={false}
                   {...cubeImage}
                 />
               </m.div>
@@ -260,7 +261,7 @@ export const AboutPage = ({ id, title }) => {
             aria-hidden="true"
             borderRadius={false}
             className="Template-ball"
-            priority
+            placeholder={false}
             scroll
             scrollSpeed={-3}
             sizes={`${MQ.m} 30vw, 40vw`}
