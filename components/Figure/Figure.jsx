@@ -23,6 +23,7 @@ export const Figure = ({
   height,
   inViewOffset = 0.1,
   mask = false,
+  placeholder = true,
   priority = false,
   scroll = false,
   scrollDelay,
@@ -104,7 +105,7 @@ export const Figure = ({
               variants={glareVariants}
             />
           )}
-          {!isVideo && (
+          {!isVideo && placeholder && (
             <AnimatePresence>
               {!imgLoaded && (
                 <m.div
