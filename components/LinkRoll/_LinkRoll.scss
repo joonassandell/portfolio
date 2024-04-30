@@ -14,7 +14,7 @@
   transition: opacity var(--trans-primary-fastest);
   will-change: opacity; // [1.]
 
-  &:where(:hover) {
+  &:hover {
     opacity: var(--link-hover-opacity);
   }
 }

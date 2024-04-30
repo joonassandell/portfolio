@@ -1,0 +1,65 @@
+// Hover media query
+@mixin mqHover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// Touch media query
+@mixin mqTouch {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+
+// Pointer media query
+@mixin mqPointer {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+// On :hover
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// On :focus
+@mixin focus() {
+  &:focus {
+    @content;
+  }
+}
+
+// On :focus-visible
+@mixin focusVisible() {
+  &:focus-visible {
+    @content;
+  }
+}
+
+// On :hover and on :focus-visible
+@mixin hoverFocusVisible() {
+  @include focusVisible() {
+    @content;
+  }
+
+  @include hover() {
+    @content;
+  }
+}
+
+// On :hover and on :focus
+@mixin hoverFocus() {
+  @include focus() {
+    @content;
+  }
+
+  @include hover() {
+    @content;
+  }
+}

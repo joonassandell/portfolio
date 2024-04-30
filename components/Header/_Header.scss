@@ -11,8 +11,8 @@
  *    animated away.
  */
 .Header {
-  --focus-visible-bg: var(--text-50);
-  --focus-visible-fg: var(--bg-900);
+  --focus-visible-bg: var(--bg-50);
+  --focus-visible-fg: var(--text-900);
   --link: var(--text-50);
 }
 
@@ -29,7 +29,7 @@
   .is-windows & {
     .LinkRoll-char,
     .Header-button-text-item > div {
-      background: var(--white);
+      background: var(--bg-50);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -434,13 +434,6 @@
 .Header-footer {
   display: flex;
   margin: max(7.5vh, #{rem($space-l)}) 0 rem($space-ml) 0;
-
-  a {
-    &:focus-visible {
-      background-color: var(--white);
-      color: var(--black);
-    }
-  }
 
   @include mq($until: m) {
     @include text(s);
