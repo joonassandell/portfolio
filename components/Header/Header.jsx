@@ -59,7 +59,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
   } = useAppContext();
   const scrollTo = useScrollTo();
   const maskRef = useRef(null);
-  const mqM = useMedia(MQ.m, false);
+  const mqM = useMedia(MQ.m);
   const { scroll } = useLocomotiveScroll();
 
   const setArrowPosFromRef = ref => {
@@ -79,7 +79,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     resize();
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
-  }, []);
+  }, [btnArrow]);
 
   /**
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
@@ -167,7 +167,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
       events.off('routeChangeError', changeComplete);
       events.off('routeChangeComplete', changeComplete);
     };
-  }, [isOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, events]);
 
   /**
    * Handle closing with ESC key
@@ -178,7 +179,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
       html.addEventListener('keydown', esc);
       return () => html.removeEventListener('keydown', esc);
     }
-  }, [isOpen, disabled]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, disabled, html]);
 
   /**
    * Disable keydowns if mask is animating
@@ -189,7 +191,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
       html.addEventListener('keydown', keys);
       return () => html.removeEventListener('keydown', keys);
     }
-  }, [disabled]);
+  }, [disabled, html]);
 
   /**
    * Mask
@@ -227,7 +229,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
         });
       }
     })();
-  }, [mask, arrowPos.x, arrowPos.y]);
+  }, [mask, arrowPos.x, arrowPos.y, maskAnim]);
 
   useEffect(() => {
     if (mask === 'closedReset' && !disabled) setMaskIsOpen(false);
