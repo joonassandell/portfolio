@@ -4,7 +4,7 @@ import { type HeadingProps } from './';
 export const Heading = ({
   className,
   children,
-  tag = 'h2',
+  tag: Tag = 'h2',
   size = 'h3',
   ...props
 }: HeadingProps) => {
@@ -12,12 +12,11 @@ export const Heading = ({
   const classes = c(
     'Heading',
     {
-      [`${size}`]: size && !display, // Uses helpers
+      [`${size}`]: size && !display,
       'Heading--display': display,
     },
     className,
   );
-  const Tag = tag;
 
   return (
     <Tag className={classes} {...props}>

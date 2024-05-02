@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, m, type HTMLMotionProps } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowRight } from '../Icon';
 import {
@@ -21,7 +21,7 @@ export const Link = ({
   href,
   onClick,
   orientation = 'horizontal',
-  tag = 'a',
+  tag,
   target,
   templateTransition = true,
   underline,
@@ -34,7 +34,7 @@ export const Link = ({
     '-vertical': orientation === 'vertical',
     '-arrow': arrow,
   });
-  const Tag = tag == 'span' ? m.span : m.a;
+  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
   const linkTarget = target
     ? target
     : href?.startsWith('http')

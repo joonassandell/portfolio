@@ -1,4 +1,4 @@
-import { m, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, type HTMLMotionProps } from 'framer-motion';
 import { default as NextLink } from 'next/link';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ export const LinkRoll = ({
   className,
   href,
   onClick,
-  tag = 'a',
+  tag,
   target,
   templateTransition = true,
   underline,
@@ -31,7 +31,7 @@ export const LinkRoll = ({
     'has-underline': isBoolean(underline),
     '-underline': underline,
   });
-  const Tag = tag == 'span' ? m.span : m.a;
+  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
   const linkTarget = target
     ? target
     : href?.startsWith('http')

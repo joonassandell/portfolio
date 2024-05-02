@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { HTMLMotionProps, m } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
 import { TEXT_VARIANTS } from '@/lib/config';
@@ -11,7 +11,7 @@ export const Text = ({
   children,
   color,
   marginBottom,
-  size,
+  size = 'm',
   tag,
   ...props
 }: TextProps) => {
@@ -29,7 +29,7 @@ export const Text = ({
   );
   const ref = useRef(null);
   const inView = useInView(ref);
-  const Tag = tag && animate ? m(tag) : tag ? tag : animate ? m.div : 'div';
+  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.div;
 
   return (
     <Tag
