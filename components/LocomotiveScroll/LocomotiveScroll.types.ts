@@ -8,25 +8,30 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-// https://github.com/antoinelin/react-locomotive-scroll/blob/main/lib/%40types/locomotive-scroll.d.ts#L92
-type LocomotiveScrollInstanceEvents = {
+/**
+ * Add more of these if needed
+ * https://github.com/antoinelin/react-locomotive-scroll/blob/main/lib/%40types/locomotive-scroll.d.ts#L92
+ */
+export type LocomotiveScrollInstanceEvents = {
   scroll: {
     stop: boolean;
   };
 };
 
+export interface LocomotiveScrollProps
+  extends LocomotiveScrollInstanceEvents,
+    Scroll {}
+
 export interface LocomotiveScrollContextProps {
   isReady: boolean;
-  scroll: (Scroll & LocomotiveScrollInstanceEvents) | null;
+  scroll: LocomotiveScrollProps | null;
 }
 
 export interface LocomotiveScrollProviderProps extends PropsWithChildren {
   containerRef: MutableRefObject<HTMLDivElement | null>;
   location?: string;
-  onLocationChange?: (scroll: Scroll) => void;
-  onUpdate?: (scroll: Scroll) => void;
+  onLocationChange?: (scroll: LocomotiveScrollProps) => void;
+  onUpdate?: (scroll: LocomotiveScrollProps) => void;
   options: LocomotiveScrollOptions;
   watch: DependencyList | undefined;
 }
-
-export { Scroll };
