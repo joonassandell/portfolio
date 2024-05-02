@@ -5,7 +5,9 @@ import {
   stampVariants,
   svgVariants,
   overlayVariants,
-} from './Stamp.animations';
+  stampTransition,
+  type StampProps,
+} from './';
 import { debounce } from 'lodash-es';
 import { useMouse, useMeasure } from 'react-use';
 import { useEffect, useRef } from 'react';
@@ -19,10 +21,10 @@ export const Stamp = ({
   overlay = true,
   parentRef,
   transitionStart,
-}) => {
+}: StampProps) => {
   const classes = c('Stamp', className);
-  const [ref, { width, height }] = useMeasure();
-  const innerRef = useRef(null);
+  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
+  const innerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(innerRef, 0, false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -45,7 +47,8 @@ export const Stamp = ({
   !mouseY && !mouseX && moveY.set(0);
 
   const setParentAttributes = (moveX = 0, moveY = 0) => {
-    if (!parentRef || !innerRef) return;
+    if (!parentRef.current || !innerRef.current) return;
+
     const {
       offsetHeight: height,
       offsetLeft: x,
@@ -71,14 +74,14 @@ export const Stamp = ({
   useEffect(() => {
     if (!addVarsToParent) return;
     if (!inView || transitionStart) return;
-    setParentAttributes(moveX.current, moveY.current);
+    setParentAttributes(moveX.get(), moveY.get());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moveX.current, moveY.current, inView, transitionStart]);
+  }, [moveX.get(), moveY.get(), inView, transitionStart]);
 
   useEffect(() => {
     if (!addVarsToParent) return;
     const resize = debounce(
-      () => setParentAttributes(moveX.current, moveY.current),
+      () => setParentAttributes(moveX.get(), moveY.get()),
       100,
     );
     window.addEventListener('resize', resize);
@@ -109,8 +112,8 @@ export const Stamp = ({
           variants={stampVariants}
           whileHover="hover"
           whileTap="tap"
-          transition={stampVariants.transition}
-          tabIndex="-1"
+          transition={stampTransition}
+          tabIndex={-1}
         >
           <m.div
             animate={inView ? 'animate' : ''}

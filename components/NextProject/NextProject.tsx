@@ -1,4 +1,10 @@
-import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import {
+  MotionValue,
+  m,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import { LinkRoll } from '@/components/LinkRoll';
 import { useEffect, useRef, useState } from 'react';
 import { useMouseHovered, useMeasure } from 'react-use';
@@ -7,14 +13,15 @@ import { mapRange, getSitemap } from '@/lib/utility';
 import { TRANS_PRIMARY_FAST } from '@/lib/config';
 import Image from 'next/image';
 import { MQ } from '@/lib/config';
+import { type NextProjectProps } from './';
 
-export const NextProject = ({ id }) => {
+export const NextProject = ({ id }: NextProjectProps) => {
   const { url, title } = getSitemap(id);
   const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
-  const ref = useRef(null);
-  const [innerRef, { width, height }] = useMeasure();
+  const ref = useRef<HTMLElement>(null);
+  const [innerRef, { width, height }] = useMeasure<HTMLDivElement>();
   const [figureRef, { width: figureWidth, height: figureHeight }] =
-    useMeasure();
+    useMeasure<HTMLDivElement>();
   const figureWidthHalf = figureWidth / 2;
   const figureHeightHalf = figureHeight / 2;
   let { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
@@ -39,7 +46,7 @@ export const NextProject = ({ id }) => {
    * Rotate
    */
   const r = useMotionValue(-0.5);
-  const prevMousePosX = x.current + figureWidthHalf;
+  const prevMousePosX = x.get() + figureWidthHalf;
   const direction = mousePosX < prevMousePosX ? 'left' : 'right';
   const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100);
   const rotateTrans = useTransform(r, [-1, 0, 1], [-30, 0, 30]);

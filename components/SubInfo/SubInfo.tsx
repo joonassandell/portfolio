@@ -7,6 +7,7 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
 import { TEXT_VARIANTS } from '@/lib/config';
 import { useRef } from 'react';
+import { type SubInfoProps } from './';
 
 export const SubInfo = ({
   client,
@@ -15,7 +16,7 @@ export const SubInfo = ({
   text,
   type = [],
   year,
-}) => {
+}: SubInfoProps) => {
   const { name, href } = client || {};
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
@@ -52,7 +53,7 @@ export const SubInfo = ({
           </Text>
           <Text size="s" tag="p">
             <ConditionalWrapper
-              condition={href}
+              condition={Boolean(href)}
               wrapper={children => (
                 <Link href={href} underline>
                   {children}

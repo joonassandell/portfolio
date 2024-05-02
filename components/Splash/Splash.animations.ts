@@ -1,6 +1,7 @@
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
+import { type Variants } from 'framer-motion';
 
-export const splashVariants = {
+export const splashVariants: Variants = {
   exit: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
     transition: {
@@ -13,7 +14,7 @@ export const splashVariants = {
   },
 };
 
-export const textVariants = {
+export const textVariants: Variants = {
   exit: {
     transition: {
       ...TRANS_PRIMARY,

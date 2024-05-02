@@ -1,16 +1,21 @@
 import { m } from 'framer-motion';
 import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
-import { parentVariant, textVariant } from './TextReveal.animations';
+import { parentVariant, textVariant, type TextRevealProps } from './';
 import c from 'clsx';
 
-export const TextReveal = ({ className, custom, text, ...props }) => {
+export const TextReveal = ({
+  className,
+  custom,
+  text,
+  ...props
+}: TextRevealProps) => {
   const classes = c('TextReveal', className);
   const ref = useRef(null);
   const inView = useInView(ref);
 
   return (
-    <m.span
+    <m.div
       animate={inView && 'animate'}
       className={classes}
       custom={custom}
@@ -32,6 +37,6 @@ export const TextReveal = ({ className, custom, text, ...props }) => {
           </span>
         );
       })}
-    </m.span>
+    </m.div>
   );
 };

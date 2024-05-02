@@ -1,3 +1,4 @@
+import { TemplateSectionProps } from './';
 import c from 'clsx';
 
 export const TemplateSection = ({
@@ -11,7 +12,7 @@ export const TemplateSection = ({
   theme,
   wrap = true,
   ...props
-}) => {
+}: TemplateSectionProps) => {
   const classes = c('Template-section', className, {
     wrap,
     grid,

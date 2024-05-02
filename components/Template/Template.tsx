@@ -4,15 +4,18 @@ import {
   overlayVariants,
   variantsWithTransition,
   variantsWithoutTransition,
-} from './Template.animations';
+  type TemplateProps,
+} from './';
 import c from 'clsx';
 import { useAppContext } from '@/components/App';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import { Footer } from '@/components/Footer';
 import { camelCase } from 'lodash-es';
 
-export const Template = ({ children, className, id }) => {
-  const [animState, setAnimState] = useState(null);
+export const Template = ({ children, className, id }: TemplateProps) => {
+  const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
+    null,
+  );
   const { appState } = useAppContext();
   const { transition } = appState;
   const templateTransition = transition === 'template';
@@ -45,11 +48,9 @@ export const Template = ({ children, className, id }) => {
       }}
       {...(!templateTransition && {
         variants: variantsWithoutTransition,
-        transition: variantsWithoutTransition.transition,
       })}
       {...(templateTransition && {
         variants: variantsWithTransition,
-        transition: variantsWithTransition.transition,
       })}
     >
       <AnimatePresence>
