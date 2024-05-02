@@ -66,7 +66,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   } = useAppContext();
   const scrollTo = useScrollTo();
   const maskRef = useRef<HTMLDivElement>(null);
-  const mqM = useMedia(MQ.m);
+  const mqM = useMedia(MQ.m, true);
   const { scroll } = useLocomotiveScroll();
 
   const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
