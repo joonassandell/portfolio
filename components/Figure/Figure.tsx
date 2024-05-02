@@ -11,7 +11,8 @@ import {
   glareVariants,
   placeholderVariants,
   placeholderGlareVariants,
-} from './Figure.animations';
+  type FigureProps,
+} from './';
 
 export const Figure = ({
   alt,
@@ -21,14 +22,16 @@ export const Figure = ({
   className,
   glare,
   height,
+  id,
   inViewOffset = 0.1,
   mask = false,
   placeholder = true,
   priority = false,
+  quality,
   scroll = false,
   scrollDelay,
   scrollImageSpeed = SCROLL_SPEED * -2,
-  scrollOffset = 0,
+  scrollOffset,
   scrollPosition,
   scrollPrevent,
   scrollSpeed = SCROLL_SPEED,
@@ -36,15 +39,15 @@ export const Figure = ({
   src,
   transition = 'move',
   width,
-  quality,
-}) => {
+  ...props
+}: FigureProps) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
     '-bg': background,
     '-border': border,
     '-border:radius': borderRadius,
   });
-  const id = src?.split('/').pop().split('.')[0];
+  id = id ?? src?.split('/')?.pop()?.split('.')[0];
   const ref = useRef(null);
   const figureVariants = transition === 'move' ? moveVariants : clipVariants;
   const inView = useInView(ref, inViewOffset);
@@ -67,9 +70,13 @@ export const Figure = ({
       data-s
       ref={ref}
       style={{
-        ['--Figure-bg-color']: isString(background) ? background : undefined,
-        ['--Figure-border-color']: isString(border) ? border : undefined,
-        ['--Figure-border-radius']: isString(borderRadius)
+        ['--Figure-bg-color' as string]: isString(background)
+          ? background
+          : undefined,
+        ['--Figure-border-color' as string]: isString(border)
+          ? border
+          : undefined,
+        ['--Figure-border-radius' as string]: isString(borderRadius)
           ? borderRadius
           : undefined,
       }}
@@ -130,6 +137,7 @@ export const Figure = ({
               src={src}
               width={width}
               quality={quality}
+              {...props}
             />
           )}
           {isVideo && (

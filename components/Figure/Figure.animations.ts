@@ -4,12 +4,13 @@ import {
   TRANS_TERTIARY_FAST,
   TRANS_TERTIARY_FASTEST,
 } from '@/lib/config';
+import { type Variants } from 'framer-motion';
 
 /**
  * 1. From top to bottom
  * 2. From bottom to top
  */
-export const clipVariants = {
+export const clipVariants: Variants = {
   animate: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // [1.]
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', // [2.]
@@ -23,7 +24,7 @@ export const clipVariants = {
   },
 };
 
-export const moveVariants = {
+export const moveVariants: Variants = {
   animate: {
     opacity: 1,
     skewY: 0,
@@ -37,11 +38,11 @@ export const moveVariants = {
   },
 };
 
-export const placeholderVariants = {
+export const placeholderVariants: Variants = {
   exit: { opacity: 0, transition: TRANS_TERTIARY_FASTEST },
 };
 
-export const placeholderGlareVariants = {
+export const placeholderGlareVariants: Variants = {
   animate: {
     backgroundPosition: ['200% 0%', '-10% 0%'],
     transition: {
@@ -53,7 +54,7 @@ export const placeholderGlareVariants = {
   },
 };
 
-export const glareVariants = {
+export const glareVariants: Variants = {
   animate: {
     ...placeholderGlareVariants.animate,
     transition: {
