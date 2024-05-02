@@ -6,12 +6,13 @@ import {
   inVariantX,
   outVariant,
   outVariantX,
-} from './Link.animations';
+  type LinkProps,
+} from './';
 import { default as NextLink } from 'next/link';
 import c from 'clsx';
 import { useAppContext } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
-import { ConditionalWrapper } from '../ConditionalWrapper';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 
 export const Link = ({
   arrow,
@@ -19,12 +20,13 @@ export const Link = ({
   className,
   href,
   onClick,
-  orientation,
+  orientation = 'horizontal',
   tag = 'a',
   target,
   templateTransition = true,
   underline,
-}) => {
+  ...props
+}: LinkProps) => {
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
@@ -35,10 +37,10 @@ export const Link = ({
   const Tag = tag == 'span' ? m.span : m.a;
   const linkTarget = target
     ? target
-    : href.startsWith('http')
+    : href?.startsWith('http')
     ? '_blank'
     : false;
-  const hasHref = href && href.startsWith('/');
+  const hasHref = Boolean(href && href.startsWith('/'));
   const { active, external } = useUrlState(href);
   const activeOrExternal = active || external;
 
@@ -46,7 +48,7 @@ export const Link = ({
     <ConditionalWrapper
       condition={hasHref}
       wrapper={children => (
-        <NextLink href={href} legacyBehavior passHref scroll={false}>
+        <NextLink href={href as string} legacyBehavior passHref scroll={false}>
           {children}
         </NextLink>
       )}
@@ -65,6 +67,7 @@ export const Link = ({
         onMouseLeave={() => setHover(false)}
         {...(href && linkTarget && { target: linkTarget })}
         {...(linkTarget === '_blank' && { rel: 'external' })}
+        {...props}
       >
         <m.span
           className="Link-text"

@@ -1,6 +1,7 @@
 import { TRANS_PRIMARY_FAST, TRANS_PRIMARY_FASTEST } from '@/lib/config';
+import { Variants } from 'framer-motion';
 
-export const outVariant = {
+export const outVariant: Variants = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
     y: '-110%',
@@ -11,7 +12,7 @@ export const outVariant = {
   },
 };
 
-export const inVariant = {
+export const inVariant: Variants = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
     y: 0,
@@ -25,7 +26,7 @@ export const inVariant = {
   },
 };
 
-export const outVariantX = {
+export const outVariantX: Variants = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
     x: '110%',
@@ -36,7 +37,7 @@ export const outVariantX = {
   },
 };
 
-export const inVariantX = {
+export const inVariantX: Variants = {
   in: {
     transition: TRANS_PRIMARY_FASTEST,
     x: 0,
