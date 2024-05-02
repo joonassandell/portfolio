@@ -11,7 +11,9 @@ import {
   maskOpen,
   navVariant,
   navItemVariant,
-} from './Header.animations';
+  HeaderNavItem,
+  type HeaderProps,
+} from './';
 import { useEffect, useState, useRef } from 'react';
 import { ButtonArrow } from '@/components/Button';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -23,32 +25,37 @@ import { getSitemap } from '@/lib/utility';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useRouter } from 'next/router';
-import { useScrollTo } from '@/lib/useScrollTo';
-import { NavItem } from './HeaderNavItem';
+import {
+  useScrollTo,
+  useLocomotiveScroll,
+} from '@/components/LocomotiveScroll';
 import { urlState } from '@/lib/useUrlState';
-import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
 import FocusTrap from 'focus-trap-react';
 import { useMedia } from 'react-use';
+import { LinkEvent } from '@/types';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
 const someLinks = LINKS.social;
 
-export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
+export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
-  const [isOpen, setOpen] = useState(null);
-  const [hover, setHover] = useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const [hover, setHover] = useState<'start' | 'end' | false>(false);
   const [maskIsOpen, setMaskIsOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');
   const [openReveal, setOpenReveal] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
   const maskAnim = useAnimation();
-  const [navRevealTitle, setNavRevealTitle] = useState(null);
+  const [navRevealTitle, setNavRevealTitle] = useState<string>();
   const [btnFocus, setBtnFocus] = useState(false);
-  const btnRef = useRef(null);
-  const [enterExit, setEnterExit] = useState({
+  const btnRef = useRef<HTMLButtonElement | null>(null);
+  const [enterExit, setEnterExit] = useState<{
+    btnText: typeof enterExitBtnText;
+    btnArrow: typeof enterExitBtnArrow;
+  }>({
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
   });
@@ -58,11 +65,12 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     setTransitionInitial,
   } = useAppContext();
   const scrollTo = useScrollTo();
-  const maskRef = useRef(null);
+  const maskRef = useRef<HTMLDivElement>(null);
   const mqM = useMedia(MQ.m);
   const { scroll } = useLocomotiveScroll();
 
-  const setArrowPosFromRef = ref => {
+  const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
+    if (!ref) return;
     const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
     setArrowPos({
       y: offsetTop + offsetHeight / 2,
@@ -89,7 +97,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
     isOpen ? setOpen(false) : setOpen(true);
     if (!isOpen) html.classList.add('is-headerOpen');
     if (!isOpen) setOpenReveal(true);
-    if (isOpen && btnFocus) btnRef.current.blur();
+    if (isOpen && btnFocus) btnRef?.current?.blur();
 
     setDisabled(true);
     setNavRevealTitle(navTitle);
@@ -99,14 +107,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
      * Header is open/closed. Note that scroll will stay stopped if header links
      * are clicked but App takes care of enabling it after route change.
      */
-    scroll && !scroll.scroll.stop ? scroll.stop() : scroll.start();
+    scroll && !scroll.scroll.stop ? scroll.stop() : scroll?.start();
 
     if (mask === 'closed' || mask === 'closedReset') setMask('open');
     if (mask === 'open' || mask === 'openReset') setMask('closed');
   };
 
-  const handleClick = e => {
+  const handleClick = (e: LinkEvent) => {
     e.preventDefault();
+
     const {
       active,
       url: { href },
@@ -135,11 +144,14 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
      * Note that the :root.is-transition class disables the pointer-events (hover).
      */
     const isNavLink = e.target.classList.contains('Header-nav-link');
-    setTimeout(() => push(href, null, { scroll: false }), isNavLink ? 300 : 0);
+    setTimeout(
+      () => push(href, undefined, { scroll: false }),
+      isNavLink ? 300 : 0,
+    );
   };
 
   /**
-   * Handle closing and progress loader if routes change
+   * Handle closing if routes change
    */
   useEffect(() => {
     if (!isOpen) return;
@@ -175,7 +187,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
    */
   useEffect(() => {
     if (isOpen && !disabled) {
-      const esc = e => e.key === 'Escape' && toggleOpen();
+      const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen();
       html.addEventListener('keydown', esc);
       return () => html.removeEventListener('keydown', esc);
     }
@@ -187,7 +199,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
    */
   useEffect(() => {
     if (disabled) {
-      const keys = e => e.preventDefault();
+      const keys = (e: KeyboardEvent) => e.preventDefault();
       html.addEventListener('keydown', keys);
       return () => html.removeEventListener('keydown', keys);
     }
@@ -201,7 +213,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
       if (mask === 'open') {
         setMaskIsOpen(true);
         // Timeout because of display property (none/flex) change
-        setTimeout(() => maskRef.current.scroll({ top: 0 }), 5);
+        setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5);
         await maskAnim.start({
           clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
           ...maskOpen,
@@ -253,7 +265,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
               html.classList.remove('is-headerOpen');
               setOpenReveal(false);
               setTimeout(() => {
-                if (btnFocus) btnRef.current.focus();
+                if (btnFocus) btnRef?.current?.focus();
                 setDisabled(false);
               }, 700);
             } else {
@@ -353,10 +365,9 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                   <m.div
                     className="Header-button-arrow"
                     ref={btnArrow}
-                    {...(mqM && {
-                      ...enterExit.btnArrow,
-                      key: asPath,
-                    })}
+                    key={mqM ? asPath : 'Header-button-arrow'}
+                    {...(mqM && { ...enterExit.btnArrow })}
+                    suppressHydrationWarning
                   >
                     <ButtonArrow
                       active={isOpen}
@@ -437,7 +448,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }) => {
                     .filter(item => !item.hidden)
                     .map(item => {
                       return (
-                        <NavItem
+                        <HeaderNavItem
                           color={item.color}
                           key={item.id}
                           name={item.navTitle}

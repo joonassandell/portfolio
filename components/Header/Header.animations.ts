@@ -5,50 +5,36 @@ import {
   TRANS_SECONDARY_FAST,
   TRANS_SECONDARY_FASTEST,
 } from '@/lib/config';
+import { type AnimationProps, type Variants } from 'framer-motion';
+
+/* =======================================
+ * Header, Logo, Separator etc.
+ * ======================================= */
 
 /**
- * Header, Logo, Separator etc.
- *
  * Note that these enter/exit animations rely heavily on the mask animation, so
  * if you add too much delay things may look shit, so keep them in sync.
  */
-export const enterExitBtnTextIfNavOpen = {
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    y: '-2rem',
-  },
+export const enterExitBtnTextIfNavOpen: AnimationProps = {
   exit: {
     opacity: 0,
     transition: TRANS_SECONDARY_FASTEST,
   },
-  transition: { ...TRANS_SECONDARY_FAST, delay: 0.3 },
 };
 
-export const enterExitBtnArrowIfNavOpen = {
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    y: '-2rem',
-  },
+export const enterExitBtnArrowIfNavOpen: AnimationProps = {
   exit: {
     opacity: 0,
     y: '1rem',
     transition: TRANS_SECONDARY_FASTEST,
   },
-  transition: { ...TRANS_SECONDARY_FASTEST, delay: 0.5 },
 };
 
-export const enterExitBtnText = {
+export const enterExitBtnText: AnimationProps = {
   animate: {
     opacity: 1,
     y: 0,
+    transition: TRANS_PRIMARY_FAST,
   },
   initial: {
     opacity: 0,
@@ -57,22 +43,28 @@ export const enterExitBtnText = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...TRANS_PRIMARY_FAST },
+    transition: TRANS_PRIMARY_FAST,
   },
-  transition: TRANS_PRIMARY_FAST,
 };
 
-export const enterExitBtnArrow = {
-  ...enterExitBtnText,
+export const enterExitBtnArrow: AnimationProps = {
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
+  },
+  initial: {
+    opacity: 0,
+    y: '2rem',
+  },
   exit: {
     opacity: 0,
     y: '-2rem',
     transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
   },
-  transition: { ...TRANS_PRIMARY_FAST, delay: 0.03 },
 };
 
-export const ctrlVariant = {
+export const ctrlVariant: Variants = {
   open: {
     transition: {
       delayChildren: 0,
@@ -87,7 +79,7 @@ export const ctrlVariant = {
   },
 };
 
-export const ctrlItemOutVariant = {
+export const ctrlItemOutVariant: Variants = {
   open: {
     transition: TRANS_SECONDARY_FAST,
     y: '-3rem',
@@ -98,7 +90,7 @@ export const ctrlItemOutVariant = {
   },
 };
 
-export const ctrlItemInVariant = {
+export const ctrlItemInVariant: Variants = {
   open: {
     transition: TRANS_PRIMARY_FAST,
     y: 0,
@@ -112,9 +104,10 @@ export const ctrlItemInVariant = {
   },
 };
 
-/**
+/* =======================================
  * Mask
- */
+ * ======================================= */
+
 export const maskOpen = {
   transition: TRANS_PRIMARY,
 };
@@ -123,10 +116,11 @@ export const maskClose = {
   transition: TRANS_PRIMARY,
 };
 
-/**
+/* =======================================
  * Navigation
- */
-export const navVariant = {
+ * ======================================= */
+
+export const navVariant: Variants = {
   open: {
     transition: { delayChildren: 0.1, staggerChildren: 0.05 },
   },
@@ -135,7 +129,7 @@ export const navVariant = {
   },
 };
 
-export const navItemVariant = {
+export const navItemVariant: Variants = {
   open: {
     opacity: 1,
     transition: TRANS_PRIMARY_FAST,
@@ -153,61 +147,54 @@ export const navItemVariant = {
   },
 };
 
-export const marqueeVariants = {
-  in: pos => {
+export const marqueeVariants: Variants = {
+  in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
         y: ['-102%', '0%'],
       };
     }
 
-    if (pos === 'bottom') {
-      return {
-        y: ['102%', '0%'],
-      };
-    }
+    return {
+      y: ['102%', '0%'],
+    };
   },
-  out: pos => {
+  out: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
         y: '-102%',
       };
     }
 
-    if (pos === 'bottom') {
-      return {
-        y: '102%',
-      };
-    }
+    return {
+      y: '102%',
+    };
   },
-  transition: TRANS_PRIMARY_FASTEST,
 };
 
-export const marqueeInnerVariants = {
-  in: pos => {
+export const marqueeInnerVariants: Variants = {
+  in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
         y: ['102%', '0%'],
       };
     }
 
-    if (pos === 'bottom') {
-      return {
-        y: ['-102%', '0%'],
-      };
-    }
+    return {
+      y: ['-102%', '0%'],
+    };
   },
-  out: pos => {
+  out: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
         y: '102%',
       };
     }
 
-    if (pos === 'bottom') {
-      return {
-        y: '-102%',
-      };
-    }
+    return {
+      y: '-102%',
+    };
   },
 };
+
+export const marqueeTransition = TRANS_PRIMARY_FASTEST;

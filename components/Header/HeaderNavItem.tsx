@@ -1,8 +1,13 @@
 import { m, animate } from 'framer-motion';
-import { marqueeVariants, marqueeInnerVariants } from './Header.animations';
+import {
+  marqueeVariants,
+  marqueeInnerVariants,
+  marqueeTransition,
+  type HeaderNavItemProps,
+} from './';
 import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
-import { Fragment, useEffect, useState, useRef } from 'react';
+import { Fragment, useEffect, useState, useRef, MouseEvent } from 'react';
 import { useRouter } from 'next/router';
 import c from 'clsx';
 import EyeSvg from './eye.svg';
@@ -10,23 +15,31 @@ import Link from 'next/link';
 import { useAppContext } from '@/components/App';
 import { urlState } from '@/lib/useUrlState';
 
-export const NavItem = ({ url, color, onClick, name, year }) => {
+export const HeaderNavItem = ({
+  url,
+  color,
+  onClick,
+  name,
+  year,
+}: HeaderNavItemProps) => {
   const router = useRouter();
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState<'in' | 'out' | false>(false);
   const [closestEdge, setClosestEdge] = useState('top');
   const [reveal, setReveal] = useState(false);
-  const [revealTimeout, setRevealTimeout] = useState(null);
-  const ref = useRef(null);
-  const marqueeRef = useRef(null);
+  const [revealTimeout, setRevealTimeout] =
+    useState<ReturnType<typeof setTimeout>>();
+  const ref = useRef<HTMLLIElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
   const {
     appState: {
       detect: { hasTouch },
     },
   } = useAppContext();
 
-  const findClosestEdge = e => {
-    const x = e.pageX - ref.current.offsetLeft;
-    const y = e.pageY - ref.current.offsetTop;
+  const findClosestEdge = (e: MouseEvent) => {
+    if (!ref.current) return;
+    const x = e.pageX - ref.current?.offsetLeft;
+    const y = e.pageY - ref.current?.offsetTop;
 
     setClosestEdge(
       getClosestEdge(x, y, ref.current.clientWidth, ref.current.clientHeight),
@@ -60,7 +73,7 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
         'is-active': urlState(url, router).active,
       })}
       ref={ref}
-      style={{ '--Header-marquee-iris': color }}
+      style={{ ['--Header-marquee-iris' as string]: color }}
       variants={navItemVariant}
     >
       <Link
@@ -77,7 +90,7 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
           setHover('out');
         }}
         onClick={e => {
-          onClick(e);
+          onClick && onClick(e);
           if (!hasTouch) setHover('out');
         }}
       >
@@ -104,13 +117,13 @@ export const NavItem = ({ url, color, onClick, name, year }) => {
           }
         }}
         variants={marqueeVariants}
-        transition={marqueeVariants.transition}
+        transition={marqueeTransition}
       >
         <m.div
           className="Header-nav-marquee-inner"
           custom={closestEdge}
           variants={marqueeInnerVariants}
-          transition={marqueeVariants.transition}
+          transition={marqueeTransition}
         >
           {reveal && (
             <m.div ref={marqueeRef} className="Header-nav-marquee-inner-self">
