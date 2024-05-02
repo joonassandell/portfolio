@@ -24,6 +24,7 @@ export const Figure = ({
   height,
   id,
   inViewOffset = 0.1,
+  loading,
   mask = false,
   placeholder = true,
   priority = false,
@@ -38,8 +39,8 @@ export const Figure = ({
   sizes = '100vw',
   src,
   transition = 'move',
+  unoptimized,
   width,
-  ...props
 }: FigureProps) => {
   const classes = c(className, 'Figure', {
     '-mask': mask,
@@ -131,13 +132,14 @@ export const Figure = ({
               className="Figure-img"
               draggable="false"
               height={height}
+              loading={loading}
               onLoad={() => setImgLoaded(true)}
               priority={priority}
+              quality={quality}
               sizes={sizes}
               src={src}
+              unoptimized={unoptimized}
               width={width}
-              quality={quality}
-              {...props}
             />
           )}
           {isVideo && (

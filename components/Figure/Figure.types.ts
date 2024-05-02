@@ -1,7 +1,20 @@
 import { ImageProps } from 'next/image';
 import { ElementAttributes } from '../LocomotiveScroll';
 
-export interface FigureProps extends Omit<ImageProps, 'src' | 'placeholder'> {
+export interface FigureProps
+  extends Omit<
+    ImageProps,
+    | 'src'
+    | 'placeholder'
+    | 'fill'
+    | 'blurDataURL'
+    | 'onLoadingComplete'
+    | 'layout'
+    | 'objectFit'
+    | 'objectPosition'
+    | 'lazyBoundary'
+    | 'lazyRoot'
+  > {
   background?: string;
   border?: string;
   borderRadius?: boolean;
