@@ -8,6 +8,7 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
+import { type InfoProps } from './';
 
 export const Info = ({
   client,
@@ -18,7 +19,7 @@ export const Info = ({
   text,
   type = [],
   year,
-}) => {
+}: InfoProps) => {
   const { name, href } = client || {};
   const mqL = useMedia(MQ.l, false);
   const mqM = useMedia(MQ.m, false);
@@ -58,7 +59,7 @@ export const Info = ({
               <Text size="s">
                 <p>
                   <ConditionalWrapper
-                    condition={href}
+                    condition={Boolean(href)}
                     wrapper={children => (
                       <Link href={href} underline>
                         {children}

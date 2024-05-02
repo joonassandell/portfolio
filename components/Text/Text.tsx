@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useInView } from '@/lib/useInView';
 import { TEXT_VARIANTS } from '@/lib/config';
 import c from 'clsx';
+import { TextProps } from './';
 
 export const Text = ({
   animate,
@@ -13,7 +14,7 @@ export const Text = ({
   size,
   tag,
   ...props
-}) => {
+}: TextProps) => {
   const classes = c(
     'Text',
     {

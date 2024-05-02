@@ -1,6 +1,12 @@
 import { default as NextHead } from 'next/head';
+import { HeadProps } from './';
 
-export const Head = ({ title, description, children, themeColor }) => {
+export const Head = ({
+  title,
+  description,
+  children,
+  themeColor,
+}: HeadProps) => {
   const pageTitle = title ? `Joonas Sandell${title ? ' — ' + title : ''}` : '';
 
   return (

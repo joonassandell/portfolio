@@ -1,10 +1,10 @@
 import { m } from 'framer-motion';
 import c from 'clsx';
 import { useRef } from 'react';
-import { hrVariants } from './Hr.animations';
 import { useInView } from '@/lib/useInView';
+import { hrVariants, type HrProps } from './';
 
-export const Hr = ({ className }) => {
+export const Hr = ({ className, ...props }: HrProps) => {
   const classes = c('Hr', className);
   const ref = useRef(null);
   const inView = useInView(ref);
@@ -16,6 +16,7 @@ export const Hr = ({ className }) => {
       initial="initial"
       ref={ref}
       variants={hrVariants}
+      {...props}
     />
   );
 };

@@ -1,4 +1,5 @@
 import c from 'clsx';
+import { type HeadingProps } from './';
 
 export const Heading = ({
   className,
@@ -6,7 +7,7 @@ export const Heading = ({
   tag = 'h2',
   size = 'h3',
   ...props
-}) => {
+}: HeadingProps) => {
   const display = size === 'display';
   const classes = c(
     'Heading',
