@@ -3,55 +3,61 @@ import { AnimatePresence } from 'framer-motion';
 import { isBrowser } from '@/lib/utility';
 import { Splash } from '@/components/Splash';
 import { Header } from '@/components/Header';
-import { LocomotiveScrollProvider } from '@/lib/react-locomotive-scroll';
+import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import Script from 'next/script';
-import { AppHead } from './';
+import {
+  AppHead,
+  type AppProps,
+  type AppContextProps,
+  type AppStateProps,
+} from '.';
 import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import NProgress from 'nprogress';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const PRODUCTION = process.env.NODE_ENV === 'production';
-
-const AppContext = createContext({
-  detect: {},
-  html: isBrowser && document.documentElement,
-  loading: DISABLE_LOADING ? false : true,
-  loadingEnd: DISABLE_LOADING ? true : false,
-  transition: false, // 'template', false, true
-  transitionInitial: false,
-});
 let scrollOnUpdateOnce = false;
 
-export const App = ({ Component, pageProps }) => {
-  const appContext = useAppContext();
-  const [appState, setAppState] = useState(appContext);
+const AppContext = createContext<AppContextProps | undefined>(undefined);
+
+export const App = ({ Component, pageProps }: AppProps) => {
+  const [appState, setAppState] = useState<AppStateProps>({
+    detect: {},
+    html: (isBrowser && document.documentElement) as AppStateProps['html'],
+    loading: DISABLE_LOADING ? false : true,
+    loadingEnd: DISABLE_LOADING ? true : false,
+    transition: false,
+    transitionInitial: false,
+  });
   const { html, loading, loadingEnd, transition } = appState;
   const { asPath, beforePopState, push, events } = useRouter();
-  const [animationComplete, setAnimationComplete] = useState();
+  const [animationComplete, setAnimationComplete] = useState<
+    string | undefined
+  >();
   const containerRef = useRef(null);
 
   /* ======
    * App set state functions
    * ====== */
 
-  const setTransition = value => {
+  const setTransition = (value: AppStateProps['transition']) => {
     setAppState(prevState => ({
       ...prevState,
       transition: value,
     }));
   };
 
-  const setTransitionInitial = value => {
+  const setTransitionInitial = (value: AppStateProps['transitionInitial']) => {
     setAppState(prevState => ({
       ...prevState,
       transitionInitial: value,
     }));
   };
 
-  const setLoadingEnd = value => {
+  const setLoadingEnd = (value: AppStateProps['loadingEnd']) => {
     setAppState(prevState => ({
       ...prevState,
       loadingEnd: value,
@@ -120,7 +126,7 @@ export const App = ({ Component, pageProps }) => {
    * Add loader with nprogress for slow networks
    */
   useEffect(() => {
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     NProgress.configure({
       easing: EASE_CSS,
@@ -151,7 +157,8 @@ export const App = ({ Component, pageProps }) => {
   /**
    * Set template transition by default when navigating back/forward
    */
-  const [popStateTimeout, setPopStateTimeout] = useState(null);
+  const [popStateTimeout, setPopStateTimeout] =
+    useState<ReturnType<typeof setTimeout>>();
   useEffect(() => {
     beforePopState(({ url, as }) => {
       if (transition === 'template') {
@@ -181,8 +188,8 @@ export const App = ({ Component, pageProps }) => {
    * Send GA page views
    */
   useEffect(() => {
-    if (PRODUCTION) {
-      const handleRouteChange = url => {
+    if (PRODUCTION && GOOGLE_ANALYTICS) {
+      const handleRouteChange = (url: string) => {
         window.gtag('config', GOOGLE_ANALYTICS, {
           page_path: url,
         });
@@ -239,6 +246,7 @@ export const App = ({ Component, pageProps }) => {
             smoothClass: 'is-smooth',
             tablet: {
               smooth: true,
+              breakpoint: 1024,
             },
             touchMultiplier: 4,
           }}
@@ -279,4 +287,8 @@ export const App = ({ Component, pageProps }) => {
   );
 };
 
-export const useAppContext = () => useContext(AppContext);
+export const useAppContext = () => {
+  const context = useContext(AppContext);
+  if (context) return context;
+  throw new Error('useAppContext must be used within App');
+};
