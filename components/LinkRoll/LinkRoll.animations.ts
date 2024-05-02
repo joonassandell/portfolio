@@ -1,6 +1,7 @@
 import { TRANS_PRIMARY_FASTEST } from '@/lib/config';
+import { type Variants } from 'framer-motion';
 
-export const linkVariants = {
+export const linkVariants: Variants = {
   in: {
     transition: {
       staggerChildren: 0.02,
@@ -14,7 +15,7 @@ export const linkVariants = {
   },
 };
 
-export const characterOutVariants = {
+export const characterOutVariants: Variants = {
   in: {
     skewX: -50,
     opacity: 0,
@@ -27,7 +28,7 @@ export const characterOutVariants = {
   },
 };
 
-export const characterInVariants = {
+export const characterInVariants: Variants = {
   in: {
     opacity: 1,
     skewX: 0,

@@ -6,7 +6,8 @@ import {
   characterInVariants,
   characterOutVariants,
   linkVariants,
-} from './LinkRoll.animations';
+  type LinkRollProps,
+} from './';
 import c from 'clsx';
 import { isBoolean, isEmptyString } from '@/lib/utility';
 import { useUrlState } from '@/lib/useUrlState';
@@ -17,15 +18,15 @@ export const LinkRoll = ({
   className,
   href,
   onClick,
-  tag,
+  tag = 'a',
   target,
   templateTransition = true,
   underline,
   ...props
-}) => {
+}: LinkRollProps) => {
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
-  const characters = children.split('');
+  const characters = children?.split('');
   const classes = c(className, 'LinkRoll', {
     'has-underline': isBoolean(underline),
     '-underline': underline,
@@ -33,10 +34,10 @@ export const LinkRoll = ({
   const Tag = tag == 'span' ? m.span : m.a;
   const linkTarget = target
     ? target
-    : href.startsWith('http')
+    : href?.startsWith('http')
     ? '_blank'
     : false;
-  const hasHref = href && href.startsWith('/');
+  const hasHref = Boolean(href && href.startsWith('/'));
   const { active, external } = useUrlState(href);
   const activeOrExternal = active || external;
 
@@ -44,7 +45,7 @@ export const LinkRoll = ({
     <ConditionalWrapper
       condition={hasHref}
       wrapper={children => (
-        <NextLink href={href} legacyBehavior passHref scroll={false}>
+        <NextLink href={href as string} legacyBehavior passHref scroll={false}>
           {children}
         </NextLink>
       )}
