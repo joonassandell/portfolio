@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useAppContext } from '@/components/App';
 import c from 'clsx';
-import { ConditionalWrapper } from '../ConditionalWrapper';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import {
   bgVariants,
   bgHoverVariants,
@@ -12,7 +12,8 @@ import {
   pointerInVariants,
   pathOutVariants,
   pointerOutVariants,
-} from './ButtonEnter.animations';
+  type ButtonEnterProps,
+} from './';
 
 export const ButtonEnter = ({
   className,
@@ -20,7 +21,8 @@ export const ButtonEnter = ({
   href,
   onClick,
   templateTransition = false,
-}) => {
+  ...props
+}: ButtonEnterProps) => {
   const classes = c('Button Button--enter', className);
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
@@ -29,9 +31,9 @@ export const ButtonEnter = ({
 
   return (
     <ConditionalWrapper
-      condition={href}
+      condition={Boolean(href)}
       wrapper={children => (
-        <Link href={href} legacyBehavior passHref scroll={false}>
+        <Link href={href as string} legacyBehavior passHref scroll={false}>
           {children}
         </Link>
       )}
@@ -43,7 +45,7 @@ export const ButtonEnter = ({
             setHover(false);
           }
         }}
-        onClick={e => {
+        onClick={(e: any) => {
           templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
@@ -60,6 +62,7 @@ export const ButtonEnter = ({
         onMouseLeave={() => setHover(false)}
         whileTap="tap"
         variants={buttonVariants}
+        {...props}
       >
         <m.div
           animate={arrowHover ? 'in' : 'initial'}

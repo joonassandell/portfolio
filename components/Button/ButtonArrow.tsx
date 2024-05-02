@@ -7,13 +7,14 @@ import {
 } from '@/lib/config';
 import { useEffect, useState } from 'react';
 import c from 'clsx';
+import { ButtonArrowProps } from './';
 
 export const ButtonArrow = ({
   active = false,
   className,
   hoverStart = false,
   hoverEnd = false,
-}) => {
+}: ButtonArrowProps) => {
   const [activeAnimation, setActiveAnimation] = useState(false);
   const [activeState, setActive] = useState('start');
   const [closeVisible, setCloseVisible] = useState(false);
