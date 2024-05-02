@@ -13,9 +13,11 @@ import { useAppContext } from '@/components/App';
 import { useState } from 'react';
 import { Link } from '@/components/Link';
 import { Heading } from '@/components/Heading';
-import { useScrollTo } from '@/lib/useScrollTo';
 import { Head } from '@/components/Head';
-import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
+import {
+  useLocomotiveScroll,
+  useScrollTo,
+} from '@/components/LocomotiveScroll';
 
 export const HomePage = ({ id }) => {
   const about = getSitemap('about', 'secondary');

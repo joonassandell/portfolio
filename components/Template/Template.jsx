@@ -7,7 +7,7 @@ import {
 } from './Template.animations';
 import c from 'clsx';
 import { useAppContext } from '@/components/App';
-import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
+import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import { Footer } from '@/components/Footer';
 import { camelCase } from 'lodash-es';
 

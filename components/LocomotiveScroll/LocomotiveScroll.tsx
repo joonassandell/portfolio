@@ -1,24 +1,30 @@
 import { createContext, useEffect, useRef, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import useResizeObserver from 'use-resize-observer';
+import {
+  type LocomotiveScrollContextProps,
+  type LocomotiveScrollProviderProps,
+  type Scroll,
+} from './';
 
-export const LocomotiveScrollContext = createContext({
-  scroll: null,
-  isReady: false,
-});
+export const LocomotiveScrollContext =
+  createContext<LocomotiveScrollContextProps>({
+    isReady: false,
+    scroll: null,
+  });
 
-export function LocomotiveScrollProvider({
+export const LocomotiveScrollProvider = ({
   children,
-  options,
   containerRef,
-  watch,
-  onUpdate,
   location,
   onLocationChange,
-}) {
+  onUpdate,
+  options,
+  watch,
+}: LocomotiveScrollProviderProps) => {
   const { height: containerHeight } = useResizeObserver({ ref: containerRef });
   const [isReady, setIsReady] = useState(false);
-  const LocomotiveScrollRef = useRef(null);
+  const LocomotiveScrollRef = useRef<Scroll | null>(null);
   const [height] = useDebounce(containerHeight, 100);
 
   useEffect(() => {
@@ -26,8 +32,9 @@ export function LocomotiveScrollProvider({
       try {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
-        const dataScrollContainer =
-          document.querySelector('[data-s-container]');
+        const dataScrollContainer = document.querySelector(
+          '[data-s-container]',
+        ) as HTMLElement;
 
         LocomotiveScrollRef.current = new LocomotiveScroll({
           el: dataScrollContainer ?? undefined,
@@ -78,12 +85,13 @@ export function LocomotiveScrollProvider({
 
   return (
     <LocomotiveScrollContext.Provider
-      value={{ scroll: LocomotiveScrollRef.current, isReady }}
+      value={{
+        scroll:
+          LocomotiveScrollRef.current as LocomotiveScrollContextProps['scroll'],
+        isReady,
+      }}
     >
       {children}
     </LocomotiveScrollContext.Provider>
   );
-}
-
-LocomotiveScrollContext.displayName = 'LocomotiveScrollContext';
-LocomotiveScrollProvider.displayName = 'LocomotiveScrollProvider';
+};

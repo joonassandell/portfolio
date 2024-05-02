@@ -1,5 +1,5 @@
-import { useLocomotiveScroll } from '@/lib/react-locomotive-scroll';
-import { EASE, SCROLL_TO_DURATION } from './config';
+import { useLocomotiveScroll } from './';
+import { EASE, SCROLL_TO_DURATION } from '@/lib/config';
 
 export const useScrollTo = (
   { scrollLock, callbackDelay } = {
