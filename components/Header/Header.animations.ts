@@ -18,23 +18,22 @@ import { type AnimationProps, type Variants } from 'framer-motion';
 export const enterExitBtnTextIfNavOpen: AnimationProps = {
   exit: {
     opacity: 0,
-    transition: TRANS_SECONDARY_FASTEST,
   },
+  transition: TRANS_SECONDARY_FASTEST,
 };
 
 export const enterExitBtnArrowIfNavOpen: AnimationProps = {
   exit: {
     opacity: 0,
     y: '1rem',
-    transition: TRANS_SECONDARY_FASTEST,
   },
+  transition: TRANS_SECONDARY_FASTEST,
 };
 
 export const enterExitBtnText: AnimationProps = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: TRANS_PRIMARY_FAST,
   },
   initial: {
     opacity: 0,
@@ -43,15 +42,14 @@ export const enterExitBtnText: AnimationProps = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: TRANS_PRIMARY_FAST,
   },
+  transition: TRANS_PRIMARY_FAST,
 };
 
 export const enterExitBtnArrow: AnimationProps = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
   },
   initial: {
     opacity: 0,
@@ -60,8 +58,8 @@ export const enterExitBtnArrow: AnimationProps = {
   exit: {
     opacity: 0,
     y: '-2rem',
-    transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
   },
+  transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
 };
 
 export const ctrlVariant: Variants = {
