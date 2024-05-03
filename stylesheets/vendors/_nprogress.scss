@@ -2,7 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 #nprogress {
-  height: $space-2xs;
+  height: $space-3xs;
   inset: 0 0 auto 0;
   mix-blend-mode: difference;
   pointer-events: none;
