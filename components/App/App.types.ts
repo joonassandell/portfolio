@@ -1,6 +1,6 @@
 import type { AppProps as NextAppProps } from 'next/app';
 
-export interface AppProps extends NextAppProps {}
+export interface AppProps extends Omit<NextAppProps, 'router'> {}
 
 export interface AppStateProps {
   detect: {

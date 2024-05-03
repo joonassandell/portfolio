@@ -61,7 +61,7 @@ export const Info = ({
                   <ConditionalWrapper
                     condition={Boolean(href)}
                     wrapper={children => (
-                      <Link href={href} underline>
+                      <Link href={href as URL['href']} underline>
                         {children}
                       </Link>
                     )}

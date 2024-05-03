@@ -70,7 +70,7 @@ export const Hero = ({
       data-theme-color={themeColor}
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
-          push(href as string, undefined, { scroll: false });
+          push(href as URL['href'], undefined, { scroll: false });
           console.log('Hero: Animation complete');
         }
       }}
@@ -115,7 +115,7 @@ export const Hero = ({
             <div className="grid-col">
               <Link
                 arrow
-                href={href}
+                href={href as URL['href']}
                 onClick={onClick}
                 templateTransition={false}
               >
