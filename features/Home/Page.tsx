@@ -8,7 +8,7 @@ import {
   SandboxHero,
 } from '@/features/Project';
 import { m } from 'framer-motion';
-import { Template, TemplateMain } from '@/components/Template';
+import { Template, TemplateMain, TemplateProps } from '@/components/Template';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';
 import { Link } from '@/components/Link';
@@ -18,25 +18,31 @@ import {
   useLocomotiveScroll,
   useScrollTo,
 } from '@/components/LocomotiveScroll';
+import { LinkEvent } from '@/types';
 
-export const HomePage = ({ id }) => {
+export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
   const about = getSitemap('about', 'secondary');
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
-  const [themeColor, setThemeColor] = useState();
+  const [themeColor, setThemeColor] = useState<string>();
   const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState(null);
+  const [currentHero, setCurrentHero] = useState<string>();
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
 
-  const handleClick = e => {
+  const handleClick = (e: LinkEvent) => {
+    if (!scroll) return;
     e.preventDefault();
     setTransition(true);
     setTransitionInitial(false);
 
-    const el = e.currentTarget.closest('[data-id]');
-    const needsExtraSpace = scroll.scroll.instance.limit.y < el.offsetTop;
-    needsExtraSpace && setExtraSpace(true) && scroll.update();
+    const el = e.currentTarget.closest('[data-id]') as HTMLElement;
+
+    const needsExtraSpace = scroll.scroll.instance.limit.y < el?.offsetTop;
+    if (needsExtraSpace) {
+      setExtraSpace(true);
+      scroll.update();
+    }
 
     setThemeColor(el.dataset.themeColor);
     setCurrentHero(el.dataset.id);
