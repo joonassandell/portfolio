@@ -6,8 +6,14 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
+import { PageProjectProps } from '@/types';
 
-export const BiocodePage = ({ images, id, title, themeColor }) => {
+export const BiocodePage = ({
+  images,
+  id,
+  title,
+  themeColor,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('oras');
 
   return (
@@ -17,14 +23,14 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
         <BiocodeHero />
         <Info
           client={{ name: title, href: 'https://biocode.io' }}
-          heading="Biocode is Carbon footprint calculator that makes sense. It's aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
+          heading="Biocode is Carbon footprint calculator that makes sense. It’s aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
           role={['Product design', 'App development', 'Web development']}
           smallPrint="Building together with awesome co-workers from Biocode."
           tech={['Next.js, Headless', 'React, GraphQL', 'Framer motion']}
           text={
             <p>
-              I'm currently working for Biocode as lead product designer and
-              front-end developer. I'm responsible for crafting our design
+              I’m currently working for Biocode as lead product designer and
+              front-end developer. I’m responsible for crafting our design
               system and making sure our application's code stays manageable.
               Work samples here are mainly from the latest brand redesign which
               included iconography, logo design and website renewal from my
@@ -32,7 +38,7 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
             </p>
           }
           type={['Web app', 'Web service', 'Commission']}
-          year="2021—"
+          year="2020–"
         />
         <TemplateSection gridGap="xl" paddingTop="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
@@ -87,6 +93,7 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
           </div>
           <div className="grid-col grid-col:10 grid-col:7@m -start:2@m">
             <Figure
+              alt="Biocode homepage animation"
               border
               glare
               scroll
@@ -95,7 +102,7 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="default">
+        <TemplateSection gridRowGap="m">
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode application icon"
@@ -139,7 +146,7 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="default">
+        <TemplateSection gridRowGap="m">
           <div className="grid-col grid-col:6 grid-col:4@m -align:end">
             <Figure
               alt="Example of Biocode's easy to use card"
@@ -267,7 +274,6 @@ export const BiocodePage = ({ images, id, title, themeColor }) => {
         <TemplateSection
           className="Template-app"
           paddingTop={false}
-          paddingBottom
           theme="light"
         >
           <div className="grid-col grid-col:9@m">
