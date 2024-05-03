@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react';
+
 export interface InfoProps {
   client: {
     name: string;
@@ -6,8 +8,8 @@ export interface InfoProps {
   heading: string;
   role: string[];
   smallPrint?: string;
-  tech: string[];
-  text: string;
+  tech?: string[];
+  text: string | ReactNode;
   type: string[];
-  year: string;
+  year: string | number;
 }

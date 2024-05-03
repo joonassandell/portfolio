@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react';
+
 export interface SubInfoProps {
   client: {
     name: string;
@@ -5,7 +7,7 @@ export interface SubInfoProps {
   };
   heading: string;
   role: string[];
-  text: string;
+  text: string | ReactNode;
   type: string[];
-  year: string;
+  year: string | number;
 }

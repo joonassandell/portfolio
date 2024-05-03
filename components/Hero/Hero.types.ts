@@ -10,16 +10,16 @@ export interface HeroProps {
   className?: ComponentPropsWithoutRef<'section'>['className'];
   children?:
     | ((passedProps: {
-        noTransition?: boolean;
-        transitionInitial?: boolean;
-        transitionPre?: boolean;
-        transitionStartOrDefault?: boolean;
-        templateTransition?: boolean;
+        noTransition: boolean;
+        transitionInitial: boolean;
+        transitionPre: boolean;
+        transitionStartOrDefault: boolean;
+        templateTransition: boolean;
       }) => ReactNode)
     | ReactNode;
   heading?: string;
   headingVariants?: Variants;
-  href?: HTMLAnchorElement['href'];
+  href?: URL['href'];
   id?: string;
   onClick?: MouseEventHandler<HTMLElement>;
   stampOverlay?: boolean;
@@ -31,8 +31,8 @@ export interface HeroProps {
 
 export interface HeroContentProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'div'>['className'];
-  heading: string;
-  href: HTMLAnchorElement['href'];
+  heading: HeroProps['heading'];
+  href: URL['href'];
   onClick?: MouseEventHandler<HTMLElement>;
   role: string[];
   transitionPre: boolean;
