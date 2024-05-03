@@ -1,2 +1,2 @@
-export * from './eventTypes';
+export * from './event';
 export * from './tag';
