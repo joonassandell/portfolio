@@ -1,12 +1,17 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
+import {
+  Hero,
+  HeroContent,
+  figureBgVariants,
+  type HeroProps,
+} from '@/components/Hero';
 import Image from 'next/image';
 import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';
 import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';
 
-export const MoreWorkHero = ({ onClick, ...props }) => {
+export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
   const { url, year, id, title, themeColor } = getSitemap('more-work');
 
   return (

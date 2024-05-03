@@ -6,8 +6,9 @@ import { MQ } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
+import { PageProjectProps } from '@/types';
 
-export const ArchivePage = ({ images, id, title, year }) => {
+export const ArchivePage = ({ images, id, title, year }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
 
   return (

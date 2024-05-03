@@ -1,6 +1,7 @@
 import { TRANS_PRIMARY } from '@/lib/config';
+import { type Variants } from 'framer-motion';
 
-export const figureInnerVariants = {
+export const figureInnerVariants: Variants = {
   animate: {
     filter: 'grayscale(0)',
     rotate: 20,

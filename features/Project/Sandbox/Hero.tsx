@@ -1,12 +1,17 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent, figureBgVariants } from '@/components/Hero';
+import {
+  Hero,
+  HeroContent,
+  figureBgVariants,
+  type HeroProps,
+} from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
 import Image from 'next/image';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
 
-export const SandboxHero = ({ onClick, ...props }) => {
+export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
   const { url, id, title, year, themeColor } = getSitemap('sandbox');
 
   return (

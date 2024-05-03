@@ -6,8 +6,14 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
+import { PageProjectProps } from '@/types';
 
-export const OrasPage = ({ images, id, title, themeColor }) => {
+export const OrasPage = ({
+  images,
+  id,
+  title,
+  themeColor,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
@@ -17,7 +23,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
         <OrasHero />
         <Info
           client={{ name: title }}
-          heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe's leading faucet manufacturer."
+          heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
           role={['UI/UX design', 'Web development', 'Concept strategy']}
           smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
           tech={['TYPO3, Vanilla stack']}
@@ -26,13 +32,13 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
               After several iterations the Oras brand was modernised entirely in
               connection with the web service overhaul. The web service was used
               to create a bold and distinct image of Oras and to strongly
-              highlight the brand's new promise.
+              highlight the brand’s new promise.
             </p>
           }
           type={['Web service', 'Commission']}
           year="2016"
         />
-        <TemplateSection wrap={false} paddingTop={false} gridGap="default">
+        <TemplateSection wrap={false} paddingTop={false} gridGap="m">
           <div className="grid-col grid-col:6 grid-col:4@l">
             <Figure
               alt="Oras woman showering"
@@ -60,7 +66,7 @@ export const OrasPage = ({ images, id, title, themeColor }) => {
         </TemplateSection>
         <TemplateSection
           className="bg:gradient-0-50-0"
-          gridGap="default"
+          gridGap="m"
           paddingTop="10vw"
           paddingBottom="15vw"
         >

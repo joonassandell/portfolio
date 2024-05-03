@@ -9,8 +9,15 @@ import { Figure } from '@/components/Figure';
 import { Text } from '@/components/Text';
 import { Link } from '@/components/Link';
 import { Head } from '@/components/Head';
+import { PageProjectProps } from '@/types';
 
-export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
+export const MoreWorkPage = ({
+  images,
+  id,
+  title,
+  year,
+  themeColor,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
   const archive = getSitemap('archive');
 
@@ -21,7 +28,7 @@ export const MoreWorkPage = ({ images, id, title, year, themeColor }) => {
         <MoreWorkHero />
         <Info
           client={{ name: 'Various' }}
-          heading="So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I've crafted for a diverse set of clients."
+          heading="So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients."
           role={[
             'UI/UX/Brand designs',
             'Web development',

@@ -6,8 +6,15 @@ import { MQ } from '@/lib/config';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
+import { PageProjectProps } from '@/types';
 
-export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
+export const MediasignalPage = ({
+  images,
+  id,
+  title,
+  year,
+  themeColor,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('sandbox');
 
   return (
@@ -17,7 +24,7 @@ export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
         <MediasignalHero />
         <Info
           client={{ name: title, href: 'https://mediasignal.fi/en' }}
-          heading="Mediasignal is building digital services and customer experiences according to their customer's vision. The company is renewing digital business' and strengthening brands with a creative touch."
+          heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
           smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
           tech={['WP, GSAP', 'Vanilla stack']}
@@ -25,8 +32,8 @@ export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
             <p>
               I worked for Mediasignal over half a decade and was involved in
               hundreds of projects. Additionally, I was also responsible for
-              refreshing Mediasignal's brand twice, from which the latter is the
-              project you're viewing. This included logomark design, brand book
+              refreshing Mediasignal’s brand twice, from which the latter is the
+              project you’re viewing. This included logomark design, brand book
               crafting, business card design and website renewal.
             </p>
           }
@@ -112,7 +119,7 @@ export const MediasignalPage = ({ images, id, title, year, themeColor }) => {
         <TemplateSection
           paddingTop="15vw"
           gridGap="l"
-          gridRowGap="default"
+          gridRowGap="m"
           wrap={false}
         >
           <div className="grid-col grid-col:6 grid-col:4@m">

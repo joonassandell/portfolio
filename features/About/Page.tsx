@@ -18,8 +18,9 @@ import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 import cubeImage from '@/public/about/line-cube.png';
 import ballImage from '@/public/about/line-ball.png';
+import { type PageProps } from '@/types';
 
-export const AboutPage = ({ id, title }) => {
+export const AboutPage = ({ id, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);

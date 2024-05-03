@@ -7,8 +7,15 @@ import { useMedia } from 'react-use';
 import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
+import { type PageProjectProps } from '@/types';
 
-export const SandboxPage = ({ images, id, title, year, themeColor }) => {
+export const SandboxPage = ({
+  images,
+  id,
+  title,
+  year,
+  themeColor,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('more-work');
   const mqM = useMedia(MQ.m, false);
 
@@ -23,10 +30,10 @@ export const SandboxPage = ({ images, id, title, year, themeColor }) => {
           role={['UI/UX design', 'Visual design']}
           text={
             <p>
-              I rarely do design without purpose because otherwise it's just eye
-              candy. Some of these pieces are based on prototypes which didn't
+              I rarely do design without purpose because otherwise it’s just eye
+              candy. Some of these pieces are based on prototypes which didn’t
               end up to the end product for one reason or another. Additionally,
-              to some samples I've given a bit wilder touch afterwards.
+              to some samples I’ve given a bit wilder touch afterwards.
             </p>
           }
           type={['Web services', 'Applications', 'Concepts']}
