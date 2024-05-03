@@ -1,5 +1,5 @@
-import { type Variants } from 'framer-motion';
 import { type Links, type Sitemap } from '@/types';
+import { type Variants } from 'framer-motion';
 
 /* =======================================
  * Animations

@@ -1,13 +1,13 @@
-import { useLocomotiveScroll } from './';
 import { EASE, SCROLL_TO_DURATION } from '@/lib/config';
+import { useLocomotiveScroll } from './';
 
 export const useScrollTo = (
   {
     scrollLock,
     callbackDelay,
   }: {
-    scrollLock?: boolean;
     callbackDelay?: number;
+    scrollLock?: boolean;
   } = {
     scrollLock: false,
     callbackDelay: 0,

@@ -1,18 +1,18 @@
-import { AnimatePresence, m, type HTMLMotionProps } from 'framer-motion';
-import { useState } from 'react';
+import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import { ArrowRight } from '../Icon';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import {
   inVariant,
   inVariantX,
+  type LinkProps,
   outVariant,
   outVariantX,
-  type LinkProps,
 } from './';
 import { default as NextLink } from 'next/link';
-import c from 'clsx';
 import { useAppContext } from '@/components/App';
+import { useState } from 'react';
 import { useUrlState } from '@/lib/useUrlState';
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import c from 'clsx';
 
 export const Link = ({
   arrow,
@@ -38,8 +38,8 @@ export const Link = ({
   const linkTarget = target
     ? target
     : href?.startsWith('http')
-    ? '_blank'
-    : false;
+      ? '_blank'
+      : false;
   const hasHref = Boolean(href && href.startsWith('/'));
   const { active, external } = useUrlState(href);
   const activeOrExternal = active || external;

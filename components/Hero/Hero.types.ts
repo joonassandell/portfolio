@@ -1,32 +1,32 @@
-import { type Variants } from 'framer-motion';
 import {
   type ComponentPropsWithoutRef,
-  type ReactNode,
-  type PropsWithChildren,
   type MouseEventHandler,
+  type PropsWithChildren,
+  type ReactNode,
 } from 'react';
+import { type Variants } from 'framer-motion';
 
 export interface HeroProps {
-  className?: ComponentPropsWithoutRef<'section'>['className'];
   children?:
     | ((passedProps: {
         noTransition: boolean;
+        templateTransition: boolean;
         transitionInitial: boolean;
         transitionPre: boolean;
         transitionStartOrDefault: boolean;
-        templateTransition: boolean;
       }) => ReactNode)
     | ReactNode;
+  className?: ComponentPropsWithoutRef<'section'>['className'];
   heading?: string;
   headingVariants?: Variants;
   href?: URL['href'];
   id?: string;
   onClick?: MouseEventHandler<HTMLElement>;
-  stampOverlay?: boolean;
   stampAddVarsToParent?: boolean;
+  stampOverlay?: boolean;
   themeColor?: string;
-  transitionStart?: boolean;
   transition?: 'pre';
+  transitionStart?: boolean;
 }
 
 export interface HeroContentProps extends PropsWithChildren {

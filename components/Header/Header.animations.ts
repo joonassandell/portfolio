@@ -1,3 +1,4 @@
+import { type AnimationProps, type Variants } from 'framer-motion';
 import {
   TRANS_PRIMARY,
   TRANS_PRIMARY_FAST,
@@ -5,7 +6,6 @@ import {
   TRANS_SECONDARY_FAST,
   TRANS_SECONDARY_FASTEST,
 } from '@/lib/config';
-import { type AnimationProps, type Variants } from 'framer-motion';
 
 /* =======================================
  * Header, Logo, Separator etc.

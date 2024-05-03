@@ -1,17 +1,17 @@
-import StampSvg from './stamp.svg';
+import { debounce } from 'lodash-es';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import c from 'clsx';
 import {
+  overlayVariants,
+  type StampProps,
+  stampTransition,
   stampVariants,
   svgVariants,
-  overlayVariants,
-  stampTransition,
-  type StampProps,
 } from './';
-import { debounce } from 'lodash-es';
-import { useMouse, useMeasure } from 'react-use';
 import { useEffect, useRef } from 'react';
 import { useInView } from '@/lib/useInView';
+import { useMeasure, useMouse } from 'react-use';
+import c from 'clsx';
+import StampSvg from './stamp.svg';
 
 export const Stamp = ({
   addVarsToParent = false,

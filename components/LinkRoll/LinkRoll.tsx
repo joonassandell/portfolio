@@ -1,17 +1,17 @@
-import { m, AnimatePresence, type HTMLMotionProps } from 'framer-motion';
-import { default as NextLink } from 'next/link';
-import { useAppContext } from '@/components/App';
-import { useState } from 'react';
+import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import {
   characterInVariants,
   characterOutVariants,
-  linkVariants,
   type LinkRollProps,
+  linkVariants,
 } from './';
-import c from 'clsx';
-import { isBoolean, isEmptyString } from '@/lib/utility';
-import { useUrlState } from '@/lib/useUrlState';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import { isBoolean, isEmptyString } from '@/lib/utility';
+import { default as NextLink } from 'next/link';
+import { useAppContext } from '@/components/App';
+import { useState } from 'react';
+import { useUrlState } from '@/lib/useUrlState';
+import c from 'clsx';
 
 export const LinkRoll = ({
   children,
@@ -35,8 +35,8 @@ export const LinkRoll = ({
   const linkTarget = target
     ? target
     : href?.startsWith('http')
-    ? '_blank'
-    : false;
+      ? '_blank'
+      : false;
   const hasHref = Boolean(href && href.startsWith('/'));
   const { active, external } = useUrlState(href);
   const activeOrExternal = active || external;

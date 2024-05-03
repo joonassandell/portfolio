@@ -1,19 +1,12 @@
-import {
-  MotionValue,
-  m,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
-import { LinkRoll } from '@/components/LinkRoll';
-import { useEffect, useRef, useState } from 'react';
-import { useMouseHovered, useMeasure } from 'react-use';
 import { clamp } from 'lodash-es';
-import { mapRange, getSitemap } from '@/lib/utility';
-import { TRANS_PRIMARY_FAST } from '@/lib/config';
-import Image from 'next/image';
-import { MQ } from '@/lib/config';
+import { getSitemap, mapRange } from '@/lib/utility';
+import { LinkRoll } from '@/components/LinkRoll';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';
 import { type NextProjectProps } from './';
+import { useEffect, useRef, useState } from 'react';
+import { useMeasure, useMouseHovered } from 'react-use';
+import Image from 'next/image';
 
 export const NextProject = ({ id }: NextProjectProps) => {
   const { url, title } = getSitemap(id);
@@ -24,7 +17,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
     useMeasure<HTMLDivElement>();
   const figureWidthHalf = figureWidth / 2;
   const figureHeightHalf = figureHeight / 2;
-  let { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
+  const { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
     bound: true,
     whenHovered: true,
   });

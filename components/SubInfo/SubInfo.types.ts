@@ -2,8 +2,8 @@ import { type ReactNode } from 'react';
 
 export interface SubInfoProps {
   client: {
-    name: string;
     href?: string;
+    name: string;
   };
   heading: string;
   role: string[];

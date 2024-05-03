@@ -1,4 +1,4 @@
-import { AppContextProps } from '@/components/App';
+import { type AppContextProps } from '@/components/App';
 
 export interface SplashProps {
   loading: boolean;

@@ -1,5 +1,5 @@
-import c from 'clsx';
 import { type HeadingProps } from './';
+import c from 'clsx';
 
 export const Heading = ({
   className,

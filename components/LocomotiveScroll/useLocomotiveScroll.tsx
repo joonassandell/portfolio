@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import { LocomotiveScrollContext } from './';
+import { useContext } from 'react';
 
 export const useLocomotiveScroll = () => {
   const context = useContext(LocomotiveScrollContext);

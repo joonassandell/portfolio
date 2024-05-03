@@ -1,13 +1,13 @@
-import { m } from 'framer-motion';
-import { Link } from '@/components/Link';
-import { Text } from '@/components/Text';
-import { Hr } from '@/components/Hr';
-import { Heading } from '@/components/Heading';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { useInView } from '@/lib/useInView';
-import { TEXT_VARIANTS } from '@/lib/config';
-import { useRef } from 'react';
+import { Heading } from '@/components/Heading';
+import { Hr } from '@/components/Hr';
+import { Link } from '@/components/Link';
+import { m } from 'framer-motion';
 import { type SubInfoProps } from './';
+import { Text } from '@/components/Text';
+import { TEXT_VARIANTS } from '@/lib/config';
+import { useInView } from '@/lib/useInView';
+import { useRef } from 'react';
 
 export const SubInfo = ({
   client,

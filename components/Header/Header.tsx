@@ -1,4 +1,6 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
+import { ButtonArrow } from '@/components/Button';
+import { CONTENT, LINKS, MQ, SITEMAP } from '@/lib/config';
 import {
   ctrlItemInVariant,
   ctrlItemOutVariant,
@@ -7,32 +9,30 @@ import {
   enterExitBtnArrowIfNavOpen,
   enterExitBtnText,
   enterExitBtnTextIfNavOpen,
-  maskClose,
-  maskOpen,
-  navVariant,
-  navItemVariant,
   HeaderNavItem,
   type HeaderProps,
+  maskClose,
+  maskOpen,
+  navItemVariant,
+  navVariant,
 } from './';
-import { useEffect, useState, useRef } from 'react';
-import { ButtonArrow } from '@/components/Button';
-import { LinkRoll } from '@/components/LinkRoll';
-import { Link } from '@/components/Link';
-import c from 'clsx';
 import { debounce } from 'lodash-es';
-import { SITEMAP, LINKS, CONTENT, MQ } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
+import { Link } from '@/components/Link';
+import { type LinkEvent } from '@/types';
+import { LinkRoll } from '@/components/LinkRoll';
+import { urlState } from '@/lib/useUrlState';
 import { useAppContext } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
-import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
 import {
-  useScrollTo,
   useLocomotiveScroll,
+  useScrollTo,
 } from '@/components/LocomotiveScroll';
-import { urlState } from '@/lib/useUrlState';
-import FocusTrap from 'focus-trap-react';
 import { useMedia } from 'react-use';
-import { LinkEvent } from '@/types';
+import { useRouter } from 'next/router';
+import c from 'clsx';
+import FocusTrap from 'focus-trap-react';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
@@ -53,8 +53,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const [btnFocus, setBtnFocus] = useState(false);
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const [enterExit, setEnterExit] = useState<{
-    btnText: typeof enterExitBtnText;
     btnArrow: typeof enterExitBtnArrow;
+    btnText: typeof enterExitBtnText;
   }>({
     btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,

@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 import { getCSSVarValue } from '@/lib/utility';
+import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
 export const headingVariants: Variants = {

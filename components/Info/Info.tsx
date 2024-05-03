@@ -1,14 +1,14 @@
-import { MQ, TEXT_VARIANTS } from '@/lib/config';
-import { m } from 'framer-motion';
-import { Link } from '@/components/Link';
-import { Hr } from '@/components/Hr';
-import { Text } from '@/components/Text';
-import { Heading } from '@/components/Heading';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import { Heading } from '@/components/Heading';
+import { Hr } from '@/components/Hr';
+import { type InfoProps } from './';
+import { Link } from '@/components/Link';
+import { m } from 'framer-motion';
+import { MQ, TEXT_VARIANTS } from '@/lib/config';
+import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import { type InfoProps } from './';
 
 export const Info = ({
   client,

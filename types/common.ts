@@ -1,18 +1,18 @@
-import { HeaderProps } from '@/components/Header';
-import { TemplateProps } from '@/components/Template';
+import { type HeaderProps } from '@/components/Header';
+import { type TemplateProps } from '@/components/Template';
 
 /* =======================================
  * Sitemap, links
  * ======================================= */
 
 export interface SitemapItem {
+  hidden?: boolean;
   id: string;
   images?: string;
   navTitle: string;
-  title: string;
   themeColor?: string;
+  title: string;
   url: URL['href'];
-  hidden?: boolean;
 }
 
 export interface SitemapItemProject extends SitemapItem {
@@ -25,14 +25,14 @@ export interface Sitemap {
   secondary: SitemapItem[];
 }
 
-export interface LinkItem {
-  title: string;
+export interface Link {
   id: string;
+  title: string;
   url: URL['href'];
 }
 
 export interface Links {
-  social: LinkItem[];
+  social: Link[];
 }
 
 /* =======================================
@@ -48,9 +48,6 @@ export interface PageProps {
 
 export interface PageProjectProps extends PageProps {
   navTitle: HeaderProps['navTitle'];
-  title: string;
-  themeColor?: string;
-  url: URL['href'];
   year: string | number;
 }
 

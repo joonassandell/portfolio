@@ -1,18 +1,18 @@
-import { useState, useRef } from 'react';
-import { SCROLL_SPEED } from '@/lib/config';
-import { isString } from '@/lib/utility';
-import { default as NextImage } from 'next/image';
 import { AnimatePresence, m } from 'framer-motion';
-import { useInView, useInViewVideo } from '@/lib/useInView';
-import c from 'clsx';
 import {
   clipVariants,
-  moveVariants,
-  glareVariants,
-  placeholderVariants,
-  placeholderGlareVariants,
   type FigureProps,
+  glareVariants,
+  moveVariants,
+  placeholderGlareVariants,
+  placeholderVariants,
 } from './';
+import { isString } from '@/lib/utility';
+import { default as NextImage } from 'next/image';
+import { SCROLL_SPEED } from '@/lib/config';
+import { useInView, useInViewVideo } from '@/lib/useInView';
+import { useRef, useState } from 'react';
+import c from 'clsx';
 
 export const Figure = ({
   alt,

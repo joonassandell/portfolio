@@ -1,5 +1,5 @@
-import { type TagGeneric, type TagText } from '@/types';
 import { type HTMLMotionProps } from 'framer-motion';
+import { type TagGeneric, type TagText } from '@/types';
 
 export interface TextProps extends HTMLMotionProps<'div'> {
   animate?: boolean;

@@ -1,11 +1,11 @@
+import { type IconProps } from './';
 import ArrowDownIcon from './icons/arrow-down.svg';
 import ArrowDownIconLong from './icons/arrow-down-long.svg';
-import ArrowUpIcon from './icons/arrow-up.svg';
 import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowRightIconLong from './icons/arrow-right-long.svg';
-import CrossIcon from './icons/cross.svg';
+import ArrowUpIcon from './icons/arrow-up.svg';
 import c from 'clsx';
-import { type IconProps } from './';
+import CrossIcon from './icons/cross.svg';
 
 export const ArrowDown = ({ className }: IconProps) => (
   <ArrowDownIcon className={c('Icon Icon--arrowDown', className)} />

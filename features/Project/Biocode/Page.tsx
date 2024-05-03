@@ -1,12 +1,12 @@
 import { BiocodeHero } from '@/features/Project';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ, SCROLL_SPEED } from '@/lib/config';
-import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utility';
 import { Head } from '@/components/Head';
-import { PageProjectProps } from '@/types';
+import { Info } from '@/components/Info';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { type PageProjectProps } from '@/types';
+import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 
 export const BiocodePage = ({
   images,

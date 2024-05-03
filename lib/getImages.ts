@@ -1,7 +1,7 @@
-import fs from 'node:fs/promises';
 import { glob } from 'glob';
+import { type Image } from '@/types';
+import fs from 'node:fs/promises';
 import sharp from 'sharp';
-import { Image } from '@/types';
 
 export const getImages = async (
   pattern?: string,

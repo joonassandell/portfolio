@@ -1,15 +1,13 @@
-import { LINKS } from '@/lib/config';
 import { LinkRoll } from '@/components/LinkRoll';
+import { LINKS } from '@/lib/config';
 
 export const Footer = () => {
-  const someLinks = LINKS.social;
-
   return (
     <footer className="Footer wrap">
       <div className="Footer-inner">
         <div className="Footer-main">
           <ul className="Footer-links">
-            {someLinks.map(item => {
+            {LINKS.social.map(item => {
               return (
                 <li key={item.id}>
                   <LinkRoll href={item.url}>{item.title}</LinkRoll>

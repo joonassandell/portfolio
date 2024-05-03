@@ -1,23 +1,20 @@
-import { SITEMAP, LINKS } from '@/lib/config';
 import {
+  type Image,
+  type Link,
   type Links,
-  type LinkItem,
   type Sitemap,
   type SitemapItem,
-  type Image,
   type SitemapItemProject,
 } from '@/types';
+import { LINKS, SITEMAP } from '@/lib/config';
 
 export const getSitemap = (value: string, type: keyof Sitemap = 'primary') => {
   return SITEMAP[type].find(obj => obj['id'] === value) as SitemapItem &
     SitemapItemProject;
 };
 
-export const getLink = (
-  value: string,
-  type: keyof Links = 'social',
-): LinkItem => {
-  return LINKS[type].find(obj => obj['id'] === value) as LinkItem;
+export const getLink = (value: string, type: keyof Links = 'social'): Link => {
+  return LINKS[type].find(obj => obj['id'] === value) as Link;
 };
 
 export const getImage = (image: Image['src'], images?: Image[]) =>

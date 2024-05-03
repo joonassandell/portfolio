@@ -1,5 +1,5 @@
-import { ImageProps } from 'next/image';
-import { ElementAttributes } from '../LocomotiveScroll';
+import { type ElementAttributes } from '../LocomotiveScroll';
+import { type ImageProps } from 'next/image';
 
 export interface FigureProps
   extends Omit<
@@ -24,12 +24,12 @@ export interface FigureProps
   mask?: boolean;
   placeholder?: boolean;
   scroll?: boolean;
-  src: string;
   scrollDelay?: number;
   scrollImageSpeed?: number;
   scrollOffset?: ElementAttributes['offset'];
   scrollPosition?: ElementAttributes['position'];
   scrollPrevent?: boolean;
   scrollSpeed?: ElementAttributes['speed'] | 'negative';
+  src: string;
   transition?: 'move' | 'clip';
 }

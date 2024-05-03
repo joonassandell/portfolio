@@ -1,5 +1,6 @@
+import { AnimatePresence, m, useAnimation } from 'framer-motion';
 import { ArrowDown, ArrowUp } from '../Icon';
-import { m, useAnimation, AnimatePresence } from 'framer-motion';
+import { type ButtonArrowProps } from './';
 import {
   TRANS_PRIMARY,
   TRANS_PRIMARY_FAST,
@@ -7,7 +8,6 @@ import {
 } from '@/lib/config';
 import { useEffect, useState } from 'react';
 import c from 'clsx';
-import { ButtonArrowProps } from './';
 
 export const ButtonArrow = ({
   active = false,

@@ -1,9 +1,9 @@
 import { ButtonEnter } from '@/components/Button';
-import { Text } from '@/components/Text';
-import { Heading } from '@/components/Heading';
-import c from 'clsx';
 import { Fragment } from 'react';
-import { HeroContentProps } from './';
+import { Heading } from '@/components/Heading';
+import { type HeroContentProps } from './';
+import { Text } from '@/components/Text';
+import c from 'clsx';
 
 export const HeroContent = ({
   className,

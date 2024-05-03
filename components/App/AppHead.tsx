@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export const AppHead = () => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
 export interface HeaderProps {
   navTitle?: string;
@@ -6,8 +6,8 @@ export interface HeaderProps {
 
 export interface HeaderNavItemProps {
   color: string;
-  onClick: ComponentPropsWithoutRef<'a'>['onClick'];
   name: string;
+  onClick: ComponentPropsWithoutRef<'a'>['onClick'];
   url: string;
   year: string | number;
 }

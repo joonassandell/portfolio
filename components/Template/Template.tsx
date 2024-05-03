@@ -1,16 +1,16 @@
 import { AnimatePresence, m, useIsPresent } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { camelCase } from 'lodash-es';
+import { Footer } from '@/components/Footer';
 import {
   overlayVariants,
-  variantsWithTransition,
-  variantsWithoutTransition,
   type TemplateProps,
+  variantsWithoutTransition,
+  variantsWithTransition,
 } from './';
-import c from 'clsx';
 import { useAppContext } from '@/components/App';
+import { useEffect, useState } from 'react';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
-import { Footer } from '@/components/Footer';
-import { camelCase } from 'lodash-es';
+import c from 'clsx';
 
 export const Template = ({ children, className, id }: TemplateProps) => {
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(

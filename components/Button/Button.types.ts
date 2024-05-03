@@ -1,11 +1,11 @@
-import { HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'framer-motion';
 import { type PropsWithChildren } from 'react';
 
 export interface ButtonArrowProps {
   active?: boolean;
   className?: string;
-  hoverStart?: boolean;
   hoverEnd?: boolean;
+  hoverStart?: boolean;
 }
 
 export interface ButtonEnterBaseProps extends PropsWithChildren {

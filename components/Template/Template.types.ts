@@ -1,4 +1,4 @@
-import { type PropsWithChildren, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
 
 export interface TemplateProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'div'>['className'];
@@ -11,10 +11,10 @@ export interface TemplateMainProps extends PropsWithChildren {
 
 export interface TemplateSectionProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'section'>['className'];
-  id?: string;
   grid?: boolean;
   gridGap?: 'xl' | 'l' | 'm' | false;
   gridRowGap?: 'xl' | 'l' | 'm' | false;
+  id?: string;
   paddingBottom?: '15vw';
   paddingTop?: '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
   theme?: 'dark' | 'light';

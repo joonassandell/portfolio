@@ -1,9 +1,9 @@
-import { HTMLMotionProps, m } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from '@/lib/useInView';
+import { type HTMLMotionProps, m } from 'framer-motion';
 import { TEXT_VARIANTS } from '@/lib/config';
+import { type TextProps } from './';
+import { useInView } from '@/lib/useInView';
+import { useRef } from 'react';
 import c from 'clsx';
-import { TextProps } from './';
 
 export const Text = ({
   animate,

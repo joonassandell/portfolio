@@ -1,5 +1,5 @@
+import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
-import { HeadProps } from './';
 
 export const Head = ({
   title,

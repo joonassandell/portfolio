@@ -1,5 +1,5 @@
 import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
-import { TagHeading, TagGeneric } from '@/types';
+import { type TagGeneric, type TagHeading } from '@/types';
 
 export interface HeadingProps
   extends PropsWithChildren,

@@ -1,5 +1,5 @@
 import { TRANS_PRIMARY_FAST, TRANS_PRIMARY_FASTEST } from '@/lib/config';
-import { Variants } from 'framer-motion';
+import { type Variants } from 'framer-motion';
 
 export const outVariant: Variants = {
   in: {

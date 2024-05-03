@@ -1,19 +1,19 @@
-import { m, animate } from 'framer-motion';
+import { animate, m } from 'framer-motion';
+import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react';
+import { getClosestEdge } from '@/lib/utility';
 import {
-  marqueeVariants,
+  type HeaderNavItemProps,
   marqueeInnerVariants,
   marqueeTransition,
-  type HeaderNavItemProps,
+  marqueeVariants,
 } from './';
-import { getClosestEdge } from '@/lib/utility';
 import { navItemVariant } from './Header.animations';
-import { Fragment, useEffect, useState, useRef, MouseEvent } from 'react';
+import { urlState } from '@/lib/useUrlState';
+import { useAppContext } from '@/components/App';
 import { useRouter } from 'next/router';
 import c from 'clsx';
 import EyeSvg from './eye.svg';
 import Link from 'next/link';
-import { useAppContext } from '@/components/App';
-import { urlState } from '@/lib/useUrlState';
 
 export const HeaderNavItem = ({
   url,

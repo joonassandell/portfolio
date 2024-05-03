@@ -1,5 +1,5 @@
-import { type TagGeneric, type TagAction } from '@/types';
 import { type HTMLMotionProps } from 'framer-motion';
+import { type TagAction, type TagGeneric } from '@/types';
 
 export interface LinkRollProps extends HTMLMotionProps<'a'> {
   children: string;

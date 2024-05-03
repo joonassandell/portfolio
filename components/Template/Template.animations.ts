@@ -1,5 +1,5 @@
 import { TRANS_TEMPLATE } from '@/lib/config';
-import { Variants } from 'framer-motion';
+import { type Variants } from 'framer-motion';
 
 export const variantsWithTransition: Variants = {
   animate: {

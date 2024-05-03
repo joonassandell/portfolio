@@ -1,7 +1,7 @@
-import { SandboxPage } from '@/features/Project';
-import { getSitemap } from '@/lib/utility';
 import { getImages } from '@/lib/getImages';
+import { getSitemap } from '@/lib/utility';
 import { type PageProjectProps } from '@/types';
+import { SandboxPage } from '@/features/Project';
 
 export default function Page({ ...props }: PageProjectProps) {
   return <SandboxPage {...props} />;

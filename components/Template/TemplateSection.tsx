@@ -1,4 +1,4 @@
-import { TemplateSectionProps } from './';
+import { type TemplateSectionProps } from './';
 import c from 'clsx';
 
 export const TemplateSection = ({

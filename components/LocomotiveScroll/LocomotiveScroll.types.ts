@@ -1,13 +1,13 @@
 import {
-  type default as Scroll,
-  type ScrollElement,
-  type InstanceOptions,
-} from 'locomotive-scroll';
-import {
-  type MutableRefObject,
   type DependencyList,
+  type MutableRefObject,
   type PropsWithChildren,
 } from 'react';
+import {
+  type InstanceOptions,
+  type default as Scroll,
+  type ScrollElement,
+} from 'locomotive-scroll';
 
 /**
  * Add more of these if needed by inspecting the "Smooth" scroll instance with
@@ -18,13 +18,13 @@ import {
  */
 export interface InstanceProps {
   scroll: {
-    stop: boolean;
     instance: {
       limit: {
         x: number;
         y: number;
       };
     };
+    stop: boolean;
   };
 }
 
@@ -54,4 +54,4 @@ export interface LocomotiveScrollProviderProps extends PropsWithChildren {
   watch: DependencyList | undefined;
 }
 
-export { InstanceOptions };
+export type { InstanceOptions };

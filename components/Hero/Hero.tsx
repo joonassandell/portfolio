@@ -1,14 +1,14 @@
-import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
-import { headingVariants as headingVars, HeroProps } from './';
+import { Heading } from '@/components/Heading';
+import { headingVariants as headingVars, type HeroProps } from './';
+import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
+import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
+import { Stamp } from '@/components/Stamp';
+import { TextReveal } from '@/components/TextReveal';
 import { useAppContext } from '@/components/App';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'clsx';
-import { Link } from '@/components/Link';
-import { Stamp } from '@/components/Stamp';
-import { Heading } from '@/components/Heading';
-import { TextReveal } from '@/components/TextReveal';
 
 export const Hero = ({
   children,
@@ -46,7 +46,7 @@ export const Hero = ({
    * Initial state: Default state and appState.transitionInitial === true
    */
   // At transition start or at default state
-  const transitionStartOrDefault = transitionStart || !transitionPre;
+  const transitionStartOrDefault = transitionStart ?? !transitionPre;
 
   // Trigger transition initial only if not in pre transition state
   const transitionInitial = appTransitionInitial && !transitionPre;
@@ -86,7 +86,7 @@ export const Hero = ({
             className="Hero-heading-inner"
             onClick={onClick}
             size="display"
-            // @ts-ignore
+            // @ts-expect-error Heading should include "asChild" prop eventually
             tag={transitionPre ? m.h2 : m.h1}
             variants={headingVariants}
           >

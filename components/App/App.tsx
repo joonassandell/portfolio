@@ -1,20 +1,19 @@
-import { createContext, useContext, useEffect, useState, useRef } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { isBrowser } from '@/lib/utility';
-import { Splash } from '@/components/Splash';
-import { Header } from '@/components/Header';
-import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
-import { useRouter } from 'next/router';
-import { LazyMotion, domAnimation } from 'framer-motion';
-import Script from 'next/script';
+import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
 import {
+  type AppContextProps,
   AppHead,
   type AppProps,
-  type AppContextProps,
   type AppStateProps,
 } from '.';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
+import { Header } from '@/components/Header';
+import { isBrowser } from '@/lib/utility';
+import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
+import { Splash } from '@/components/Splash';
+import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
+import Script from 'next/script';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
@@ -70,7 +69,9 @@ export const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      console.info('Made by me with Next.js, Framer Motion and tears. 🥲');
+      console.info(
+        'Made by me with Next.js, TypeScript, Framer Motion and tears. 🥲',
+      );
     }
 
     (async () => {

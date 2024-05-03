@@ -1,11 +1,11 @@
 import { createContext, useEffect, useRef, useState } from 'react';
-import { useDebounce } from 'use-debounce';
-import useResizeObserver from 'use-resize-observer';
 import {
   type LocomotiveScrollContextProps,
   type LocomotiveScrollProviderProps,
   type ScrollProps,
 } from './';
+import { useDebounce } from 'use-debounce';
+import useResizeObserver from 'use-resize-observer';
 
 export const LocomotiveScrollContext =
   createContext<LocomotiveScrollContextProps>({

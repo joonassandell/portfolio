@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
-import { useRef } from 'react';
+import { parentVariant, type TextRevealProps, textVariant } from './';
 import { useInView } from '@/lib/useInView';
-import { parentVariant, textVariant, type TextRevealProps } from './';
+import { useRef } from 'react';
 import c from 'clsx';
 
 export const TextReveal = ({

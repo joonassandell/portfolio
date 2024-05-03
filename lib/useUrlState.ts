@@ -1,5 +1,5 @@
-import { type NextRouter, useRouter } from 'next/router';
 import { isBrowser } from '@/lib/utility';
+import { type NextRouter, useRouter } from 'next/router';
 
 export const urlState = (href: URL['href'], router?: NextRouter) => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
