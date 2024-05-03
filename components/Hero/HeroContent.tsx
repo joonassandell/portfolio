@@ -3,6 +3,7 @@ import { Text } from '@/components/Text';
 import { Heading } from '@/components/Heading';
 import c from 'clsx';
 import { Fragment } from 'react';
+import { HeroContentProps } from './';
 
 export const HeroContent = ({
   className,
@@ -11,13 +12,16 @@ export const HeroContent = ({
   onClick,
   role,
   transitionPre,
-}) => {
+}: HeroContentProps) => {
   if (!transitionPre) return null;
   const classes = c('Hero-content', className);
 
   return (
     <div className={classes}>
-      {/* Hero heading is aligned before and used as the main heading */}
+      {/**
+       * Hero heading is aligned before this heading and used as the main
+       * heading which is why this is aria-hidden
+       */}
       <Heading
         aria-hidden="true"
         className="Hero-content-heading"

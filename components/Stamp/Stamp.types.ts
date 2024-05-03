@@ -2,11 +2,11 @@ import { type HTMLMotionProps } from 'framer-motion';
 import { type RefObject } from 'react';
 
 export interface StampProps {
-  addVarsToParent: boolean;
+  addVarsToParent?: boolean;
   className?: string;
-  href: string;
+  href?: HTMLAnchorElement['href'];
   onClick: HTMLMotionProps<'a'>['onClick'];
   overlay: boolean;
   parentRef: RefObject<Element>;
-  transitionStart: boolean;
+  transitionStart?: boolean;
 }

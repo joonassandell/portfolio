@@ -4,6 +4,6 @@ import { TagHeading, TagGeneric } from '@/types';
 export interface HeadingProps
   extends PropsWithChildren,
     ComponentPropsWithoutRef<'h1'> {
-  size?: TagHeading | 'display';
+  size?: TagHeading | 'display' | null;
   tag?: TagHeading | TagGeneric;
 }

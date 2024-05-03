@@ -1,5 +1,5 @@
 import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
-import { headingVariants as headingVars } from './Hero.animations';
+import { headingVariants as headingVars, HeroProps } from './';
 import { m } from 'framer-motion';
 import { useAppContext } from '@/components/App';
 import { useRef } from 'react';
@@ -23,7 +23,7 @@ export const Hero = ({
   themeColor,
   transitionStart,
   transition,
-}) => {
+}: HeroProps) => {
   const transitionPre = transition === 'pre';
   const { appState } = useAppContext();
   const { transitionInitial: appTransitionInitial, transition: appTransition } =
@@ -70,7 +70,7 @@ export const Hero = ({
       data-theme-color={themeColor}
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
-          push(href, null, { scroll: false });
+          push(href as string, undefined, { scroll: false });
           console.log('Hero: Animation complete');
         }
       }}
@@ -86,6 +86,7 @@ export const Hero = ({
             className="Hero-heading-inner"
             onClick={onClick}
             size="display"
+            // @ts-ignore
             tag={transitionPre ? m.h2 : m.h1}
             variants={headingVariants}
           >
@@ -102,7 +103,7 @@ export const Hero = ({
                     transition: TRANS_TERTIARY_FAST,
                   }
                 }
-                text={[heading]}
+                text={[heading as string]}
                 {...(noTransition && { initial: 'animate' })}
               />
             </div>
