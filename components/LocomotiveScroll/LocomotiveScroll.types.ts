@@ -10,12 +10,21 @@ import {
 } from 'react';
 
 /**
- * Add more of these if needed
- * https://github.com/antoinelin/react-locomotive-scroll/blob/main/lib/%40types/locomotive-scroll.d.ts#L92
+ * Add more of these if needed by inspecting the "Smooth" scroll instance with
+ * the dev tools
+ *
+ * https://github.com/locomotivemtl/locomotive-scroll/blob/master/src/scripts/Smooth.js
+ * https://github.com/antoinelin/react-locomotive-scroll/blob/main/lib/%40types/locomotive-scroll.d.ts
  */
-export interface InstanceEvents {
+export interface InstanceProps {
   scroll: {
     stop: boolean;
+    instance: {
+      limit: {
+        x: number;
+        y: number;
+      };
+    };
   };
 }
 
@@ -29,7 +38,7 @@ export interface ElementAttributes
   position: ScrollElement['position'] | 'top' | 'bottom' | 'left' | 'right';
 }
 
-export interface ScrollProps extends InstanceEvents, Scroll {}
+export interface ScrollProps extends InstanceProps, Scroll {}
 
 export interface LocomotiveScrollContextProps {
   isReady: boolean;

@@ -1,10 +1,13 @@
+import { type Variants } from 'framer-motion';
+
 /* =======================================
  * Animations
  * =======================================
  *
- * https://www.framer.com/motion/easing-functions
  * easeInOutExpo: [0.87, 0, 0.13, 1]
  * easeInOutQuart: [0.76, 0, 0.24, 1]
+ *
+ * @link https://www.framer.com/motion/easing-functions
  */
 
 export const EASE = [0.68, 0, 0.1, 1];
@@ -79,14 +82,14 @@ export const SLOW_NETWORK_DELAY = 1000;
  * Variants
  * ======================================= */
 
-export const FADE_OUT_VARIANTS = {
+export const FADE_OUT_VARIANTS: Variants = {
   animate: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
   },
 };
 
-export const JUMP_FIX_VARIANTS = {
+export const JUMP_FIX_VARIANTS: Variants = {
   animate: {
     opacity: 1,
     transition: {
@@ -100,7 +103,7 @@ export const JUMP_FIX_VARIANTS = {
   },
 };
 
-export const TEXT_VARIANTS = {
+export const TEXT_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     skewY: 0,

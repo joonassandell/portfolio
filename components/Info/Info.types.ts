@@ -4,10 +4,10 @@ export interface InfoProps {
     href?: string;
   };
   heading: string;
-  role: [];
+  role: string[];
   smallPrint?: string;
-  tech: [];
+  tech: string[];
   text: string;
-  type: [];
+  type: string[];
   year: string;
 }

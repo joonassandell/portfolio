@@ -4,8 +4,8 @@ export interface SubInfoProps {
     href?: string;
   };
   heading: string;
-  role: [];
+  role: string[];
   text: string;
-  type: [];
+  type: string[];
   year: string;
 }
