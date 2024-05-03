@@ -2,10 +2,11 @@
   "name": "joonassandell-portfolio",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "analyze": "ANALYZE=true npm run build",
     "build": "next build",
-    "create:component": "node ./utils/create-component",
+    "create:component": "node ./scripts/create-component.cjs",
     "deploy:preview": "vercel deploy",
     "dev": "next dev",
     "lint": "next lint",

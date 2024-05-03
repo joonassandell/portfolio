@@ -1,7 +1,6 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
 require('colors');
 const fs = require('fs');
-const templates = require('./templates/templates');
+const templates = require('./templates/templates.cjs');
 const componentName = process.argv[2];
 
 if (!componentName) {
@@ -9,7 +8,7 @@ if (!componentName) {
   process.exit(1);
 }
 
-console.log('Creating Component Templates with name: ' + componentName);
+console.log('Creating component templates with the name: ' + componentName);
 
 const componentDirectory = `./components/${componentName}`;
 
@@ -31,13 +30,14 @@ generatedTemplates.forEach(template => {
   );
 });
 
-/**
- * Todo: Add automatic import to scss
- */
 console.log(
-  `Successfully created component under: ${componentDirectory.green}
-Add: ${
-    `@forward 'components/${componentName}';`.yellow
-  } to ./stylesheets/index.scss
-  `,
+  'Successfully created component under: ' + componentDirectory.green,
+);
+
+console.log(
+  'Remember to add ' +
+    "@use 'components/".green +
+    componentName.green +
+    "';".green +
+    ' to ./stylesheets/index.scss',
 );

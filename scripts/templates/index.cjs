@@ -1,5 +1,5 @@
 module.exports = componentName => ({
   content: `export * from './${componentName}';`,
-  extension: `.js`,
+  extension: `.ts`,
   name: `index`,
 });

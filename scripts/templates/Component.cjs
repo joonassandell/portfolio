@@ -6,7 +6,6 @@ export const ${componentName} = ({ className, children }) => {
 
   return <div className={classes}>{children}</div>;
 };
-
 `,
-  extension: `.jsx`,
+  extension: `.tsx`,
 });
