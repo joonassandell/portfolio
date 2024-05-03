@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
+import { type NextRouter, useRouter } from 'next/router';
 import { isBrowser } from '@/lib/utility';
 
-export const urlState = (href, router) => {
+export const urlState = (href: URL['href'], router?: NextRouter) => {
   const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
   const url = new URL(href, ORIGIN);
 
@@ -12,7 +12,7 @@ export const urlState = (href, router) => {
   };
 };
 
-export const useUrlState = href => {
+export const useUrlState = (href: URL['href']) => {
   const router = useRouter();
   return urlState(href, router);
 };

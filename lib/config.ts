@@ -1,4 +1,5 @@
 import { type Variants } from 'framer-motion';
+import { type Links, type Sitemap } from '@/types';
 
 /* =======================================
  * Animations
@@ -121,14 +122,14 @@ export const TEXT_VARIANTS: Variants = {
 };
 
 /* =======================================
- * Sitemap, content, links...
+ * Sitemap, content, links
  * ======================================= */
 
 export const CONTENT = {
   defaultNavTitle: 'Selected works',
 };
 
-export const SITEMAP = {
+export const SITEMAP: Sitemap = {
   primary: [
     {
       color: 'var(--biocode-primary)',
@@ -195,6 +196,7 @@ export const SITEMAP = {
       color: 'var(--white)',
       id: 'home',
       navTitle: 'Browse all',
+      title: 'Browse all',
       url: '/',
       year: `2010—${new Date().getFullYear()}`,
     },
@@ -204,20 +206,18 @@ export const SITEMAP = {
       title: 'About',
       navTitle: 'About',
       id: 'about',
-      type: 'secondary',
       url: '/about',
     },
     {
       title: 'Contact',
       navTitle: 'Contact',
       id: 'contact',
-      type: 'secondary',
       url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
     },
   ],
-};
+} as const;
 
-export const LINKS = {
+export const LINKS: Links = {
   social: [
     {
       title: 'Dribbble',
@@ -250,7 +250,7 @@ export const LINKS = {
       url: 'https://soundcloud.com/modeapart',
     },
   ],
-};
+} as const;
 
 /* =======================================
  * Media queries
@@ -272,4 +272,4 @@ export const MQ = {
   '5xl': '(min-width: 1920px)',
   '6xl': '(min-width: 2560px)',
   '7xl': '(min-width: 3840px)',
-};
+} as const;

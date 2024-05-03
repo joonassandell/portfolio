@@ -1,6 +1,4 @@
-const win = window;
-const ua = win.navigator.userAgent;
-const doc = document;
+const ua = navigator.userAgent;
 
 /**
  * Chrome
@@ -20,8 +18,9 @@ export const isSafari = ua.indexOf('Safari') > -1 && !isChrome;
 /**
  * Brave
  */
+const nav: Navigator | any = navigator;
 export const isBrave =
-  (navigator.brave && (async () => await navigator.brave.isBrave())) || false;
+  (nav.brave && (async () => await nav.brave.isBrave())) || false;
 
 /**
  * Android
@@ -81,12 +80,12 @@ export const isIphoneSafari =
 /**
  * Mac
  */
-export const isMac = /mac/i.test(navigator.platform);
+export const isMac = /mac/i.test(ua);
 
 /**
  * Windows
  */
-export const isWindows = /win/i.test(navigator.platform);
+export const isWindows = /win/i.test(ua);
 
 /**
  * Safari
@@ -102,8 +101,4 @@ export const hasThemeColor = isIphoneSafari || isDesktopSafari;
  * Tests if touch events are supported, but doesn't necessarily reflect a
  * touchscreen device
  */
-export const hasTouch = !!(
-  'ontouchstart' in win ||
-  (win.navigator && win.navigator.msPointerEnabled && win.MSGesture) ||
-  (win.DocumentTouch && doc instanceof DocumentTouch)
-);
+export const hasTouch = window.matchMedia('(pointer: coarse)').matches;

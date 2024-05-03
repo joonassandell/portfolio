@@ -1,3 +1,3 @@
 export * from './event';
-export * from './page';
+export * from './common';
 export * from './tag';
