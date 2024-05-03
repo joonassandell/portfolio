@@ -152,6 +152,7 @@ export const Figure = ({
               title={alt}
             >
               <source src={src} />
+              <p className="hideVisually">{alt}</p>
             </video>
           )}
         </m.div>

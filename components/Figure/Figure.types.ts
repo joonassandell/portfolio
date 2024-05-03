@@ -15,9 +15,9 @@ export interface FigureProps
     | 'lazyBoundary'
     | 'lazyRoot'
   > {
-  background?: string;
-  border?: string;
-  borderRadius?: boolean;
+  background?: string | boolean;
+  border?: string | boolean;
+  borderRadius?: string | boolean;
   glare?: boolean;
   id?: ElementAttributes['id'];
   inViewOffset?: number;
