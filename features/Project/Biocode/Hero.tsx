@@ -1,7 +1,7 @@
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
 import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent } from '@/components/Hero';
+import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
 import { TextReveal } from '@/components/TextReveal';
 import { Heading } from '@/components/Heading';
 import { headingVariants, maskVariants } from './Hero.animations';
@@ -10,7 +10,7 @@ import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 
-export const BiocodeHero = ({ onClick, ...props }) => {
+export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
   const { url, id, title, themeColor } = getSitemap('biocode');
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
