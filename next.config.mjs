@@ -15,9 +15,6 @@ const config = {
   env: {
     NEXT_PUBLIC_ORIGIN: preview ? `https://${VERCEL_URL}` : NEXT_PUBLIC_ORIGIN,
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname)],
-  },
   experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {
     compiler: {
@@ -26,12 +23,14 @@ const config = {
       },
     },
   }),
+  sassOptions: {
+    includePaths: [path.join(__dirname)],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-
     return config;
   },
   async headers() {

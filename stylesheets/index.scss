@@ -1,14 +1,10 @@
-// Vendors
-@use 'stylesheets/vendors/nprogress';
-@use 'stylesheets/vendors/locomotive-scroll';
+// Tokens
+@use 'tokens';
 
 // Generic
 @use 'stylesheets/generic/base';
 @use 'stylesheets/generic/fonts';
 @use 'stylesheets/generic/heading';
-
-// Tokens
-@use 'tokens';
 
 // Helpers
 @use 'helpers/background';
@@ -46,3 +42,7 @@
 @use 'features/About';
 @use 'features/Home';
 @use 'features/Project';
+
+// Vendors
+@use 'stylesheets/vendors/nprogress';
+@use 'stylesheets/vendors/locomotive-scroll';
