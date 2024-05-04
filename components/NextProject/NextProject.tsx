@@ -1,5 +1,5 @@
 import { clamp } from 'lodash-es';
-import { getSitemap, mapRange } from '@/lib/utility';
+import { getSitemap, mapRange } from '@/lib/utils';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';

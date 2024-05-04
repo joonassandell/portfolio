@@ -1,18 +1,18 @@
-import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
 import {
+  figureBgVariants,
   Hero,
   HeroContent,
-  figureBgVariants,
   type HeroProps,
 } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
-import Image from 'next/image';
+import { getSitemap } from '@/lib/utils';
+import { m } from 'framer-motion';
+import { SCROLL_SPEED } from '@/lib/config';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
+import Image from 'next/image';
 
 export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
-  const { url, id, title, year, themeColor } = getSitemap('sandbox');
+  const { id, themeColor, title, url, year } = getSitemap('sandbox');
 
   return (
     <Hero
@@ -24,7 +24,7 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
       themeColor={themeColor}
       {...props}
     >
-      {({ transitionPre, noTransition, transitionInitial }) => {
+      {({ noTransition, transitionInitial, transitionPre }) => {
         return (
           <div className="wrap">
             <div className="grid -gap:l">
@@ -36,10 +36,10 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                 "
               >
                 <figure
-                  data-s
-                  data-s-target={`[data-s-id=${id}]`}
-                  data-s-speed={-SCROLL_SPEED}
                   className="Hero-figure-figure"
+                  data-s
+                  data-s-speed={-SCROLL_SPEED}
+                  data-s-target={`[data-s-id=${id}]`}
                 >
                   <m.div
                     className="Hero-figure-figure-inner"
@@ -54,9 +54,9 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                       alt="Box of projects"
                       draggable="false"
                       priority
+                      quality={90}
                       sizes="33vw"
                       src={heroImage}
-                      quality={90}
                     />
                   </m.div>
                 </figure>
@@ -70,8 +70,8 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                 heading={title}
                 href={url}
                 onClick={onClick}
-                transitionPre={transitionPre}
                 role={['Various concepts of web services and applications']}
+                transitionPre={transitionPre}
               />
             </div>
           </div>

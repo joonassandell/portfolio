@@ -1,6 +1,6 @@
 import { animate, m } from 'framer-motion';
 import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react';
-import { getClosestEdge } from '@/lib/utility';
+import { getClosestEdge } from '@/lib/utils';
 import {
   type HeaderNavItemProps,
   marqueeInnerVariants,

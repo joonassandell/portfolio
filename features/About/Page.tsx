@@ -1,24 +1,24 @@
-import { m } from 'framer-motion';
-import { Template, TemplateMain } from '@/components/Template';
-import { SCROLL_SPEED, MQ, JUMP_FIX_VARIANTS } from '@/lib/config';
-import { getLink } from '@/lib/utility';
+import { Figure } from '@/components/Figure';
+import { getLink } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
-import { Text } from '@/components/Text';
-import { LinkRoll } from '@/components/LinkRoll';
-import { Link } from '@/components/Link';
-import { TextReveal } from '@/components/TextReveal';
-import { Figure } from '@/components/Figure';
 import { Hr } from '@/components/Hr';
+import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
+import { Link } from '@/components/Link';
+import { LinkRoll } from '@/components/LinkRoll';
+import { m } from 'framer-motion';
+import { type PageProps } from '@/types';
+import { Template, TemplateMain } from '@/components/Template';
+import { Text } from '@/components/Text';
+import { TextReveal } from '@/components/TextReveal';
+import { useAppContext } from '@/components/App';
+import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import { useInView } from '@/lib/useInView';
-import { useAppContext } from '@/components/App';
+import ballImage from '@/public/about/line-ball.png';
+import cubeImage from '@/public/about/line-cube.png';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
-import cubeImage from '@/public/about/line-cube.png';
-import ballImage from '@/public/about/line-ball.png';
-import { type PageProps } from '@/types';
 
 export const AboutPage = ({ id, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
@@ -54,8 +54,8 @@ export const AboutPage = ({ id, title }: PageProps) => {
   return (
     <Template id={id}>
       <Head
-        title={title}
         description="I'm creative developer and designer based in Helsinki, Finland."
+        title={title}
       />
       <TemplateMain>
         <div className="Template-heading wrap pr:0">
@@ -78,17 +78,17 @@ export const AboutPage = ({ id, title }: PageProps) => {
               borderRadius={false}
               mask
               priority
-              scrollPosition="top"
               scrollImageSpeed={-4}
+              scrollPosition="top"
               sizes="50vw"
               transition="clip"
               {...profileImage}
             />
             <Figure
+              alt="Line cube"
               aria-hidden="true"
               borderRadius={false}
               className="Template-cube"
-              alt="Line cube"
               placeholder={false}
               priority
               scroll
@@ -99,23 +99,23 @@ export const AboutPage = ({ id, title }: PageProps) => {
             />
           </div>
         </div>
-        <div id="about" className="Template-about wrap grid pt:15vw">
+        <div className="Template-about wrap grid pt:15vw" id="about">
           <div className="grid-col -start:3@m -start:5@l pb:5vw">
             <Heading
               size="h4"
               {...(mqS && {
                 'data-s': true,
-                'data-s-speed': SCROLL_SPEED,
                 'data-s-position': 'top',
+                'data-s-speed': SCROLL_SPEED,
               })}
             >
               <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
             </Heading>
             <div
-              data-s
-              data-s-speed={SCROLL_SPEED * -2}
-              data-s-position="top"
               className="Template-cube-2"
+              data-s
+              data-s-position="top"
+              data-s-speed={SCROLL_SPEED * -2}
             >
               <m.div
                 animate={cubeImageInView ? 'animate' : ''}
@@ -136,8 +136,8 @@ export const AboutPage = ({ id, title }: PageProps) => {
                   aria-hidden="true"
                   borderRadius={false}
                   inViewOffset={-1}
-                  sizes={`${MQ.m} 30vw, 40vw`}
                   placeholder={false}
+                  sizes={`${MQ.m} 30vw, 40vw`}
                   {...cubeImage}
                 />
               </m.div>
@@ -151,11 +151,11 @@ export const AboutPage = ({ id, title }: PageProps) => {
           >
             <Figure
               alt="Joonas Sandell"
-              className="Template-profile"
               borderRadius={false}
+              className="Template-profile"
               mask
-              scrollSpeed={-0.5}
               scrollPrevent
+              scrollSpeed={-0.5}
               sizes={`${MQ.s} 25vw, 70vw`}
               {...profileImage2}
             />
@@ -189,7 +189,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
             </Text>
           </div>
         </div>
-        <div id="skills" className="Template-skills">
+        <div className="Template-skills" id="skills">
           <div className="wrap">
             <Text animate className="mb:xl pt:15vw">
               Wow, such services and skills 🤹‍♂️
@@ -256,7 +256,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
             />
           </Heading>
         </div>
-        <div id="clients" className="Template-clients wrap grid pt:10vw">
+        <div className="Template-clients wrap grid pt:10vw" id="clients">
           <Figure
             alt="Line ball"
             aria-hidden="true"
@@ -316,7 +316,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
             </Text>
           </div>
         </div>
-        <div id="follow" className="wrap grid -gap:l pt:10vw">
+        <div className="wrap grid -gap:l pt:10vw" id="follow">
           <div className="grid-col grid-col:1@m">
             <Heading aria-hidden="true" size="display" tag="div">
               <TextReveal text={['↳']} />

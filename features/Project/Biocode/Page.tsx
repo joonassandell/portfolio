@@ -1,6 +1,6 @@
 import { BiocodeHero } from '@/features/Project';
 import { Figure } from '@/components/Figure';
-import { getImage, getSitemap } from '@/lib/utility';
+import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
@@ -9,20 +9,20 @@ import { type PageProjectProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 
 export const BiocodePage = ({
-  images,
   id,
-  title,
+  images,
   themeColor,
+  title,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('oras');
 
   return (
     <Template id={id}>
-      <Head title={title} themeColor={themeColor} />
+      <Head themeColor={themeColor} title={title} />
       <TemplateMain>
         <BiocodeHero />
         <Info
-          client={{ name: title, href: 'https://biocode.io' }}
+          client={{ href: 'https://biocode.io', name: title }}
           heading="Biocode is Carbon footprint calculator that makes sense. It’s aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
           role={['Product design', 'App development', 'Web development']}
           smallPrint="Building together with awesome co-workers from Biocode."
@@ -47,8 +47,8 @@ export const BiocodePage = ({
               border
               glare
               priority
-              sizes={`${MQ.l} 80vw, 100vw`}
               quality={100}
+              sizes={`${MQ.l} 80vw, 100vw`}
               {...getImage('joonassandell-biocode-website-home-hero', images)}
             />
           </div>
@@ -56,9 +56,9 @@ export const BiocodePage = ({
             <Figure
               alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
               border
+              quality={100}
               scroll
               sizes={`${MQ.m} 60vw, 70vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-home-whoitsfor',
                 images,
@@ -69,10 +69,10 @@ export const BiocodePage = ({
             <Figure
               alt="Four main Biocode features and quote of Biocode's customer"
               border
+              quality={100}
               scroll
               scrollSpeed="negative"
               sizes={`${MQ.m} 40vw, 70vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-home-calculate',
                 images,
@@ -83,8 +83,8 @@ export const BiocodePage = ({
             <Figure
               alt="Call to action to discover Biocode reporting service"
               border
-              sizes={`${MQ.m} 60vw, 70vw`}
               quality={100}
+              sizes={`${MQ.m} 60vw, 70vw`}
               {...getImage(
                 'joonassandell-biocode-website-home-reporting',
                 images,
@@ -97,8 +97,8 @@ export const BiocodePage = ({
               border
               glare
               scroll
-              src="/biocode/joonassandell-biocode-website-home.mp4"
               scrollSpeed={2}
+              src="/biocode/joonassandell-biocode-website-home.mp4"
             />
           </div>
         </TemplateSection>
@@ -152,8 +152,8 @@ export const BiocodePage = ({
               alt="Example of Biocode's easy to use card"
               border
               glare
-              sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
+              sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage(
                 'joonassandell-biocode-website-card-easy-to-use',
                 images,
@@ -164,8 +164,8 @@ export const BiocodePage = ({
             <Figure
               alt="About us page of Biocode homepage"
               border
-              sizes={`${MQ.m} 60vw, 100vw`}
               quality={100}
+              sizes={`${MQ.m} 60vw, 100vw`}
               {...getImage('joonassandell-biocode-website-about', images)}
             />
           </div>
@@ -174,8 +174,8 @@ export const BiocodePage = ({
               alt="Example of Biocode's agile card"
               border
               glare
-              sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
+              sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage('joonassandell-biocode-website-card-agile', images)}
             />
           </div>
@@ -199,8 +199,8 @@ export const BiocodePage = ({
               border
               glare
               inViewOffset={0.7}
-              sizes={`${MQ.m} 33vw, 50vw`}
               quality={100}
+              sizes={`${MQ.m} 33vw, 50vw`}
               {...getImage(
                 'joonassandell-biocode-website-card-credible',
                 images,
@@ -213,10 +213,10 @@ export const BiocodePage = ({
             <Figure
               alt="Biocode feature page hero cards"
               border
+              quality={100}
               scroll
               scrollSpeed={1}
               sizes={`${MQ.m} 70vw, 90w`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-features-hero',
                 images,
@@ -227,8 +227,8 @@ export const BiocodePage = ({
             <Figure
               alt="Biocode feature page assessment image"
               border
-              sizes={`${MQ.m} 60vw, 90w`}
               quality={100}
+              sizes={`${MQ.m} 60vw, 90w`}
               {...getImage(
                 'joonassandell-biocode-website-features-assessments',
                 images,
@@ -239,8 +239,8 @@ export const BiocodePage = ({
             <Figure
               alt="Mobile view of Biocode's homepage"
               glare
-              sizes={`${MQ.m} 25vw, 33vw`}
               quality={100}
+              sizes={`${MQ.m} 25vw, 33vw`}
               {...getImage('joonassandell-biocode-website-mobile', images)}
             />
           </div>
@@ -248,9 +248,9 @@ export const BiocodePage = ({
             <Figure
               alt="Biocode feature page results image"
               border
+              quality={100}
               scroll
               sizes={`${MQ.l} 70vw, 80vw`}
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-website-features-results',
                 images,
@@ -261,9 +261,9 @@ export const BiocodePage = ({
             <Figure
               alt="Biocode for producers app in dark mode"
               border
+              quality={100}
               sizes={`${MQ.l} 80vw, 100vw`}
               transition="clip"
-              quality={100}
               {...getImage(
                 'joonassandell-biocode-app-producer-crop-dark',
                 images,

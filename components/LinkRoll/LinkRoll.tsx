@@ -6,7 +6,7 @@ import {
   linkVariants,
 } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { isBoolean, isEmptyString } from '@/lib/utility';
+import { isBoolean, isEmptyString } from '@/lib/utils';
 import { default as NextLink } from 'next/link';
 import { useAppContext } from '@/components/App';
 import { useState } from 'react';

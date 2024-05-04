@@ -1,6 +1,6 @@
 import { ArchivePage } from '@/features/Project';
 import { getImages } from '@/lib/getImages';
-import { getSitemap } from '@/lib/utility';
+import { getSitemap } from '@/lib/utils';
 import { type PageProjectProps } from '@/types';
 
 export default function Page({ ...props }: PageProjectProps) {

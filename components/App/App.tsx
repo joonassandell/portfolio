@@ -8,7 +8,7 @@ import {
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { Header } from '@/components/Header';
-import { isBrowser } from '@/lib/utility';
+import { isBrowser } from '@/lib/utils';
 import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';

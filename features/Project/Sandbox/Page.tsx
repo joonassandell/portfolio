@@ -1,27 +1,27 @@
+import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utils';
+import { Head } from '@/components/Head';
+import { Info } from '@/components/Info';
+import { MQ } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { type PageProjectProps } from '@/types';
 import { SandboxHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ } from '@/lib/config';
 import { useMedia } from 'react-use';
-import { Info } from '@/components/Info';
-import { Figure } from '@/components/Figure';
-import { Head } from '@/components/Head';
-import { type PageProjectProps } from '@/types';
 
 export const SandboxPage = ({
-  images,
   id,
+  images,
+  themeColor,
   title,
   year,
-  themeColor,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('more-work');
   const mqM = useMedia(MQ.m, false);
 
   return (
     <Template id={id}>
-      <Head title={title} themeColor={themeColor} />
+      <Head themeColor={themeColor} title={title} />
       <TemplateMain>
         <SandboxHero />
         <Info
@@ -56,7 +56,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="15vw" gridGap="xl" wrap={false}>
+        <TemplateSection gridGap="xl" paddingTop="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
             <Figure
               alt="VR Company solutions page"
@@ -82,7 +82,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="15vw" gridGap="xl" wrap={false}>
+        <TemplateSection gridGap="xl" paddingTop="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:6@m -align:end">
             <Figure
               alt="Art school home page"
@@ -123,7 +123,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="15vw" gridGap="xl">
+        <TemplateSection gridGap="xl" paddingTop="15vw">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Biocode early mobile home page"
@@ -140,7 +140,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="2xl" gridGap="xl">
+        <TemplateSection gridGap="xl" paddingTop="2xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="CV of Joonas Sandell"

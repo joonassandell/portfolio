@@ -1,32 +1,32 @@
-import { MediasignalHero } from '@/features/Project';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ } from '@/lib/config';
-import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
-import { PageProjectProps } from '@/types';
+import { Info } from '@/components/Info';
+import { MediasignalHero } from '@/features/Project';
+import { MQ } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { type PageProjectProps } from '@/types';
+import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 
 export const MediasignalPage = ({
-  images,
   id,
+  images,
+  themeColor,
   title,
   year,
-  themeColor,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('sandbox');
 
   return (
     <Template id={id}>
-      <Head title={title} themeColor={themeColor} />
+      <Head themeColor={themeColor} title={title} />
       <TemplateMain>
         <MediasignalHero />
         <Info
-          client={{ name: title, href: 'https://mediasignal.fi/en' }}
+          client={{ href: 'https://mediasignal.fi/en', name: title }}
           heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
-          smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
+          smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
           tech={['WP, GSAP', 'Vanilla stack']}
           text={
             <p>
@@ -117,9 +117,9 @@ export const MediasignalPage = ({
           </div>
         </TemplateSection>
         <TemplateSection
-          paddingTop="15vw"
           gridGap="l"
           gridRowGap="m"
+          paddingTop="15vw"
           wrap={false}
         >
           <div className="grid-col grid-col:6 grid-col:4@m">

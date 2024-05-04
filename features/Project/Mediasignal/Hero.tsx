@@ -1,18 +1,18 @@
-import { m } from 'framer-motion';
-import { SCROLL_SPEED, MQ } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
 import {
+  figureBgVariants,
   Hero,
   HeroContent,
-  figureBgVariants,
   type HeroProps,
 } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
-import Image from 'next/image';
+import { getSitemap } from '@/lib/utils';
+import { m } from 'framer-motion';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
 import heroImage from '@/public/mediasignal/hero/joonassandell-mediasignal-hero.png';
+import Image from 'next/image';
 
 export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
-  const { url, year, id, title, themeColor } = getSitemap('mediasignal');
+  const { id, themeColor, title, url, year } = getSitemap('mediasignal');
 
   return (
     <Hero
@@ -24,7 +24,7 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
       themeColor={themeColor}
       {...props}
     >
-      {({ transitionPre, transitionInitial, noTransition }) => {
+      {({ noTransition, transitionInitial, transitionPre }) => {
         return (
           <div className="wrap grid -gap:l pl:0@until:l">
             <HeroContent
@@ -32,15 +32,15 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
               heading={title}
               href={url}
               onClick={onClick}
-              transitionPre={transitionPre}
               role={['UI/UX design', 'Brand design', 'Web development']}
+              transitionPre={transitionPre}
             />
             <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
               <figure
-                data-s
-                data-s-target={`[data-s-id=${id}]`}
-                data-s-speed={-SCROLL_SPEED}
                 className="Hero-figure-figure"
+                data-s
+                data-s-speed={-SCROLL_SPEED}
+                data-s-target={`[data-s-id=${id}]`}
               >
                 <m.div
                   className="Hero-figure-figure-inner"
@@ -56,9 +56,9 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
                     alt="Mediasignal homepage sketch in iPad"
                     draggable="false"
                     priority
+                    quality={95}
                     sizes={`${MQ.l} 70vw, 90vw`}
                     src={heroImage}
-                    quality={95}
                   />
                 </m.div>
               </figure>

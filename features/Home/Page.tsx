@@ -1,24 +1,28 @@
-import { FADE_OUT_VARIANTS } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
 import {
-  OrasHero,
   BiocodeHero,
   MediasignalHero,
   MoreWorkHero,
+  OrasHero,
   SandboxHero,
 } from '@/features/Project';
-import { m } from 'framer-motion';
-import { Template, TemplateMain, TemplateProps } from '@/components/Template';
-import { useAppContext } from '@/components/App';
-import { useState } from 'react';
-import { Link } from '@/components/Link';
-import { Heading } from '@/components/Heading';
+import { FADE_OUT_VARIANTS } from '@/lib/config';
+import { getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
+import { Heading } from '@/components/Heading';
+import { Link } from '@/components/Link';
+import { type LinkEvent } from '@/types';
+import { m } from 'framer-motion';
+import {
+  Template,
+  TemplateMain,
+  type TemplateProps,
+} from '@/components/Template';
+import { useAppContext } from '@/components/App';
 import {
   useLocomotiveScroll,
   useScrollTo,
 } from '@/components/LocomotiveScroll';
-import { LinkEvent } from '@/types';
+import { useState } from 'react';
 
 export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
   const about = getSitemap('about', 'secondary');
@@ -82,28 +86,28 @@ export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
         <div className="Template-heros">
           <BiocodeHero
             onClick={handleClick}
-            transitionStart={currentHero === 'biocode' && animation}
             transition="pre"
+            transitionStart={currentHero === 'biocode' && animation}
           />
           <OrasHero
             onClick={handleClick}
-            transitionStart={currentHero === 'oras' && animation}
             transition="pre"
+            transitionStart={currentHero === 'oras' && animation}
           />
           <MediasignalHero
             onClick={handleClick}
-            transitionStart={currentHero === 'mediasignal' && animation}
             transition="pre"
+            transitionStart={currentHero === 'mediasignal' && animation}
           />
           <SandboxHero
             onClick={handleClick}
-            transitionStart={currentHero === 'sandbox' && animation}
             transition="pre"
+            transitionStart={currentHero === 'sandbox' && animation}
           />
           <MoreWorkHero
             onClick={handleClick}
-            transitionStart={currentHero === 'more-work' && animation}
             transition="pre"
+            transitionStart={currentHero === 'more-work' && animation}
           />
         </div>
       </TemplateMain>

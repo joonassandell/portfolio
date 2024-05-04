@@ -17,7 +17,7 @@ import {
   navVariant,
 } from './';
 import { debounce } from 'lodash-es';
-import { getSitemap } from '@/lib/utility';
+import { getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';

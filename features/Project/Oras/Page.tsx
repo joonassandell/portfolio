@@ -1,24 +1,24 @@
-import { OrasHero } from '@/features/Project';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ, SCROLL_SPEED } from '@/lib/config';
-import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
-import { PageProjectProps } from '@/types';
+import { Info } from '@/components/Info';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { OrasHero } from '@/features/Project';
+import { type PageProjectProps } from '@/types';
+import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 
 export const OrasPage = ({
-  images,
   id,
-  title,
+  images,
   themeColor,
+  title,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
 
   return (
     <Template id={id}>
-      <Head title={title} themeColor={themeColor} />
+      <Head themeColor={themeColor} title={title} />
       <TemplateMain>
         <OrasHero />
         <Info
@@ -38,7 +38,7 @@ export const OrasPage = ({
           type={['Web service', 'Commission']}
           year="2016"
         />
-        <TemplateSection wrap={false} paddingTop={false} gridGap="m">
+        <TemplateSection gridGap="m" paddingTop={false} wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@l">
             <Figure
               alt="Oras woman showering"
@@ -67,20 +67,20 @@ export const OrasPage = ({
         <TemplateSection
           className="bg:gradient-0-50-0"
           gridGap="m"
-          paddingTop="10vw"
           paddingBottom="15vw"
+          paddingTop="10vw"
         >
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
               alt="Oras product family"
               priority
-              sizes={`${MQ.l} 80vw, 100vw`}
               quality={90}
+              sizes={`${MQ.l} 80vw, 100vw`}
               {...getImage('joonassandell-oras-product-family', images)}
             />
           </div>
         </TemplateSection>
-        <TemplateSection wrap={false} paddingTop={false}>
+        <TemplateSection paddingTop={false} wrap={false}>
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Oras lifestyle animation concept"
@@ -180,7 +180,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection grid={false} wrap={false} paddingTop="15vw">
+        <TemplateSection grid={false} paddingTop="15vw" wrap={false}>
           <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid-col grid-col:10 grid-col:4@m -align:end">
               <Figure
@@ -204,8 +204,8 @@ export const OrasPage = ({
               <Figure
                 alt="Oras strategy 3"
                 border
-                sizes={`${MQ.m} 33vw, 80vw`}
                 quality={90}
+                sizes={`${MQ.m} 33vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-1', images)}
               />
             </div>
@@ -240,26 +240,26 @@ export const OrasPage = ({
               <Figure
                 alt="Oras strategy 7"
                 border
-                sizes={`${MQ.m} 50vw, 80vw`}
                 quality={90}
+                sizes={`${MQ.m} 50vw, 80vw`}
                 {...getImage('joonassandell-oras-strategy-4', images)}
               />
             </div>
           </div>
         </TemplateSection>
         <TemplateSection
-          grid={false}
           className="Template-section"
-          paddingTop="10vw"
+          grid={false}
           paddingBottom="15vw"
+          paddingTop="10vw"
         >
           <div className="grid -gap:l pb:2xl">
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
                 alt="Oras homepage mobile"
+                quality={100}
                 scroll
                 sizes={`${MQ.m} 25vw, 50vw`}
-                quality={100}
                 {...getImage('joonassandell-oras-mobile', images)}
               />
             </div>

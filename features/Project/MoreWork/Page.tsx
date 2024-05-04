@@ -1,29 +1,29 @@
+import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utils';
+import { Head } from '@/components/Head';
+import { Info } from '@/components/Info';
+import { Link } from '@/components/Link';
 import { MoreWorkHero } from '@/features/Project';
+import { MQ } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { type PageProjectProps } from '@/types';
 import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ } from '@/lib/config';
-import { Info } from '@/components/Info';
-import { Figure } from '@/components/Figure';
 import { Text } from '@/components/Text';
-import { Link } from '@/components/Link';
-import { Head } from '@/components/Head';
-import { PageProjectProps } from '@/types';
 
 export const MoreWorkPage = ({
-  images,
   id,
+  images,
+  themeColor,
   title,
   year,
-  themeColor,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
   const archive = getSitemap('archive');
 
   return (
     <Template id={id}>
-      <Head title={title} themeColor={themeColor} />
+      <Head themeColor={themeColor} title={title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info
@@ -45,7 +45,7 @@ export const MoreWorkPage = ({
           type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
-        <TemplateSection id="hw-company" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hw-company" paddingTop="15vw">
           <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company 🏌️"
@@ -96,7 +96,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="omoroi" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="omoroi" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
@@ -105,7 +105,7 @@ export const MoreWorkPage = ({
             />
           </div>
           <SubInfo
-            client={{ name: 'Omoroi', href: 'https://omoroi.fi' }}
+            client={{ href: 'https://omoroi.fi', name: 'Omoroi' }}
             heading="Omoroi 👨🏻‍💻"
             role={['UI/UX design', 'Web development']}
             text={
@@ -135,7 +135,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="hankkija" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hankkija" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija 🍃"
@@ -190,7 +190,7 @@ export const MoreWorkPage = ({
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection id="hukka" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hukka" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
@@ -238,8 +238,8 @@ export const MoreWorkPage = ({
           </div>
         </TemplateSection>
         <TemplateSection
-          id="academic-bookstore"
           gridRowGap="l"
+          id="academic-bookstore"
           paddingTop="15vw"
         >
           <SubInfo
@@ -318,7 +318,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="rubik" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="rubik" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Mediasignal' }}
             heading="Rubik 📦"
@@ -354,7 +354,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="takk" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="takk" paddingTop="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="TAKK homepage in laptop"
@@ -399,7 +399,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection id="finnpark" gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="finnpark" paddingTop="15vw">
           <SubInfo
             client={{ name: 'Finnpark' }}
             heading="Parking Guidance App 🛞"
@@ -448,8 +448,8 @@ export const MoreWorkPage = ({
           </div>
         </TemplateSection>
         <TemplateSection
-          id="archive"
           gridRowGap="l"
+          id="archive"
           paddingBottom="15vw"
           paddingTop="15vw"
         >

@@ -1,19 +1,19 @@
-import { m } from 'framer-motion';
-import { SCROLL_SPEED, JUMP_FIX_VARIANTS } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
+import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
 import {
+  figureBgVariants,
   Hero,
   HeroContent,
-  figureBgVariants,
   type HeroProps,
 } from '@/components/Hero';
-import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
-import Image from 'next/image';
-import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
+import { getSitemap } from '@/lib/utils';
+import { JUMP_FIX_VARIANTS, SCROLL_SPEED } from '@/lib/config';
+import { m } from 'framer-motion';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
+import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
+import Image from 'next/image';
 
 export const OrasHero = ({ onClick, ...props }: HeroProps) => {
-  const { url, id, title, year, themeColor } = getSitemap('oras');
+  const { id, themeColor, title, url, year } = getSitemap('oras');
   const dropDelay = 0.75;
 
   return (
@@ -28,10 +28,10 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
     >
       {({
         noTransition,
+        templateTransition,
         transitionInitial,
         transitionPre,
         transitionStartOrDefault,
-        templateTransition,
       }) => {
         return (
           <>
@@ -55,17 +55,17 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                   >
                     <figure
                       data-s
-                      data-s-target={`[data-s-id=${id}]`}
                       data-s-prevent
                       data-s-speed={-SCROLL_SPEED}
+                      data-s-target={`[data-s-id=${id}]`}
                     >
                       <Image
                         alt="Oras faucet"
                         draggable="false"
                         priority
+                        quality={90}
                         sizes="33vw"
                         src={heroImage}
-                        quality={90}
                       />
                     </figure>
                   </m.div>
@@ -89,9 +89,9 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                         aria-hidden="true"
                         draggable="false"
                         priority
+                        quality={90}
                         sizes="10vw"
                         src={drop}
-                        quality={90}
                       />
                     </m.div>
                   )}
@@ -101,8 +101,8 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                   heading={title}
                   href={url}
                   onClick={onClick}
-                  transitionPre={transitionPre}
                   role={['UI/UX design', 'Concept strategy', 'Web development']}
+                  transitionPre={transitionPre}
                 />
               </div>
             </div>
@@ -122,9 +122,9 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                   aria-hidden="true"
                   draggable="false"
                   priority
+                  quality={90}
                   sizes="10vw"
                   src={drop}
-                  quality={90}
                 />
               </m.div>
             )}
@@ -141,17 +141,17 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
               <div
                 data-s
                 data-s-delay="0.15"
-                data-s-target={`[data-s-id=${id}]`}
                 data-s-speed="1"
+                data-s-target={`[data-s-id=${id}]`}
               >
                 <Image
                   alt="Oras drop"
                   aria-hidden="true"
                   draggable="false"
                   priority
+                  quality={90}
                   sizes="10vw"
                   src={drop}
-                  quality={90}
                 />
               </div>
             </m.div>

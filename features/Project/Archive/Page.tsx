@@ -1,25 +1,26 @@
 import { ArchiveHero } from '@/features/Project';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
-import { getImage, getSitemap } from '@/lib/utility';
-import { NextProject } from '@/components/NextProject';
-import { MQ } from '@/lib/config';
-import { Info } from '@/components/Info';
 import { Figure } from '@/components/Figure';
+import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
-import { PageProjectProps } from '@/types';
+import { Info } from '@/components/Info';
+import { MQ } from '@/lib/config';
+import { NextProject } from '@/components/NextProject';
+import { type PageProjectProps } from '@/types';
+import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 
-export const ArchivePage = ({ images, id, title, year }: PageProjectProps) => {
+export const ArchivePage = ({ id, images, title, year }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
 
   return (
-    <Template id={id} className="Template--moreWork">
+    <Template className="Template--moreWork" id={id}>
       <Head title={title} />
       <TemplateMain>
         <ArchiveHero />
         <Info
           client={{ name: 'Various' }}
-          type={['Web services', 'Web applications', 'Commissions']}
           heading="You really must like my stuff since you are already in the archive page. This collection contains mainly thumbnail images of my past work."
+          role={['UI/UX/Brand designs', 'Web development']}
+          smallPrint="Some projects made together with people from various sources."
           text={
             <>
               <p>
@@ -32,15 +33,14 @@ export const ArchivePage = ({ images, id, title, year }: PageProjectProps) => {
               </p>
             </>
           }
-          role={['UI/UX/Brand designs', 'Web development']}
-          smallPrint="Some projects made together with people from various sources."
+          type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
         <TemplateSection
           className="Template-figureGrid"
           grid={false}
-          paddingTop="15vw"
           paddingBottom="15vw"
+          paddingTop="15vw"
         >
           <Figure
             alt="Jatke project page"

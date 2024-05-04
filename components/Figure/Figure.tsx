@@ -7,7 +7,7 @@ import {
   placeholderGlareVariants,
   placeholderVariants,
 } from './';
-import { isString } from '@/lib/utility';
+import { isString } from '@/lib/utils';
 import { default as NextImage } from 'next/image';
 import { SCROLL_SPEED } from '@/lib/config';
 import { useInView, useInViewVideo } from '@/lib/useInView';

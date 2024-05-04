@@ -1,13 +1,13 @@
-import { m } from 'framer-motion';
-import { SCROLL_SPEED, MQ } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
-import { Hero, HeroProps, figureBgVariants } from '@/components/Hero';
+import { figureBgVariants, Hero, type HeroProps } from '@/components/Hero';
 import { figureInnerVariants } from '@/features/Project/Mediasignal/Hero.animations';
-import Image from 'next/image';
+import { getSitemap } from '@/lib/utils';
+import { m } from 'framer-motion';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
 import heroImage from '@/public/archive/hero/joonassandell-archive-hero.png';
+import Image from 'next/image';
 
 export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
-  const { url, year, id, title } = getSitemap('archive');
+  const { id, title, url, year } = getSitemap('archive');
 
   return (
     <Hero
@@ -18,15 +18,15 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
       onClick={onClick}
       {...props}
     >
-      {({ transitionInitial, noTransition }) => {
+      {({ noTransition, transitionInitial }) => {
         return (
           <div className="wrap grid -gap:l pl:0@until:l">
             <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
               <figure
-                data-s
-                data-s-target={`[data-s-id=${id}]`}
-                data-s-speed={-SCROLL_SPEED}
                 className="Hero-figure-figure"
+                data-s
+                data-s-speed={-SCROLL_SPEED}
+                data-s-target={`[data-s-id=${id}]`}
               >
                 <m.div
                   className="Hero-figure-figure-inner"

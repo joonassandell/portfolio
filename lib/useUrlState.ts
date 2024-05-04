@@ -1,4 +1,4 @@
-import { isBrowser } from '@/lib/utility';
+import { isBrowser } from '@/lib/utils';
 import { type NextRouter, useRouter } from 'next/router';
 
 export const urlState = (href: URL['href'], router?: NextRouter) => {

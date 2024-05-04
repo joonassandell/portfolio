@@ -1,4 +1,4 @@
-import { getSitemap } from '@/lib/utility';
+import { getSitemap } from '@/lib/utils';
 import { HomePage } from '@/features/Home';
 
 export default function Page() {

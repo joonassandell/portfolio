@@ -1,5 +1,5 @@
 import { getImages } from '@/lib/getImages';
-import { getSitemap } from '@/lib/utility';
+import { getSitemap } from '@/lib/utils';
 import { type PageProjectProps } from '@/types';
 import { SandboxPage } from '@/features/Project';
 

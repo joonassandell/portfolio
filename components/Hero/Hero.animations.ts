@@ -1,4 +1,4 @@
-import { getCSSVarValue } from '@/lib/utility';
+import { getCSSVarValue } from '@/lib/utils';
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 

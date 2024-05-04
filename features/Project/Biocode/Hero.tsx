@@ -1,17 +1,17 @@
-import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
-import { getSitemap } from '@/lib/utility';
-import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
-import { TextReveal } from '@/components/TextReveal';
+import { getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { headingVariants, maskVariants } from './Hero.animations';
-import Image from 'next/image';
-import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
+import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
+import { m } from 'framer-motion';
+import { SCROLL_SPEED } from '@/lib/config';
+import { TextReveal } from '@/components/TextReveal';
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
+import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
 import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
+import Image from 'next/image';
 
 export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
-  const { url, id, title, themeColor } = getSitemap('biocode');
+  const { id, themeColor, title, url } = getSitemap('biocode');
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
 
@@ -28,7 +28,7 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
       themeColor={themeColor}
       {...props}
     >
-      {({ transitionPre, transitionStartOrDefault, noTransition }) => {
+      {({ noTransition, transitionPre, transitionStartOrDefault }) => {
         return (
           <>
             {transitionPre && (
@@ -37,16 +37,16 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                   <figure className="Hero-figure-globe Hero-figure-globe--pre">
                     <div
                       data-s
-                      data-s-target={`[data-s-id=${id}]`}
                       data-s-speed={-SCROLL_SPEED}
+                      data-s-target={`[data-s-id=${id}]`}
                     >
                       <Image
                         alt="Light globe"
                         draggable="false"
                         priority
+                        quality="90"
                         sizes="50vw"
                         src={heroImagePre}
-                        quality="90"
                       />
                     </div>
                   </figure>
@@ -83,9 +83,9 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                       alt="Globe"
                       draggable="false"
                       priority
+                      quality="100"
                       sizes="50vw"
                       src={heroImage}
-                      quality="100"
                     />
                   </div>
                 </figure>
@@ -97,9 +97,9 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                   <Image
                     alt="Biocode icon"
                     draggable="false"
+                    priority
                     sizes="25vw"
                     src={icon}
-                    priority
                   />
                 </figure>
               </div>
