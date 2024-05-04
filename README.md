@@ -37,7 +37,6 @@ npm run dev
 - `npm run build`: Build the application
 - `npm run preview`: Build the application and preview it locally
 - `npm run start`: Start the application in production mode. The application should be build first.
-- `npm run deploy:preview`: [Deploy preview](https://vercel.com/docs/concepts/deployments/preview-deployments) of the application to Vercel with [Vercel CLI](https://vercel.com/docs/cli). Note that this deploys current local copy no matter of the git state.
 
 Read environment variable descriptions from [.env.development](.env.development).
 
