@@ -444,7 +444,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 variants={navVariant}
               >
                 <ul>
-                  {SITEMAP.primary
+                  {SITEMAP.project
                     .filter(item => !item.hidden)
                     .map(item => {
                       return (

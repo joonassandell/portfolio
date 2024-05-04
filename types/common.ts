@@ -21,7 +21,7 @@ export interface SitemapItemProject extends SitemapItem {
 }
 
 export interface Sitemap {
-  primary: SitemapItemProject[];
+  project: SitemapItemProject[];
   secondary: SitemapItem[];
 }
 

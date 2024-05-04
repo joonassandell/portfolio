@@ -130,7 +130,7 @@ export const CONTENT = {
 };
 
 export const SITEMAP: Sitemap = {
-  primary: [
+  project: [
     {
       color: 'var(--biocode-primary)',
       id: 'biocode',

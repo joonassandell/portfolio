@@ -8,7 +8,7 @@ import {
 } from '@/types';
 import { LINKS, SITEMAP } from '@/lib/config';
 
-export const getSitemap = (value: string, type: keyof Sitemap = 'primary') => {
+export const getSitemap = (value: string, type: keyof Sitemap = 'project') => {
   return SITEMAP[type].find(obj => obj['id'] === value) as SitemapItem &
     SitemapItemProject;
 };
