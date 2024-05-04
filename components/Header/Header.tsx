@@ -34,8 +34,8 @@ import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
-const about = getSitemap('about', 'secondary');
-const contact = getSitemap('contact', 'secondary');
+const about = getSitemap('about', 'common');
+const contact = getSitemap('contact', 'common');
 const source = getLink('source', 'common');
 
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
@@ -472,7 +472,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 </ul>
                 <div className="Header-footer-right">
                   <ul className="Header-footer-links">
-                    {SITEMAP.secondary.map(item => {
+                    {SITEMAP.common.map(item => {
                       return (
                         <li key={item.id}>
                           <Link href={item.url} templateTransition={false}>

@@ -130,6 +130,20 @@ export const CONTENT = {
 };
 
 export const SITEMAP: Sitemap = {
+  common: [
+    {
+      id: 'about',
+      navTitle: 'About',
+      title: 'About',
+      url: '/about',
+    },
+    {
+      id: 'contact',
+      navTitle: 'Contact',
+      title: 'Contact',
+      url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
+    },
+  ],
   project: [
     {
       color: 'var(--biocode-primary)',
@@ -199,20 +213,6 @@ export const SITEMAP: Sitemap = {
       title: 'Browse all',
       url: '/',
       year: `2010—${new Date().getFullYear()}`,
-    },
-  ],
-  secondary: [
-    {
-      id: 'about',
-      navTitle: 'About',
-      title: 'About',
-      url: '/about',
-    },
-    {
-      id: 'contact',
-      navTitle: 'Contact',
-      title: 'Contact',
-      url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
     },
   ],
 } as const;

@@ -25,7 +25,7 @@ import {
 import { useState } from 'react';
 
 export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
-  const about = getSitemap('about', 'secondary');
+  const about = getSitemap('about', 'common');
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
   const [themeColor, setThemeColor] = useState<string>();
