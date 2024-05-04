@@ -32,6 +32,7 @@ export interface Link {
 }
 
 export interface Links {
+  common: Link[];
   social: Link[];
 }
 

@@ -17,7 +17,7 @@ import {
   navVariant,
 } from './';
 import { debounce } from 'lodash-es';
-import { getSitemap } from '@/lib/utils';
+import { getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -36,7 +36,7 @@ import FocusTrap from 'focus-trap-react';
 
 const about = getSitemap('about', 'secondary');
 const contact = getSitemap('contact', 'secondary');
-const someLinks = LINKS.social;
+const source = getLink('source', 'common');
 
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const router = useRouter();
@@ -462,12 +462,10 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 variants={navItemVariant}
               >
                 <ul className="Header-footer-links">
-                  {someLinks.map(link => {
+                  {LINKS.social.map(link => {
                     return (
                       <li key={link.id}>
-                        <Link href={link.url} underline>
-                          {link.title}
-                        </Link>
+                        <Link href={link.url}>{link.title}</Link>
                       </li>
                     );
                   })}
@@ -477,11 +475,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     {SITEMAP.secondary.map(item => {
                       return (
                         <li key={item.id}>
-                          <Link
-                            href={item.url}
-                            templateTransition={false}
-                            underline
-                          >
+                          <Link href={item.url} templateTransition={false}>
                             {item.navTitle}
                           </Link>
                         </li>
@@ -490,7 +484,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                   </ul>
                   <p className="Header-footer-copyright">
                     &copy; {new Date().getFullYear()} <br />
-                    Joonas Sandell
+                    Joonas Sandell <br />
+                    <Link href={`${source.url}`}>{source.title}</Link>
                   </p>
                 </div>
               </m.footer>

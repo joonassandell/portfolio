@@ -1,5 +1,9 @@
+import { getLink } from '@/lib/utils';
+import { Link } from '@/components/Link';
 import { LinkRoll } from '@/components/LinkRoll';
 import { LINKS } from '@/lib/config';
+
+const source = getLink('source', 'common');
 
 export const Footer = () => {
   return (
@@ -17,7 +21,8 @@ export const Footer = () => {
           </ul>
           <p className="Footer-copyright">
             &copy; {new Date().getFullYear()} <br />
-            Joonas Sandell
+            Joonas Sandell <br />
+            <Link href={`${source.url}`}>{source.title}</Link>
           </p>
         </div>
       </div>

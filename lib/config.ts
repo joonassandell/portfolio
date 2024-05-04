@@ -218,6 +218,13 @@ export const SITEMAP: Sitemap = {
 } as const;
 
 export const LINKS: Links = {
+  common: [
+    {
+      id: 'source',
+      title: 'View source',
+      url: 'https://github.com/joonassandell/joonassandell-portfolio',
+    },
+  ],
   social: [
     {
       id: 'dribbble',
