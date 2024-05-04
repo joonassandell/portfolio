@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:typescript-sort-keys/recommended"
+  ],
+  "plugins": [
+    "sort-imports-es6-autofix",
+    "sort-keys-fix",
+    "sort-destructure-keys"
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "inline-type-imports"
+      }
+    ],
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/newline-after-import": "error",
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": true
+      }
+    ],
+    "sort-keys-fix/sort-keys-fix": "error",
+    "sort-destructure-keys/sort-destructure-keys": [
+      2,
+      { "caseSensitive": false }
+    ],
+    "react/no-unescaped-entities": "off",
+    "react/jsx-sort-props": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "project": ["tsconfig.json"],
+        "sourceType": "module"
+      }
+    }
+  ]
+}

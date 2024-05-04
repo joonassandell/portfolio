@@ -125,7 +125,7 @@
 
     .TextReveal {
       @include fontSize(16px, 18px, 52px, 3.5vw);
-      font-weight: 100;
+      font-weight: var(--font-weight-100);
     }
 
     @include mq(l) {
@@ -135,16 +135,15 @@
 
   .Hero-textReveal-mobile {
     --heading: var(--biocode-text-900);
-    font-weight: 100;
+    font-weight: var(--font-weight-100);
 
-    @include mq(l) {
+    @include mq(m) {
       display: none;
     }
   }
 
   .Hero-textReveal-desktop {
     --heading: var(--biocode-text-800);
-    padding-left: rem($space * 8);
     text-align: right;
 
     .TextReveal-text {
@@ -153,8 +152,12 @@
       }
     }
 
-    @include mq($until: l) {
+    @include mq($until: m) {
       display: none;
+    }
+
+    @include mq(l) {
+      padding-left: rem($space * 8);
     }
   }
 

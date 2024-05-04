@@ -328,7 +328,7 @@
 .Header-nav-marquee,
 .Header-nav-link {
   @include fontSize(14px, 14px, 72px, 3.5vw);
-  font-weight: var(--heading-font-weight-100);
+  font-weight: var(--font-weight-100);
   text-transform: uppercase;
   white-space: nowrap;
 }
