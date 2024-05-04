@@ -19,8 +19,6 @@ Even though there's no explicit `LICENSE` included my sincere hope is that you'l
 - [The Portfolio](https://joonassandell.com)
 - [Notes](https://github.com/joonassandell/joonassandell-portfolio/wiki/Notes)
 - [Links](https://github.com/joonassandell/joonassandell-portfolio/wiki/Links)
-- [Documentation (private)](https://www.notion.so/joonassandell/Readme-690a861b326e430395ddcae8d017cbf6?pvs=4)
-- [Todo & Issues (private)](https://www.notion.so/joonassandell/09255e8ef2934c50ae4cd8994bad29d6?v=3ac6de3229434d31b434db726dc4b0fc&pvs=4)
 
 ## Getting started
 
@@ -38,7 +36,7 @@ bun --bun run dev
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
 
-Alternatively use `npm` equivalents for the scripts. Read about environment variables from [.env.development](.env.development).
+Read about environment variables from [.env.development](.env.development).
 
 ## Copyright
 
