@@ -25,9 +25,8 @@ export const Hero = ({
   transitionStart,
 }: HeroProps) => {
   const transitionPre = transition === 'pre';
-  const { appState } = useAppContext();
   const { transition: appTransition, transitionInitial: appTransitionInitial } =
-    appState;
+    useAppContext();
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
   const ref = useRef(null);

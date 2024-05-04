@@ -59,11 +59,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
     btnArrow: enterExitBtnArrow,
     btnText: enterExitBtnText,
   });
-  const {
-    appState: { html },
-    setTransition,
-    setTransitionInitial,
-  } = useAppContext();
+  const { html, setTransition, setTransitionInitial } = useAppContext();
   const scrollTo = useScrollTo();
   const maskRef = useRef<HTMLDivElement>(null);
   const mqM = useMedia(MQ.m, true);

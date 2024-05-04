@@ -31,9 +31,7 @@ export const HeaderNavItem = ({
   const ref = useRef<HTMLLIElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const {
-    appState: {
-      detect: { hasTouch },
-    },
+    detect: { hasTouch },
   } = useAppContext();
 
   const findClosestEdge = (e: MouseEvent) => {

@@ -16,8 +16,7 @@ export const Template = ({ children, className, id }: TemplateProps) => {
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
   );
-  const { appState } = useAppContext();
-  const { transition } = appState;
+  const { transition } = useAppContext();
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const defaultTransition = transition && !templateTransition;

@@ -1,10 +1,5 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
-import {
-  type AppContextProps,
-  AppHead,
-  type AppProps,
-  type AppStateProps,
-} from './';
+import { type AppContextProps, AppHead, type AppProps } from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { Header } from '@/components/Header';
@@ -23,9 +18,14 @@ let scrollOnUpdateOnce = false;
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const App = ({ Component, pageProps }: AppProps) => {
-  const [appState, setAppState] = useState<AppStateProps>({
+  const [appState, setAppState] = useState<
+    Omit<
+      AppContextProps,
+      'setLoadingEnd' | 'setTransition' | 'setTransitionInitial'
+    >
+  >({
     detect: {},
-    html: (isBrowser && document.documentElement) as AppStateProps['html'],
+    html: (isBrowser && document.documentElement) as AppContextProps['html'],
     loading: DISABLE_LOADING ? false : true,
     loadingEnd: DISABLE_LOADING ? true : false,
     transition: false,
@@ -42,21 +42,23 @@ export const App = ({ Component, pageProps }: AppProps) => {
    * App set state functions
    * ====== */
 
-  const setTransition = (value: AppStateProps['transition']) => {
+  const setTransition = (value: AppContextProps['transition']) => {
     setAppState(prevState => ({
       ...prevState,
       transition: value,
     }));
   };
 
-  const setTransitionInitial = (value: AppStateProps['transitionInitial']) => {
+  const setTransitionInitial = (
+    value: AppContextProps['transitionInitial'],
+  ) => {
     setAppState(prevState => ({
       ...prevState,
       transitionInitial: value,
     }));
   };
 
-  const setLoadingEnd = (value: AppStateProps['loadingEnd']) => {
+  const setLoadingEnd = (value: AppContextProps['loadingEnd']) => {
     setAppState(prevState => ({
       ...prevState,
       loadingEnd: value,
@@ -225,7 +227,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
       )}
       <AppContext.Provider
         value={{
-          appState,
+          ...appState,
           setLoadingEnd,
           setTransition,
           setTransitionInitial,

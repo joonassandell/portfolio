@@ -24,8 +24,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
-  const { appState } = useAppContext();
-  const { transition } = appState;
+  const { transition } = useAppContext();
   const templateTransition = transition === 'template';
   const subHeadingMobile = [
     "I'm creative developer ",
