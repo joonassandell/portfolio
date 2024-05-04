@@ -468,13 +468,10 @@ export const MoreWorkPage = ({
               <>
                 <p>
                   Want to see even more? Then checkout the
-                  <Link href={archive.url} underline>
-                    archive
-                  </Link>{' '}
-                  featuring clients such as Fair Trade, Avecra, City of Tampere
-                  and Vapriikki.
+                  <Link href={archive.url}>archive</Link> featuring clients such
+                  as Fair Trade, Avecra, City of Tampere and Vapriikki.
                 </p>
-                <Link arrow href={archive.url}>
+                <Link arrow href={archive.url} underline={false}>
                   Archive
                 </Link>
               </>

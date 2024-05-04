@@ -24,7 +24,7 @@ export const Link = ({
   tag,
   target,
   templateTransition = true,
-  underline,
+  underline = true,
   ...props
 }: LinkProps) => {
   const { setTransition } = useAppContext();

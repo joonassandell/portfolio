@@ -67,7 +67,7 @@ export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
         >
           <div className="wrap">
             <div className="Template-about-mobile" hidden>
-              <Link href={about.url} orientation="vertical" underline>
+              <Link href={about.url} orientation="vertical">
                 About me
               </Link>
             </div>
@@ -75,10 +75,8 @@ export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
               <Heading size={null} tag="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
-                <Link href={about.url} underline>
-                  about me
-                </Link>{' '}
-                or just keep scrolling for selected works.
+                <Link href={about.url}>about me</Link> or just keep scrolling
+                for selected works.
               </Heading>
             </div>
           </div>

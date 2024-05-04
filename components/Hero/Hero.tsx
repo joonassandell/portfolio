@@ -117,6 +117,7 @@ export const Hero = ({
                 href={href as URL['href']}
                 onClick={onClick}
                 templateTransition={false}
+                underline={false}
               >
                 View project
               </Link>

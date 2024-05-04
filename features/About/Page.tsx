@@ -180,10 +180,8 @@ export const AboutPage = ({ id, title }: PageProps) => {
             <Text animate className="mb:l">
               <p>
                 In my spare time I like to hang out with my family,{' '}
-                <Link href={getLink('soundcloud').url} underline>
-                  create music
-                </Link>
-                , follow eSports, play games and bicycle.
+                <Link href={getLink('soundcloud').url}>create music</Link>,
+                follow eSports, play games and bicycle.
               </p>
             </Text>
           </div>
