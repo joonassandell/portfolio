@@ -35,13 +35,13 @@ export const enterExitBtnText: AnimationProps = {
     opacity: 1,
     y: 0,
   },
-  initial: {
-    opacity: 0,
-    y: '2rem',
-  },
   exit: {
     opacity: 0,
     y: '-2rem',
+  },
+  initial: {
+    opacity: 0,
+    y: '2rem',
   },
   transition: TRANS_PRIMARY_FAST,
 };
@@ -51,25 +51,25 @@ export const enterExitBtnArrow: AnimationProps = {
     opacity: 1,
     y: 0,
   },
-  initial: {
-    opacity: 0,
-    y: '2rem',
-  },
   exit: {
     opacity: 0,
     y: '-2rem',
+  },
+  initial: {
+    opacity: 0,
+    y: '2rem',
   },
   transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
 };
 
 export const ctrlVariant: Variants = {
-  open: {
+  closed: {
     transition: {
       delayChildren: 0,
       staggerChildren: 0.03,
     },
   },
-  closed: {
+  open: {
     transition: {
       delayChildren: 0,
       staggerChildren: 0.03,
@@ -78,27 +78,27 @@ export const ctrlVariant: Variants = {
 };
 
 export const ctrlItemOutVariant: Variants = {
+  closed: {
+    transition: TRANS_PRIMARY_FAST,
+    y: 0,
+  },
   open: {
     transition: TRANS_SECONDARY_FAST,
     y: '-3rem',
   },
-  closed: {
-    transition: TRANS_PRIMARY_FAST,
-    y: 0,
-  },
 };
 
 export const ctrlItemInVariant: Variants = {
-  open: {
-    transition: TRANS_PRIMARY_FAST,
-    y: 0,
+  closed: {
+    transition: TRANS_SECONDARY_FAST,
+    y: '3rem',
   },
   initial: {
     y: '3rem',
   },
-  closed: {
-    transition: TRANS_SECONDARY_FAST,
-    y: '3rem',
+  open: {
+    transition: TRANS_PRIMARY_FAST,
+    y: 0,
   },
 };
 
@@ -119,29 +119,29 @@ export const maskClose = {
  * ======================================= */
 
 export const navVariant: Variants = {
-  open: {
-    transition: { delayChildren: 0.1, staggerChildren: 0.05 },
-  },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
+  open: {
+    transition: { delayChildren: 0.1, staggerChildren: 0.05 },
   },
 };
 
 export const navItemVariant: Variants = {
-  open: {
-    opacity: 1,
+  closed: {
+    opacity: 0,
     transition: TRANS_PRIMARY_FAST,
-    y: 0,
+    y: 88,
   },
   initial: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
     y: 88,
   },
-  closed: {
-    opacity: 0,
+  open: {
+    opacity: 1,
     transition: TRANS_PRIMARY_FAST,
-    y: 88,
+    y: 0,
   },
 };
 

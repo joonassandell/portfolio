@@ -28,8 +28,8 @@ export const LinkRoll = ({
   const [hover, setHover] = useState(false);
   const characters = children?.split('');
   const classes = c(className, 'LinkRoll', {
-    'has-underline': isBoolean(underline),
     '-underline': underline,
+    'has-underline': isBoolean(underline),
   });
   const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
   const linkTarget = target
@@ -60,11 +60,11 @@ export const LinkRoll = ({
         className={classes}
         href={href}
         initial="out"
+        onBlur={() => setHover(false)}
         onClick={e => {
           !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
-        onBlur={() => setHover(false)}
         onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

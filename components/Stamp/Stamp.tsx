@@ -23,7 +23,7 @@ export const Stamp = ({
   transitionStart,
 }: StampProps) => {
   const classes = c('Stamp', className);
-  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
+  const [ref, { height, width }] = useMeasure<HTMLDivElement>();
   const innerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(innerRef, 0, false);
   const x = useMotionValue(0);
@@ -101,19 +101,19 @@ export const Stamp = ({
         className="Stamp-inner"
         ref={innerRef}
         style={{
-          y: moveY,
           x: moveX,
+          y: moveY,
         }}
       >
         <m.a
           className="Stamp-stamp"
           href={href}
           onClick={onClick}
+          tabIndex={-1}
+          transition={stampTransition}
           variants={stampVariants}
           whileHover="hover"
           whileTap="tap"
-          transition={stampTransition}
-          tabIndex={-1}
         >
           <m.div
             animate={inView ? 'animate' : ''}

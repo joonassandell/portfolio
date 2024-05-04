@@ -7,7 +7,11 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:typescript-sort-keys/recommended"
   ],
-  "plugins": ["sort-imports-es6-autofix"],
+  "plugins": [
+    "sort-imports-es6-autofix",
+    "sort-keys-fix",
+    "sort-destructure-keys"
+  ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": [
       "error",
@@ -26,7 +30,13 @@
         "ignoreCase": true
       }
     ],
-    "react/no-unescaped-entities": "off"
+    "sort-keys-fix/sort-keys-fix": "error",
+    "sort-destructure-keys/sort-destructure-keys": [
+      2,
+      { "caseSensitive": false }
+    ],
+    "react/no-unescaped-entities": "off",
+    "react/jsx-sort-props": "error"
   },
   "overrides": [
     {

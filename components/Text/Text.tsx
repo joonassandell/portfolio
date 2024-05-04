@@ -7,8 +7,8 @@ import c from 'clsx';
 
 export const Text = ({
   animate,
-  className,
   children,
+  className,
   color,
   marginBottom,
   size = 'm',
@@ -18,11 +18,11 @@ export const Text = ({
   const classes = c(
     'Text',
     {
-      '-size:xl': size === 'xl',
+      '-color:light': color === 'light',
       '-size:l': size === 'l',
       '-size:s': size === 's',
+      '-size:xl': size === 'xl',
       '-size:xs': size === 'xs',
-      '-color:light': color === 'light',
       'mb:2xs': marginBottom === '2xs',
     },
     className,

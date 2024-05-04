@@ -30,9 +30,9 @@ export const Link = ({
   const { setTransition } = useAppContext();
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
+    '-arrow': arrow,
     '-underline': underline,
     '-vertical': orientation === 'vertical',
-    '-arrow': arrow,
   });
   const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
   const linkTarget = target
@@ -62,11 +62,11 @@ export const Link = ({
         animate={hover ? 'in' : 'out'}
         className={classes}
         href={href}
+        onBlur={() => setHover(false)}
         onClick={e => {
           !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
-        onBlur={() => setHover(false)}
         onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}

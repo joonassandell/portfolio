@@ -14,8 +14,8 @@ export const textVariant: Variants = {
   animate: ({ transition = TRANS_PRIMARY } = {}) => ({
     opacity: 1,
     skewX: 0,
-    y: 0,
     transition,
+    y: 0,
   }),
   initial: ({ y = '100%' } = {}) => ({
     opacity: 0,

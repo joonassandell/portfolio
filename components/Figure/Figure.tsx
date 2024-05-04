@@ -43,10 +43,10 @@ export const Figure = ({
   width,
 }: FigureProps) => {
   const classes = c(className, 'Figure', {
-    '-mask': mask,
     '-bg': background,
     '-border': border,
     '-border:radius': borderRadius,
+    '-mask': mask,
   });
   id = id ?? src?.split('/')?.pop()?.split('.')[0];
   const ref = useRef(null);

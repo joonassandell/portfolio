@@ -9,11 +9,11 @@ import { useMeasure, useMouseHovered } from 'react-use';
 import Image from 'next/image';
 
 export const NextProject = ({ id }: NextProjectProps) => {
-  const { url, title } = getSitemap(id);
+  const { title, url } = getSitemap(id);
   const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef<HTMLElement>(null);
-  const [innerRef, { width, height }] = useMeasure<HTMLDivElement>();
-  const [figureRef, { width: figureWidth, height: figureHeight }] =
+  const [innerRef, { height, width }] = useMeasure<HTMLDivElement>();
+  const [figureRef, { height: figureHeight, width: figureWidth }] =
     useMeasure<HTMLDivElement>();
   const figureWidthHalf = figureWidth / 2;
   const figureHeightHalf = figureHeight / 2;
@@ -78,26 +78,26 @@ export const NextProject = ({ id }: NextProjectProps) => {
   }, [height, width, figureWidth, figureHeight]);
 
   return (
-    <section ref={ref} className="NextProject">
-      <div ref={innerRef} className="NextProject-inner wrap">
+    <section className="NextProject" ref={ref}>
+      <div className="NextProject-inner wrap" ref={innerRef}>
         <LinkRoll className="NextProject-link" href={url}>
           Next project
         </LinkRoll>
         <m.figure
-          aria-hidden="true"
           animate={
             initial && {
               opacity: 1,
               transition: TRANS_PRIMARY_FAST,
             }
           }
+          aria-hidden="true"
           className="NextProject-figure"
           initial={{ opacity: 0 }}
           ref={figureRef}
           style={{
             rotate,
-            y: moveY,
             x: moveX,
+            y: moveY,
           }}
         >
           <Image

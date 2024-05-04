@@ -1,7 +1,7 @@
 import { type ConditionalWrapperProps } from './';
 
 export const ConditionalWrapper = ({
+  children,
   condition,
   wrapper,
-  children,
 }: ConditionalWrapperProps) => (condition ? wrapper(children) : children);

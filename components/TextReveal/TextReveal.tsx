@@ -26,7 +26,7 @@ export const TextReveal = ({
     >
       {text.map((text, index) => {
         return (
-          <span key={index} className="TextReveal-text">
+          <span className="TextReveal-text" key={index}>
             <m.span
               className="TextReveal-text-inner"
               custom={custom}

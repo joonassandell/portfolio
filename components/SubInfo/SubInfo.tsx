@@ -17,7 +17,7 @@ export const SubInfo = ({
   type = [],
   year,
 }: SubInfoProps) => {
-  const { name, href } = client || {};
+  const { href, name } = client || {};
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
 
@@ -48,7 +48,7 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="2xs" color="light" size="s" tag="p">
+          <Text color="light" marginBottom="2xs" size="s" tag="p">
             Client & Year
           </Text>
           <Text size="s" tag="p">
@@ -70,7 +70,7 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="2xs" color="light" size="s" tag="p">
+          <Text color="light" marginBottom="2xs" size="s" tag="p">
             Role
           </Text>
           <Text size="s" tag="ul">
@@ -83,7 +83,7 @@ export const SubInfo = ({
           className="grid-col grid-col:6 grid-col:4@s"
           variants={TEXT_VARIANTS}
         >
-          <Text marginBottom="2xs" color="light" size="s" tag="p">
+          <Text color="light" marginBottom="2xs" size="s" tag="p">
             Project type
           </Text>
           <Text size="s" tag="ul">

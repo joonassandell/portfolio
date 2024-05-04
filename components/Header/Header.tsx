@@ -47,7 +47,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const [mask, setMask] = useState('closedReset');
   const [openReveal, setOpenReveal] = useState(false);
   const [disabled, setDisabled] = useState(false);
-  const [arrowPos, setArrowPos] = useState({ y: 0, x: 0 });
+  const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
   const maskAnim = useAnimation();
   const [navRevealTitle, setNavRevealTitle] = useState<string>();
   const [btnFocus, setBtnFocus] = useState(false);
@@ -56,8 +56,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
     btnArrow: typeof enterExitBtnArrow;
     btnText: typeof enterExitBtnText;
   }>({
-    btnText: enterExitBtnText,
     btnArrow: enterExitBtnArrow,
+    btnText: enterExitBtnText,
   });
   const {
     appState: { html },
@@ -71,10 +71,10 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
 
   const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
     if (!ref) return;
-    const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = ref;
+    const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = ref;
     setArrowPos({
-      y: offsetTop + offsetHeight / 2,
       x: offsetLeft + offsetWidth / 2,
+      y: offsetTop + offsetHeight / 2,
     });
   };
 
@@ -158,15 +158,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
 
     const changeStart = () => {
       setEnterExit({
-        btnText: enterExitBtnTextIfNavOpen,
         btnArrow: enterExitBtnArrowIfNavOpen,
+        btnText: enterExitBtnTextIfNavOpen,
       });
     };
     const changeComplete = () => {
       toggleOpen();
       setEnterExit({
-        btnText: enterExitBtnText,
         btnArrow: enterExitBtnArrow,
+        btnText: enterExitBtnText,
       });
     };
 
@@ -281,7 +281,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                   <LinkRoll
                     href="/"
                     onClick={handleClick}
-                    {...(isOpen && { tabIndex: -1, hidden: true })}
+                    {...(isOpen && { hidden: true, tabIndex: -1 })}
                   >
                     Joonas Sandell
                   </LinkRoll>
@@ -364,8 +364,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 <AnimatePresence initial={false} mode="wait">
                   <m.div
                     className="Header-button-arrow"
-                    ref={btnArrow}
                     key={mqM ? asPath : 'Header-button-arrow'}
+                    ref={btnArrow}
                     {...(mqM && { ...enterExit.btnArrow })}
                     suppressHydrationWarning
                   >
@@ -384,7 +384,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                       href={about.url}
                       onClick={handleClick}
                       underline={urlState(about.url, router).active}
-                      {...(isOpen && { tabIndex: -1, hidden: true })}
+                      {...(isOpen && { hidden: true, tabIndex: -1 })}
                     >
                       {about.navTitle}
                     </LinkRoll>
@@ -409,7 +409,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                   <m.div variants={ctrlItemOutVariant}>
                     <LinkRoll
                       href={contact.url}
-                      {...(isOpen && { tabIndex: -1, hidden: true })}
+                      {...(isOpen && { hidden: true, tabIndex: -1 })}
                     >
                       {contact.navTitle}
                     </LinkRoll>
@@ -430,8 +430,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
         <m.div
           animate={maskAnim}
           className={c('Header-mask scrollbar -color:negative', {
-            'is-open': maskIsOpen,
             'is-disabled': disabled,
+            'is-open': maskIsOpen,
           })}
           ref={maskRef}
         >

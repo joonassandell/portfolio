@@ -3,12 +3,12 @@ import { type Variants } from 'framer-motion';
 
 export const variantsWithTransition: Variants = {
   animate: {
-    y: 0,
     transition: TRANS_TEMPLATE,
+    y: 0,
   },
   exit: {
-    y: '-50vh',
     transition: TRANS_TEMPLATE,
+    y: '-50vh',
   },
   initial: {
     y: 'var(--vh)',
@@ -17,18 +17,18 @@ export const variantsWithTransition: Variants = {
 
 export const variantsWithoutTransition: Variants = {
   animate: {
-    y: 0,
     transition: {
       duration: 0,
       ease: 'linear',
     },
+    y: 0,
   },
   exit: {
-    y: 0,
     transition: {
       duration: 0,
       ease: 'linear',
     },
+    y: 0,
   },
   initial: {
     y: 0,

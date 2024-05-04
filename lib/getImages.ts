@@ -17,7 +17,7 @@ export const getImages = async (
         const src = file.replace('public', '');
         const buffer = await fs.readFile(file);
         const { height, width } = await sharp(buffer).metadata();
-        return { src, height, width };
+        return { height, src, width };
       }),
     );
   } catch (error) {

@@ -86,8 +86,8 @@ export const LocomotiveScrollProvider = ({
   return (
     <LocomotiveScrollContext.Provider
       value={{
-        scroll: LocomotiveScrollRef.current,
         isReady,
+        scroll: LocomotiveScrollRef.current,
       }}
     >
       {children}

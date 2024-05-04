@@ -4,7 +4,7 @@ import {
   AppHead,
   type AppProps,
   type AppStateProps,
-} from '.';
+} from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { Header } from '@/components/Header';
@@ -32,7 +32,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
     transitionInitial: false,
   });
   const { html, loading, loadingEnd, transition } = appState;
-  const { asPath, beforePopState, push, events } = useRouter();
+  const { asPath, beforePopState, events, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
@@ -75,7 +75,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
     }
 
     (async () => {
-      const { isIphoneSafari, isWindows, hasTouch, hasThemeColor } =
+      const { hasThemeColor, hasTouch, isIphoneSafari, isWindows } =
         await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
       if (hasThemeColor) html.classList.add('has-themeColor');
@@ -161,7 +161,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
   const [popStateTimeout, setPopStateTimeout] =
     useState<ReturnType<typeof setTimeout>>();
   useEffect(() => {
-    beforePopState(({ url, as }) => {
+    beforePopState(({ as, url }) => {
       if (transition === 'template') {
         setPopStateTimeout(
           setTimeout(() => {
@@ -233,6 +233,21 @@ export const App = ({ Component, pageProps }: AppProps) => {
       >
         <LocomotiveScrollProvider
           containerRef={containerRef}
+          location={animationComplete}
+          onLocationChange={scroll => {
+            scroll.scroll.stop && scroll.start();
+            scroll.scrollTo(0, { disableLerp: true, duration: 0 });
+            if (transition) setTransition(false);
+          }}
+          onUpdate={scroll => {
+            if (!DISABLE_LOADING) {
+              if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
+              if (!scrollOnUpdateOnce && loadingEnd) {
+                scrollOnUpdateOnce = true;
+                scroll.start();
+              }
+            }
+          }}
           options={{
             class: '@',
             draggingClass: 'is-drag',
@@ -246,27 +261,12 @@ export const App = ({ Component, pageProps }: AppProps) => {
             smooth: true,
             smoothClass: 'is-smooth',
             tablet: {
-              smooth: true,
               breakpoint: 1024,
+              smooth: true,
             },
             touchMultiplier: 4,
           }}
-          location={animationComplete}
           watch={[loadingEnd]}
-          onLocationChange={scroll => {
-            scroll.scroll.stop && scroll.start();
-            scroll.scrollTo(0, { duration: 0, disableLerp: true });
-            if (transition) setTransition(false);
-          }}
-          onUpdate={scroll => {
-            if (!DISABLE_LOADING) {
-              if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
-              if (!scrollOnUpdateOnce && loadingEnd) {
-                scrollOnUpdateOnce = true;
-                scroll.start();
-              }
-            }
-          }}
         >
           <div className="App">
             <Header navTitle={pageProps.navTitle} />

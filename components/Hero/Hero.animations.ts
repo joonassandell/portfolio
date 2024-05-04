@@ -4,8 +4,8 @@ import { type Variants } from 'framer-motion';
 
 export const headingVariants: Variants = {
   animate: {
-    y: '-150%',
     transition: TRANS_PRIMARY,
+    y: '-150%',
   },
 };
 
@@ -16,12 +16,12 @@ export const headingVariants: Variants = {
  */
 export const figureBgVariants: Variants = {
   animate: {
-    scaleY: 4,
     background: [
       'linear-gradient(180deg, var(--Hero-figure-bg) 0%, rgba(var(--Hero-figure-bg-rgb), 1) 100%)',
       'linear-gradient(180deg, var(--Hero-figure-bg) 0%, rgba(var(--Hero-figure-bg-rgb), 0) 100%)',
     ],
-    opacity: parseFloat(getCSSVarValue('--Hero-figure-bg-alpha') as string), // [1.]
+    opacity: parseFloat(getCSSVarValue('--Hero-figure-bg-alpha') as string),
+    scaleY: 4, // [1.]
     transition: TRANS_SECONDARY,
   },
 };

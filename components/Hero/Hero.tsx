@@ -18,15 +18,15 @@ export const Hero = ({
   href,
   id,
   onClick,
-  stampOverlay = true,
   stampAddVarsToParent,
+  stampOverlay = true,
   themeColor,
-  transitionStart,
   transition,
+  transitionStart,
 }: HeroProps) => {
   const transitionPre = transition === 'pre';
   const { appState } = useAppContext();
-  const { transitionInitial: appTransitionInitial, transition: appTransition } =
+  const { transition: appTransition, transitionInitial: appTransitionInitial } =
     appState;
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
@@ -56,10 +56,10 @@ export const Hero = ({
 
   const passedProps = {
     noTransition,
+    templateTransition,
     transitionInitial,
     transitionPre,
     transitionStartOrDefault,
-    templateTransition,
   };
 
   return (
@@ -68,16 +68,16 @@ export const Hero = ({
       className={classes}
       data-id={id}
       data-theme-color={themeColor}
+      initial="initial"
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
           push(href as URL['href'], undefined, { scroll: false });
           console.log('Hero: Animation complete');
         }
       }}
-      initial="initial"
       ref={ref}
     >
-      <div data-s-id={id} className="Hero-inner">
+      <div className="Hero-inner" data-s-id={id}>
         <div
           className="Hero-heading wrap"
           {...(transitionPre && { 'aria-hidden': true })}
@@ -92,15 +92,15 @@ export const Hero = ({
           >
             <div
               data-s
-              data-s-target={`[data-s-id="${id}"]`}
-              data-s-speed={SCROLL_SPEED}
               data-s-direction="horizontal"
+              data-s-speed={SCROLL_SPEED}
+              data-s-target={`[data-s-id="${id}"]`}
             >
               <TextReveal
                 custom={
                   transitionPre && {
-                    y: '60%',
                     transition: TRANS_TERTIARY_FAST,
+                    y: '60%',
                   }
                 }
                 text={[heading as string]}

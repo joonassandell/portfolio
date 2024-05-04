@@ -2,10 +2,10 @@ import { type HeadingProps } from './';
 import c from 'clsx';
 
 export const Heading = ({
-  className,
   children,
-  tag: Tag = 'h2',
+  className,
   size = 'h3',
+  tag: Tag = 'h2',
   ...props
 }: HeadingProps) => {
   const display = size === 'display';

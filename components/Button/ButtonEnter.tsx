@@ -16,8 +16,8 @@ import c from 'clsx';
 import Link from 'next/link';
 
 export const ButtonEnter = ({
-  className,
   children,
+  className,
   href,
   onClick,
   templateTransition = false,
@@ -60,8 +60,8 @@ export const ButtonEnter = ({
           setHover(true);
         }}
         onMouseLeave={() => setHover(false)}
-        whileTap="tap"
         variants={buttonVariants}
+        whileTap="tap"
         {...props}
       >
         <m.div

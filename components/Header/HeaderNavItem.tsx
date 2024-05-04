@@ -16,10 +16,10 @@ import EyeSvg from './eye.svg';
 import Link from 'next/link';
 
 export const HeaderNavItem = ({
-  url,
   color,
-  onClick,
   name,
+  onClick,
+  url,
   year,
 }: HeaderNavItemProps) => {
   const router = useRouter();
@@ -54,8 +54,6 @@ export const HeaderNavItem = ({
       const controls = animate('-50%', '0%', {
         duration: duration > 0 ? duration : 25,
         ease: 'linear',
-        repeat: Infinity,
-        repeatType: 'loop',
         onUpdate(value) {
           if (!current) {
             controls.stop();
@@ -63,6 +61,8 @@ export const HeaderNavItem = ({
           }
           current.style.transform = `translateX(${value}) translateZ(0px)`;
         },
+        repeat: Infinity,
+        repeatType: 'loop',
       });
     }
   }, [reveal]);
@@ -80,6 +80,10 @@ export const HeaderNavItem = ({
         className="Header-nav-link"
         href={url}
         onBlur={() => setHover('out')}
+        onClick={e => {
+          onClick && onClick(e);
+          if (!hasTouch) setHover('out');
+        }}
         onFocus={() => setHover('in')}
         onMouseEnter={e => {
           findClosestEdge(e);
@@ -88,10 +92,6 @@ export const HeaderNavItem = ({
         onMouseLeave={e => {
           findClosestEdge(e);
           setHover('out');
-        }}
-        onClick={e => {
-          onClick && onClick(e);
-          if (!hasTouch) setHover('out');
         }}
       >
         <span className="Header-nav-link-inner">
@@ -105,28 +105,28 @@ export const HeaderNavItem = ({
         className="Header-nav-marquee"
         custom={closestEdge}
         initial="out"
+        onAnimationComplete={() => {
+          if (hover === 'out') {
+            setRevealTimeout(setTimeout(() => setReveal(false), 100));
+          }
+        }}
         onAnimationStart={() => {
           if (hover === 'in') {
             revealTimeout && clearTimeout(revealTimeout);
             setReveal(true);
           }
         }}
-        onAnimationComplete={() => {
-          if (hover === 'out') {
-            setRevealTimeout(setTimeout(() => setReveal(false), 100));
-          }
-        }}
-        variants={marqueeVariants}
         transition={marqueeTransition}
+        variants={marqueeVariants}
       >
         <m.div
           className="Header-nav-marquee-inner"
           custom={closestEdge}
-          variants={marqueeInnerVariants}
           transition={marqueeTransition}
+          variants={marqueeInnerVariants}
         >
           {reveal && (
-            <m.div ref={marqueeRef} className="Header-nav-marquee-inner-self">
+            <m.div className="Header-nav-marquee-inner-self" ref={marqueeRef}>
               {[...Array(10)].map((x, i) => {
                 return (
                   <Fragment key={i}>

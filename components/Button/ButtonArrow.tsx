@@ -12,8 +12,8 @@ import c from 'clsx';
 export const ButtonArrow = ({
   active = false,
   className,
-  hoverStart = false,
   hoverEnd = false,
+  hoverStart = false,
 }: ButtonArrowProps) => {
   const [activeAnimation, setActiveAnimation] = useState(false);
   const [activeState, setActive] = useState('start');
@@ -65,8 +65,8 @@ export const ButtonArrow = ({
         setActiveAnimation(true);
         setCloseVisible(true);
         arrow.start({
-          transition: TRANS_PRIMARY_FAST,
           scaleY: 6,
+          transition: TRANS_PRIMARY_FAST,
           y: '5rem',
         });
         bg.start({
@@ -87,8 +87,8 @@ export const ButtonArrow = ({
           y: '77%',
         });
         arrow.start({
-          transition: { ...TRANS_PRIMARY_FAST, delay: 1 },
           scaleY: 1,
+          transition: { ...TRANS_PRIMARY_FAST, delay: 1 },
           y: 0,
         });
         setActive('start');
@@ -126,6 +126,7 @@ export const ButtonArrow = ({
               transition: TRANS_PRIMARY_FAST,
               y: 0,
             }}
+            className="Button-icon Button-icon--close"
             exit={{
               scaleY: 6,
               transition: { ...TRANS_PRIMARY_FAST, delay: 0.5 },
@@ -135,7 +136,6 @@ export const ButtonArrow = ({
               scaleY: 6,
               y: '-5rem',
             }}
-            className="Button-icon Button-icon--close"
           >
             <ArrowUp />
           </m.span>

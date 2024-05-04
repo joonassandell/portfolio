@@ -25,11 +25,11 @@ export const bgVariants: Variants = {
 
 export const bgHoverVariants: Variants = {
   in: {
+    transition: { ...TRANS_PRIMARY_FAST, delay: 0.02 },
     x: '0.5rem',
     y: '0.5rem',
-    transition: { ...TRANS_PRIMARY_FAST, delay: 0.02 },
   },
-  out: { x: 0, y: 0, transition: TRANS_PRIMARY_FASTEST },
+  out: { transition: TRANS_PRIMARY_FASTEST, x: 0, y: 0 },
 };
 
 export const pathInVariants: Variants = {
@@ -58,6 +58,6 @@ export const pathOutVariants: Variants = {
 };
 
 export const pointerOutVariants: Variants = {
-  in: { x: '1rem', transition: TRANS_PRIMARY_FASTEST },
-  initial: { offsetDistance: '100%', x: 0, transition: { duration: 0 } },
+  in: { transition: TRANS_PRIMARY_FASTEST, x: '1rem' },
+  initial: { offsetDistance: '100%', transition: { duration: 0 }, x: 0 },
 };

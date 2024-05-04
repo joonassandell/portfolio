@@ -3,14 +3,14 @@ import { useLocomotiveScroll } from './';
 
 export const useScrollTo = (
   {
-    scrollLock,
     callbackDelay,
+    scrollLock,
   }: {
     callbackDelay?: number;
     scrollLock?: boolean;
   } = {
-    scrollLock: false,
     callbackDelay: 0,
+    scrollLock: false,
   },
 ) => {
   const { scroll } = useLocomotiveScroll();
@@ -19,8 +19,6 @@ export const useScrollTo = (
     if (scroll) {
       if (scrollLock) scroll.stop();
       scroll.scrollTo(el, {
-        duration: SCROLL_TO_DURATION,
-        easing: EASE as [number, number, number, number],
         callback: () => {
           if (callback) {
             setTimeout(() => {
@@ -28,6 +26,8 @@ export const useScrollTo = (
             }, callbackDelay);
           }
         },
+        duration: SCROLL_TO_DURATION,
+        easing: EASE as [number, number, number, number],
       });
     }
   };

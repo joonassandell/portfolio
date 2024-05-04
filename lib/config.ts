@@ -94,8 +94,8 @@ export const JUMP_FIX_VARIANTS: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.3,
       delay: TRANS_TEMPLATE.duration + 0.1,
+      duration: 0.3,
       ease: 'linear',
     },
   },
@@ -108,11 +108,11 @@ export const TEXT_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     skewY: 0,
-    y: 0,
     transition: {
       ...TRANS_TERTIARY_FAST,
       ...(delay && { delay }),
     },
+    y: 0,
   }),
   initial: {
     opacity: 0,
@@ -136,8 +136,8 @@ export const SITEMAP: Sitemap = {
       id: 'biocode',
       images: './public/biocode/*.{jpg,png}',
       navTitle: 'Biocode',
-      title: 'Biocode',
       themeColor: '#00081F',
+      title: 'Biocode',
       url: '/biocode',
       year: new Date().getFullYear(),
     },
@@ -146,8 +146,8 @@ export const SITEMAP: Sitemap = {
       id: 'oras',
       images: './public/oras/*.{jpg,png}',
       navTitle: 'Oras',
-      title: 'Oras',
       themeColor: 'black',
+      title: 'Oras',
       url: '/oras',
       year: 2016,
     },
@@ -156,8 +156,8 @@ export const SITEMAP: Sitemap = {
       id: 'mediasignal',
       images: './public/mediasignal/*.{jpg,png}',
       navTitle: 'Mediasignal',
-      title: 'Mediasignal',
       themeColor: 'black',
+      title: 'Mediasignal',
       url: '/mediasignal',
       year: 2019,
     },
@@ -166,8 +166,8 @@ export const SITEMAP: Sitemap = {
       id: 'sandbox',
       images: './public/sandbox/*.{jpg,png}',
       navTitle: 'Sandbox',
-      title: 'Sandbox',
       themeColor: 'black',
+      title: 'Sandbox',
       url: '/sandbox',
       year: `2010—${new Date().getFullYear()}`,
     },
@@ -176,8 +176,8 @@ export const SITEMAP: Sitemap = {
       id: 'more-work',
       images: './public/more-work/*.{jpg,png}',
       navTitle: 'More work',
-      title: 'More work',
       themeColor: 'black',
+      title: 'More work',
       url: '/more-work',
       year: `2010—${new Date().getFullYear()}`,
     },
@@ -187,8 +187,8 @@ export const SITEMAP: Sitemap = {
       id: 'archive',
       images: './public/archive/*.{jpg,png}',
       navTitle: 'Work archive',
-      title: 'Archive',
       themeColor: 'black',
+      title: 'Archive',
       url: '/archive',
       year: '2010—2016',
     },
@@ -203,15 +203,15 @@ export const SITEMAP: Sitemap = {
   ],
   secondary: [
     {
-      title: 'About',
-      navTitle: 'About',
       id: 'about',
+      navTitle: 'About',
+      title: 'About',
       url: '/about',
     },
     {
-      title: 'Contact',
-      navTitle: 'Contact',
       id: 'contact',
+      navTitle: 'Contact',
+      title: 'Contact',
       url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
     },
   ],
@@ -220,33 +220,33 @@ export const SITEMAP: Sitemap = {
 export const LINKS: Links = {
   social: [
     {
-      title: 'Dribbble',
       id: 'dribbble',
+      title: 'Dribbble',
       url: 'https://dribbble.com/joonassandell',
     },
     {
-      title: 'Twitter',
       id: 'twitter',
+      title: 'Twitter',
       url: 'https://twitter.com/joonassandell',
     },
     {
-      title: 'Instagram',
       id: 'instagram',
+      title: 'Instagram',
       url: 'https://www.instagram.com/mode.apart',
     },
     {
-      title: 'LinkedIn',
       id: 'linkedin',
+      title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/joonassandell',
     },
     {
-      title: 'Github',
       id: 'github',
+      title: 'Github',
       url: 'https://github.com/joonassandell',
     },
     {
-      title: 'SoundCloud',
       id: 'soundcloud',
+      title: 'SoundCloud',
       url: 'https://soundcloud.com/modeapart',
     },
   ],
@@ -256,6 +256,7 @@ export const LINKS: Links = {
  * Media queries
  * ======================================= */
 
+/* eslint-disable sort-keys-fix/sort-keys-fix */
 export const MQ = {
   '3xs': '(min-width: 320px)',
   '2xs': '(min-width: 360px)',

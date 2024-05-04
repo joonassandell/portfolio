@@ -20,7 +20,7 @@ export const Info = ({
   type = [],
   year,
 }: InfoProps) => {
-  const { name, href } = client || {};
+  const { href, name } = client || {};
   const mqL = useMedia(MQ.l, false);
   const mqM = useMedia(MQ.m, false);
   const mqMmax = useMedia(MQ.mMax, false);
@@ -31,7 +31,7 @@ export const Info = ({
 
   return (
     <section className="Info wrap grid -gap:row:l">
-      <div data-s data-s-position="top" data-s-speed={0.5} className="grid-col">
+      <div className="grid-col" data-s data-s-position="top" data-s-speed={0.5}>
         <Hr className="mb:0@until:l" />
       </div>
       <m.div
@@ -53,7 +53,7 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text marginBottom="2xs" color="light" size="s" tag="p">
+              <Text color="light" marginBottom="2xs" size="s" tag="p">
                 Client
               </Text>
               <Text size="s">
@@ -72,7 +72,7 @@ export const Info = ({
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text marginBottom="2xs" color="light" size="s" tag="p">
+              <Text color="light" marginBottom="2xs" size="s" tag="p">
                 Year
               </Text>
               <Text size="s">
@@ -81,7 +81,7 @@ export const Info = ({
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l grid -gap-column:0">
               <div className="grid-col">
-                <Text marginBottom="2xs" color="light" size="s" tag="p">
+                <Text color="light" marginBottom="2xs" size="s" tag="p">
                   Project type
                 </Text>
                 <Text size="s" tag="ul">
@@ -92,7 +92,7 @@ export const Info = ({
               </div>
               {tech && mqM && !mqL && (
                 <div className="grid-col">
-                  <Text marginBottom="2xs" color="light" size="s" tag="p">
+                  <Text color="light" marginBottom="2xs" size="s" tag="p">
                     Tech
                   </Text>
                   <Text className="grid-col" size="s" tag="ul">
@@ -109,7 +109,7 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col">
-              <Text marginBottom="2xs" color="light" size="s">
+              <Text color="light" marginBottom="2xs" size="s">
                 Role
               </Text>
               <Text className="grid-col" size="s" tag="ul">
@@ -120,7 +120,7 @@ export const Info = ({
             </div>
             {tech && (mqL || mqMmax) && (
               <div className="grid-col">
-                <Text marginBottom="2xs" color="light" size="s" tag="p">
+                <Text color="light" marginBottom="2xs" size="s" tag="p">
                   Tech
                 </Text>
                 <Text className="grid-col" size="s" tag="ul">
@@ -144,7 +144,7 @@ export const Info = ({
         ref={textRef}
         variants={TEXT_VARIANTS}
       >
-        <Heading className="mb:l" tag="h2" size="h4">
+        <Heading className="mb:l" size="h4" tag="h2">
           {heading}
         </Heading>
         <div className="grid">

@@ -17,14 +17,14 @@ export const linkVariants: Variants = {
 
 export const characterOutVariants: Variants = {
   in: {
-    skewX: -50,
     opacity: 0,
-    y: '-100%',
+    skewX: -50,
     transition: TRANS_PRIMARY_FASTEST,
+    y: '-100%',
   },
   out: {
-    y: 0,
     transition: TRANS_PRIMARY_FASTEST,
+    y: 0,
   },
 };
 
@@ -32,13 +32,13 @@ export const characterInVariants: Variants = {
   in: {
     opacity: 1,
     skewX: 0,
-    y: 0,
     transition: TRANS_PRIMARY_FASTEST,
+    y: 0,
   },
   out: {
     opacity: 0,
     skewX: 50,
-    y: '90%',
     transition: TRANS_PRIMARY_FASTEST,
+    y: '90%',
   },
 };

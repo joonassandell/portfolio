@@ -13,6 +13,7 @@ export const TemplateSection = ({
   wrap = true,
   ...props
 }: TemplateSectionProps) => {
+  /* eslint-disable sort-keys-fix/sort-keys-fix */
   const classes = c('Template-section', className, {
     wrap,
     grid,

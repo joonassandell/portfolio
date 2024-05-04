@@ -2,10 +2,10 @@ import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
 export const Head = ({
-  title,
-  description,
   children,
+  description,
   themeColor,
+  title,
 }: HeadProps) => {
   const pageTitle = title ? `Joonas Sandell${title ? ' — ' + title : ''}` : '';
 
@@ -14,31 +14,31 @@ export const Head = ({
       {title && (
         <>
           <title>{pageTitle}</title>
-          <meta property="og:title" content={pageTitle} key="og:title" />
+          <meta content={pageTitle} key="og:title" property="og:title" />
           <meta
-            property="twitter:title"
             content={pageTitle}
             key="twitter:title"
+            property="twitter:title"
           />
         </>
       )}
       {description && (
         <>
-          <meta name="description" content={description} key="description" />
+          <meta content={description} key="description" name="description" />
           <meta
-            property="og:description"
             content={description}
             key="og:description"
+            property="og:description"
           />
           <meta
-            property="twitter:description"
             content={description}
             key="twitter:description"
+            property="twitter:description"
           />
         </>
       )}
       {themeColor && (
-        <meta name="theme-color" content={themeColor} key="theme-color" />
+        <meta content={themeColor} key="theme-color" name="theme-color" />
       )}
       {children}
     </NextHead>
