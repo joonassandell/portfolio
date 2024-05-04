@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.1.7",
   "scripts": {
     "analyze": "ANALYZE=true npm run build",
     "build": "next build",

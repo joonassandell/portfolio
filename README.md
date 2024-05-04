@@ -27,7 +27,7 @@ Even though there's no explicit `LICENSE` included my sincere hope is that you'l
 ```
 git clone git@github.com:joonassandell/joonassandell-portfolio.git
 cd joonassandell-portfolio
-npm install
+bun install
 npm run dev
 ```
 
