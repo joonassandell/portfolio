@@ -35,8 +35,8 @@
       2,
       { "caseSensitive": false }
     ],
-    "react/no-unescaped-entities": "off",
-    "react/jsx-sort-props": "error"
+    "react/jsx-sort-props": "error",
+    "react/no-unescaped-entities": "off"
   },
   "overrides": [
     {
