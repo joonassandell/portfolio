@@ -26,12 +26,12 @@ Even though there's no explicit `LICENSE` included my sincere hope is that you'l
 git clone git@github.com:joonassandell/joonassandell-portfolio.git
 cd joonassandell-portfolio
 bun install
-bun --bun run dev
+bun run dev
 ```
 
 ## Scripts
 
-- `bun --bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser
+- `bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser
 - `bun run build`: Build the application
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
