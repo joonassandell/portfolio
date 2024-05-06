@@ -31,10 +31,11 @@ bun --bun run dev
 
 ## Scripts
 
-- `bun --bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser to see the result
+- `bun --bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser
 - `bun run build`: Build the application
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
+- `bun run create:component`: Create a new component skeleton to `components/` directory
 
 Read about environment variables from [.env.development](.env.development).
 
