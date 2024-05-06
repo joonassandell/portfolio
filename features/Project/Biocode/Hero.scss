@@ -2,6 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Hero--biocode {
+  --Hero-bg: initial;
   --Stamp-iris: var(--biocode-primary);
 
   .is-iPhoneSafari & {
@@ -16,8 +17,10 @@
     z-index: 3;
   }
 
-  .Hero-heading-inner {
-    transform: translate(0, -175%);
+  &:not(.-transition\:pre) {
+    .Hero-heading-inner {
+      transform: translate(0, -175%);
+    }
   }
 
   .Hero-pre {

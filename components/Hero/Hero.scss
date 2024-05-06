@@ -5,6 +5,7 @@
   --Stamp-center-x: 0px;
   --Stamp-center-y: 0px;
 
+  background-color: var(--Hero-bg);
   height: clamp(
     var(--Hero-min-height),
     var(--Hero-height),

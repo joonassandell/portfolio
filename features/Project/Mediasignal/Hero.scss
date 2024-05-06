@@ -2,9 +2,9 @@
 @use 'stylesheets/mixins' as *;
 
 .Hero--mediasignal {
+  --Hero-bg: var(--mediasignal-bg-50);
   --Stamp-overlay: var(--mediasignal-bg-50);
   --Stamp-iris: var(--mediasignal-primary);
-  background-color: var(--mediasignal-bg-50);
 
   .Hero-figure-figure {
     --width: 90vw;

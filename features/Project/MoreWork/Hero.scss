@@ -2,9 +2,9 @@
 @use 'stylesheets/mixins' as *;
 
 .Hero--moreWork {
+  --Hero-bg: var(--moreWork-bg-50);
   --Stamp-overlay: var(--moreWork-bg-50);
   --Stamp-iris: var(--moreWork-primary);
-  background-color: var(--moreWork-bg-50);
 
   .Hero-figure-figure {
     --width: 45vw;

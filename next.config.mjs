@@ -24,7 +24,7 @@ const config = {
     },
   }),
   sassOptions: {
-    includePaths: [path.join(__dirname)],
+    includePaths: [path.join(__dirname), `${path.join(__dirname)}/stylesheets`],
   },
   webpack(config) {
     config.module.rules.push({

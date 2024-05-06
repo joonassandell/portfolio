@@ -1,0 +1,13 @@
+@use 'sass:meta';
+
+/**
+ * Custom use mixin which makes it possible to wrap @use imports inside @layer
+ * without having to apply @layer to each individual file. Unfortunately Sass
+ * @use doesn't support applying layer() like native @import does. Use only in
+ * root file which imports all the other files.
+ *
+ * @link https://github.com/sass/sass/issues/3240#issuecomment-1007004992
+ */
+@mixin use($file) {
+  @include meta.load-css($file);
+}
