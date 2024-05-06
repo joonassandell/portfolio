@@ -7,7 +7,7 @@
   "scripts": {
     "analyze": "ANALYZE=true bun run build",
     "build": "next build",
-    "create:component": "node ./scripts/create-component.cjs",
+    "create:component": "bun --bun ./scripts/create-component.cjs",
     "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
