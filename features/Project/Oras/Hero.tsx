@@ -70,7 +70,7 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                     </figure>
                   </m.div>
                   <m.div
-                    className="Hero-figureBg Hero-figureBg--animate"
+                    className="Hero-figure-bg Hero-figure-bg--animate"
                     variants={figureBgVariants}
                   />
                   {transitionStartOrDefault && (

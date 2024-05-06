@@ -41,14 +41,7 @@
     align-self: end;
   }
 
-  &.is-transition {
-    .Hero-content,
-    .Hero-link {
-      z-index: 0;
-    }
-  }
-
-  .Hero-stamp.Stamp {
+  .Hero-stamp {
     .Stamp-inner {
       inset: 0 0 0 -20vw;
 

@@ -124,7 +124,7 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
             {transitionPre && (
               <div className="wrap grid -gap:l">
                 <div className={figureClasses}>
-                  <div className="Hero-figureBg" />
+                  <div className="Hero-figure-bg" />
                 </div>
               </div>
             )}

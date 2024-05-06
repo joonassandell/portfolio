@@ -23,21 +23,6 @@
     }
   }
 
-  .Hero-figure-figure-inner {
-    transform: translate(rem($space * 10), rem($space * 8));
-  }
-
-  &.-transition\:pre .Hero-figure-figure-inner {
-    transform: translate(0, 0);
-  }
-
-  &.is-transition {
-    .Hero-content,
-    .Hero-link {
-      z-index: 0;
-    }
-  }
-
   .Hero-stamp.Stamp {
     .Stamp-inner {
       inset: 0 0 0 6vw;
