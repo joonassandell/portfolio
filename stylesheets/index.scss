@@ -1,7 +1,7 @@
 @use 'mixins/use' as *;
 
 // Layers
-@layer root, vendors, utils, components, features;
+@layer root, vendors, utils, components;
 
 // Tokens, Generic
 @layer root {
@@ -46,16 +46,14 @@
   @include use('components/TextReveal');
 }
 
-// Features
-@layer features {
-  @include use('features/404');
-  @include use('features/About');
-  @include use('features/Home');
-  @include use('features/Project');
-}
-
 // Vendors
 @layer vendors {
   @include use('stylesheets/vendors/nprogress');
   @include use('stylesheets/vendors/locomotive-scroll');
 }
+
+// Features
+@include use('features/404');
+@include use('features/About');
+@include use('features/Home');
+@include use('features/Project');
