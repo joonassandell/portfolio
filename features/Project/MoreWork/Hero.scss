@@ -18,14 +18,7 @@
     inset: auto rem(-$space-m) rem($space-3xl + $space) auto;
   }
 
-  &.is-transition {
-    .Hero-content,
-    .Hero-link {
-      z-index: 0;
-    }
-  }
-
-  .Hero-stamp.Stamp {
+  .Hero-stamp {
     .Stamp-inner {
       inset: 0 0 0 -3.5vw;
     }

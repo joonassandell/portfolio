@@ -20,8 +20,8 @@ export const figureBgVariants: Variants = {
       'linear-gradient(180deg, var(--Hero-figure-bg) 0%, rgba(var(--Hero-figure-bg-rgb), 1) 100%)',
       'linear-gradient(180deg, var(--Hero-figure-bg) 0%, rgba(var(--Hero-figure-bg-rgb), 0) 100%)',
     ],
-    opacity: parseFloat(getCSSVarValue('--Hero-figure-bg-alpha') as string),
-    scaleY: 4, // [1.]
+    opacity: parseFloat(getCSSVarValue('--Hero-figure-bg-alpha') as string), // [1.]
+    scaleY: 4,
     transition: TRANS_SECONDARY,
   },
 };

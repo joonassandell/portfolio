@@ -63,7 +63,7 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
                 </m.div>
               </figure>
               <m.div
-                className="Hero-figureBg Hero-figureBg--animate"
+                className="Hero-figure-bg Hero-figure-bg--animate"
                 variants={figureBgVariants}
               />
             </div>

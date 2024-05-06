@@ -35,6 +35,13 @@
       }
     }
   }
+
+  &.is-transition {
+    .Hero-content,
+    .Hero-link {
+      z-index: 0;
+    }
+  }
 }
 
 .Hero-inner {
@@ -115,7 +122,7 @@
   margin-bottom: rem(-$space);
 }
 
-.Hero-figureBg {
+.Hero-figure-bg {
   background: var(--Hero-figure-bg);
   height: 100%;
   opacity: var(--Hero-figure-pre-bg-alpha);
@@ -123,7 +130,7 @@
   z-index: 1;
 }
 
-.Hero-figureBg--animate {
+.Hero-figure-bg--animate {
   background: linear-gradient(
     180deg,
     var(--Hero-figure-bg) 0%,
@@ -140,7 +147,7 @@
   }
 }
 
-.Hero-stamp.Stamp {
+.Hero-stamp {
   pointer-events: all;
 
   .Stamp-inner {

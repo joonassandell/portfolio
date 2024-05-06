@@ -31,13 +31,6 @@
     align-self: end;
   }
 
-  &.is-transition {
-    .Hero-content,
-    .Hero-link {
-      z-index: 0;
-    }
-  }
-
   .Hero-drop {
     height: auto;
     mix-blend-mode: darken;
@@ -79,7 +72,7 @@
     }
   }
 
-  .Hero-stamp.Stamp {
+  .Hero-stamp {
     .Stamp-inner {
       @include mq($until: s) {
         inset: -3vw 0 0 -10vw;
