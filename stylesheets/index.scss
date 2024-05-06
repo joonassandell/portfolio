@@ -4,12 +4,12 @@
 // Generic
 @use 'stylesheets/generic/base';
 @use 'stylesheets/generic/fonts';
-@use 'stylesheets/generic/heading';
 
 // Utilities
 @use 'utils/background';
 @use 'utils/display';
 @use 'utils/grid';
+@use 'utils/heading';
 @use 'utils/margin';
 @use 'utils/padding';
 @use 'utils/scrollbar';
