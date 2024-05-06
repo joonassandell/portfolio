@@ -1,48 +1,61 @@
-// Tokens
-@use 'tokens';
+@use 'mixins/use' as *;
 
-// Generic
-@use 'stylesheets/generic/base';
-@use 'stylesheets/generic/fonts';
+// Layers
+@layer root, vendors, utils, components, features;
+
+// Tokens, Generic
+@layer root {
+  @include use('tokens');
+  @include use('generic/base');
+  @include use('generic/fonts');
+}
 
 // Utilities
-@use 'utils/background';
-@use 'utils/display';
-@use 'utils/grid';
-@use 'utils/heading';
-@use 'utils/margin';
-@use 'utils/padding';
-@use 'utils/scrollbar';
-@use 'utils/various';
-@use 'utils/wrap';
+@layer utils {
+  @include use('utils/background');
+  @include use('utils/display');
+  @include use('utils/grid');
+  @include use('utils/heading');
+  @include use('utils/margin');
+  @include use('utils/padding');
+  @include use('utils/scrollbar');
+  @include use('utils/various');
+  @include use('utils/wrap');
+}
 
 // Components
-@use 'components/App';
-@use 'components/Button';
-@use 'components/Figure';
-@use 'components/Footer';
-@use 'components/Header';
-@use 'components/Heading';
-@use 'components/Hero';
-@use 'components/Hr';
-@use 'components/Icon';
-@use 'components/Info';
-@use 'components/Link';
-@use 'components/LinkRoll';
-@use 'components/NextProject';
-@use 'components/Splash';
-@use 'components/Stamp';
-@use 'components/SubInfo';
-@use 'components/Template';
-@use 'components/Text';
-@use 'components/TextReveal';
+@layer components {
+  @include use('components/App');
+  @include use('components/Button');
+  @include use('components/Figure');
+  @include use('components/Footer');
+  @include use('components/Header');
+  @include use('components/Heading');
+  @include use('components/Hero');
+  @include use('components/Hr');
+  @include use('components/Icon');
+  @include use('components/Info');
+  @include use('components/Link');
+  @include use('components/LinkRoll');
+  @include use('components/NextProject');
+  @include use('components/Splash');
+  @include use('components/Stamp');
+  @include use('components/SubInfo');
+  @include use('components/Template');
+  @include use('components/Text');
+  @include use('components/TextReveal');
+}
 
 // Features
-@use 'features/404' as *;
-@use 'features/About';
-@use 'features/Home';
-@use 'features/Project';
+@layer features {
+  @include use('features/404');
+  @include use('features/About');
+  @include use('features/Home');
+  @include use('features/Project');
+}
 
 // Vendors
-@use 'stylesheets/vendors/nprogress';
-@use 'stylesheets/vendors/locomotive-scroll';
+@layer vendors {
+  @include use('stylesheets/vendors/nprogress');
+  @include use('stylesheets/vendors/locomotive-scroll');
+}

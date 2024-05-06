@@ -6,28 +6,26 @@
  * doesn't know how to read the figure values for some reason. So, for clarity
  * all tokens are added here.
  *
- * 1. For locomotive-scroll to work properly and not trigger a movement e.g.
- *    with heading after template transition
+ * 1. For locomotive-scroll to work properly
  */
 :root {
-  --Hero-min-height: #{rem($space * 33)};
+  --Hero-bg: var(--bg-50);
   --Hero-height: 100vw;
+  --Hero-min-height: #{rem($space * 33)};
   --Hero-max-height: 75vh;
-
+  --Hero-inner-min-height: var(--vh); // [1.]
   --Hero-figure-bg: var(--black);
   --Hero-figure-bg-alpha: 0.15;
   --Hero-figure-bg-rgb: 0, 0, 0;
   --Hero-figure-pre-bg-alpha: 0.06;
-
-  --Hero-inner-min-height: var(--vh); // [1.]
 
   @include mq(s) {
     --Hero-max-height: #{rem($space * 48)};
   }
 
   @include mq(l) {
+    --Hero-height: var(--vh);
     --Hero-min-height: #{rem($space * 42)};
-    --Hero-height: var(--vh); // [1.]
   }
 
   @include mq('2xl') {
