@@ -83,6 +83,7 @@
     .grid-col\:#{$i}#{$breakpoint} {
       --grid-span: #{$i};
     }
+
     .grid-col.-start\:#{$i}#{$breakpoint} {
       grid-column-start: #{$i};
     }

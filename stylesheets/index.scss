@@ -6,15 +6,15 @@
 @use 'stylesheets/generic/fonts';
 @use 'stylesheets/generic/heading';
 
-// Helpers
-@use 'helpers/background';
-@use 'helpers/display';
-@use 'helpers/grid';
-@use 'helpers/margin';
-@use 'helpers/padding';
-@use 'helpers/scrollbar';
-@use 'helpers/various';
-@use 'helpers/wrap';
+// Utilities
+@use 'utils/background';
+@use 'utils/display';
+@use 'utils/grid';
+@use 'utils/margin';
+@use 'utils/padding';
+@use 'utils/scrollbar';
+@use 'utils/various';
+@use 'utils/wrap';
 
 // Components
 @use 'components/App';
