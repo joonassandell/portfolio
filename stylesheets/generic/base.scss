@@ -11,13 +11,14 @@
   background-color: var(--bg-900);
   color: var(--text-50);
   font-family: var(--font-family-sans);
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   inset: 0;
   min-width: var(--root-min-width);
   position: fixed;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
+  text-wrap: pretty;
   touch-action: pan-y;
   -webkit-touch-callout: none;
 
