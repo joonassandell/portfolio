@@ -1,0 +1,14 @@
+.text\:truncate {
+  max-width: var(--text-truncate-max-width, 100%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text\:truncate\:clamp {
+  -webkit-box-orient: var(--text-truncate-clamp-orient, verticla);
+  display: -webkit-box;
+  -webkit-line-clamp: var(--text-truncate-clamp, 2);
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}

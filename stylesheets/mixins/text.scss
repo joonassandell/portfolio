@@ -1,11 +1,11 @@
-@use "stylesheets/config" as *;
-@use "fontSize" as *;
+@use 'stylesheets/config' as *;
+@use 'fontSize' as *;
 
-// ======
-// Text sizes & styles
-// ======
+/* =======================================
+ * Text size
+ * ======================================= */
 
-@mixin text($size: null, $style: null) {
+@mixin text($size: null) {
   @if $size == 'xl' {
     @include fontSize($font-size, $line-height-xl, $font-size-xl);
   } @else if $size == 'l' {
@@ -17,16 +17,4 @@
   } @else if $size == 'xs' {
     @include fontSize($font-size-xs, $line-height-xs);
   }
-}
-
-// ======
-// Truncate text
-// ======
-
-@mixin textTruncate($truncation-boundary: 100%, $important: null) {
-  $important: if($important, '!important', null);
-  max-width: $truncation-boundary $important;
-  overflow: hidden $important;
-  text-overflow: ellipsis $important;
-  white-space: nowrap $important;
 }
