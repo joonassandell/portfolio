@@ -1,6 +1,6 @@
 @use 'stylesheets/config' as *;
 @use 'fontSize' as *;
-@use 'utility' as *;
+@use 'utils' as *;
 
 @mixin heading($size: h1, $base: true, $margin: true, $color: true) {
   @if $color and $size != h6 {

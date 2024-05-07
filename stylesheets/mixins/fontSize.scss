@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "stylesheets/config" as *;
-@use "utility" as *;
+@use 'sass:math';
+@use 'stylesheets/config' as *;
+@use 'utils' as *;
 
 @mixin fontSize(
   $minFontSize: $font-size,
@@ -9,7 +9,7 @@
   $scaleValue: 1vw,
   $scaleFontSize: $minFontSize,
   $scaling: 'scale',
-  $root: false,
+  $root: false
 ) {
   @if not $root {
     @if $scaling == 'scale' and $maxFontSize {
@@ -43,4 +43,3 @@
     }
   }
 }
-
