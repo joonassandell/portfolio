@@ -10,8 +10,9 @@
   color: var(--text-50);
   padding-bottom: rem($space-l);
 
-  // See _Header.scss
+  // See Header.scss
   .is-windows & {
+    .Link,
     .LinkRoll-char,
     .Footer-copyright {
       background: var(--bg-50);
@@ -23,6 +24,7 @@
   a {
     &:focus-visible {
       @at-root .is-windows & {
+        .Link,
         .LinkRoll-char {
           -webkit-text-fill-color: var(--focus-visible-fg);
         }
