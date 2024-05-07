@@ -3,12 +3,12 @@ import { type Variants } from 'framer-motion';
 
 export const figureInnerVariants: Variants = {
   animate: ({ delay = 0 } = {}) => ({
-    x: '10rem',
-    y: '8rem',
     transition: {
       ...TRANS_PRIMARY,
       delay,
     },
+    x: '10rem',
+    y: '8rem',
   }),
   initial: {
     x: '0rem',

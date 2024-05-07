@@ -5,8 +5,8 @@ export const figureInnerVariants: Variants = {
   animate: {
     filter: 'grayscale(0)',
     rotate: 20,
-    x: '4rem',
     transition: TRANS_PRIMARY,
+    x: '4rem',
   },
   initial: {
     filter: 'grayscale(0.6)',

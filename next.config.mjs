@@ -17,6 +17,9 @@ const config = {
       ? `https://${VERCEL_URL}`
       : NEXT_PUBLIC_APP_URL,
   },
+  eslint: {
+    dirs: ['components', 'features', 'lib', 'pages', 'types'],
+  },
   experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {
     compiler: {

@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY } from '@/lib/config';
 import { headingVariants as headingVars } from '@/components/Hero';
+import { TRANS_PRIMARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
 export const headingVariants: Variants = {
