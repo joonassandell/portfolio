@@ -1,6 +1,6 @@
 <p>
   <a href="https://joonassandell.com">
-    <img width="96" src="public/static/logo.svg" alt="Joonas Sandell Logomark">
+    <img width="96" src="public/static/logo.svg" alt="Joonas Sandell Logomark :D">
   </a>
 </p>
 
@@ -35,7 +35,7 @@ bun run dev
 - `bun run build`: Build the application
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
-- `bun run create:component`: Create a new component skeleton to `components/` directory
+- `bun run create:component <ComponentName>`: Create a new component skeleton to `components/` directory
 
 Read about environment variables from [.env.development](.env.development).
 
