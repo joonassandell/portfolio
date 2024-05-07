@@ -8,16 +8,24 @@
   @include use('generic/fonts');
 }
 
+@layer vendors {
+  @include use('stylesheets/vendors/nprogress');
+  @include use('stylesheets/vendors/locomotive-scroll');
+}
+
 @layer utils {
   @include use('utils/background');
   @include use('utils/display');
-  @include use('utils/grid');
   @include use('utils/heading');
   @include use('utils/margin');
   @include use('utils/padding');
   @include use('utils/scrollbar');
   @include use('utils/text');
   @include use('utils/various');
+}
+
+@layer utils.layout {
+  @include use('utils/grid');
   @include use('utils/wrap');
 }
 
@@ -41,11 +49,6 @@
   @include use('components/Template');
   @include use('components/Text');
   @include use('components/TextReveal');
-}
-
-@layer vendors {
-  @include use('stylesheets/vendors/nprogress');
-  @include use('stylesheets/vendors/locomotive-scroll');
 }
 
 @include use('features/404');
