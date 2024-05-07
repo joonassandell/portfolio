@@ -1,28 +1,54 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
-.mt\:xl { margin-top: rem($space-xl) !important; }
+/* =======================================
+ * Margin top
+ * ======================================= */
 
-.mb { margin-bottom: rem($space) !important; }
-.mb\:m { margin-bottom: rem($space-m) !important; }
-.mb\:l { margin-bottom: rem($space-l) !important; }
-.mb\:xl { margin-bottom: rem($space-xl) !important; }
 .mt\:s {
-  margin-top: rem($space-s) !important;
+  margin-top: rem($space-s);
 
   @include mq(s) {
     &\@s {
-      margin-top: rem($space-s) !important;
+      margin-top: rem($space-s);
     }
   }
 }
-.mb\:2xs { margin-bottom: rem($space-2xs) !important; }
+
+.mt\:xl {
+  margin-top: rem($space-xl);
+}
+
+/* =======================================
+ * Margin bottom
+ * ======================================= */
+
 .mb\:0 {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 
   @include mq($until: l) {
     &\@until\:l {
-      margin-bottom: 0 !important;
+      margin-bottom: 0;
     }
   }
+}
+
+.mb\:2xs {
+  margin-bottom: rem($space-2xs);
+}
+
+.mb {
+  margin-bottom: rem($space);
+}
+
+.mb\:m {
+  margin-bottom: rem($space-m);
+}
+
+.mb\:l {
+  margin-bottom: rem($space-l);
+}
+
+.mb\:xl {
+  margin-bottom: rem($space-xl);
 }

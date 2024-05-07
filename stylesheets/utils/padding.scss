@@ -1,27 +1,76 @@
-@use "stylesheets/config" as *;
-@use "stylesheets/mixins" as *;
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
 
-.p\:0 { padding: 0 !important; }
+/* =======================================
+ * Padding
+ * ======================================= */
 
-.pt\:20vw { padding-top: 20vw !important; }
-.pt\:15vw { padding-top: 15vw !important; }
-.pt\:10vw { padding-top: 10vw !important; }
-.pt\:5vw { padding-top: 5vw !important; }
-.pt\:2xl { padding-top: rem($space-2xl) !important; }
+.p\:0 {
+  padding: 0;
+}
 
-.pb\:15vw { padding-bottom: 15vw !important; }
-.pb\:10vw { padding-bottom: 10vw !important; }
-.pb\:5vw { padding-bottom: 5vw !important; }
-.pb\:2xl { padding-bottom: rem($space-2xl) !important; }
+/* =======================================
+ * Padding top
+ * ======================================= */
+
+.pt\:5vw {
+  padding-top: 5vw;
+}
+
+.pt\:10vw {
+  padding-top: 10vw;
+}
+
+.pt\:15vw {
+  padding-top: 15vw;
+}
+
+.pt\:20vw {
+  padding-top: 20vw;
+}
+
+.pt\:2xl {
+  padding-top: rem($space-2xl);
+}
+
+/* =======================================
+ * Padding bottom
+ * ======================================= */
+
+.pb\:5vw {
+  padding-bottom: 5vw;
+}
+
+.pb\:10vw {
+  padding-bottom: 10vw;
+}
+
+.pb\:15vw {
+  padding-bottom: 15vw;
+}
+
+.pb\:2xl {
+  padding-bottom: rem($space-2xl);
+}
+
+/* =======================================
+ * Padding left
+ * ======================================= */
 
 .pl\:0 {
-  padding-left: 0 !important;
+  padding-left: 0;
 
   @include mq($until: l) {
     &\@until\:l {
-      padding-left: 0 !important;
+      padding-left: 0;
     }
   }
 }
 
-.pr\:0 { padding-right: 0 !important; }
+/* =======================================
+ * Padding right
+ * ======================================= */
+
+.pr\:0 {
+  padding-right: 0;
+}
