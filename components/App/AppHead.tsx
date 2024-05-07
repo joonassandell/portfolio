@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 export const AppHead = () => {
-  const ORIGIN = process.env.NEXT_PUBLIC_ORIGIN;
+  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const { asPath } = useRouter();
   const title = 'Joonas Sandell — Designer & Developer';
   const description =
@@ -21,11 +21,14 @@ export const AppHead = () => {
         key="og:description"
         property="og:description"
       />
-      <meta content={`${ORIGIN}/static/og-image.jpg?v=2`} property="og:image" />
+      <meta
+        content={`${APP_URL}/static/og-image.jpg?v=2`}
+        property="og:image"
+      />
       <meta content="en" property="og:locale" />
       <meta content="Joonas Sandell" property="og:site_name" />
       <meta content="website" property="og:type" />
-      <meta content={`${ORIGIN}${asPath}`} property="og:url" />
+      <meta content={`${APP_URL}${asPath}`} property="og:url" />
 
       {/* Twitter */}
       <meta content={title} key="twitter:title" property="twitter:title" />
@@ -37,7 +40,7 @@ export const AppHead = () => {
       <meta content="summary_large_image" property="twitter:card" />
       <meta content="@joonassandell" property="twitter:creator" />
       <meta
-        content={`${ORIGIN}/static/og-image.jpg?v=2`}
+        content={`${APP_URL}/static/og-image.jpg?v=2`}
         property="twitter:image"
       />
       <meta content="@joonassandell" property="twitter:site" />
@@ -63,7 +66,7 @@ export const AppHead = () => {
             '@context': 'https://schema.org',
             '@type': 'Person',
             email: 'mailto:me@joonassandell.com',
-            image: `${ORIGIN}/static/joonassandell.jpg`,
+            image: `${APP_URL}/static/joonassandell.jpg`,
             jobTitle: 'Designer & Developer',
             name: 'Joonas Sandell',
             url: 'https://joonassandell.com',

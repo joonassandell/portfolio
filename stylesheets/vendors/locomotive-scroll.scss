@@ -32,7 +32,8 @@ body {
   opacity: 0;
   position: absolute;
   transform-origin: center right;
-  transition: transform var(--trans-primary-fastest),
+  transition:
+    transform var(--trans-primary-fastest),
     opacity var(--trans-primary-fastest);
   width: 11px;
   z-index: var(--z-index-800);
