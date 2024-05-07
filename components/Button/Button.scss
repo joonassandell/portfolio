@@ -1,10 +1,12 @@
 .Button {
-  all: unset;
-  cursor: pointer;
   display: inline-flex;
   position: relative;
   user-select: none;
   vertical-align: middle;
+
+  &[href] {
+    cursor: pointer;
+  }
 }
 
 .Button-icon {

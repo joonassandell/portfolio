@@ -115,3 +115,7 @@ img::-moz-selection {
   overflow: visible;
   padding: 0;
 }
+
+:where(button) {
+  all: unset;
+}
