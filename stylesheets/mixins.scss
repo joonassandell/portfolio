@@ -3,7 +3,6 @@
 @forward 'sass-mq/mq' with (
   $breakpoints: config.$breakpoints
 );
-@forward 'mixins/display';
 @forward 'mixins/fontSize';
 @forward 'mixins/heading';
 @forward 'mixins/text';

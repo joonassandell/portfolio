@@ -4,12 +4,18 @@
  * Hide visually and from screen readers, but maintain layout
  */
 .invisible {
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 /**
  * Completely remove from the flow but leave available to screen readers.
  */
 .hideVisually {
-  @include display('hideVisually', !important);
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
