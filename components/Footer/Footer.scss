@@ -8,7 +8,6 @@
 
   background: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
   color: var(--text-50);
-  padding-bottom: rem($space-l);
 
   // See Header.scss
   .is-windows & {
@@ -35,10 +34,6 @@
   @include mq($until: m) {
     @include text(s);
   }
-
-  @include mq(m) {
-    padding-bottom: rem($space-4xl);
-  }
 }
 
 .Footer-inner {
@@ -50,10 +45,13 @@
   align-items: flex-end;
   display: flex;
   mix-blend-mode: difference;
+  padding-bottom: rem($space-l);
   padding-top: rem($space-xl);
 
   @include mq(m) {
-    padding-top: rem($space-2xl);
+    align-items: center;
+    padding-bottom: rem($space-xl);
+    padding-top: rem($space-xl);
   }
 }
 
@@ -68,7 +66,7 @@
   }
 }
 
-.Footer-copyright {
+.Footer-text {
   margin: 0 0 0 auto;
   text-align: right;
 }

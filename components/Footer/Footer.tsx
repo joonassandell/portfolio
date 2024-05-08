@@ -19,7 +19,7 @@ export const Footer = () => {
               );
             })}
           </ul>
-          <p className="Footer-copyright">
+          <p className="Footer-text">
             &copy; {new Date().getFullYear()} <br />
             Joonas Sandell <br />
             <Link href={`${source.url}`}>{source.title}</Link>
