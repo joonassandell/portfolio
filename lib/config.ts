@@ -2,6 +2,150 @@ import { type Links, type Sitemap } from '@/types';
 import { type Variants } from 'framer-motion';
 
 /* =======================================
+ * Sitemap, content, links
+ * ======================================= */
+
+export const SITEMAP: Sitemap = {
+  common: [
+    {
+      id: 'milestones',
+      navTitle: 'Milestones',
+      title: 'Milestones',
+      url: '/milestones',
+    },
+    {
+      id: 'about',
+      navTitle: 'About',
+      title: 'About',
+      url: '/about',
+    },
+    {
+      id: 'contact',
+      navTitle: 'Contact',
+      title: 'Contact',
+      url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
+    },
+  ],
+  project: [
+    {
+      color: 'var(--biocode-primary)',
+      id: 'biocode',
+      images: './public/biocode/*.{jpg,png}',
+      navTitle: 'Biocode',
+      themeColor: '#00081F',
+      title: 'Biocode',
+      url: '/biocode',
+      year: new Date().getFullYear(),
+    },
+    {
+      color: 'var(--oras-primary)',
+      id: 'oras',
+      images: './public/oras/*.{jpg,png}',
+      navTitle: 'Oras',
+      themeColor: 'black',
+      title: 'Oras',
+      url: '/oras',
+      year: 2016,
+    },
+    {
+      color: 'var(--mediasignal-primary)',
+      id: 'mediasignal',
+      images: './public/mediasignal/*.{jpg,png}',
+      navTitle: 'Mediasignal',
+      themeColor: 'black',
+      title: 'Mediasignal',
+      url: '/mediasignal',
+      year: 2019,
+    },
+    {
+      color: 'var(--sandbox-primary)',
+      id: 'sandbox',
+      images: './public/sandbox/*.{jpg,png}',
+      navTitle: 'Sandbox',
+      themeColor: 'black',
+      title: 'Sandbox',
+      url: '/sandbox',
+      year: `2010–${new Date().getFullYear()}`,
+    },
+    {
+      color: 'var(--moreWork-primary)',
+      id: 'more-work',
+      images: './public/more-work/*.{jpg,png}',
+      navTitle: 'More work',
+      themeColor: 'black',
+      title: 'More work',
+      url: '/more-work',
+      year: `2010–${new Date().getFullYear()}`,
+    },
+    {
+      color: 'var(--archive-primary)',
+      hidden: true,
+      id: 'archive',
+      images: './public/archive/*.{jpg,png}',
+      navTitle: 'Work archive',
+      themeColor: 'black',
+      title: 'Archive',
+      url: '/archive',
+      year: '2010–2016',
+    },
+    {
+      color: 'var(--white)',
+      id: 'home',
+      navTitle: 'Browse all',
+      title: 'Browse all',
+      url: '/',
+      year: `2010–${new Date().getFullYear()}`,
+    },
+  ],
+} as const;
+
+export const LINKS: Links = {
+  common: [
+    {
+      id: 'source',
+      title: 'View source',
+      url: 'https://github.com/joonassandell/joonassandell-portfolio',
+    },
+  ],
+  social: [
+    {
+      id: 'dribbble',
+      title: 'Dribbble',
+      url: 'https://dribbble.com/joonassandell',
+    },
+    {
+      id: 'twitter',
+      title: 'Twitter',
+      url: 'https://twitter.com/joonassandell',
+    },
+    {
+      id: 'instagram',
+      title: 'Instagram',
+      url: 'https://www.instagram.com/mode.apart',
+    },
+    {
+      id: 'linkedin',
+      title: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/joonassandell',
+    },
+    {
+      id: 'github',
+      title: 'Github',
+      url: 'https://github.com/joonassandell',
+    },
+    {
+      id: 'soundcloud',
+      title: 'SoundCloud',
+      url: 'https://soundcloud.com/modeapart',
+    },
+  ],
+} as const;
+
+export const CONTENT = {
+  defaultNavTitle: 'Selected works',
+} as const;
+
+/* =======================================
  * Animations
  * =======================================
  *
@@ -120,144 +264,6 @@ export const TEXT_VARIANTS: Variants = {
     y: '5rem',
   },
 };
-
-/* =======================================
- * Sitemap, content, links
- * ======================================= */
-
-export const CONTENT = {
-  defaultNavTitle: 'Selected works',
-};
-
-export const SITEMAP: Sitemap = {
-  common: [
-    {
-      id: 'about',
-      navTitle: 'About',
-      title: 'About',
-      url: '/about',
-    },
-    {
-      id: 'contact',
-      navTitle: 'Contact',
-      title: 'Contact',
-      url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
-    },
-  ],
-  project: [
-    {
-      color: 'var(--biocode-primary)',
-      id: 'biocode',
-      images: './public/biocode/*.{jpg,png}',
-      navTitle: 'Biocode',
-      themeColor: '#00081F',
-      title: 'Biocode',
-      url: '/biocode',
-      year: new Date().getFullYear(),
-    },
-    {
-      color: 'var(--oras-primary)',
-      id: 'oras',
-      images: './public/oras/*.{jpg,png}',
-      navTitle: 'Oras',
-      themeColor: 'black',
-      title: 'Oras',
-      url: '/oras',
-      year: 2016,
-    },
-    {
-      color: 'var(--mediasignal-primary)',
-      id: 'mediasignal',
-      images: './public/mediasignal/*.{jpg,png}',
-      navTitle: 'Mediasignal',
-      themeColor: 'black',
-      title: 'Mediasignal',
-      url: '/mediasignal',
-      year: 2019,
-    },
-    {
-      color: 'var(--sandbox-primary)',
-      id: 'sandbox',
-      images: './public/sandbox/*.{jpg,png}',
-      navTitle: 'Sandbox',
-      themeColor: 'black',
-      title: 'Sandbox',
-      url: '/sandbox',
-      year: `2010—${new Date().getFullYear()}`,
-    },
-    {
-      color: 'var(--moreWork-primary)',
-      id: 'more-work',
-      images: './public/more-work/*.{jpg,png}',
-      navTitle: 'More work',
-      themeColor: 'black',
-      title: 'More work',
-      url: '/more-work',
-      year: `2010—${new Date().getFullYear()}`,
-    },
-    {
-      color: 'var(--archive-primary)',
-      hidden: true,
-      id: 'archive',
-      images: './public/archive/*.{jpg,png}',
-      navTitle: 'Work archive',
-      themeColor: 'black',
-      title: 'Archive',
-      url: '/archive',
-      year: '2010—2016',
-    },
-    {
-      color: 'var(--white)',
-      id: 'home',
-      navTitle: 'Browse all',
-      title: 'Browse all',
-      url: '/',
-      year: `2010—${new Date().getFullYear()}`,
-    },
-  ],
-} as const;
-
-export const LINKS: Links = {
-  common: [
-    {
-      id: 'source',
-      title: 'View source',
-      url: 'https://github.com/joonassandell/joonassandell-portfolio',
-    },
-  ],
-  social: [
-    {
-      id: 'dribbble',
-      title: 'Dribbble',
-      url: 'https://dribbble.com/joonassandell',
-    },
-    {
-      id: 'twitter',
-      title: 'Twitter',
-      url: 'https://twitter.com/joonassandell',
-    },
-    {
-      id: 'instagram',
-      title: 'Instagram',
-      url: 'https://www.instagram.com/mode.apart',
-    },
-    {
-      id: 'linkedin',
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/joonassandell',
-    },
-    {
-      id: 'github',
-      title: 'Github',
-      url: 'https://github.com/joonassandell',
-    },
-    {
-      id: 'soundcloud',
-      title: 'SoundCloud',
-      url: 'https://soundcloud.com/modeapart',
-    },
-  ],
-} as const;
 
 /* =======================================
  * Media queries

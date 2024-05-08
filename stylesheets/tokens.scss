@@ -11,9 +11,6 @@
   --black-transparent: #0000;
   --white: #ffffff;
 
-  // Tone
-  --tone-50: #eeeae5;
-
   // Background
   --bg-900: var(--black);
   --bg-800: #111111;
@@ -24,6 +21,16 @@
   --bg-gray-100-opaque: rgba(0, 0, 0, var(--bg-gray-100-opaque-alpha));
   --bg-gray-50-opaque-alpha: 0.06;
   --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
+
+  // Tone
+  --tone-50: #eeeae5;
+
+  // Accent
+  --accent-1: #ff6a00;
+  --accent-2: #2300ff;
+
+  // Primary
+  --primary: var(--accent-1);
 
   // Text
   --text-900: #111111;

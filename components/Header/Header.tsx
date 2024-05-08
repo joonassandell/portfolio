@@ -35,6 +35,7 @@ import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
 const about = getSitemap('about', 'common');
+const milestones = getSitemap('milestones', 'common');
 const contact = getSitemap('contact', 'common');
 const source = getLink('source', 'common');
 
@@ -374,6 +375,33 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 </AnimatePresence>
               </m.button>
               <ul className="Header-secondary">
+                <li className="Header-secondary-item">
+                  <m.div variants={ctrlItemOutVariant}>
+                    <LinkRoll
+                      href={milestones.url}
+                      onClick={handleClick}
+                      underline={urlState(milestones.url, router).active}
+                      {...(isOpen && { hidden: true, tabIndex: -1 })}
+                    >
+                      {milestones.navTitle}
+                    </LinkRoll>
+                  </m.div>
+                  {openReveal && (
+                    <m.div
+                      className="Header-secondary-item-reveal"
+                      variants={ctrlItemInVariant}
+                    >
+                      <LinkRoll
+                        href={milestones.url}
+                        onClick={handleClick}
+                        templateTransition={false}
+                        underline={urlState(milestones.url, router).active}
+                      >
+                        {milestones.navTitle}
+                      </LinkRoll>
+                    </m.div>
+                  )}
+                </li>
                 <li className="Header-secondary-item">
                   <m.div variants={ctrlItemOutVariant}>
                     <LinkRoll

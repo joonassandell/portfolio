@@ -1,0 +1,8 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--milestones {
+  .Template-line {
+    height: rem($space * 15);
+  }
+}
