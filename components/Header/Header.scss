@@ -17,10 +17,12 @@
 }
 
 .Header-main {
+  align-items: flex-end;
+  display: flex;
+  height: var(--Header-height);
   inset: 0 0 auto 0;
   min-width: var(--root-min-width);
   mix-blend-mode: difference;
-  padding-top: rem($space-m);
   pointer-events: none; // [1.]
   position: fixed;
   z-index: var(--z-index-900);
@@ -33,14 +35,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-  }
-
-  @include mq(m) {
-    padding-top: rem($space-ml);
-  }
-
-  @include mq(l) {
-    padding-top: rem($space-l);
   }
 }
 
@@ -119,7 +113,7 @@
 }
 
 .Header-separator-line {
-  background: var(--white);
+  background: var(--border-50);
   display: block;
   height: var(--border-width-l);
   position: absolute;
@@ -128,14 +122,14 @@
 
 .Header-button {
   align-items: center;
-  color: var(--white);
+  color: var(--text-50);
   display: flex;
   margin: 0;
   z-index: 1;
 
   &:focus-visible {
     .Button--arrow {
-      outline: var(--border-width) solid var(--white);
+      outline: var(--border-width) solid var(--border-50);
       outline-offset: 3px;
     }
   }
