@@ -1,3 +1,6 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .Template {
   --Template-overlay-color: var(--black);
   --Template-overlay-color-initial: var(--black-transparent);
@@ -8,7 +11,7 @@
   width: 100%;
 
   /**
-   * This is the enter transition
+   * Enter transition
    */
   &:last-child:not(:only-child).is-transition\:template {
     position: fixed;
@@ -25,6 +28,12 @@
     }
   }
 
+  &.is-transition\:template\:exit {
+    position: relative;
+    top: 0;
+    z-index: 0;
+  }
+
   /**
    * After locomotive scroll is updated the animated elements will jump to their
    * initial positions which is sometimes visible. This slight transition
@@ -34,12 +43,6 @@
     [data-s-target]:not([data-s-prevent]) {
       transition: 0.2s ease-in-out;
     }
-  }
-
-  &.is-transition\:template\:exit {
-    position: relative;
-    top: 0;
-    z-index: 0;
   }
 }
 
@@ -56,4 +59,20 @@
 
 .Template-section {
   background-color: var(--Template-section-bg-color);
+}
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Template--default {
+  .Template-inner {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: inherit;
+  }
+
+  .Template-main {
+    padding-top: var(--Header-height);
+  }
 }

@@ -12,7 +12,12 @@ import { useEffect, useState } from 'react';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import c from 'clsx';
 
-export const Template = ({ children, className, id }: TemplateProps) => {
+export const Template = ({
+  children,
+  className,
+  id,
+  variant = 'unstyled',
+}: TemplateProps) => {
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
   );
@@ -22,6 +27,13 @@ export const Template = ({ children, className, id }: TemplateProps) => {
   const defaultTransition = transition && !templateTransition;
   const isPresent = useIsPresent();
   const { scroll } = useLocomotiveScroll();
+  const classes = c('Template', `Template--${camelCase(id)}`, className, {
+    'Template--default': variant === 'default',
+    'is-transition:exit': defaultTransition && animState === 'animExit',
+    'is-transition:template': templateTransition,
+    'is-transition:template:exit':
+      templateTransition && animState === 'animExit',
+  });
 
   useEffect(() => {
     if (!isPresent) setAnimState('animExit');
@@ -31,12 +43,7 @@ export const Template = ({ children, className, id }: TemplateProps) => {
   return (
     <m.div
       animate="animate"
-      className={c('Template', `Template--${camelCase(id)}`, className, {
-        'is-transition:exit': defaultTransition && animState === 'animExit',
-        'is-transition:template': templateTransition,
-        'is-transition:template:exit':
-          templateTransition && animState === 'animExit',
-      })}
+      className={classes}
       exit="exit"
       initial="initial"
       onAnimationStart={() => {

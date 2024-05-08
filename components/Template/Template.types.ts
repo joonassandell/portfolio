@@ -3,6 +3,7 @@ import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
 export interface TemplateProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'div'>['className'];
   id: string;
+  variant?: 'unstyled' | 'default';
 }
 
 export interface TemplateMainProps extends PropsWithChildren {
