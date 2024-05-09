@@ -1,2 +1,2 @@
 export * from './Page';
-export * from './milestones';
+export * from './data';

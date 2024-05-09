@@ -22,7 +22,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
     },
     {},
   );
-  // const highestYear: number = Math.max(...Object.values(milestonesPerYear));
+  const highestYear: number = Math.max(...Object.values(milestonesPerYear));
 
   const milestonesSorted = [...MILESTONES].sort(
     (a, b) => new Date(b?.date).valueOf() - new Date(a?.date).valueOf(),
@@ -65,7 +65,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection grid={false}>
+        <TemplateSection grid={false} paddingBottom="15vw">
           <div className="Template-line">
             <ResponsiveLine
               animate
@@ -79,17 +79,15 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 tickValues: 'every 1 year',
               }}
               axisLeft={{
+                // format: e => (Number.isInteger(e) ? e : ''),
                 format: e => (Math.floor(e) === e ? e : ''),
+                // format: () => '',
                 tickSize: 0,
+                // tickValues: [0, MILESTONES.length],
               }}
               axisRight={null}
               axisTop={null}
               colors={['var(--border-900)']}
-              curve="monotoneX"
-              data={lineData}
-              // gridYValues={[0, highestYear]}
-              lineWidth={2}
-              margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
               pointBorderColor={{
                 from: 'color',
               }}
@@ -111,13 +109,21 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
               xFormat="time:%Y-%m-%d"
               xScale={{
                 format: '%Y-%m-%d',
-                precision: 'month', // year
+                precision: 'month',
+                // precision: 'year',
                 type: 'time',
                 useUTC: false,
               }}
               yScale={{
+                // stacked: true,
                 type: 'linear',
               }}
+              curve="monotoneX"
+              // layers={[]}
+              margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
+              data={lineData}
+              // gridYValues={[0, highestYear]}
+              lineWidth={2}
             />
           </div>
         </TemplateSection>
@@ -132,6 +138,7 @@ export const PointSymbol = ({
   size,
 }: PointSymbolProps) => (
   <g>
+    <circle fill="var(--bg-50)" r={size * 1.4} />
     <circle
       fill="var(--bg-50)"
       r={size}

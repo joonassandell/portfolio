@@ -337,7 +337,7 @@ export const MoreWorkPage = ({
               </>
             }
             type={['Web application', 'Commission']}
-            year={2016}
+            year={2017}
           />
           <div className="grid-col grid-col:11 grid-col:9@m grid-col:6@l">
             <Figure

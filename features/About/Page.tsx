@@ -70,7 +70,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
             <TextReveal text={['Hello. ✳︎ Moro ✳︎ Hi. ✳︎ Wassup.']} />
           </Heading>
         </div>
-        <div className="Template-figure wrap@ grid">
+        <div className="Template-figure grid">
           <div className="grid-col grid-col:7 -start:6 grid-col:6@m -start:7@m">
             <Figure
               alt="Joonas Sandell"
