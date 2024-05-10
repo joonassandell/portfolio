@@ -274,6 +274,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
           <div className="grid-col grid-col:6@s -start:6@s -start:7@m">
             {/* prettier-ignore */}
             <Text animate className="mb">
+              Anton&Anton,
               Avecra,
               Biocode,
               Bonnier Books (Academic bookstore),
@@ -286,6 +287,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
               Fair trade,
               Finefoods,
               Finnpark,
+              Hailia,
               Hankkija,
               Hansa,
               Himos Festivals,
@@ -308,7 +310,9 @@ export const AboutPage = ({ id, title }: PageProps) => {
               SOS-Lapsikylä,
               TAKK,
               Ursa,
+              Valio,
               Vapriikki,
+              Vöner,
               YIT
             </Text>
           </div>
