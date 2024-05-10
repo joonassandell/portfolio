@@ -65,66 +65,69 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection grid={false} paddingBottom="15vw">
-          <div className="Template-line">
-            <ResponsiveLine
-              animate
-              axisBottom={{
-                format: v => {
-                  const year = v.getFullYear();
-                  return year;
-                },
-                tickPadding: 8,
-                tickSize: 0,
-                tickValues: 'every 1 year',
-              }}
-              axisLeft={{
-                // format: e => (Number.isInteger(e) ? e : ''),
-                format: e => (Math.floor(e) === e ? e : ''),
-                // format: () => '',
-                tickSize: 0,
-                // tickValues: [0, MILESTONES.length],
-              }}
-              axisRight={null}
-              axisTop={null}
-              colors={['var(--border-900)']}
-              pointBorderColor={{
-                from: 'color',
-              }}
-              pointBorderWidth={2}
-              pointSize={7}
-              pointSymbol={props => <PointSymbol {...props} />}
-              theme={{
-                background: 'transparent',
-                grid: {
-                  line: {
-                    stroke: 'var(--border-100)',
+        <TemplateSection className="pl:0" grid={false} paddingBottom="15vw">
+          <div className="Template-line scrollbar">
+            <div className="Template-line-inner">
+              <ResponsiveLine
+                animate
+                axisBottom={{
+                  format: v => {
+                    const year = v.getFullYear();
+                    return year;
                   },
-                },
-                text: {
-                  fontFamily: 'inherit',
-                  fontSize: '12px',
-                },
-              }}
-              xFormat="time:%Y-%m-%d"
-              xScale={{
-                format: '%Y-%m-%d',
-                precision: 'month',
-                // precision: 'year',
-                type: 'time',
-                useUTC: false,
-              }}
-              yScale={{
-                // stacked: true,
-                type: 'linear',
-              }}
-              curve="monotoneX"
-              // layers={[]}
-              margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
-              data={lineData}
-              // gridYValues={[0, highestYear]}
-              lineWidth={2}
-            />
+                  tickPadding: 8,
+                  tickSize: 0,
+                  tickValues: 'every 1 year',
+                }}
+                axisLeft={{
+                  // format: e => (Number.isInteger(e) ? e : ''),
+                  format: e => (Math.floor(e) === e ? e : ''),
+                  // format: () => '',
+                  tickSize: 0,
+                  // tickValues: [0, MILESTONES.length],
+                }}
+                axisRight={null}
+                axisTop={null}
+                colors={['var(--border-900)']}
+                curve="monotoneX"
+                data={lineData}
+                // gridYValues={[0, highestYear]}
+                // layers={[]}
+                lineWidth={2}
+                margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
+                pointBorderColor={{
+                  from: 'color',
+                }}
+                pointBorderWidth={2}
+                pointSize={7}
+                pointSymbol={props => <PointSymbol {...props} />}
+                theme={{
+                  background: 'transparent',
+                  grid: {
+                    line: {
+                      stroke: 'var(--border-100)',
+                    },
+                  },
+                  text: {
+                    fontFamily: 'inherit',
+                    fontSize: '12px',
+                  },
+                }}
+                xFormat="time:%Y-%m-%d"
+                xScale={{
+                  format: '%Y-%m-%d',
+                  precision: 'month',
+                  // precision: 'year',
+                  type: 'time',
+                  useUTC: false,
+                }}
+                yScale={{
+                  // stacked: true,
+                  // min: 1,
+                  type: 'linear',
+                }}
+              />
+            </div>
           </div>
         </TemplateSection>
       </TemplateMain>

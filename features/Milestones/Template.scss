@@ -3,6 +3,20 @@
 
 .Template--milestones {
   .Template-line {
+    display: flex;
+    flex-direction: row-reverse;
     height: rem($space * 15);
+    overflow-y: hidden;
+    padding-left: var(--wrap-space-left);
+    width: calc(100vw - var(--wrap-space-right));
+  }
+
+  .Template-line-inner {
+    width: 200vw;
+    // width: 100%;
+
+    > div {
+      width: inherit !important;
+    }
   }
 }
