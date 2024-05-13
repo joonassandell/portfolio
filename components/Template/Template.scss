@@ -67,12 +67,13 @@
 
 .Template--default {
   .Template-inner {
-    display: grid;
-    grid-template-rows: 1fr auto;
+    display: flex;
+    flex-direction: column;
     min-height: inherit;
   }
 
   .Template-main {
+    flex: 1;
     padding-top: var(--Header-height);
   }
 }
