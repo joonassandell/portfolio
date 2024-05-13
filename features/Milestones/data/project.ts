@@ -382,12 +382,12 @@ export const MILESTONES_PROJECT = [
   {
     category: 'project',
     categoryName: 'Project launch',
-    date: '2014-04-07',
+    date: '2015-04-07',
     event: 'Launched Mediasignal website',
   },
 
   /* =======================================
-   * Personal company
+   * Personal company / Personal
    * ======================================= */
 
   {
@@ -397,11 +397,6 @@ export const MILESTONES_PROJECT = [
     event: 'Launched Omoroi website',
     url: '/more-work#omoroi',
   },
-
-  /* =======================================
-   * Open source
-   * ======================================= */
-
   {
     category: 'project',
     categoryName: 'Project launch',
@@ -409,8 +404,211 @@ export const MILESTONES_PROJECT = [
     event: 'Launched Rebirth UI',
     url: 'https://github.com/joonassandell/rebirth',
   },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2014-03-21',
+    event: 'Launched Tampere Paikkatieto web service',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-10-17',
+    event: 'Launched Adoptoi monumentti website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-05-14',
+    event: 'Launched redesigned City of Tampere website (UI)',
+    highlight: true,
+    major: true,
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-04-30',
+    event: 'Launched Museoiden Yö website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-02-11',
+    event: 'Launched Kulttuuripalvelut website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-01-04',
+    event: 'Launched Pala Taivasta website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-11-07',
+    event: 'Launched Fullsize website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-12-06',
+    event: 'Launched Pirfest website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-05-30',
+    event: 'Launched SF3D website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-06-04',
+    event: 'Launched Aktiivi-Fysioterapia website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-02-01',
+    event: 'Launched Tampere Jazz Happening 2011 website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-01-01',
+    event: 'Launched Tampereen Sävel 2011 website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-11-29',
+    event: 'Launched 3D Tammerkoski web experience',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-09-01',
+    event: 'Launched Museokompassi website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-03-01',
+    event: 'Launched Tampere Biennale 2010 website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-02-16',
+    event: 'Launched Vaka website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-02-01',
+    event: 'Launched Tampere Jazz Happening 2010 website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2010-01-01',
+    event: 'Launched Tampere Music Festivals website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2009-04-05',
+    event: 'Launched Yhteisötanssi website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2008-04-05',
+    event: 'Launched Tampere Music Festival websites and graphic material',
+    major: true,
+  },
 
   /* =======================================
    * Vapriikki
    * ======================================= */
+
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2014-06-25',
+    event: 'Launched Vapriikki website',
+    major: true,
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2014-03-10',
+    event: 'Launched ICEE website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-10-25',
+    event: 'Launched Siiri Photo Gallery web service',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-10-08',
+    event: 'Launched Museokauppa website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-07-07',
+    event: 'Launched and curated Vapriikki Exhibition Guide mobile web app',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2013-02-21',
+    event: 'Launched Vapriikki Twitter Wall application',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-02-28',
+    event: 'Launched Lennossa exhibition website and graphic material',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-10-10',
+    event: 'Launched redesigned Amuri museokortteli website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-11-22',
+    event: 'Launched Museum Guide kiosk web app',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2012-11-10',
+    event: 'Launched Muumilaakso website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-11-25',
+    event: 'Launched Nuorisokulttuuri Nyt website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-09-29',
+    event: 'Launched Täyttä Kaasua website',
+  },
+  {
+    category: 'project',
+    categoryName: 'Project launch',
+    date: '2011-11-28',
+    event: 'Launched Suomalainen Talvipäivä web experience',
+  },
 ];

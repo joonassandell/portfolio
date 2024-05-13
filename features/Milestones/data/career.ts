@@ -19,15 +19,31 @@ export const MILESTONES_CAREER = [
   {
     category: 'career',
     categoryName: 'Career update',
+    date: '2013-01-31',
+    event: 'Completed degree in Audiovisual communications',
+  },
+  {
+    category: 'career',
+    categoryName: 'Career update',
+    date: '2010-01-01',
+    event: 'Started my own design agency',
+  },
+  {
+    category: 'career',
+    categoryName: 'Career update',
     date: '2010-04-01',
-    event: 'Joined Vapriikki as UI/UX designer and front-end developer',
-    url: 'https://mediasignal.fi',
+    event: 'Joined Vapriikki as UI/UX designer and Front-end developer',
   },
   {
     category: 'career',
     categoryName: 'Career update',
     date: '2007-07-01',
     event: 'Joined Tampere Music Festivals as Web/Graphic designer',
-    url: 'https://mediasignal.fi',
+  },
+  {
+    category: 'career',
+    categoryName: 'Career update',
+    date: '2005-06-04',
+    event: 'Matriculation Examination',
   },
 ];
