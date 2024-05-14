@@ -1,0 +1,28 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Badge {
+  @include text(s);
+  align-items: center;
+  background: var(--bg-50);
+  border: var(--border-width) solid var(--border-900);
+  border-radius: var(--border-radius-pill);
+  color: var(--text-900);
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: rem($space-2xs);
+  max-width: 100%;
+  min-height: rem($space-m);
+  padding: rem($space-4xs) rem($space-xs) 0 rem($space-xs);
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+}
+
+.Badge-beacon {
+  background: var(--Badge-beacon, var(--primary));
+  border-radius: var(--border-radius-pill);
+  height: rem($space-xs);
+  margin-top: rem($space-4xs * -1);
+  width: rem($space-xs);
+}

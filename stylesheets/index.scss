@@ -31,6 +31,7 @@
 
 @layer components {
   @include use('components/App');
+  @include use('components/Badge');
   @include use('components/Button');
   @include use('components/Figure');
   @include use('components/Footer');
