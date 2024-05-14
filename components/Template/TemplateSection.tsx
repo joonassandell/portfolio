@@ -23,6 +23,8 @@ export const TemplateSection = ({
     '-gap:row:xl': grid && (gridRowGap === 'xl' || gridGap === 'xl'),
     '-gap:row:l': grid && gridRowGap === 'l',
     '-gap:row:0': grid && gridRowGap === false,
+    'pt:m': paddingTop === 'm',
+    'pt:l': paddingTop === 'l',
     'pt:2xl': paddingTop === '2xl',
     'pt:5vw': paddingTop === '5vw',
     'pt:10vw': paddingTop === '10vw',

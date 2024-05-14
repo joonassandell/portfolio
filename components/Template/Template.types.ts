@@ -16,8 +16,8 @@ export interface TemplateSectionProps extends PropsWithChildren {
   gridGap?: 'xl' | 'l' | 'm' | false;
   gridRowGap?: 'xl' | 'l' | 'm' | false;
   id?: string;
-  paddingBottom?: '15vw';
-  paddingTop?: '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
+  paddingBottom?: '15vw' | false;
+  paddingTop?: '2xl' | 'l' | 'm' | '5vw' | '10vw' | '15vw' | '20vw' | false;
   theme?: 'dark' | 'light';
   wrap?: boolean;
 }
