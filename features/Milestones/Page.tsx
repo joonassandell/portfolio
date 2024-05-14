@@ -1,8 +1,14 @@
+import { Badge } from '@/components/Badge';
+import {
+  CATEGORY_COLOR,
+  CATEGORY_NAME_SHORT,
+  MILESTONES,
+  type PointSymbolProps,
+} from './';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
-import { MILESTONES } from './';
+import { objectEntries } from '@/lib/utils';
 import { type PageProps } from '@/types';
-import { type PointSymbolProps } from '@nivo/line';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useMemo } from 'react';
@@ -14,16 +20,10 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
-  const milestonesPerQuarter = MILESTONES.reduce(
-    (acc: { [key: string]: number }, curr) => {
-      const [year, month] = curr.date.split('-');
-      let quarter = Math.ceil(parseInt(month) / 3);
-      if (isNaN(quarter)) {
-        quarter = 1;
-      }
-      const key = `${year}-Q${quarter}`;
-
-      acc[key] = (acc[key] || 0) + 1;
+  const milestonesPerYear = MILESTONES.reduce(
+    (acc: { [year: number]: number }, curr) => {
+      const year = new Date(curr.date).getFullYear();
+      acc[year] = (acc[year] || 0) + 1;
       return acc;
     },
     {},
@@ -36,17 +36,11 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
   const lineData = useMemo(() => {
     const convertData = milestonesSorted.map(el => {
       const date = new Date(el.date);
-      const [year, month] = el.date.split('-');
-      let quarter = Math.ceil(parseInt(month) / 3);
-      if (isNaN(quarter)) {
-        quarter = 1;
-      }
-      const key = `${year}-Q${quarter}`;
 
       return {
         ...el,
         x: date.toISOString().split('T')[0],
-        y: milestonesPerQuarter[key],
+        y: milestonesPerYear[date.getFullYear()],
       };
     });
 
@@ -56,7 +50,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
         id: 'milestones',
       },
     ];
-  }, [milestonesPerQuarter, milestonesSorted]);
+  }, [milestonesPerYear, milestonesSorted]);
 
   return (
     <Template id={id} variant="default">
@@ -76,12 +70,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection
-          className="pt:l pt:2xl@m pl:0"
-          grid={false}
-          paddingBottom="15vw"
-          paddingTop={false}
-        >
+        <TemplateSection className="pt:2xl@m pl:0" grid={false} paddingTop="l">
           <div className="Template-line scrollbar">
             <div className="Template-line-inner">
               <ResponsiveLine
@@ -97,7 +86,6 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 }}
                 axisLeft={{
                   format: e => (Math.floor(e) === e ? e : ''),
-                  // format: e => (Number.isInteger(e) ? e : ''),
                   // format: () => '',
                   tickSize: 0,
                   // tickValues: [0, MILESTONES.length],
@@ -107,15 +95,19 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 colors={['var(--border-900)']}
                 curve="monotoneX"
                 data={lineData}
+                enableSlices="x"
+                enableTouchCrosshair={true}
                 // layers={[]}
                 lineWidth={2}
-                margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
+                margin={{ bottom: 28, left: 24, right: 9, top: 9 }}
                 pointBorderColor={{
                   from: 'color',
                 }}
                 pointBorderWidth={2}
-                pointSize={7}
-                pointSymbol={props => <PointSymbol {...props} />}
+                pointSize={8}
+                pointSymbol={props => (
+                  <PointSymbol {...(props as PointSymbolProps)} />
+                )}
                 theme={{
                   background: 'transparent',
                   grid: {
@@ -146,6 +138,17 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </div>
           </div>
         </TemplateSection>
+        <TemplateSection grid={false} paddingBottom="15vw" paddingTop="m">
+          <div className="Template-badges">
+            {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
+              return (
+                <Badge beacon={CATEGORY_COLOR[category]} key={category}>
+                  {name}
+                </Badge>
+              );
+            })}
+          </div>
+        </TemplateSection>
       </TemplateMain>
     </Template>
   );
@@ -154,16 +157,19 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
 export const PointSymbol = ({
   borderColor,
   borderWidth,
+  datum,
   size,
-}: PointSymbolProps) => (
-  <g>
-    <circle fill="var(--bg-50)" r={size * 1.4} />
-    <circle
-      fill="var(--bg-50)"
-      r={size}
-      stroke={borderColor}
-      strokeWidth={borderWidth}
-    />
-    <circle fill="var(--primary)" r={size / 2} />
-  </g>
-);
+}: PointSymbolProps) => {
+  return (
+    <g>
+      <circle fill="var(--bg-50)" r={size * 1.4} />
+      <circle
+        fill="var(--bg-50)"
+        r={size}
+        stroke={borderColor}
+        strokeWidth={borderWidth}
+      />
+      <circle fill={CATEGORY_COLOR[datum.category]} r={size / 2} />
+    </g>
+  );
+};

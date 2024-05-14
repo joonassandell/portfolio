@@ -12,11 +12,15 @@
   }
 
   .Template-line-inner {
-    width: 200vw;
-    // width: 100%;
+    width: 500vw;
 
     > div {
       width: inherit !important;
     }
+  }
+
+  .Template-badges {
+    display: flex;
+    gap: rem($space-s);
   }
 }
