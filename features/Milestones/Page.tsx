@@ -14,15 +14,20 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
-  const milestonesPerYear = MILESTONES.reduce(
-    (acc: { [year: number]: number }, curr) => {
-      const year = new Date(curr.date).getFullYear();
-      acc[year] = (acc[year] || 0) + 1;
+  const milestonesPerQuarter = MILESTONES.reduce(
+    (acc: { [key: string]: number }, curr) => {
+      const [year, month] = curr.date.split('-');
+      let quarter = Math.ceil(parseInt(month) / 3);
+      if (isNaN(quarter)) {
+        quarter = 1;
+      }
+      const key = `${year}-Q${quarter}`;
+
+      acc[key] = (acc[key] || 0) + 1;
       return acc;
     },
     {},
   );
-  const highestYear: number = Math.max(...Object.values(milestonesPerYear));
 
   const milestonesSorted = [...MILESTONES].sort(
     (a, b) => new Date(b?.date).valueOf() - new Date(a?.date).valueOf(),
@@ -31,11 +36,17 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
   const lineData = useMemo(() => {
     const convertData = milestonesSorted.map(el => {
       const date = new Date(el.date);
+      const [year, month] = el.date.split('-');
+      let quarter = Math.ceil(parseInt(month) / 3);
+      if (isNaN(quarter)) {
+        quarter = 1;
+      }
+      const key = `${year}-Q${quarter}`;
 
       return {
         ...el,
         x: date.toISOString().split('T')[0],
-        y: milestonesPerYear[date.getFullYear()],
+        y: milestonesPerQuarter[key],
       };
     });
 
@@ -45,7 +56,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
         id: 'milestones',
       },
     ];
-  }, [milestonesPerYear, milestonesSorted]);
+  }, [milestonesPerQuarter, milestonesSorted]);
 
   return (
     <Template id={id} variant="default">
@@ -65,7 +76,12 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection className="pl:0" grid={false} paddingBottom="15vw">
+        <TemplateSection
+          className="pt:l pt:2xl@m pl:0"
+          grid={false}
+          paddingBottom="15vw"
+          paddingTop={false}
+        >
           <div className="Template-line scrollbar">
             <div className="Template-line-inner">
               <ResponsiveLine
@@ -80,8 +96,8 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                   tickValues: 'every 1 year',
                 }}
                 axisLeft={{
-                  // format: e => (Number.isInteger(e) ? e : ''),
                   format: e => (Math.floor(e) === e ? e : ''),
+                  // format: e => (Number.isInteger(e) ? e : ''),
                   // format: () => '',
                   tickSize: 0,
                   // tickValues: [0, MILESTONES.length],
@@ -91,7 +107,6 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 colors={['var(--border-900)']}
                 curve="monotoneX"
                 data={lineData}
-                // gridYValues={[0, highestYear]}
                 // layers={[]}
                 lineWidth={2}
                 margin={{ bottom: 24, left: 24, right: 8, top: 8 }}
@@ -116,8 +131,9 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 xFormat="time:%Y-%m-%d"
                 xScale={{
                   format: '%Y-%m-%d',
-                  precision: 'month',
+                  // precision: 'month',
                   // precision: 'year',
+                  precision: 'day',
                   type: 'time',
                   useUTC: false,
                 }}
