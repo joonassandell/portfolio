@@ -119,3 +119,9 @@ img::-moz-selection {
 :where(button) {
   all: unset;
 }
+
+:where(table) {
+  border-collapse: collapse;
+  border-color: inherit;
+  text-indent: 0;
+}
