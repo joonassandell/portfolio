@@ -1,7 +1,7 @@
 import { type Milestone } from '../';
 import { type Optional } from '@/types';
 
-export const MILESTONES_VARIOUS = (
+export const VARIOUS: Milestone[] = (
   [
     {
       categoryName: 'Hit a music milestone',

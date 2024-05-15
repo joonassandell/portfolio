@@ -1,7 +1,7 @@
 import { type Category, CATEGORY_NAME, type Milestone } from '../';
 import { type Optional } from '@/types';
 
-export const MILESTONES_PROJECT: Milestone[] = (
+export const PROJECT: Milestone[] = (
   [
     /* =======================================
      * Portfolio

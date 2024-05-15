@@ -1,7 +1,7 @@
 import { type Category, type Milestone } from '../';
 import { type Optional } from '@/types';
 
-export const MILESTONES_MUSIC_RELEASE: Milestone[] = (
+export const MUSIC_RELEASE: Milestone[] = (
   [
     {
       date: '2023-02-24',

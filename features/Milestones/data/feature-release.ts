@@ -1,16 +1,16 @@
 import { type Category, CATEGORY_NAME, type Milestone } from '../';
 import { type Optional } from '@/types';
 
-export const MILESTONES_FEATURE_RELEASE: Milestone[] = (
+export const FEATURE_RELEASE: Milestone[] = (
   [
     /* =======================================
      * Biocode
      * ======================================= */
 
     {
-      categoryName: 'Feature proposal',
+      categoryName: 'Feature in progress',
       date: '2024-04-20',
-      event: 'Proposed new Biocode application UI',
+      event: 'Designed new Biocode application UI',
       major: true,
     },
     {
