@@ -97,7 +97,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
     enableGridY: true,
     enablePointLabel: false,
     enablePoints: true,
-    enableSlices: 'x',
+    enableSlices: false,
     enableTouchCrosshair: false,
     fill: [],
     isInteractive: true,
@@ -156,8 +156,10 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                   tickValues: 'every 1 year',
                 }}
                 axisLeft={{
-                  format: e => (Math.floor(e) === e ? e : ''),
-                  tickPadding: 16,
+                  legend: 'Milestones per year',
+                  legendOffset: 8,
+                  legendPosition: 'middle',
+                  tickPadding: 12,
                   tickSize: 0,
                 }}
                 axisRight={null}

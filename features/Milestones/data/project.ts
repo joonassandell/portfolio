@@ -22,21 +22,25 @@ export const PROJECT: Milestone[] = (
     {
       date: '2023-03-07',
       event: 'Launched rebranded Biocode website',
+      major: true,
       url: '/biocode',
     },
     {
       date: '2022-08-01',
       event: 'Launched Biocode for producers',
+      major: true,
       url: 'https://biocode.io/producers-and-farmers',
     },
     {
       date: '2022-01-26',
       event: 'Launched Biocode for reporting service',
+      major: true,
       url: 'https://report.biocode.io',
     },
     {
       date: '2021-05-01',
       event: 'Launched Biocode for products MVP',
+      major: true,
       url: 'https://biocode.io/sustainable-food-production/',
     },
     {

@@ -7,7 +7,6 @@ export const CAREER: Milestone[] = (
       date: '2020-11-16',
       event: 'Joined Biocode as Lead product designer and Front-end developer',
       highlight: true,
-      major: true,
       url: 'https://biocode.io/about',
     },
     {
