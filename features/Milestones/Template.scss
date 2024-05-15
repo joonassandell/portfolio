@@ -3,24 +3,50 @@
 
 .Template--milestones {
   .Template-line {
+    --Line-height: #{rem($space * 17)};
+    --Line-padding-top: #{rem($space)};
+    --Line-padding-bottom: #{rem($space-l)};
+    --Line-padding-left: #{rem($space-ml)};
+    --Line-padding-right: #{rem($space)};
+    --Line-width: #{rem($space * 500)};
+
     display: flex;
     flex-direction: row-reverse;
-    height: rem($space * 15);
+    height: var(--Line-height);
+    margin-top: calc(var(--Line-padding-top) * -1);
     overflow-y: hidden;
     padding-left: var(--wrap-space-left);
     width: calc(100vw - var(--wrap-space-right));
   }
 
   .Template-line-inner {
-    width: 500vw;
+    width: var(--Line-width);
 
     > div {
+      height: calc(
+        var(--Line-height) -
+          (var(--Line-padding-top) + var(--Line-padding-bottom))
+      ) !important;
+      padding-right: calc(var(--Line-padding-left) + var(--Line-padding-right));
       width: inherit !important;
+    }
+
+    svg {
+      height: var(--Line-height);
+      width: inherit !important;
+
+      > g {
+        transform: translate(
+          var(--Line-padding-left),
+          var(--Line-padding-top)
+        ) !important;
+      }
     }
   }
 
   .Template-badges {
     display: flex;
     gap: rem($space-s);
+    padding: 0 var(--wrap-space-right) rem($space-xs) var(--wrap-space-left);
   }
 }

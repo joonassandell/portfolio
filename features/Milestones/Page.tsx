@@ -132,22 +132,25 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection className="pt:2xl@m pl:0" grid={false} paddingTop="l">
+        <TemplateSection
+          aria-hidden
+          className="pt:2xl@m pl:0"
+          grid={false}
+          paddingTop="l"
+        >
           <div className="Template-line scrollbar">
             <div className="Template-line-inner">
               <ResponsiveLine
                 animate
                 axisBottom={{
-                  format: v => {
-                    const year = v.getFullYear();
-                    return year;
-                  },
-                  tickPadding: 8,
+                  format: value => value.getFullYear(),
+                  tickPadding: 12,
                   tickSize: 0,
                   tickValues: 'every 1 year',
                 }}
                 axisLeft={{
                   format: e => (Math.floor(e) === e ? e : ''),
+                  tickPadding: 16,
                   tickSize: 0,
                 }}
                 axisRight={null}
@@ -156,12 +159,11 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 curve="monotoneX"
                 data={lineData}
                 lineWidth={2}
-                margin={{ bottom: 28, left: 24, right: 12, top: 12 }}
                 markers={markers}
                 pointBorderColor={{ from: 'color' }}
                 pointBorderWidth={2}
                 pointColor={{ from: 'color' }}
-                pointSize={8}
+                pointSize={0.5}
                 pointSymbol={props => (
                   <PointSymbol {...(props as PointSymbolProps)} />
                 )}
@@ -173,8 +175,9 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                     },
                   },
                   text: {
+                    fill: 'var(--text-mute)',
                     fontFamily: 'inherit',
-                    fontSize: '12px',
+                    fontSize: '0.8125rem',
                   },
                 }}
                 xFormat="time:%Y-%m-%d"
@@ -190,8 +193,14 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </div>
           </div>
         </TemplateSection>
-        <TemplateSection grid={false} paddingBottom="15vw" paddingTop="m">
-          <div className="Template-badges">
+        <TemplateSection
+          aria-hidden
+          className="pr:0 pl:0"
+          grid={false}
+          paddingBottom="15vw"
+          paddingTop="m"
+        >
+          <div className="Template-badges scrollbar">
             {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
               return (
                 <Badge beacon={CATEGORY_COLOR[category]} key={category}>
@@ -216,14 +225,14 @@ export const PointSymbol = ({
 
   return (
     <g>
-      <circle fill="var(--bg-50)" r={size * 1.4} />
+      <circle fill="var(--bg-50)" r={`${size * 1.4}rem`} />
       <circle
         fill="var(--bg-50)"
-        r={size}
+        r={`${size}rem`}
         stroke={borderColor}
         strokeWidth={borderWidth}
       />
-      <circle fill={CATEGORY_COLOR[datum.category]} r={size / 2} />
+      <circle fill={CATEGORY_COLOR[datum.category]} r={`${size / 2}rem`} />
     </g>
   );
 };
