@@ -3,11 +3,11 @@ import { type Category } from './';
 export const CATEGORY_COLOR: {
   [key in Category]: string;
 } = {
-  achievement: 'var(--accent-4)',
-  career: 'var(--accent-3)',
-  'feature-release': 'var(--accent-5)',
-  featured: 'var(--accent-2)',
-  'music-release': 'var(--accent-6)',
+  achievement: 'var(--slate-600)',
+  career: 'var(--accent-2)',
+  'feature-release': 'var(--accent-3)',
+  featured: 'var(--slate-400)',
+  'music-release': 'var(--slate-300)',
   project: 'var(--accent-1)',
 };
 
@@ -15,10 +15,10 @@ export const CATEGORY_COLOR: {
 export const CATEGORY_NAME: {
   [key in Category]: string;
 } = {
+  career: 'Career update',
   project: 'Project launch',
   'feature-release': 'Feature release',
   achievement: 'Achievement',
-  career: 'Career update',
   featured: 'Featured',
   'music-release': 'Music release',
 };
@@ -27,10 +27,10 @@ export const CATEGORY_NAME: {
 export const CATEGORY_NAME_SHORT: {
   [key in Category]: string;
 } = {
+  career: 'Career',
   project: 'Launch',
   'feature-release': 'Feature',
   achievement: 'Achievement',
-  career: 'Career',
   featured: 'Featured',
   'music-release': 'Music',
 };

@@ -1,4 +1,5 @@
 import { Badge } from '@/components/Badge';
+import { type CartesianMarkerProps } from '@nivo/core';
 import {
   CATEGORY_COLOR,
   CATEGORY_NAME_SHORT,
@@ -7,6 +8,7 @@ import {
 } from './';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
+import { type LineSvgProps } from '@nivo/line';
 import { objectEntries } from '@/lib/utils';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -52,6 +54,66 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
     ];
   }, [milestonesPerYear, milestonesSorted]);
 
+  // This causes few hydration errors
+  const markers = useMemo(() => {
+    return milestonesSorted
+      .filter(el => el.category === 'career')
+      .map(el => {
+        const obj: CartesianMarkerProps = {
+          axis: 'x',
+          legendOrientation: 'horizontal',
+          lineStyle: {
+            stroke: 'var(--border-900)',
+            strokeWidth: 1,
+          },
+          value: new Date(el.date),
+        };
+        return obj;
+      });
+  }, [milestonesSorted]);
+
+  /**
+   * Default or unwanted props which cause hydration errors if not defined
+   * @link https://nivo.rocks/line
+   */
+  const preventHydrationErrors: Omit<LineSvgProps, 'data'> = {
+    areaBaselineValue: 0,
+    areaBlendMode: 'normal',
+    areaOpacity: 0.2,
+    crosshairType: 'bottom-left',
+    debugMesh: false,
+    debugSlices: false,
+    defs: [],
+    enableArea: false,
+    enableCrosshair: false,
+    enableGridX: true,
+    enableGridY: true,
+    enablePointLabel: false,
+    enablePoints: true,
+    enableSlices: 'x',
+    enableTouchCrosshair: false,
+    fill: [],
+    isInteractive: true,
+    layers: [
+      'grid',
+      'markers',
+      'axes',
+      'areas',
+      'crosshair',
+      'lines',
+      'points',
+      'slices',
+      'mesh',
+      'legends',
+    ],
+    legends: [],
+    pointLabel: 'yFormatted',
+    role: 'img',
+    sliceTooltip: () => <></>,
+    tooltip: () => <></>,
+    useMesh: false,
+  };
+
   return (
     <Template id={id} variant="default">
       <Head themeColor={themeColor} title={title} />
@@ -86,24 +148,19 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 }}
                 axisLeft={{
                   format: e => (Math.floor(e) === e ? e : ''),
-                  // format: () => '',
                   tickSize: 0,
-                  // tickValues: [0, MILESTONES.length],
                 }}
                 axisRight={null}
                 axisTop={null}
                 colors={['var(--border-900)']}
                 curve="monotoneX"
                 data={lineData}
-                enableSlices="x"
-                enableTouchCrosshair={true}
-                // layers={[]}
                 lineWidth={2}
-                margin={{ bottom: 28, left: 24, right: 9, top: 9 }}
-                pointBorderColor={{
-                  from: 'color',
-                }}
+                margin={{ bottom: 28, left: 24, right: 12, top: 12 }}
+                markers={markers}
+                pointBorderColor={{ from: 'color' }}
                 pointBorderWidth={2}
+                pointColor={{ from: 'color' }}
                 pointSize={8}
                 pointSymbol={props => (
                   <PointSymbol {...(props as PointSymbolProps)} />
@@ -123,17 +180,12 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
                 xFormat="time:%Y-%m-%d"
                 xScale={{
                   format: '%Y-%m-%d',
-                  // precision: 'month',
-                  // precision: 'year',
                   precision: 'day',
                   type: 'time',
                   useUTC: false,
                 }}
-                yScale={{
-                  // stacked: true,
-                  // min: 1,
-                  type: 'linear',
-                }}
+                yScale={{ type: 'linear' }}
+                {...preventHydrationErrors}
               />
             </div>
           </div>
@@ -160,6 +212,8 @@ export const PointSymbol = ({
   datum,
   size,
 }: PointSymbolProps) => {
+  size = datum.major ? size * 1.25 : size;
+
   return (
     <g>
       <circle fill="var(--bg-50)" r={size * 1.4} />

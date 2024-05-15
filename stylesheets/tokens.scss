@@ -28,10 +28,20 @@
   // Accent
   --accent-1: #ff6a00;
   --accent-2: #2300ff;
-  --accent-3: #dc2626;
-  --accent-4: #22c55e;
-  --accent-5: #f59e0b;
-  --accent-6: #c026d3;
+  --accent-3: #f59e0b;
+
+  // Slate
+  --slate-950: #020617;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
 
   // Primary
   --primary: var(--accent-1);
