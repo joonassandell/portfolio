@@ -13,6 +13,7 @@ export interface Milestone {
   categoryName: string;
   date: `${number}-${string}-${string}`;
   event: string;
+  hidden?: boolean;
   highlight?: boolean;
   major?: true;
   url?: string;

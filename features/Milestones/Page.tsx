@@ -41,14 +41,21 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
 
       return {
         ...el,
-        x: date.toISOString().split('T')[0],
+        x: date,
         y: milestonesPerYear[date.getFullYear()],
       };
     });
 
     return [
       {
-        data: convertData,
+        data: [
+          ...convertData,
+          {
+            hidden: true,
+            x: new Date('2005-05-01'),
+            y: 1,
+          },
+        ],
         id: 'milestones',
       },
     ];
@@ -221,6 +228,7 @@ export const PointSymbol = ({
   datum,
   size,
 }: PointSymbolProps) => {
+  if (datum.hidden) return;
   size = datum.major ? size * 1.25 : size;
 
   return (
