@@ -1,3 +1,4 @@
+import { type DateString } from '@/types';
 import { type PointSymbolProps as NivoPointSymbolProps } from '@nivo/line';
 
 export type Category =
@@ -11,7 +12,7 @@ export type Category =
 export interface Milestone {
   category: Category;
   categoryName: string;
-  date: `${number}-${string}-${string}`;
+  date: DateString;
   event: string;
   hidden?: boolean;
   highlight?: boolean;
