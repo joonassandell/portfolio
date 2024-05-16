@@ -14,7 +14,7 @@
   // Background
   --bg-900: var(--black);
   --bg-800: #111111;
-  --bg-100: #f2f2f2;
+  --bg-100: #f3f4f6;
   --bg-50: var(--white);
 
   --bg-gray-100-opaque-alpha: 0.15;
@@ -84,7 +84,6 @@
   --font-family-sans: 'Px Grotesk', sans-serif;
   --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
-  --font-weight-700: bolder;
   --font-weight-400: 400;
   --font-weight-100: 100;
 
@@ -106,6 +105,7 @@
   --border-width-thin: 0.5px;
   --border-width-l: 2px;
   --border-radius: 8px;
+  --border-radius-s: 4px;
   --border-radius-l: 16px;
   --border-radius-pill: 999px;
 

@@ -3,7 +3,7 @@ import { type Category } from './';
 export const CATEGORY_COLOR: {
   [key in Category]: string;
 } = {
-  achievement: 'var(--slate-600)',
+  achievement: 'var(--slate-500)',
   career: 'var(--accent-2)',
   'feature-release': 'var(--accent-3)',
   featured: 'var(--slate-400)',

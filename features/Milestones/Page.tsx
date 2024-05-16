@@ -1,5 +1,10 @@
 import { Badge } from '@/components/Badge';
-import { CATEGORY_COLOR, CATEGORY_NAME_SHORT, MilestonesLine } from './';
+import {
+  CATEGORY_COLOR,
+  CATEGORY_NAME_SHORT,
+  MilestonesLine,
+  MilestonesTable,
+} from './';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { objectEntries } from '@/lib/utils';
@@ -38,7 +43,6 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           aria-hidden
           className="pr:0 pl:0"
           grid={false}
-          paddingBottom="15vw"
           paddingTop="m"
         >
           <div className="Template-badges scrollbar">
@@ -50,6 +54,9 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
               );
             })}
           </div>
+        </TemplateSection>
+        <TemplateSection grid={false}>
+          <MilestonesTable />
         </TemplateSection>
       </TemplateMain>
     </Template>
