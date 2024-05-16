@@ -1,6 +1,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Text {
+  @include text(m);
   transform-origin: top left;
 
   &.-size\:xl {
