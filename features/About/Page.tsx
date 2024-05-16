@@ -20,7 +20,7 @@ import cubeImage from '@/public/about/line-cube.png';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 
-export const AboutPage = ({ id, title }: PageProps) => {
+export const AboutPage = ({ id, themeColor, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
@@ -54,6 +54,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
     <Template id={id}>
       <Head
         description="I'm creative developer and designer based in Helsinki, Finland."
+        themeColor={themeColor}
         title={title}
       />
       <TemplateMain>

@@ -10,13 +10,9 @@ import { getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { type LinkEvent } from '@/types';
+import { type LinkEvent, type PageProps } from '@/types';
 import { m } from 'framer-motion';
-import {
-  Template,
-  TemplateMain,
-  type TemplateProps,
-} from '@/components/Template';
+import { Template, TemplateMain } from '@/components/Template';
 import { useAppContext } from '@/components/App';
 import {
   useLocomotiveScroll,
@@ -24,11 +20,11 @@ import {
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
 
-export const HomePage = ({ id }: { id: TemplateProps['id'] }) => {
+export const HomePage = ({ id, themeColor: theme }: PageProps) => {
   const about = getSitemap('about', 'common');
   const { setTransition, setTransitionInitial } = useAppContext();
   const [animation, setAnimation] = useState(false);
-  const [themeColor, setThemeColor] = useState<string>();
+  const [themeColor, setThemeColor] = useState(theme);
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<string>();
   const scrollTo = useScrollTo({ scrollLock: true });

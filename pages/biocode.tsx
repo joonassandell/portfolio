@@ -8,10 +8,10 @@ export default function Page({ ...props }: PageProjectProps) {
 }
 
 export const getStaticProps = async () => {
-  const { images, ...sitemap } = getSitemap('biocode');
+  const { imagesPath, ...sitemap } = getSitemap('biocode');
   return {
     props: {
-      images: await getImages(images),
+      images: await getImages(imagesPath),
       ...sitemap,
     },
   };

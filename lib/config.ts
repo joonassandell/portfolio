@@ -16,6 +16,7 @@ export const SITEMAP: Sitemap = {
     {
       id: 'about',
       navTitle: 'About',
+      themeColor: '#eeeae5',
       title: 'About',
       url: '/about',
     },
@@ -30,7 +31,7 @@ export const SITEMAP: Sitemap = {
     {
       color: 'var(--biocode-primary)',
       id: 'biocode',
-      images: './public/biocode/*.{jpg,png}',
+      imagesPath: './public/biocode/*.{jpg,png}',
       navTitle: 'Biocode',
       themeColor: '#00081F',
       title: 'Biocode',
@@ -40,7 +41,7 @@ export const SITEMAP: Sitemap = {
     {
       color: 'var(--oras-primary)',
       id: 'oras',
-      images: './public/oras/*.{jpg,png}',
+      imagesPath: './public/oras/*.{jpg,png}',
       navTitle: 'Oras',
       themeColor: 'black',
       title: 'Oras',
@@ -50,7 +51,7 @@ export const SITEMAP: Sitemap = {
     {
       color: 'var(--mediasignal-primary)',
       id: 'mediasignal',
-      images: './public/mediasignal/*.{jpg,png}',
+      imagesPath: './public/mediasignal/*.{jpg,png}',
       navTitle: 'Mediasignal',
       themeColor: 'black',
       title: 'Mediasignal',
@@ -60,7 +61,7 @@ export const SITEMAP: Sitemap = {
     {
       color: 'var(--sandbox-primary)',
       id: 'sandbox',
-      images: './public/sandbox/*.{jpg,png}',
+      imagesPath: './public/sandbox/*.{jpg,png}',
       navTitle: 'Sandbox',
       themeColor: 'black',
       title: 'Sandbox',
@@ -70,7 +71,7 @@ export const SITEMAP: Sitemap = {
     {
       color: 'var(--moreWork-primary)',
       id: 'more-work',
-      images: './public/more-work/*.{jpg,png}',
+      imagesPath: './public/more-work/*.{jpg,png}',
       navTitle: 'More work',
       themeColor: 'black',
       title: 'More work',
@@ -81,7 +82,7 @@ export const SITEMAP: Sitemap = {
       color: 'var(--archive-primary)',
       hidden: true,
       id: 'archive',
-      images: './public/archive/*.{jpg,png}',
+      imagesPath: './public/archive/*.{jpg,png}',
       navTitle: 'Work archive',
       themeColor: 'black',
       title: 'Archive',
@@ -92,6 +93,7 @@ export const SITEMAP: Sitemap = {
       color: 'var(--white)',
       id: 'home',
       navTitle: 'Browse all',
+      themeColor: '#eeeae5',
       title: 'Browse all',
       url: '/',
       year: `2010–${new Date().getFullYear()}`,
