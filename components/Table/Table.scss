@@ -2,19 +2,19 @@
 @use 'stylesheets/mixins' as *;
 
 .Table {
+  background: var(--bg-50);
+  border: var(--border-width) solid var(--border-100);
+  border-radius: var(--border-radius-s);
+  caption-side: bottom;
   min-width: 100%;
-  padding: var(--border-width);
 
   table {
-    background: var(--bg-50);
-    border: 0;
-    border-radius: var(--border-radius-s);
-    box-shadow: 0 0 0 var(--border-width) var(--border-900);
     min-width: 100%;
   }
 }
 
 .Table-head {
+  background: var(--bg-200);
   color: var(--text-mute);
   font-weight: var(--font-weight-400);
   text-align: left;
@@ -30,7 +30,7 @@
 
 .Table-row {
   background: var(--Table-row-bg, inherit);
-  border-bottom: var(--border-width) solid var(--border-900);
+  border-bottom: var(--border-width) solid var(--border-100);
 }
 
 .Table-head,
@@ -40,6 +40,8 @@
 }
 
 .Table-caption {
+  border-top: var(--border-width) solid var(--border-100);
+  color: var(--text-mute);
   padding: rem($space-s);
   text-align: left;
 }
