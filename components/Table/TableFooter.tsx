@@ -1,4 +1,4 @@
-import { type TableFooterProps } from '.';
+import { type TableFooterProps } from './';
 import c from 'clsx';
 
 export const TableFooter = ({

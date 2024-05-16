@@ -2,12 +2,14 @@
 @use 'stylesheets/mixins' as *;
 
 .Table {
-  background: var(--bg-50);
-  border: var(--border-width) solid var(--border-900);
-  border-radius: var(--border-radius-s);
   min-width: 100%;
+  padding: var(--border-width);
 
   table {
+    background: var(--bg-50);
+    border: 0;
+    border-radius: var(--border-radius-s);
+    box-shadow: 0 0 0 var(--border-width) var(--border-900);
     min-width: 100%;
   }
 }
@@ -35,4 +37,9 @@
 .Table-cell {
   padding: rem($space-s);
   vertical-align: middle;
+}
+
+.Table-caption {
+  padding: rem($space-s);
+  text-align: left;
 }

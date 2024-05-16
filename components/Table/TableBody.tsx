@@ -1,4 +1,4 @@
-import { type TableBodyProps } from '.';
+import { type TableBodyProps } from './';
 import c from 'clsx';
 
 export const TableBody = ({

@@ -15,3 +15,7 @@ export interface TableRowProps extends ComponentPropsWithoutRef<'tr'> {
 export interface TableCellProps extends ComponentPropsWithoutRef<'td'> {}
 
 export interface TableFooterProps extends ComponentPropsWithoutRef<'tfoot'> {}
+
+export interface TableCaptionProps extends ComponentPropsWithoutRef<'caption'> {
+  hideVisually?: boolean;
+}
