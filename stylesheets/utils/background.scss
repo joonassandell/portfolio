@@ -1,20 +1,16 @@
-.bg\:50 {
-  background: var(--bg-gray-50-opaque);
+/* =======================================
+ * Background gray
+ * ======================================= */
+
+.bg\:gray\:gradient-0-50 {
+  background: linear-gradient(transparent, var(--gray-50-opaque) 8%);
 }
 
-.bg\:100 {
-  background: var(--bg-gray-100-opaque);
-}
-
-.bg\:gradient-0-50 {
-  background: linear-gradient(transparent, var(--bg-gray-50-opaque) 8%);
-}
-
-.bg\:gradient-0-50-0 {
+.bg\:gray\:gradient-0-50-0 {
   background: linear-gradient(
     transparent,
-    var(--bg-gray-50-opaque) 8%,
-    var(--bg-gray-50-opaque) 92%,
+    var(--gray-50-opaque) 8%,
+    var(--gray-50-opaque) 92%,
     transparent
   );
 }

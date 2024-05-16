@@ -69,7 +69,7 @@ export const SITEMAP: Sitemap = {
       year: `2010–${new Date().getFullYear()}`,
     },
     {
-      color: 'var(--moreWork-primary)',
+      color: 'var(--more-work-primary)',
       id: 'more-work',
       imagesPath: './public/more-work/*.{jpg,png}',
       navTitle: 'More work',

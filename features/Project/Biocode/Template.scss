@@ -6,6 +6,7 @@
 
   .Template-main {
     section {
+      --bg-200: var(--biocode-bg-50);
       --bg-100: var(--biocode-bg-100);
       --bg-50: var(--biocode-bg-50);
 
@@ -23,7 +24,6 @@
       --text-800: var(--biocode-text-800);
       --text-mute: var(--biocode-text-mute);
 
-      --Figure-placeholder-bg: var(--biocode-bg-50);
       --Figure-glare-opacity: 0.05;
     }
   }
@@ -31,7 +31,8 @@
   .Template-section {
     &.theme\:light {
       --Template-section-bg-color: var(--biocode-bg-50);
-      --Figure-placeholder-bg: var(--biocode-bg-200);
+      --bg-200: var(--biocode-bg-200);
+      --border-100: var(--biocode-border-200);
       --Figure-glare-opacity: 1;
     }
   }

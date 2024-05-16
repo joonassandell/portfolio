@@ -65,7 +65,7 @@ export const OrasPage = ({
           </div>
         </TemplateSection>
         <TemplateSection
-          className="bg:gradient-0-50-0"
+          className="bg:gray:gradient-0-50-0"
           gridGap="m"
           paddingBottom="15vw"
           paddingTop="10vw"
@@ -101,7 +101,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection className="bg:gradient-0-50-0" paddingTop="15vw">
+        <TemplateSection className="bg:gray:gradient-0-50-0" paddingTop="15vw">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
@@ -163,7 +163,7 @@ export const OrasPage = ({
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateSection>
-        <TemplateSection className="bg:gradient-0-50-0" paddingTop="15vw">
+        <TemplateSection className="bg:gray:gradient-0-50-0" paddingTop="15vw">
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
