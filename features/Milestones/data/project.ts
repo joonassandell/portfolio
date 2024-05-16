@@ -21,6 +21,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2023-03-07',
     event: 'Launched rebranded Biocode website',
+    highlight: true,
     major: true,
     url: '/biocode',
   },
@@ -138,7 +139,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Launched Messukeskus Document Generator web app',
   },
   {
-    date: '2017-06-31',
+    date: '2017-06-30',
     event: 'Launched Coxa Pro web service',
   },
   {
@@ -303,7 +304,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
   {
     date: '2013-05-14',
-    event: 'Launched redesigned City of Tampere website (UI)',
+    event: 'Launched City of Tampere website',
     highlight: true,
     major: true,
   },

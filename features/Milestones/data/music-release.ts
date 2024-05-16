@@ -91,7 +91,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
   {
     categoryName: 'Unofficial release',
-    date: '2010-04-10',
+    date: '2009-12-10',
     event: 'Released Jontey - No Matter [Liquicity]',
     url: 'https://www.youtube.com/watch?v=zkzLjVa44U0',
   },

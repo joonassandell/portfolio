@@ -62,7 +62,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Shipped enhanced SOS-Lapsikylä website',
   },
   {
-    date: '2014-03-16',
+    date: '2014-09-16',
     event: 'Shipped enhanced Kanto marketing page',
   },
 ];

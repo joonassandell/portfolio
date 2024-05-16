@@ -57,7 +57,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
   {
     categoryName: 'Music achievement',
-    date: '2010-01-01',
+    date: '2010-04-10',
     event: 'Reached 140k listens on No Matter on Youtube',
     url: 'https://www.youtube.com/watch?v=zkzLjVa44U0',
   },
