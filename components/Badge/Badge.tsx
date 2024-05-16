@@ -1,8 +1,14 @@
 import { type BadgeProps } from './';
 import c from 'clsx';
 
-export const Badge = ({ beacon, children, className }: BadgeProps) => {
-  const classes = c('Badge', className);
+export const Badge = ({ beacon, children, className, variant }: BadgeProps) => {
+  const classes = c(
+    'Badge',
+    {
+      'Badge--negative': variant === 'negative',
+    },
+    className,
+  );
 
   return (
     <div className={classes}>

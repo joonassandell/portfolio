@@ -26,3 +26,12 @@
   margin-top: rem($space-4xs * -1);
   width: rem($space-xs);
 }
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Badge--negative {
+  background: var(--bg-900);
+  color: var(--text-50);
+}

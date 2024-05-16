@@ -4,4 +4,5 @@ export interface BadgeProps
   extends PropsWithChildren,
     ComponentPropsWithoutRef<'div'> {
   beacon?: string | boolean;
+  variant?: 'default' | 'negative';
 }
