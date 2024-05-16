@@ -27,6 +27,7 @@
 }
 
 .Table-row {
+  background: var(--Table-row-bg, inherit);
   border-bottom: var(--border-width) solid var(--border-900);
 }
 
