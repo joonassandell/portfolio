@@ -1,19 +1,27 @@
 import { Badge } from '@/components/Badge';
-import { CATEGORY_COLOR, MILESTONES_GROUPED, MILESTONES_YEARS } from './';
+import {
+  CATEGORY_COLOR,
+  MILESTONES_GROUPED,
+  MILESTONES_YEARS,
+  type MilestoneTableProps,
+} from './';
 import { formatDate } from '@/lib/utils';
+import { Fragment } from 'react';
 import { Link } from '@/components/Link';
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/Table';
 
-export const MilestonesTable = () => {
+export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
   return (
     <Table>
+      <TableCaption {...tableCaption}>All milestones</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Event</TableHead>
@@ -23,8 +31,8 @@ export const MilestonesTable = () => {
       </TableHeader>
       <TableBody>
         {MILESTONES_YEARS.map(year => (
-          <>
-            <TableRow background="var(--bg-100)" key={year}>
+          <Fragment key={year}>
+            <TableRow background="var(--bg-100)">
               <TableCell colSpan={3}>
                 <Badge variant="negative">{year}</Badge>
               </TableCell>
@@ -47,7 +55,7 @@ export const MilestonesTable = () => {
                 </TableCell>
               </TableRow>
             ))}
-          </>
+          </Fragment>
         ))}
       </TableBody>
     </Table>

@@ -7,6 +7,7 @@ import {
 } from './';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
+import { MilestonesTableHighlight } from './TableHighlight';
 import { objectEntries } from '@/lib/utils';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -43,7 +44,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           aria-hidden
           className="pr:0 pl:0"
           grid={false}
-          paddingTop="m"
+          paddingTop="base"
         >
           <div className="Template-badges scrollbar">
             {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
@@ -56,6 +57,9 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           </div>
         </TemplateSection>
         <TemplateSection grid={false}>
+          <MilestonesTableHighlight />
+        </TemplateSection>
+        <TemplateSection grid={false} paddingBottom="10vw">
           <MilestonesTable />
         </TemplateSection>
       </TemplateMain>
