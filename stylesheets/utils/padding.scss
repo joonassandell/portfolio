@@ -13,6 +13,28 @@
  * Padding top
  * ======================================= */
 
+.pt {
+  padding-top: rem($space);
+}
+
+.pt\:m {
+  padding-top: rem($space-m);
+}
+
+.pt\:l {
+  padding-top: rem($space-l);
+}
+
+.pt\:2xl {
+  padding-top: rem($space-2xl);
+
+  @include mq(m) {
+    &\@m {
+      padding-top: rem($space-2xl);
+    }
+  }
+}
+
 .pt\:5vw {
   padding-top: 5vw;
 }
@@ -29,22 +51,12 @@
   padding-top: 20vw;
 }
 
-.pt\:l {
-  padding-top: rem($space-l);
-}
+/* =======================================
+ * Padding right
+ * ======================================= */
 
-.pt\:m {
-  padding-top: rem($space-m);
-}
-
-.pt\:2xl {
-  padding-top: rem($space-2xl);
-
-  @include mq(m) {
-    &\@m {
-      padding-top: rem($space-2xl);
-    }
-  }
+.pr\:0 {
+  padding-right: 0;
 }
 
 /* =======================================
@@ -65,14 +77,6 @@
 
 .pb\:2xl {
   padding-bottom: rem($space-2xl);
-}
-
-/* =======================================
- * Padding right
- * ======================================= */
-
-.pr\:0 {
-  padding-right: 0;
 }
 
 /* =======================================
