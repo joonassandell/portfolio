@@ -108,7 +108,7 @@ img::-moz-selection {
 
 :where(hr) {
   border: 0;
-  border-top: var(--border-width) solid var(--hr);
+  border-top: var(--border-width) solid var(--border-900);
   display: block;
   height: var(--border-width);
   margin: 0 0 rem($space-m) 0;

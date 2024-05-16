@@ -10,10 +10,8 @@
       --bg-100: var(--biocode-bg-100);
       --bg-50: var(--biocode-bg-50);
 
-      --border-900: var(--biocode-border-300);
-      --border-800: var(--biocode-border-200);
-      --border-100: var(--biocode-border-200);
-      --hr: var(--biocode-border-200);
+      --border-900: var(--biocode-border);
+      --border-100: var(--biocode-border);
 
       --heading: var(--biocode-heading);
 
@@ -32,7 +30,7 @@
     &.theme\:light {
       --Template-section-bg-color: var(--biocode-bg-50);
       --bg-200: var(--biocode-bg-200);
-      --border-100: var(--biocode-border-200);
+      --border-100: var(--biocode-border);
       --Figure-glare-opacity: 1;
     }
   }
