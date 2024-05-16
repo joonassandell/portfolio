@@ -6,7 +6,6 @@ import {
   type PointSymbolProps,
 } from './';
 import { type LineSvgProps } from '@nivo/line';
-import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
 const ResponsiveLine = dynamic(
@@ -15,35 +14,33 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesLine = () => {
-  const lineData = useMemo(() => {
-    const convertData = MILESTONES_SORTED.map(m => {
-      const date = new Date(m.date);
+  const convertData = MILESTONES_SORTED.map(m => {
+    const date = new Date(m.date);
 
-      return {
-        ...m,
-        x: date,
-        y: MILESTONES_PER_YEAR[date.getFullYear()],
-      };
-    });
+    return {
+      ...m,
+      x: date,
+      y: MILESTONES_PER_YEAR[date.getFullYear()],
+    };
+  });
 
-    return [
-      {
-        data: [
-          ...convertData,
-          {
-            hidden: true,
-            x: new Date('2005-05-01'),
-            y: 1,
-          },
-        ],
-        id: 'milestones',
-      },
-    ];
-  }, []);
+  const lineData = [
+    {
+      data: [
+        ...convertData,
+        {
+          hidden: true,
+          x: new Date('2005-05-01'),
+          y: 1,
+        },
+      ],
+      id: 'milestones',
+    },
+  ];
 
   // This causes few hydration errors
-  const markers = useMemo(() => {
-    return MILESTONES_SORTED.filter(m => m.category === 'career').map(m => {
+  const markers = MILESTONES_SORTED.filter(m => m.category === 'career').map(
+    m => {
       const obj: CartesianMarkerProps = {
         axis: 'x',
         legendOrientation: 'horizontal',
@@ -54,8 +51,8 @@ export const MilestonesLine = () => {
         value: new Date(m.date),
       };
       return obj;
-    });
-  }, []);
+    },
+  );
 
   /**
    * Default or unwanted props which cause hydration errors if not defined
