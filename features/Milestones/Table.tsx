@@ -21,7 +21,9 @@ import {
 export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
   return (
     <Table>
-      <TableCaption {...tableCaption}>All milestones</TableCaption>
+      <TableCaption {...tableCaption}>
+        All milestones in chronological order
+      </TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Event</TableHead>

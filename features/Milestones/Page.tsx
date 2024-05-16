@@ -25,9 +25,9 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
             </Heading>
             <Text size="l">
               <p>
-                Et sit officia deserunt mollit cillum eu Lorem aliqua
-                exercitation consectetur dolore id voluptate exercitation ea qui
-                ullamco laboris excepteur incididunt aliquip non ollit.
+                A compilation of milestones from my professional activities,
+                including project launches, feature releases, achievements,
+                album releases, recognitions, and career progress.
               </p>
             </Text>
           </div>
@@ -57,9 +57,15 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           </div>
         </TemplateSection>
         <TemplateSection grid={false}>
+          <Text className="ml mb" size="l" tag="h2">
+            Highlighted milestones
+          </Text>
           <MilestonesTableHighlight />
         </TemplateSection>
         <TemplateSection grid={false} paddingBottom="10vw">
+          <Text className="ml mb" size="l" tag="h2">
+            All milestones
+          </Text>
           <MilestonesTable />
         </TemplateSection>
       </TemplateMain>

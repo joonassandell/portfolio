@@ -21,7 +21,9 @@ export const MilestonesTableHighlight = ({
 }: MilestoneTableProps) => {
   return (
     <Table>
-      <TableCaption {...tableCaption}>Highlighted milestones</TableCaption>
+      <TableCaption {...tableCaption}>
+        Highlighted milestones in chronological order
+      </TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Event</TableHead>
