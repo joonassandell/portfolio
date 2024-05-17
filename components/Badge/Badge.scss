@@ -11,9 +11,10 @@
   display: inline-flex;
   flex-shrink: 0;
   gap: rem($space-2xs);
+  line-height: 1;
   max-width: 100%;
   min-height: rem($space-m);
-  padding: rem($space-4xs) rem($space-xs) 0 rem($space-xs);
+  padding: rem($space-3xs + 0.5px) rem($space-xs) rem($space-3xs) rem($space-xs);
   position: relative;
   text-decoration: none;
   user-select: none;
@@ -23,7 +24,7 @@
   background: var(--Badge-beacon, var(--primary));
   border-radius: var(--border-radius-pill);
   height: rem($space-xs);
-  margin-top: rem($space-4xs * -1);
+  margin-top: rem($space-4xs * -0.5);
   width: rem($space-xs);
 }
 
