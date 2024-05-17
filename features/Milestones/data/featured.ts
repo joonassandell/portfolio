@@ -31,7 +31,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     categoryName: 'Featured (Music)',
     date: '2023-03-01',
     event: 'Featured in Lost Miracle Radio Show 55 by Sébastien Léger',
-    highlight: true,
     url: 'https://soundcloud.com/sebastienleger/lost-miracle-radio-055',
   },
   {

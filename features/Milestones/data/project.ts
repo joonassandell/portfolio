@@ -8,7 +8,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
 
   {
     date: '2023-07-10',
-    event: 'Launched portfolio',
+    event: 'Launched my portfolio',
     highlight: true,
     major: true,
     url: 'https://twitter.com/joonassandell/status/1678358514350137344',
@@ -20,7 +20,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
 
   {
     date: '2023-03-07',
-    event: 'Launched rebranded Biocode website',
+    event: 'Launched Biocode website 2.0',
     highlight: true,
     major: true,
     url: '/biocode',
@@ -28,6 +28,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2022-08-01',
     event: 'Launched Biocode for producers',
+    highlight: true,
     major: true,
     url: 'https://biocode.io/producers-and-farmers',
   },
@@ -86,7 +87,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2019-07-19',
     event: 'Launched redesigned Mediasignal website',
-    highlight: true,
     major: true,
     url: '/mediasignal',
   },
