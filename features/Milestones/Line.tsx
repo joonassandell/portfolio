@@ -3,6 +3,7 @@ import {
   CATEGORY_COLOR,
   MILESTONES_PER_YEAR,
   MILESTONES_SORTED,
+  MILESTONES_YEARS,
   type PointSymbolProps,
 } from './';
 import { type LineSvgProps } from '@nivo/line';
@@ -14,6 +15,11 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesLine = () => {
+  const years = MILESTONES_YEARS.map(y => new Date(y));
+  const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR));
+  const largestToEvenValue =
+    largestValue % 2 === 0 ? largestValue : largestValue + 1;
+
   const convertData = MILESTONES_SORTED.map(m => {
     const date = new Date(m.date);
 
@@ -119,7 +125,7 @@ export const MilestonesLine = () => {
           colors={['var(--border-900)']}
           curve="monotoneX"
           data={lineData}
-          // gridYValues={[0, 18, 19]}
+          gridXValues={years}
           lineWidth={2}
           markers={markers}
           pointBorderColor={{ from: 'color' }}
@@ -142,14 +148,13 @@ export const MilestonesLine = () => {
               fontSize: '0.8125rem',
             },
           }}
-          xFormat="time:%Y-%m-%d"
           xScale={{
             format: '%Y-%m-%d',
             precision: 'day',
             type: 'time',
             useUTC: false,
           }}
-          yScale={{ type: 'linear' }}
+          yScale={{ max: largestToEvenValue, type: 'linear' }}
           {...preventHydrationErrors}
         />
       </div>
