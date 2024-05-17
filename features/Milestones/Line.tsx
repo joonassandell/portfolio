@@ -116,7 +116,7 @@ export const MilestonesLine = () => {
           animate
           axisBottom={{
             format: value => value.getFullYear(),
-            tickPadding: 12,
+            tickPadding: 0,
             tickSize: 0,
             tickValues: 'every 1 year',
           }}

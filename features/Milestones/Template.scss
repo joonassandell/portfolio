@@ -13,6 +13,10 @@
     height: var(--Line-height);
     margin-top: calc(var(--Line-padding-top) * -1);
     overflow-y: hidden;
+
+    @include mq(l) {
+      --Line-padding-bottom: #{rem($space-xl)};
+    }
   }
 
   .Template-line-inner {
@@ -35,15 +39,24 @@
       > g {
         transform: translateY(var(--Line-padding-top)) !important;
 
-        > g:nth-last-of-type(2) {
-          > g > text {
-            translate: calc(var(--Line-tick-padding-left) * -1);
-          }
-        }
-
+        // Axis right
         > g:nth-last-of-type(4) {
           > text {
             translate: calc(#{rem($space)} * -1);
+          }
+        }
+
+        // Axis bottom
+        > g:nth-last-of-type(3) {
+          > g > text {
+            translate: 0 #{rem($space)};
+          }
+        }
+
+        // Axis left
+        > g:nth-last-of-type(2) {
+          > g > text {
+            translate: calc(var(--Line-tick-padding-left) * -1);
           }
         }
       }
