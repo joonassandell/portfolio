@@ -121,13 +121,16 @@ export const MilestonesLine = () => {
             tickValues: 'every 1 year',
           }}
           axisLeft={{
+            tickPadding: 0,
+            tickSize: 0,
+          }}
+          axisRight={{
+            format: () => '',
             legend: 'Milestones per year',
-            legendOffset: 8,
             legendPosition: 'middle',
             tickPadding: 0,
             tickSize: 0,
           }}
-          axisRight={null}
           axisTop={null}
           colors={['var(--border-900)']}
           curve="monotoneX"
@@ -143,6 +146,13 @@ export const MilestonesLine = () => {
             <PointSymbol {...(props as PointSymbolProps)} />
           )}
           theme={{
+            axis: {
+              legend: {
+                text: {
+                  fontSize: 'inherit',
+                },
+              },
+            },
             background: 'transparent',
             grid: {
               line: {
@@ -150,9 +160,9 @@ export const MilestonesLine = () => {
               },
             },
             text: {
-              fill: 'var(--text-mute)',
+              fill: 'inherit',
               fontFamily: 'inherit',
-              fontSize: '0.8125rem',
+              fontSize: 'inherit',
             },
           }}
           xScale={{

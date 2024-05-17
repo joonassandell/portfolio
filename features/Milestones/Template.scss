@@ -27,6 +27,8 @@
     }
 
     svg {
+      @include text(xs);
+      fill: var(--text-mute);
       height: var(--Line-height);
       overflow: visible;
 
@@ -35,7 +37,13 @@
 
         > g:nth-last-of-type(2) {
           > g > text {
-            transform: translateX(calc(var(--Line-tick-padding-left) * -1));
+            translate: calc(var(--Line-tick-padding-left) * -1);
+          }
+        }
+
+        > g:nth-last-of-type(4) {
+          > text {
+            translate: calc(#{rem($space)} * -1);
           }
         }
       }
