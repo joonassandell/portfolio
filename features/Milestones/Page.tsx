@@ -34,9 +34,10 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
         </TemplateSection>
         <TemplateSection
           aria-hidden
-          className="pt:2xl@m pl:0"
+          className="pt:2xl@m"
           grid={false}
           paddingTop="l"
+          wrap={false}
         >
           <MilestonesLine />
         </TemplateSection>

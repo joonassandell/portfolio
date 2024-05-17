@@ -6,20 +6,17 @@
     --Line-height: #{rem($space * 17)};
     --Line-padding-top: #{rem($space)};
     --Line-padding-bottom: #{rem($space-l)};
-    --Line-padding-left: #{rem($space-ml)};
-    --Line-padding-right: #{rem($space)};
+    --Line-tick-padding-left: #{rem($space-m)};
     --Line-width: #{rem($space * 500)};
 
-    display: flex;
-    flex-direction: row-reverse;
+    direction: rtl;
     height: var(--Line-height);
     margin-top: calc(var(--Line-padding-top) * -1);
     overflow-y: hidden;
-    padding-left: var(--wrap-space-left);
-    width: calc(100vw - var(--wrap-space-right));
   }
 
   .Template-line-inner {
+    padding-left: calc(var(--wrap-space-left) + var(--Line-tick-padding-left));
     width: var(--Line-width);
 
     > div {
@@ -27,19 +24,20 @@
         var(--Line-height) -
           (var(--Line-padding-top) + var(--Line-padding-bottom))
       ) !important;
-      padding-right: calc(var(--Line-padding-left) + var(--Line-padding-right));
-      width: inherit !important;
     }
 
     svg {
       height: var(--Line-height);
-      width: inherit !important;
+      overflow: visible;
 
       > g {
-        transform: translate(
-          var(--Line-padding-left),
-          var(--Line-padding-top)
-        ) !important;
+        transform: translateY(var(--Line-padding-top)) !important;
+
+        > g:nth-last-of-type(2) {
+          > g > text {
+            transform: translateX(calc(var(--Line-tick-padding-left) * -1));
+          }
+        }
       }
     }
   }

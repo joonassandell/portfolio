@@ -124,7 +124,7 @@ export const MilestonesLine = () => {
             legend: 'Milestones per year',
             legendOffset: 8,
             legendPosition: 'middle',
-            tickPadding: 12,
+            tickPadding: 0,
             tickSize: 0,
           }}
           axisRight={null}
