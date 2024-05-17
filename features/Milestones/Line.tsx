@@ -124,13 +124,7 @@ export const MilestonesLine = () => {
             tickPadding: 0,
             tickSize: 0,
           }}
-          axisRight={{
-            format: () => '',
-            legend: 'Milestones per year',
-            legendPosition: 'middle',
-            tickPadding: 0,
-            tickSize: 0,
-          }}
+          axisRight={null}
           axisTop={null}
           colors={['var(--border-900)']}
           curve="monotoneX"
