@@ -1,3 +1,3 @@
 export * from './Splash';
 export * from './Splash.animations';
-export * from './Splash.types';
+export type * from './Splash.types';

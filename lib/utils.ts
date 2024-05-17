@@ -1,4 +1,5 @@
 import {
+  type Entries,
   type Image,
   type Link,
   type Links,
@@ -70,3 +71,19 @@ export const mapRange = (
   c: number,
   d: number,
 ) => ((x - a) * (d - c)) / (b - a) + c;
+
+export const objectEntries = <T extends object>(object: T): Entries<T> => {
+  return Object.entries(object) as Entries<T>;
+};
+
+export const formatDate = (inputDate: string): string => {
+  const date = new Date(inputDate);
+
+  const options: Intl.DateTimeFormatOptions = {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  };
+
+  return date.toLocaleDateString('en-US', options);
+};

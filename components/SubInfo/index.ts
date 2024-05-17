@@ -1,2 +1,2 @@
 export * from './SubInfo';
-export * from './SubInfo.types';
+export type * from './SubInfo.types';

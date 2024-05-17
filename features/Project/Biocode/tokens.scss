@@ -3,10 +3,7 @@
   --biocode-bg-100: #000a29;
   --biocode-bg-50: #00081f;
 
-  --biocode-border-300: #23348b;
-  --biocode-border-200: hsl(230 30% 40% / 0.35);
-  --biocode-border-100: #{rgba(#586dbb, 0.12)};
-  --biocode-border-200: hsl(230 30% 40% / 0.25);
+  --biocode-border: hsl(230 30% 40% / 0.25);
 
   --biocode-primary: #3a59f9;
   --biocode-primary-text: #3377ff;
@@ -25,6 +22,6 @@
   --biocode-bg-50: var(--white);
 
   --biocode-border-300: #26355d;
-  --biocode-border-200: #d9dade;
+  --biocode-border: #d9dade;
   --biocode-border-100: #e6e7ea;
 }

@@ -19,3 +19,25 @@
   position: absolute;
   width: 1px;
 }
+
+/* =======================================
+ * Display visibility helper
+ * ======================================= */
+
+@include mq(m) {
+  .hidden\@m {
+    display: none !important;
+  }
+}
+
+@include mq($until: m) {
+  .visible\@m {
+    display: none !important;
+  }
+}
+
+@include mq($until: l) {
+  .visible\@l {
+    display: none !important;
+  }
+}

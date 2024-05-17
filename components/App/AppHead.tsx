@@ -80,7 +80,7 @@ export const AppHead = () => {
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
         name="viewport"
       />
-      <meta content="#EEEAE5" key="theme-color" name="theme-color" />
+      <meta content="#ffffff" key="theme-color" name="theme-color" />
       <link
         as="font"
         crossOrigin="anonymous"

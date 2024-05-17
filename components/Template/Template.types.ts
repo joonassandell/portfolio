@@ -13,11 +13,20 @@ export interface TemplateMainProps extends PropsWithChildren {
 export interface TemplateSectionProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'section'>['className'];
   grid?: boolean;
-  gridGap?: 'xl' | 'l' | 'm' | false;
-  gridRowGap?: 'xl' | 'l' | 'm' | false;
+  gridGap?: 'm' | 'l' | 'xl' | false;
+  gridRowGap?: 'm' | 'l' | 'xl' | false;
   id?: string;
-  paddingBottom?: '15vw';
-  paddingTop?: '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
+  paddingBottom?: '10vw' | '15vw' | false;
+  paddingTop?:
+    | 'base'
+    | 'm'
+    | 'l'
+    | '2xl'
+    | '5vw'
+    | '10vw'
+    | '15vw'
+    | '20vw'
+    | false;
   theme?: 'dark' | 'light';
   wrap?: boolean;
 }

@@ -44,7 +44,7 @@
 }
 
 .Figure-placeholder {
-  background-color: var(--Figure-placeholder-bg, var(--bg-100));
+  background-color: var(--Figure-placeholder-bg, var(--bg-200));
   z-index: 1;
 
   .Figure:not(.-border) & {

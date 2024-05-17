@@ -1,7 +1,7 @@
 :root {
-  --moreWork-bg-200: #{darken(#cccfc8, 10)}; // #b3b7ad
-  --moreWork-bg-100: #{darken(#cccfc8, 5)}; // #bfc3ba
-  --moreWork-bg-50: #cccfc8;
-  --moreWork-text-mute: #{darken(#cccfc8, 50)};
-  --moreWork-primary: blue;
+  --more-work-bg-200: #{darken(#cccfc8, 10)};
+  --more-work-bg-100: #{darken(#cccfc8, 5)};
+  --more-work-bg-50: #cccfc8;
+  --more-work-text-mute: #{darken(#cccfc8, 50)};
+  --more-work-primary: blue;
 }

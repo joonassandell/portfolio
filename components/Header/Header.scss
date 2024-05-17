@@ -184,27 +184,37 @@
 .Header-secondary {
   display: none;
 
-  @include mq(m) {
-    @include text(l);
-    display: flex;
-    margin-left: auto;
-
-    a {
-      &:focus-visible {
-        @at-root .is-windows & {
-          .LinkRoll-char {
-            -webkit-text-fill-color: var(--focus-visible-fg);
-          }
+  a {
+    &:focus-visible {
+      @at-root .is-windows & {
+        .LinkRoll-char {
+          -webkit-text-fill-color: var(--focus-visible-fg);
         }
       }
     }
   }
+
+  @include mq(m) {
+    display: flex;
+    margin-left: auto;
+  }
+
+  @include mq(ml) {
+    @include text(l);
+  }
 }
 
 .Header-secondary-item {
-  margin-left: rem($space-m);
   overflow: hidden;
   position: relative;
+
+  &:not(:first-child) {
+    margin-left: rem($space-s);
+
+    @include mq(ml) {
+      margin-left: rem($space-m);
+    }
+  }
 }
 
 .Header-secondary-item-reveal {

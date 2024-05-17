@@ -8,7 +8,7 @@ import { type TemplateProps } from '@/components/Template';
 export interface SitemapItem {
   hidden?: boolean;
   id: string;
-  images?: string;
+  imagesPath?: string;
   navTitle: string;
   themeColor?: string;
   title: string;

@@ -1,10 +1,5 @@
 :root {
   --mediasignal-bg-100: #{darken(#c8d9e0, 10)};
-  --mediasignal-bg-50: var(--mediasignal-secondary);
-  --mediasignal-heading: var(--black);
+  --mediasignal-bg-50: #c8d9e0;
   --mediasignal-primary: #00aae7;
-  --mediasignal-secondary: #c8d9e0;
-  --mediasignal-tertiary: #e3e0d9;
-  --mediasignal-quaternary: #d7ded5;
-  --mediasignal-quinary: #08080c;
 }

@@ -8,7 +8,7 @@
     $root: true,
     $scaleValue: 1.25vw
   );
-  background-color: var(--bg-900);
+  background: var(--bg-900);
   color: var(--text-50);
   font-family: var(--font-family-sans);
   -webkit-font-smoothing: antialiased;
@@ -108,7 +108,7 @@ img::-moz-selection {
 
 :where(hr) {
   border: 0;
-  border-top: var(--border-width) solid var(--hr);
+  border-top: var(--border-width) solid var(--border-900);
   display: block;
   height: var(--border-width);
   margin: 0 0 rem($space-m) 0;
@@ -118,4 +118,10 @@ img::-moz-selection {
 
 :where(button) {
   all: unset;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-color: inherit;
+  text-indent: 0;
 }

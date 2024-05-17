@@ -20,7 +20,7 @@ import cubeImage from '@/public/about/line-cube.png';
 import profileImage from '@/public/about/joonassandell-profile.jpg';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 
-export const AboutPage = ({ id, title }: PageProps) => {
+export const AboutPage = ({ id, themeColor, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
@@ -54,6 +54,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
     <Template id={id}>
       <Head
         description="I'm creative developer and designer based in Helsinki, Finland."
+        themeColor={themeColor}
         title={title}
       />
       <TemplateMain>
@@ -70,7 +71,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
             <TextReveal text={['Hello. ✳︎ Moro ✳︎ Hi. ✳︎ Wassup.']} />
           </Heading>
         </div>
-        <div className="Template-figure wrap@ grid">
+        <div className="Template-figure grid">
           <div className="grid-col grid-col:7 -start:6 grid-col:6@m -start:7@m">
             <Figure
               alt="Joonas Sandell"
@@ -274,6 +275,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
           <div className="grid-col grid-col:6@s -start:6@s -start:7@m">
             {/* prettier-ignore */}
             <Text animate className="mb">
+              Anton&Anton,
               Avecra,
               Biocode,
               Bonnier Books (Academic bookstore),
@@ -286,6 +288,7 @@ export const AboutPage = ({ id, title }: PageProps) => {
               Fair trade,
               Finefoods,
               Finnpark,
+              Hailia,
               Hankkija,
               Hansa,
               Himos Festivals,
@@ -308,7 +311,9 @@ export const AboutPage = ({ id, title }: PageProps) => {
               SOS-Lapsikylä,
               TAKK,
               Ursa,
+              Valio,
               Vapriikki,
+              Vöner,
               YIT
             </Text>
           </div>

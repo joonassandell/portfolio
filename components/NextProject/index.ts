@@ -1,2 +1,2 @@
 export * from './NextProject';
-export * from './NextProject.types';
+export type * from './NextProject.types';

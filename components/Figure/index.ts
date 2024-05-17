@@ -1,3 +1,3 @@
 export * from './Figure';
 export * from './Figure.animations';
-export * from './Figure.types';
+export type * from './Figure.types';

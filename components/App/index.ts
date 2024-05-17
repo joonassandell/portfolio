@@ -1,3 +1,3 @@
 export * from './App';
 export * from './AppHead';
-export * from './App.types';
+export type * from './App.types';

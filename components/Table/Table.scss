@@ -1,0 +1,51 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Table {
+  background: var(--bg-50);
+  border: var(--border-width) solid var(--border-100);
+  border-radius: var(--border-radius-s);
+  caption-side: bottom;
+  min-width: 100%;
+
+  table {
+    min-width: 100%;
+  }
+}
+
+.Table-head {
+  background: var(--bg-200);
+  color: var(--text-mute);
+  font-weight: var(--font-weight-400);
+  text-align: left;
+}
+
+.Table-body {
+  .Table-row {
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.Table-row {
+  background: var(--Table-row-bg, inherit);
+  border-bottom: var(--border-width) solid var(--border-100);
+}
+
+.Table-head,
+.Table-cell {
+  padding: rem($space-s);
+  vertical-align: middle;
+
+  @include mq(l) {
+    padding: rem($space-s) rem($space);
+  }
+}
+
+.Table-caption {
+  border-top: var(--border-width) solid var(--border-100);
+  color: var(--text-mute);
+  padding: rem($space-s);
+  text-align: left;
+}

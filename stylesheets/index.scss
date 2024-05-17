@@ -31,6 +31,7 @@
 
 @layer components {
   @include use('components/App');
+  @include use('components/Badge');
   @include use('components/Button');
   @include use('components/Figure');
   @include use('components/Footer');
@@ -46,6 +47,7 @@
   @include use('components/Splash');
   @include use('components/Stamp');
   @include use('components/SubInfo');
+  @include use('components/Table');
   @include use('components/Template');
   @include use('components/Text');
   @include use('components/TextReveal');
@@ -54,4 +56,5 @@
 @include use('features/404');
 @include use('features/About');
 @include use('features/Home');
+@include use('features/Milestones');
 @include use('features/Project');

@@ -3,33 +3,75 @@
 
 :root {
   /* =======================================
-   * Color tokens
+   * Primitive tokens
    * ======================================= */
 
-  // Base
+  // Generic
   --black: #000000;
   --black-transparent: #0000;
   --white: #ffffff;
 
+  // Gray
+  --gray-50: #f2f2f2;
+  --gray-100: #e0e0e0;
+  --gray-600: #5e5e5e;
+  --gray-700: #4d4d4d;
+  --gray-800: #333333;
+  --gray-900: #111111;
+  --gray-950: var(--black);
+
+  --gray-50-opaque-alpha: 0.06;
+  --gray-50-opaque: rgba(0, 0, 0, var(--gray-50-opaque-alpha));
+  --gray-100-opaque-alpha: 0.15;
+  --gray-100-opaque: rgba(0, 0, 0, var(--gray-100-opaque-alpha));
+
+  // Slate
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* =======================================
+   * Semantic tokens
+   * ======================================= */
+
+  // Background
+  --bg-50: var(--white);
+  --bg-100: var(--slate-50);
+  --bg-200: var(--slate-100);
+  --bg-800: var(--gray-900);
+  --bg-900: var(--gray-950);
+
+  // Border
+  --border-50: var(--white);
+  --border-100: var(--slate-200);
+  --border-700: var(--gray-700);
+  --border-800: var(--gray-800);
+  --border-900: var(--gray-950);
+
+  // Accent
+  --accent-1: #ff6a00;
+  --accent-2: #2300ff;
+  --accent-3: #f59e0b;
+
+  // Primary
+  --primary: var(--accent-1);
+
   // Tone
   --tone-50: #eeeae5;
 
-  // Background
-  --bg-900: var(--black);
-  --bg-800: #111111;
-  --bg-100: #f2f2f2;
-  --bg-50: var(--white);
-
-  --bg-gray-100-opaque-alpha: 0.15;
-  --bg-gray-100-opaque: rgba(0, 0, 0, var(--bg-gray-100-opaque-alpha));
-  --bg-gray-50-opaque-alpha: 0.06;
-  --bg-gray-50-opaque: rgba(0, 0, 0, var(--bg-gray-50-opaque-alpha));
-
   // Text
-  --text-900: #111111;
-  --text-800: #111111;
   --text-50: var(--white);
-  --text-mute: #5e5e5e;
+  --text-800: var(--gray-900);
+  --text-900: var(--gray-900);
+  --text-mute: var(--slate-600);
 
   // Heading
   --heading: inherit;
@@ -42,16 +84,8 @@
   --focus-visible-bg: var(--bg-900);
   --focus-visible-fg: var(--text-50);
 
-  // Border
-  --border-900: var(--black);
-  --border-800: #333333;
-  --border-700: #4d4d4d;
-  --border-100: #e0e0e0;
-  --border-50: var(--white);
-  --hr: var(--black);
-
   /* =======================================
-   * Base tokens
+   * Generic tokens
    * ======================================= */
 
   // Base
@@ -63,7 +97,6 @@
   --font-family-sans: 'Px Grotesk', sans-serif;
   --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
-  --font-weight-700: bolder;
   --font-weight-400: 400;
   --font-weight-100: 100;
 
@@ -81,36 +114,37 @@
 
   // Border
   --border-width-negative: -1px;
+  --border-width-thin: 0.5px;
   --border-width: 1px;
   --border-width-l: 2px;
+  --border-radius-s: 4px;
   --border-radius: 8px;
   --border-radius-l: 16px;
   --border-radius-pill: 999px;
-  --border-width-thin: 0.5px;
 
   // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);
   --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
 
-  --trans-primary: 1.3s var(--ease);
-  --trans-primary-fast: 0.6s var(--ease);
   --trans-primary-fastest: 0.3s var(--ease);
+  --trans-primary-fast: 0.6s var(--ease);
+  --trans-primary: 1.3s var(--ease);
 
-  --trans-secondary: 1s var(--ease-secondary);
-  --trans-secondary-fast: 0.6s var(--ease-secondary);
   --trans-secondary-fastest: 0.3s var(--ease-secondary);
+  --trans-secondary-fast: 0.6s var(--ease-secondary);
+  --trans-secondary: 1s var(--ease-secondary);
 
   // Icon
   --icon-size-l: #{rem(32px)};
 
   // Scrollbar
-  --scrollbar-thumb: #{rgba(#000, 0.2)};
-  --scrollbar-thumb-negative: #{rgba(#fff, 0.15)};
+  --scrollbar-thumb: #{rgba(#94a3b8, 0.35)};
+  --scrollbar-thumb-negative: #{rgba(#ffffff, 0.15)};
 
   // Z index
-  --z-index-900: 900;
-  --z-index-800: 800;
   --z-index-700: 700;
+  --z-index-800: 800;
+  --z-index-900: 900;
 
   /* =======================================
    * Media queries

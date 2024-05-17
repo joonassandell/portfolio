@@ -1,0 +1,72 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--milestones {
+  .Template-line {
+    --Line-height: #{rem($space * 17)};
+    --Line-padding-top: #{rem($space)};
+    --Line-padding-bottom: #{rem($space-l)};
+    --Line-tick-padding-left: #{rem($space-m)};
+    --Line-width: #{rem($space * 480)};
+
+    direction: rtl;
+    height: var(--Line-height);
+    margin-top: calc(var(--Line-padding-top) * -1);
+
+    @include mq(l) {
+      --Line-padding-bottom: #{rem($space-xl)};
+    }
+  }
+
+  .Template-line-inner {
+    height: 100%;
+    overflow: hidden;
+    padding-left: calc(var(--wrap-space-left) + var(--Line-tick-padding-left));
+    width: var(--Line-width);
+
+    > div {
+      height: calc(
+        var(--Line-height) -
+          (var(--Line-padding-top) + var(--Line-padding-bottom))
+      ) !important;
+    }
+
+    svg {
+      @include text(xs);
+      fill: var(--text-mute);
+      height: var(--Line-height);
+      overflow: visible;
+
+      > g {
+        transform: translateY(var(--Line-padding-top)) !important;
+
+        // Axis right
+        > g:nth-last-of-type(4) {
+          > text {
+            translate: calc(#{rem($space)} * -1);
+          }
+        }
+
+        // Axis bottom
+        > g:nth-last-of-type(3) {
+          > g > text {
+            translate: 0 #{rem($space)};
+          }
+        }
+
+        // Axis left
+        > g:nth-last-of-type(2) {
+          > g > text {
+            translate: calc(var(--Line-tick-padding-left) * -1);
+          }
+        }
+      }
+    }
+  }
+
+  .Template-badges {
+    display: flex;
+    gap: rem($space-s);
+    padding: 0 var(--wrap-space-right) rem($space-xs) var(--wrap-space-left);
+  }
+}
