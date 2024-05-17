@@ -39,11 +39,6 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           paddingTop="l"
           wrap={false}
         >
-          <div className="wrap">
-            <Text className="mb text:color:mute" size="s" tag="h2">
-              Milestones per year
-            </Text>
-          </div>
           <MilestonesLine />
         </TemplateSection>
         <TemplateSection
