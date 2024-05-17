@@ -36,8 +36,8 @@ console.log(
 
 console.log(
   'Remember to add ' +
-    "@use 'components/".green +
+    "@include use('components/".green +
     componentName.green +
-    "';".green +
+    "');".green +
     ' to ./stylesheets/index.scss',
 );
