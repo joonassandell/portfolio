@@ -166,7 +166,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
   {
     date: '2016-10-25',
-    event: 'Launched Kia Business website for RDKL',
+    event: 'Launched Kia Business website',
   },
   {
     date: '2016-07-06',
@@ -244,6 +244,14 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Launched Dahl Extranet web app',
   },
   {
+    date: '2015-06-08',
+    event: 'Launched Tampereen vuokra-asunnot website',
+  },
+  {
+    date: '2015-04-07',
+    event: 'Launched Mediasignal website',
+  },
+  {
     date: '2014-12-12',
     event: 'Launced Paunu website',
   },
@@ -270,14 +278,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2014-10-17',
     event: 'Launched Valli website',
-  },
-  {
-    date: '2014-06-08',
-    event: 'Launched Tampereen vuokra-asunnot website',
-  },
-  {
-    date: '2015-04-07',
-    event: 'Launched Mediasignal website',
   },
 
   /* =======================================
@@ -374,7 +374,8 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
   {
     date: '2008-04-05',
-    event: 'Launched Tampere Music Festival websites and graphic material',
+    event:
+      'Launched various Tampere Music Festival websites and graphic material',
     major: true,
   },
 

@@ -58,13 +58,13 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           </div>
         </TemplateSection>
         <TemplateSection grid={false}>
-          <Text className="ml mb" size="l" tag="h2">
+          <Text className="ml:s ml@l mb" size="l" tag="h2">
             Highlighted milestones
           </Text>
           <MilestonesTableHighlight />
         </TemplateSection>
         <TemplateSection grid={false} paddingBottom="10vw">
-          <Text className="ml mb" size="l" tag="h2">
+          <Text className="ml:s ml@l mb" size="l" tag="h2">
             All milestones
           </Text>
           <MilestonesTable />

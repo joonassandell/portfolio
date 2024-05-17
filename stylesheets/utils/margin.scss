@@ -57,6 +57,16 @@
  * Margin left
  * ======================================= */
 
+.ml\:s {
+  margin-left: rem($space-s);
+}
+
 .ml {
   margin-left: rem($space);
+
+  @include mq(l) {
+    &\@l {
+      margin-left: rem($space);
+    }
+  }
 }

@@ -37,6 +37,10 @@
 .Table-cell {
   padding: rem($space-s);
   vertical-align: middle;
+
+  @include mq(l) {
+    padding: rem($space-s) rem($space);
+  }
 }
 
 .Table-caption {
