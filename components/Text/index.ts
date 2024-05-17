@@ -1,2 +1,2 @@
 export * from './Text';
-export * from './Text.types';
+export type * from './Text.types';

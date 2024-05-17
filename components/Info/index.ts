@@ -1,2 +1,2 @@
 export * from './Info';
-export * from './Info.types';
+export type * from './Info.types';

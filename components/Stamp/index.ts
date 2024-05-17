@@ -1,3 +1,3 @@
 export * from './Stamp';
 export * from './Stamp.animations';
-export * from './Stamp.types';
+export type * from './Stamp.types';

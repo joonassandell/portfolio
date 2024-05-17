@@ -1,2 +1,2 @@
 export * from './ConditionalWrapper';
-export * from './ConditionalWrapper.types';
+export type * from './ConditionalWrapper.types';
