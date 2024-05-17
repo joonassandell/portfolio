@@ -13,3 +13,13 @@
     --scrollbar-thumb: var(--scrollbar-thumb-negative);
   }
 }
+
+.scrollbar::-webkit-scrollbar {
+  background: transparent;
+  height: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--border-radius-pill);
+}
