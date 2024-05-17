@@ -1,8 +1,6 @@
-import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
-export interface BadgeProps
-  extends PropsWithChildren,
-    ComponentPropsWithoutRef<'div'> {
+export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   beacon?: string | boolean;
   variant?: 'default' | 'negative';
 }
