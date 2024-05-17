@@ -30,9 +30,16 @@ export const MilestonesLine = () => {
     };
   });
 
+  const latestDate = new Date(convertData[0].x);
+  latestDate.setMonth(latestDate.getMonth() + 3);
+
   const lineData = [
     {
       data: [
+        {
+          x: latestDate,
+          y: null,
+        },
         ...convertData,
         {
           hidden: true,
