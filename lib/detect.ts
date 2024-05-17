@@ -80,7 +80,7 @@ export const isIphoneSafari =
 /**
  * Mac
  */
-export const isMac = /mac/i.test(ua);
+export const isMac = /macintosh/i.test(ua);
 
 /**
  * Windows
@@ -88,7 +88,7 @@ export const isMac = /mac/i.test(ua);
 export const isWindows = /win/i.test(ua);
 
 /**
- * Safari
+ * Desktop Safari
  */
 export const isDesktopSafari = isSafari && isMac;
 

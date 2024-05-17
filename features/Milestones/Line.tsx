@@ -7,6 +7,8 @@ import {
   type PointSymbolProps,
 } from './';
 import { type LineSvgProps } from '@nivo/line';
+import { useAppContext } from '@/components/App';
+import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
 const ResponsiveLine = dynamic(
@@ -15,6 +17,9 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesLine = () => {
+  const {
+    detect: { isDesktopSafari },
+  } = useAppContext();
   const years = MILESTONES_YEARS.map(y => new Date(y));
   const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR));
   const largestToEvenValue =
@@ -67,6 +72,14 @@ export const MilestonesLine = () => {
     },
   );
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isDesktopSafari || !ref.current) return;
+    ref.current.style.direction = 'ltr';
+    ref.current.scrollLeft = ref.current.scrollWidth;
+  }, [isDesktopSafari]);
+
   /**
    * Default or unwanted props which cause hydration errors if not defined
    * @link https://nivo.rocks/line
@@ -110,7 +123,7 @@ export const MilestonesLine = () => {
   };
 
   return (
-    <div className="Template-line scrollbar">
+    <div className="Template-line scrollbar" ref={ref}>
       <div className="Template-line-inner">
         <ResponsiveLine
           animate
