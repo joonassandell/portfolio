@@ -12,7 +12,6 @@
     direction: rtl;
     height: var(--Line-height);
     margin-top: calc(var(--Line-padding-top) * -1);
-    overflow-y: hidden;
 
     @include mq(l) {
       --Line-padding-bottom: #{rem($space-xl)};
@@ -20,6 +19,8 @@
   }
 
   .Template-line-inner {
+    height: 100%;
+    overflow: hidden;
     padding-left: calc(var(--wrap-space-left) + var(--Line-tick-padding-left));
     width: var(--Line-width);
 
