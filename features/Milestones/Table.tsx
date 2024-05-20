@@ -43,7 +43,7 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
               <TableRow key={m.event}>
                 <TableCell>
                   {m.url ? <Link href={m.url}>{m.event}</Link> : m.event}
-                  <div className="text:color:mute hidden@m">
+                  <div className="text:color:700 hidden@m">
                     {m.categoryName} {' ✳︎ '} {formatDate(m.date)}
                   </div>
                 </TableCell>

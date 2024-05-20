@@ -1,5 +1,5 @@
 .Figure {
-  --Figure-border: var(--Figure-border-width, var(--border-width-thin)) solid
+  --Figure-border: var(--Figure-border-width, var(--border-width-s)) solid
     var(--Figure-border-color, var(--border-100));
 
   &.-bg {

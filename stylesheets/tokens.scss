@@ -69,9 +69,9 @@
 
   // Text
   --text-50: var(--white);
+  --text-700: var(--slate-600);
   --text-800: var(--gray-900);
   --text-900: var(--gray-900);
-  --text-mute: var(--slate-600);
 
   // Heading
   --heading: inherit;
@@ -113,14 +113,17 @@
   --grid-gap-xl: #{rem($space-2xl)};
 
   // Border
-  --border-width-negative: -1px;
-  --border-width-thin: 0.5px;
-  --border-width: 1px;
+  --border-width-s: 0.5px;
+  --border-width-m: 1px;
   --border-width-l: 2px;
+  --border-width-negative: -1px;
+  --border-width: var(--border-width-m);
+
   --border-radius-s: 4px;
-  --border-radius: 8px;
+  --border-radius-m: 8px;
   --border-radius-l: 16px;
   --border-radius-pill: 999px;
+  --border-radius: var(--border-radius-m);
 
   // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);
@@ -161,6 +164,7 @@
   }
 
   @include mq('4xl') {
+    --border-width-m: 2px;
     --border-width-l: 3px;
   }
 }

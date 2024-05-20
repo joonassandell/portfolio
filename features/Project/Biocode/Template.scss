@@ -5,25 +5,23 @@
   --Template-main-color: var(--biocode-text-900);
 
   .Template-main {
-    section {
-      --bg-200: var(--biocode-bg-50);
-      --bg-100: var(--biocode-bg-100);
-      --bg-50: var(--biocode-bg-50);
+    --bg-200: var(--biocode-bg-50);
+    --bg-100: var(--biocode-bg-100);
+    --bg-50: var(--biocode-bg-50);
 
-      --border-900: var(--biocode-border);
-      --border-100: var(--biocode-border);
+    --border-900: var(--biocode-border);
+    --border-100: var(--biocode-border);
 
-      --heading: var(--biocode-heading);
+    --heading: var(--biocode-heading);
 
-      --link-hover: var(--biocode-text-900);
-      --link: var(--biocode-text-900);
+    --link-hover: var(--biocode-text-900);
+    --link: var(--biocode-text-900);
 
-      --text-900: var(--biocode-text-900);
-      --text-800: var(--biocode-text-800);
-      --text-mute: var(--biocode-text-mute);
+    --text-900: var(--biocode-text-900);
+    --text-800: var(--biocode-text-800);
+    --text-700: var(--biocode-text-700);
 
-      --Figure-glare-opacity: 0.05;
-    }
+    --Figure-glare-opacity: 0.05;
   }
 
   .Template-section {
@@ -41,6 +39,6 @@
   }
 
   @include mq($until: l) {
-    --border-radius: 4px;
+    --border-radius: var(--border-radius-s);
   }
 }

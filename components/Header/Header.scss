@@ -345,7 +345,7 @@
 
   &:before,
   &:after {
-    border-top: var(--border-width-thin) solid var(--border-800);
+    border-top: var(--border-width-s) solid var(--border-800);
     content: '';
     transition: border-color var(--trans-primary);
   }

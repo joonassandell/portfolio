@@ -15,7 +15,7 @@
 
 .Table-head {
   background: var(--bg-200);
-  color: var(--text-mute);
+  color: var(--text-700);
   font-weight: var(--font-weight-400);
   text-align: left;
 }
@@ -45,7 +45,7 @@
 
 .Table-caption {
   border-top: var(--border-width) solid var(--border-100);
-  color: var(--text-mute);
+  color: var(--text-700);
   padding: rem($space-s);
   text-align: left;
 }
