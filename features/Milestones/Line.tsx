@@ -5,10 +5,20 @@ import {
   MILESTONES_SORTED,
   MILESTONES_YEARS,
   type PointSymbolProps,
+  type PointTooltipProps,
 } from './';
+import { formatDate } from '@/lib/utils';
 import { type LineSvgProps } from '@nivo/line';
+import {
+  type ReactNode,
+  type RefObject,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { Text } from '@/components/Text';
 import { useAppContext } from '@/components/App';
-import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
 const ResponsiveLine = dynamic(
@@ -17,6 +27,8 @@ const ResponsiveLine = dynamic(
 );
 
 export const MilestonesLine = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const refInner = useRef<HTMLDivElement>(null);
   const {
     detect: { isDesktopSafari },
   } = useAppContext();
@@ -72,8 +84,6 @@ export const MilestonesLine = () => {
     },
   );
 
-  const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (!isDesktopSafari || !ref.current) return;
     ref.current.style.direction = 'ltr';
@@ -118,13 +128,11 @@ export const MilestonesLine = () => {
     pointLabel: 'yFormatted',
     role: 'img',
     sliceTooltip: () => <></>,
-    tooltip: () => <></>,
-    useMesh: false,
   };
 
   return (
     <div className="Template-line scrollbar" ref={ref}>
-      <div className="Template-line-inner">
+      <div className="Template-line-inner" ref={refInner}>
         <ResponsiveLine
           animate
           axisBottom={{
@@ -178,6 +186,22 @@ export const MilestonesLine = () => {
               fontSize: 'inherit',
             },
           }}
+          tooltip={({ point }: PointTooltipProps) => {
+            const {
+              data: { event, xFormatted },
+            } = point;
+
+            return (
+              <Tooltip container={refInner} point={point}>
+                <Text size="xs">{event}</Text>
+                <Text className="text:color:mute" size="xs">
+                  {xFormatted}
+                </Text>
+              </Tooltip>
+            );
+          }}
+          useMesh
+          xFormat={v => formatDate(v as string)}
           xScale={{
             format: '%Y-%m-%d',
             precision: 'day',
@@ -214,3 +238,73 @@ const PointSymbol = ({
     </g>
   );
 };
+
+/**
+ * Makes the tooltip somewhat respect the boundaries of the Line
+ * @link https://github.com/plouc/nivo/issues/580#issuecomment-1974983707
+ */
+function Tooltip(props: {
+  children: ReactNode;
+  container: RefObject<HTMLDivElement>;
+  point: { x: number; y: number };
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState<{
+    height: number;
+    width: number;
+  }>({ height: 0, width: 0 });
+
+  const [tooltipSize, setTooltipSize] = useState<{
+    height: number;
+    width: number;
+  }>({ height: 0, width: 0 });
+
+  useEffect(() => {
+    const container = props.container.current;
+    if (container) {
+      const { height, width } = container.getBoundingClientRect();
+      setContainerSize({ height, width });
+    }
+  }, [setContainerSize, props.container]);
+
+  useEffect(() => {
+    const tooltip = ref.current;
+    if (tooltip) {
+      const { height, width } = tooltip.getBoundingClientRect();
+      setTooltipSize({ height, width });
+    }
+  }, [setTooltipSize]);
+
+  const offsetHorizontal = useMemo(() => {
+    if (props.point.x < tooltipSize.width) {
+      return tooltipSize.width / 3;
+    }
+
+    const rightEdge = containerSize.width - props.point.x;
+    if (rightEdge < tooltipSize.width) {
+      return -(tooltipSize.width / 4);
+    }
+
+    return 0;
+  }, [tooltipSize.width, props.point.x, containerSize.width]);
+
+  const offsetVertical = useMemo(() => {
+    if (props.point.y < containerSize.height / 3) {
+      return tooltipSize.height + 48;
+    }
+
+    return 12;
+  }, [tooltipSize.height, props.point.y, containerSize.height]);
+
+  return (
+    <div
+      className="Template-line-tooltip"
+      ref={ref}
+      style={{
+        translate: `${offsetHorizontal}px ${offsetVertical}px`,
+      }}
+    >
+      <div className="Template-line-tooltip-inner">{props.children}</div>
+    </div>
+  );
+}

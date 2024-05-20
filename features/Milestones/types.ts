@@ -1,5 +1,9 @@
 import { type DateString } from '@/types';
-import { type PointSymbolProps as NivoPointSymbolProps } from '@nivo/line';
+import {
+  type Point as NivoPoint,
+  type PointSymbolProps as NivoPointSymbolProps,
+  type PointTooltipProps as NivoPointTooltipProps,
+} from '@nivo/line';
 import { type TableCaptionProps } from '@/components/Table';
 
 export type Category =
@@ -23,6 +27,10 @@ export interface Milestone {
 
 export interface PointSymbolProps extends Omit<NivoPointSymbolProps, 'datum'> {
   datum: Milestone;
+}
+
+export interface PointTooltipProps extends NivoPointTooltipProps {
+  point: NivoPoint & { data: NivoPoint['data'] & Partial<Milestone> };
 }
 
 export interface MilestoneTableProps {

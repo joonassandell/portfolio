@@ -12,6 +12,7 @@
     direction: rtl;
     height: var(--Line-height);
     margin-top: calc(var(--Line-padding-top) * -1);
+    user-select: none;
 
     @include mq(l) {
       --Line-padding-bottom: #{rem($space-xl)};
@@ -19,6 +20,7 @@
   }
 
   .Template-line-inner {
+    @include text(xs);
     height: 100%;
     overflow: hidden;
     padding-left: calc(var(--wrap-space-left) + var(--Line-tick-padding-left));
@@ -29,10 +31,16 @@
         var(--Line-height) -
           (var(--Line-padding-top) + var(--Line-padding-bottom))
       ) !important;
+
+      // Hide tooltip from touch devices because of flicker caused by Nivo
+      > div > div:last-child {
+        @include mqTouch() {
+          display: none;
+        }
+      }
     }
 
     svg {
-      @include text(xs);
       fill: var(--text-mute);
       height: var(--Line-height);
       overflow: visible;
@@ -41,26 +49,43 @@
         transform: translateY(var(--Line-padding-top)) !important;
 
         // Axis right
-        > g:nth-last-of-type(4) {
+        > g:nth-last-of-type(5) {
           > text {
             translate: calc(#{rem($space)} * -1);
           }
         }
 
         // Axis bottom
-        > g:nth-last-of-type(3) {
+        > g:nth-last-of-type(4) {
           > g > text {
             translate: 0 #{rem($space)};
           }
         }
 
         // Axis left
-        > g:nth-last-of-type(2) {
+        > g:nth-last-of-type(3) {
           > g > text {
             translate: calc(var(--Line-tick-padding-left) * -1);
           }
         }
       }
+    }
+  }
+
+  .Template-line-tooltip {
+    background-color: var(--bg-50);
+    border: var(--border-width) solid var(--border-100);
+    border-radius: var(--border-radius-s);
+    color: var(--text-900);
+    padding: rem($space-4xs) rem($space-xs);
+    text-align: left;
+
+    @include mq($until: m) {
+      max-width: 35ch;
+    }
+
+    @include mqPointer() {
+      transition: translate 0.5s;
     }
   }
 
