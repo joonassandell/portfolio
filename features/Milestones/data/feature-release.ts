@@ -3,6 +3,16 @@ import { type Optional } from '@/types';
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   /* =======================================
+   * Portfolio
+   * ======================================= */
+
+  {
+    date: '2024-05-20',
+    event: 'Shipped Milestones page',
+    url: 'https://x.com/joonassandell/status/1792539982311153927',
+  },
+
+  /* =======================================
    * Biocode
    * ======================================= */
 

@@ -22,7 +22,7 @@ export const MilestonesTableHighlight = ({
   return (
     <Table>
       <TableCaption {...tableCaption}>
-        Highlighted milestones in chronological order
+        Highlighted milestones in descending chronological order
       </TableCaption>
       <TableHeader>
         <TableRow>
@@ -36,7 +36,7 @@ export const MilestonesTableHighlight = ({
           <TableRow key={m.event}>
             <TableCell>
               {m.url ? <Link href={m.url}>{m.event}</Link> : m.event}
-              <div className="flex text:color:mute hidden@m">
+              <div className="text:color:mute hidden@m">
                 {m.categoryName} {' ✳︎ '} {formatDate(m.date)}
               </div>
             </TableCell>

@@ -22,7 +22,7 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
   return (
     <Table>
       <TableCaption {...tableCaption}>
-        All milestones in chronological order
+        All milestones in descending chronological order
       </TableCaption>
       <TableHeader>
         <TableRow>
@@ -43,7 +43,7 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
               <TableRow key={m.event}>
                 <TableCell>
                   {m.url ? <Link href={m.url}>{m.event}</Link> : m.event}
-                  <div className="flex text:color:mute hidden@m">
+                  <div className="text:color:mute hidden@m">
                     {m.categoryName} {' ✳︎ '} {formatDate(m.date)}
                   </div>
                 </TableCell>
