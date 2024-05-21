@@ -10,6 +10,7 @@ export interface TableBodyProps extends ComponentPropsWithoutRef<'tbody'> {}
 
 export interface TableRowProps extends ComponentPropsWithoutRef<'tr'> {
   background?: string;
+  href?: URL['href'];
 }
 
 export interface TableCellProps extends ComponentPropsWithoutRef<'td'> {}

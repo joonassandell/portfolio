@@ -31,6 +31,15 @@
 .Table-row {
   background: var(--Table-row-bg, inherit);
   border-bottom: var(--border-width) solid var(--border-100);
+
+  &:hover,
+  &:has(:focus-visible) {
+    background: var(--Table-row-bg, var(--bg-100));
+  }
+
+  &[data-href] {
+    cursor: pointer;
+  }
 }
 
 .Table-head,
