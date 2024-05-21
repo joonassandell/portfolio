@@ -17,7 +17,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
    * ======================================= */
 
   {
-    categoryName: 'Feature in progress',
+    categoryName: 'Feature WIP',
     date: '2024-04-20',
     event: 'Designed new Biocode application UI',
     major: true,
