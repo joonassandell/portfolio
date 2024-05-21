@@ -56,8 +56,8 @@ export const LinkRoll = ({
         initial="out"
         onBlur={() => setHover(false)}
         onClick={e => {
-          !activeOrExternal && templateTransition && setTransition('template');
           e.stopPropagation();
+          !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => setHover(true)}

@@ -58,8 +58,8 @@ export const Link = ({
         href={href}
         onBlur={() => setHover(false)}
         onClick={e => {
-          !activeOrExternal && templateTransition && setTransition('template');
           e.stopPropagation();
+          !activeOrExternal && templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => setHover(true)}

@@ -376,18 +376,18 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               </m.button>
               <ul className="Header-nav">
                 <HeaderNavItem
-                  href={milestones.url}
-                  isOpen={isOpen}
-                  onClick={handleClick}
-                  openReveal={openReveal}
-                  title={milestones.navTitle}
-                />
-                <HeaderNavItem
                   href={about.url}
                   isOpen={isOpen}
                   onClick={handleClick}
                   openReveal={openReveal}
                   title={about.navTitle}
+                />
+                <HeaderNavItem
+                  href={milestones.url}
+                  isOpen={isOpen}
+                  onClick={handleClick}
+                  openReveal={openReveal}
+                  title={milestones.navTitle}
                 />
                 <HeaderNavItem
                   href={contact.url}
