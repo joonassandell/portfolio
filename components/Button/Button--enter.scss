@@ -2,8 +2,12 @@
 @use 'stylesheets/mixins' as *;
 
 .Button--enter {
-  border: 2px solid transparent;
+  border: var(--border-width-l) solid transparent;
   padding: $space-l $space ($space * 0.8) $space-xs;
+
+  &:focus-visible {
+    background-color: unset;
+  }
 
   .Button-arrow {
     align-items: flex-start;
@@ -38,7 +42,7 @@
   .Button-arrow-path {
     fill: transparent;
     stroke: var(--border-900);
-    stroke-width: 2;
+    stroke-width: var(--border-width-l);
   }
 
   .Button-arrow-pointer {

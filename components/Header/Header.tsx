@@ -364,7 +364,6 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     key={mqM ? asPath : 'Header-button-arrow'}
                     ref={btnArrow}
                     {...(mqM && { ...enterExit.btnArrow })}
-                    suppressHydrationWarning
                   >
                     <ButtonArrow
                       active={isOpen}

@@ -11,24 +11,8 @@
 
   // See Header.scss
   .is-windows & {
-    .Link,
-    .LinkRoll-char,
-    .Footer-copyright {
-      background: var(--bg-50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
-  a {
-    &:focus-visible {
-      @at-root .is-windows & {
-        .Link,
-        .LinkRoll-char {
-          -webkit-text-fill-color: var(--focus-visible-fg);
-        }
-      }
-    }
+    --link: var(--gray-300);
+    color: var(--gray-300);
   }
 
   @include mq($until: m) {

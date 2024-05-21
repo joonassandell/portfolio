@@ -29,11 +29,11 @@
 
   // [2.]
   .is-windows & {
-    .LinkRoll-char,
-    .Header-button-text-item > div {
-      background: var(--bg-50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    --link: var(--gray-300);
+
+    &,
+    .Header-button {
+      color: var(--gray-300);
     }
   }
 }
@@ -73,16 +73,6 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
-
-  a {
-    &:focus-visible {
-      @at-root .is-windows & {
-        .LinkRoll-char {
-          -webkit-text-fill-color: var(--focus-visible-fg);
-        }
-      }
-    }
-  }
 
   @include mq(m) {
     margin: 0;
@@ -130,7 +120,7 @@
   &:focus-visible {
     .Button--arrow {
       outline: var(--border-width) solid var(--border-50);
-      outline-offset: 3px;
+      outline-offset: $space-3xs;
     }
   }
 }
@@ -183,16 +173,6 @@
 
 .Header-secondary {
   display: none;
-
-  a {
-    &:focus-visible {
-      @at-root .is-windows & {
-        .LinkRoll-char {
-          -webkit-text-fill-color: var(--focus-visible-fg);
-        }
-      }
-    }
-  }
 
   @include mq(m) {
     display: flex;
