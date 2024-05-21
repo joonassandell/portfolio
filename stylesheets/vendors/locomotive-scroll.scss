@@ -5,9 +5,8 @@
  * ======================================= */
 
 :root {
-  &.is-scroll-smooth {
-    overflow: hidden;
-  }
+  inset: 0;
+  position: fixed;
 
   &.is-drag {
     cursor: grabbing;
@@ -16,9 +15,7 @@
 }
 
 body {
-  .is-smooth & {
-    overflow: hidden;
-  }
+  overflow: hidden;
 }
 
 /* =======================================
