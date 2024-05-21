@@ -29,12 +29,7 @@
 
   // [2.]
   .is-windows & {
-    --link: var(--gray-300);
-
-    &,
-    .Header-button {
-      color: var(--gray-300);
-    }
+    font-weight: var(--font-weight-100);
   }
 }
 
@@ -210,6 +205,7 @@
 .Header-mask {
   background: var(--bg-900);
   clip-path: circle(0% at 0px 0px);
+  color: var(--text-50);
   display: none;
   flex-direction: column;
   inset: 0;

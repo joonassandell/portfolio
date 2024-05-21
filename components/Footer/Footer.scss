@@ -11,8 +11,7 @@
 
   // See Header.scss
   .is-windows & {
-    --link: var(--gray-300);
-    color: var(--gray-300);
+    font-weight: var(--font-weight-100);
   }
 
   @include mq($until: m) {
