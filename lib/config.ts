@@ -1,5 +1,5 @@
+import { type BezierDefinition, Easing, type Variants } from 'framer-motion';
 import { type Links, type Sitemap } from '@/types';
-import { type Variants } from 'framer-motion';
 
 /* =======================================
  * Sitemap, content, links
@@ -157,11 +157,11 @@ export const CONTENT = {
  * @link https://www.framer.com/motion/easing-functions
  */
 
-export const EASE = [0.68, 0, 0.1, 1];
+export const EASE: BezierDefinition = [0.68, 0, 0.1, 1];
 export const EASE_CSS = 'cubic-bezier(0.68, 0, 0.1, 1)';
-export const EASE_SECONDARY = [0.87, 0, 0.13, 1];
+export const EASE_SECONDARY: BezierDefinition = [0.87, 0, 0.13, 1];
 export const EASE_SECONDARY_CSS = 'cubic-bezier(0.87, 0, 0.13, 1)';
-export const EASE_TERTIARY = [0.4, 0, 0.28, 1];
+export const EASE_TERTIARY: BezierDefinition = [0.4, 0, 0.28, 1];
 
 export const TRANS_PRIMARY = {
   duration: 1.3,

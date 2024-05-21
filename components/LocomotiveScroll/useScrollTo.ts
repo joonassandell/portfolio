@@ -27,7 +27,7 @@ export const useScrollTo = (
           }
         },
         duration: SCROLL_TO_DURATION,
-        easing: EASE as [number, number, number, number],
+        easing: EASE,
       });
     }
   };

@@ -1,7 +1,7 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
 import { type AppContextProps, AppHead, type AppProps } from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
+import { EASE, EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
 import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
@@ -12,6 +12,7 @@ import Script from 'next/script';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 const PRODUCTION = process.env.NODE_ENV === 'production';
 let scrollOnUpdateOnce = false;
 
@@ -244,7 +245,15 @@ export const App = ({ Component, pageProps }: AppProps) => {
           location={animationComplete}
           onLocationChange={scroll => {
             scroll.scroll.stop && scroll.start();
-            scroll.scrollTo(0, { disableLerp: true, duration: 0 });
+
+            const url = new URL(asPath, APP_URL);
+            const el = html.querySelector(url.hash || '#null') as HTMLElement;
+            scroll.scrollTo(el ?? 0, {
+              disableLerp: el ? false : true,
+              duration: 0,
+              easing: EASE,
+            });
+
             if (transition) setTransition(false);
           }}
           onUpdate={scroll => {
