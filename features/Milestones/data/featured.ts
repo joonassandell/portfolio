@@ -23,7 +23,7 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     url: 'https://www.lapa.ninja/post/joonassandell',
   },
   {
-    date: '2023-07-03',
+    date: '2023-07-20',
     event: 'Featured in UX Collective',
     url: 'https://bootcamp.uxdesign.cc/5-best-design-portfolios-and-what-i-learned-from-them-week-3-4a16817df4ad',
   },

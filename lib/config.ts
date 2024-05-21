@@ -1,4 +1,4 @@
-import { type BezierDefinition, Easing, type Variants } from 'framer-motion';
+import { type BezierDefinition, type Variants } from 'framer-motion';
 import { type Links, type Sitemap } from '@/types';
 
 /* =======================================
