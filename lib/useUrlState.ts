@@ -4,10 +4,12 @@ import { type NextRouter, useRouter } from 'next/router';
 export const urlState = (href: URL['href'], router?: NextRouter) => {
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const url = new URL(href, APP_URL);
+  const external = url.origin != (isBrowser ? location.origin : APP_URL);
 
   return {
     active: url.pathname === (isBrowser ? location.pathname : router?.asPath),
-    external: url.origin != (isBrowser ? location.origin : APP_URL),
+    external,
+    externalTarget: external ? '_blank' : undefined,
     url,
   };
 };
