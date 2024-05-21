@@ -9,6 +9,7 @@ import {
   enterExitBtnArrowIfNavOpen,
   enterExitBtnText,
   enterExitBtnTextIfNavOpen,
+  HeaderMaskNavItem,
   HeaderNavItem,
   type HeaderProps,
   maskClose,
@@ -140,10 +141,10 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
      * to new page. This prevents laggy transition which happens when url changes.
      * Note that the :root.is-transition class disables the pointer-events (hover).
      */
-    const isNavLink = e.target.classList.contains('Header-nav-link');
+    const isMaskNavLink = e.target.classList.contains('Header-mask-nav-link');
     setTimeout(
       () => push(href, undefined, { scroll: false }),
-      isNavLink ? 300 : 0,
+      isMaskNavLink ? 300 : 0,
     );
   };
 
@@ -373,79 +374,28 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                   </m.div>
                 </AnimatePresence>
               </m.button>
-              <ul className="Header-secondary">
-                <li className="Header-secondary-item">
-                  <m.div variants={ctrlItemOutVariant}>
-                    <LinkRoll
-                      href={milestones.url}
-                      onClick={handleClick}
-                      underline={urlState(milestones.url, router).active}
-                      {...(isOpen && { hidden: true, tabIndex: -1 })}
-                    >
-                      {milestones.navTitle}
-                    </LinkRoll>
-                  </m.div>
-                  {openReveal && (
-                    <m.div
-                      className="Header-secondary-item-reveal"
-                      variants={ctrlItemInVariant}
-                    >
-                      <LinkRoll
-                        href={milestones.url}
-                        onClick={handleClick}
-                        templateTransition={false}
-                        underline={urlState(milestones.url, router).active}
-                      >
-                        {milestones.navTitle}
-                      </LinkRoll>
-                    </m.div>
-                  )}
-                </li>
-                <li className="Header-secondary-item">
-                  <m.div variants={ctrlItemOutVariant}>
-                    <LinkRoll
-                      href={about.url}
-                      onClick={handleClick}
-                      underline={urlState(about.url, router).active}
-                      {...(isOpen && { hidden: true, tabIndex: -1 })}
-                    >
-                      {about.navTitle}
-                    </LinkRoll>
-                  </m.div>
-                  {openReveal && (
-                    <m.div
-                      className="Header-secondary-item-reveal"
-                      variants={ctrlItemInVariant}
-                    >
-                      <LinkRoll
-                        href={about.url}
-                        onClick={handleClick}
-                        templateTransition={false}
-                        underline={urlState(about.url, router).active}
-                      >
-                        {about.navTitle}
-                      </LinkRoll>
-                    </m.div>
-                  )}
-                </li>
-                <li className="Header-secondary-item">
-                  <m.div variants={ctrlItemOutVariant}>
-                    <LinkRoll
-                      href={contact.url}
-                      {...(isOpen && { hidden: true, tabIndex: -1 })}
-                    >
-                      {contact.navTitle}
-                    </LinkRoll>
-                  </m.div>
-                  {openReveal && (
-                    <m.div
-                      className="Header-secondary-item-reveal"
-                      variants={ctrlItemInVariant}
-                    >
-                      <LinkRoll href={contact.url}>{contact.navTitle}</LinkRoll>
-                    </m.div>
-                  )}
-                </li>
+              <ul className="Header-nav">
+                <HeaderNavItem
+                  href={milestones.url}
+                  isOpen={isOpen}
+                  onClick={handleClick}
+                  openReveal={openReveal}
+                  title={milestones.navTitle}
+                />
+                <HeaderNavItem
+                  href={about.url}
+                  isOpen={isOpen}
+                  onClick={handleClick}
+                  openReveal={openReveal}
+                  title={about.navTitle}
+                />
+                <HeaderNavItem
+                  href={contact.url}
+                  isOpen={isOpen}
+                  openReveal={openReveal}
+                  target="_self"
+                  title={contact.navTitle}
+                />
               </ul>
             </div>
           </div>
@@ -462,7 +412,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
             <>
               <m.nav
                 animate={isOpen ? 'open' : 'closed'}
-                className="Header-nav"
+                className="Header-mask-nav"
                 initial="initial"
                 variants={navVariant}
               >
@@ -471,12 +421,12 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     .filter(item => !item.hidden)
                     .map(item => {
                       return (
-                        <HeaderNavItem
+                        <HeaderMaskNavItem
                           color={item.color}
+                          href={item.url}
                           key={item.id}
-                          name={item.navTitle}
                           onClick={handleClick}
-                          url={item.url}
+                          title={item.navTitle}
                           year={item.year}
                         />
                       );

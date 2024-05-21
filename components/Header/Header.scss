@@ -35,7 +35,7 @@
 
 .Header-logo,
 .Header-button,
-.Header-secondary {
+.Header-nav {
   :root:not(.is-transition) & {
     pointer-events: all;
   }
@@ -166,7 +166,7 @@
   }
 }
 
-.Header-secondary {
+.Header-nav {
   display: none;
 
   @include mq(m) {
@@ -179,7 +179,7 @@
   }
 }
 
-.Header-secondary-item {
+.Header-nav-item {
   overflow: hidden;
   position: relative;
 
@@ -192,7 +192,7 @@
   }
 }
 
-.Header-secondary-item-reveal {
+.Header-nav-item-reveal {
   left: 0;
   position: absolute;
   top: 0;
@@ -242,7 +242,7 @@
   }
 }
 
-.Header-nav {
+.Header-mask-nav {
   margin: max(16.5vh, #{rem($space * 7)}) auto auto;
   width: 100%;
   z-index: 0;
@@ -252,14 +252,14 @@
   }
 }
 
-.Header-nav-item {
+.Header-mask-nav-item {
   overflow: hidden;
   position: relative;
   transition: border-radius var(--trans-primary-fastest);
   z-index: 1;
 
   &:last-child {
-    .Header-nav-link {
+    .Header-mask-nav-link {
       &:before,
       &:after {
         border: 0;
@@ -270,7 +270,7 @@
   @include mq(m) {
     @for $i from 2 through 4 {
       &:nth-child(#{$i}) {
-        .Header-nav-link {
+        .Header-mask-nav-link {
           &:before {
             flex-basis: calc((var(--wrap-space-left) + #{rem($space)}) * #{$i});
           }
@@ -280,7 +280,7 @@
 
     @for $i from 5 through 6 {
       &:nth-child(#{$i}) {
-        .Header-nav-link {
+        .Header-mask-nav-link {
           &:before {
             flex: 1;
           }
@@ -293,11 +293,11 @@
           }
         }
 
-        .Header-nav-link-inner {
+        .Header-mask-nav-link-inner {
           flex-direction: row-reverse;
         }
 
-        .Header-nav-link-eye {
+        .Header-mask-nav-link-eye {
           margin-right: rem($space);
         }
       }
@@ -305,15 +305,15 @@
   }
 }
 
-.Header-nav-marquee,
-.Header-nav-link {
+.Header-mask-nav-marquee,
+.Header-mask-nav-link {
   @include fontSize(14px, 14px, 72px, 3.5vw);
   font-weight: var(--font-weight-100);
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.Header-nav-link {
+.Header-mask-nav-link {
   align-items: center;
   color: var(--text-50);
   display: flex;
@@ -336,7 +336,7 @@
     margin-left: rem($space-s);
   }
 
-  .Header-nav-item.is-active & {
+  .Header-mask-nav-item.is-active & {
     &:before,
     &:after {
       border-color: var(--border-50);
@@ -344,23 +344,23 @@
   }
 }
 
-.Header-nav-link-inner {
+.Header-mask-nav-link-inner {
   align-items: center;
   display: flex;
   pointer-events: none;
 }
 
-.Header-nav-link-text {
+.Header-mask-nav-link-text {
   position: relative;
 }
 
-.Header-nav-link-eye {
+.Header-mask-nav-link-eye {
   margin: 0 rem($space-s) 0 rem($space);
   width: clamp(rem($space * 3), 10vw, rem($space * 5));
 
   circle {
     &:nth-child(2) {
-      fill: var(--Header-marquee-iris, var(--white));
+      fill: var(--Header-mask-nav-marquee-iris, var(--white));
     }
   }
 
@@ -372,7 +372,7 @@
   }
 }
 
-.Header-nav-marquee {
+.Header-mask-nav-marquee {
   background: var(--tone-50);
   color: var(--text-900);
   inset: 0;
@@ -381,26 +381,26 @@
   position: absolute;
 }
 
-.Header-nav-marquee-inner {
+.Header-mask-nav-marquee-inner {
   height: 100%;
   width: 100%;
 }
 
-.Header-nav-marquee-inner-self {
+.Header-mask-nav-marquee-inner-self {
   align-items: center;
   display: flex;
   height: 100%;
   width: fit-content;
 }
 
-.Header-nav-marquee-eye {
+.Header-mask-nav-marquee-eye {
   flex-shrink: 0;
   margin: 0 rem($space-s);
   width: clamp(rem($space * 3), 10vw, rem($space * 5));
 
   circle {
     &:nth-child(2) {
-      fill: var(--Header-marquee-iris, var(--white));
+      fill: var(--Header-mask-nav-marquee-iris, var(--white));
     }
   }
 
