@@ -33,7 +33,7 @@ export const MilestonesTableHighlight = ({
       </TableHeader>
       <TableBody>
         {MILESTONES_SORTED.filter(m => m.highlight).map(m => (
-          <TableRow key={m.event}>
+          <TableRow href={m.url} key={m.event}>
             <TableCell>
               {m.url ? <Link href={m.url}>{m.event}</Link> : m.event}
               <div className="text:color:700 hidden@m">
