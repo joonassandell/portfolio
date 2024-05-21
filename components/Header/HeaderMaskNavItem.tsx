@@ -8,9 +8,8 @@ import {
   marqueeVariants,
 } from '.';
 import { navItemVariant } from './Header.animations';
-import { urlState } from '@/lib/useUrlState';
 import { useAppContext } from '@/components/App';
-import { useRouter } from 'next/router';
+import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 import EyeSvg from './eye.svg';
 import Link from 'next/link';
@@ -22,7 +21,10 @@ export const HeaderMaskNavItem = ({
   title,
   year,
 }: HeaderMaskNavItemProps) => {
-  const router = useRouter();
+  const { active } = useUrlState(href);
+  const classes = c('Header-mask-nav-item', {
+    'is-active': active,
+  });
   const [hover, setHover] = useState<'in' | 'out' | false>(false);
   const [closestEdge, setClosestEdge] = useState('top');
   const [reveal, setReveal] = useState(false);
@@ -66,9 +68,7 @@ export const HeaderMaskNavItem = ({
 
   return (
     <m.li
-      className={c('Header-mask-nav-item', {
-        'is-active': urlState(href, router).active,
-      })}
+      className={classes}
       ref={ref}
       style={{ ['--Header-mask-nav-marquee-iris' as string]: color }}
       variants={navItemVariant}
