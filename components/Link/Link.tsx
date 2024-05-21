@@ -35,18 +35,12 @@ export const Link = ({
     '-vertical': orientation === 'vertical',
   });
   const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
-  const linkTarget = target
-    ? target
-    : href?.startsWith('http')
-      ? '_blank'
-      : false;
-  const hasHref = Boolean(href && href.startsWith('/'));
-  const { active, external } = useUrlState(href);
+  const { active, external, externalTarget } = useUrlState(href);
   const activeOrExternal = active || external;
 
   return (
     <ConditionalWrapper
-      condition={hasHref}
+      condition={!external}
       wrapper={children => (
         <NextLink
           href={href as URL['href']}
@@ -70,8 +64,7 @@ export const Link = ({
         onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        {...(href && linkTarget && { target: linkTarget })}
-        {...(linkTarget === '_blank' && { rel: 'external' })}
+        target={target ?? externalTarget}
         {...props}
       >
         <m.span
