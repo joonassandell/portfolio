@@ -20,9 +20,6 @@ const config = {
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
   },
-  images: {
-    minimumCacheTTL: 31536000,
-  },
   experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {
     compiler: {
@@ -40,6 +37,20 @@ const config = {
       use: ['@svgr/webpack'],
     });
     return config;
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*).(jpe?g|png|ico|webp|svg|xml|woff2?)',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, must-revalidate',
+          },
+        ],
+      },
+    ];
   },
 };
 
