@@ -1,7 +1,7 @@
 import {
-  ctrlItemInVariant,
-  ctrlItemOutVariant,
   type HeaderNavItemProps,
+  mainItemInVariant,
+  mainItemOutVariant,
 } from './';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m } from 'framer-motion';
@@ -19,7 +19,7 @@ export const HeaderNavItem = ({
 
   return (
     <li className="Header-nav-item">
-      <m.div variants={ctrlItemOutVariant}>
+      <m.div variants={mainItemOutVariant}>
         <LinkRoll
           href={href}
           onClick={onClick}
@@ -31,7 +31,7 @@ export const HeaderNavItem = ({
         </LinkRoll>
       </m.div>
       {openReveal && (
-        <m.div className="Header-nav-item-reveal" variants={ctrlItemInVariant}>
+        <m.div className="Header-nav-item-reveal" variants={mainItemInVariant}>
           <LinkRoll
             href={href}
             onClick={onClick}

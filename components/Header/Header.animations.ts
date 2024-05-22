@@ -8,12 +8,12 @@ import {
 } from '@/lib/config';
 
 /* =======================================
- * Header, Logo, Separator etc.
+ * Logo, button, reveal items
  * ======================================= */
 
 /**
  * Note that these enter/exit animations rely heavily on the mask animation, so
- * if you add too much delay things may look shit, so keep them in sync.
+ * if you add too much delay things may not work well, so keep them in sync.
  */
 export const enterExitBtnTextIfNavOpen: AnimationProps = {
   exit: {
@@ -62,7 +62,7 @@ export const enterExitBtnArrow: AnimationProps = {
   transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
 };
 
-export const ctrlVariant: Variants = {
+export const mainItemVariant: Variants = {
   closed: {
     transition: {
       delayChildren: 0,
@@ -77,18 +77,7 @@ export const ctrlVariant: Variants = {
   },
 };
 
-export const ctrlItemOutVariant: Variants = {
-  closed: {
-    transition: TRANS_PRIMARY_FAST,
-    y: 0,
-  },
-  open: {
-    transition: TRANS_SECONDARY_FAST,
-    y: '-3rem',
-  },
-};
-
-export const ctrlItemInVariant: Variants = {
+export const mainItemInVariant: Variants = {
   closed: {
     transition: TRANS_SECONDARY_FAST,
     y: '3rem',
@@ -99,6 +88,17 @@ export const ctrlItemInVariant: Variants = {
   open: {
     transition: TRANS_PRIMARY_FAST,
     y: 0,
+  },
+};
+
+export const mainItemOutVariant: Variants = {
+  closed: {
+    transition: TRANS_PRIMARY_FAST,
+    y: 0,
+  },
+  open: {
+    transition: TRANS_SECONDARY_FAST,
+    y: '-3rem',
   },
 };
 
@@ -114,11 +114,7 @@ export const maskClose = {
   transition: TRANS_PRIMARY,
 };
 
-/* =======================================
- * Navigation
- * ======================================= */
-
-export const navVariant: Variants = {
+export const maskNavVariant: Variants = {
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
@@ -127,7 +123,7 @@ export const navVariant: Variants = {
   },
 };
 
-export const navItemVariant: Variants = {
+export const maskNavItemVariant: Variants = {
   closed: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
@@ -145,7 +141,7 @@ export const navItemVariant: Variants = {
   },
 };
 
-export const marqueeVariants: Variants = {
+export const maskNavItemMarqueeVariant: Variants = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -170,7 +166,7 @@ export const marqueeVariants: Variants = {
   },
 };
 
-export const marqueeInnerVariants: Variants = {
+export const maskNavItemMarqueeInnerVariant: Variants = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -195,4 +191,4 @@ export const marqueeInnerVariants: Variants = {
   },
 };
 
-export const marqueeTransition = TRANS_PRIMARY_FASTEST;
+export const maskNavItemMarqueeTransition = TRANS_PRIMARY_FASTEST;

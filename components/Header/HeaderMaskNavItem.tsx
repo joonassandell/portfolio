@@ -3,11 +3,11 @@ import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react';
 import { getClosestEdge } from '@/lib/utils';
 import {
   type HeaderMaskNavItemProps,
-  marqueeInnerVariants,
-  marqueeTransition,
-  marqueeVariants,
-} from '.';
-import { navItemVariant } from './Header.animations';
+  maskNavItemMarqueeInnerVariant,
+  maskNavItemMarqueeTransition,
+  maskNavItemMarqueeVariant,
+  maskNavItemVariant,
+} from './';
 import { useAppContext } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -71,7 +71,7 @@ export const HeaderMaskNavItem = ({
       className={classes}
       ref={ref}
       style={{ ['--Header-mask-nav-marquee-iris' as string]: color }}
-      variants={navItemVariant}
+      variants={maskNavItemVariant}
     >
       <Link
         className="Header-mask-nav-link"
@@ -113,14 +113,14 @@ export const HeaderMaskNavItem = ({
             setReveal(true);
           }
         }}
-        transition={marqueeTransition}
-        variants={marqueeVariants}
+        transition={maskNavItemMarqueeTransition}
+        variants={maskNavItemMarqueeVariant}
       >
         <m.div
           className="Header-mask-nav-marquee-inner"
           custom={closestEdge}
-          transition={marqueeTransition}
-          variants={marqueeInnerVariants}
+          transition={maskNavItemMarqueeTransition}
+          variants={maskNavItemMarqueeInnerVariant}
         >
           {reveal && (
             <m.div
