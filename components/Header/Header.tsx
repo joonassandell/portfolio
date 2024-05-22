@@ -13,10 +13,10 @@ import {
   mainItemInVariant,
   mainItemOutVariant,
   mainItemVariant,
-  maskClose,
+  maskCloseTransition,
   maskNavItemVariant,
   maskNavVariant,
-  maskOpen,
+  maskOpenTransition,
 } from './';
 import { getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
@@ -43,17 +43,25 @@ const source = getLink('source', 'common');
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
-  const [isOpen, setOpen] = useState(false);
-  const [hover, setHover] = useState<'start' | 'end' | false>(false);
-  const [maskIsOpen, setMaskIsOpen] = useState(false);
-  const [mask, setMask] = useState('closedReset');
+  const { html, setTransition, setTransitionInitial } = useAppContext();
+  const { scroll } = useLocomotiveScroll();
+  const scrollTo = useScrollTo();
+  const mqM = useMedia(MQ.m, true);
+
+  const [open, setOpen] = useState(false);
+  const [animating, setAnimating] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
+  const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
+
+  const [maskOpen, setMaskOpen] = useState(false);
+  const [mask, setMask] = useState('closedReset');
+  const maskRef = useRef<HTMLDivElement>(null);
   const maskAnim = useAnimation();
-  const [navRevealTitle, setNavRevealTitle] = useState<string>();
-  const [btnFocus, setBtnFocus] = useState(false);
+
   const btnRef = useRef<HTMLButtonElement | null>(null);
+  const [btnFocus, setBtnFocus] = useState(false);
+  const [hover, setHover] = useState<'start' | 'end' | false>(false);
+  const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
   const [enterExit, setEnterExit] = useState<{
     btnArrow: typeof enterExitBtnArrow;
     btnText: typeof enterExitBtnText;
@@ -61,11 +69,6 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
     btnArrow: enterExitBtnArrow,
     btnText: enterExitBtnText,
   });
-  const { html, setTransition, setTransitionInitial } = useAppContext();
-  const scrollTo = useScrollTo();
-  const maskRef = useRef<HTMLDivElement>(null);
-  const mqM = useMedia(MQ.m, true);
-  const { scroll } = useLocomotiveScroll();
 
   const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
     if (!ref) return;
@@ -89,15 +92,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
 
   /**
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
-   * states are handled after the animations.
+   * states are handled after the animation finishes.
    */
   const toggleOpen = () => {
-    isOpen ? setOpen(false) : setOpen(true);
-    if (!isOpen) html.classList.add('is-headerOpen');
-    if (!isOpen) setOpenReveal(true);
-    if (isOpen && btnFocus) btnRef?.current?.blur();
+    setOpen(!open);
+    if (!open) html.classList.add('is-headerOpen');
+    if (!open) setOpenReveal(true);
+    if (open && btnFocus) btnRef?.current?.blur();
 
-    setDisabled(true);
+    setAnimating(true);
     setNavRevealTitle(navTitle);
 
     /**
@@ -111,7 +114,13 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
     if (mask === 'open' || mask === 'openReset') setMask('closed');
   };
 
-  const handleClick = (e: LinkEvent) => {
+  /**
+   * Handle all link clicks with a single handler. This could also be done
+   * without preventDefault() since the link components handle routing but
+   * there's slight modifications needed for some links below. Note that closing
+   * of the header is handled below with router events after routes change.
+   */
+  const handleLinkClick = (e: LinkEvent) => {
     e.preventDefault();
 
     const {
@@ -119,19 +128,20 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
       url: { href },
     } = urlState(e.target.href);
 
-    if (!isOpen && active) {
+    // Only scroll to top if header isn't open and current link is active page
+    if (!open && active) {
       scrollTo(0);
       return;
     }
 
-    if (isOpen && active) {
-      setDisabled(true);
+    // Only close header (without routing) if current link is active page
+    if (open && active) {
       toggleOpen();
       return;
     }
 
-    if (isOpen) {
-      setDisabled(true);
+    // Set proper page transitions before routing
+    if (open) {
       setTransition(true);
       setTransitionInitial(false);
     }
@@ -152,7 +162,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
    * Handle closing if routes change
    */
   useEffect(() => {
-    if (!isOpen) return;
+    if (!open) return;
 
     const changeStart = () => {
       setEnterExit({
@@ -160,6 +170,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
         btnText: enterExitBtnTextIfNavOpen,
       });
     };
+
     const changeComplete = () => {
       toggleOpen();
       setEnterExit({
@@ -178,30 +189,30 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
       events.off('routeChangeComplete', changeComplete);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen, events]);
+  }, [open, events]);
 
   /**
    * Handle closing with ESC key
    */
   useEffect(() => {
-    if (isOpen && !disabled) {
+    if (open && !animating) {
       const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen();
       html.addEventListener('keydown', esc);
       return () => html.removeEventListener('keydown', esc);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen, disabled, html]);
+  }, [open, animating, html]);
 
   /**
    * Disable keydowns if mask is animating
    */
   useEffect(() => {
-    if (disabled) {
+    if (animating) {
       const keys = (e: KeyboardEvent) => e.preventDefault();
       html.addEventListener('keydown', keys);
       return () => html.removeEventListener('keydown', keys);
     }
-  }, [disabled, html]);
+  }, [animating, html]);
 
   /**
    * Mask
@@ -209,12 +220,12 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   useEffect(() => {
     (async () => {
       if (mask === 'open') {
-        setMaskIsOpen(true);
+        setMaskOpen(true);
         // Timeout because of display property (none/flex) change
         setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5);
         await maskAnim.start({
           clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          ...maskOpen,
+          transition: maskOpenTransition,
         });
         setMask('openReset');
       }
@@ -222,7 +233,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
       if (mask === 'closed') {
         await maskAnim.start({
           clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          ...maskClose,
+          transition: maskCloseTransition,
         });
         setMask('closedReset');
       }
@@ -242,32 +253,35 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   }, [mask, arrowPos.x, arrowPos.y, maskAnim]);
 
   useEffect(() => {
-    if (mask === 'closedReset' && !disabled) setMaskIsOpen(false);
-  }, [mask, disabled]);
+    if (mask === 'closedReset' && !animating) setMaskOpen(false);
+  }, [mask, animating]);
 
   return (
     <FocusTrap
-      active={isOpen}
+      active={open}
       focusTrapOptions={{ initialFocus: false, returnFocusOnDeactivate: false }}
     >
       <header
-        className="Header"
+        className={c('Header', {
+          'is-animating': animating,
+          'is-open': maskOpen,
+        })}
         onMouseDown={() => btnFocus && setBtnFocus(false)}
       >
         <m.div
-          animate={isOpen ? 'open' : isOpen === false ? 'closed' : ''}
-          className={c('Header-main', { 'is-disabled': disabled })}
+          animate={open ? 'open' : 'closed'}
+          className="Header-main"
           initial="initial"
           onAnimationComplete={() => {
-            if (!isOpen) {
+            if (!open) {
               html.classList.remove('is-headerOpen');
               setOpenReveal(false);
               setTimeout(() => {
                 if (btnFocus) btnRef?.current?.focus();
-                setDisabled(false);
+                setAnimating(false);
               }, 700);
             } else {
-              setDisabled(false);
+              setAnimating(false);
             }
           }}
           variants={mainItemVariant}
@@ -277,8 +291,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               <m.div variants={mainItemOutVariant}>
                 <LinkRoll
                   href="/"
-                  onClick={handleClick}
-                  {...(isOpen && { hidden: true, tabIndex: -1 })}
+                  onClick={handleLinkClick}
+                  {...(open && { hidden: true, tabIndex: -1 })}
                 >
                   Joonas Sandell
                 </LinkRoll>
@@ -290,7 +304,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 >
                   <LinkRoll
                     href="/"
-                    onClick={handleClick}
+                    onClick={handleLinkClick}
                     templateTransition={false}
                   >
                     Joonas Sandell
@@ -345,7 +359,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     className="Header-button-text-item"
                     key={asPath}
                     {...enterExit.btnText}
-                    {...(isOpen && { hidden: true })}
+                    {...(open && { hidden: true })}
                   >
                     <m.div variants={mainItemOutVariant}>{navTitle}</m.div>
                   </m.div>
@@ -364,7 +378,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                   {...(mqM && { ...enterExit.btnArrow })}
                 >
                   <ButtonArrow
-                    active={isOpen}
+                    active={open}
                     hoverEnd={hover === 'end'}
                     hoverStart={hover === 'start'}
                   />
@@ -374,21 +388,21 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
             <ul className="Header-nav">
               <HeaderNavItem
                 href={about.url}
-                isOpen={isOpen}
-                onClick={handleClick}
+                isOpen={open}
+                onClick={handleLinkClick}
                 openReveal={openReveal}
                 title={about.navTitle}
               />
               <HeaderNavItem
                 href={milestones.url}
-                isOpen={isOpen}
-                onClick={handleClick}
+                isOpen={open}
+                onClick={handleLinkClick}
                 openReveal={openReveal}
                 title={milestones.navTitle}
               />
               <HeaderNavItem
                 href={contact.url}
-                isOpen={isOpen}
+                isOpen={open}
                 openReveal={openReveal}
                 target="_self"
                 title={contact.navTitle}
@@ -398,16 +412,13 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
         </m.div>
         <m.div
           animate={maskAnim}
-          className={c('Header-mask scrollbar -color:negative', {
-            'is-disabled': disabled,
-            'is-open': maskIsOpen,
-          })}
+          className="Header-mask scrollbar -color:negative"
           ref={maskRef}
         >
-          {maskIsOpen && (
+          {maskOpen && (
             <>
               <m.nav
-                animate={isOpen ? 'open' : 'closed'}
+                animate={open ? 'open' : 'closed'}
                 className="Header-mask-nav"
                 initial="initial"
                 variants={maskNavVariant}
@@ -421,7 +432,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                           color={item.color}
                           href={item.url}
                           key={item.id}
-                          onClick={handleClick}
+                          onClick={handleLinkClick}
                           title={item.navTitle}
                           year={item.year}
                         />
@@ -430,7 +441,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 </ul>
               </m.nav>
               <m.footer
-                animate={!isOpen ? 'closed' : ''}
+                animate={!open ? 'closed' : ''}
                 className="Header-footer wrap"
                 variants={maskNavItemVariant}
               >

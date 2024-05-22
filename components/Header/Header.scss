@@ -40,7 +40,7 @@
     pointer-events: all;
   }
 
-  .Header-main.is-disabled & {
+  .Header.is-animating & {
     pointer-events: none;
   }
 }
@@ -213,12 +213,12 @@
   position: fixed;
   z-index: var(--z-index-800);
 
-  &.is-open {
+  .Header.is-open & {
     display: flex;
   }
 
   // [3.]
-  &.is-disabled {
+  .Header.is-animating & {
     pointer-events: none;
   }
 

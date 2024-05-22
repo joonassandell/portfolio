@@ -106,13 +106,9 @@ export const mainItemOutVariant: Variants = {
  * Mask
  * ======================================= */
 
-export const maskOpen = {
-  transition: TRANS_PRIMARY,
-};
+export const maskOpenTransition = TRANS_PRIMARY;
 
-export const maskClose = {
-  transition: TRANS_PRIMARY,
-};
+export const maskCloseTransition = TRANS_PRIMARY;
 
 export const maskNavVariant: Variants = {
   closed: {
