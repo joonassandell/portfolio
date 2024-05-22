@@ -41,7 +41,7 @@ const config = {
   async headers() {
     return [
       {
-        source: '/(.*).(jpe?g|png|ico|webp|svg|xml|woff2?)',
+        source: '/(.*).(jpe?g|png|ico|webp|svg|xml|mp4|woff2?)',
         locale: false,
         headers: [
           {
