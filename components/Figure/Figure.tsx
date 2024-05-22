@@ -149,12 +149,11 @@ export const Figure = ({
               muted
               playsInline
               ref={refVideo}
-              title={alt}
             >
               <source src={src} />
-              <p className="hideVisually">{alt}</p>
             </video>
           )}
+          {isVideo && <figcaption className="hideVisually">{alt}</figcaption>}
         </m.div>
       </figure>
     </div>
