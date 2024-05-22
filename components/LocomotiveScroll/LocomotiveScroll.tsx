@@ -1,10 +1,10 @@
-import { createContext, useEffect, useRef, useState } from 'react';
+import { createContext, useEffect, useMemo, useRef, useState } from 'react';
+import { debounce } from 'lodash-es';
 import {
   type LocomotiveScrollContextProps,
   type LocomotiveScrollProviderProps,
   type ScrollProps,
 } from './';
-import { useDebounce } from 'use-debounce';
 import useResizeObserver from 'use-resize-observer';
 
 export const LocomotiveScrollContext =
@@ -25,7 +25,17 @@ export const LocomotiveScrollProvider = ({
   const { height: containerHeight } = useResizeObserver({ ref: containerRef });
   const [isReady, setIsReady] = useState(false);
   const LocomotiveScrollRef = useRef<ScrollProps | null>(null);
-  const [height] = useDebounce(containerHeight, 100);
+  const [height, setHeight] = useState(containerHeight);
+
+  const handleResize = useMemo(
+    () => debounce((height: typeof containerHeight) => setHeight(height), 100),
+    [setHeight],
+  );
+
+  useEffect(
+    () => handleResize(containerHeight),
+    [containerHeight, handleResize],
+  );
 
   useEffect(() => {
     (async () => {
