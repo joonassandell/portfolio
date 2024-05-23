@@ -23,7 +23,7 @@ import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { urlState } from '@/lib/useUrlState';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -43,7 +43,7 @@ const source = getLink('source', 'common');
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
-  const { html, setTransition, setTransitionInitial } = useAppContext();
+  const { html, setTransition, setTransitionInitial } = useApp();
   const { scroll } = useLocomotiveScroll();
   const scrollTo = useScrollTo();
   const mqM = useMedia(MQ.m, true);

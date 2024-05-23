@@ -7,7 +7,7 @@ import {
   variantsWithoutTransition,
   variantsWithTransition,
 } from './';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useEffect, useState } from 'react';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import c from 'clsx';
@@ -21,7 +21,7 @@ export const Template = ({
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
   );
-  const { transition } = useAppContext();
+  const { transition } = useApp();
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const defaultTransition = transition && !templateTransition;

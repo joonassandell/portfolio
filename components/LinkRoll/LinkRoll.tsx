@@ -8,7 +8,7 @@ import {
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { isBoolean, isEmptyString } from '@/lib/utils';
 import { default as NextLink } from 'next/link';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useState } from 'react';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -24,7 +24,7 @@ export const LinkRoll = ({
   underline,
   ...props
 }: LinkRollProps) => {
-  const { setTransition } = useAppContext();
+  const { setTransition } = useApp();
   const [hover, setHover] = useState(false);
   const characters = children?.split('');
   const classes = c(className, 'LinkRoll', {

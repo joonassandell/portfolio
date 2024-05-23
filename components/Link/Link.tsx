@@ -9,7 +9,7 @@ import {
   outVariantX,
 } from './';
 import { default as NextLink } from 'next/link';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useState } from 'react';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -27,7 +27,7 @@ export const Link = ({
   underline = true,
   ...props
 }: LinkProps) => {
-  const { setTransition } = useAppContext();
+  const { setTransition } = useApp();
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
     '-arrow': arrow,

@@ -8,7 +8,7 @@ import {
   maskNavItemMarqueeVariant,
   maskNavItemVariant,
 } from './';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 import EyeSvg from './eye.svg';
@@ -34,7 +34,7 @@ export const HeaderMaskNavItem = ({
   const marqueeRef = useRef<HTMLDivElement>(null);
   const {
     detect: { hasTouch },
-  } = useAppContext();
+  } = useApp();
 
   const findClosestEdge = (e: MouseEvent) => {
     if (!ref.current) return;

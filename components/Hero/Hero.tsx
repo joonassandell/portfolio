@@ -5,7 +5,7 @@ import { m } from 'framer-motion';
 import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
 import { Stamp } from '@/components/Stamp';
 import { TextReveal } from '@/components/TextReveal';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'clsx';
@@ -26,7 +26,7 @@ export const Hero = ({
 }: HeroProps) => {
   const transitionPre = transition === 'pre';
   const { transition: appTransition, transitionInitial: appTransitionInitial } =
-    useAppContext();
+    useApp();
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
   const ref = useRef(null);

@@ -10,7 +10,7 @@ import {
 } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { m } from 'framer-motion';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useState } from 'react';
 import c from 'clsx';
 import Link from 'next/link';
@@ -24,7 +24,7 @@ export const ButtonEnter = ({
   ...props
 }: ButtonEnterProps) => {
   const classes = c('Button Button--enter', className);
-  const { setTransition } = useAppContext();
+  const { setTransition } = useApp();
   const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
   const Tag = href ? m.a : m.button;

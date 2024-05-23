@@ -1,6 +1,6 @@
 import { type MouseEvent } from 'react';
 import { type TableRowProps } from './';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import { useRouter } from 'next/router';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -14,7 +14,7 @@ export const TableRow = ({
   ...props
 }: TableRowProps) => {
   const classes = c('Table-row', className);
-  const { setTransition } = useAppContext();
+  const { setTransition } = useApp();
   const { push } = useRouter();
   const { external, externalTarget } = useUrlState(href as URL['href']);
 
