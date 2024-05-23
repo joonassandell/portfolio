@@ -7,9 +7,17 @@ import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProjectProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { useSetThemeColor } from '@/components/App';
 
-export const ArchivePage = ({ id, images, title, year }: PageProjectProps) => {
+export const ArchivePage = ({
+  id,
+  images,
+  themeColor,
+  title,
+  year,
+}: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
+  useSetThemeColor(themeColor);
 
   return (
     <Template className="Template--moreWork" id={id}>

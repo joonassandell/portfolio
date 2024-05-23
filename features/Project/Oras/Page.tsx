@@ -7,6 +7,7 @@ import { NextProject } from '@/components/NextProject';
 import { OrasHero } from '@/features/Project';
 import { type PageProjectProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { useSetThemeColor } from '@/components/App';
 
 export const OrasPage = ({
   id,
@@ -15,10 +16,11 @@ export const OrasPage = ({
   title,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
+  useSetThemeColor(themeColor);
 
   return (
     <Template id={id}>
-      <Head themeColor={themeColor} title={title} />
+      <Head title={title} />
       <TemplateMain>
         <OrasHero />
         <Info

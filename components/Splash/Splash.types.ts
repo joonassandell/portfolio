@@ -1,6 +1,6 @@
-import { type AppContextProps } from '@/components/App';
+import { type AnimationLifecycles } from 'framer-motion';
 
 export interface SplashProps {
   loading: boolean;
-  setLoadingEnd: AppContextProps['setLoadingEnd'];
+  onAnimationComplete: AnimationLifecycles['onAnimationComplete'];
 }

@@ -1,7 +1,8 @@
+import { type AppHeadProps } from './';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-export const AppHead = () => {
+export const AppHead = ({ themeColor }: AppHeadProps) => {
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const { asPath } = useRouter();
   const title = 'Joonas Sandell — Designer & Developer';
@@ -80,7 +81,11 @@ export const AppHead = () => {
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
         name="viewport"
       />
-      <meta content="#ffffff" key="theme-color" name="theme-color" />
+      <meta
+        content={themeColor ? themeColor : '#000000'}
+        key="theme-color"
+        name="theme-color"
+      />
       <link
         as="font"
         crossOrigin="anonymous"

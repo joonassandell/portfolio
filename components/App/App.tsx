@@ -1,5 +1,10 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
-import { type AppContextProps, AppHead, type AppProps } from './';
+import {
+  type AppContextProps,
+  AppHead,
+  type AppHeadProps,
+  type AppProps,
+} from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE, EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { Header } from '@/components/Header';
@@ -22,7 +27,10 @@ export const App = ({ Component, pageProps }: AppProps) => {
   const [appState, setAppState] = useState<
     Omit<
       AppContextProps,
-      'setLoadingEnd' | 'setTransition' | 'setTransitionInitial'
+      | 'setLoadingEnd'
+      | 'setTransition'
+      | 'setTransitionInitial'
+      | 'setThemeColor'
     >
   >({
     detect: {},
@@ -65,6 +73,8 @@ export const App = ({ Component, pageProps }: AppProps) => {
       loadingEnd: value,
     }));
   };
+
+  const [themeColor, setThemeColor] = useState<string | undefined>();
 
   /* ======
    * Initialize stuff on load etc.
@@ -211,7 +221,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <LazyMotion features={domAnimation} strict>
-      <AppHead />
+      <AppHead themeColor={loadingEnd ? themeColor : undefined} />
       {PRODUCTION && (
         <>
           <Script
@@ -230,12 +240,15 @@ export const App = ({ Component, pageProps }: AppProps) => {
         </>
       )}
       {!DISABLE_LOADING && (
-        <Splash loading={loading} setLoadingEnd={setLoadingEnd} />
+        <Splash
+          loading={loading}
+          onAnimationComplete={() => setLoadingEnd(true)}
+        />
       )}
       <AppContext.Provider
         value={{
           ...appState,
-          setLoadingEnd,
+          setThemeColor,
           setTransition,
           setTransitionInitial,
         }}
@@ -309,4 +322,15 @@ export const useAppContext = () => {
   const context = useContext(AppContext);
   if (context) return context;
   throw new Error('useAppContext must be used within App');
+};
+
+export const useSetThemeColor = (
+  themeColor: AppHeadProps['themeColor'] = '#fefefe',
+) => {
+  const context = useAppContext();
+  const { setThemeColor } = context;
+
+  useEffect(() => {
+    if (themeColor) setThemeColor(themeColor);
+  }, [setThemeColor, themeColor]);
 };

@@ -11,7 +11,7 @@ import { type PageProps } from '@/types';
 import { Template, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
-import { useAppContext } from '@/components/App';
+import { useAppContext, useSetThemeColor } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
@@ -49,12 +49,12 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
       .
     </>,
   ];
+  useSetThemeColor(themeColor);
 
   return (
     <Template id={id}>
       <Head
         description="I'm creative developer and designer based in Helsinki, Finland."
-        themeColor={themeColor}
         title={title}
       />
       <TemplateMain>

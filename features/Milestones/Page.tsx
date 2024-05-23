@@ -12,11 +12,14 @@ import { objectEntries } from '@/lib/utils';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
+import { useSetThemeColor } from '@/components/App';
 
 export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
+  useSetThemeColor(themeColor);
+
   return (
     <Template id={id} variant="default">
-      <Head themeColor={themeColor} title={title} />
+      <Head title={title} />
       <TemplateMain>
         <TemplateSection>
           <div className="grid-col grid-col:6@l">

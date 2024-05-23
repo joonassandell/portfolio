@@ -8,6 +8,7 @@ import { type PageProjectProps } from '@/types';
 import { SandboxHero } from '@/features/Project';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useMedia } from 'react-use';
+import { useSetThemeColor } from '@/components/App';
 
 export const SandboxPage = ({
   id,
@@ -17,11 +18,12 @@ export const SandboxPage = ({
   year,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('more-work');
+  useSetThemeColor(themeColor);
   const mqM = useMedia(MQ.m, false);
 
   return (
     <Template id={id}>
-      <Head themeColor={themeColor} title={title} />
+      <Head title={title} />
       <TemplateMain>
         <SandboxHero />
         <Info

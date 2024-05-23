@@ -7,28 +7,29 @@ import {
 } from '@/features/Project';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utils';
-import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent, type PageProps } from '@/types';
 import { m } from 'framer-motion';
 import { Template, TemplateMain } from '@/components/Template';
-import { useAppContext } from '@/components/App';
+import { useAppContext, useSetThemeColor } from '@/components/App';
 import {
   useLocomotiveScroll,
   useScrollTo,
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
 
-export const HomePage = ({ id, themeColor: theme }: PageProps) => {
-  const about = getSitemap('about', 'common');
-  const { setTransition, setTransitionInitial } = useAppContext();
-  const [animation, setAnimation] = useState(false);
-  const [themeColor, setThemeColor] = useState(theme);
-  const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState<string>();
+const about = getSitemap('about', 'common');
+
+export const HomePage = ({ id, themeColor }: PageProps) => {
+  useSetThemeColor(themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
+  const { setThemeColor, setTransition, setTransitionInitial } =
+    useAppContext();
+  const [animation, setAnimation] = useState(false);
+  const [extraSpace, setExtraSpace] = useState(false);
+  const [currentHero, setCurrentHero] = useState<string>();
 
   const handleClick = (e: LinkEvent) => {
     if (!scroll) return;
@@ -54,7 +55,6 @@ export const HomePage = ({ id, themeColor: theme }: PageProps) => {
 
   return (
     <Template className={extraSpace ? 'is-extraSpace' : ''} id={id}>
-      <Head themeColor={themeColor} />
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}

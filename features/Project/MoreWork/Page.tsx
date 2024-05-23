@@ -10,6 +10,7 @@ import { type PageProjectProps } from '@/types';
 import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
+import { useSetThemeColor } from '@/components/App';
 
 export const MoreWorkPage = ({
   id,
@@ -20,10 +21,11 @@ export const MoreWorkPage = ({
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
   const archive = getSitemap('archive');
+  useSetThemeColor(themeColor);
 
   return (
     <Template id={id}>
-      <Head themeColor={themeColor} title={title} />
+      <Head title={title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info

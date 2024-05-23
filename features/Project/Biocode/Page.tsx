@@ -7,6 +7,7 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProjectProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { useSetThemeColor } from '@/components/App';
 
 export const BiocodePage = ({
   id,
@@ -15,10 +16,11 @@ export const BiocodePage = ({
   title,
 }: PageProjectProps) => {
   const { id: nextProjectId } = getSitemap('oras');
+  useSetThemeColor(themeColor);
 
   return (
     <Template id={id}>
-      <Head themeColor={themeColor} title={title} />
+      <Head title={title} />
       <TemplateMain>
         <BiocodeHero />
         <Info

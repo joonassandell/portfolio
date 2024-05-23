@@ -1,12 +1,7 @@
 import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
-export const Head = ({
-  children,
-  description,
-  themeColor,
-  title,
-}: HeadProps) => {
+export const Head = ({ children, description, title }: HeadProps) => {
   const pageTitle = title ? `Joonas Sandell${title ? ' — ' + title : ''}` : '';
 
   return (
@@ -36,9 +31,6 @@ export const Head = ({
             property="twitter:description"
           />
         </>
-      )}
-      {themeColor && (
-        <meta content={themeColor} key="theme-color" name="theme-color" />
       )}
       {children}
     </NextHead>
