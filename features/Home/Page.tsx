@@ -12,7 +12,7 @@ import { Link } from '@/components/Link';
 import { type LinkEvent, type PageProps } from '@/types';
 import { m } from 'framer-motion';
 import { Template, TemplateMain } from '@/components/Template';
-import { useAppContext, useSetThemeColor } from '@/components/App';
+import { useApp, useSetThemeColor } from '@/components/App';
 import {
   useLocomotiveScroll,
   useScrollTo,
@@ -25,8 +25,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
   useSetThemeColor(themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
-  const { setThemeColor, setTransition, setTransitionInitial } =
-    useAppContext();
+  const { setThemeColor, setTransition, setTransitionInitial } = useApp();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<string>();

@@ -11,7 +11,7 @@ import { type PageProps } from '@/types';
 import { Template, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
-import { useAppContext, useSetThemeColor } from '@/components/App';
+import { useApp, useSetThemeColor } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
@@ -24,7 +24,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
-  const { transition } = useAppContext();
+  const { transition } = useApp();
   const templateTransition = transition === 'template';
   const subHeadingMobile = [
     "I'm creative developer ",

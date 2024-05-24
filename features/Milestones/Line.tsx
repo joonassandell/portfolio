@@ -18,7 +18,7 @@ import {
   useState,
 } from 'react';
 import { Text } from '@/components/Text';
-import { useAppContext } from '@/components/App';
+import { useApp } from '@/components/App';
 import dynamic from 'next/dynamic';
 
 const ResponsiveLine = dynamic(
@@ -31,7 +31,7 @@ export const MilestonesLine = () => {
   const refInner = useRef<HTMLDivElement>(null);
   const {
     detect: { isDesktopSafari },
-  } = useAppContext();
+  } = useApp();
   const years = MILESTONES_YEARS.map(y => new Date(y));
   const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR));
   const largestToEvenValue =

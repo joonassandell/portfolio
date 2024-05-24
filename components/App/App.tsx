@@ -321,7 +321,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
 export const useApp = () => {
   const context = useContext(AppContext);
   if (context) return context;
-  throw new Error('useAppContext must be used within App');
+  throw new Error('useApp must be used within App');
 };
 
 export const useSetThemeColor = (
