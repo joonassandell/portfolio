@@ -17,39 +17,58 @@ import { useMedia } from 'react-use';
 import { useRef } from 'react';
 import ballImage from '@/public/about/line-ball.png';
 import cubeImage from '@/public/about/line-cube.png';
-import profileImage from '@/public/about/joonassandell-profile.jpg';
+import profileImage from '@/public/about/joonassandell-profile.png';
 import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 
 export const AboutPage = ({ id, themeColor, title }: PageProps) => {
+  useSetThemeColor(themeColor);
   const mqS = useMedia(MQ.s, false);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
   const { transition } = useApp();
   const templateTransition = transition === 'template';
-  const subHeadingMobile = [
-    "I'm creative developer ",
-    'and designer based in ',
-    'Helsinki, Finland. ',
-    'Currently working for ',
-    <>
-      <LinkRoll href="https://biocode.io" underline>
-        Biocode
-      </LinkRoll>
-      .
-    </>,
-  ];
-  const subHeadingDesktop = [
-    "I'm creative developer and designer",
-    'based in Helsinki, Finland.',
-    <>
-      Currently working for{' '}
-      <LinkRoll href="https://biocode.io" underline>
-        Biocode
-      </LinkRoll>
-      .
-    </>,
-  ];
-  useSetThemeColor(themeColor);
+
+  const heading = {
+    desktop: [
+      "I'm creative developer and designer ",
+      'with a keen eye for good design ',
+      'and attention to detail',
+    ],
+    mobile: [
+      "I'm creative developer ",
+      'and designer with ',
+      'a keen eye for good ',
+      'design and attention ',
+      'to detail',
+    ],
+  };
+
+  const lead = {
+    desktop: [
+      <>
+        With more than a decade of{' '}
+        <Link href="/milestones">design engineering</Link>{' '}
+      </>,
+      <>
+        <Link href="/milestones">experience</Link>, I have the skills to build
+        hiqh-quality{' '}
+      </>,
+      'web experiences and assist clients in addressing ',
+      'practical business challenges.',
+    ],
+    mobile: [
+      <>
+        With more than a decade of <Link href="/milestones">design</Link>{' '}
+      </>,
+      <>
+        <Link href="/milestones">engineering experience</Link>, I have the{' '}
+      </>,
+      'skills to build hiqh-quality web ',
+      'web experiences and assist ',
+      'clients in addressing practical ',
+      'business challenges.',
+    ],
+  };
 
   return (
     <Template id={id}>
@@ -66,9 +85,9 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
             data-s-position="left"
             data-s-speed={SCROLL_SPEED}
             size="display"
-            tag="h1"
+            tag="div"
           >
-            <TextReveal text={['Hello. ✳︎ Moro ✳︎ Hi. ✳︎ Wassup.']} />
+            <TextReveal text={["Hello. ✳︎ Moro. ✳︎ Hi. ✳︎ What's up?"]} />
           </Heading>
         </div>
         <div className="Template-figure grid">
@@ -78,6 +97,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
               borderRadius={false}
               mask
               priority
+              quality={90}
               scrollImageSpeed={-4}
               scrollPosition="top"
               sizes="50vw"
@@ -99,92 +119,104 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
             />
           </div>
         </div>
-        <div className="Template-about wrap grid pt:15vw" id="about">
-          <div className="grid-col -start:3@m -start:5@l pb:5vw">
-            <Heading
-              size="h4"
-              {...(mqS && {
-                'data-s': true,
-                'data-s-position': 'top',
-                'data-s-speed': SCROLL_SPEED,
-              })}
-            >
-              <TextReveal text={mqS ? subHeadingDesktop : subHeadingMobile} />
-            </Heading>
-            <div
-              className="Template-cube-2"
-              data-s
-              data-s-position="top"
-              data-s-speed={SCROLL_SPEED * -2}
-            >
-              <m.div
-                animate={cubeImageInView ? 'animate' : ''}
-                ref={cubeImageAnim}
-                variants={{
-                  animate: {
-                    rotate: 360,
-                    transition: {
-                      duration: 20,
-                      ease: 'linear',
-                      repeat: Infinity,
-                    },
-                  },
-                }}
-              >
-                <Figure
-                  alt="Another line cube"
-                  aria-hidden="true"
-                  borderRadius={false}
-                  inViewOffset={-1}
-                  placeholder={false}
-                  sizes={`${MQ.m} 30vw, 40vw`}
-                  {...cubeImage}
+        <div className="Template-about wrap pt:15vw" id="about">
+          <div
+            className="grid pb:5vw"
+            {...(mqS && {
+              'data-s': true,
+              'data-s-position': 'top',
+              'data-s-speed': SCROLL_SPEED,
+            })}
+          >
+            <div className="grid-col -start:3@m -start:3@l pb:5vw">
+              <Heading className="mb:l" size="h3" tag="h1">
+                <TextReveal text={mqS ? heading.desktop : heading.mobile} />
+              </Heading>
+              <Text className="mb:0" size="xl" tag="p">
+                <TextReveal
+                  custom={{ delay: mqS ? 0.5 : 1 }}
+                  text={mqS ? lead.desktop : lead.mobile}
                 />
-              </m.div>
+              </Text>
             </div>
           </div>
-          <m.div
-            animate="animate"
-            className="Template-profileCol grid-col grid-col:8 grid-col:4@s"
-            initial={templateTransition && 'initial'}
-            variants={JUMP_FIX_VARIANTS}
+          <div
+            className="Template-cube-2"
+            data-s
+            data-s-position="top"
+            data-s-speed={SCROLL_SPEED * -2}
           >
-            <Figure
-              alt="Joonas Sandell"
-              borderRadius={false}
-              className="Template-profile"
-              mask
-              scrollPrevent
-              scrollSpeed={-0.5}
-              sizes={`${MQ.s} 25vw, 70vw`}
-              {...profileImage2}
-            />
-          </m.div>
-          <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:7@l">
-            <Text animate className="mb:m">
-              <p>
-                I’m Joonas — Front-end developer, art director and sometimes
-                even a music producer. I have a strong passion for all aspects
-                of product and visual design, including web and mobile services,
-                branding and software development. I love designing in the
-                browser but I work a lot with Figma and other design tools as
-                well.
-              </p>
-            </Text>
-            <Text animate className="mb:m">
-              <p>
-                With more than a decade of experience in the design and software
-                industry, I have the skills to assist clients in addressing
-                practical business challenges.
-              </p>
-            </Text>
-            <Text animate className="mb:l">
-              <p>
-                In my spare time I like to hang out with my family,{' '}
-                <Link href={getLink('soundcloud').url}>create music</Link>,
-                follow eSports, play games and bicycle.
-              </p>
-            </Text>
+            <m.div
+              animate={cubeImageInView ? 'animate' : ''}
+              ref={cubeImageAnim}
+              variants={{
+                animate: {
+                  rotate: 360,
+                  transition: {
+                    duration: 20,
+                    ease: 'linear',
+                    repeat: Infinity,
+                  },
+                },
+              }}
+            >
+              <Figure
+                alt="Another line cube"
+                aria-hidden="true"
+                borderRadius={false}
+                inViewOffset={-1}
+                placeholder={false}
+                sizes={`${MQ.m} 30vw, 40vw`}
+                {...cubeImage}
+              />
+            </m.div>
+          </div>
+          <div className="grid">
+            <m.div
+              animate="animate"
+              className="Template-profileCol grid-col grid-col:8 grid-col:4@s"
+              initial={templateTransition && 'initial'}
+              variants={JUMP_FIX_VARIANTS}
+            >
+              <Figure
+                alt="Joonas Sandell"
+                className="Template-profile"
+                mask
+                scrollPrevent
+                scrollSpeed={-0.5}
+                sizes={`${MQ.s} 25vw, 70vw`}
+                {...profileImage2}
+              />
+            </m.div>
+            <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
+              <Text animate className="mb:m">
+                <p>
+                  I’m Joonas — Front-end developer, UI/UX designer and sometimes
+                  even a{' '}
+                  <Link href={getLink('soundcloud').url}>music producer</Link>.
+                  I have a strong visual taste, broad understanding of front-end
+                  web technologies and a genuine passion for all aspects of
+                  product and visual design, including web services, touch
+                  platforms and branding.
+                </p>
+              </Text>
+              <Text animate className="mb:m">
+                <p>
+                  I love designing by code in the browser but I work a lot with
+                  Figma and other design tools as well. Usually I prefer writing
+                  applications with <em>TypeScript</em>, <em>React</em>,{' '}
+                  <em>Sass</em> and other modern tools.
+                </p>
+              </Text>
+              <Text animate className="mb:l">
+                <p>
+                  With a background that spans both UI design and coding, I
+                  thrive at the intersection of aesthetics and functionality,
+                  blending the best of both worlds to deliver great user
+                  experiences.
+                </p>
+              </Text>
+            </div>
           </div>
         </div>
         <div className="Template-skills" id="skills">
