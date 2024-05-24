@@ -61,5 +61,8 @@
     "sass": "^1.76.0",
     "sass-mq": "^6.0.0",
     "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
