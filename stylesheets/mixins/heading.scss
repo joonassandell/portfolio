@@ -3,7 +3,7 @@
 @use 'utils' as *;
 
 @mixin heading($size: h1, $base: true, $margin: true, $color: true) {
-  @if $color and $size != h6 {
+  @if $color {
     color: var(--heading);
   }
 
@@ -19,15 +19,21 @@
 
   @if $size == 'h1' {
     @include fontSize($h1-font-size-min, $h1-line-height, $h1-font-size-max);
+    letter-spacing: -0.015em;
   } @else if $size == 'h2' {
     @include fontSize($h2-font-size-min, $h2-line-height, $h2-font-size-max);
+    letter-spacing: -0.015em;
   } @else if $size == 'h3' {
     @include fontSize($h3-font-size-min, $h3-line-height, $h3-font-size-max);
+    letter-spacing: -0.015em;
   } @else if $size == 'h4' {
     @include fontSize($h4-font-size-min, $h4-line-height, $h4-font-size-max);
+    letter-spacing: normal;
   } @else if $size == 'h5' {
     @include fontSize($h5-font-size-min, $h5-line-height, $h5-font-size-max);
+    letter-spacing: normal;
   } @else if $size == 'h6' {
     @include fontSize($h6-font-size-min, $h6-line-height, $h6-font-size-max);
+    letter-spacing: normal;
   }
 }

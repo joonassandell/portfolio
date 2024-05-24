@@ -4,7 +4,8 @@
 .Template {
   --Template-overlay-color: var(--black);
   --Template-overlay-color-initial: var(--black-transparent);
-  background-color: var(--Template-bg-color, var(--bg-50));
+
+  background: var(--Template-bg-color, var(--bg-50));
   color: var(--Template-color, var(--text-900));
   min-height: var(--vh);
   overflow: hidden;
@@ -53,12 +54,15 @@
 }
 
 .Template-main {
-  background-color: var(--Template-main-bg-color, inherit);
-  color: var(--Template-main-color, currentColor);
+  background: var(
+    --Template-main-bg-color,
+    var(--Template-bg-color, var(--bg-50))
+  );
+  color: var(--Template-main-color, var(--Template-color, var(--text-900)));
 }
 
 .Template-section {
-  background-color: var(--Template-section-bg-color);
+  background: var(--Template-section-bg-color);
 }
 
 /* =======================================

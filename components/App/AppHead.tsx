@@ -96,6 +96,13 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       <link
         as="font"
         crossOrigin="anonymous"
+        href="/static/fonts/Px-Grotesk-Regular-Italic.woff2"
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
         href="/static/fonts/Px-Grotesk-Light.woff2"
         rel="preload"
         type="font/woff2"

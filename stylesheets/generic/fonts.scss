@@ -9,6 +9,14 @@
 @font-face {
   font-display: swap;
   font-family: 'Px Grotesk';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/static/fonts/Px-Grotesk-Regular-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Px Grotesk';
   font-style: normal;
   font-weight: 100;
   src: url('/static/fonts/Px-Grotesk-Light.woff2') format('woff2');

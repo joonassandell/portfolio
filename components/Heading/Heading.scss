@@ -1,10 +1,14 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
+.Heading {
+  color: var(--heading);
+}
+
 .Heading--display {
   @include fontSize(20px, 20px, 999px, 20vw);
   font-weight: var(--font-weight-100);
-  letter-spacing: -0.065em; // -0.05, -0.035em, 1em
+  letter-spacing: -0.065em;
   margin-left: rem(-$space-xs);
   user-select: none;
 
