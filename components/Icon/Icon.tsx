@@ -6,6 +6,7 @@ import ArrowRightIconLong from './icons/arrow-right-long.svg';
 import ArrowUpIcon from './icons/arrow-up.svg';
 import c from 'clsx';
 import CrossIcon from './icons/cross.svg';
+import DownloadIcon from './icons/download.svg';
 
 export const ArrowDown = ({ className }: IconProps) => (
   <ArrowDownIcon className={c('Icon Icon--arrowDown', className)} />
@@ -31,4 +32,8 @@ export const ArrowUp = ({ className }: IconProps) => (
 
 export const Cross = ({ className }: IconProps) => (
   <CrossIcon className={c('Icon Icon--cross', className)} />
+);
+
+export const Download = ({ className }: IconProps) => (
+  <DownloadIcon className={c('Icon Icon--download', className)} />
 );
