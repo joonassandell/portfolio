@@ -96,7 +96,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
               quality={90}
               scrollImageSpeed={-4}
               scrollPosition="top"
-              sizes="50vw"
+              sizes={`${MQ.s} 50vw, 80vw`}
               transition="clip"
               {...profileImage}
             />
@@ -110,7 +110,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
               scroll
               scrollPosition="top"
               scrollSpeed={3}
-              sizes={`${MQ.m} 30vw, 40vw`}
+              sizes="33vw"
               {...cubeImage}
             />
           </div>
@@ -171,7 +171,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
                 borderRadius={false}
                 inViewOffset={-1}
                 placeholder={false}
-                sizes={`${MQ.m} 30vw, 40vw`}
+                sizes="33vw"
                 {...cubeImage}
               />
             </m.div>
@@ -186,9 +186,9 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
               <Figure
                 alt="Joonas Sandell"
                 className="Template-profile"
+                inViewOffset={-1}
                 mask
                 scrollPrevent
-                scrollSpeed={-0.5}
                 sizes={`${MQ.s} 25vw, 70vw`}
                 {...profileImage2}
               />
