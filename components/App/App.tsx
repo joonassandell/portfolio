@@ -327,8 +327,7 @@ export const useApp = () => {
 export const useSetThemeColor = (
   themeColor: AppHeadProps['themeColor'] = '#fefefe',
 ) => {
-  const context = useApp();
-  const { setThemeColor } = context;
+  const { setThemeColor } = useApp();
 
   useEffect(() => {
     if (themeColor) setThemeColor(themeColor);

@@ -8,6 +8,7 @@ import {
   pointerInVariants,
   pointerOutVariants,
 } from './';
+import { type ButtonEvent, type LinkEvent } from '@/types';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { m } from 'framer-motion';
 import { useApp } from '@/components/App';
@@ -45,7 +46,7 @@ export const ButtonEnter = ({
             setHover(false);
           }
         }}
-        onClick={(e: any) => {
+        onClick={(e: ButtonEvent & LinkEvent) => {
           templateTransition && setTransition('template');
           onClick && onClick(e);
         }}
