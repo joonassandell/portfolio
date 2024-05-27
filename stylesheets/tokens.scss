@@ -3,7 +3,7 @@
 
 :root {
   /* =======================================
-   * Primitive tokens
+   * Primitive color tokens
    * ======================================= */
 
   // Generic
@@ -57,6 +57,18 @@
   --border-800: var(--gray-800);
   --border-900: var(--gray-950);
 
+  --border-width-s: 0.5px;
+  --border-width-m: 1px;
+  --border-width-l: 2px;
+  --border-width-negative: -1px;
+  --border-width: var(--border-width-m);
+
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border-radius-pill: 999px;
+  --border-radius: var(--border-radius-m);
+
   // Accent
   --accent-1: #ff6a00;
   --accent-2: #2300ff;
@@ -76,6 +88,7 @@
 
   // Heading
   --heading: inherit;
+  --heading-font-weight: var(--font-weight-400);
 
   // Link
   --link: var(--text-900);
@@ -84,6 +97,35 @@
   // Focus
   --focus-visible-bg: var(--bg-900);
   --focus-visible-fg: var(--text-50);
+
+  // Shadow
+  --shadow: 0 0 0 1px rgb(0 0 0 / 0.06), 0 2px 2px rgb(0 0 0 / 0.1);
+
+  // Scrollbar
+  --scrollbar-thumb: #{rgba(#94a3b8, 0.35)};
+  --scrollbar-thumb-negative: #{rgba(#ffffff, 0.15)};
+
+  // Transitions & Easings
+  --ease: cubic-bezier(0.68, 0, 0.1, 1);
+  --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
+
+  --trans-primary-fastest: 0.3s var(--ease);
+  --trans-primary-fast: 0.6s var(--ease);
+  --trans-primary: 1.3s var(--ease);
+
+  --trans-secondary-fastest: 0.3s var(--ease-secondary);
+  --trans-secondary-fast: 0.6s var(--ease-secondary);
+  --trans-secondary: 1s var(--ease-secondary);
+
+  // Wrap
+  --wrap-space-left: 6.25%;
+  --wrap-space-right: 6.25%;
+
+  // Grid
+  --grid-gap-scale: 5vw;
+  --grid-gap-m: #{rem($space-m)};
+  --grid-gap-l: #{rem($space-xl)};
+  --grid-gap-xl: #{rem($space-2xl)};
 
   /* =======================================
    * Generic tokens
@@ -100,50 +142,6 @@
     'Courier New', monospace;
   --font-weight-400: 400;
   --font-weight-100: 100;
-
-  --heading-font-weight: var(--font-weight-400);
-
-  // Wrap
-  --wrap-space-left: 6.25%;
-  --wrap-space-right: 6.25%;
-
-  // Grid
-  --grid-gap-scale: 5vw;
-  --grid-gap-m: #{rem($space-m)};
-  --grid-gap-l: #{rem($space-xl)};
-  --grid-gap-xl: #{rem($space-2xl)};
-
-  // Border
-  --border-width-s: 0.5px;
-  --border-width-m: 1px;
-  --border-width-l: 2px;
-  --border-width-negative: -1px;
-  --border-width: var(--border-width-m);
-
-  --border-radius-s: 4px;
-  --border-radius-m: 8px;
-  --border-radius-l: 16px;
-  --border-radius-pill: 999px;
-  --border-radius: var(--border-radius-m);
-
-  // Transitions & Easings
-  --ease: cubic-bezier(0.68, 0, 0.1, 1);
-  --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
-
-  --trans-primary-fastest: 0.3s var(--ease);
-  --trans-primary-fast: 0.6s var(--ease);
-  --trans-primary: 1.3s var(--ease);
-
-  --trans-secondary-fastest: 0.3s var(--ease-secondary);
-  --trans-secondary-fast: 0.6s var(--ease-secondary);
-  --trans-secondary: 1s var(--ease-secondary);
-
-  // Icon
-  --icon-size-l: #{rem(32px)};
-
-  // Scrollbar
-  --scrollbar-thumb: #{rgba(#94a3b8, 0.35)};
-  --scrollbar-thumb-negative: #{rgba(#ffffff, 0.15)};
 
   // Z index
   --z-index-700: 700;
