@@ -36,11 +36,12 @@ export const Link = ({
   });
   const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
   const { active, external, externalTarget } = useUrlState(href);
-  const activeOrExternal = active || external;
+  const shouldNavigate =
+    Boolean(href) && !external && target != '_blank' && target != '_new';
 
   return (
     <ConditionalWrapper
-      condition={!external}
+      condition={shouldNavigate}
       wrapper={children => (
         <NextLink
           href={href as URL['href']}
@@ -59,7 +60,10 @@ export const Link = ({
         onBlur={() => setHover(false)}
         onClick={e => {
           e.stopPropagation();
-          !activeOrExternal && templateTransition && setTransition('template');
+          shouldNavigate &&
+            !active &&
+            templateTransition &&
+            setTransition('template');
           onClick && onClick(e);
         }}
         onFocus={() => setHover(true)}
