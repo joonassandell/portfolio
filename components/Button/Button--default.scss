@@ -1,0 +1,32 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Button--default {
+  align-items: center;
+  background: var(--bg-50);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-pill);
+  box-shadow: var(--shadow);
+  color: var(--text-900);
+  gap: rem($space-2xs);
+  padding: rem($space-s) rem($space-m);
+  transition:
+    background-color var(--trans-primary-fastest),
+    border-color var(--trans-primary-fastest),
+    box-shadow var(--trans-primary-fastest);
+
+  &:hover,
+  &:focus-visible {
+    background: transparent;
+    border-color: var(--border-900);
+    box-shadow: unset;
+  }
+
+  &:active {
+    translate: 0 $space-5xs;
+  }
+
+  .Button-icon {
+    --Icon-size: var(--Icon-size-m);
+  }
+}
