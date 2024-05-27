@@ -5,7 +5,7 @@ export const parentVariant: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     transition: {
       delayChildren: delay,
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
   }),
 };

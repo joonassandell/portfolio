@@ -15,7 +15,7 @@ export const TextReveal = ({
   const inView = useInView(ref);
 
   return (
-    <m.div
+    <m.span
       animate={inView && 'animate'}
       className={classes}
       custom={custom}
@@ -37,6 +37,6 @@ export const TextReveal = ({
           </span>
         );
       })}
-    </m.div>
+    </m.span>
   );
 };
