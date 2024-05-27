@@ -1,3 +1,5 @@
+import { Button } from '@/components/Button';
+import { Download } from '@/components/Icon';
 import { Figure } from '@/components/Figure';
 import { getLink } from '@/lib/utils';
 import { Head } from '@/components/Head';
@@ -5,7 +7,6 @@ import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
 import { Link } from '@/components/Link';
-import { LinkRoll } from '@/components/LinkRoll';
 import { m } from 'framer-motion';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain } from '@/components/Template';
@@ -22,7 +23,7 @@ import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
 
 export const AboutPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);
-  const mqS = useMedia(MQ.s, false);
+  const mqS = useMedia(MQ.s, true);
   const cubeImageAnim = useRef(null);
   const cubeImageInView = useInView(cubeImageAnim, 0, false);
   const { transition } = useApp();
@@ -45,10 +46,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
 
   const lead = {
     desktop: [
-      <>
-        With more than a decade of{' '}
-        <Link href="/milestones">design engineering</Link>{' '}
-      </>,
+      'With more than a decade of design engineering ',
       <>
         <Link href="/milestones">experience</Link>, I have the skills to build
         hiqh-quality{' '}
@@ -57,11 +55,9 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
       'practical business challenges.',
     ],
     mobile: [
+      'With more than a decade of design ',
       <>
-        With more than a decade of <Link href="/milestones">design</Link>{' '}
-      </>,
-      <>
-        <Link href="/milestones">engineering experience</Link>, I have the{' '}
+        engineering <Link href="/milestones">experience</Link>, I have the{' '}
       </>,
       'skills to build hiqh-quality web ',
       'web experiences and assist ',
@@ -91,9 +87,9 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
           </Heading>
         </div>
         <div className="Template-figure grid">
-          <div className="grid-col grid-col:7 -start:6 grid-col:6@m -start:7@m">
+          <div className="grid-col grid-col:10 -start:3 grid-col:6@m -start:7@m">
             <Figure
-              alt="Joonas Sandell"
+              alt="Joonas Sandell profile"
               borderRadius={false}
               mask
               priority
@@ -124,19 +120,28 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
             className="grid pb:5vw"
             {...(mqS && {
               'data-s': true,
+              'data-s-delay': 0.15,
               'data-s-position': 'top',
               'data-s-speed': SCROLL_SPEED,
             })}
           >
-            <div className="grid-col -start:3@m -start:3@l pb:5vw">
-              <Heading className="mb:l" size="h3" tag="h1">
+            <div className="grid-col -start:3@m -start:3@l">
+              <Heading size="h3" tag="h1">
                 <TextReveal text={mqS ? heading.desktop : heading.mobile} />
               </Heading>
-              <Text className="mb:0" size="xl" tag="p">
-                <TextReveal
-                  custom={{ delay: mqS ? 0.5 : 1 }}
-                  text={mqS ? lead.desktop : lead.mobile}
-                />
+              <Text className="mb:l" size="xl">
+                <p>
+                  <TextReveal text={mqS ? lead.desktop : lead.mobile} />
+                </p>
+              </Text>
+              <Text animate className="mb:m">
+                <Button
+                  href="/about/Joonas-Sandell-CV.pdf"
+                  icon={<Download />}
+                  target="_blank"
+                >
+                  Download resume
+                </Button>
               </Text>
             </div>
           </div>
@@ -308,7 +313,6 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
             {/* prettier-ignore */}
             <Text animate className="mb">
               Anton&Anton,
-              Avecra,
               Biocode,
               Bonnier Books (Academic bookstore),
               Caverion,
@@ -346,7 +350,8 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
               Valio,
               Vapriikki,
               Vöner,
-              YIT
+              YIT,
+              VR Group
             </Text>
           </div>
         </div>

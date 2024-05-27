@@ -3,10 +3,9 @@
 
 .Template--about {
   --Template-bg-color: var(--tone-50);
-  --Template-main-bg-color: var(--tone-50);
 
   .Template-main {
-    padding-top: 62.5vw;
+    padding-top: 80vw;
 
     @include mq(m) {
       padding-top: 40vw;
@@ -21,7 +20,7 @@
   }
 
   .Template-heading {
-    --heading: var(--white);
+    --heading: var(--text-50);
     mix-blend-mode: difference;
     position: relative;
     z-index: 1;
@@ -47,9 +46,10 @@
 
   .Template-cube {
     inset: 75vw 0 0 -10vw;
-    width: 40vw;
+    inset: 20vw 0 0 -12vw;
+    width: 45vw;
 
-    @include mq(s) {
+    @include mq(m) {
       inset: 9vw 0 0 30vw;
       width: 30vw;
     }
