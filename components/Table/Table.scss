@@ -43,7 +43,8 @@
 }
 
 .Table-head,
-.Table-cell {
+.Table-cell,
+.Table-caption {
   padding: rem($space-s);
   vertical-align: middle;
 
@@ -55,6 +56,5 @@
 .Table-caption {
   border-top: var(--border-width) solid var(--border-100);
   color: var(--text-700);
-  padding: rem($space-s);
   text-align: left;
 }
