@@ -39,9 +39,8 @@
   }
 
   .Template-figure {
-    inset: 0;
+    inset: 0 0 auto 0;
     position: absolute;
-    z-index: 0;
   }
 
   .Template-cube {
@@ -55,9 +54,8 @@
     }
   }
 
-  .Template-about {
+  .Template-intro {
     position: relative;
-    z-index: 1;
   }
 
   .Template-cube-2 {
