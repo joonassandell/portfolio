@@ -57,7 +57,7 @@ export const Figure = ({
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
   useInViewVideo(refVideo, inViewOffset);
-  scroll = scroll || mask;
+  scroll = scroll ?? mask; // Scrolling should be enabled if mask is set
   scrollSpeed === 'negative'
     ? (scrollSpeed = -SCROLL_SPEED)
     : (scrollSpeed = scrollSpeed);
@@ -68,7 +68,6 @@ export const Figure = ({
   return (
     <div
       className={classes}
-      data-s
       ref={ref}
       style={{
         ['--Figure-bg-color' as string]: isString(background)
@@ -81,11 +80,12 @@ export const Figure = ({
           ? borderRadius
           : undefined,
       }}
+      {...(mask && { 'data-s-id': id })}
+      {...(scroll && { 'data-s': true })}
       {...(scroll && scrollPrevent && { 'data-s-prevent': true })}
-      {...(scroll && mask && { 'data-s-id': id })}
       {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
-      {...(scrollOffset && { 'data-s-offset': scrollOffset })}
-      {...(scrollPosition && { 'data-s-position': scrollPosition })}
+      {...(scroll && scrollOffset && { 'data-s-offset': scrollOffset })}
+      {...(scroll && scrollPosition && { 'data-s-position': scrollPosition })}
       {...(scroll && scrollDelay && { 'data-s-delay': scrollDelay })}
     >
       <figure
