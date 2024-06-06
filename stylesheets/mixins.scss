@@ -4,7 +4,6 @@
   $breakpoints: config.$breakpoints
 );
 @forward 'mixins/fontSize';
-@forward 'mixins/heading';
 @forward 'mixins/text';
 @forward 'mixins/utils';
 @forward 'mixins/various';

@@ -2,35 +2,50 @@
 @use 'stylesheets/mixins' as *;
 
 :is(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
-  @include heading(null);
+  color: var(--heading);
+  font-family: inherit;
+  font-weight: var(--heading-font-weight);
+  text-wrap: balance;
 }
 
 h1,
 .h1 {
-  @include heading(h1, false, false, false);
+  @include fontSize($h1-font-size-min, $h1-line-height, $h1-font-size-max);
+  letter-spacing: -0.015em;
+  margin: 0 0 rem($space-m);
 }
 
 h2,
 .h2 {
-  @include heading(h2, false, false, false);
+  @include fontSize($h2-font-size-min, $h2-line-height, $h2-font-size-max);
+  letter-spacing: -0.015em;
+  margin: 0 0 rem($space-m);
 }
 
 h3,
 .h3 {
-  @include heading(h3, false, false, false);
+  @include fontSize($h3-font-size-min, $h3-line-height, $h3-font-size-max);
+  letter-spacing: -0.015em;
+  margin: 0 0 rem($space);
 }
 
 h4,
 .h4 {
-  @include heading(h4, false, false, false);
+  @include fontSize($h4-font-size-min, $h4-line-height, $h4-font-size-max);
+  letter-spacing: normal;
+  margin: 0 0 rem($space);
 }
 
 h5,
 .h5 {
-  @include heading(h5, false, false, false);
+  @include fontSize($h5-font-size-min, $h5-line-height, $h5-font-size-max);
+  letter-spacing: normal;
+  margin: 0 0 rem($space);
 }
 
 h6,
 .h6 {
-  @include heading(h6, false, false, false);
+  @include fontSize($h6-font-size-min, $h6-line-height, $h6-font-size-max);
+  letter-spacing: normal;
+  margin: 0 0 rem($space);
 }
