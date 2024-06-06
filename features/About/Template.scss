@@ -2,6 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--about {
+  --Footer-bg-color: var(--bg-50);
   --Template-bg-color: var(--tone-50);
 
   .Template-main {
@@ -44,7 +45,6 @@
   }
 
   .Template-cube {
-    inset: 75vw 0 0 -10vw;
     inset: 20vw 0 0 -12vw;
     width: 45vw;
 
@@ -69,16 +69,21 @@
   }
 
   .Template-clients {
+    background: linear-gradient(var(--tone-50), var(--bg-50));
     position: relative;
   }
 
   .Template-ball {
-    inset: 70vw -15vw 0 auto;
-    width: 40vw;
+    inset: 90vw -20vw 0 auto;
+    width: 35vw;
 
-    @include mq(m) {
-      inset: 10vw auto auto -10vw;
-      width: 30vw;
+    @include mq(s) {
+      inset: 10vw auto auto -5vw;
+      width: 22.5vw;
     }
+  }
+
+  .Template-milestones {
+    background: var(--bg-50);
   }
 }

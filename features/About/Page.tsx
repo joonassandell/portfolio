@@ -1,4 +1,10 @@
-import { AboutClients, AboutIntro, AboutSkills, AboutTop } from './';
+import {
+  AboutClients,
+  AboutIntro,
+  AboutMilestones,
+  AboutSkills,
+  AboutTop,
+} from './';
 import { Head } from '@/components/Head';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain } from '@/components/Template';
@@ -18,6 +24,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
         <AboutIntro />
         <AboutSkills />
         <AboutClients />
+        <AboutMilestones />
       </TemplateMain>
     </Template>
   );

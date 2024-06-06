@@ -6,19 +6,20 @@ import { Heading } from '@/components/Heading';
 import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
+import { TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useApp } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import cubeImage from '@/public/about/line-cube.png';
-import profileImage2 from '@/public/about/joonassandell-profile-2.jpg';
+import lineCube from '@/public/about/line-cube.png';
+import profile from '@/public/about/joonassandell-profile-2.jpg';
 
 export const AboutIntro = () => {
   const mqS = useMedia(MQ.s, true);
-  const cubeImageAnim = useRef(null);
-  const cubeImageInView = useInView(cubeImageAnim, 0, false);
+  const lineCubeAnim = useRef(null);
+  const lineCubeInView = useInView(lineCubeAnim, 0, false);
   const { transition } = useApp();
 
   const heading = {
@@ -59,18 +60,22 @@ export const AboutIntro = () => {
   };
 
   return (
-    <div className="Template-intro wrap pt:15vw" id="intro">
+    <TemplateSection
+      className="Template-intro"
+      grid={false}
+      id="intro"
+      paddingTop="15vw"
+    >
       <div
         className="grid pb:5vw"
         {...(mqS && {
           'data-s': true,
-          'data-s-delay': 0.15,
           'data-s-position': 'top',
           'data-s-speed': SCROLL_SPEED,
         })}
       >
-        <div className="grid-col -start:3@m -start:3@l">
-          <Heading size="h3" tag="h1">
+        <div className="grid-col -start:3@m">
+          <Heading className="mb:m" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
           <Text className="mb:l" size="xl">
@@ -96,8 +101,8 @@ export const AboutIntro = () => {
         data-s-speed={SCROLL_SPEED * -2}
       >
         <m.div
-          animate={cubeImageInView ? 'animate' : ''}
-          ref={cubeImageAnim}
+          animate={lineCubeInView ? 'animate' : ''}
+          ref={lineCubeAnim}
           variants={{
             animate: {
               rotate: 360,
@@ -116,7 +121,7 @@ export const AboutIntro = () => {
             inViewOffset={-1}
             placeholder={false}
             sizes="33vw"
-            {...cubeImage}
+            {...lineCube}
           />
         </m.div>
       </div>
@@ -134,7 +139,7 @@ export const AboutIntro = () => {
             mask
             scrollPrevent
             sizes={`${MQ.s} 25vw, 70vw`}
-            {...profileImage2}
+            {...profile}
           />
         </m.div>
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
@@ -161,11 +166,15 @@ export const AboutIntro = () => {
             <p>
               With a background that spans both UI design and coding, I thrive
               at the intersection of aesthetics and functionality, blending the
-              best of both worlds to deliver great user experiences.
+              best of both worlds to deliver great user experiences.{' '}
+              <Link href="/about/Joonas-Sandell-CV.pdf" target="_blank">
+                Read more from my resume
+              </Link>
+              .
             </p>
           </Text>
         </div>
       </div>
-    </div>
+    </TemplateSection>
   );
 };
