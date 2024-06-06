@@ -15,6 +15,7 @@
 
 @layer utils {
   @include use('utils/background');
+  @include use('utils/color');
   @include use('utils/display');
   @include use('utils/heading');
   @include use('utils/margin');

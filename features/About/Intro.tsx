@@ -84,7 +84,7 @@ export const AboutIntro = () => {
               icon={<Download />}
               target="_blank"
             >
-              Download resume
+              View resume
             </Button>
           </Text>
         </div>
