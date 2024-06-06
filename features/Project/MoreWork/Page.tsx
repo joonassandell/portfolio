@@ -36,7 +36,7 @@ export const MoreWorkPage = ({
             'Web development',
             'Concept strategies',
           ]}
-          smallPrint="Some projects may present initial designs and prototypes"
+          smallPrint="Some projects may present initial designs and prototypes."
           text={
             <p>
               I assume you have already noticed my keen focus on creating
@@ -83,10 +83,8 @@ export const MoreWorkPage = ({
                 improve usability, and give website users a comprehensive
                 picture of HW-Company's activities around the world.
               </p>
-              <Text color="light">
-                <small>
-                  Built together with awesome people from Porkka & Kuutsa
-                </small>
+              <Text color="light" size="xs" tag="small">
+                Built together with awesome people from Porkka & Kuutsa.
               </Text>
             </Text>
           </div>
@@ -224,10 +222,8 @@ export const MoreWorkPage = ({
                 In the feedback survey 97% of the users mentioned that the user
                 interface was extremely easy to use. 💪
               </p>
-              <Text color="light">
-                <small>
-                  Built together with awesome people from Mediasignal
-                </small>
+              <Text color="light" size="xs" tag="small">
+                Built together with awesome people from Mediasignal.
               </Text>
             </Text>
           </div>
@@ -291,10 +287,8 @@ export const MoreWorkPage = ({
                 We also developed a web application called "Lukupassi" to
                 encourage people to read more.
               </p>
-              <Text color="light">
-                <small>
-                  Crafted together with professionals from Mediasignal
-                </small>
+              <Text color="light" size="xs" tag="small">
+                Crafted together with professionals from Mediasignal.
               </Text>
             </Text>
           </div>
@@ -333,8 +327,8 @@ export const MoreWorkPage = ({
                   product portfolios. I was leading the product design and was
                   partially involved in the front-end development.
                 </p>
-                <Text color="light">
-                  <small>Built together with people from Mediasignal</small>
+                <Text color="light" size="xs" tag="small">
+                  Built together with people from Mediasignal.
                 </Text>
               </>
             }
@@ -389,8 +383,8 @@ export const MoreWorkPage = ({
                 TAKK appreciated our versatile expertise, from planning tasks to
                 demanding technical forms of implementation.
               </p>
-              <Text color="light">
-                <small>Built together with people from Mediasignal</small>
+              <Text color="light" size="xs" tag="small">
+                Built together with people from Mediasignal.
               </Text>
             </Text>
           </div>
@@ -441,10 +435,8 @@ export const MoreWorkPage = ({
                 building. I was responsible for the UI/UX design and front-end
                 development.
               </p>
-              <Text color="light">
-                <small>
-                  Crafted together with professionals from Mediasignal
-                </small>
+              <Text color="light" size="xs" tag="small">
+                Crafted together with professionals from Mediasignal.
               </Text>
             </Text>
           </div>

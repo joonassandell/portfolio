@@ -128,8 +128,13 @@ export const Info = ({
                 </Text>
               </div>
             )}
-            <Text className="grid-col -align:end" color="light">
-              <small>{smallPrint}</small>
+            <Text
+              className="grid-col -align:end"
+              color="light"
+              size="xs"
+              tag="small"
+            >
+              {smallPrint}
             </Text>
           </m.div>
         </div>
