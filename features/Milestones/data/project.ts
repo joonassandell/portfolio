@@ -9,7 +9,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2023-07-10',
     event: 'Launched my portfolio',
-    highlight: true,
     major: true,
     url: 'https://twitter.com/joonassandell/status/1678358514350137344',
   },

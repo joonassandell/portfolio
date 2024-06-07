@@ -7,6 +7,12 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
    * ======================================= */
 
   {
+    date: '2024-06-07',
+    event: 'Shipped updated CV 2024',
+    highlight: true,
+    url: 'https://joonassandell.com/Joonas-Sandell-CV.pdf',
+  },
+  {
     date: '2024-05-20',
     event: 'Shipped Milestones page',
     url: 'https://x.com/joonassandell/status/1792539982311153927',

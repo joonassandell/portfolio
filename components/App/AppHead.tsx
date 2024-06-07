@@ -68,7 +68,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
             '@type': 'Person',
             email: 'mailto:me@joonassandell.com',
             image: `${APP_URL}/static/joonassandell.jpg`,
-            jobTitle: 'Designer & Developer',
+            jobTitle: 'UI/UX designer and Front-end developer',
             name: 'Joonas Sandell',
             url: 'https://joonassandell.com',
           }),
