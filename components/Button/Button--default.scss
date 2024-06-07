@@ -9,7 +9,8 @@
   box-shadow: var(--shadow);
   color: var(--text-900);
   gap: rem($space-2xs);
-  padding: rem($space-s) rem($space-m);
+  min-height: rem($space-xl);
+  padding: rem($space-xs) rem($space-m);
   transition:
     background-color var(--trans-primary-fastest),
     border-color var(--trans-primary-fastest),
@@ -28,5 +29,6 @@
 
   .Button-icon {
     --Icon-size: var(--Icon-size-m);
+    margin-right: rem($space-3xs * -1);
   }
 }
