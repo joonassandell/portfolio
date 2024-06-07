@@ -23,7 +23,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         property="og:description"
       />
       <meta
-        content={`${APP_URL}/static/og-image.jpg?v=2`}
+        content={`${APP_URL}/static/og-image.jpg?v=3`}
         property="og:image"
       />
       <meta content="en" property="og:locale" />
@@ -41,7 +41,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       <meta content="summary_large_image" property="twitter:card" />
       <meta content="@joonassandell" property="twitter:creator" />
       <meta
-        content={`${APP_URL}/static/og-image.jpg?v=2`}
+        content={`${APP_URL}/static/og-image.jpg?v=3`}
         property="twitter:image"
       />
       <meta content="@joonassandell" property="twitter:site" />
