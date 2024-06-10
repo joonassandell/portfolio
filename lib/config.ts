@@ -8,17 +8,17 @@ import { type Links, type Sitemap } from '@/types';
 export const SITEMAP: Sitemap = {
   common: [
     {
-      id: 'milestones',
-      navTitle: 'Milestones',
-      title: 'Milestones',
-      url: '/milestones',
-    },
-    {
       id: 'about',
       navTitle: 'About',
       themeColor: '#eeeae5',
       title: 'About',
       url: '/about',
+    },
+    {
+      id: 'milestones',
+      navTitle: 'Milestones',
+      title: 'Milestones',
+      url: '/milestones',
     },
     {
       id: 'contact',
