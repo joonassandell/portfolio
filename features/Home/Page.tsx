@@ -53,7 +53,11 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
   };
 
   return (
-    <Template className={extraSpace ? 'is-extraSpace' : ''} id={id}>
+    <Template
+      className={extraSpace ? 'is-extraSpace' : ''}
+      id={id}
+      variant="unstyled"
+    >
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}

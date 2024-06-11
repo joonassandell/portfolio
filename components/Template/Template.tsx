@@ -16,7 +16,7 @@ export const Template = ({
   children,
   className,
   id,
-  variant = 'unstyled',
+  variant = 'default',
 }: TemplateProps) => {
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,

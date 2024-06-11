@@ -20,7 +20,7 @@ export const ArchivePage = ({
   useSetThemeColor(themeColor);
 
   return (
-    <Template className="Template--moreWork" id={id}>
+    <Template className="Template--moreWork" id={id} variant="unstyled">
       <Head title={title} />
       <TemplateMain>
         <ArchiveHero />

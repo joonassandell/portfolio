@@ -22,7 +22,7 @@ export const SandboxPage = ({
   const mqM = useMedia(MQ.m, false);
 
   return (
-    <Template id={id}>
+    <Template id={id} variant="unstyled">
       <Head title={title} />
       <TemplateMain>
         <SandboxHero />

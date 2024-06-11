@@ -18,7 +18,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);
 
   return (
-    <Template id={id} variant="default">
+    <Template id={id}>
       <Head title={title} />
       <TemplateMain>
         <TemplateSection>
