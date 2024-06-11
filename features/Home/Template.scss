@@ -35,7 +35,7 @@
   .Template-about-desktop {
     display: none;
 
-    > h1 {
+    > .Heading {
       @include text(m);
       pointer-events: all;
     }
@@ -61,7 +61,7 @@
     @include mq(ml) {
       max-width: 35ch;
 
-      > h1 {
+      > .Heading {
         @include text(l);
       }
     }

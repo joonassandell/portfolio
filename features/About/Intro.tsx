@@ -75,7 +75,7 @@ export const AboutIntro = () => {
         })}
       >
         <div className="grid-col -start:2@m -start:3@l">
-          <Heading className="mb:m" tag="h1">
+          <Heading className="mb:m" size="h3" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
           <Text className="mb:l" size="xl">

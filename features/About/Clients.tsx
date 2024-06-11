@@ -27,7 +27,7 @@ export const AboutClients = () => (
     />
     <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m -start:7@m">
       <Hr className="mb:l" />
-      <Heading>
+      <Heading size="h3">
         <TextReveal text={['My clients']} />
       </Heading>
       {/* prettier-ignore */}

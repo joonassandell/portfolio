@@ -71,7 +71,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
               </Link>
             </div>
             <div className="Template-about-desktop">
-              <Heading size={null} tag="h1">
+              <Heading size="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
                 <Link href={about.url}>about me</Link> or just keep scrolling
