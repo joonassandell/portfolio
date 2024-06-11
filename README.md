@@ -36,6 +36,7 @@ bun run dev
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
 - `bun run create:component <ComponentName>`: Create a new component skeleton to `components/` directory
+- `bun run typecheck`: Run TS type checking
 
 Read about environment variables from [.env.development](.env.development).
 
