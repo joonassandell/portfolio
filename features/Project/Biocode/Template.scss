@@ -2,36 +2,23 @@
 
 .Template--biocode {
   --Template-bg-color: var(--biocode-bg-50);
-  --Template-color: var(--biocode-text-900);
   --Footer-bg-color: var(--bg-50);
   --NextProject-bg-color: var(--bg-50);
-
-  .Template-main {
-    --bg-200: var(--biocode-bg-50);
-    --bg-100: var(--biocode-bg-100);
-    --bg-50: var(--biocode-bg-50);
-
-    --border-900: var(--biocode-border);
-    --border-100: var(--biocode-border);
-
-    --heading: var(--biocode-heading);
-
-    --link-hover: var(--biocode-text-900);
-    --link: var(--biocode-text-900);
-
-    --text-900: var(--biocode-text-900);
-    --text-800: var(--biocode-text-800);
-    --text-700: var(--biocode-text-700);
-
-    --Figure-glare-opacity: 0.05;
-  }
+  --Figure-placeholder-bg: var(--biocode-bg-100);
+  --Figure-glare-opacity: 0.05;
+  --border-100: var(--biocode-border);
+  --border-900: var(--biocode-border);
+  --link: var(--biocode-text-900);
+  --text-700: var(--biocode-text-700);
+  --text-800: var(--biocode-text-800);
+  --text-900: var(--biocode-text-900);
 
   .Template-section {
     &.theme\:light {
       --Template-section-bg-color: var(--biocode-bg-50);
-      --bg-200: var(--biocode-bg-200);
-      --border-100: var(--biocode-border);
+      --Figure-placeholder-bg: var(--biocode-bg-200);
       --Figure-glare-opacity: 1;
+      --border-100: var(--biocode-border);
     }
   }
 

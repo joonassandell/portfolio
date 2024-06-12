@@ -3,6 +3,8 @@
 
 .Template--approach {
   --Template-bg-color: var(--tone-50);
+  --Figure-placeholder-bg: var(--tone-100);
+  --Figure-glare-opacity: 0.5;
 
   .Template-main {
     background-image: radial-gradient(
