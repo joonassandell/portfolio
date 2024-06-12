@@ -1,8 +1,10 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--biocode {
-  --Template-main-bg-color: var(--biocode-bg-50);
-  --Template-main-color: var(--biocode-text-900);
+  --Template-bg-color: var(--biocode-bg-50);
+  --Template-color: var(--biocode-text-900);
+  --Footer-bg-color: var(--bg-50);
+  --NextProject-bg-color: var(--bg-50);
 
   .Template-main {
     --bg-200: var(--biocode-bg-50);
