@@ -22,7 +22,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
       <Head title={title} />
       <TemplateMain>
         <TemplateSection>
-          <div className="grid-col grid-col:6@l">
+          <div className="grid-col grid-col:6@m">
             <Heading size="h1">Milestones</Heading>
             <Text size="l">
               <p>

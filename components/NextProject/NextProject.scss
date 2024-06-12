@@ -28,7 +28,7 @@
 }
 
 .NextProject-figure {
-  border-radius: 999px;
+  border-radius: var(--border-radius-pill);
   inset: 0 auto auto 0;
   overflow: hidden;
   pointer-events: none;
