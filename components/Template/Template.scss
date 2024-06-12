@@ -2,8 +2,8 @@
 @use 'stylesheets/mixins' as *;
 
 .Template {
-  --Template-overlay-color: var(--black);
-  --Template-overlay-color-initial: var(--black-transparent);
+  --Template-overlay: var(--black);
+  --Template-overlay-initial: var(--black-transparent);
   min-height: var(--vh);
   overflow: hidden;
   width: 100%;
@@ -51,12 +51,12 @@
 }
 
 .Template-main {
-  background: var(--Template-bg-color, var(--bg-50));
+  background-color: var(--Template-bg, var(--bg-50));
   color: var(--Template-color, var(--text-900));
 }
 
 .Template-section {
-  background: var(--Template-section-bg-color);
+  background-color: var(--Template-section-bg);
 }
 
 /* =======================================

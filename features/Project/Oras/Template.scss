@@ -2,7 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--oras {
-  --Template-bg-color: var(--oras-bg-50);
+  --Template-bg: var(--oras-bg-50);
   --Figure-placeholder-bg: var(--oras-bg-100);
   --border-100: var(--oras-border-100);
   --text-700: var(--oras-text-700);

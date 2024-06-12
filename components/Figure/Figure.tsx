@@ -70,12 +70,10 @@ export const Figure = ({
       className={classes}
       ref={ref}
       style={{
-        ['--Figure-bg-color' as string]: isString(background)
+        ['--Figure-bg' as string]: isString(background)
           ? background
           : undefined,
-        ['--Figure-border-color' as string]: isString(border)
-          ? border
-          : undefined,
+        ['--Figure-border' as string]: isString(border) ? border : undefined,
         ['--Figure-border-radius' as string]: isString(borderRadius)
           ? borderRadius
           : undefined,

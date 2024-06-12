@@ -1,16 +1,14 @@
 .Figure {
-  --Figure-border: var(--Figure-border-width, var(--border-width-s)) solid
-    var(--Figure-border-color, var(--border-100));
-
   &.-bg {
     .Figure-figure-main {
-      background: var(--Figure-bg-color, var(--bg-200));
+      background: var(--Figure-bg, var(--bg-200));
     }
   }
 
   &.-border {
     .Figure-figure-main {
-      border: var(--Figure-border);
+      border: var(--Figure-border-width, var(--border-width-s)) solid
+        var(--Figure-border, var(--border-100));
     }
   }
 

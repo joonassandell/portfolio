@@ -2,7 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--home {
-  --Template-bg-color: var(--tone-50);
+  --Template-bg: var(--tone-50);
 
   .Template-about {
     position: relative;

@@ -6,7 +6,7 @@
   --focus-visible-fg: var(--text-900);
   --link: var(--text-50);
 
-  background: var(--Footer-bg-color, var(--Template-bg-color, var(--bg-50)));
+  background: var(--Footer-bg, var(--Template-bg, var(--bg-50)));
   color: var(--text-50);
 
   // See Header.scss
@@ -20,8 +20,7 @@
 }
 
 .Footer-inner {
-  border-top: var(--border-width) solid
-    var(--Footer-border-color, var(--border-900));
+  border-top: var(--border-width) solid var(--Footer-border, var(--border-900));
 }
 
 .Footer-main {

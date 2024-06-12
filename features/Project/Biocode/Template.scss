@@ -1,9 +1,9 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--biocode {
-  --Template-bg-color: var(--biocode-bg-50);
-  --Footer-bg-color: var(--bg-50);
-  --NextProject-bg-color: var(--bg-50);
+  --Template-bg: var(--biocode-bg-50);
+  --Footer-bg: var(--bg-50);
+  --NextProject-bg: var(--bg-50);
   --Figure-placeholder-bg: var(--biocode-bg-100);
   --Figure-glare-opacity: 0.05;
   --border-100: var(--biocode-border);
@@ -15,7 +15,7 @@
 
   .Template-section {
     &.theme\:light {
-      --Template-section-bg-color: var(--biocode-bg-50);
+      --Template-section-bg: var(--biocode-bg-50);
       --Figure-placeholder-bg: var(--biocode-bg-200);
       --Figure-glare-opacity: 1;
       --border-100: var(--biocode-border);
