@@ -385,7 +385,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
             </m.button>
             <ul className="Header-nav">
               {SITEMAP.common
-                .filter(item => item.id != 'contact')
+                .filter(item => item.id != 'contact' && !item.hidden)
                 .map(item => {
                   return (
                     <HeaderNavItem
@@ -454,15 +454,17 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 </ul>
                 <div className="Header-footer-right">
                   <ul className="Header-footer-links">
-                    {SITEMAP.common.map(item => {
-                      return (
-                        <li key={item.id}>
-                          <Link href={item.url} templateTransition={false}>
-                            {item.navTitle}
-                          </Link>
-                        </li>
-                      );
-                    })}
+                    {SITEMAP.common
+                      .filter(item => !item.hidden)
+                      .map(item => {
+                        return (
+                          <li key={item.id}>
+                            <Link href={item.url} templateTransition={false}>
+                              {item.navTitle}
+                            </Link>
+                          </li>
+                        );
+                      })}
                   </ul>
                   <p className="Header-footer-copyright">
                     &copy; {new Date().getFullYear()} <br />
