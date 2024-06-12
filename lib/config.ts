@@ -217,7 +217,7 @@ export const TRANS_TERTIARY_FASTEST = {
 };
 
 export const TRANS_TEMPLATE = {
-  duration: 1.2,
+  duration: 1,
   ease: [0.76, 0, 0.18, 1],
 };
 
@@ -248,7 +248,7 @@ export const JUMP_FIX_VARIANTS: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      delay: TRANS_TEMPLATE.duration + 0.1,
+      delay: TRANS_TEMPLATE.duration + 0.3,
       duration: 0.3,
       ease: 'linear',
     },
