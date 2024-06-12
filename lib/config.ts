@@ -21,6 +21,14 @@ export const SITEMAP: Sitemap = {
       url: '/milestones',
     },
     {
+      hidden: true,
+      id: 'approach',
+      navTitle: 'Approach',
+      themeColor: '#eeeae5',
+      title: 'Approach',
+      url: '/approach',
+    },
+    {
       id: 'contact',
       navTitle: 'Contact',
       title: 'Contact',

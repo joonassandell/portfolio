@@ -2,6 +2,7 @@
 
 .Text {
   @include text(m);
+  letter-spacing: normal;
   transform-origin: top left;
 
   &.-size\:xl {

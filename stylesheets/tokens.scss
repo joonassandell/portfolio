@@ -70,14 +70,17 @@
   --border-radius: var(--border-radius-m);
 
   // Accent
-  --accent-1: #ff6a00;
+  --accent-1-hsl: 25, 100%, 50%;
+  --accent-1: hsl(var(--accent-1-hsl));
   --accent-2: #2300ff;
   --accent-3: #f59e0b;
 
   // Primary
-  --primary: var(--accent-1);
+  --primary-hsl: var(--accent-1-hsl);
+  --primary: hsl(var(--primary-hsl));
 
   // Tone
+  --tone-100: #e4ded6;
   --tone-50: #eeeae5;
 
   // Text

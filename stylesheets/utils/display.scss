@@ -36,6 +36,12 @@
   }
 }
 
+@include mq(l) {
+  .hidden\@l {
+    display: none !important;
+  }
+}
+
 @include mq($until: l) {
   .visible\@l {
     display: none !important;
