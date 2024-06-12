@@ -4,7 +4,7 @@
 .Template--404 {
   .Template-main {
     display: grid;
-    padding: rem($space-6xl) 0 rem($space-2xl) 0;
+    padding-bottom: rem($space-2xl);
     place-content: center;
     place-items: center;
   }

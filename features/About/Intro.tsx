@@ -1,5 +1,5 @@
+import { ArrowRight, Download } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { Download } from '@/components/Icon';
 import { Figure } from '@/components/Figure';
 import { getLink } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
@@ -75,7 +75,7 @@ export const AboutIntro = () => {
         })}
       >
         <div className="grid-col -start:2@m -start:3@l">
-          <Heading className="mb:m" tag="h1">
+          <Heading className="mb:m" size="h3" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
           <Text className="mb:l" size="xl">
@@ -95,6 +95,7 @@ export const AboutIntro = () => {
         </div>
       </div>
       <div
+        aria-hidden
         className="Template-cube-2"
         data-s
         data-s-position="top"
@@ -116,7 +117,6 @@ export const AboutIntro = () => {
         >
           <Figure
             alt="Another line cube"
-            aria-hidden="true"
             borderRadius={false}
             inViewOffset={-1}
             placeholder={false}
@@ -158,21 +158,22 @@ export const AboutIntro = () => {
             <p>
               I get excited about finding unique and elegant solutions for
               complex user issues. I love designing by code in the browser but I
-              work a lot with Figma and other design tools as well. Usually I
-              prefer writing applications with <em>TypeScript</em>,{' '}
+              work a lot with <em>Figma</em> and other design tools as well.
+              Usually I prefer writing applications with <em>TypeScript</em>,{' '}
               <em>React</em>, <em>Sass</em> and other modern tools.
             </p>
           </Text>
-          <Text animate className="mb:l">
+          <Text animate className="mb:m">
             <p>
               With a background that spans both UI design and coding, I thrive
               at the intersection of aesthetics and functionality, blending the
-              best of both worlds to deliver great user experiences.{' '}
-              <Link href="/Joonas-Sandell-CV.pdf" target="_blank">
-                Read more from my resume
-              </Link>
-              .
+              best of both worlds to deliver great user experiences.
             </p>
+          </Text>
+          <Text animate className="mb:l">
+            <Button href="/approach" icon={<ArrowRight />}>
+              My approach
+            </Button>
           </Text>
         </div>
       </div>

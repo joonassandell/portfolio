@@ -53,7 +53,11 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
   };
 
   return (
-    <Template className={extraSpace ? 'is-extraSpace' : ''} id={id}>
+    <Template
+      className={extraSpace ? 'is-extraSpace' : ''}
+      id={id}
+      variant="unstyled"
+    >
       <TemplateMain>
         <m.div
           animate={animation ? 'animate' : ''}
@@ -67,7 +71,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
               </Link>
             </div>
             <div className="Template-about-desktop">
-              <Heading size={null} tag="h1">
+              <Heading size="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
                 <Link href={about.url}>about me</Link> or just keep scrolling

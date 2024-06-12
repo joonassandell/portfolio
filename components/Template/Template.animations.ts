@@ -37,10 +37,10 @@ export const variantsWithoutTransition: Variants = {
 
 export const overlayVariants: Variants = {
   animate: {
-    backgroundColor: 'var(--Template-overlay-color)',
+    backgroundColor: 'var(--Template-overlay)',
     transition: TRANS_TEMPLATE,
   },
   initial: {
-    backgroundColor: 'var(--Template-overlay-color-initial)',
+    backgroundColor: 'var(--Template-overlay-initial)',
   },
 };

@@ -1,27 +1,19 @@
 :root {
-  --biocode-bg-200: #001141;
-  --biocode-bg-100: #000a29;
   --biocode-bg-50: #00081f;
-
+  --biocode-bg-100: #000a29;
+  --biocode-bg-200: #001141;
   --biocode-border: hsl(230 30% 40% / 0.25);
-
   --biocode-primary: #3a59f9;
   --biocode-primary-text: #3377ff;
-
   --biocode-heading: var(--white);
-
-  --biocode-text-900: var(--white);
-  --biocode-text-800: #a3abc2;
   --biocode-text-700: #858fad;
+  --biocode-text-800: #a3abc2;
+  --biocode-text-900: var(--white);
 }
 
 .theme\:light {
-  --biocode-bg-300: #e7e7e9;
-  --biocode-bg-200: #f7f7f8;
-  --biocode-bg-100: #fbfbfc;
   --biocode-bg-50: var(--white);
-
-  --biocode-border-300: #26355d;
+  --biocode-bg-100: #fbfbfc;
+  --biocode-bg-200: #f7f7f8;
   --biocode-border: #d9dade;
-  --biocode-border-100: #e6e7ea;
 }

@@ -35,8 +35,6 @@ import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
-const about = getSitemap('about', 'common');
-const milestones = getSitemap('milestones', 'common');
 const contact = getSitemap('contact', 'common');
 const source = getLink('source', 'common');
 
@@ -386,20 +384,20 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               </AnimatePresence>
             </m.button>
             <ul className="Header-nav">
-              <HeaderNavItem
-                href={about.url}
-                isOpen={open}
-                onClick={handleLinkClick}
-                openReveal={openReveal}
-                title={about.navTitle}
-              />
-              <HeaderNavItem
-                href={milestones.url}
-                isOpen={open}
-                onClick={handleLinkClick}
-                openReveal={openReveal}
-                title={milestones.navTitle}
-              />
+              {SITEMAP.common
+                .filter(item => item.id != 'contact' && !item.hidden)
+                .map(item => {
+                  return (
+                    <HeaderNavItem
+                      href={item.url}
+                      isOpen={open}
+                      key={item.id}
+                      onClick={handleLinkClick}
+                      openReveal={openReveal}
+                      title={item.navTitle}
+                    />
+                  );
+                })}
               <HeaderNavItem
                 href={contact.url}
                 isOpen={open}
@@ -456,15 +454,17 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 </ul>
                 <div className="Header-footer-right">
                   <ul className="Header-footer-links">
-                    {SITEMAP.common.map(item => {
-                      return (
-                        <li key={item.id}>
-                          <Link href={item.url} templateTransition={false}>
-                            {item.navTitle}
-                          </Link>
-                        </li>
-                      );
-                    })}
+                    {SITEMAP.common
+                      .filter(item => !item.hidden)
+                      .map(item => {
+                        return (
+                          <li key={item.id}>
+                            <Link href={item.url} templateTransition={false}>
+                              {item.navTitle}
+                            </Link>
+                          </li>
+                        );
+                      })}
                   </ul>
                   <p className="Header-footer-copyright">
                     &copy; {new Date().getFullYear()} <br />

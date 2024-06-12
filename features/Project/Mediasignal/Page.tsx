@@ -20,7 +20,7 @@ export const MediasignalPage = ({
   useSetThemeColor(themeColor);
 
   return (
-    <Template id={id}>
+    <Template id={id} variant="unstyled">
       <Head title={title} />
       <TemplateMain>
         <MediasignalHero />

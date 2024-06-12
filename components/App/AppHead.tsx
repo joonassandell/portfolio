@@ -54,7 +54,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       />
       <link href="/static/favicon.ico?v=2" rel="icon" sizes="any" />
       <link href="/static/favicon.svg?v=2" rel="icon" type="image/svg+xml" />
-      <link color="#F5EDDB" href="/static/favicon.svg?v=2" rel="mask-icon" />
+      <link color="#eeeae5" href="/static/favicon.svg?v=2" rel="mask-icon" />
 
       {/* Web app */}
       <meta content="Joonas Sandell" name="apple-mobile-web-app-title" />

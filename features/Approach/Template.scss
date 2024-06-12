@@ -1,0 +1,81 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--approach {
+  --Template-bg: var(--tone-50);
+  --Figure-placeholder-bg: var(--tone-100);
+  --Figure-glare-opacity: 0.5;
+
+  .Template-main {
+    background-image: radial-gradient(
+        at 70% 33%,
+        hsl(var(--primary-hsl), 0.7),
+        transparent 30%
+      ),
+      radial-gradient(at 100% 40%, hsl(1, 100%, 60%, 0.3), transparent 40%),
+      radial-gradient(at 90% 50%, hsl(255, 30%, 50%, 1), transparent 40%);
+    background-repeat: no-repeat;
+
+    @include mq($until: l) {
+      background-size: 120% 70%;
+    }
+
+    @include mq($until: m) {
+      background-size: 100% 30%;
+    }
+  }
+
+  .Template-top {
+    position: relative;
+  }
+
+  .Template-heading {
+    text-wrap: pretty;
+  }
+
+  .Template-heading--mobile {
+    @include mq(m) {
+      max-width: 75vw;
+    }
+  }
+
+  .Template-heading-subtitle {
+    margin-right: 32ch;
+  }
+
+  .Template-cube {
+    float: right;
+    margin: 0 0 0 rem($space-s);
+    mix-blend-mode: multiply;
+    width: 20vw;
+
+    @include mq(m) {
+      margin: 0;
+      translate: rem($space-5xl) 0;
+    }
+
+    @include mq(l) {
+      inset: 2.5vw auto 0 -2.5vw;
+      position: absolute;
+      translate: unset;
+      width: 12.5vw;
+    }
+  }
+
+  .Template-profileMobile {
+    float: left;
+    margin: rem($space-xs) rem($space) 0 0;
+    max-width: rem($space * 8);
+    width: clamp(rem($space), 25vw, rem($space * 10));
+  }
+
+  .Template-profile {
+    max-width: 65%;
+    rotate: 15deg;
+
+    img {
+      min-height: rem($space * 20);
+      object-fit: cover;
+    }
+  }
+}

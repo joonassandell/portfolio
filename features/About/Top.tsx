@@ -9,6 +9,7 @@ export const AboutTop = () => (
   <>
     <div className="Template-heading wrap pr:0">
       <Heading
+        aria-hidden
         className="white-space:nowrap mb:0"
         data-s
         data-s-direction="horizontal"

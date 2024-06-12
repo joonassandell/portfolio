@@ -8,17 +8,25 @@ import { type Links, type Sitemap } from '@/types';
 export const SITEMAP: Sitemap = {
   common: [
     {
+      id: 'about',
+      navTitle: 'About',
+      themeColor: '#eeeae5',
+      title: 'About',
+      url: '/about',
+    },
+    {
       id: 'milestones',
       navTitle: 'Milestones',
       title: 'Milestones',
       url: '/milestones',
     },
     {
-      id: 'about',
-      navTitle: 'About',
+      hidden: true,
+      id: 'approach',
+      navTitle: 'Approach',
       themeColor: '#eeeae5',
-      title: 'About',
-      url: '/about',
+      title: 'Approach',
+      url: '/approach',
     },
     {
       id: 'contact',
@@ -209,7 +217,7 @@ export const TRANS_TERTIARY_FASTEST = {
 };
 
 export const TRANS_TEMPLATE = {
-  duration: 1.2,
+  duration: 1,
   ease: [0.76, 0, 0.18, 1],
 };
 
@@ -240,7 +248,7 @@ export const JUMP_FIX_VARIANTS: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      delay: TRANS_TEMPLATE.duration + 0.1,
+      delay: TRANS_TEMPLATE.duration + 0.3,
       duration: 0.3,
       ease: 'linear',
     },

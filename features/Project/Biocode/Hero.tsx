@@ -106,14 +106,14 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
             </div>
             {transitionStartOrDefault && (
               <div className="Hero-textReveal wrap">
-                <Heading className="Hero-textReveal-mobile mb:0" size={null}>
+                <Heading className="Hero-textReveal-mobile mb:0">
                   <TextReveal
                     hidden
                     text={['We have to', 'reverse global', 'heating']}
                     {...(noTransition && { initial: 'animate' })}
                   />
                 </Heading>
-                <Heading className="Hero-textReveal-desktop mb:0" size={null}>
+                <Heading className="Hero-textReveal-desktop mb:0">
                   <TextReveal
                     text={['We have to reverse', 'global heating']}
                     {...(noTransition && { initial: 'animate' })}
