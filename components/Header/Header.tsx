@@ -50,6 +50,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const [animating, setAnimating] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
+  const isDefaultNavTitle = CONTENT.defaultNavTitle === navTitle;
 
   const [maskOpen, setMaskOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');
@@ -355,7 +356,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 <AnimatePresence initial={false} mode="wait">
                   <m.div
                     className="Header-button-text-item"
-                    key={asPath}
+                    key={!isDefaultNavTitle ? asPath : undefined}
                     {...enterExit.btnText}
                     {...(open && { hidden: true })}
                   >
@@ -371,7 +372,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               <AnimatePresence initial={false} mode="wait">
                 <m.div
                   className="Header-button-arrow"
-                  key={mqM ? asPath : 'Header-button-arrow'}
+                  key={mqM && !isDefaultNavTitle ? asPath : undefined}
                   ref={btnArrow}
                   {...(mqM && { ...enterExit.btnArrow })}
                 >
