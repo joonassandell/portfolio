@@ -65,8 +65,7 @@
   .Template-profileMobile {
     float: left;
     margin: rem($space-xs) rem($space) 0 0;
-    max-width: rem($space * 8);
-    width: clamp(rem($space), 25vw, rem($space * 10));
+    width: clamp(rem($space * 6), 25vw, rem($space * 12));
   }
 
   .Template-profile {
