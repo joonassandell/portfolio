@@ -23,7 +23,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
   return (
     <Template id={id}>
       <Head
-        description="My goal is to create unique, appealing, accessible and user-friendly products and stay up to date with the latest standards and trends in today’s rapidly evolving digital world."
+        description="My goal is to create unique, appealing, accessible, and user-friendly products while staying up to date with the latest standards and trends in today’s rapidly evolving digital world."
         title={title}
       />
       <TemplateMain>
@@ -37,7 +37,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               Approach
             </Text>
             My goal is to create unique, appealing, accessible and user-friendly
-            products and stay up to date with the latest standards and trends in
+            products while staying up to date with the latest standards and trends in
             today’s rapidly evolving digital world. Layouts that stand out from
             the crowd, creative use of code, and carefully crafted prototypes
             make me a confident design engineer.
@@ -79,7 +79,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
             </div>
             <span className="hidden@l">
               My goal is to create unique, appealing, accessible and
-              user-friendly products and stay up to date with the latest
+              user-friendly products while staying up to date with the latest
               standards and trends in today’s rapidly evolving digital world.
               Layouts that stand out from the crowd, creative{' '}
             </span>
