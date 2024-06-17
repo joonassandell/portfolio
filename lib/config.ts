@@ -271,7 +271,7 @@ export const TEXT_VARIANTS: Variants = {
   }),
   initial: {
     opacity: 0,
-    skewY: 10,
+    skewY: 5,
     y: '5rem',
   },
 };
