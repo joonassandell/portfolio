@@ -114,6 +114,7 @@ img::-moz-selection {
 
 :where(button) {
   all: unset;
+  box-sizing: border-box;
 }
 
 :where(table) {
