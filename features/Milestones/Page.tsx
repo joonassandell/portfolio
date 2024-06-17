@@ -4,14 +4,16 @@ import {
   CATEGORY_NAME_SHORT,
   MilestonesLine,
   MilestonesTable,
+  MilestonesTableHighlight,
 } from './';
+import { DelayedRender } from '@/components/DelayedRender';
+import { getMilliSeconds, objectEntries } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
-import { MilestonesTableHighlight } from './TableHighlight';
-import { objectEntries } from '@/lib/utils';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
+import { TRANS_TEMPLATE } from '@/lib/config';
 import { useSetThemeColor } from '@/components/App';
 
 export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
@@ -65,10 +67,12 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           <MilestonesTableHighlight />
         </TemplateSection>
         <TemplateSection grid={false} paddingBottom="10vw">
-          <Text className="ml:s ml@l mb" size="l" tag="h2">
-            All milestones
-          </Text>
-          <MilestonesTable />
+          <DelayedRender delay={getMilliSeconds(TRANS_TEMPLATE.duration + 0.3)}>
+            <Text className="ml:s ml@l mb" size="l" tag="h2">
+              All milestones
+            </Text>
+            <MilestonesTable />
+          </DelayedRender>
         </TemplateSection>
       </TemplateMain>
     </Template>

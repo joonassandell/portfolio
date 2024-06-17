@@ -87,3 +87,5 @@ export const formatDate = (inputDate: string): string => {
 
   return date.toLocaleDateString('en-US', options);
 };
+
+export const getMilliSeconds = (number: number) => number * 1000;
