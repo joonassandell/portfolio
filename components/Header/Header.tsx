@@ -18,7 +18,7 @@ import {
   maskNavVariant,
   maskOpenTransition,
 } from './';
-import { getLink, getSitemap } from '@/lib/utils';
+import { getLink } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -35,7 +35,6 @@ import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
-const contact = getSitemap('contact', 'common');
 const source = getLink('source', 'common');
 
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
@@ -386,7 +385,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
             </m.button>
             <ul className="Header-nav">
               {SITEMAP.common
-                .filter(item => item.id != 'contact' && !item.hidden)
+                .filter(item => !item.hidden)
                 .map(item => {
                   return (
                     <HeaderNavItem
@@ -399,13 +398,6 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     />
                   );
                 })}
-              <HeaderNavItem
-                href={contact.url}
-                isOpen={open}
-                openReveal={openReveal}
-                target="_self"
-                title={contact.navTitle}
-              />
             </ul>
           </div>
         </m.div>

@@ -1,3 +1,6 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .reset {
   all: unset;
 }
@@ -8,8 +11,36 @@
 
 .flex {
   display: flex;
+
+  @include mq(m) {
+    &\@m {
+      display: flex;
+    }
+  }
 }
 
 .justify-content\:end {
   justify-content: end;
+}
+
+.align-items\:center {
+  align-items: center;
+}
+
+.flex-direction\:column {
+  flex-direction: column;
+}
+
+.flex-direction\:row {
+  flex-direction: row;
+
+  @include mq(s) {
+    &\@s {
+      flex-direction: row;
+    }
+  }
+}
+
+.gap {
+  gap: rem($space);
 }

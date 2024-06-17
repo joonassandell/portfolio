@@ -31,8 +31,9 @@ export const SITEMAP: Sitemap = {
     {
       id: 'contact',
       navTitle: 'Contact',
+      themeColor: '#c1c0b6',
       title: 'Contact',
-      url: 'mailto:me@joonassandell.com?subject=Hi Joonas 👋&body=Hi %0D%0A%0D%0A write something to me...',
+      url: '/contact',
     },
   ],
   project: [
