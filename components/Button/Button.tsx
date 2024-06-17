@@ -14,9 +14,12 @@ export const Button = ({
   onClick,
   target,
   templateTransition = true,
+  variant,
   ...props
 }: ButtonProps) => {
-  const classes = c(className, 'Button Button--default');
+  const classes = c(className, 'Button Button--default', {
+    'Button--default--negative': variant === 'negative',
+  });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);
   const { setTransition } = useApp();
   const Tag = href ? 'a' : 'button';

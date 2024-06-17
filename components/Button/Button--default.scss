@@ -9,6 +9,7 @@
   box-shadow: var(--shadow);
   color: var(--text-900);
   gap: rem($space-2xs);
+  justify-content: space-between;
   min-height: rem($space-xl);
   padding: rem($space-xs) rem($space-m);
   transition:
@@ -30,5 +31,20 @@
   .Button-icon {
     --Icon-size: var(--Icon-size-m);
     margin-right: rem($space-3xs * -1);
+  }
+}
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Button--default--negative {
+  background: var(--bg-900);
+  box-shadow: unset;
+  color: var(--text-50);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--bg-800);
   }
 }

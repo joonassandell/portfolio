@@ -8,6 +8,7 @@ import { type HTMLMotionProps } from 'framer-motion';
 export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   icon?: ReactNode;
   templateTransition?: boolean;
+  variant?: 'default' | 'negative';
 }
 
 export type ButtonProps = ButtonBaseProps &
