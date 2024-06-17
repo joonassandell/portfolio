@@ -94,7 +94,7 @@
 }
 
 .Hero-link {
-  inset: auto 0 rem($space-m + 2px) 0;
+  inset: auto 0 rem($space-m + $space-2xs) 0;
   padding-right: var(--wrap-space-right);
   pointer-events: all;
   z-index: 4;

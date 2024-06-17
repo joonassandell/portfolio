@@ -8,6 +8,7 @@
 .Link {
   align-items: center;
   display: inline-flex;
+  gap: rem($space-xs);
   overflow: hidden;
   pointer-events: all;
   position: relative;
@@ -32,9 +33,7 @@
 .Link-icon {
   align-items: center;
   display: flex;
-  margin-top: rem(-1px);
-  position: absolute;
-  right: 0;
+  margin-top: rem(-$space-4xs);
 }
 
 /* =======================================
@@ -54,11 +53,5 @@
     padding-left: rem($space-2xs);
     transform: rotate(-180deg);
     writing-mode: vertical-rl;
-  }
-
-  &.-arrow {
-    @include text(l);
-    line-height: 1.75;
-    padding-right: rem($space-l);
   }
 }

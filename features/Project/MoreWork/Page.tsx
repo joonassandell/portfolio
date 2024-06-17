@@ -1,3 +1,4 @@
+import { ArrowRight } from '@/components/Icon';
 import { Figure } from '@/components/Figure';
 import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
@@ -465,7 +466,11 @@ export const MoreWorkPage = ({
                   <Link href={archive.url}>archive</Link> featuring clients such
                   as Fair Trade, Avecra, City of Tampere and Vapriikki.
                 </p>
-                <Link arrow href={archive.url} underline={false}>
+                <Link
+                  href={archive.url}
+                  icon={<ArrowRight />}
+                  underline={false}
+                >
                   Archive
                 </Link>
               </>

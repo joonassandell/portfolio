@@ -1,5 +1,4 @@
 import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
-import { ArrowRight } from '../Icon';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import {
   inVariant,
@@ -15,10 +14,10 @@ import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
 export const Link = ({
-  arrow,
   children,
   className,
   href,
+  icon,
   onClick,
   orientation = 'horizontal',
   tag,
@@ -30,7 +29,6 @@ export const Link = ({
   const { setTransition } = useApp();
   const [hover, setHover] = useState(false);
   const classes = c(className, 'Link', {
-    '-arrow': arrow,
     '-underline': underline,
     '-vertical': orientation === 'vertical',
   });
@@ -92,11 +90,7 @@ export const Link = ({
             </m.span>
           )}
         </AnimatePresence>
-        {arrow && (
-          <div className="Link-icon">
-            <ArrowRight />
-          </div>
-        )}
+        {icon && <span className="Link-icon">{icon}</span>}
       </Tag>
     </ConditionalWrapper>
   );

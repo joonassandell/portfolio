@@ -1,3 +1,4 @@
+import { ArrowRight } from '@/components/Icon';
 import { Heading } from '@/components/Heading';
 import { headingVariants as headingVars, type HeroProps } from './';
 import { Link } from '@/components/Link';
@@ -113,8 +114,8 @@ export const Hero = ({
           <div className="Hero-link wrap grid -place:end">
             <div className="grid-col">
               <Link
-                arrow
                 href={href as URL['href']}
+                icon={<ArrowRight />}
                 onClick={onClick}
                 templateTransition={false}
                 underline={false}
