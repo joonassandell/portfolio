@@ -120,19 +120,14 @@ export const LINKS: Links = {
   ],
   social: [
     {
-      id: 'dribbble',
-      title: 'Dribbble',
-      url: 'https://dribbble.com/joonassandell',
-    },
-    {
       id: 'twitter',
       title: 'Twitter',
       url: 'https://twitter.com/joonassandell',
     },
     {
-      id: 'instagram',
-      title: 'Instagram',
-      url: 'https://www.instagram.com/mode.apart',
+      id: 'github',
+      title: 'Github',
+      url: 'https://github.com/joonassandell',
     },
     {
       id: 'linkedin',
@@ -140,9 +135,14 @@ export const LINKS: Links = {
       url: 'https://www.linkedin.com/in/joonassandell',
     },
     {
-      id: 'github',
-      title: 'Github',
-      url: 'https://github.com/joonassandell',
+      id: 'dribbble',
+      title: 'Dribbble',
+      url: 'https://dribbble.com/joonassandell',
+    },
+    {
+      id: 'instagram',
+      title: 'Instagram',
+      url: 'https://www.instagram.com/mode.apart',
     },
     {
       id: 'soundcloud',
