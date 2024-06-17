@@ -1,6 +1,7 @@
 @use 'stylesheets/mixins' as *;
 
 :root {
+  --Icon-size-s: #{rem(24px)};
   --Icon-size-m: #{rem(28px)};
   --Icon-size-l: #{rem(32px)};
 }

@@ -1,39 +1,80 @@
+import { type ElementType } from 'react';
 import { type IconProps } from './';
 import ArrowDownIcon from './icons/arrow-down.svg';
-import ArrowDownIconLong from './icons/arrow-down-long.svg';
 import ArrowRightIcon from './icons/arrow-right.svg';
-import ArrowRightIconLong from './icons/arrow-right-long.svg';
 import ArrowUpIcon from './icons/arrow-up.svg';
 import c from 'clsx';
 import CrossIcon from './icons/cross.svg';
 import DownloadIcon from './icons/download.svg';
+import DribbbleIcon from './icons/dribbble.svg';
+import GithubIcon from './icons/github.svg';
+import InstagramIcon from './icons/instagram.svg';
+import CheckIcon from './icons/check.svg';
+import LinkedInIcon from './icons/linkedin.svg';
+import SoundCloudIcon from './icons/soundcloud.svg';
+import XIcon from './icons/x.svg';
 
-export const ArrowDown = ({ className }: IconProps) => (
-  <ArrowDownIcon className={c('Icon Icon--arrowDown', className)} />
+const Icon = ({
+  className,
+  Icon,
+  name,
+  size,
+}: IconProps & {
+  Icon: ElementType;
+  name: string;
+}) => (
+  <Icon
+    className={c(`Icon Icon--${name}`, className, {
+      '-size:m': size === 'm',
+      '-size:s': size === 's',
+    })}
+  />
 );
 
-export const ArrowDownLong = ({ className }: IconProps) => (
-  <div className={c('Icon Icon--arrowDownLong', className)}>
-    <ArrowDownIconLong />
-  </div>
+export const ArrowDown = (props: IconProps) => (
+  <Icon Icon={ArrowDownIcon} name="arrowDown" {...props} />
 );
 
-export const ArrowRight = ({ className }: IconProps) => (
-  <ArrowRightIcon className={c('Icon Icon--arrowRight', className)} />
+export const ArrowRight = (props: IconProps) => (
+  <Icon Icon={ArrowRightIcon} name="arrowRight" {...props} />
 );
 
-export const ArrowRightLong = ({ className }: IconProps) => (
-  <ArrowRightIconLong className={c('Icon Icon--arrowRightLong', className)} />
+export const ArrowUp = (props: IconProps) => (
+  <Icon Icon={ArrowUpIcon} name="arrowUp" {...props} />
 );
 
-export const ArrowUp = ({ className }: IconProps) => (
-  <ArrowUpIcon className={c('Icon Icon--arrowUp', className)} />
+export const Cross = (props: IconProps) => (
+  <Icon Icon={CrossIcon} name="cross" {...props} />
 );
 
-export const Cross = ({ className }: IconProps) => (
-  <CrossIcon className={c('Icon Icon--cross', className)} />
+export const Download = (props: IconProps) => (
+  <Icon Icon={DownloadIcon} name="download" {...props} />
 );
 
-export const Download = ({ className }: IconProps) => (
-  <DownloadIcon className={c('Icon Icon--download', className)} />
+export const X = (props: IconProps) => (
+  <Icon Icon={XIcon} name="x" {...props} />
+);
+
+export const Instagram = (props: IconProps) => (
+  <Icon Icon={InstagramIcon} name="instagram" {...props} />
+);
+
+export const SoundCloud = (props: IconProps) => (
+  <Icon Icon={SoundCloudIcon} name="soundCloud" {...props} />
+);
+
+export const LinkedIn = (props: IconProps) => (
+  <Icon Icon={LinkedInIcon} name="linkedIn" {...props} />
+);
+
+export const Github = (props: IconProps) => (
+  <Icon Icon={GithubIcon} name="github" {...props} />
+);
+
+export const Dribbble = (props: IconProps) => (
+  <Icon Icon={DribbbleIcon} name="dribbble" {...props} />
+);
+
+export const Check = (props: IconProps) => (
+  <Icon Icon={CheckIcon} name="check" {...props} />
 );
