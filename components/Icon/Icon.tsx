@@ -5,6 +5,7 @@ import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowUpIcon from './icons/arrow-up.svg';
 import c from 'clsx';
 import CheckIcon from './icons/check.svg';
+import CopyIcon from './icons/copy.svg';
 import DownloadIcon from './icons/download.svg';
 import DribbbleIcon from './icons/dribbble.svg';
 import GithubIcon from './icons/github.svg';
@@ -64,4 +65,8 @@ export const Dribbble = (props: IconProps) => (
 
 export const Check = (props: IconProps) => (
   <Icon Icon={CheckIcon} name="check" {...props} />
+);
+
+export const Copy = (props: IconProps) => (
+  <Icon Icon={CopyIcon} name="copy" {...props} />
 );
