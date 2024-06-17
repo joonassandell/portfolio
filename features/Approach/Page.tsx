@@ -28,11 +28,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
       />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
-          <Heading
-            className="Template-heading Template-heading--desktop visible@l"
-            size="h2"
-            tag="h1"
-          >
+          <Heading className="Template-heading visible@l" size="h2" tag="h1">
             <Text className="Template-heading-subtitle" tag="span">
               Approach
             </Text>
@@ -81,7 +77,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               My goal is to create unique, appealing, accessible and
               user-friendly products while staying up to date with the latest
               standards and trends in today’s rapidly evolving digital world.
-              Layouts that stand out from the crowd, creative{' '}
+              Layouts that stand out from the crowd, creative use of code,{' '}
             </span>
             <Figure
               alt="Joonas Sandell"
@@ -91,8 +87,8 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               {...profile}
             />
             <span className="hidden@l">
-              use of code, and carefully crafted prototypes make me a confident
-              design engineer.
+              and carefully crafted prototypes make me a confident design
+              engineer.
             </span>
           </Heading>
         </TemplateSection>

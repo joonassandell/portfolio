@@ -36,7 +36,7 @@ export const ArchivePage = ({
                 Tampere and Vapriikki.
               </p>
               <p>
-                I'll be updating this page every now and then since I'm not yet
+                I’ll be updating this page every now and then since I’m not yet
                 done crawling all the archived folders in my NAS. 📀
               </p>
             </>

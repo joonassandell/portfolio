@@ -18,7 +18,7 @@ export const AboutTop = () => (
         size="display"
         tag="div"
       >
-        <TextReveal text={["Hello. ✳︎ Moro. ✳︎ Hi. ✳︎ What's up?"]} />
+        <TextReveal text={["Hello ✳︎ Moro ✳︎ Hi ✳︎ What's up?"]} />
       </Heading>
     </div>
     <div className="Template-figure grid">

@@ -79,9 +79,9 @@ export const MoreWorkPage = ({
             <Text animate>
               <p>
                 I was asked to design and develop website for the companys newly
-                updated brand. The main goal was to improve HW-Company's brand,
+                updated brand. The main goal was to improve HW-Company’s brand,
                 improve usability, and give website users a comprehensive
-                picture of HW-Company's activities around the world.
+                picture of HW-Company’s activities around the world.
               </p>
               <Text color="light" size="xs" tag="small">
                 Built together with awesome people from Porkka & Kuutsa.
@@ -182,7 +182,7 @@ export const MoreWorkPage = ({
           <div className="grid-col grid-col:10@s grid-col:4@m">
             <Text animate>
               <p>
-                I had the honor to design and develop Hankkija's new
+                I had the honor to design and develop Hankkija’s new
                 international website. The fresh user interface innovated the
                 client to expand the design to other marketing materials as
                 well.
@@ -246,7 +246,7 @@ export const MoreWorkPage = ({
             role={['UI/UX design', 'Web development', 'App development']}
             text={
               <p>
-                The Academic Bookstore's ambition is to be a quality bookstore
+                The Academic Bookstore’s ambition is to be a quality bookstore
                 in modern time. The Academic Bookstore has a long-standing
                 commitment to reading and life-long learning.
               </p>
@@ -377,7 +377,7 @@ export const MoreWorkPage = ({
             <Text animate>
               <p>
                 The service offers target group-specific information and easy
-                access to TAKK's training offerings.
+                access to TAKK’s training offerings.
               </p>
               <p>
                 TAKK appreciated our versatile expertise, from planning tasks to

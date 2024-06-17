@@ -33,7 +33,7 @@ export const BiocodePage = ({
             <p>
               I’m currently working for Biocode as lead product designer and
               front-end developer. I’m responsible for crafting our design
-              system and making sure our application's code stays manageable.
+              system and making sure our application’s code stays manageable.
               Work samples here are mainly from the latest brand redesign which
               included iconography, logo design and website renewal from my
               part.

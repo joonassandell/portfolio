@@ -10,8 +10,8 @@ export interface TemplateMainProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'div'>['className'];
 }
 
-export interface TemplateSectionProps extends PropsWithChildren {
-  className?: ComponentPropsWithoutRef<'section'>['className'];
+export interface TemplateSectionProps
+  extends ComponentPropsWithoutRef<'section'> {
   grid?: boolean;
   gridGap?: 'm' | 'l' | 'xl' | false;
   gridRowGap?: 'm' | 'l' | 'xl' | false;
