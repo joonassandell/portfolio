@@ -1,0 +1,14 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.SomeIcons {
+  display: flex;
+  gap: rem($space);
+}
+
+.SomeIcons-link {
+  &,
+  .Link-text {
+    display: flex;
+  }
+}
