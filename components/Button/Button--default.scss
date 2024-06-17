@@ -8,7 +8,7 @@
   border-radius: var(--border-radius-pill);
   box-shadow: var(--shadow);
   color: var(--text-900);
-  gap: rem($space-2xs);
+  gap: rem($space-xs);
   justify-content: space-between;
   min-height: rem($space-xl);
   padding: rem($space-xs) rem($space-m);
@@ -29,7 +29,6 @@
   }
 
   .Button-icon {
-    --Icon-size: var(--Icon-size-m);
     margin-right: rem($space-3xs * -1);
   }
 }

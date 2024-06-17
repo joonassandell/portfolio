@@ -4,12 +4,11 @@ import ArrowDownIcon from './icons/arrow-down.svg';
 import ArrowRightIcon from './icons/arrow-right.svg';
 import ArrowUpIcon from './icons/arrow-up.svg';
 import c from 'clsx';
-import CrossIcon from './icons/cross.svg';
+import CheckIcon from './icons/check.svg';
 import DownloadIcon from './icons/download.svg';
 import DribbbleIcon from './icons/dribbble.svg';
 import GithubIcon from './icons/github.svg';
 import InstagramIcon from './icons/instagram.svg';
-import CheckIcon from './icons/check.svg';
 import LinkedInIcon from './icons/linkedin.svg';
 import SoundCloudIcon from './icons/soundcloud.svg';
 import XIcon from './icons/x.svg';
@@ -18,18 +17,10 @@ const Icon = ({
   className,
   Icon,
   name,
-  size,
 }: IconProps & {
   Icon: ElementType;
   name: string;
-}) => (
-  <Icon
-    className={c(`Icon Icon--${name}`, className, {
-      '-size:m': size === 'm',
-      '-size:s': size === 's',
-    })}
-  />
-);
+}) => <Icon className={c(`Icon Icon--${name}`, className)} />;
 
 export const ArrowDown = (props: IconProps) => (
   <Icon Icon={ArrowDownIcon} name="arrowDown" {...props} />
@@ -41,10 +32,6 @@ export const ArrowRight = (props: IconProps) => (
 
 export const ArrowUp = (props: IconProps) => (
   <Icon Icon={ArrowUpIcon} name="arrowUp" {...props} />
-);
-
-export const Cross = (props: IconProps) => (
-  <Icon Icon={CrossIcon} name="cross" {...props} />
 );
 
 export const Download = (props: IconProps) => (

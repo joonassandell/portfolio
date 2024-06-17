@@ -55,7 +55,7 @@ export const Button = ({
         {...props}
       >
         {children}
-        <span className="Button-icon">{icon}</span>
+        {icon && <span className="Button-icon">{icon}</span>}
       </Tag>
     </ConditionalWrapper>
   );

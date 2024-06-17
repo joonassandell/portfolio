@@ -1,18 +1,6 @@
 .Icon {
   display: inline-flex;
   fill: currentColor;
-  height: var(--Icon-size, var(--Icon-size-l));
-  width: var(--Icon-size, var(--Icon-size-l));
-
-  &.-size\:m {
-    --Icon-size: var(--Icon-size-m);
-  }
-
-  &.-size\:s {
-    --Icon-size: var(--Icon-size-s);
-  }
-}
-
-.Icon--arrowRightLong {
-  width: auto;
+  height: var(--Icon-size, var(--Icon-size-m));
+  width: var(--Icon-size, var(--Icon-size-m));
 }
