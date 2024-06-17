@@ -1,20 +1,28 @@
-import { useSetThemeColor } from '@/components/App';
+import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
+import { getLink } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
-import { ArrowRight, Check } from '@/components/Icon';
+import { type PageProps } from '@/types';
+import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
-import { SCROLL_SPEED } from '@/lib/config';
-import { getLink } from '@/lib/utils';
-import { type PageProps } from '@/types';
 import { useCopyToClipboard } from 'react-use';
+import { useSetThemeColor } from '@/components/App';
+import { useState } from 'react';
 
 export const ContactPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
+  const [copyIcon, setCopyIcon] = useState(<Copy />);
+
+  const handleCopy = () => {
+    copyToClipboard('me@joonassandell.com');
+    setCopyIcon(<Check />);
+    setTimeout(() => setCopyIcon(<Copy />), 2000);
+  };
 
   return (
     <Template id={id}>
@@ -32,29 +40,21 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
             data-s-position="left"
             data-s-speed={SCROLL_SPEED}
             size="display"
-            tag="div"
+            tag="h1"
           >
-            <TextReveal
-              text={['Get in touch ✳︎ Contact ✳︎ Contact ✳︎ Contact']}
-            />
+            <TextReveal text={['Get in touch ✳︎ Get in touch']} />
           </Heading>
         </TemplateSection>
         <TemplateSection className="" paddingBottom="15vw" paddingTop="5vw">
-          <div className="grid-col grid-col:7@m grid-col:5@l">
-            <Text animate className="mb:m" size="l">
+          <div className="grid-col grid-col:7@m grid-col:6@l grid-col:5@xl">
+            <Text animate size="l">
               <p>
                 I enjoy connecting with new people online, and participating in
                 events. The easiest way to reach me is via email but
-                alternatively feel free to send me a message in Twitter.
+                alternatively feel free to send me a message through Twitter.
               </p>
-            </Text>
-            <Text animate>
-              <div className="flex flex-direction:column flex-direction:row@s gap">
-                <Button
-                  icon={<Check />}
-                  onClick={() => copyToClipboard('me@joonassandell.com')}
-                  variant="negative"
-                >
+              <p className="flex flex-direction:column flex-direction:row@s gap">
+                <Button icon={copyIcon} onClick={handleCopy} variant="negative">
                   Copy e-mail
                 </Button>
                 <Button
@@ -63,17 +63,15 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
                 >
                   Send me a DM
                 </Button>
-              </div>
-            </Text>
-          </div>
-          <div className="grid-col grid-col:5@m -start:8@">
-            <Text animate className="mb:m">
-              <p className="mb:2xs">Social media</p>
-              <p className="color:gray:600">
-                Feel free to follow and send me a message.
               </p>
             </Text>
+          </div>
+          <div className="grid-col grid-col:5@m">
             <Text animate>
+              <p className="mb:2xs">Social media</p>
+              <p className="color:gray:600">
+                Feel free to follow and send me a message
+              </p>
               <SomeIcons />
             </Text>
           </div>
