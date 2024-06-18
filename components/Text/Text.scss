@@ -21,9 +21,7 @@
     @include text(xs);
   }
 
-  > *:not(.Text) {
-    &:last-child {
-      margin-bottom: 0;
-    }
+  > *:last-child {
+    margin-bottom: 0;
   }
 }

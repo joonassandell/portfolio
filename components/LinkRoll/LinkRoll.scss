@@ -2,9 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 /**
- * 1. Fixes odd issue in Chromium where there sometimes seems to be extra text
- *    element under the animating elements
- * 2. To transition the change into underline if the underline is used as
+ * 1. To transition the change into underline if the underline is used as
  *    active state (e.g. in Header)
  */
 .LinkRoll {
@@ -12,7 +10,6 @@
   overflow: hidden;
   position: relative;
   transition: opacity var(--trans-primary-fastest);
-  will-change: opacity; // [1.]
 
   &:hover {
     opacity: var(--link-hover-opacity);
@@ -44,7 +41,7 @@
  * ======================================= */
 
 .LinkRoll {
-  // [2.]
+  // [1.]
   &.has-underline {
     .LinkRoll-char {
       &:after {
