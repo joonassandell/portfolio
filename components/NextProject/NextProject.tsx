@@ -4,11 +4,15 @@ import { LinkRoll } from '@/components/LinkRoll';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';
 import { type NextProjectProps } from './';
+import { useApp } from '@/components/App';
 import { useEffect, useRef, useState } from 'react';
 import { useMeasure, useMouseHovered } from 'react-use';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 export const NextProject = ({ id }: NextProjectProps) => {
+  const { setTransition } = useApp();
+  const { push } = useRouter();
   const { title, url } = getSitemap(id);
   const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
   const ref = useRef<HTMLElement>(null);
@@ -93,6 +97,10 @@ export const NextProject = ({ id }: NextProjectProps) => {
           aria-hidden="true"
           className="NextProject-figure"
           initial={{ opacity: 0 }}
+          onClick={() => {
+            setTransition('template');
+            push(url, undefined, { scroll: false });
+          }}
           ref={figureRef}
           style={{
             rotate,

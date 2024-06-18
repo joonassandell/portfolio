@@ -26,9 +26,9 @@
 
 .NextProject-figure {
   border-radius: var(--border-radius-pill);
+  cursor: pointer;
   inset: 0 auto auto 0;
   overflow: hidden;
-  pointer-events: none;
   position: absolute;
   width: min(#{rem($space * 20)}, 45%);
 
