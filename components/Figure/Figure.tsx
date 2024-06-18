@@ -7,9 +7,9 @@ import {
   placeholderGlareVariants,
   placeholderVariants,
 } from './';
-import { DEVELOPMENT, SCROLL_SPEED } from '@/lib/config';
 import { isString } from '@/lib/utils';
 import { default as NextImage } from 'next/image';
+import { SCROLL_SPEED } from '@/lib/config';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useRef, useState } from 'react';
 import c from 'clsx';
@@ -63,7 +63,7 @@ export const Figure = ({
     : (scrollSpeed = scrollSpeed);
 
   // Stop caching images in development, uncomment if you keep testing new images
-  // DEVELOPMENT && (src = `${src}?${Date.now()}`);
+  // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
 
   return (
     <div
