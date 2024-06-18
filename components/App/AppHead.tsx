@@ -2,8 +2,9 @@ import { type AppHeadProps } from './';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
+
 export const AppHead = ({ themeColor }: AppHeadProps) => {
-  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const { asPath } = useRouter();
   const title = 'Joonas Sandell — Designer & Developer';
   const description =

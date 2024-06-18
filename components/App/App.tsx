@@ -7,18 +7,17 @@ import {
 } from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { EASE, EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
 import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-import Script from 'next/script';
 
 const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
-const PRODUCTION = process.env.NODE_ENV === 'production';
 let scrollOnUpdateOnce = false;
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -204,41 +203,10 @@ export const App = ({ Component, pageProps }: AppProps) => {
     if (transition === 'template') setTransitionInitial(true);
   }, [transition]);
 
-  /**
-   * Send GA page views
-   */
-  useEffect(() => {
-    if (PRODUCTION && GOOGLE_ANALYTICS) {
-      const handleRouteChange = (url: string) => {
-        window.gtag('config', GOOGLE_ANALYTICS, {
-          page_path: url,
-        });
-      };
-      events.on('routeChangeComplete', handleRouteChange);
-      return () => events.off('routeChangeComplete', handleRouteChange);
-    }
-  }, [events]);
-
   return (
     <LazyMotion features={domAnimation} strict>
       <AppHead themeColor={loadingEnd ? themeColor : undefined} />
-      {PRODUCTION && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}`}
-          />
-          <Script id="google-analytics">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GOOGLE_ANALYTICS}', {
-                page_path: window.location.pathname
-              });
-            `}
-          </Script>
-        </>
-      )}
+      <GoogleAnalytics gaId={GOOGLE_ANALYTICS as string} />
       {!DISABLE_LOADING && (
         <Splash
           loading={loading}
