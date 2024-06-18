@@ -2,6 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Button--default {
+  @include text(m);
   align-items: center;
   background: var(--bg-50);
   border: var(--border-width) solid transparent;
