@@ -53,7 +53,7 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text color="light" marginBottom="2xs" size="s" tag="p">
+              <Text color="mute" marginBottom="2xs" size="s" tag="p">
                 Client
               </Text>
               <Text size="s">
@@ -70,7 +70,7 @@ export const Info = ({
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l">
-              <Text color="light" marginBottom="2xs" size="s" tag="p">
+              <Text color="mute" marginBottom="2xs" size="s" tag="p">
                 Year
               </Text>
               <Text size="s">
@@ -79,7 +79,7 @@ export const Info = ({
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l grid -gap-column:0">
               <div className="grid-col">
-                <Text color="light" marginBottom="2xs" size="s" tag="p">
+                <Text color="mute" marginBottom="2xs" size="s" tag="p">
                   Project type
                 </Text>
                 <Text size="s" tag="ul">
@@ -90,7 +90,7 @@ export const Info = ({
               </div>
               {tech && mqM && !mqL && (
                 <div className="grid-col">
-                  <Text color="light" marginBottom="2xs" size="s" tag="p">
+                  <Text color="mute" marginBottom="2xs" size="s" tag="p">
                     Tech
                   </Text>
                   <Text className="grid-col" size="s" tag="ul">
@@ -107,7 +107,7 @@ export const Info = ({
             variants={TEXT_VARIANTS}
           >
             <div className="grid-col">
-              <Text color="light" marginBottom="2xs" size="s">
+              <Text color="mute" marginBottom="2xs" size="s">
                 Role
               </Text>
               <Text className="grid-col" size="s" tag="ul">
@@ -118,7 +118,7 @@ export const Info = ({
             </div>
             {tech && (mqL || mqMmax) && (
               <div className="grid-col">
-                <Text color="light" marginBottom="2xs" size="s" tag="p">
+                <Text color="mute" marginBottom="2xs" size="s" tag="p">
                   Tech
                 </Text>
                 <Text className="grid-col" size="s" tag="ul">
@@ -130,7 +130,7 @@ export const Info = ({
             )}
             <Text
               className="grid-col -align:end"
-              color="light"
+              color="mute"
               size="xs"
               tag="small"
             >

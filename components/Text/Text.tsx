@@ -18,11 +18,11 @@ export const Text = ({
   const classes = c(
     'Text',
     {
-      '-color:light': color === 'light',
       '-size:l': size === 'l',
       '-size:s': size === 's',
       '-size:xl': size === 'xl',
       '-size:xs': size === 'xs',
+      'color:mute': color === 'mute',
       'mb:2xs': marginBottom === '2xs',
     },
     className,

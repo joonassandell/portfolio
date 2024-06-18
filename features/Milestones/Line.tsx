@@ -194,7 +194,7 @@ export const MilestonesLine = () => {
             return (
               <Tooltip container={refInner} point={point}>
                 <Text size="xs">{event}</Text>
-                <Text className="color:700" size="xs">
+                <Text className="color:mute" size="xs">
                   {xFormatted}
                 </Text>
               </Tooltip>
