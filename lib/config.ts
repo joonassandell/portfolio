@@ -317,7 +317,7 @@ export const PRODUCTION_LIVE = process.env.VERCEL_ENV === 'production';
 export const PREVIEW = process.env.VERCEL_ENV === 'preview';
 export const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? PREVIEW
-    ? process.env.NEXT_PUBLIC_VERCEL_URL
-    : process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
 
-console.log(APP_URL);
+console.log('APP_URL', APP_URL);
