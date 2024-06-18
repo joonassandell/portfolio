@@ -1,8 +1,7 @@
+import { APP_URL } from '@/lib/config';
 import { type AppHeadProps } from './';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
 export const AppHead = ({ themeColor }: AppHeadProps) => {
   const { asPath } = useRouter();

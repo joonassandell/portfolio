@@ -298,3 +298,14 @@ export const MQ = {
   '6xl': '(min-width: 2560px)',
   '7xl': '(min-width: 3840px)',
 } as const;
+
+/* =======================================
+ * Environment variables
+ * ======================================= */
+
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
+export const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
+export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+export const DEVELOPMENT = process.env.NODE_ENV === 'development';
+export const PRODUCTION = process.env.NODE_ENV === 'production';
+export const PRODUCTION_LIVE = process.env.VERCEL_ENV === 'production';

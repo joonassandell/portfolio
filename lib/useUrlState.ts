@@ -1,8 +1,8 @@
+import { APP_URL } from '@/lib/config';
 import { isBrowser } from '@/lib/utils';
 import { type NextRouter, useRouter } from 'next/router';
 
 export const urlState = (href: URL['href'], router?: NextRouter) => {
-  const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const url = new URL(href, APP_URL);
   const external = url.origin != (isBrowser ? location.origin : APP_URL);
 

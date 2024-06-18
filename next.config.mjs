@@ -3,9 +3,8 @@ import path from 'path';
 import bundleAnalyzer from '@next/bundle-analyzer';
 import { fileURLToPath } from 'url';
 
-const { ANALYZE, VERCEL_ENV, VERCEL_URL, NEXT_PUBLIC_APP_URL, IGNORE } =
+const { ANALYZE, VERCEL_ENV, VERCEL_URL, NEXT_PUBLIC_APP_URL, IGNORE_ERRORS } =
   process.env;
-const preview = VERCEL_ENV === 'preview';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const withBundleAnalyzer = bundleAnalyzer({
@@ -14,18 +13,17 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 const config = {
   env: {
-    NEXT_PUBLIC_APP_URL: preview
-      ? `https://${VERCEL_URL}`
-      : NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_APP_URL:
+      VERCEL_ENV === 'preview' ? `https://${VERCEL_URL}` : NEXT_PUBLIC_APP_URL,
   },
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
   },
   typescript: {
-    ignoreBuildErrors: IGNORE ? true : false,
+    ignoreBuildErrors: IGNORE_ERRORS ? true : false,
   },
   eslint: {
-    ignoreDuringBuilds: IGNORE ? true : false,
+    ignoreDuringBuilds: IGNORE_ERRORS ? true : false,
   },
   experimental: { optimizeCss: true },
   ...(VERCEL_ENV === 'production' && {

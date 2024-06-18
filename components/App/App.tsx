@@ -1,12 +1,21 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
 import {
+  APP_URL,
+  DISABLE_LOADING,
+  EASE,
+  EASE_CSS,
+  GOOGLE_ANALYTICS,
+  PRODUCTION,
+  PRODUCTION_LIVE,
+  SLOW_NETWORK_DELAY,
+} from '@/lib/config';
+import {
   type AppContextProps,
   AppHead,
   type AppHeadProps,
   type AppProps,
 } from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { EASE, EASE_CSS, SLOW_NETWORK_DELAY } from '@/lib/config';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
@@ -15,9 +24,6 @@ import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 
-const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
-const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 let scrollOnUpdateOnce = false;
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -80,7 +86,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
    * ====== */
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (PRODUCTION) {
       console.info(
         'Made by me with Next.js, TypeScript, Framer Motion and tears. 🥲',
       );
@@ -206,7 +212,9 @@ export const App = ({ Component, pageProps }: AppProps) => {
   return (
     <LazyMotion features={domAnimation} strict>
       <AppHead themeColor={loadingEnd ? themeColor : undefined} />
-      <GoogleAnalytics gaId={GOOGLE_ANALYTICS as string} />
+      {PRODUCTION_LIVE && GOOGLE_ANALYTICS && (
+        <GoogleAnalytics gaId={GOOGLE_ANALYTICS as string} />
+      )}
       {!DISABLE_LOADING && (
         <Splash
           loading={loading}
