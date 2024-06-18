@@ -303,13 +303,8 @@ export const MQ = {
  * Environment variables
  * ======================================= */
 
-console.log('NEXT_PUBLIC_VERCEL_URL', process.env.NEXT_PUBLIC_VERCEL_URL);
-console.log(
-  'NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL',
-  process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
-);
-
-export const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
+export const DISABLE_LOADING =
+  process.env.NEXT_PUBLIC_DISABLE_LOADING === 'true';
 export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 export const DEVELOPMENT = process.env.NODE_ENV === 'development';
 export const PRODUCTION = process.env.NODE_ENV === 'production';
@@ -320,5 +315,3 @@ export const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL ?? PREVIEW
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
-
-console.log('APP_URL', APP_URL);

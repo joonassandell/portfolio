@@ -13,11 +13,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 const config = {
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
-  },
-  typescript: {
-    ignoreBuildErrors: IGNORE_ERRORS ? true : false,
-  },
-  eslint: {
     ignoreDuringBuilds: IGNORE_ERRORS ? true : false,
   },
   experimental: { optimizeCss: true },
@@ -30,6 +25,9 @@ const config = {
   }),
   sassOptions: {
     includePaths: [path.join(__dirname), `${path.join(__dirname)}/stylesheets`],
+  },
+  typescript: {
+    ignoreBuildErrors: IGNORE_ERRORS ? true : false,
   },
   webpack(config) {
     config.module.rules.push({
