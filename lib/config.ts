@@ -287,7 +287,6 @@ export const MQ = {
   xs: '(min-width: 480px)',
   s: '(min-width: 600px)',
   m: '(min-width: 768px)',
-  mMax: '(max-width: 767px)',
   ml: '(min-width: 900px)',
   l: '(min-width: 1024px)',
   xl: '(min-width: 1200px)',
@@ -312,6 +311,7 @@ export const PRODUCTION_LIVE =
   process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
 export const PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
 export const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL ?? PREVIEW
+  process.env.NEXT_PUBLIC_APP_URL ??
+  (PREVIEW
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`;
+    : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`);

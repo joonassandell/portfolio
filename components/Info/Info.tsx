@@ -22,8 +22,6 @@ export const Info = ({
 }: InfoProps) => {
   const { href, name } = client || {};
   const mqL = useMedia(MQ.l, false);
-  const mqM = useMedia(MQ.m, false);
-  const mqMmax = useMedia(MQ.mMax, false);
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
   const textRef = useRef(null);
@@ -88,8 +86,8 @@ export const Info = ({
                   ))}
                 </Text>
               </div>
-              {tech && mqM && !mqL && (
-                <div className="grid-col">
+              {tech && (
+                <div className="grid-col visible@m hidden@l">
                   <Text color="mute" marginBottom="2xs" size="s" tag="p">
                     Tech
                   </Text>
@@ -116,8 +114,8 @@ export const Info = ({
                 ))}
               </Text>
             </div>
-            {tech && (mqL || mqMmax) && (
-              <div className="grid-col">
+            {tech && (
+              <div className="grid-col hidden@m:max@l">
                 <Text color="mute" marginBottom="2xs" size="s" tag="p">
                   Tech
                 </Text>

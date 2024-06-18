@@ -47,3 +47,9 @@
     display: none !important;
   }
 }
+
+.hidden\@m\:max\@l {
+  @include mq($from: m, $until: l) {
+    display: none !important;
+  }
+}

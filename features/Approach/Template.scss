@@ -33,14 +33,14 @@
     text-wrap: pretty;
   }
 
+  .Template-heading-subtitle {
+    margin-right: 32ch;
+  }
+
   .Template-heading--mobile {
     @include mq(m) {
       max-width: 75vw;
     }
-  }
-
-  .Template-heading-subtitle {
-    margin-right: 32ch;
   }
 
   .Template-cube {
