@@ -11,8 +11,8 @@ import { Text } from '@/components/Text';
 import { useApp, useSetThemeColor } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
-import lineCube from '@/public/about/line-cube.png';
-import profile from '@/public/about/joonassandell-profile.png';
+import lineCube from '@/public/images/line-cube.png';
+import profile from '@/public/images/joonassandell-profile.png';
 
 export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);

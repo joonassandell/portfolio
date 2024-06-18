@@ -13,8 +13,8 @@ import { useApp } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
-import lineCube from '@/public/about/line-cube.png';
-import profile from '@/public/about/joonassandell-profile-2.jpg';
+import lineCube from '@/public/images/line-cube.png';
+import profile from '@/public/images/joonassandell-profile-2.jpg';
 
 export const AboutIntro = () => {
   const mqS = useMedia(MQ.s, true);

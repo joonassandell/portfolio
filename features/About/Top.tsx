@@ -2,8 +2,8 @@ import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { TextReveal } from '@/components/TextReveal';
-import lineCube from '@/public/about/line-cube.png';
-import profile from '@/public/about/joonassandell-profile.png';
+import lineCube from '@/public/images/line-cube.png';
+import profile from '@/public/images/joonassandell-profile.png';
 
 export const AboutTop = () => (
   <>

@@ -52,8 +52,8 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
               <p>
                 I enjoy connecting with new people online and participating in
                 events. The easiest way to reach me is via email but
-                alternatively feel free to send me a message through{' '}
-                <Link href={getLink('twitter', 'social').url}>Twitter</Link> .
+                alternatively feel free to send me a message through
+                <Link href={getLink('twitter', 'social').url}>Twitter</Link>.
               </p>
               <p className="flex flex-direction:column flex-direction:row@s gap">
                 <Button icon={copyIcon} onClick={handleCopy} variant="negative">

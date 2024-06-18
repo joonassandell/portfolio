@@ -5,7 +5,7 @@ import { MQ } from '@/lib/config';
 import { TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
-import lineBall from '@/public/about/line-ball.png';
+import lineBall from '@/public/images/line-ball.png';
 
 export const AboutClients = () => (
   <TemplateSection
