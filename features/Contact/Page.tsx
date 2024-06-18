@@ -3,6 +3,7 @@ import { Button } from '@/components/Button';
 import { getLink } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
+import { Link } from '@/components/Link';
 import { type PageProps } from '@/types';
 import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -45,13 +46,14 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
             <TextReveal text={['Get in touch ✳︎ Get in touch']} />
           </Heading>
         </TemplateSection>
-        <TemplateSection className="" paddingBottom="15vw" paddingTop="5vw">
-          <div className="grid-col grid-col:7@m grid-col:6@l grid-col:5@xl">
+        <TemplateSection paddingBottom="10vw" paddingTop="5vw">
+          <div className="grid-col grid-col:8@m grid-col:6@l grid-col:5@xl">
             <Text animate size="l">
               <p>
-                I enjoy connecting with new people online, and participating in
+                I enjoy connecting with new people online and participating in
                 events. The easiest way to reach me is via email but
-                alternatively feel free to send me a message through Twitter.
+                alternatively feel free to send me a message through{' '}
+                <Link href={getLink('twitter', 'social').url}>Twitter</Link> .
               </p>
               <p className="flex flex-direction:column flex-direction:row@s gap">
                 <Button icon={copyIcon} onClick={handleCopy} variant="negative">
@@ -66,12 +68,10 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
               </p>
             </Text>
           </div>
-          <div className="grid-col grid-col:5@m">
+          <div className="grid-col grid-col:6@l">
             <Text animate>
-              <p className="mb:2xs">Social media</p>
-              <p className="color:gray:600">
-                Feel free to follow and send me a message
-              </p>
+              <p className="mb:2xs">On social media</p>
+              <p className="color:gray:mute">Let's connect and get in touch</p>
               <SomeIcons />
             </Text>
           </div>
