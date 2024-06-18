@@ -7,6 +7,8 @@
   "scripts": {
     "analyze": "ANALYZE=true bun run build",
     "build": "next build",
+    "build:ignore": "IGNORE=true next build",
+    "check": "npm run lint && npm run typecheck",
     "create:component": "bun --bun ./scripts/create-component.cjs",
     "dev": "next dev",
     "lint:fix": "next lint --fix",

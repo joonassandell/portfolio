@@ -12,13 +12,9 @@
   </a>
 </p>
 
-Welcome to the source code of [joonassandell.com](https://joonassandell.com). This is a [Next.js](https://nextjs.org/) app bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Welcome to the source code of [joonassandell.com](https://joonassandell.com). This is a [Next.js](https://nextjs.org/) app bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). Learn more from [Wiki](https://github.com/joonassandell/joonassandell-portfolio/wiki).
 
 Even though there's no explicit `LICENSE` included my sincere hope is that you'll utilize it solely for _educational purposes, to study and gain insights_. **Please refrain from engaging in any commercial activities with the code, such as selling it or using it to develop your own website**. This approach has been effective previously, and I aim to maintain the code open for everyone. However, if I detect any unauthorized usage online, I may have to make this repository private again. Your cooperation and understanding are greatly appreciated!
-
-- [The Portfolio](https://joonassandell.com)
-- [Notes](https://github.com/joonassandell/joonassandell-portfolio/wiki/Notes)
-- [Links](https://github.com/joonassandell/joonassandell-portfolio/wiki/Links)
 
 ## Getting started
 
@@ -37,9 +33,14 @@ bun run dev
 - `bun run start`: Start the application in production mode. The application should be build first.
 - `bun run create:component <ComponentName>`: Create a new component skeleton to `components/` directory
 - `bun run typecheck`: Run TS type checking
+- `bun run check`: Run TS type checking and ESLint
+- `bun run build:ignore`: Run build and ignore errors
+- `bun run lint`: Run ESLint
+- `bun run lint:fix`: Run ESLint and fix possible errors
+- `bun run analyze`: Run build with [@next/bundle-analyzer](https://nextjs.org/docs/app/building-your-application/optimizing/bundle-analyzer)
 
 Read about environment variables from [.env.development](.env.development).
 
 ## Copyright
 
-Copyright © 2024 [Joonas Sandell](https://x.com/joonassandell)
+Copyright © [Joonas Sandell](https://x.com/joonassandell)
