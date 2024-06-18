@@ -303,6 +303,12 @@ export const MQ = {
  * Environment variables
  * ======================================= */
 
+console.log('NEXT_PUBLIC_VERCEL_URL', process.env.NEXT_PUBLIC_VERCEL_URL);
+console.log(
+  'NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL',
+  process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+);
+
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 export const DISABLE_LOADING = process.env.NEXT_PUBLIC_DISABLE_LOADING;
 export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
