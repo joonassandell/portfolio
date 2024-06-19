@@ -24,6 +24,18 @@
  * Display visibility helper
  * ======================================= */
 
+@include mq(s) {
+  .hidden\@s {
+    display: none !important;
+  }
+}
+
+@include mq($until: s) {
+  .visible\@s {
+    display: none !important;
+  }
+}
+
 @include mq(m) {
   .hidden\@m {
     display: none !important;

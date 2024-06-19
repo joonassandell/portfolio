@@ -13,10 +13,6 @@
   .is-windows & {
     font-weight: var(--font-weight-100);
   }
-
-  @include mq($until: m) {
-    @include text(s);
-  }
 }
 
 .Footer-inner {
@@ -24,31 +20,41 @@
 }
 
 .Footer-main {
-  align-items: flex-end;
-  display: flex;
-  mix-blend-mode: difference;
-  padding-bottom: rem($space-l);
-  padding-top: rem($space-xl);
-
-  @include mq(m) {
-    align-items: center;
-    padding-bottom: rem($space-xl);
-    padding-top: rem($space-xl);
-  }
-}
-
-.Footer-links {
   display: flex;
   flex-direction: column;
-  gap: rem($space-4xs);
+  gap: rem($space-xl);
+  mix-blend-mode: difference;
+  padding-bottom: rem($space-l);
+  padding-top: rem($space-l);
 
   @include mq(m) {
-    flex-direction: row;
-    gap: rem($space-xs);
+    padding-bottom: rem($space-xl);
+    padding-top: rem($space-2xl);
   }
 }
 
-.Footer-text {
-  margin: 0 0 0 auto;
-  text-align: right;
+.Footer-mute {
+  color: var(--text-50);
+  opacity: 0.6;
+}
+
+.Footer-list {
+  li {
+    margin-bottom: rem($space-2xs);
+  }
+}
+
+.Footer-nameCol {
+  order: -1;
+
+  @include mq(m) {
+    order: unset;
+    text-align: right;
+  }
+}
+
+.Footer-bottom {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
 }

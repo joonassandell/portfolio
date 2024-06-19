@@ -35,6 +35,14 @@ export const SITEMAP: Sitemap = {
       title: 'Contact',
       url: '/contact',
     },
+    {
+      hidden: true,
+      id: 'home',
+      navTitle: 'Selected works',
+      themeColor: '#eeeae5',
+      title: 'Selected works',
+      url: '/',
+    },
   ],
   project: [
     {

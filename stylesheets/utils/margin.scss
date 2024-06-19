@@ -37,8 +37,18 @@
   margin-bottom: rem($space-2xs);
 }
 
+.mb\:xs {
+  margin-bottom: rem($space-xs);
+}
+
 .mb {
   margin-bottom: rem($space);
+
+  @include mq(m) {
+    &\@m {
+      margin-bottom: rem($space);
+    }
+  }
 }
 
 .mb\:m {
