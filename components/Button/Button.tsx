@@ -1,7 +1,9 @@
+import { AnimatePresence, m } from 'framer-motion';
 import { type ButtonEvent, type LinkEvent } from '@/types';
 import { type ButtonProps } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { default as NextLink } from 'next/link';
+import { TRANS_SECONDARY_FASTEST } from '@/lib/config';
 import { useApp } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -55,7 +57,20 @@ export const Button = ({
         {...props}
       >
         {children}
-        {icon && <span className="Button-icon">{icon}</span>}
+        {icon && (
+          <AnimatePresence initial={false} mode="popLayout">
+            <m.span
+              animate={{ scale: 1 }}
+              className="Button-icon"
+              exit={{ scale: 0 }}
+              initial={{ scale: 0 }}
+              key={icon.type.name}
+              transition={TRANS_SECONDARY_FASTEST}
+            >
+              {icon}
+            </m.span>
+          </AnimatePresence>
+        )}
       </Tag>
     </ConditionalWrapper>
   );
