@@ -24,7 +24,12 @@ export const TableRow = ({
     onClick && onClick(e);
 
     if (href) {
-      if (external || e.type === 'auxclick') {
+      if (e.type === 'auxclick') {
+        if (e.button === 1) window.open(href, externalTarget);
+        return;
+      }
+
+      if (external) {
         window.open(href, externalTarget);
       } else {
         setTransition('template');
