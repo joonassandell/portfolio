@@ -4,6 +4,7 @@
 .Template {
   --Template-overlay: var(--black);
   --Template-overlay-initial: var(--black-transparent);
+  background-color: var(--Template-bg, var(--bg-50));
   min-height: var(--vh);
   overflow: hidden;
   width: 100%;
