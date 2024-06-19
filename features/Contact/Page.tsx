@@ -17,12 +17,12 @@ import { useState } from 'react';
 export const ContactPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
-  const [copyIcon, setCopyIcon] = useState(<Copy />);
+  const [icon, setIcon] = useState(<Copy />);
 
   const handleCopy = () => {
     copyToClipboard('me@joonassandell.com');
-    setCopyIcon(<Check />);
-    setTimeout(() => setCopyIcon(<Copy />), 2000);
+    setIcon(<Check />);
+    setTimeout(() => setIcon(<Copy />), 2000);
   };
 
   return (
@@ -56,7 +56,12 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
                 <Link href={getLink('twitter', 'social').url}>Twitter</Link>.
               </p>
               <p className="flex flex-direction:column flex-direction:row@s gap">
-                <Button icon={copyIcon} onClick={handleCopy} variant="negative">
+                <Button
+                  disabled={icon.type.name != Copy.name}
+                  icon={icon}
+                  onClick={handleCopy}
+                  variant="negative"
+                >
                   Copy e-mail
                 </Button>
                 <Button
