@@ -87,8 +87,7 @@ export const Figure = ({
       {...(mask && { 'data-s-id': id })}
       {...(mask &&
         appTransition === 'template' &&
-        scrollPosition != 'top' &&
-        inView && {
+        scrollPosition != 'top' && {
           animate: 'animate',
           initial: 'initial',
           variants: JUMP_FIX_VARIANTS,
