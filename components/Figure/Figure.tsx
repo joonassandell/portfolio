@@ -79,12 +79,12 @@ export const Figure = ({
           ? borderRadius
           : undefined,
       }}
-      {...(mask && { 'data-s-id': id })}
       {...(scroll && { 'data-s': true })}
       {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
       {...(scroll && scrollOffset && { 'data-s-offset': scrollOffset })}
       {...(scroll && scrollPosition && { 'data-s-position': scrollPosition })}
       {...(scroll && scrollDelay && { 'data-s-delay': scrollDelay })}
+      {...(mask && { 'data-s-id': id })}
       {...(mask &&
         appTransition === 'template' &&
         scrollPosition != 'top' &&
@@ -96,10 +96,12 @@ export const Figure = ({
     >
       <figure
         className="Figure-figure"
-        {...(mask && { 'data-s': true })}
-        {...(mask && { 'data-s-speed': scrollImageSpeed })}
-        {...(mask && { 'data-s-target': `[data-s-id="${id}"]` })}
-        {...(mask && { 'data-s-prevent': true })}
+        {...(mask && {
+          'data-s': true,
+          'data-s-prevent': true,
+          'data-s-speed': scrollImageSpeed,
+          'data-s-target': `[data-s-id="${id}"]`,
+        })}
         {...(mask && scrollPosition && { 'data-s-position': scrollPosition })}
         {...(mask && scrollDelay && { 'data-s-delay': scrollDelay })}
       >
