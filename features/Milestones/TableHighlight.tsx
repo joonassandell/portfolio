@@ -25,7 +25,7 @@ export const MilestonesTableHighlight = ({
         Highlighted milestones in descending chronological order
       </TableCaption>
       <TableHeader>
-        <TableRow>
+        <TableRow animate={false}>
           <TableHead>Event</TableHead>
           <TableHead className="visible@m">Category</TableHead>
           <TableHead className="visible@m">Date</TableHead>

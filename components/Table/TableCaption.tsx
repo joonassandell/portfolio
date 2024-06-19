@@ -1,7 +1,12 @@
-import { type TableCaptionProps } from '.';
+import { m } from 'framer-motion';
+import { rowVariant } from './';
+import { type TableCaptionProps } from './';
+import { useInView } from '@/lib/useInView';
+import { useRef } from 'react';
 import c from 'clsx';
 
 export const TableCaption = ({
+  animate = true,
   children,
   className,
   hideVisually,
@@ -14,10 +19,21 @@ export const TableCaption = ({
     },
     className,
   );
+  const ref = useRef(null);
+  const inView = useInView(ref);
 
   return (
-    <caption className={classes} {...props}>
+    <m.caption
+      {...(animate && {
+        animate: inView && 'animate',
+        initial: 'initial',
+        ref,
+        variants: rowVariant,
+      })}
+      className={classes}
+      {...props}
+    >
       {children}
-    </caption>
+    </m.caption>
   );
 };

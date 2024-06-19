@@ -1,11 +1,15 @@
+import { m } from 'framer-motion';
 import { type MouseEvent } from 'react';
-import { type TableRowProps } from './';
+import { rowVariant, type TableRowProps } from './';
 import { useApp } from '@/components/App';
+import { useInView } from '@/lib/useInView';
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
 export const TableRow = ({
+  animate = true,
   background,
   children,
   className,
@@ -14,6 +18,8 @@ export const TableRow = ({
   ...props
 }: TableRowProps) => {
   const classes = c('Table-row', className);
+  const ref = useRef(null);
+  const inView = useInView(ref);
   const { setTransition } = useApp();
   const { push } = useRouter();
   const { external, externalTarget } = useUrlState(href as URL['href']);
@@ -39,17 +45,24 @@ export const TableRow = ({
   };
 
   return (
-    <tr
+    <m.tr
       className={classes}
       data-href={href}
       onAuxClick={handleOnClick}
       onClick={handleOnClick}
+      ref={ref}
       style={{
         ['--Table-row-bg' as string]: background,
       }}
+      {...(animate && {
+        animate: inView && 'animate',
+        initial: 'initial',
+        ref,
+        variants: rowVariant,
+      })}
       {...props}
     >
       {children}
-    </tr>
+    </m.tr>
   );
 };
