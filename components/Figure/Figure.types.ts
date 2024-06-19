@@ -28,7 +28,6 @@ export interface FigureProps
   scrollImageSpeed?: number;
   scrollOffset?: ElementAttributes['offset'];
   scrollPosition?: ElementAttributes['position'];
-  scrollPrevent?: boolean;
   scrollSpeed?: ElementAttributes['speed'] | 'negative';
   src: string;
   transition?: 'move' | 'clip';

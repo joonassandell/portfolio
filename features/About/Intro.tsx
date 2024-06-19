@@ -3,13 +3,12 @@ import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
 import { getLink } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
-import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
-import { useApp } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
 import { useRef } from 'react';
@@ -20,7 +19,6 @@ export const AboutIntro = () => {
   const mqS = useMedia(MQ.s, true);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
-  const { transition } = useApp();
 
   const heading = {
     desktop: [
@@ -126,22 +124,16 @@ export const AboutIntro = () => {
         </m.div>
       </div>
       <div className="grid -gap:0">
-        <m.div
-          animate="animate"
-          className="Template-profileCol grid-col grid-col:8 grid-col:4@s"
-          initial={transition === 'template' && 'initial'}
-          variants={JUMP_FIX_VARIANTS}
-        >
+        <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
           <Figure
             alt="Joonas Sandell"
             className="Template-profile"
             inViewOffset={-1}
             mask
-            scrollPrevent
             sizes={`${MQ.s} 25vw, 70vw`}
             {...profile}
           />
-        </m.div>
+        </div>
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
           <Text animate className="mb:m">
             <p>

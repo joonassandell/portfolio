@@ -3,20 +3,19 @@ import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
-import { JUMP_FIX_VARIANTS, SCROLL_SPEED } from '@/lib/config';
 import { m } from 'framer-motion';
 import { type PageProps } from '@/types';
+import { SCROLL_SPEED } from '@/lib/config';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
-import { useApp, useSetThemeColor } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
+import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
 import profile from '@/public/images/joonassandell-profile.png';
 
 export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
   useSetThemeColor(themeColor);
-  const { transition } = useApp();
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
 
@@ -153,12 +152,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               </Button>
             </Text>
           </div>
-          <m.div
-            animate="animate"
-            className="Template-profile grid-col grid-col:4@l visible@l"
-            initial={transition === 'template' && 'initial'}
-            variants={JUMP_FIX_VARIANTS}
-          >
+          <div className="Template-profile grid-col grid-col:4@l visible@l">
             <Figure
               alt="Joonas Sandell"
               borderRadius="var(--border-radius-pill)"
@@ -167,7 +161,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               sizes="25vw"
               {...profile}
             />
-          </m.div>
+          </div>
         </TemplateSection>
       </TemplateMain>
     </Template>

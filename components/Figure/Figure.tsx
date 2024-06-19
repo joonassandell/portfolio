@@ -8,8 +8,9 @@ import {
   placeholderVariants,
 } from './';
 import { isString } from '@/lib/utils';
+import { JUMP_FIX_VARIANTS, SCROLL_SPEED } from '@/lib/config';
 import { default as NextImage } from 'next/image';
-import { SCROLL_SPEED } from '@/lib/config';
+import { useApp } from '@/components/App';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useRef, useState } from 'react';
 import c from 'clsx';
@@ -34,7 +35,6 @@ export const Figure = ({
   scrollImageSpeed = SCROLL_SPEED * -2,
   scrollOffset,
   scrollPosition,
-  scrollPrevent,
   scrollSpeed = SCROLL_SPEED,
   sizes = '100vw',
   src,
@@ -42,6 +42,7 @@ export const Figure = ({
   unoptimized,
   width,
 }: FigureProps) => {
+  const { transition: appTransition } = useApp();
   const classes = c(className, 'Figure', {
     '-bg': background,
     '-border': border,
@@ -66,7 +67,7 @@ export const Figure = ({
   // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
 
   return (
-    <div
+    <m.div
       className={classes}
       ref={ref}
       style={{
@@ -80,17 +81,25 @@ export const Figure = ({
       }}
       {...(mask && { 'data-s-id': id })}
       {...(scroll && { 'data-s': true })}
-      {...(scroll && scrollPrevent && { 'data-s-prevent': true })}
       {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
       {...(scroll && scrollOffset && { 'data-s-offset': scrollOffset })}
       {...(scroll && scrollPosition && { 'data-s-position': scrollPosition })}
       {...(scroll && scrollDelay && { 'data-s-delay': scrollDelay })}
+      {...(mask &&
+        appTransition === 'template' &&
+        scrollPosition != 'top' &&
+        inView && {
+          animate: 'animate',
+          initial: 'initial',
+          variants: JUMP_FIX_VARIANTS,
+        })}
     >
       <figure
         className="Figure-figure"
         {...(mask && { 'data-s': true })}
         {...(mask && { 'data-s-speed': scrollImageSpeed })}
         {...(mask && { 'data-s-target': `[data-s-id="${id}"]` })}
+        {...(mask && { 'data-s-prevent': true })}
         {...(mask && scrollPosition && { 'data-s-position': scrollPosition })}
         {...(mask && scrollDelay && { 'data-s-delay': scrollDelay })}
       >
@@ -154,6 +163,6 @@ export const Figure = ({
           {isVideo && <figcaption className="hideVisually">{alt}</figcaption>}
         </m.div>
       </figure>
-    </div>
+    </m.div>
   );
 };
