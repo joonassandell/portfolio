@@ -126,7 +126,8 @@ export const AboutIntro = () => {
       <div className="grid -gap:0">
         <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
           <Figure
-            alt="Joonas Sandell"
+            alt="Joonas Sandell profile picture"
+            borderRadius="var(--border-radius-pill)"
             className="Template-profile"
             inViewOffset={-1}
             mask

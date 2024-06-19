@@ -154,7 +154,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
           </div>
           <div className="Template-profile grid-col grid-col:4@l visible@l">
             <Figure
-              alt="Joonas Sandell"
+              alt="Joonas Sandell profile picture"
               borderRadius="var(--border-radius-pill)"
               inViewOffset={-1}
               mask
