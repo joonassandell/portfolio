@@ -9,6 +9,6 @@ export const rowVariant: Variants = {
   },
   initial: {
     opacity: 0,
-    y: '3rem',
+    y: '2rem',
   },
 };
