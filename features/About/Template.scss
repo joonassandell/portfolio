@@ -2,12 +2,11 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--about {
-  --Footer-bg: var(--bg-50);
-  --Template-bg: var(--tone-50);
   --Figure-placeholder-bg: var(--tone-100);
   --Figure-glare-opacity: 0.5;
 
   .Template-main {
+    --Template-bg: var(--tone-50);
     padding-top: 80vw;
 
     @include mq(m) {

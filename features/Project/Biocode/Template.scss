@@ -1,17 +1,17 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--biocode {
-  --Template-bg: var(--biocode-bg-50);
-  --Footer-bg: var(--bg-50);
-  --NextProject-bg: var(--bg-50);
-  --Figure-placeholder-bg: var(--biocode-bg-100);
-  --Figure-glare-opacity: 0.05;
-  --border-100: var(--biocode-border);
-  --border-900: var(--biocode-border);
-  --link: var(--biocode-text-900);
-  --text-700: var(--biocode-text-700);
-  --text-800: var(--biocode-text-800);
-  --text-900: var(--biocode-text-900);
+  .Template-main {
+    --Template-bg: var(--biocode-bg-50);
+    --Figure-placeholder-bg: var(--biocode-bg-100);
+    --Figure-glare-opacity: 0.05;
+    --border-100: var(--biocode-border);
+    --border-900: var(--biocode-border);
+    --link: var(--biocode-text-900);
+    --text-700: var(--biocode-text-700);
+    --text-800: var(--biocode-text-800);
+    --text-900: var(--biocode-text-900);
+  }
 
   .Template-section {
     &.theme\:light {
