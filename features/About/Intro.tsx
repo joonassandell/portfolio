@@ -1,7 +1,7 @@
-import { ArrowRight, Download } from '@/components/Icon';
+import { ArrowRight } from '@/components/Icon';
 import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
-import { getLink } from '@/lib/utils';
+import { getLink, getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
@@ -39,8 +39,8 @@ export const AboutIntro = () => {
     desktop: [
       'With more than a decade of design engineering ',
       <>
-        <Link href="/milestones">experience</Link>, I have the skills to build
-        hiqh-quality{' '}
+        <Link href={getSitemap('resume', 'common').url}>experience</Link>, I
+        have the skills to build hiqh-quality{' '}
       </>,
       'web experiences and assist clients in addressing ',
       'practical business challenges.',
@@ -48,7 +48,9 @@ export const AboutIntro = () => {
     mobile: [
       'With more than a decade of design ',
       <>
-        engineering <Link href="/milestones">experience</Link>, I have the{' '}
+        engineering{' '}
+        <Link href={getSitemap('resume', 'common').url}>experience</Link>, I
+        have the{' '}
       </>,
       'skills to build hiqh-quality web ',
       'web experiences and assist ',
@@ -83,9 +85,8 @@ export const AboutIntro = () => {
           </Text>
           <Text animate className="mb:m">
             <Button
-              href="/Joonas-Sandell-CV.pdf"
-              icon={<Download />}
-              target="_blank"
+              href={getSitemap('resume', 'common').url}
+              icon={<ArrowRight />}
             >
               View resume
             </Button>

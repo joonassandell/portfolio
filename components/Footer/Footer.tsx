@@ -40,8 +40,8 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                       </LinkRoll>
                     </li>
                     <li>
-                      <LinkRoll href="/Joonas-Sandell-CV.pdf" target="_blank">
-                        Resume
+                      <LinkRoll href={getSitemap('resume', 'common').url}>
+                        {getSitemap('resume', 'common').navTitle}
                       </LinkRoll>
                     </li>
                     <li>

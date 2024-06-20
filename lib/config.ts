@@ -37,6 +37,13 @@ export const SITEMAP: Sitemap = {
     },
     {
       hidden: true,
+      id: 'resume',
+      navTitle: 'Resume',
+      title: 'Resume',
+      url: '/resume',
+    },
+    {
+      hidden: true,
       id: 'home',
       navTitle: 'Selected works',
       themeColor: '#eeeae5',

@@ -89,3 +89,8 @@ export const formatDate = (inputDate: string): string => {
 };
 
 export const getMilliSeconds = (number: number) => number * 1000;
+
+export const stripUrl = (url: string) => {
+  const pattern = /^(https?:\/\/)?(www\.)?/;
+  return url.replace(pattern, '');
+};
