@@ -38,12 +38,6 @@
   opacity: 0.6;
 }
 
-.Footer-list {
-  li {
-    margin-bottom: rem($space-2xs);
-  }
-}
-
 .Footer-nameCol {
   order: -1;
 
@@ -57,4 +51,19 @@
   align-items: flex-end;
   display: flex;
   justify-content: space-between;
+}
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Footer {
+  &.-width\:full {
+    border-top: var(--border-width) solid
+      var(--Footer-border, var(--border-900));
+
+    .Footer-inner {
+      border-top: 0;
+    }
+  }
 }

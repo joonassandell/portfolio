@@ -1,13 +1,19 @@
+import { type FooterProps } from './';
 import { getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { LinkRoll } from '@/components/LinkRoll';
 import { LINKS, SITEMAP } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
+import c from 'clsx';
 
-export const Footer = () => {
+export const Footer = ({ className, fullWidth }: FooterProps) => {
+  const classes = c(className, 'Footer wrap', {
+    '-width:full': fullWidth,
+  });
+
   return (
-    <footer className="Footer wrap">
+    <footer className={classes}>
       <div className="Footer-inner">
         <div className="Footer-main">
           <div className="grid">
@@ -17,7 +23,7 @@ export const Footer = () => {
                   <Text className="Footer-mute mb:xs mb@m" tag="p">
                     Me
                   </Text>
-                  <ul className="Footer-list">
+                  <Text tag="ul">
                     <li>
                       <LinkRoll href={getSitemap('about', 'common').url}>
                         {getSitemap('about', 'common').navTitle}
@@ -43,13 +49,13 @@ export const Footer = () => {
                         {getSitemap('contact', 'common').navTitle}
                       </LinkRoll>
                     </li>
-                  </ul>
+                  </Text>
                 </div>
                 <div className="grid-col grid-col:5 grid-col:4@s">
                   <Text className="Footer-mute mb:xs mb@m" tag="p">
                     Work
                   </Text>
-                  <ul className="Footer-list">
+                  <Text tag="ul">
                     {SITEMAP.project
                       .filter(item => !item.hidden && item.id != 'home')
                       .map(item => {
@@ -59,14 +65,14 @@ export const Footer = () => {
                           </li>
                         );
                       })}
-                  </ul>
+                  </Text>
                 </div>
                 <div className="grid-col grid-col:4@s">
                   <Text className="Footer-mute mb:xs mb@m" tag="p">
                     Socials
                   </Text>
                   <SomeIcons className="hidden@s" />
-                  <ul className="Footer-list visible@s">
+                  <Text className="visible@s" tag="ul">
                     {LINKS.social.map(item => {
                       return (
                         <li key={item.id}>
@@ -74,7 +80,7 @@ export const Footer = () => {
                         </li>
                       );
                     })}
-                  </ul>
+                  </Text>
                 </div>
               </div>
             </div>
