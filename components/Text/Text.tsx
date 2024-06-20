@@ -11,7 +11,7 @@ export const Text = ({
   className,
   color,
   marginBottom,
-  size = 'm',
+  size,
   tag,
   ...props
 }: TextProps) => {
@@ -19,6 +19,7 @@ export const Text = ({
     'Text',
     {
       '-size:l': size === 'l',
+      '-size:m': size === 'm',
       '-size:s': size === 's',
       '-size:xl': size === 'xl',
       '-size:xs': size === 'xs',
