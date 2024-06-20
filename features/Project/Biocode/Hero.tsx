@@ -44,7 +44,7 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                         alt="Light globe"
                         draggable="false"
                         priority
-                        quality="90"
+                        quality="85"
                         sizes="50vw"
                         src={heroImagePre}
                       />
@@ -82,8 +82,8 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                     <Image
                       alt="Globe"
                       draggable="false"
-                      priority
-                      quality="100"
+                      priority={!transitionPre}
+                      quality="80"
                       sizes="50vw"
                       src={heroImage}
                     />
