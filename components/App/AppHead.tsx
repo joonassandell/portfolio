@@ -7,7 +7,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
   const { asPath } = useRouter();
   const title = 'Joonas Sandell — Designer & Developer';
   const description =
-    'Portfolio of Joonas Sandell, UI/UX designer and creative developer of things that usually appear on screens.';
+    'Portfolio of Joonas Sandell, UI/UX designer and creative developer based in Helsinki, Finland.';
 
   return (
     <Head>
