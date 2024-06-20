@@ -63,7 +63,7 @@ export const Footer = () => {
                 </div>
                 <div className="grid-col grid-col:4@s">
                   <Text className="Footer-mute mb:xs mb@m" tag="p">
-                    Follow me
+                    Socials
                   </Text>
                   <SomeIcons className="hidden@s" />
                   <ul className="Footer-list visible@s">
@@ -90,7 +90,7 @@ export const Footer = () => {
               </Text>
               <Text className="mb:m" size="s">
                 <p className="Footer-mute mb:0">
-                  UI/UX Designer
+                  UI/UX designer
                   <span className="hidden@m">, </span>
                   <br className="visible@m" />
                   Front-end developer
