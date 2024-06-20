@@ -3,7 +3,7 @@ import { Heading } from '@/components/Heading';
 import { headingVariants, maskVariants } from './Hero.animations';
 import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
+import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { TextReveal } from '@/components/TextReveal';
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
@@ -44,8 +44,8 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                         alt="Light globe"
                         draggable="false"
                         priority
-                        quality="85"
-                        sizes="50vw"
+                        quality="80"
+                        sizes={`${MQ.l} 33vw, 50vw`}
                         src={heroImagePre}
                       />
                     </div>
@@ -82,9 +82,9 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                     <Image
                       alt="Globe"
                       draggable="false"
-                      priority
+                      priority={!transitionPre}
                       quality="80"
-                      sizes="50vw"
+                      sizes={`${MQ.l} 33vw, 50vw`}
                       src={heroImage}
                     />
                   </div>
