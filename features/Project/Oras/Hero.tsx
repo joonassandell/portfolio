@@ -63,7 +63,6 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                         alt="Oras faucet"
                         draggable="false"
                         priority
-                        quality={90}
                         sizes="33vw"
                         src={heroImage}
                       />
