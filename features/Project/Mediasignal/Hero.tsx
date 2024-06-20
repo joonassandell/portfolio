@@ -56,8 +56,8 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
                     alt="Mediasignal homepage sketch in iPad"
                     draggable="false"
                     priority={!transitionPre}
-                    quality="80"
-                    sizes={`${MQ.l} 70vw, 90vw`}
+                    quality="85"
+                    sizes={`${MQ.l} 60vw, 90vw`}
                     src={heroImage}
                   />
                 </m.div>

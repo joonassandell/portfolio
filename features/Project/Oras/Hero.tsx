@@ -6,7 +6,7 @@ import {
   type HeroProps,
 } from '@/components/Hero';
 import { getSitemap } from '@/lib/utils';
-import { JUMP_FIX_VARIANTS, SCROLL_SPEED } from '@/lib/config';
+import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
 import { m } from 'framer-motion';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
@@ -64,7 +64,7 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                         draggable="false"
                         priority
                         quality="60"
-                        sizes="33vw"
+                        sizes={`${MQ.ml} 33vw, 50vw`}
                         src={heroImage}
                       />
                     </figure>

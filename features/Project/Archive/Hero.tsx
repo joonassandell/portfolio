@@ -42,7 +42,8 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
                     alt="Vapriikki home page sketch in iPad"
                     draggable="false"
                     priority
-                    sizes={`${MQ.l} 70vw, 90vw`}
+                    quality="60"
+                    sizes={`${MQ.l} 60vw, 90vw`}
                     src={heroImage}
                   />
                 </m.div>

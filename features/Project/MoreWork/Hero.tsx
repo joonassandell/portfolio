@@ -38,8 +38,7 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
                   alt="Omoroi homepage in phone"
                   draggable="false"
                   priority={!transitionPre}
-                  quality="40"
-                  sizes="40vw"
+                  sizes="25vw"
                   src={heroImage}
                 />
               </figure>
@@ -53,8 +52,7 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
                   alt="Hankkija homepage in phone"
                   draggable="false"
                   priority={!transitionPre}
-                  quality="60"
-                  sizes="40vw"
+                  sizes="25vw"
                   src={heroImage2}
                 />
               </figure>
