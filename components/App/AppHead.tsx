@@ -67,7 +67,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
             '@context': 'https://schema.org',
             '@type': 'Person',
             email: 'mailto:me@joonassandell.com',
-            image: `${APP_URL}/static/joonassandell.jpg`,
+            image: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
             jobTitle: 'UI/UX designer and Front-end developer',
             name: 'Joonas Sandell',
             url: 'https://joonassandell.com',
@@ -76,16 +76,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         type="application/ld+json"
       />
 
-      {/* Other */}
-      <meta
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        name="viewport"
-      />
-      <meta
-        content={themeColor ? themeColor : '#000000'}
-        key="theme-color"
-        name="theme-color"
-      />
+      {/* Fonts */}
       <link
         as="font"
         crossOrigin="anonymous"
@@ -106,6 +97,23 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         href="/static/fonts/Px-Grotesk-Light.woff2"
         rel="preload"
         type="font/woff2"
+      />
+
+      {/* Google */}
+      <meta
+        content={`${APP_URL}/images/joonassandell-thumbnail.jpg`}
+        name="thumbnail"
+      />
+
+      {/* Essential */}
+      <meta
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        name="viewport"
+      />
+      <meta
+        content={themeColor ? themeColor : '#000000'}
+        key="theme-color"
+        name="theme-color"
       />
     </Head>
   );
