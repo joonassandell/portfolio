@@ -53,8 +53,8 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                     <Image
                       alt="Box of projects"
                       draggable="false"
-                      priority
-                      quality={90}
+                      priority={!transitionPre}
+                      quality="80"
                       sizes="33vw"
                       src={heroImage}
                     />

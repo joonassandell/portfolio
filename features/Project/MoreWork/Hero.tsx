@@ -37,7 +37,8 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
                 <Image
                   alt="Omoroi homepage in phone"
                   draggable="false"
-                  priority
+                  priority={!transitionPre}
+                  quality="40"
                   sizes="40vw"
                   src={heroImage}
                 />
@@ -51,7 +52,8 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
                 <Image
                   alt="Hankkija homepage in phone"
                   draggable="false"
-                  priority
+                  priority={!transitionPre}
+                  quality="60"
                   sizes="40vw"
                   src={heroImage2}
                 />
