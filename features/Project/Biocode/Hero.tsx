@@ -82,7 +82,7 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
                     <Image
                       alt="Globe"
                       draggable="false"
-                      priority={!transitionPre}
+                      priority
                       quality="80"
                       sizes="50vw"
                       src={heroImage}
