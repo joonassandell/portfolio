@@ -137,7 +137,7 @@ export const LINKS: Links = {
     {
       id: 'twitter',
       title: 'Twitter',
-      url: 'https://twitter.com/joonassandell',
+      url: 'https://x.com/joonassandell',
     },
     {
       id: 'github',

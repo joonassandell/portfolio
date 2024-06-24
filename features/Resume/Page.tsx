@@ -227,6 +227,26 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               sizes="20vw"
               {...profile}
             />
+            <Heading className="hidden@m" size="h5" tag="h4">
+              Contact
+            </Heading>
+            <Text className="mb:m" size="s" tag="ul">
+              <li>
+                <Link
+                  href="mailto:me@joonassandell.com"
+                  target="_self"
+                  truncate
+                >
+                  me@joonassandell.com
+                </Link>
+              </li>
+              <li>Helsinki, Finland</li>
+              <li>
+                <Link href={getSitemap('contact', 'common').url} truncate>
+                  Contact me
+                </Link>
+              </li>
+            </Text>
             <Text className="mb:l visible@m" size="s" tag="ul">
               <li>
                 <Link href={getLink('linkedin').url} truncate>
@@ -239,13 +259,13 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 </Link>
               </li>
               <li>
-                <Link href={getLink('twitter').url} truncate>
-                  {stripUrl(getLink('twitter').url)}
+                <Link href={getLink('dribbble').url} truncate>
+                  {stripUrl(getLink('dribbble').url)}
                 </Link>
               </li>
               <li>
-                <Link href={getLink('dribbble').url} truncate>
-                  {stripUrl(getLink('dribbble').url)}
+                <Link href={getLink('twitter').url} truncate>
+                  {stripUrl(getLink('twitter').url)}
                 </Link>
               </li>
             </Text>
