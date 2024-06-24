@@ -1,0 +1,57 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Stepper {
+  border-left: var(--border-width) solid var(--border-200);
+  counter-reset: step;
+  margin-left: rem($space);
+  padding-left: rem($space-m);
+}
+
+.Stepper-item {
+  counter-increment: step;
+  position: relative;
+}
+
+.Stepper-step {
+  background: var(--bg-50);
+  background: var(--bg-200);
+  border: var(--border-width) solid var(--border-900);
+  border: var(--border-width) solid var(--border-200);
+  border-radius: var(--border-radius-pill);
+  box-shadow: 0 0 0 rem($space-2xs) var(--bg-50);
+  display: grid;
+  height: rem($space-m);
+  inset: rem($space-4xs) auto 0 rem(($space-m + ($space-m / 2)) * -1);
+  line-height: rem($space-m);
+  place-content: center;
+  position: absolute;
+  width: rem($space-m);
+
+  &:before {
+    content: counter(step);
+    position: relative;
+    top: rem($space-6xs);
+  }
+}
+
+.Stepper-step--beacon,
+.Stepper-step--icon {
+  &:before {
+    content: '';
+    top: 0;
+  }
+}
+
+.Stepper-step--beacon {
+  &:before {
+    background: var(--bg-900);
+    border-radius: var(--border-radius-pill);
+    height: rem($space-xs);
+    width: rem($space-xs);
+  }
+}
+
+.Stepper-step--icon {
+  --Icon-size: var(--Icon-size-s);
+}
