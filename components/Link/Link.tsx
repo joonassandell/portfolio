@@ -23,6 +23,7 @@ export const Link = ({
   tag,
   target,
   templateTransition = true,
+  truncate,
   underline = true,
   ...props
 }: LinkProps) => {
@@ -71,7 +72,7 @@ export const Link = ({
         {...props}
       >
         <m.span
-          className="Link-text"
+          className={`Link-text ${truncate ? 'text:truncate' : ''}`}
           variants={orientation === 'vertical' ? outVariantX : outVariant}
         >
           {children}
@@ -80,7 +81,7 @@ export const Link = ({
           {hover && (
             <m.span
               animate="in"
-              className="Link-text -hover"
+              className={`Link-text -hover ${truncate ? 'text:truncate' : ''}`}
               exit="out"
               hidden
               initial="initial"

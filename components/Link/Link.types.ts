@@ -8,5 +8,6 @@ export interface LinkProps extends HTMLMotionProps<'a'> {
   orientation?: 'horizontal' | 'vertical';
   tag?: TagAction | TagGeneric;
   templateTransition?: boolean;
+  truncate?: boolean;
   underline?: boolean;
 }
