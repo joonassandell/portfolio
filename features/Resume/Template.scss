@@ -3,25 +3,54 @@
 
 .Template--resume {
   .Template-aside {
-    padding-bottom: rem($space-2xl);
-    padding-top: calc(var(--Header-height) + #{rem($space-2xl)});
+    border: var(--border-width) solid var(--border-900);
+    border-radius: var(--border-radius);
+    margin-bottom: rem($space-2xl);
+    padding: rem($space-m);
+    text-wrap: balance;
+
+    @include mq(m) {
+      border: 0;
+      border-radius: unset;
+      order: -1;
+      padding: calc(var(--Header-height) + #{rem($space-l)}) 0 0 0;
+    }
 
     @include mq(l) {
-      border-right: var(--border-width) solid var(--border-900);
-      order: -1;
-      padding-right: rem($space-m);
+      padding-right: rem($space-l);
     }
   }
 
   .Template-content {
-    padding-top: calc(var(--Header-height) + #{rem($space-2xl)});
+    padding-top: calc(var(--Header-height) + #{rem($space-l)});
+
+    @include mq(m) {
+      border-left: var(--border-width) solid var(--border-900);
+      max-width: rem($space * 48);
+      padding: calc(var(--Header-height) + #{rem($space-2xl)}) 0 rem($space-2xl)
+        rem($space-xl);
+    }
 
     @include mq(l) {
       padding-bottom: rem($space-2xl);
+      padding-left: rem($space-2xl);
+
+      ul {
+        padding-right: 25%;
+      }
+    }
+  }
+
+  .Template-profileMobile {
+    img {
+      height: rem($space * 7);
+      object-fit: cover;
+      object-position: 0 20%;
+      width: rem($space * 7);
     }
   }
 
   .Template-profile {
-    width: 50%;
+    width: 66%;
   }
 }
