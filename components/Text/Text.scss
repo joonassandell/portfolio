@@ -32,9 +32,13 @@
   ul {
     list-style: disc;
     margin-bottom: rem($space-m);
+
+    @include mq($until: s) {
+      padding-left: rem($space);
+    }
   }
 
-  li {
+  li:not(:last-child) {
     margin-bottom: rem($space-2xs);
   }
 }
