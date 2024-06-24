@@ -131,7 +131,7 @@ export const AboutIntro = () => {
             borderRadius="var(--border-radius-pill)"
             className="Template-profile"
             inViewOffset={-1}
-            mask
+            scroll="mask"
             sizes={`${MQ.s} 25vw, 70vw`}
             {...profile}
           />

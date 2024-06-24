@@ -5,7 +5,6 @@ import { getLink, getSitemap, stripUrl } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -23,6 +22,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
           <div className="Template-content grid-col grid-col:11@s grid-col:10@ grid-col:9@m -start:2@">
             <Figure
               alt="Joonas Sandell profile picture"
+              animate={false}
               borderRadius="var(--border-radius-pill)"
               className="Template-profileMobile mb:m hidden@m"
               priority
@@ -220,6 +220,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
           <aside className="Template-aside grid-col grid-col:3@m">
             <Figure
               alt="Joonas Sandell profile picture"
+              animate={false}
               borderRadius="var(--border-radius-pill)"
               className="Template-profile mb:m visible@m"
               priority

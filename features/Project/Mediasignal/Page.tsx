@@ -95,7 +95,7 @@ export const MediasignalPage = ({
           <div className="grid-col">
             <Figure
               alt="Mediasignal business card"
-              mask
+              scroll="mask"
               {...getImage('joonassandell-mediasignal-business-card', images)}
             />
           </div>

@@ -46,8 +46,8 @@ export const OrasPage = ({
               alt="Oras woman showering"
               className="Template-figure-1"
               inViewOffset={-1}
-              mask
               priority
+              scroll="mask"
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-thumbnail', images)}
@@ -58,8 +58,8 @@ export const OrasPage = ({
               alt="Oras man showering"
               className="Template-figure-2"
               inViewOffset={-1}
-              mask
               priority
+              scroll="mask"
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-man-square', images)}
@@ -161,7 +161,7 @@ export const OrasPage = ({
           <Figure
             alt="Oras sense faucet"
             borderRadius={false}
-            mask
+            scroll="mask"
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateSection>
@@ -176,7 +176,7 @@ export const OrasPage = ({
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
             <Figure
               alt="Oras man showering"
-              mask
+              scroll="mask"
               sizes={`${MQ.m} 50vw, 33vw`}
               {...getImage('joonassandell-oras-man', images)}
             />

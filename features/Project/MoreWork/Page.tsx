@@ -298,7 +298,7 @@ export const MoreWorkPage = ({
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
-              mask
+              scroll="mask"
               scrollImageSpeed={-2}
               sizes="50vw"
               transition="clip"
@@ -308,7 +308,7 @@ export const MoreWorkPage = ({
           <div className="grid-col grid-col:6 -align:end">
             <Figure
               alt="Academic bookstore brand imagery of man reading"
-              mask
+              scroll="mask"
               sizes="50vw"
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand', images)}

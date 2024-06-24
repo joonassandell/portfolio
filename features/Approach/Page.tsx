@@ -157,7 +157,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               alt="Joonas Sandell profile picture"
               borderRadius="var(--border-radius-pill)"
               inViewOffset={-1}
-              mask
+              scroll="mask"
               sizes="25vw"
               {...profile}
             />
