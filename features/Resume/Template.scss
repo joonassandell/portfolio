@@ -3,13 +3,15 @@
 
 .Template--resume {
   .Template-aside {
-    border: var(--border-width) solid var(--border-900);
+    background: var(--bg-100);
+    border: var(--border-width) solid var(--border-100);
     border-radius: var(--border-radius);
-    margin-bottom: rem($space-2xl);
+    margin: rem($space-l) 0 rem($space-2xl) 0;
     padding: rem($space-m);
     text-wrap: balance;
 
     @include mq(m) {
+      background: unset;
       border: 0;
       border-radius: unset;
       order: -1;
@@ -36,17 +38,17 @@
       padding-left: rem($space-2xl);
 
       ul {
-        padding-right: 25%;
+        padding-right: 15%;
       }
     }
   }
 
   .Template-profileMobile {
     img {
-      height: rem($space * 7);
+      height: rem($space * 8);
       object-fit: cover;
       object-position: 0 20%;
-      width: rem($space * 7);
+      width: rem($space * 8);
     }
   }
 

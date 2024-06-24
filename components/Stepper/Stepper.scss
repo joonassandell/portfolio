@@ -4,13 +4,17 @@
 .Stepper {
   border-left: var(--border-width) solid var(--border-200);
   counter-reset: step;
-  margin-left: rem($space);
+  margin-left: rem($space-s);
   padding-left: rem($space-m);
 }
 
 .Stepper-item {
   counter-increment: step;
   position: relative;
+
+  &:not(:first-child) {
+    margin-top: rem($space-l);
+  }
 }
 
 .Stepper-step {

@@ -66,10 +66,10 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 <Heading className="mb:2xs" size="h6" tag="h3">
                   Lead product designer, Front-end developer — Biocode
                 </Heading>
-                <Text className="mb" color="mute">
+                <Text className="mb" color="mute" tag="p">
                   Nov 2020 — Present
                 </Text>
-                <Text className="mb:l">
+                <Text>
                   <ul className="pl">
                     <li>
                       Built the{' '}
@@ -123,10 +123,10 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 <Heading className="mb:2xs" size="h6" tag="h3">
                   UI/UX Designer, Front-end developer — Mediasignal
                 </Heading>
-                <Text className="mb" color="mute" size="m">
+                <Text className="mb" color="mute" tag="p">
                   Sep 2014 — Nov 2020
                 </Text>
-                <Text className="mb:l">
+                <Text>
                   <ul className="pl">
                     <li>
                       Developed and designed applications for clients such as{' '}
@@ -202,10 +202,10 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 <Heading className="mb:2xs" size="h6" tag="h3">
                   UI/UX Designer, Front-end developer — City of Tampere
                 </Heading>
-                <Text className="mb" color="mute">
+                <Text className="mb" color="mute" tag="p">
                   Apr 2007 — Sep 2014
                 </Text>
-                <Text className="mb:m">
+                <Text>
                   <ul className="pl">
                     <li>
                       Built and curated valuable Exhibition Guide mobile app to
