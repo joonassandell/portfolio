@@ -1,0 +1,30 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+/**
+ * 1. For locomotive-scroll to work properly
+ * 2. If these are changed, remember to change them in Hero.animations.ts aswell
+ */
+:root {
+  --Hero-bg: var(--bg-50);
+  --Hero-height: 100vw;
+  --Hero-min-height: #{rem($space * 33)};
+  --Hero-max-height: 75vh;
+  --Hero-inner-min-height: var(--vh); // [1.]
+  --Hero-figure-bg-hsl: var(--black-hsl);
+  --Hero-figure-bg-alpha-pre: 0.06; // [2.]
+  --Hero-figure-bg-alpha: 0.15; // [2.]
+
+  @include mq(s) {
+    --Hero-max-height: #{rem($space * 48)};
+  }
+
+  @include mq(l) {
+    --Hero-height: var(--vh);
+    --Hero-min-height: #{rem($space * 42)};
+  }
+
+  @include mq('2xl') {
+    --Hero-min-height: #{rem($space * 44)};
+  }
+}
