@@ -46,8 +46,8 @@ export const OrasPage = ({
               alt="Oras woman showering"
               className="Template-figure-1"
               inViewOffset={-1}
-              mask
               priority
+              scroll="mask"
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-thumbnail', images)}
@@ -58,8 +58,8 @@ export const OrasPage = ({
               alt="Oras man showering"
               className="Template-figure-2"
               inViewOffset={-1}
-              mask
               priority
+              scroll="mask"
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
               transition="clip"
               {...getImage('joonassandell-oras-man-square', images)}
@@ -67,7 +67,7 @@ export const OrasPage = ({
           </div>
         </TemplateSection>
         <TemplateSection
-          className="bg:gray:gradient-0-50-0"
+          className="bg:gradient-0-100-0"
           gridGap="m"
           paddingBottom="15vw"
           paddingTop="10vw"
@@ -103,7 +103,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection className="bg:gray:gradient-0-50-0" paddingTop="15vw">
+        <TemplateSection className="bg:gradient-0-100-0" paddingTop="15vw">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
@@ -161,11 +161,11 @@ export const OrasPage = ({
           <Figure
             alt="Oras sense faucet"
             borderRadius={false}
-            mask
+            scroll="mask"
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateSection>
-        <TemplateSection className="bg:gray:gradient-0-50-0" paddingTop="15vw">
+        <TemplateSection className="bg:gradient-0-100-0" paddingTop="15vw">
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
@@ -176,7 +176,7 @@ export const OrasPage = ({
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
             <Figure
               alt="Oras man showering"
-              mask
+              scroll="mask"
               sizes={`${MQ.m} 50vw, 33vw`}
               {...getImage('joonassandell-oras-man', images)}
             />

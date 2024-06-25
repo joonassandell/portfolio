@@ -60,10 +60,10 @@ export const Button = ({
         {icon && (
           <AnimatePresence initial={false} mode="popLayout">
             <m.span
-              animate={{ scale: 1 }}
+              animate={{ rotate: 0, scale: 1 }}
               className="Button-icon"
-              exit={{ scale: 0 }}
-              initial={{ scale: 0 }}
+              exit={{ rotate: 45, scale: 0 }}
+              initial={{ rotate: -45, scale: 0 }}
               key={icon.type.name}
               transition={TRANS_SECONDARY_FASTEST}
             >

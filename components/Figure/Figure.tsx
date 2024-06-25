@@ -17,6 +17,7 @@ import c from 'clsx';
 
 export const Figure = ({
   alt,
+  animate = true,
   background,
   border,
   borderRadius = true,
@@ -26,7 +27,6 @@ export const Figure = ({
   id,
   inViewOffset = 0.1,
   loading,
-  mask,
   placeholder = true,
   priority,
   quality,
@@ -43,6 +43,7 @@ export const Figure = ({
   width,
 }: FigureProps) => {
   const { transition: appTransition } = useApp();
+  const mask = scroll === 'mask';
   const classes = c(className, 'Figure', {
     '-bg': background,
     '-border': border,
@@ -58,7 +59,6 @@ export const Figure = ({
   const isVideo = src && src.indexOf('mp4') > -1;
   const refVideo = useRef(null);
   useInViewVideo(refVideo, inViewOffset);
-  scroll = scroll ?? mask; // Scrolling should be enabled if mask is set
   scrollSpeed === 'negative'
     ? (scrollSpeed = -SCROLL_SPEED)
     : (scrollSpeed = scrollSpeed);
@@ -105,10 +105,12 @@ export const Figure = ({
         {...(mask && scrollDelay && { 'data-s-delay': scrollDelay })}
       >
         <m.div
-          animate={inView ? 'animate' : ''}
           className="Figure-figure-main"
-          initial="initial"
-          variants={figureVariants}
+          {...(animate && {
+            animate: inView ? 'animate' : '',
+            initial: 'initial',
+            variants: figureVariants,
+          })}
         >
           {glare && !glareEnd && (
             <m.div
@@ -117,7 +119,7 @@ export const Figure = ({
               variants={glareVariants}
             />
           )}
-          {!isVideo && placeholder && (
+          {!isVideo && animate && placeholder && (
             <AnimatePresence>
               {!imgLoaded && (
                 <m.div

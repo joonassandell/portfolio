@@ -1,27 +1,44 @@
+@use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
 .Text {
-  @include text(m);
   letter-spacing: normal;
   transform-origin: top left;
 
-  &.-size\:xl {
-    @include text(xl);
-  }
-
-  &.-size\:l {
-    @include text(l);
+  &.-size\:xs {
+    @include text(xs);
   }
 
   &.-size\:s {
     @include text(s);
   }
 
-  &.-size\:xs {
-    @include text(xs);
+  &.-size\:m {
+    @include text(m);
+  }
+
+  &.-size\:l {
+    @include text(l);
+  }
+
+  &.-size\:xl {
+    @include text(xl);
   }
 
   > *:last-child {
     margin-bottom: 0;
+  }
+
+  ul {
+    list-style: disc;
+    margin-bottom: rem($space-m);
+
+    @include mq($until: s) {
+      padding-left: rem($space);
+    }
+  }
+
+  li:not(:last-child) {
+    margin-bottom: rem($space-2xs);
   }
 }

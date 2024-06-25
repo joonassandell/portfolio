@@ -30,7 +30,7 @@ export const MilestonesLine = () => {
   const ref = useRef<HTMLDivElement>(null);
   const refInner = useRef<HTMLDivElement>(null);
   const {
-    detect: { isDesktopSafari },
+    detect: { isSafariDesktop },
   } = useApp();
   const years = MILESTONES_YEARS.map(y => new Date(y));
   const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR));
@@ -85,10 +85,10 @@ export const MilestonesLine = () => {
   );
 
   useEffect(() => {
-    if (!isDesktopSafari || !ref.current) return;
+    if (!isSafariDesktop || !ref.current) return;
     ref.current.style.direction = 'ltr';
     ref.current.scrollLeft = ref.current.scrollWidth;
-  }, [isDesktopSafari]);
+  }, [isSafariDesktop]);
 
   /**
    * Default or unwanted props which cause hydration errors if not defined

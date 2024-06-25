@@ -15,9 +15,7 @@ export const AboutSkills = () => (
     <div className="wrap">
       <Text animate className="mb:l">
         Skills{' '}
-        <span className="color:gray:mute">
-          (Competencies, languages, tech etc.)
-        </span>
+        <span className="color:mute">(Competencies, languages, tech etc.)</span>
       </Text>
     </div>
     <Heading

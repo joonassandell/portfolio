@@ -15,6 +15,7 @@ import c from 'clsx';
 export const Template = ({
   children,
   className,
+  footerProps,
   id,
   variant = 'default',
 }: TemplateProps) => {
@@ -62,7 +63,7 @@ export const Template = ({
       <AnimatePresence>
         <div className="Template-inner" data-s-section>
           {children}
-          <Footer />
+          <Footer {...footerProps} />
         </div>
       </AnimatePresence>
       {displayOverlay && (

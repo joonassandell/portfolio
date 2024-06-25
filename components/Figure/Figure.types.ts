@@ -15,15 +15,15 @@ export interface FigureProps
     | 'lazyBoundary'
     | 'lazyRoot'
   > {
+  animate?: boolean;
   background?: string | boolean;
   border?: string | boolean;
   borderRadius?: string | boolean;
   glare?: boolean;
   id?: ElementAttributes['id'];
   inViewOffset?: number;
-  mask?: boolean;
   placeholder?: boolean;
-  scroll?: boolean;
+  scroll?: boolean | 'mask';
   scrollDelay?: number;
   scrollImageSpeed?: number;
   scrollOffset?: ElementAttributes['offset'];

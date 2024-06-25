@@ -1,3 +1,5 @@
+@use 'stylesheets/mixins' as *;
+
 .text\:truncate {
   max-width: var(--text-truncate-max-width, 100%);
   overflow: hidden;
@@ -6,9 +8,19 @@
 }
 
 .text\:truncate\:clamp {
-  -webkit-box-orient: var(--text-truncate-clamp-orient, verticla);
+  -webkit-box-orient: var(--text-truncate-clamp-orient, vertical);
   display: -webkit-box;
-  -webkit-line-clamp: var(--text-truncate-clamp, 2);
+  -webkit-line-clamp: var(--text-truncate-clamp, 1);
   overflow: hidden;
   overflow-wrap: anywhere;
+}
+
+.text-wrap\:balance {
+  text-wrap: balance;
+
+  @include mq(s) {
+    &\@s {
+      text-wrap: balance;
+    }
+  }
 }

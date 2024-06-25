@@ -1,7 +1,9 @@
 import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
+import { type FooterProps } from '@/components/Footer';
 
 export interface TemplateProps extends PropsWithChildren {
   className?: ComponentPropsWithoutRef<'div'>['className'];
+  footerProps?: FooterProps;
   id: string;
   variant?: 'unstyled' | 'default';
 }

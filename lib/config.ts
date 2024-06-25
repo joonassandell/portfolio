@@ -37,6 +37,13 @@ export const SITEMAP: Sitemap = {
     },
     {
       hidden: true,
+      id: 'resume',
+      navTitle: 'Resume',
+      title: 'Resume',
+      url: '/resume',
+    },
+    {
+      hidden: true,
       id: 'home',
       navTitle: 'Selected works',
       themeColor: '#eeeae5',
@@ -130,7 +137,7 @@ export const LINKS: Links = {
     {
       id: 'twitter',
       title: 'Twitter',
-      url: 'https://twitter.com/joonassandell',
+      url: 'https://x.com/joonassandell',
     },
     {
       id: 'github',

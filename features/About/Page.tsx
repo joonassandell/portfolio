@@ -16,7 +16,7 @@ export const AboutPage = ({ id, themeColor, title }: PageProps) => {
   return (
     <Template id={id}>
       <Head
-        description="I'm creative developer and designer based in Helsinki, Finland."
+        description="I'm UI/UX designer and creative front-end developer of things that usually appear on screens."
         title={title}
       />
       <TemplateMain>

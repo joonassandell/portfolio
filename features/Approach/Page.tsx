@@ -28,7 +28,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">
-            <Text className="Template-heading-subtitle" tag="span">
+            <Text className="Template-heading-subtitle" size="m" tag="span">
               Approach
             </Text>
             My goal is to create unique, appealing, accessible and user-friendly
@@ -157,7 +157,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               alt="Joonas Sandell profile picture"
               borderRadius="var(--border-radius-pill)"
               inViewOffset={-1}
-              mask
+              scroll="mask"
               sizes="25vw"
               {...profile}
             />

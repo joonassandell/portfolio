@@ -26,9 +26,9 @@ export const AboutTop = () => (
         <Figure
           alt="Joonas Sandell profile"
           borderRadius={false}
-          mask
           priority
           quality={90}
+          scroll="mask"
           scrollImageSpeed={-4}
           scrollPosition="top"
           sizes={`${MQ.s} 50vw, 80vw`}

@@ -2,7 +2,6 @@
 @use 'stylesheets/mixins' as *;
 
 .Hero--oras {
-  --Hero-bg: var(--oras-bg-50);
   --Stamp-iris: var(--oras-primary);
 
   .Hero-figure {

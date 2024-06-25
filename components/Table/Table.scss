@@ -22,7 +22,7 @@
 }
 
 .Table-body {
-  .Table-row {
+  .is-safari & .Table-row {
     &:last-child {
       border-bottom: 0;
     }
@@ -52,6 +52,10 @@
   .is-safari & {
     border-bottom: var(--border-width) solid var(--border-100);
     transform: translateY(0) !important;
+
+    &:after {
+      display: none;
+    }
   }
 }
 

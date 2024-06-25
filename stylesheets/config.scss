@@ -11,11 +11,11 @@ $line-height-xl: 22px;
 $font-size-l: 19px;
 $line-height-l: 22px;
 
-$font-size-s: 15px;
+$font-size-s: 14px;
 $line-height-s: 20px;
 
 $font-size-xs: 13px;
-$line-height-xs: 20px;
+$line-height-xs: 18px;
 
 $h1-font-size-min: 40px;
 $h1-font-size-max: 102px;
@@ -37,14 +37,15 @@ $h5-font-size-min: 18px;
 $h5-font-size-max: 24px;
 $h5-line-height: 24px;
 
-$h6-font-size-min: 18px;
-$h6-font-size-max: 24px;
-$h6-line-height: 24px;
+$h6-font-size-min: 16px;
+$h6-font-size-max: 22px;
+$h6-line-height: 22px;
 
 // =========
 // Spacing and sizing
 // =========
 
+$space-6xs: 0.5px;
 $space-5xs: 1px;
 $space-4xs: 2px;
 $space-3xs: 3px;

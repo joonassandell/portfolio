@@ -1,0 +1,59 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--resume {
+  .Template-aside {
+    background: var(--bg-100);
+    border: var(--border-width) solid var(--border-100);
+    border-radius: var(--border-radius);
+    margin: rem($space-l) 0 rem($space-2xl) 0;
+    padding: rem($space-m);
+    text-wrap: balance;
+
+    @include mq(m) {
+      background: unset;
+      border: 0;
+      border-radius: unset;
+      margin: 0;
+      order: -1;
+      padding: calc(var(--Header-height) + #{rem($space-l)}) 0 0 0;
+    }
+
+    @include mq(l) {
+      padding-right: rem($space-l);
+    }
+  }
+
+  .Template-content {
+    padding-top: calc(var(--Header-height) + #{rem($space-l)});
+
+    @include mq(m) {
+      border-left: var(--border-width) solid var(--border-900);
+      max-width: rem($space * 48);
+      padding: calc(var(--Header-height) + #{rem($space-2xl)}) 0 rem($space-2xl)
+        rem($space-xl);
+    }
+
+    @include mq(l) {
+      padding-bottom: rem($space-2xl);
+      padding-left: rem($space-2xl);
+
+      ul {
+        padding-right: 15%;
+      }
+    }
+  }
+
+  .Template-profileMobile {
+    img {
+      height: rem($space * 8);
+      object-fit: cover;
+      object-position: 0 20%;
+      width: rem($space * 8);
+    }
+  }
+
+  .Template-profile {
+    width: 66%;
+  }
+}

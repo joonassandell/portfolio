@@ -42,14 +42,14 @@
 
     circle {
       &:nth-last-child(3) {
-        fill: var(--Stamp-iris, var(--white));
+        fill: var(--Stamp-iris, var(--bg-50));
       }
     }
   }
 }
 
 .Stamp-overlay {
-  background: var(--Stamp-overlay, var(--white));
+  background: var(--Stamp-overlay, var(--bg-50));
   border-radius: 50%;
   inset: 0;
   position: absolute;

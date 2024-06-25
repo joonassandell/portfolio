@@ -2,11 +2,8 @@
 @use 'stylesheets/mixins' as *;
 
 /**
- * These tokens should rather be scoped under .Hero but then framer-motion
- * doesn't know how to read the figure values for some reason. So, for clarity
- * all tokens are added here.
- *
  * 1. For locomotive-scroll to work properly
+ * 2. If these are changed, remember to change them in Hero.animations.ts aswell
  */
 :root {
   --Hero-bg: var(--bg-50);
@@ -14,10 +11,9 @@
   --Hero-min-height: #{rem($space * 33)};
   --Hero-max-height: 75vh;
   --Hero-inner-min-height: var(--vh); // [1.]
-  --Hero-figure-bg: var(--black);
-  --Hero-figure-bg-alpha: 0.15;
-  --Hero-figure-bg-rgb: 0, 0, 0;
-  --Hero-figure-pre-bg-alpha: 0.06;
+  --Hero-figure-bg-hsl: var(--black-hsl);
+  --Hero-figure-bg-alpha-pre: 0.06; // [2.]
+  --Hero-figure-bg-alpha: 0.15; // [2.]
 
   @include mq(s) {
     --Hero-max-height: #{rem($space * 48)};
