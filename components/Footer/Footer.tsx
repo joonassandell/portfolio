@@ -86,11 +86,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
               <Text className="mb:2xs mb@m" tag="p">
-                <span className="hidden@m">Joonas Sandell</span>
-                <Link
-                  className="visible@m"
-                  href={getSitemap('home', 'common').url}
-                >
+                <Link href={getSitemap('home', 'common').url} underline={false}>
                   Joonas Sandell
                 </Link>
               </Text>

@@ -7,8 +7,8 @@ import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { TextReveal } from '@/components/TextReveal';
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
-import icon from '@/public/biocode/hero/joonassandell-biocode-icon.png';
 import Image from 'next/image';
+import logoMark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
 
 export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
   const { id, themeColor, title, url } = getSitemap('biocode');
@@ -95,11 +95,11 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
               <div className={figureClasses}>
                 <figure className="Hero-figure-icon">
                   <Image
-                    alt="Biocode icon"
+                    alt="Biocode logomark"
                     draggable="false"
                     priority
                     sizes="25vw"
-                    src={icon}
+                    src={logoMark}
                   />
                 </figure>
               </div>
