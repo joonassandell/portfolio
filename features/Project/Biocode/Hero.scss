@@ -5,7 +5,7 @@
   --Hero-bg: initial;
   --Stamp-iris: var(--biocode-primary);
 
-  .is-iPhoneSafari & {
+  .is-safari\:iphone & {
     &.-transition\:pre {
       .Hero-figure-bg {
         border-radius: var(--border-radius-l) 0 0 0;

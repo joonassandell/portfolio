@@ -48,34 +48,34 @@ export const isIphone = /iPhone/i.test(ua);
 /**
  * iOS Chrome
  */
-export const isIosChrome = ua.indexOf('CriOS') >= 0;
+export const isChromeIos = ua.indexOf('CriOS') >= 0;
 
 /**
  * iOS Firefox
  */
-export const isIosFirefox = ua.match('FxiOS');
+export const isFirefoxIos = ua.match('FxiOS');
 
 /**
  * iOS Safari (only)
  */
-export const isIosSafari =
+export const isSafariIos =
   isIos &&
   isWebkit &&
   !/(OPiOS|mercury|EdgiOS)/i.test(ua) &&
-  !isIosFirefox &&
+  !isFirefoxIos &&
   !isBrave &&
-  !isIosChrome;
+  !isChromeIos;
 
 /**
  * iPhone Safari (only)
  */
-export const isIphoneSafari =
+export const isSafariIphone =
   isIphone &&
   isWebkit &&
   !/(OPiOS|mercury|EdgiOS)/i.test(ua) &&
-  !isIosFirefox &&
+  !isFirefoxIos &&
   !isBrave &&
-  !isIosChrome;
+  !isChromeIos;
 
 /**
  * Mac
@@ -90,12 +90,12 @@ export const isWindows = /win/i.test(ua);
 /**
  * Desktop Safari
  */
-export const isDesktopSafari = isSafari && isMac;
+export const isSafariDesktop = isSafari && isMac;
 
 /**
- * Supports theme-color. Intentionally target iPhone & Safari only.
+ * Supports theme-color. Intentionally target iPhone & desktop Safari only.
  */
-export const hasThemeColor = isIphoneSafari || isDesktopSafari;
+export const hasThemeColor = isSafariIphone || isSafariDesktop;
 
 /**
  * Tests if touch events are supported, but doesn't necessarily reflect a

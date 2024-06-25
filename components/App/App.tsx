@@ -96,24 +96,24 @@ export const App = ({ Component, pageProps }: AppProps) => {
       const {
         hasThemeColor,
         hasTouch,
-        isDesktopSafari,
-        isIphoneSafari,
         isSafari,
+        isSafariDesktop,
+        isSafariIphone,
         isWindows,
       } = await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
       if (hasThemeColor) html.classList.add('has-themeColor');
       if (isSafari) html.classList.add('is-safari');
-      if (isIphoneSafari) html.classList.add('is-iPhoneSafari');
-      if (isDesktopSafari) html.classList.add('is-desktopSafari');
+      if (isSafariIphone) html.classList.add('is-safari:iphone');
+      if (isSafariDesktop) html.classList.add('is-safari:desktop');
 
       setAppState(prevState => ({
         ...prevState,
         detect: {
           hasThemeColor,
           hasTouch,
-          isDesktopSafari,
           isSafari,
+          isSafariDesktop,
           isWindows,
         },
       }));
