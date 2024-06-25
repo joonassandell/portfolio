@@ -15,6 +15,9 @@ export const figureBgVariants: Variants = {
       'linear-gradient(to bottom, hsl(var(--Hero-figure-bg-hsl) / 0.15), hsl(var(--Hero-figure-bg-hsl) / 0))',
     ],
     scaleY: 4,
-    transition: TRANS_SECONDARY,
+    transition: {
+      ...TRANS_SECONDARY,
+      delay: 0.15,
+    },
   },
 };
