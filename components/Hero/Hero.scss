@@ -1,7 +1,21 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
+/**
+ * 1. For locomotive-scroll to work properly
+ * 2. If these are changed, remember to change them in Hero.animations.ts aswell
+ * 3. Keep the following couple of elements on top of the potential scaled
+ *    hero background
+ */
 .Hero {
+  --Hero-bg: var(--bg-50);
+  --Hero-height: 100vw;
+  --Hero-min-height: #{rem($space * 33)};
+  --Hero-max-height: 75vh;
+  --Hero-inner-min-height: var(--vh); // [1.]
+  --Hero-figure-bg-hsl: var(--black-hsl);
+  --Hero-figure-bg-alpha-pre: 0.06; // [2.]
+  --Hero-figure-bg-alpha: 0.15; // [2.]
   --Stamp-center-x: 0px;
   --Stamp-center-y: 0px;
 
@@ -13,10 +27,7 @@
   );
   position: relative;
 
-  /**
-   * Keep the following couple of elements on top of the potential scaled
-   * hero background
-   */
+  // [3.]
   &:not(.-transition\:pre) {
     + *,
     + * + * {
@@ -41,6 +52,19 @@
     .Hero-link {
       z-index: 0;
     }
+  }
+
+  @include mq(s) {
+    --Hero-max-height: #{rem($space * 48)};
+  }
+
+  @include mq(l) {
+    --Hero-height: var(--vh);
+    --Hero-min-height: #{rem($space * 42)};
+  }
+
+  @include mq('2xl') {
+    --Hero-min-height: #{rem($space * 44)};
   }
 }
 
@@ -123,26 +147,25 @@
 }
 
 .Hero-figure-bg {
-  background: var(--Hero-figure-bg);
+  background: hsl(var(--Hero-figure-bg-hsl) / var(--Hero-figure-bg-alpha-pre));
   height: 100%;
-  opacity: var(--Hero-figure-pre-bg-alpha);
   width: 100%;
   z-index: 1;
 }
 
 .Hero-figure-bg--animate {
   background: linear-gradient(
-    180deg,
-    var(--Hero-figure-bg) 0%,
-    rgba(var(--Hero-figure-bg-rgb), 0) 100%
+    to bottom,
+    hsl(var(--Hero-figure-bg-hsl) / var(--Hero-figure-bg-alpha)),
+    hsl(var(--Hero-figure-bg-hsl) / 0)
   );
-  opacity: var(--Hero-figure-bg-alpha);
   position: relative;
   transform: scaleY(4);
 
   .Hero.-transition\:pre & {
-    background: var(--Hero-figure-bg);
-    opacity: var(--Hero-figure-pre-bg-alpha);
+    background: hsl(
+      var(--Hero-figure-bg-hsl) / var(--Hero-figure-bg-alpha-pre)
+    );
     transform: scaleY(1);
   }
 }
