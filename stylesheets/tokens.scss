@@ -7,24 +7,24 @@
    * ======================================= */
 
   // Generic
-  --black: #000000;
-  --black-transparent: #0000;
-  --white: #ffffff;
+  --black-hsl: 0 0% 0%;
+  --black: hsl(var(--black-hsl));
+  --black-transparent: hsl(var(--black-hsl) / 0);
+  --white-hsl: 0 0% 100%;
+  --white: hsl(var(--white-hsl));
 
   // Gray
-  --gray-50: #f2f2f2;
-  --gray-100: #e0e0e0;
-  --gray-300: #b7b7b7;
-  --gray-600: #5e5e5e;
+  --gray-50: #fbfbfb;
+  --gray-100: #f7f7f7;
+  --gray-100-translucent: hsl(var(--black-hsl) / 0.04);
+  --gray-200: #e5e5e5;
+  --gray-300: #d3d3d3;
+  --gray-400: #b7b7b7;
+  --gray-600: #666666;
   --gray-700: #4d4d4d;
   --gray-800: #333333;
   --gray-900: #111111;
   --gray-950: var(--black);
-
-  --gray-50-opaque-alpha: 0.06;
-  --gray-50-opaque: rgba(0, 0, 0, var(--gray-50-opaque-alpha));
-  --gray-100-opaque-alpha: 0.15;
-  --gray-100-opaque: rgba(0, 0, 0, var(--gray-100-opaque-alpha));
 
   // Slate
   --slate-50: #f8fafc;
@@ -45,15 +45,16 @@
 
   // Background
   --bg-50: var(--white);
-  --bg-100: var(--slate-50);
-  --bg-200: var(--slate-100);
+  --bg-100: var(--gray-50);
+  --bg-200: var(--gray-100);
+  --bg-300: var(--gray-200);
   --bg-800: var(--gray-900);
   --bg-900: var(--gray-950);
 
   // Border
   --border-50: var(--white);
-  --border-100: var(--slate-200);
-  --border-200: var(--slate-300);
+  --border-100: var(--gray-200);
+  --border-200: var(--gray-300);
   --border-700: var(--gray-700);
   --border-800: var(--gray-800);
   --border-900: var(--gray-950);
@@ -71,7 +72,7 @@
   --border-radius: var(--border-radius-m);
 
   // Accent
-  --accent-1-hsl: 25, 100%, 50%;
+  --accent-1-hsl: 25 100% 50%;
   --accent-1: hsl(var(--accent-1-hsl));
   --accent-2: #2300ff;
   --accent-3: #f59e0b;
@@ -86,7 +87,8 @@
 
   // Text
   --text-50: var(--white);
-  --text-700: var(--slate-600);
+  --text-700-blend: hsl(var(--white-hsl) / 0.6);
+  --text-700: var(--gray-600);
   --text-800: var(--gray-900);
   --text-900: var(--gray-900);
 
@@ -103,11 +105,12 @@
   --focus-visible-fg: var(--text-50);
 
   // Shadow
-  --shadow: 0 0 0 1px rgb(0 0 0 / 0.07), 0 2px 2px rgb(0 0 0 / 0.1);
+  --shadow: 0 0 0 1px hsl(var(--black-hsl) / 0.07),
+    0 2px 2px hsl(var(--black-hsl) / 0.1);
 
   // Scrollbar
-  --scrollbar-thumb: #{rgba(#94a3b8, 0.35)};
-  --scrollbar-thumb-negative: #{rgba(#ffffff, 0.15)};
+  --scrollbar-thumb: hsl(var(--black-hsl) / 0.15);
+  --scrollbar-thumb-negative: hsl(var(--white-hsl) / 0.15);
 
   // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);

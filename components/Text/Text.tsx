@@ -24,6 +24,7 @@ export const Text = ({
       '-size:xl': size === 'xl',
       '-size:xs': size === 'xs',
       'color:mute': color === 'mute',
+      'color:mute:blend': color === 'mute:blend',
       'mb:2xs': marginBottom === '2xs',
     },
     className,

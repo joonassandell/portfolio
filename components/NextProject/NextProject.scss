@@ -12,7 +12,7 @@
 
 .NextProject-link {
   @include fontSize(16px, 16px, 112px, 10vw);
-  color: var(--white);
+  color: var(--text-50);
   mix-blend-mode: difference;
   opacity: 1;
   z-index: 1;

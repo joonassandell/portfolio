@@ -76,9 +76,7 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
           <div className="grid-col grid-col:6@l">
             <Text animate>
               <p className="mb:2xs">On social platforms</p>
-              <p className="color:gray:mute">
-                Let's connect and get in touch 👋
-              </p>
+              <p className="color:mute">Let's connect and get in touch 👋</p>
               <SomeIcons />
             </Text>
           </div>

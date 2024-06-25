@@ -5,14 +5,14 @@
   --biocode-border: hsl(230 30% 40% / 0.25);
   --biocode-primary: #3a59f9;
   --biocode-primary-text: #3377ff;
-  --biocode-heading: var(--white);
+  --biocode-heading: var(--text-50);
   --biocode-text-700: #858fad;
   --biocode-text-800: #a3abc2;
-  --biocode-text-900: var(--white);
+  --biocode-text-900: var(--text-50);
 }
 
 .theme\:light {
-  --biocode-bg-50: var(--white);
+  --biocode-bg-50: var(--bg-50);
   --biocode-bg-100: #fbfbfc;
   --biocode-bg-200: #f7f7f8;
   --biocode-border: #d9dade;

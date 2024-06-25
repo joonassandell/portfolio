@@ -9,11 +9,11 @@
   .Template-main {
     background-image: radial-gradient(
         at 70% 33%,
-        hsl(var(--primary-hsl), 0.7),
+        hsl(var(--primary-hsl) / 0.7),
         transparent 30%
       ),
-      radial-gradient(at 100% 40%, hsl(1, 100%, 60%, 0.3), transparent 40%),
-      radial-gradient(at 90% 50%, hsl(255, 30%, 50%, 1), transparent 40%);
+      radial-gradient(at 100% 40%, hsl(1 100% 60% / 0.3), transparent 40%),
+      radial-gradient(at 90% 50%, hsl(255 30% 50% / 1), transparent 40%);
     background-repeat: no-repeat;
 
     @include mq($until: l) {

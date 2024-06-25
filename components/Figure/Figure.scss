@@ -42,7 +42,7 @@
 }
 
 .Figure-placeholder {
-  background-color: var(--Figure-placeholder-bg, var(--bg-200));
+  background-color: var(--Figure-placeholder-bg, var(--bg-300));
   overflow: hidden;
   z-index: 1;
 
@@ -56,7 +56,7 @@
   background-image: linear-gradient(
     -45deg,
     transparent 20%,
-    var(--Figure-glare-bg, var(--white)),
+    var(--Figure-glare-bg, var(--bg-50)),
     transparent 50%
   );
   background-repeat: no-repeat;

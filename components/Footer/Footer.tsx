@@ -20,7 +20,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             <div className="grid-col grid-col:8@m">
               <div className="grid -gap:row:l">
                 <div className="grid-col grid-col:5 grid-col:4@s">
-                  <Text className="Footer-mute mb:xs mb@m" tag="p">
+                  <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                     Me
                   </Text>
                   <Text tag="ul">
@@ -52,7 +52,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   </Text>
                 </div>
                 <div className="grid-col grid-col:5 grid-col:4@s">
-                  <Text className="Footer-mute mb:xs mb@m" tag="p">
+                  <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                     Work
                   </Text>
                   <Text tag="ul">
@@ -68,7 +68,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   </Text>
                 </div>
                 <div className="grid-col grid-col:4@s">
-                  <Text className="Footer-mute mb:xs mb@m" tag="p">
+                  <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                     Socials
                   </Text>
                   <SomeIcons className="hidden@s" />
@@ -85,8 +85,8 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
               </div>
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
-              <Text className="mb:2xs mb@m">
-                <p className="hidden@m mb:0">Joonas Sandell</p>
+              <Text className="mb:2xs mb@m" tag="p">
+                <span className="hidden@m">Joonas Sandell</span>
                 <Link
                   className="visible@m"
                   href={getSitemap('home', 'common').url}
@@ -94,13 +94,11 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   Joonas Sandell
                 </Link>
               </Text>
-              <Text className="mb:m" size="s">
-                <p className="Footer-mute mb:0">
-                  UI/UX designer
-                  <span className="hidden@m">, </span>
-                  <br className="visible@m" />
-                  Front-end developer
-                </p>
+              <Text className="mb:m" color="mute:blend" size="s" tag="p">
+                UI/UX designer
+                <span className="hidden@m">, </span>
+                <br className="visible@m" />
+                Front-end developer
               </Text>
             </div>
           </div>
