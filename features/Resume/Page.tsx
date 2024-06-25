@@ -10,6 +10,9 @@ import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useSetThemeColor } from '@/components/App';
+import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
+import Image from 'next/image';
+import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
 export const ResumePage = ({ id, themeColor, title }: PageProps) => {
@@ -60,11 +63,22 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
             <Heading className="mb:m" size="h4" tag="h2">
               Experience
             </Heading>
-            <Stepper>
+            <Stepper className="Template-stepper">
               <StepperItem>
                 <StepperStep beacon />
                 <Heading className="mb:2xs" size="h6" tag="h3">
-                  Lead product designer, Front-end developer — Biocode
+                  Lead product designer, Front-end developer —{' '}
+                  <Image
+                    alt="Biocode logomark"
+                    className="Template-stepper-image"
+                    draggable="false"
+                    priority
+                    sizes="1.75rem"
+                    src={biocodeLogomark}
+                  />
+                  <Link href={getSitemap('biocode').url} underline={false}>
+                    Biocode
+                  </Link>
                 </Heading>
                 <Text className="mb" color="mute" tag="p">
                   Nov 2020 — Present
@@ -90,8 +104,9 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                     <li>
                       Developed and built{' '}
                       <Link href={getSitemap('biocode').url}>Biocode</Link>’s
-                      end-to-end website including dark/light modes, CMS and{' '}
-                      <em>Hubspot</em> integration among many other features
+                      end-to-end <Link href="https://biocode.io">website</Link>{' '}
+                      including dark/light modes, CMS and <em>Hubspot</em>{' '}
+                      integration among many other features
                     </li>
                     <li>
                       Designed, developed and authored{' '}
@@ -128,7 +143,18 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               <StepperItem>
                 <StepperStep icon={<Check />} />
                 <Heading className="mb:2xs" size="h6" tag="h3">
-                  UI/UX Designer, Front-end developer — Mediasignal
+                  UI/UX designer, Front-end developer —{' '}
+                  <Image
+                    alt="Biocode logomark"
+                    className="Template-stepper-image"
+                    draggable="false"
+                    priority
+                    sizes="1.75rem"
+                    src={mediasignalLogomark}
+                  />
+                  <Link href={getSitemap('mediasignal').url} underline={false}>
+                    Mediasignal
+                  </Link>
                 </Heading>
                 <Text className="mb" color="mute" tag="p">
                   Sep 2014 — Nov 2020
@@ -167,15 +193,15 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                           Academic Bookstore
                         </Link>
                       </em>
-                      , <em>Kia</em>, <em>Caverion</em>, <em>Fair trade</em>,{' '}
+                      ,{' '}
+                      <em>
+                        <Link href={getSitemap('oras').url}>Oras</Link>
+                      </em>
+                      , <em>Fair trade</em>, <em>Kia</em>, <em>Caverion</em>,{' '}
                       <em>
                         <Link href={`${getSitemap('more-work').url}/#takk`}>
                           TAKK
                         </Link>
-                      </em>
-                      ,{' '}
-                      <em>
-                        <Link href={getSitemap('oras').url}>Oras</Link>
                       </em>{' '}
                       and{' '}
                       <em>
@@ -225,7 +251,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               <StepperItem>
                 <StepperStep icon={<Check />} />
                 <Heading className="mb:2xs" size="h6" tag="h3">
-                  UI/UX Designer, Front-end developer — City of Tampere
+                  UI/UX designer, Front-end developer — City of Tampere
                 </Heading>
                 <Text className="mb" color="mute" tag="p">
                   Apr 2007 — Sep 2014

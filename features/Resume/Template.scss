@@ -44,6 +44,16 @@
     }
   }
 
+  // Todo: Add/convert new size variables
+  .Template-stepper-image {
+    margin: 0 rem(6px) rem($space-2xs) 0;
+    width: rem($space-m);
+
+    @include mq(l) {
+      width: rem(28px);
+    }
+  }
+
   .Template-profileMobile {
     img {
       height: rem($space * 8);
