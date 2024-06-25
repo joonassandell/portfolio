@@ -88,21 +88,28 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                       analytics
                     </li>
                     <li>
-                      Built and designed{' '}
+                      Developed and built{' '}
                       <Link href={getSitemap('biocode').url}>Biocode</Link>’s
-                      end-to-end website including dark/light modes, CMS and
-                      Hubspot integration among many other features
+                      end-to-end website including dark/light modes, CMS and{' '}
+                      <em>Hubspot</em> integration among many other features
                     </li>
                     <li>
-                      Designed, built and authored Biocode Design System
+                      Designed, developed and authored{' '}
+                      <em>
+                        <Link href="https://github.com/joonassandell/bds">
+                          Biocode Design System
+                        </Link>{' '}
+                      </em>
                       including brand assets such as logomarks, icons and
                       product packaging stamps
                     </li>
                     <li>
                       Designed and built headless{' '}
-                      <Link href="https://report.biocode.io">
-                        Biocode for reporting
-                      </Link>{' '}
+                      <em>
+                        <Link href="https://report.biocode.io">
+                          Biocode for reporting
+                        </Link>
+                      </em>{' '}
                       Next.js web service to market the impact of Biocode for
                       the public audience
                     </li>
@@ -130,36 +137,52 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                   <ul className="pl">
                     <li>
                       Developed and designed applications for clients such as{' '}
-                      <Link
-                        href={`${getSitemap('more-work').url}/#academic-bookstore`}
-                      >
-                        Bonnier Books
-                      </Link>
-                      ,{' '}
-                      <Link href={`${getSitemap('more-work').url}/#hukka`}>
-                        Luke
-                      </Link>
-                      , Finefoods, Kesla, Dahl and{' '}
-                      <Link href={`${getSitemap('more-work').url}/#finnpark`}>
-                        Finnpark
-                      </Link>
+                      <em>
+                        <Link
+                          href={`${getSitemap('more-work').url}/#academic-bookstore`}
+                        >
+                          Bonnier Books
+                        </Link>
+                      </em>
+                      , <em>Finefoods</em>,{' '}
+                      <em>
+                        <Link href={`${getSitemap('more-work').url}/#hukka`}>
+                          Luke
+                        </Link>
+                      </em>
+                      , <em>Kesla</em>, <em>Dahl</em> and{' '}
+                      <em>
+                        <Link href={`${getSitemap('more-work').url}/#finnpark`}>
+                          Finnpark
+                        </Link>
+                      </em>
                     </li>
                     <li>
                       Developed and designed websites, e-commerce stores and web
                       services for clients such as{' '}
-                      <Link
-                        href={`${getSitemap('more-work').url}/#academic-bookstore`}
-                      >
-                        Academic Bookstore
-                      </Link>
-                      , Kia, Caverion, Fair trade,{' '}
-                      <Link href={`${getSitemap('more-work').url}/#takk`}>
-                        TAKK
-                      </Link>
-                      , <Link href={getSitemap('oras').url}>Oras</Link> and{' '}
-                      <Link href={`${getSitemap('more-work').url}/#hankkija`}>
-                        Hankkija
-                      </Link>
+                      <em>
+                        <Link
+                          href={`${getSitemap('more-work').url}/#academic-bookstore`}
+                        >
+                          Academic Bookstore
+                        </Link>
+                      </em>
+                      , <em>Kia</em>, <em>Caverion</em>, <em>Fair trade</em>,{' '}
+                      <em>
+                        <Link href={`${getSitemap('more-work').url}/#takk`}>
+                          TAKK
+                        </Link>
+                      </em>
+                      ,{' '}
+                      <em>
+                        <Link href={getSitemap('oras').url}>Oras</Link>
+                      </em>{' '}
+                      and{' '}
+                      <em>
+                        <Link href={`${getSitemap('more-work').url}/#hankkija`}>
+                          Hankkija
+                        </Link>
+                      </em>
                     </li>
                     <li>
                       Arranged workshops and planned UX interviews to get
@@ -176,11 +199,13 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                     </li>
                     <li>
                       Designed and built internal products such as{' '}
-                      <Link href={`${getSitemap('more-work').url}/#rubik`}>
-                        Rubik
-                      </Link>{' '}
-                      (PIM), Avainia and ImageBank that were sold to variety of
-                      customers
+                      <em>
+                        <Link href={`${getSitemap('more-work').url}/#rubik`}>
+                          Rubik
+                        </Link>
+                      </em>{' '}
+                      (PIM), <em>Avainia</em> and <em>ImageBank</em> that were
+                      sold to variety of customers
                     </li>
                     <li>
                       Crafted and documented internal tools to quickly
@@ -208,23 +233,23 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 <Text>
                   <ul className="pl">
                     <li>
-                      Built and curated valuable Exhibition Guide mobile app to
-                      help visitors gain an enjoyable and insightful museum
-                      experiences
+                      Built and curated valuable <em>Exhibition Guide</em>{' '}
+                      mobile app to help visitors gain an enjoyable and
+                      insightful museum experiences
                     </li>
                     <li>
-                      Built Museum Guide screen which featured maps, restaurant
-                      menus and other museum information integrated to the
-                      website CMS
+                      Built <em>Museum Guide</em> screen which featured maps,
+                      restaurant menus and other museum information integrated
+                      to the website CMS
                     </li>
                     <li>
-                      Built Twitter Social Wall screen to engage museum visitors
-                      sharing their museum experiences
+                      Built <em>Twitter Social Wall</em> screen to engage museum
+                      visitors sharing their museum experiences
                     </li>
                     <li>
-                      Developed and designed websites and posters for Museum
-                      Centre Vapriikki, Moominvalley, Tampere Music Festivals
-                      and other city sectors
+                      Developed and designed websites and posters for{' '}
+                      <em>Museum Centre Vapriikki</em>, <em>Moominvalley</em>,{' '}
+                      <em>Tampere Music Festivals</em> and other city sectors
                     </li>
                   </ul>
                 </Text>
@@ -241,7 +266,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               sizes="20vw"
               {...profile}
             />
-            <Heading className="hidden@m" size="h5" tag="h4">
+            <Heading className="hidden@m" size="h6" tag="h4">
               Contact
             </Heading>
             <Text className="mb:m" size="s" tag="ul">
@@ -278,7 +303,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 </Link>
               </li>
             </Text>
-            <Heading size="h5" tag="h4">
+            <Heading size="h6" tag="h4">
               Skills
             </Heading>
             <Text className="mb:m" size="s">
@@ -312,8 +337,8 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               </Text>
               <p>
                 UI/UX design, Product design, Website design & development,
-                App/mobile design, Responsive design, Design systems, Design
-                patterns, Web animations
+                Application design & development, Responsive design, Design
+                systems & patterns, Animations
               </p>
             </Text>
           </aside>
