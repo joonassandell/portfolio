@@ -29,6 +29,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
               animate={false}
               borderRadius="var(--border-radius-pill)"
               className="Template-profileMobile mb:m hidden@m"
+              priority
               sizes="33vw"
               {...profile}
             />

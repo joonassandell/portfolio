@@ -112,7 +112,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   href={
                     GIT_COMMIT_SHA
                       ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
-                      : getLink('source', 'common').url
+                      : `${getLink('source', 'common').url}/commits`
                   }
                   underline
                 >
