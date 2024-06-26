@@ -14,12 +14,14 @@ export const Button = ({
   href,
   icon,
   onClick,
+  size,
   target,
   templateTransition = true,
   variant,
   ...props
 }: ButtonProps) => {
   const classes = c(className, 'Button Button--default', {
+    '-size:s': size === 's',
     'Button--default--negative': variant === 'negative',
   });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);

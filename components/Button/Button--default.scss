@@ -49,3 +49,10 @@
     background: var(--bg-800);
   }
 }
+
+.Button {
+  &.-size\:s {
+    min-height: rem($space-l);
+    padding: rem($space-2xs) rem($space);
+  }
+}

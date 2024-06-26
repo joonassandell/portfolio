@@ -1,8 +1,13 @@
-import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
+import {
+  type ComponentPropsWithoutRef,
+  type JSX,
+  type PropsWithChildren,
+} from 'react';
 import { type HTMLMotionProps } from 'framer-motion';
 
 export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   icon?: JSX.Element;
+  size?: 's' | 'm';
   templateTransition?: boolean;
   variant?: 'default' | 'negative';
 }
