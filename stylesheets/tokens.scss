@@ -168,9 +168,4 @@
     --wrap-space-left: #{rem($space-2xl)};
     --wrap-space-right: #{rem($space-xl)};
   }
-
-  @include mq('4xl') {
-    --border-width-m: 2px;
-    --border-width-l: 3px;
-  }
 }

@@ -103,6 +103,10 @@
   height: var(--border-width-l);
   position: absolute;
   width: 100%;
+
+  @include mq('4xl') {
+    --border-width-l: 3px;
+  }
 }
 
 .Header-button {
