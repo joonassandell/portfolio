@@ -72,12 +72,11 @@ export const LinkRoll = ({
       >
         <m.span className="LinkRoll-text" variants={linkVariants}>
           {characters.map((char, i) => {
-            const empty = isEmptyString(char);
-            empty ? (char = '\u00A0') : false;
+            isEmptyString(char) ? (char = '\u00A0') : false;
 
             return (
               <m.span
-                className={c('LinkRoll-char', { '-empty': empty })}
+                className="LinkRoll-char"
                 key={i}
                 variants={characterOutVariants}
               >
