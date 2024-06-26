@@ -1,10 +1,11 @@
 import { type FooterProps } from './';
 import { getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
-import { LinkRoll } from '@/components/LinkRoll';
+import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
 import { LINKS, SITEMAP } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
+import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
 export const Footer = ({ className, fullWidth }: FooterProps) => {
@@ -25,29 +26,29 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   </Text>
                   <Text tag="ul">
                     <li>
-                      <LinkRoll href={getSitemap('about', 'common').url}>
+                      <FooterLink href={getSitemap('about', 'common').url}>
                         {getSitemap('about', 'common').navTitle}
-                      </LinkRoll>
+                      </FooterLink>
                     </li>
                     <li>
-                      <LinkRoll href={getSitemap('milestones', 'common').url}>
+                      <FooterLink href={getSitemap('milestones', 'common').url}>
                         {getSitemap('milestones', 'common').navTitle}
-                      </LinkRoll>
+                      </FooterLink>
                     </li>
                     <li>
-                      <LinkRoll href={getSitemap('approach', 'common').url}>
+                      <FooterLink href={getSitemap('approach', 'common').url}>
                         {getSitemap('approach', 'common').navTitle}
-                      </LinkRoll>
+                      </FooterLink>
                     </li>
                     <li>
-                      <LinkRoll href={getSitemap('resume', 'common').url}>
+                      <FooterLink href={getSitemap('resume', 'common').url}>
                         {getSitemap('resume', 'common').navTitle}
-                      </LinkRoll>
+                      </FooterLink>
                     </li>
                     <li>
-                      <LinkRoll href={getSitemap('contact', 'common').url}>
+                      <FooterLink href={getSitemap('contact', 'common').url}>
                         {getSitemap('contact', 'common').navTitle}
-                      </LinkRoll>
+                      </FooterLink>
                     </li>
                   </Text>
                 </div>
@@ -61,7 +62,9 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                       .map(item => {
                         return (
                           <li key={item.id}>
-                            <LinkRoll href={item.url}>{item.navTitle}</LinkRoll>
+                            <FooterLink href={item.url}>
+                              {item.navTitle}
+                            </FooterLink>
                           </li>
                         );
                       })}
@@ -76,7 +79,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                     {LINKS.social.map(item => {
                       return (
                         <li key={item.id}>
-                          <LinkRoll href={item.url}>{item.title}</LinkRoll>
+                          <FooterLink href={item.url}>{item.title}</FooterLink>
                         </li>
                       );
                     })}
@@ -86,9 +89,9 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
               <Text className="mb:2xs mb@m" tag="p">
-                <Link href={getSitemap('home', 'common').url} underline={false}>
+                <FooterLink href={getSitemap('home', 'common').url}>
                   Joonas Sandell
-                </Link>
+                </FooterLink>
               </Text>
               <Text className="mb:m" color="mute:blend" size="s" tag="p">
                 UI/UX designer
@@ -100,12 +103,22 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
           </div>
           <Text className="Footer-bottom" size="s">
             &copy; {new Date().getFullYear()} Joonas Sandell
-            <Link className="Footer-mut" href={getLink('source', 'common').url}>
+            <Link href={getLink('source', 'common').url}>
               {getLink('source', 'common').title}
             </Link>
           </Text>
         </div>
       </div>
     </footer>
+  );
+};
+
+const FooterLink = ({ children, ...props }: LinkRollProps) => {
+  const { active } = useUrlState(props.href);
+
+  return (
+    <LinkRoll underline={active} {...props}>
+      {children}
+    </LinkRoll>
   );
 };
