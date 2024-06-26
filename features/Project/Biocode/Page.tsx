@@ -42,7 +42,7 @@ export const BiocodePage = ({
           type={['Web app', 'Web service', 'Commission']}
           year="2020–"
         />
-        <TemplateSection gridGap="xl" paddingTop="10vw">
+        <TemplateSection gridGap="xl" pt="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Biocode homepage and isometric Biocode application"
@@ -273,11 +273,7 @@ export const BiocodePage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection
-          className="Template-app"
-          paddingTop={false}
-          theme="light"
-        >
+        <TemplateSection className="Template-app" pt={false} theme="light">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Biocode app sign in page"

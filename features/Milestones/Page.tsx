@@ -39,7 +39,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           aria-hidden
           className="pt:2xl@m"
           grid={false}
-          paddingTop="l"
+          pt="l"
           wrap={false}
         >
           <MilestonesLine />
@@ -48,7 +48,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           aria-hidden
           className="pr:0 pl:0"
           grid={false}
-          paddingTop="base"
+          pt="base"
         >
           <div className="Template-badges scrollbar">
             {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
@@ -66,7 +66,7 @@ export const MilestonesPage = ({ id, themeColor, title }: PageProps) => {
           </Text>
           <MilestonesTableHighlight />
         </TemplateSection>
-        <TemplateSection grid={false} paddingBottom="10vw">
+        <TemplateSection grid={false} pb="10vw">
           <DelayedRender delay={getMilliSeconds(TRANS_TEMPLATE.duration + 0.3)}>
             <Text className="ml:s ml@l mb" size="l" tag="h2">
               All milestones

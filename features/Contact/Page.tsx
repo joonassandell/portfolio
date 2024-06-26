@@ -46,7 +46,7 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
             <TextReveal text={['Get in touch ✳︎ Get in touch']} />
           </Heading>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingBottom="15vw" paddingTop="5vw">
+        <TemplateSection gridRowGap="l" pb="15vw" pt="5vw">
           <div className="grid-col grid-col:8@m grid-col:6@l grid-col:5@xl">
             <Text animate size="l">
               <p>

@@ -91,7 +91,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
             </span>
           </Heading>
         </TemplateSection>
-        <TemplateSection gridRowGap={false} paddingBottom="10vw" paddingTop="l">
+        <TemplateSection gridRowGap={false} pb="10vw" pt="l">
           <div className="grid-col grid-col:6@m grid-col:4@l">
             <Text animate className="mb:m">
               <p>

@@ -41,7 +41,7 @@ export const SandboxPage = ({
           type={['Web services', 'Applications', 'Concepts']}
           year={year}
         />
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Charity home page"
@@ -58,7 +58,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="xl" paddingTop="15vw" wrap={false}>
+        <TemplateSection gridGap="xl" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
             <Figure
               alt="VR Company solutions page"
@@ -75,7 +75,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="2xl">
+        <TemplateSection pt="2xl">
           <div className="grid-col grid-col:8@m -end">
             <Figure
               alt="VR Company home page carousel animation"
@@ -84,7 +84,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="xl" paddingTop="15vw" wrap={false}>
+        <TemplateSection gridGap="xl" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:6@m -align:end">
             <Figure
               alt="Art school home page"
@@ -100,7 +100,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="2xl">
+        <TemplateSection pt="2xl">
           <div className="grid-col">
             <Figure
               alt="Third art school home page"
@@ -108,7 +108,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Animal welfare home page"
@@ -125,7 +125,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="xl" paddingTop="15vw">
+        <TemplateSection gridGap="xl" pt="15vw">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Biocode early mobile home page"
@@ -142,7 +142,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap="xl" paddingTop="2xl">
+        <TemplateSection gridGap="xl" pt="2xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="CV of Joonas Sandell"
@@ -174,7 +174,7 @@ export const SandboxPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingBottom="15vw" paddingTop="2xl">
+        <TemplateSection pb="15vw" pt="2xl">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="404 concept animation"

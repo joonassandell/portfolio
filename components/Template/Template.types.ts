@@ -18,17 +18,8 @@ export interface TemplateSectionProps
   gridGap?: 'm' | 'l' | 'xl' | false;
   gridRowGap?: 'm' | 'l' | 'xl' | false;
   id?: string;
-  paddingBottom?: '10vw' | '15vw' | false;
-  paddingTop?:
-    | 'base'
-    | 'm'
-    | 'l'
-    | '2xl'
-    | '5vw'
-    | '10vw'
-    | '15vw'
-    | '20vw'
-    | false;
+  pb?: '10vw' | '15vw' | false;
+  pt?: 'base' | 'm' | 'l' | '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
   theme?: 'dark' | 'light';
   wrap?: boolean;
 }

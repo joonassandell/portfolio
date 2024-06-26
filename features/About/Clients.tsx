@@ -13,7 +13,7 @@ export const AboutClients = () => (
     gridGap="m"
     gridRowGap="m"
     id="clients"
-    paddingTop="10vw"
+    pt="10vw"
   >
     <Figure
       alt="Line ball"

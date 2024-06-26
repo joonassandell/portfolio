@@ -64,7 +64,7 @@ export const AboutIntro = () => {
       className="Template-intro"
       grid={false}
       id="intro"
-      paddingTop="15vw"
+      pt="15vw"
     >
       <div
         className="grid pb:5vw"

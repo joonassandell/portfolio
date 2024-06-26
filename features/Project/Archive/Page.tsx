@@ -47,8 +47,8 @@ export const ArchivePage = ({
         <TemplateSection
           className="Template-figureGrid"
           grid={false}
-          paddingBottom="15vw"
-          paddingTop="15vw"
+          pb="15vw"
+          pt="15vw"
         >
           <Figure
             alt="Jatke project page"

@@ -48,7 +48,7 @@ export const MoreWorkPage = ({
           type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
-        <TemplateSection gridRowGap="l" id="hw-company" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hw-company" pt="15vw">
           <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company 🏌️"
@@ -97,7 +97,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="omoroi" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="omoroi" pt="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
@@ -136,7 +136,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="hankkija" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hankkija" pt="15vw">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija 🍃"
@@ -191,7 +191,7 @@ export const MoreWorkPage = ({
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="hukka" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="hukka" pt="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
@@ -236,11 +236,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection
-          gridRowGap="l"
-          id="academic-bookstore"
-          paddingTop="15vw"
-        >
+        <TemplateSection gridRowGap="l" id="academic-bookstore" pt="15vw">
           <SubInfo
             client={{ name: 'Bonnier Books' }}
             heading="Academic Bookstore 📚"
@@ -294,7 +290,7 @@ export const MoreWorkPage = ({
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop="2xl">
+        <TemplateSection pt="2xl">
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
@@ -315,7 +311,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="rubik" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="rubik" pt="15vw">
           <SubInfo
             client={{ name: 'Mediasignal' }}
             heading="Rubik 📦"
@@ -351,7 +347,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="takk" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="takk" pt="15vw">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="TAKK homepage in laptop"
@@ -396,7 +392,7 @@ export const MoreWorkPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" id="finnpark" paddingTop="15vw">
+        <TemplateSection gridRowGap="l" id="finnpark" pt="15vw">
           <SubInfo
             client={{ name: 'Finnpark' }}
             heading="Parking Guidance App 🛞"
@@ -442,12 +438,7 @@ export const MoreWorkPage = ({
             </Text>
           </div>
         </TemplateSection>
-        <TemplateSection
-          gridRowGap="l"
-          id="archive"
-          paddingBottom="15vw"
-          paddingTop="15vw"
-        >
+        <TemplateSection gridRowGap="l" id="archive" pb="15vw" pt="15vw">
           <div className="grid-col grid-col:6@l">
             <Figure
               alt="Jatke homepage in laptop"

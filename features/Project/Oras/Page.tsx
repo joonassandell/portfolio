@@ -40,7 +40,7 @@ export const OrasPage = ({
           type={['Web service', 'Commission']}
           year="2016"
         />
-        <TemplateSection gridGap="m" paddingTop={false} wrap={false}>
+        <TemplateSection gridGap="m" pt={false} wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@l">
             <Figure
               alt="Oras woman showering"
@@ -69,8 +69,8 @@ export const OrasPage = ({
         <TemplateSection
           className="bg:gradient-0-100-0"
           gridGap="m"
-          paddingBottom="15vw"
-          paddingTop="10vw"
+          pb="15vw"
+          pt="10vw"
         >
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
@@ -82,7 +82,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection paddingTop={false} wrap={false}>
+        <TemplateSection pt={false} wrap={false}>
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Oras lifestyle animation concept"
@@ -103,7 +103,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection className="bg:gradient-0-100-0" paddingTop="15vw">
+        <TemplateSection className="bg:gradient-0-100-0" pt="15vw">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
@@ -126,7 +126,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridGap={false} paddingTop="15vw">
+        <TemplateSection gridGap={false} pt="15vw">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Oras homepage hero"
@@ -157,7 +157,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection grid={false} paddingTop="15vw" wrap={false}>
+        <TemplateSection grid={false} pt="15vw" wrap={false}>
           <Figure
             alt="Oras sense faucet"
             borderRadius={false}
@@ -165,7 +165,7 @@ export const OrasPage = ({
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateSection>
-        <TemplateSection className="bg:gradient-0-100-0" paddingTop="15vw">
+        <TemplateSection className="bg:gradient-0-100-0" pt="15vw">
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
@@ -182,7 +182,7 @@ export const OrasPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection grid={false} paddingTop="15vw" wrap={false}>
+        <TemplateSection grid={false} pt="15vw" wrap={false}>
           <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid-col grid-col:10 grid-col:4@m -align:end">
               <Figure
@@ -252,8 +252,8 @@ export const OrasPage = ({
         <TemplateSection
           className="Template-section"
           grid={false}
-          paddingBottom="15vw"
-          paddingTop="10vw"
+          pb="15vw"
+          pt="10vw"
         >
           <div className="grid -gap:l pb:2xl">
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">

@@ -9,7 +9,7 @@ export const AboutSkills = () => (
     className="Template-skills"
     grid={false}
     id="skills"
-    paddingTop="10vw"
+    pt="10vw"
     wrap={false}
   >
     <div className="wrap">

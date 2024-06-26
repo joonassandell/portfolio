@@ -22,7 +22,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
     <Template footerProps={{ fullWidth: true }} id={id} variant="unstyled">
       <Head title={title} />
       <TemplateMain>
-        <TemplateSection gridGap="m" gridRowGap="m" paddingTop={false}>
+        <TemplateSection gridGap="m" gridRowGap="m" pt={false}>
           <div className="Template-content grid-col grid-col:11@s grid-col:9@m">
             <Figure
               alt="Joonas Sandell profile picture"

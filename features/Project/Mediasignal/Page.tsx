@@ -42,7 +42,7 @@ export const MediasignalPage = ({
           type={['Web service', 'Branding', 'Commission']}
           year={year}
         />
-        <TemplateSection gridGap="xl" paddingTop="10vw">
+        <TemplateSection gridGap="xl" pt="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Mediasignal homepage"
@@ -52,7 +52,7 @@ export const MediasignalPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingTop="10vw">
+        <TemplateSection gridRowGap="l" pt="10vw">
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Mediasignal blog page"
@@ -118,12 +118,7 @@ export const MediasignalPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection
-          gridGap="l"
-          gridRowGap="m"
-          paddingTop="15vw"
-          wrap={false}
-        >
+        <TemplateSection gridGap="l" gridRowGap="m" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Logomark"
@@ -194,7 +189,7 @@ export const MediasignalPage = ({
             />
           </div>
         </TemplateSection>
-        <TemplateSection gridRowGap="l" paddingBottom="15vw">
+        <TemplateSection gridRowGap="l" pb="15vw">
           <div className="grid-col grid-col:11 grid-col:10@m">
             <Figure
               alt="Mediasignal company page"
