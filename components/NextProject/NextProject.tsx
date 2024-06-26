@@ -6,7 +6,7 @@ import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';
 import { type NextProjectProps } from './';
 import { useApp } from '@/components/App';
 import { useEffect, useRef, useState } from 'react';
-import { useMeasure, useMouseHovered } from 'react-use';
+import { useMeasure, useMedia, useMouseHovered } from 'react-use';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
@@ -26,6 +26,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
     whenHovered: true,
   });
   const spring = { damping: 120, stiffness: 800 };
+  const mqS = useMedia(MQ.s, false);
 
   /**
    * Move: Horizontal
@@ -73,13 +74,13 @@ export const NextProject = ({ id }: NextProjectProps) => {
    */
   const [initial, setInitial] = useState(false);
   useEffect(() => {
-    if (width && height && figureWidth && figureHeight) {
-      x.set(width - figureWidthHalf);
-      y.set(height - figureHeightHalf * 0.8);
-      setTimeout(() => setInitial(true), 500);
+    if (width && height && figureWidthHalf && figureHeightHalf) {
+      x.set(width - figureWidthHalf * (mqS ? 2.5 : 1));
+      y.set(height - figureHeightHalf * (mqS ? 0.8 : 0.3));
+      setInitial(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [height, width, figureWidth, figureHeight]);
+  }, [height, width, figureWidthHalf, figureHeightHalf, mqS]);
 
   return (
     <section className="NextProject" ref={ref}>
