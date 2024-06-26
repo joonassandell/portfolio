@@ -5,9 +5,9 @@
   @include text(s);
   align-items: center;
   background: var(--bg-50);
-  border: var(--border-width) solid var(--border-900);
+  border: var(--border-width) solid var(--border-950);
   border-radius: var(--border-radius-pill);
-  color: var(--text-900);
+  color: var(--text-950);
   display: inline-flex;
   flex-shrink: 0;
   gap: rem($space-2xs);
@@ -33,6 +33,6 @@
  * ======================================= */
 
 .Badge--negative {
-  background: var(--bg-900);
+  background: var(--bg-950);
   color: var(--text-50);
 }

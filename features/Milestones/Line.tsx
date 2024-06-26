@@ -75,7 +75,7 @@ export const MilestonesLine = () => {
         axis: 'x',
         legendOrientation: 'horizontal',
         lineStyle: {
-          stroke: 'var(--border-900)',
+          stroke: 'var(--border-950)',
           strokeWidth: 1,
         },
         value: new Date(m.date),
@@ -153,7 +153,7 @@ export const MilestonesLine = () => {
             tickSize: 0,
           }}
           axisTop={null}
-          colors={['var(--border-900)']}
+          colors={['var(--border-950)']}
           curve="monotoneX"
           data={lineData}
           gridXValues={years}

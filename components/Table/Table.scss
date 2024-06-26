@@ -16,7 +16,7 @@
 
 .Table-head {
   background: var(--bg-200);
-  color: var(--text-700);
+  color: var(--text-800);
   font-weight: var(--font-weight-400);
   text-align: left;
 }
@@ -71,7 +71,7 @@
 }
 
 .Table-caption {
-  color: var(--text-700);
+  color: var(--text-800);
   text-align: left;
 
   .is-safari & {

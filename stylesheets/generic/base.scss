@@ -9,7 +9,7 @@
     $scaleValue: 1.25vw
   );
   background: var(--bg-50);
-  color: var(--text-900);
+  color: var(--text-950);
   font-family: var(--font-family-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,12 +60,12 @@ body {
 }
 
 ::-moz-selection {
-  background: var(--bg-900);
+  background: var(--bg-950);
   color: var(--tone-50);
 }
 
 ::selection {
-  background: var(--bg-900);
+  background: var(--bg-950);
   color: var(--tone-50);
 }
 
@@ -104,7 +104,7 @@ img::-moz-selection {
 
 :where(hr) {
   border: 0;
-  border-top: var(--border-width) solid var(--border-900);
+  border-top: var(--border-width) solid var(--border-950);
   display: block;
   height: var(--border-width);
   margin: 0 0 rem($space-m) 0;

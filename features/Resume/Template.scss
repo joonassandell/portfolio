@@ -28,7 +28,7 @@
     padding-top: calc(var(--Header-height) + #{rem($space-l)});
 
     @include mq(m) {
-      border-left: var(--border-width) solid var(--border-900);
+      border-left: var(--border-width) solid var(--border-950);
       max-width: rem($space * 48);
       padding: calc(var(--Header-height) + #{rem($space-2xl)}) 0 rem($space-2xl)
         rem($space-xl);

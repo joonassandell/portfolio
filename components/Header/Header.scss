@@ -12,7 +12,7 @@
  */
 .Header {
   --focus-visible-bg: var(--bg-50);
-  --focus-visible-fg: var(--text-900);
+  --focus-visible-fg: var(--text-950);
   --link: var(--text-50);
 }
 
@@ -199,7 +199,7 @@
  * ======================================= */
 
 .Header-mask {
-  background: var(--bg-900);
+  background: var(--bg-950);
   clip-path: circle(0% at 0px 0px);
   color: var(--text-50);
   display: none;
@@ -219,7 +219,7 @@
   }
 
   &:before {
-    background: linear-gradient(var(--bg-900) 40%, transparent);
+    background: linear-gradient(var(--bg-950) 40%, transparent);
     content: '';
     height: rem($space * 8);
     left: 0;
@@ -317,7 +317,7 @@
 
   &:before,
   &:after {
-    border-top: var(--border-width-s) solid var(--border-800);
+    border-top: var(--border-width-s) solid var(--border-900);
     content: '';
     transition: border-color var(--trans-primary);
   }
@@ -362,7 +362,7 @@
 
   path {
     &:first-child {
-      stroke: var(--border-700);
+      stroke: var(--border-800);
       stroke-width: 4px;
     }
   }
@@ -370,7 +370,7 @@
 
 .Header-mask-nav-marquee {
   background: var(--tone-50);
-  color: var(--text-900);
+  color: var(--text-950);
   inset: 0;
   overflow: hidden;
   pointer-events: none;

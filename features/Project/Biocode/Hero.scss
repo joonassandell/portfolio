@@ -137,7 +137,7 @@
   }
 
   .Hero-textReveal-mobile {
-    --heading: var(--biocode-text-900);
+    --heading: var(--biocode-text-950);
     font-weight: var(--font-weight-100);
 
     @include mq(m) {
@@ -146,7 +146,7 @@
   }
 
   .Hero-textReveal-desktop {
-    --heading: var(--biocode-text-800);
+    --heading: var(--biocode-text-900);
     text-align: right;
 
     .TextReveal-text {

@@ -41,7 +41,7 @@
 
   .Button-arrow-path {
     fill: transparent;
-    stroke: var(--border-900);
+    stroke: var(--border-950);
     stroke-width: var(--border-width-l);
   }
 
@@ -58,7 +58,7 @@
 
   .Button-bg {
     background-color: var(--tone-50);
-    border: 2px solid var(--border-900);
+    border: 2px solid var(--border-950);
     border-radius: 4px 4px 4px 16px;
     inset: -2px;
     position: absolute;
@@ -66,7 +66,7 @@
   }
 
   .Button-bg-hover {
-    background: var(--bg-900);
+    background: var(--bg-950);
     border-radius: 4px 4px 4px 16px;
     inset: -2px;
     position: absolute;

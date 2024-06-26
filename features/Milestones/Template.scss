@@ -41,7 +41,7 @@
     }
 
     svg {
-      fill: var(--text-700);
+      fill: var(--text-800);
       height: var(--Line-height);
       overflow: visible;
 
@@ -77,7 +77,7 @@
     background-color: var(--bg-50);
     border-radius: var(--border-radius-s);
     box-shadow: var(--shadow);
-    color: var(--text-900);
+    color: var(--text-950);
     padding: rem($space-2xs) rem($space-xs) rem($space-3xs) rem($space-xs);
     text-align: left;
 

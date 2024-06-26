@@ -3,7 +3,7 @@
 
 .Footer {
   --focus-visible-bg: var(--bg-50);
-  --focus-visible-fg: var(--text-900);
+  --focus-visible-fg: var(--text-950);
   --link: var(--text-50);
 
   background: var(--Footer-bg, var(--Template-bg, var(--bg-50)));
@@ -16,7 +16,7 @@
 }
 
 .Footer-inner {
-  border-top: var(--border-width) solid var(--Footer-border, var(--border-900));
+  border-top: var(--border-width) solid var(--Footer-border, var(--border-950));
 }
 
 .Footer-main {
@@ -55,7 +55,7 @@
 .Footer {
   &.-width\:full {
     border-top: var(--border-width) solid
-      var(--Footer-border, var(--border-900));
+      var(--Footer-border, var(--border-950));
 
     .Footer-inner {
       border-top: 0;

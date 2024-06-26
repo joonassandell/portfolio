@@ -8,7 +8,7 @@
   border: var(--border-width) solid transparent;
   border-radius: var(--border-radius-pill);
   box-shadow: var(--shadow);
-  color: var(--text-900);
+  color: var(--text-950);
   gap: rem($space-xs);
   justify-content: space-between;
   min-height: rem($space-xl);
@@ -21,7 +21,7 @@
   &:hover,
   &:focus-visible {
     background: transparent;
-    border-color: var(--border-900);
+    border-color: var(--border-950);
     box-shadow: unset;
   }
 
@@ -40,13 +40,13 @@
  * ======================================= */
 
 .Button--default--negative {
-  background: var(--bg-900);
+  background: var(--bg-950);
   box-shadow: unset;
   color: var(--text-50);
 
   &:hover,
   &:focus-visible {
-    background: var(--bg-800);
+    background: var(--bg-900);
   }
 }
 
