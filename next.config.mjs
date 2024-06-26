@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 import path from 'path';
 import bundleAnalyzer from '@next/bundle-analyzer';
 import { fileURLToPath } from 'url';
@@ -10,7 +9,11 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: ANALYZE === 'true',
 });
 
+/** @type {import('next').NextConfig} */
 const config = {
+  env: {
+    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+  },
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
     ignoreDuringBuilds: IGNORE_ERRORS ? true : false,

@@ -1,8 +1,8 @@
+import { BUILD_DATE, LINKS, SITEMAP } from '@/lib/config';
 import { type FooterProps } from './';
-import { getLink, getSitemap } from '@/lib/utils';
+import { formatDate, getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
-import { LINKS, SITEMAP } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
 import { useUrlState } from '@/lib/useUrlState';
@@ -102,7 +102,13 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
           </div>
           <Text className="Footer-bottom" size="s">
-            &copy; {new Date().getFullYear()} Joonas Sandell
+            <p className="mb:0">
+              &copy; {new Date().getFullYear()} Joonas Sandell
+              <span className="color:mute:blend visible@s">
+                {' '}
+                ✳︎ Last updated: {formatDate(BUILD_DATE)}
+              </span>
+            </p>
             <Link href={getLink('source', 'common').url}>
               {getLink('source', 'common').title}
             </Link>
