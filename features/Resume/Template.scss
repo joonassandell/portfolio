@@ -35,7 +35,7 @@
     }
 
     @include mq(l) {
-      padding-bottom: rem($space-2xl);
+      padding-bottom: rem($space-3xl);
       padding-left: rem($space-2xl);
 
       ul {

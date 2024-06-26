@@ -23,18 +23,20 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
       <Head title={title} />
       <TemplateMain>
         <TemplateSection gridGap="m" gridRowGap="m" paddingTop={false}>
-          <div className="Template-content grid-col grid-col:11@s grid-col:10@ grid-col:9@m -start:2@">
+          <div className="Template-content grid-col grid-col:11@s grid-col:9@m">
             <Figure
               alt="Joonas Sandell profile picture"
               animate={false}
               borderRadius="var(--border-radius-pill)"
               className="Template-profileMobile mb:m hidden@m"
-              priority
               sizes="33vw"
               {...profile}
             />
             <Heading className="mb" size="h2" tag="h1">
               Joonas Sandell
+              <Text color="mute" size="m">
+                Curriculum vitae
+              </Text>
             </Heading>
             <Text className="mb:m" size="l">
               <p className="hidden@m">
@@ -63,7 +65,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
             <Heading className="mb:m" size="h4" tag="h2">
               Experience
             </Heading>
-            <Stepper className="Template-stepper">
+            <Stepper className="Template-stepper mb:xl">
               <StepperItem>
                 <StepperStep beacon />
                 <Heading className="mb:2xs" size="h6" tag="h3">
@@ -72,8 +74,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                     alt="Biocode logomark"
                     className="Template-stepper-image"
                     draggable="false"
-                    priority
-                    sizes="1.75rem"
+                    sizes="3rem"
                     src={biocodeLogomark}
                   />
                   <Link href={getSitemap('biocode').url} underline={false}>
@@ -145,11 +146,10 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 <Heading className="mb:2xs" size="h6" tag="h3">
                   UI/UX designer, Front-end developer —{' '}
                   <Image
-                    alt="Biocode logomark"
+                    alt="Mediasignal logomark"
                     className="Template-stepper-image"
                     draggable="false"
-                    priority
-                    sizes="1.75rem"
+                    sizes="3rem"
                     src={mediasignalLogomark}
                   />
                   <Link href={getSitemap('mediasignal').url} underline={false}>
@@ -281,13 +281,42 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 </Text>
               </StepperItem>
             </Stepper>
+            <Heading size="h4" tag="h2">
+              About me 👋
+            </Heading>
+            <Text>
+              <div className="grid">
+                <p className="grid-col grid-col:9@s">
+                  I’m Joonas — UI/UX designer, front-end developer and sometimes
+                  even a{' '}
+                  <Link href={getLink('soundcloud').url}>music producer</Link>.
+                  I enjoy connecting with new people online and dedicating some
+                  of my free time to various projects.{' '}
+                  <Link href={getSitemap('contact', 'common').url}>
+                    Contact me
+                  </Link>{' '}
+                  or learn more about me from below.
+                </p>
+              </div>
+              <p className="flex flex-wrap:wrap gap:s">
+                <Button href={getSitemap('about', 'common').url} size="s">
+                  {getSitemap('about', 'common').navTitle}
+                </Button>
+                <Button href={getSitemap('milestones', 'common').url} size="s">
+                  {getSitemap('milestones', 'common').navTitle}
+                </Button>
+                <Button href={getSitemap('approach', 'common').url} size="s">
+                  {getSitemap('approach', 'common').navTitle}
+                </Button>
+              </p>
+            </Text>
           </div>
           <aside className="Template-aside grid-col grid-col:3@m">
             <Figure
               alt="Joonas Sandell profile picture"
               animate={false}
               borderRadius="var(--border-radius-pill)"
-              className="Template-profile mb:m visible@m"
+              className="Template-profile mb:l visible@m"
               priority
               sizes="20vw"
               {...profile}
@@ -306,6 +335,11 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
                 </Link>
               </li>
               <li>Helsinki, Finland</li>
+              <li>
+                <Link href={getSitemap('contact', 'common').url} truncate>
+                  {getSitemap('contact', 'common').navTitle} me
+                </Link>
+              </li>
             </Text>
             <Text className="mb:l visible@m" size="s" tag="ul">
               <li>
