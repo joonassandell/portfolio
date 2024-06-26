@@ -104,7 +104,7 @@ export const MediasignalPage = ({
               alt="Mediasignal logomark in light background"
               scroll
               sizes="50vw"
-              {...getImage('joonassandell-mediasignal-logomark', images)}
+              {...getImage('joonassandell-mediasignal-logomark-bg', images)}
             />
           </div>
           <div className="grid-col grid-col:6">
@@ -114,7 +114,10 @@ export const MediasignalPage = ({
               scroll
               scrollSpeed={3}
               sizes="50vw"
-              {...getImage('joonassandell-mediasignal-logomark-dark', images)}
+              {...getImage(
+                'joonassandell-mediasignal-logomark-bg-dark',
+                images,
+              )}
             />
           </div>
         </TemplateSection>
