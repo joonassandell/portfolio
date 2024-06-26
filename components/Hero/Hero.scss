@@ -54,7 +54,7 @@
     position: absolute;
   }
 
-  > :where(.wrap):not(.Hero-link) {
+  > .wrap:not(.Hero-link) {
     @include mq($until: l) {
       padding-right: 0;
     }
@@ -107,20 +107,9 @@
 
 .Hero-content {
   align-self: center;
-  display: grid;
-  gap: var(--grid-gap-m);
-  place-items: start;
   pointer-events: all;
   position: relative;
   z-index: 4;
-
-  @include mq($until: l) {
-    display: none;
-  }
-}
-
-.Hero-content-heading {
-  margin-bottom: rem(-$space);
 }
 
 .Hero-figure-bg {

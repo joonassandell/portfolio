@@ -1,0 +1,60 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+@use 'stylesheets/utils/heading';
+
+:where(ul) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:where(a) {
+  color: var(--link);
+  text-decoration: none;
+}
+
+:where(p) {
+  margin: 0 0 rem($space-m);
+}
+
+:where(b, strong) {
+  font-weight: var(--font-weight-400);
+}
+
+:where(small) {
+  @include text(xs);
+}
+
+:where(hr) {
+  border: 0;
+  border-top: var(--border-width) solid var(--border-950);
+  display: block;
+  height: var(--border-width);
+  margin: 0 0 rem($space-m) 0;
+  overflow: visible;
+  padding: 0;
+}
+
+:where(h1) {
+  @extend .h1;
+}
+
+:where(h2) {
+  @extend .h2;
+}
+
+:where(h3) {
+  @extend .h3;
+}
+
+:where(h4) {
+  @extend .h4;
+}
+
+:where(h5) {
+  @extend .h5;
+}
+
+:where(h6) {
+  @extend .h6;
+}
