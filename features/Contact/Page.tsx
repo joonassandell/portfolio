@@ -55,7 +55,7 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
                 alternatively feel free to send me a message through{' '}
                 <Link href={getLink('twitter', 'social').url}>Twitter</Link>.
               </p>
-              <p className="flex flex-direction:column flex-direction:row@s gap">
+              <p className="flex flex-wrap:wrap flex-direction:column flex-direction:row@s gap">
                 <Button
                   disabled={icon.type.name != Copy.name}
                   icon={icon}

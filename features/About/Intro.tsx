@@ -119,6 +119,7 @@ export const AboutIntro = () => {
             borderRadius={false}
             inViewOffset={-1}
             placeholder={false}
+            priority
             sizes="33vw"
             {...lineCube}
           />

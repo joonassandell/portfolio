@@ -41,6 +41,14 @@
   }
 }
 
+.flex-wrap\:wrap {
+  flex-wrap: wrap;
+}
+
 .gap {
   gap: rem($space);
+
+  &\:s {
+    gap: rem($space-s);
+  }
 }
