@@ -326,6 +326,7 @@ export const PRODUCTION_LIVE =
   process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
 export const PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
 export const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE as string;
+export const GIT_COMMIT_SHA = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
 export const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL ??
   (PREVIEW

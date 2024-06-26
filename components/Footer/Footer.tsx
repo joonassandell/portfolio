@@ -1,4 +1,4 @@
-import { BUILD_DATE, LINKS, SITEMAP } from '@/lib/config';
+import { BUILD_DATE, GIT_COMMIT_SHA, LINKS, SITEMAP } from '@/lib/config';
 import { type FooterProps } from './';
 import { formatDate, getLink, getSitemap } from '@/lib/utils';
 import { Link } from '@/components/Link';
@@ -79,7 +79,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                     {LINKS.social.map(item => {
                       return (
                         <li key={item.id}>
-                          <FooterLink href={item.url}>{item.title}</FooterLink>
+                          <LinkRoll href={item.url}>{item.title}</LinkRoll>
                         </li>
                       );
                     })}
@@ -106,7 +106,18 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
               &copy; {new Date().getFullYear()} Joonas Sandell
               <span className="color:mute:blend visible@s">
                 {' '}
-                ✳︎ Last updated: {formatDate(BUILD_DATE)}
+                ✳︎ Last updated:{' '}
+                <Link
+                  className="color:mute:blend"
+                  href={
+                    GIT_COMMIT_SHA
+                      ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
+                      : getLink('source', 'common').url
+                  }
+                  underline
+                >
+                  {formatDate(BUILD_DATE)}
+                </Link>
               </span>
             </p>
             <Link href={getLink('source', 'common').url}>
