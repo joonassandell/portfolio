@@ -38,17 +38,6 @@ body {
   margin: 0;
 }
 
-:where(ul) {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-:where(a) {
-  color: var(--link);
-  text-decoration: none;
-}
-
 :where(:focus) {
   outline: 0;
 }
@@ -88,28 +77,6 @@ img::-moz-selection {
 :where(img) {
   height: auto;
   vertical-align: middle;
-}
-
-:where(p) {
-  margin: 0 0 rem($space-m);
-}
-
-:where(b, strong) {
-  font-weight: var(--font-weight-400);
-}
-
-:where(small) {
-  @include text(xs);
-}
-
-:where(hr) {
-  border: 0;
-  border-top: var(--border-width) solid var(--border-950);
-  display: block;
-  height: var(--border-width);
-  margin: 0 0 rem($space-m) 0;
-  overflow: visible;
-  padding: 0;
 }
 
 :where(button) {

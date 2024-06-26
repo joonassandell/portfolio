@@ -1,11 +1,12 @@
 @use 'mixins/use' as *;
 
-@layer root, vendors, utils, components;
+@layer root, vendors, components, utils;
 
 @layer root {
   @include use('tokens');
   @include use('generic/base');
   @include use('generic/fonts');
+  @include use('generic/typography');
 }
 
 @layer vendors {

@@ -26,42 +26,42 @@
 
 @include mq(s) {
   .hidden\@s {
-    display: none !important;
+    display: none;
   }
 }
 
 @include mq($until: s) {
   .visible\@s {
-    display: none !important;
+    display: none;
   }
 }
 
 @include mq(m) {
   .hidden\@m {
-    display: none !important;
+    display: none;
   }
 }
 
 @include mq($until: m) {
   .visible\@m {
-    display: none !important;
+    display: none;
   }
 }
 
 @include mq(l) {
   .hidden\@l {
-    display: none !important;
+    display: none;
   }
 }
 
 @include mq($until: l) {
   .visible\@l {
-    display: none !important;
+    display: none;
   }
 }
 
 .hidden\@m\:max\@l {
   @include mq($from: m, $until: l) {
-    display: none !important;
+    display: none;
   }
 }
