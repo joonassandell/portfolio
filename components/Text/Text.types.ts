@@ -6,4 +6,5 @@ export interface TextProps extends HTMLMotionProps<'div'> {
   color?: 'mute' | 'mute:blend' | string;
   size?: 'xl' | 'l' | 'm' | 's' | 'xs';
   tag?: TagText | TagGeneric;
+  truncate?: boolean;
 }

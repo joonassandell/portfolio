@@ -12,6 +12,7 @@ export const Text = ({
   color,
   size,
   tag,
+  truncate,
   ...props
 }: TextProps) => {
   const classes = c(
@@ -24,6 +25,7 @@ export const Text = ({
       '-size:xs': size === 'xs',
       'color:mute': color === 'mute',
       'color:mute:blend': color === 'mute:blend',
+      'text:truncate': truncate,
     },
     className,
   );
