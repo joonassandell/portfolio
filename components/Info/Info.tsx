@@ -30,7 +30,7 @@ export const Info = ({
   return (
     <section className="Info wrap grid -gap:row:l">
       <div className="grid-col" data-s data-s-position="top" data-s-speed={0.5}>
-        <Hr className="mb:0@until:l" />
+        <Hr animate className="mb:0@until:l" />
       </div>
       <m.div
         animate={gridInView && 'animate'}

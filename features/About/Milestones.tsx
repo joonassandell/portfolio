@@ -16,7 +16,7 @@ export const AboutMilestones = () => (
     pt="10vw"
   >
     <div className="grid-col grid-col:8@s grid-col:6@m">
-      <Hr className="mb:l" />
+      <Hr animate className="mb:l" />
       <Heading size="h3">
         <TextReveal text={["I'm enthusiastic ", 'about creating things']} />
       </Heading>
