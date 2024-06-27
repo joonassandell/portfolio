@@ -1,5 +1,4 @@
 import {
-  type ComponentPropsWithoutRef,
   type MouseEventHandler,
   type PropsWithChildren,
   type ReactNode,
@@ -16,7 +15,7 @@ export interface HeroProps {
         transitionStartOrDefault: boolean;
       }) => ReactNode)
     | ReactNode;
-  className?: ComponentPropsWithoutRef<'section'>['className'];
+  className?: string;
   heading?: string;
   headingVariants?: Variants;
   href?: URL['href'];
@@ -30,7 +29,7 @@ export interface HeroProps {
 }
 
 export interface HeroContentProps extends PropsWithChildren {
-  className?: ComponentPropsWithoutRef<'div'>['className'];
+  className?: string;
   heading: HeroProps['heading'];
   href: URL['href'];
   onClick?: MouseEventHandler<HTMLElement>;
