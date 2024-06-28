@@ -8,9 +8,7 @@
 }
 
 .Avatar-figure {
-  border-radius: var(--border-radius-pill);
   flex-shrink: 0;
   height: rem($space-xl);
-  overflow: hidden;
   width: rem($space-xl);
 }

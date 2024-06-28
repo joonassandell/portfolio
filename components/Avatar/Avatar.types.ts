@@ -1,8 +1,8 @@
 import { type ComponentPropsWithoutRef } from 'react';
-import { type ImageProps } from 'next/image';
+import { type FigureProps } from '../Figure';
 
 export interface AvatarProps extends ComponentPropsWithoutRef<'div'> {
-  image?: ImageProps;
+  image?: FigureProps;
   name?: string;
   text?: string;
 }

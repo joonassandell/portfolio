@@ -1,7 +1,7 @@
 import { type AvatarProps } from './';
+import { Figure } from '@/components/Figure';
 import { Text } from '@/components/Text';
 import c from 'clsx';
-import Image from 'next/image';
 
 export const Avatar = ({
   className,
@@ -15,14 +15,14 @@ export const Avatar = ({
   return (
     <div className={classes} {...props}>
       {image && (
-        <figure className="Avatar-figure">
-          <Image
-            {...image}
-            alt={image.alt}
-            className="Avatar-figure-image"
-            sizes="3rem"
-          />
-        </figure>
+        <Figure
+          {...image}
+          alt={image.alt}
+          animate={false}
+          borderRadius="var(--border-radius-pill)"
+          className="Avatar-figure"
+          sizes="3rem"
+        />
       )}
       {(name ?? text) && (
         <div className="Avatar-meta">
