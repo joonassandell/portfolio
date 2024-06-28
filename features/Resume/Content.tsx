@@ -22,24 +22,23 @@ export const Content = () => (
       sizes="33vw"
       {...profile}
     />
-    <Heading className="mb" size="h2" tag="h1">
+    <Heading className="mb:2xs" size="h2" tag="h1">
       Joonas Sandell
-      <Text color="mute" size="m">
-        Curriculum vitae
-      </Text>
     </Heading>
-    <Text className="mb:m" size="l">
+    <Text color="mute" tag="p">
+      UI/UX designer, Front-end developer ✳︎ CV
+    </Text>
+    <Text className="mb:m" maxWidth size="l">
       <p className="hidden@m">
         A designer and creative developer with a keen eye for good design. With
         more than a decade of design engineering experience, I have the skills
         to build hiqh-quality web experiences.
       </p>
       <p className="visible@m text-wrap:balance@s">
-        UI/UX designer and creative front-end developer with a keen eye for good
-        design and attention to detail. With more than a decade of design
-        engineering experience, I have the skills to build hiqh-quality web
-        experiences and assist clients in addressing practical business
-        challenges.
+        A designer and creative developer with a keen eye for good design and
+        attention to detail. With more than a decade of design engineering
+        experience, I have the skills to build hiqh-quality web experiences and
+        assist clients in addressing practical business challenges.
       </p>
     </Text>
     <Button
@@ -70,10 +69,10 @@ export const Content = () => (
             Biocode
           </Link>
         </Heading>
-        <Text className="mb" color="mute" tag="p">
+        <Text color="mute" tag="p">
           Nov 2020 — Present
         </Text>
-        <Text>
+        <Text maxWidth>
           <ul className="pl">
             <li>
               Built the{' '}
@@ -142,10 +141,10 @@ export const Content = () => (
             Mediasignal
           </Link>
         </Heading>
-        <Text className="mb" color="mute" tag="p">
+        <Text color="mute" tag="p">
           Sep 2014 — Nov 2020
         </Text>
-        <Text>
+        <Text maxWidth>
           <ul className="pl">
             <li>
               Developed and designed applications for clients such as{' '}
@@ -234,10 +233,10 @@ export const Content = () => (
         <Heading className="mb:2xs" size="h6" tag="h3">
           UI/UX designer, Front-end developer — City of Tampere
         </Heading>
-        <Text className="mb" color="mute" tag="p">
+        <Text color="mute" tag="p">
           Apr 2007 — Sep 2014
         </Text>
-        <Text>
+        <Text maxWidth>
           <ul className="pl">
             <li>
               Built and curated valuable <em>Exhibition Guide</em> mobile app to
@@ -263,17 +262,15 @@ export const Content = () => (
     <Heading size="h4" tag="h2">
       About me 👋
     </Heading>
-    <Text>
-      <div className="grid">
-        <p className="grid-col grid-col:10@s grid-col:11@m grid-col:9@l grid-col:8@xl">
-          I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
-          <Link href={getLink('soundcloud').url}>music producer</Link>. I enjoy
-          connecting with new people online and dedicating some of my free time
-          to various projects.{' '}
-          <Link href={getSitemap('contact', 'common').url}>Contact me</Link> or
-          learn more about me from below.
-        </p>
-      </div>
+    <Text maxWidth>
+      <p>
+        I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
+        <Link href={getLink('soundcloud').url}>music producer</Link>. I enjoy
+        connecting with new people online and dedicating some of my free time to
+        various projects.{' '}
+        <Link href={getSitemap('contact', 'common').url}>Contact me</Link> or
+        learn more about me from below.
+      </p>
       <p className="flex flex-wrap:wrap gap:s">
         <Button href={getSitemap('about', 'common').url} size="s">
           {getSitemap('about', 'common').navTitle}

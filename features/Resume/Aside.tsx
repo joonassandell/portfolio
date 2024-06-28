@@ -16,19 +16,20 @@ export const Aside = () => (
       sizes="20vw"
       {...profile}
     />
-    <Heading className="hidden@m" size="h6" tag="h4">
+    <Heading className="mb:xs hidden@m" size="h6" tag="h4">
       Contact
     </Heading>
-    <Text className="mb:m" size="s" tag="ul">
+    <Text className="mb:l" size="s" tag="ul">
       <li>
+        E-mail:{' '}
         <Link href="mailto:me@joonassandell.com" target="_self" truncate>
           me@joonassandell.com
         </Link>
       </li>
-      <li>Helsinki, Finland</li>
+      <li>Location: Helsinki, Finland</li>
       <li>
         <Link href={getSitemap('contact', 'common').url} truncate>
-          {getSitemap('contact', 'common').navTitle} me
+          Send me a message
         </Link>
       </li>
     </Text>
@@ -87,7 +88,7 @@ export const Aside = () => (
         Competencies
       </Text>
       <p>
-        UI/UX design, Product design, Website design & development, Application
+        UI/UX design, Product design, Website design & development, Software
         design & development, Responsive design, Design systems & patterns,
         Animations
       </p>

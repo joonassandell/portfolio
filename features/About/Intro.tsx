@@ -46,16 +46,15 @@ export const AboutIntro = () => {
       'practical business challenges.',
     ],
     mobile: [
-      'With more than a decade of design ',
+      'With more than a decade of ',
       <>
-        engineering{' '}
-        <Link href={getSitemap('resume', 'common').url}>experience</Link>, I
-        have the{' '}
+        design engineering{' '}
+        <Link href={getSitemap('resume', 'common').url}>experience</Link>,{' '}
       </>,
-      'skills to build hiqh-quality web ',
-      'web experiences and assist ',
-      'clients in addressing practical ',
-      'business challenges.',
+      'I have the skills to build ',
+      'hiqh-quality web experiences ',
+      'and assist clients in addressing ',
+      'practical business challenges.',
     ],
   };
 
@@ -152,10 +151,11 @@ export const AboutIntro = () => {
           <Text animate className="mb:m">
             <p>
               I get excited about finding unique and elegant solutions for
-              complex user issues. I love designing by code in the browser but I
-              work a lot with <em>Figma</em> and other design tools as well.
-              Usually I prefer writing applications with <em>TypeScript</em>,{' '}
-              <em>React</em>, <em>Sass</em> and other modern tools.
+              complex user issues, and I love designing by code in the browser
+              but I work a lot with <em>Figma</em> and other design tools as
+              well. Usually I prefer writing applications with{' '}
+              <em>TypeScript</em>, <em>React</em>, <em>Sass</em> and other
+              modern tools.
             </p>
           </Text>
           <Text animate className="mb:m">
