@@ -26,6 +26,15 @@
   &.-mask {
     overflow: hidden;
   }
+
+  &.-inline {
+    display: inline-block;
+    line-height: 1;
+  }
+}
+
+.Figure-figure {
+  width: fit-content;
 }
 
 .Figure-figure-main {

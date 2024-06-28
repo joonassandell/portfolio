@@ -25,6 +25,7 @@ export const Figure = ({
   glare,
   height,
   id,
+  inline,
   inViewOffset = 0.1,
   loading,
   placeholder = true,
@@ -48,6 +49,7 @@ export const Figure = ({
     '-bg': background,
     '-border': border,
     '-border:radius': borderRadius,
+    '-inline': inline,
     '-mask': mask,
   });
   id = id ?? src?.split('/')?.pop()?.split('.')[0];
@@ -119,7 +121,7 @@ export const Figure = ({
               variants={glareVariants}
             />
           )}
-          {!isVideo && animate && placeholder && (
+          {!isVideo && placeholder && (
             <AnimatePresence>
               {!imgLoaded && (
                 <m.div

@@ -22,6 +22,7 @@ export interface FigureProps
   glare?: boolean;
   id?: ElementAttributes['id'];
   inViewOffset?: number;
+  inline?: boolean;
   placeholder?: boolean;
   scroll?: boolean | 'mask';
   scrollDelay?: number;
