@@ -1,0 +1,16 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Avatar {
+  align-items: center;
+  display: flex;
+  gap: rem($space-s);
+}
+
+.Avatar-figure {
+  border-radius: var(--border-radius-pill);
+  flex-shrink: 0;
+  height: rem($space-xl);
+  overflow: hidden;
+  width: rem($space-xl);
+}

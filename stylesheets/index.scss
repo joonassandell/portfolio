@@ -33,6 +33,7 @@
 
 @layer components {
   @include use('components/App');
+  @include use('components/Avatar');
   @include use('components/Badge');
   @include use('components/Button');
   @include use('components/Figure');
