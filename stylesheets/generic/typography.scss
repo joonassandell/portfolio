@@ -35,6 +35,10 @@
   padding: 0;
 }
 
+:where(blockquote) {
+  margin: 0;
+}
+
 :where(h1) {
   @extend .h1;
 }

@@ -33,6 +33,7 @@
 
 @layer components {
   @include use('components/App');
+  @include use('components/Avatar');
   @include use('components/Badge');
   @include use('components/Button');
   @include use('components/Figure');
@@ -55,6 +56,7 @@
   @include use('components/Template');
   @include use('components/Text');
   @include use('components/TextReveal');
+  @include use('components/Quote');
 }
 
 @include use('features/404');

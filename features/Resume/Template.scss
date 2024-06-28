@@ -2,25 +2,38 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--resume {
+  .Template-aside,
+  .Template-recommendations-aside {
+    @include mq(l) {
+      padding-right: rem($space-m);
+    }
+  }
+
+  .Template-content,
+  .Template-recommendations-content {
+    @include mq(m) {
+      border-left: var(--border-width) solid;
+      padding-left: rem($space-xl);
+    }
+
+    @include mq(l) {
+      padding-left: rem($space-2xl);
+    }
+  }
+
   .Template-aside {
-    background: var(--bg-100);
-    border: var(--border-width) solid var(--border-100);
+    border: var(--border-width) solid var(--border-950);
     border-radius: var(--border-radius);
     margin: rem($space-l) 0 rem($space-2xl) 0;
     padding: rem($space-m);
     text-wrap: balance;
 
     @include mq(m) {
-      background: unset;
       border: 0;
       border-radius: unset;
       margin: 0;
       order: -1;
       padding: calc(var(--Header-height) + #{rem($space-l)}) 0 0 0;
-    }
-
-    @include mq(l) {
-      padding-right: rem($space-l);
     }
   }
 
@@ -28,19 +41,9 @@
     padding-top: calc(var(--Header-height) + #{rem($space-l)});
 
     @include mq(m) {
-      border-left: var(--border-width) solid var(--border-950);
-      max-width: rem($space * 48);
-      padding: calc(var(--Header-height) + #{rem($space-2xl)}) 0 rem($space-2xl)
-        rem($space-xl);
-    }
-
-    @include mq(l) {
-      padding-bottom: rem($space-3xl);
-      padding-left: rem($space-2xl);
-
-      ul {
-        padding-right: 15%;
-      }
+      border-color: var(--border-950);
+      padding-bottom: rem($space-2xl);
+      padding-top: calc(var(--Header-height) + #{rem($space-2xl)});
     }
   }
 
@@ -65,5 +68,26 @@
 
   .Template-profile {
     width: 66%;
+  }
+
+  .Template-recommendations {
+    background: var(--bg-200);
+  }
+
+  .Template-recommendations-aside {
+    padding-top: rem($space-xl);
+
+    @include mq(m) {
+      padding-top: rem($space-2xl);
+    }
+  }
+
+  .Template-recommendations-content {
+    padding-bottom: rem($space-2xl);
+
+    @include mq(m) {
+      border-color: var(--border-950);
+      padding-top: rem($space-2xl);
+    }
   }
 }

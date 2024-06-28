@@ -10,13 +10,16 @@ export const Text = ({
   children,
   className,
   color,
+  maxWidth,
   size,
   tag,
+  truncate,
   ...props
 }: TextProps) => {
   const classes = c(
     'Text',
     {
+      '-maxWidth': maxWidth,
       '-size:l': size === 'l',
       '-size:m': size === 'm',
       '-size:s': size === 's',
@@ -24,6 +27,7 @@ export const Text = ({
       '-size:xs': size === 'xs',
       'color:mute': color === 'mute',
       'color:mute:blend': color === 'mute:blend',
+      'text:truncate': truncate,
     },
     className,
   );

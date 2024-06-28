@@ -399,7 +399,7 @@ export const MoreWorkPage = ({
             role={['Product design', 'App development']}
             text={
               <p>
-                Finnpark designs and produces smart parking servicess that make
+                Finnpark designs and produces smart parking services that make
                 movement easier and offer offices for parking and business
                 needs. We built a parking hall guiding service for the client
                 which helps drivers to navigate easily to the wanted

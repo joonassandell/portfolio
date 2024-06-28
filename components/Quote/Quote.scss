@@ -1,0 +1,9 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Quote {
+  background: var(--bg-50);
+  border: var(--border-width) solid var(--border-950);
+  border-radius: var(--border-radius);
+  padding: rem($space-m);
+}
