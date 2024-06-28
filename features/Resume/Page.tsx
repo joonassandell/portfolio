@@ -1,4 +1,4 @@
-import { Aside, Content } from './';
+import { Aside, Content, Recommendations } from './';
 import { Head } from '@/components/Head';
 import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -15,6 +15,7 @@ export const ResumePage = ({ id, themeColor, title }: PageProps) => {
           <Content />
           <Aside />
         </TemplateSection>
+        <Recommendations />
       </TemplateMain>
     </Template>
   );
