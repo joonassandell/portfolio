@@ -26,7 +26,7 @@ export const AboutClients = () => (
       {...lineBall}
     />
     <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m -start:7@m">
-      <Hr animate className="mb:l" />
+      <Hr className="mb:l" />
       <Heading size="h3">
         <TextReveal text={['My clients']} />
       </Heading>

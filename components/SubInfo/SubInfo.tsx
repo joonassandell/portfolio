@@ -23,7 +23,7 @@ export const SubInfo = ({
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">
-      <Hr animate className="SubInfo-ruler" />
+      <Hr className="SubInfo-ruler" />
       <m.div
         animate={gridInView && 'animate'}
         className="grid"
