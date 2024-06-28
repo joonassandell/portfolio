@@ -7,7 +7,6 @@ import { Link } from '@/components/Link';
 import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
 import { Text } from '@/components/Text';
 import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
-import Image from 'next/image';
 import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
@@ -58,13 +57,15 @@ export const Content = () => (
         <StepperStep beacon />
         <Heading className="mb:2xs" size="h6" tag="h3">
           Lead product designer, Front-end developer —{' '}
-          <Image
+          <Figure
             alt="Biocode logomark"
+            animate={false}
+            borderRadius="var(--border-radius-pill)"
             className="Template-stepper-image"
-            draggable="false"
+            inline
             sizes="3rem"
-            src={biocodeLogomark}
-          />
+            {...biocodeLogomark}
+          />{' '}
           <Link href={getSitemap('biocode').url} underline={false}>
             Biocode
           </Link>
@@ -130,13 +131,15 @@ export const Content = () => (
         <StepperStep icon={<Check />} />
         <Heading className="mb:2xs" size="h6" tag="h3">
           UI/UX designer, Front-end developer —{' '}
-          <Image
+          <Figure
             alt="Mediasignal logomark"
+            animate={false}
+            borderRadius="var(--border-radius-pill)"
             className="Template-stepper-image"
-            draggable="false"
+            inline
             sizes="3rem"
-            src={mediasignalLogomark}
-          />
+            {...mediasignalLogomark}
+          />{' '}
           <Link href={getSitemap('mediasignal').url} underline={false}>
             Mediasignal
           </Link>

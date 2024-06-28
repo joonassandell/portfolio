@@ -47,13 +47,13 @@
     }
   }
 
-  // Todo: Add/convert new size variables
   .Template-stepper-image {
-    margin: 0 rem(6px) rem($space-2xs) 0;
+    position: relative;
+    top: -$space-4xs;
     width: rem($space-m);
 
     @include mq(l) {
-      width: rem(28px);
+      width: rem(28px); // Todo: Add/convert new size variables
     }
   }
 
