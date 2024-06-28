@@ -10,6 +10,7 @@ export const Text = ({
   children,
   className,
   color,
+  maxWidth,
   size,
   tag,
   truncate,
@@ -18,6 +19,7 @@ export const Text = ({
   const classes = c(
     'Text',
     {
+      '-maxWidth': maxWidth,
       '-size:l': size === 'l',
       '-size:m': size === 'm',
       '-size:s': size === 's',

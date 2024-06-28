@@ -19,10 +19,18 @@
 
   &.-size\:l {
     @include text(l);
+
+    &.-maxWidth {
+      max-width: rem($space * 40);
+    }
   }
 
   &.-size\:xl {
     @include text(xl);
+  }
+
+  &.-maxWidth {
+    max-width: rem($space * 34);
   }
 
   > *:last-child {
