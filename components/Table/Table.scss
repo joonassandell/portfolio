@@ -32,6 +32,7 @@
 .Table-row {
   background: var(--Table-row-bg, inherit);
   position: relative;
+  transition: background-color var(--trans-primary-fastest);
 
   &:hover,
   &:has(:focus-visible) {
