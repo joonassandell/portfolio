@@ -1,13 +1,15 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
+import { BUILD_DATE, CONTENT, GIT_COMMIT_SHA, MQ, SITEMAP } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
-import { CONTENT, LINKS, MQ, SITEMAP } from '@/lib/config';
 import { debounce } from 'lodash-es';
 import {
   enterExitBtnArrow,
   enterExitBtnArrowIfNavOpen,
   enterExitBtnText,
   enterExitBtnTextIfNavOpen,
+  HeaderFooterNavItem,
   HeaderMaskNavItem,
+  HeaderMaskNavItemSecondary,
   HeaderNavItem,
   type HeaderProps,
   mainItemInVariant,
@@ -18,10 +20,12 @@ import {
   maskNavVariant,
   maskOpenTransition,
 } from './';
-import { getLink } from '@/lib/utils';
+import { formatDate, getLink } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
+import { SomeIcons } from '@/components/SomeIcons';
+import { Text } from '@/components/Text';
 import { urlState } from '@/lib/useUrlState';
 import { useApp } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
@@ -34,8 +38,6 @@ import { useMedia } from 'react-use';
 import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
-
-const source = getLink('source', 'common');
 
 export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const router = useRouter();
@@ -416,7 +418,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               >
                 <ul>
                   {SITEMAP.project
-                    .filter(item => !item.hidden)
+                    .filter(item => !item.hidden && item.id != 'home')
                     .map(item => {
                       return (
                         <HeaderMaskNavItem
@@ -429,6 +431,18 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                         />
                       );
                     })}
+                  {SITEMAP.common
+                    .filter(item => item.id != 'home')
+                    .map(item => {
+                      return (
+                        <HeaderMaskNavItemSecondary
+                          href={item.url}
+                          key={item.id}
+                          onClick={handleLinkClick}
+                          title={item.navTitle}
+                        />
+                      );
+                    })}
                 </ul>
               </m.nav>
               <m.footer
@@ -436,34 +450,38 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 className="Header-footer wrap"
                 variants={maskNavItemVariant}
               >
-                <ul className="Header-footer-links">
-                  {LINKS.social.map(link => {
-                    return (
-                      <li key={link.id}>
-                        <Link href={link.url}>{link.title}</Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <Text className="Header-footer-nav visible@m" size="l" tag="ul">
+                  {SITEMAP.common
+                    .filter(item => item.id != 'home')
+                    .map(item => {
+                      return (
+                        <HeaderFooterNavItem
+                          href={item.url}
+                          key={item.id}
+                          onClick={handleLinkClick}
+                          title={item.navTitle}
+                        />
+                      );
+                    })}
+                </Text>
                 <div className="Header-footer-right">
-                  <ul className="Header-footer-links">
-                    {SITEMAP.common
-                      .filter(item => !item.hidden)
-                      .map(item => {
-                        return (
-                          <li key={item.id}>
-                            <Link href={item.url} templateTransition={false}>
-                              {item.navTitle}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                  <p className="Header-footer-copyright">
-                    &copy; {new Date().getFullYear()} <br />
-                    Joonas Sandell <br />
-                    <Link href={`${source.url}`}>{source.title}</Link>
-                  </p>
+                  <SomeIcons />
+                  <Text className="visible@m mb:0" size="s" tag="p">
+                    Last updated:{' '}
+                    <Link
+                      href={
+                        GIT_COMMIT_SHA
+                          ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
+                          : `${getLink('source', 'common').url}/commits`
+                      }
+                    >
+                      {formatDate(BUILD_DATE)}
+                    </Link>
+                    {' ✳︎ '}
+                    <Link href={getLink('source', 'common').url}>
+                      {getLink('source', 'common').title}
+                    </Link>
+                  </Text>
                 </div>
               </m.footer>
             </>

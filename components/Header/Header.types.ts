@@ -5,14 +5,6 @@ export interface HeaderProps {
   navTitle?: string;
 }
 
-export interface HeaderMaskNavItemProps {
-  color: string;
-  href: URL['href'];
-  onClick: ComponentPropsWithoutRef<'a'>['onClick'];
-  title: string;
-  year: string | number;
-}
-
 export interface HeaderNavItemProps {
   href: URL['href'];
   isOpen: boolean;
@@ -21,3 +13,20 @@ export interface HeaderNavItemProps {
   target?: LinkRollProps['target'];
   title: string;
 }
+
+export interface HeaderMaskNavItemProps {
+  color: string;
+  href: URL['href'];
+  onClick: ComponentPropsWithoutRef<'a'>['onClick'];
+  title: string;
+  year: string | number;
+}
+
+export interface HeaderMaskNavItemSecondaryProps {
+  href: URL['href'];
+  onClick: ComponentPropsWithoutRef<'a'>['onClick'];
+  title: string;
+}
+
+export interface HeaderFooterNavItemProps
+  extends HeaderMaskNavItemSecondaryProps {}
