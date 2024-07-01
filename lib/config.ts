@@ -29,18 +29,18 @@ export const SITEMAP: Sitemap = {
       url: '/approach',
     },
     {
-      id: 'contact',
-      navTitle: 'Contact',
-      themeColor: '#c1c0b6',
-      title: 'Contact',
-      url: '/contact',
-    },
-    {
       hidden: true,
       id: 'resume',
       navTitle: 'Resume',
       title: 'Resume',
       url: '/resume',
+    },
+    {
+      id: 'contact',
+      navTitle: 'Contact',
+      themeColor: '#c1c0b6',
+      title: 'Contact',
+      url: '/contact',
     },
     {
       hidden: true,

@@ -114,7 +114,6 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                       ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
                       : `${getLink('source', 'common').url}/commits`
                   }
-                  underline
                 >
                   {formatDate(BUILD_DATE)}
                 </Link>

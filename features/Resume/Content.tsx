@@ -217,8 +217,11 @@ export const Content = () => (
               variety of customers
             </li>
             <li>
-              Crafted and documented internal tools to quickly kick-start
-              projects
+              Crafted and documented{' '}
+              <Link href="https://github.com/joonassandell/rebirth">
+                internal tools
+              </Link>{' '}
+              to quickly kick-start projects
             </li>
             <li>
               Managed to acquire new clients based on past experience, outside
