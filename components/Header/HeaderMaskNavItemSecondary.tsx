@@ -5,19 +5,20 @@ import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
 export const HeaderMaskNavItemSecondary = ({
+  custom,
   href,
   onClick,
   title,
 }: HeaderMaskNavItemSecondaryProps) => {
   const { active } = useUrlState(href);
-  const classes = c('Header-mask-nav-secondary-item hidden@m', {
+  const classes = c('Header-mask-nav-secondary-item wrap hidden@m', {
     'is-active': active,
   });
 
   return (
-    <m.li className={classes} variants={maskNavItemVariant}>
+    <m.li className={classes} custom={custom} variants={maskNavItemVariant}>
       <LinkRoll
-        className="Header-mask-nav-secondary-link h6 mb:0 wrap"
+        className="Header-mask-nav-secondary-link h6 mb:0"
         href={href}
         onClick={onClick}
         templateTransition={false}

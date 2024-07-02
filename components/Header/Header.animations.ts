@@ -13,7 +13,7 @@ import {
 
 /**
  * Note that these enter/exit animations rely heavily on the mask animation, so
- * if you add too much delay things may not work well, so keep them in sync.
+ * if you add too much delay things may not work well. Keep these in sync.
  */
 export const enterExitBtnTextIfNavOpen: AnimationProps = {
   exit: {
@@ -120,16 +120,16 @@ export const maskNavVariant: Variants = {
 };
 
 export const maskNavItemVariant: Variants = {
-  closed: {
+  closed: ({ y = '11rem' } = {}) => ({
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
-    y: 88,
-  },
-  initial: {
+    y,
+  }),
+  initial: ({ y = '11rem' } = {}) => ({
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
-    y: 88,
-  },
+    y,
+  }),
   open: {
     opacity: 1,
     transition: TRANS_PRIMARY_FAST,

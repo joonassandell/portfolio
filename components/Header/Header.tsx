@@ -431,18 +431,20 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                         />
                       );
                     })}
-                  {SITEMAP.common
-                    .filter(item => item.id != 'home')
-                    .map(item => {
-                      return (
-                        <HeaderMaskNavItemSecondary
-                          href={item.url}
-                          key={item.id}
-                          onClick={handleLinkClick}
-                          title={item.navTitle}
-                        />
-                      );
-                    })}
+                  {!mqM &&
+                    SITEMAP.common
+                      .filter(item => item.id != 'home')
+                      .map(item => {
+                        return (
+                          <HeaderMaskNavItemSecondary
+                            custom={{ y: '5rem' }}
+                            href={item.url}
+                            key={item.id}
+                            onClick={handleLinkClick}
+                            title={item.navTitle}
+                          />
+                        );
+                      })}
                 </ul>
               </m.nav>
               <m.footer
