@@ -6,10 +6,10 @@ import {
   linkVariants,
 } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import { type ElementType, useState } from 'react';
 import { isBoolean, isEmptyString } from '@/lib/utils';
 import { default as NextLink } from 'next/link';
 import { useApp } from '@/components/App';
-import { useState } from 'react';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
@@ -31,7 +31,7 @@ export const LinkRoll = ({
     '-underline': underline,
     'has-underline': isBoolean(underline),
   });
-  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
+  const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
   const { active, external, externalTarget } = useUrlState(href);
   const shouldNavigate =
     Boolean(href) && !external && target != '_blank' && target != '_new';

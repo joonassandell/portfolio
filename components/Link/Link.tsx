@@ -1,5 +1,6 @@
 import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
+import { type ElementType, useState } from 'react';
 import {
   inVariant,
   inVariantX,
@@ -9,7 +10,6 @@ import {
 } from './';
 import { default as NextLink } from 'next/link';
 import { useApp } from '@/components/App';
-import { useState } from 'react';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
@@ -33,7 +33,7 @@ export const Link = ({
     '-underline': underline,
     '-vertical': orientation === 'vertical',
   });
-  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.a;
+  const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
   const { active, external, externalTarget } = useUrlState(href);
   const shouldNavigate =
     Boolean(href) && !external && target != '_blank' && target != '_new';

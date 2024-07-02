@@ -1,8 +1,8 @@
+import { type ElementType, useRef } from 'react';
 import { type HTMLMotionProps, m } from 'framer-motion';
 import { TEXT_VARIANTS } from '@/lib/config';
 import { type TextProps } from './';
 import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
 import c from 'clsx';
 
 export const Text = ({
@@ -33,7 +33,9 @@ export const Text = ({
   );
   const ref = useRef(null);
   const inView = useInView(ref);
-  const Tag = tag ? m<HTMLMotionProps<typeof tag>>(tag) : m.div;
+  const Tag = tag
+    ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>)
+    : m.div;
 
   return (
     <Tag
