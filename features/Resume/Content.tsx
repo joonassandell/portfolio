@@ -42,7 +42,7 @@ export const Content = () => (
     </Text>
     <Button
       className="mb:xl"
-      href="/Joonas-Sandell-CV.pdf"
+      href="/cv"
       icon={<Download />}
       target="_blank"
       variant="negative"
@@ -71,7 +71,7 @@ export const Content = () => (
           </Link>
         </Heading>
         <Text color="mute" tag="p">
-          Nov 2020 — Present
+          Nov 2020 – Present
         </Text>
         <Text maxWidth>
           <ul className="pl">
@@ -91,14 +91,14 @@ export const Content = () => (
               product and suggesting user-centric features based on analytics
             </li>
             <li>
-              Developed and built{' '}
+              Developed and designed{' '}
               <Link href={getSitemap('biocode').url}>Biocode</Link>’s end-to-end{' '}
               <Link href="https://biocode.io">website</Link> including
               dark/light modes, CMS and <em>Hubspot</em> integration among many
               other features
             </li>
             <li>
-              Designed, developed and authored{' '}
+              Authored, designed and developed{' '}
               <em>
                 <Link href="https://github.com/joonassandell/bds">
                   Biocode Design System
@@ -108,7 +108,7 @@ export const Content = () => (
               packaging stamps
             </li>
             <li>
-              Designed and built headless{' '}
+              Designed and developed headless{' '}
               <em>
                 <Link href="https://report.biocode.io">
                   Biocode for reporting
@@ -145,7 +145,7 @@ export const Content = () => (
           </Link>
         </Heading>
         <Text color="mute" tag="p">
-          Sep 2014 — Nov 2020
+          Sep 2014 – Nov 2020
         </Text>
         <Text maxWidth>
           <ul className="pl">
@@ -170,7 +170,7 @@ export const Content = () => (
               </em>
             </li>
             <li>
-              Developed and designed websites, e-commerce stores and web
+              Designed and developed websites, e-commerce stores and web
               services for clients such as{' '}
               <em>
                 <Link
@@ -207,7 +207,7 @@ export const Content = () => (
               design and website renewal
             </li>
             <li>
-              Designed and built internal products such as{' '}
+              Developed and designed internal products such as{' '}
               <em>
                 <Link href={`${getSitemap('more-work').url}/#rubik`}>
                   Rubik
@@ -240,7 +240,7 @@ export const Content = () => (
           UI/UX designer, Front-end developer — City of Tampere
         </Heading>
         <Text color="mute" tag="p">
-          Apr 2007 — Sep 2014
+          Apr 2007 – Sep 2014
         </Text>
         <Text maxWidth>
           <ul className="pl">

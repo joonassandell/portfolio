@@ -56,6 +56,15 @@ const config = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/cv',
+        destination: '/Joonas-Sandell-CV.pdf',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default withBundleAnalyzer(config);
