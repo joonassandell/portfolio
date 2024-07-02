@@ -80,6 +80,7 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
             </span>
             <Figure
               alt="Joonas Sandell"
+              animate={false}
               className="Template-profileMobile hidden@l"
               scrollPosition="top"
               sizes="25vw"
@@ -93,56 +94,45 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
         </TemplateSection>
         <TemplateSection gridRowGap={false} pb="10vw" pt="l">
           <div className="grid-col grid-col:6@m grid-col:4@l">
-            <Text animate className="mb:m">
-              <p>
-                In my approach to design, I generally prioritise adherence to UI
-                conventions while infusing subtle, unique elements that enhance
-                user engagement. I firmly believe that good design should be
-                intuitive and seamless, striving for invisibility while ensuring
-                that every interaction feels polished and refined.
-              </p>
+            <Text animate tag="p">
+              In my approach to design, I generally prioritise adherence to UI
+              conventions while infusing subtle, unique elements that enhance
+              user engagement. I firmly believe that good design should be
+              intuitive and seamless, striving for invisibility while ensuring
+              that every interaction feels polished and refined.
             </Text>
-            <Text animate className="mb:m">
-              <p>
-                <em>“Good design is invisible”</em> like some say and I believe
-                that’s a good mindset to have when building a successful
-                product.
-              </p>
+            <Text animate tag="p">
+              <em>“Good design is invisible”</em> like some say and I believe
+              that’s a good mindset to have when building a successful product.
             </Text>
-            <Text animate className="mb:m">
-              <p>
-                In designing interfaces and end-to-end websites, I consider a
-                multitude of factors, including accessibility, UX principles,
-                target group, value for end users, consistency, conversion rate
-                and business logic. While I recognise the importance of
-                aesthetics, I firmly believe that data-driven content reigns
-                supreme, collaborating closely with copywriters and marketing
-                team to ensure that messaging is concise and impactful without
-                compromising visual appeal.
-              </p>
+            <Text animate tag="p">
+              In designing interfaces and end-to-end websites, I consider a
+              multitude of factors, including accessibility, UX principles,
+              target group, value for end users, consistency, conversion rate
+              and business logic. While I recognise the importance of
+              aesthetics, I firmly believe that data-driven content reigns
+              supreme, collaborating closely with copywriters and marketing team
+              to ensure that messaging is concise and impactful without
+              compromising visual appeal.
             </Text>
           </div>
           <div className="grid-col grid-col:6@m grid-col:4@l">
-            <Text animate className="mb:m">
-              <p>
-                When it comes to coding, I adhere to best practices, writing
-                clean, maintainable code with meaningful variable names and
-                thorough documentation. I prioritise simplicity over complexity,
-                actively seeking to streamline solutions and avoid shortcuts or
-                hacks whenever possible.
-              </p>
+            <Text animate tag="p">
+              When it comes to coding, I adhere to best practices, writing
+              clean, maintainable code with meaningful variable names and
+              thorough documentation. I prioritise simplicity over complexity,
+              actively seeking to streamline solutions and avoid shortcuts or
+              hacks whenever possible.
             </Text>
-            <Text animate className="mb:m">
-              <p>
-                I’m both systematic and adaptive in my approach, valuing
-                organization and adherence to project guidelines while remaining
-                flexible enough to accommodate evolving requirements. For me,
-                the DX is paramount, and I am dedicated to fostering an
-                environment where everyone can contribute effectively to
-                building exceptional products.
-              </p>
+            <Text animate tag="p">
+              I’m both systematic and adaptive in my approach, valuing
+              organization and adherence to project guidelines while remaining
+              flexible enough to accommodate evolving requirements. For me, the
+              DX is paramount, and I am dedicated to fostering an environment
+              where everyone can contribute effectively to building exceptional
+              products.
             </Text>
-            <Text animate className="mb:m">
+            <Text animate>
               <p>
                 To put it simply, for me, it’s both how it works and how it
                 looks.
