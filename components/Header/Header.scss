@@ -208,6 +208,7 @@
   color: var(--text-50);
   display: none;
   flex-direction: column;
+  gap: rem($space-l);
   inset: 0;
   min-width: var(--root-min-width);
   position: fixed;
@@ -239,7 +240,7 @@
 
 .Header-mask-nav {
   flex: 1;
-  margin-top: calc(var(--Header-height) + #{rem($space-l)});
+  padding-top: calc(var(--Header-height) + #{rem($space-l)});
   width: 100%;
   z-index: 0;
 
@@ -395,7 +396,7 @@
   align-items: flex-end;
   color: var(--text-100);
   display: flex;
-  margin: rem($space-l) 0 rem($space-m) 0;
+  margin-bottom: rem($space-m);
 
   @include mq(m) {
     margin-bottom: rem($space-xl);
