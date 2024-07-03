@@ -208,6 +208,7 @@
   color: var(--text-50);
   display: none;
   flex-direction: column;
+  gap: rem($space-l);
   inset: 0;
   min-width: var(--root-min-width);
   position: fixed;
@@ -222,33 +223,30 @@
     pointer-events: none;
   }
 
+  .Header.is-animating:not(.has-scrollbar) & {
+    --scrollbar-overflow: hidden;
+  }
+
   &:before {
-    background: linear-gradient(var(--bg-950) 40%, transparent);
+    background: linear-gradient(var(--bg-950) 50%, transparent);
     content: '';
-    height: rem($space * 8);
-    left: 0;
+    height: calc(var(--Header-height) + #{rem($space-l)});
+    inset: 0 0 auto 0;
     pointer-events: none;
     position: fixed;
-    right: 0;
     z-index: 1;
-
-    @include mq(m) {
-      height: rem($space * 8);
-    }
-
-    @include mq(l) {
-      height: rem($space * 11);
-    }
   }
 }
 
 .Header-mask-nav {
-  margin: max(16.5vh, #{rem($space * 7)}) auto auto;
+  flex: 1;
+  padding-top: calc(var(--Header-height) + #{rem($space-l)});
   width: 100%;
   z-index: 0;
 
   @include mq(m) {
-    margin-top: max(25vh, #{rem($space * 9)});
+    align-items: center;
+    display: grid;
   }
 }
 
@@ -258,47 +256,13 @@
   transition: border-radius var(--trans-primary-fastest);
   z-index: 1;
 
-  &:last-child {
-    .Header-mask-nav-link {
-      &:before,
-      &:after {
-        border: 0;
-      }
-    }
-  }
-
   @include mq(m) {
-    @for $i from 2 through 4 {
+    @for $i from 2 through 5 {
       &:nth-child(#{$i}) {
         .Header-mask-nav-link {
           &:before {
             flex-basis: calc((var(--wrap-space-left) + #{rem($space)}) * #{$i});
           }
-        }
-      }
-    }
-
-    @for $i from 5 through 6 {
-      &:nth-child(#{$i}) {
-        .Header-mask-nav-link {
-          &:before {
-            flex: 1;
-          }
-
-          &:after {
-            flex: 0;
-            flex-basis: calc(
-              (var(--wrap-space-left) + #{rem($space * 4)}) * #{$i - 4}
-            );
-          }
-        }
-
-        .Header-mask-nav-link-inner {
-          flex-direction: row-reverse;
-        }
-
-        .Header-mask-nav-link-eye {
-          margin-right: rem($space);
         }
       }
     }
@@ -411,46 +375,45 @@
   }
 }
 
-.Header-footer {
-  display: flex;
-  margin: max(7.5vh, #{rem($space-l)}) 0 rem($space-ml) 0;
+.Header-mask-nav-secondary-item {
+  --heading: var(--text-100);
 
-  @include mq($until: m) {
-    @include text(s);
+  &:not(:last-child) {
+    margin-bottom: rem($space-2xs + $space-4xs);
   }
+
+  .Header-mask-nav-item + & {
+    margin-top: rem($space-m);
+  }
+}
+
+/* =======================================
+ * Footer
+ * ======================================= */
+
+.Header-footer {
+  --link: var(--text-100);
+  align-items: flex-end;
+  color: var(--text-100);
+  display: flex;
+  margin-bottom: rem($space-m);
 
   @include mq(m) {
     margin-bottom: rem($space-xl);
   }
-
-  @include mq(l) {
-    margin-bottom: rem($space-2xl);
-  }
 }
 
-.Header-footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: rem($space-xs);
-
-  @include mq(l) {
-    gap: rem($space-4xs);
-  }
+.Header-footer-nav {
+  --link: var(--text-50);
 }
 
 .Header-footer-right {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  text-align: right;
-
   @include mq(m) {
-    .Header-footer-links {
-      display: none;
-    }
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: rem($space-m);
+    margin-left: auto;
+    text-align: right;
   }
-}
-
-.Header-footer-copyright {
-  margin: auto 0 0 0;
 }

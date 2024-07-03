@@ -54,25 +54,23 @@ export const Info = ({
               <Text className="mb:2xs" color="mute" size="s" tag="p">
                 Client
               </Text>
-              <Text size="s">
-                <p>
-                  <ConditionalWrapper
-                    condition={Boolean(href)}
-                    wrapper={children => (
-                      <Link href={href as URL['href']}>{children}</Link>
-                    )}
-                  >
-                    {name}
-                  </ConditionalWrapper>
-                </p>
+              <Text className="mb:0" size="s" tag="p">
+                <ConditionalWrapper
+                  condition={Boolean(href)}
+                  wrapper={children => (
+                    <Link href={href as URL['href']}>{children}</Link>
+                  )}
+                >
+                  {name}
+                </ConditionalWrapper>
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l">
               <Text className="mb:2xs" color="mute" size="s" tag="p">
                 Year
               </Text>
-              <Text size="s">
-                <p>{year}</p>
+              <Text className="mb:0" size="s" tag="p">
+                {year}
               </Text>
             </div>
             <div className="grid-col grid-col:4@m grid-col:12@l grid -gap-column:0">

@@ -5,7 +5,7 @@ import {
   type LocomotiveScrollProviderProps,
   type ScrollProps,
 } from './';
-import useResizeObserver from 'use-resize-observer';
+import useResizeObserver, { type ObservedSize } from 'use-resize-observer';
 
 export const LocomotiveScrollContext =
   createContext<LocomotiveScrollContextProps>({
@@ -22,20 +22,16 @@ export const LocomotiveScrollProvider = ({
   options,
   watch,
 }: LocomotiveScrollProviderProps) => {
-  const { height: containerHeight } = useResizeObserver({ ref: containerRef });
   const [isReady, setIsReady] = useState(false);
   const LocomotiveScrollRef = useRef<ScrollProps | null>(null);
-  const [height, setHeight] = useState(containerHeight);
-
-  const handleResize = useMemo(
-    () => debounce((height: typeof containerHeight) => setHeight(height), 100),
-    [setHeight],
-  );
-
-  useEffect(
-    () => handleResize(containerHeight),
-    [containerHeight, handleResize],
-  );
+  const [{ height }, setSize] = useState<ObservedSize>({
+    height: undefined,
+    width: undefined,
+  });
+  useResizeObserver({
+    onResize: useMemo(() => debounce(setSize, 100), []),
+    ref: containerRef,
+  });
 
   useEffect(() => {
     (async () => {

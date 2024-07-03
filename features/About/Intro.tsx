@@ -137,33 +137,25 @@ export const AboutIntro = () => {
           />
         </div>
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
-          <Text animate className="mb:m">
-            <p>
-              I’m Joonas — UI/UX designer, front-end developer and sometimes
-              even a{' '}
-              <Link href={getLink('soundcloud').url}>music producer</Link>. I
-              have a strong and great visual taste, broad understanding of
-              front-end web technologies and a genuine passion for all aspects
-              of product and visual design, including web services, touch
-              platforms and branding.
-            </p>
+          <Text animate tag="p">
+            I’m Joonas — UI/UX designer, front-end developer and sometimes even
+            a <Link href={getLink('soundcloud').url}>music producer</Link>. I
+            have a strong and great visual taste, broad understanding of
+            front-end web technologies and a genuine passion for all aspects of
+            product and visual design, including web services, touch platforms
+            and branding.
           </Text>
-          <Text animate className="mb:m">
-            <p>
-              I get excited about finding unique and elegant solutions for
-              complex user issues, and I love designing by code in the browser
-              but I work a lot with <em>Figma</em> and other design tools as
-              well. Usually I prefer writing applications with{' '}
-              <em>TypeScript</em>, <em>React</em>, <em>Sass</em> and other
-              modern tools.
-            </p>
+          <Text animate tag="p">
+            I get excited about finding unique and elegant solutions for complex
+            user issues, and I love designing by code in the browser but I work
+            a lot with <em>Figma</em> and other design tools as well. Usually I
+            prefer writing applications with <em>TypeScript</em>, <em>React</em>
+            , <em>Sass</em> and other modern tools.
           </Text>
-          <Text animate className="mb:m">
-            <p>
-              With a background that spans both UI design and coding, I thrive
-              at the intersection of aesthetics and functionality, blending the
-              best of both worlds to deliver great user experiences.
-            </p>
+          <Text animate tag="p">
+            With a background that spans both UI design and coding, I thrive at
+            the intersection of aesthetics and functionality, blending the best
+            of both worlds to deliver great user experiences.
           </Text>
           <Text animate className="mb:l">
             <Button href="/approach" icon={<ArrowRight />}>
