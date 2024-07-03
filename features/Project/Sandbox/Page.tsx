@@ -4,26 +4,21 @@ import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { type PageProjectProps } from '@/types';
-import { SandboxHero } from '@/features/Project';
+import { type PageProps } from '@/types';
+import { SandboxHero } from './';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useMedia } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const SandboxPage = ({
-  id,
-  images,
-  themeColor,
-  title,
-  year,
-}: PageProjectProps) => {
+export const SandboxPage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('more-work');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
   const mqM = useMedia(MQ.m, false);
 
   return (
-    <Template id={id} variant="unstyled">
-      <Head title={title} />
+    <Template id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <SandboxHero />
         <Info
@@ -39,7 +34,7 @@ export const SandboxPage = ({
             </p>
           }
           type={['Web services', 'Applications', 'Concepts']}
-          year={year}
+          year={sitemap.year}
         />
         <TemplateSection gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">

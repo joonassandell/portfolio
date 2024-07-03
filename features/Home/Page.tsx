@@ -1,16 +1,14 @@
-import {
-  BiocodeHero,
-  MediasignalHero,
-  MoreWorkHero,
-  OrasHero,
-  SandboxHero,
-} from '@/features/Project';
+import { BiocodeHero } from '@/features/Project/Biocode';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { type LinkEvent, type PageProps } from '@/types';
+import { type LinkEvent } from '@/types';
 import { m } from 'framer-motion';
+import { MediasignalHero } from '@/features/Project/Mediasignal';
+import { MoreWorkHero } from '@/features/Project/MoreWork';
+import { OrasHero } from '@/features/Project/Oras';
+import { SandboxHero } from '@/features/Project/Sandbox';
 import { Template, TemplateMain } from '@/components/Template';
 import { useApp, useSetThemeColor } from '@/components/App';
 import {
@@ -18,11 +16,12 @@ import {
   useScrollTo,
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
+import sitemap from './sitemap';
 
 const about = getSitemap('about', 'common');
 
-export const HomePage = ({ id, themeColor }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const HomePage = () => {
+  useSetThemeColor(sitemap.meta.themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
   const { setThemeColor, setTransition, setTransitionInitial } = useApp();
@@ -55,7 +54,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
   return (
     <Template
       className={extraSpace ? 'is-extraSpace' : ''}
-      id={id}
+      id={sitemap.id}
       variant="unstyled"
     >
       <TemplateMain>

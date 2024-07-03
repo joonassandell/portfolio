@@ -4,7 +4,6 @@ import { getLink } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { type PageProps } from '@/types';
 import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -13,9 +12,10 @@ import { TextReveal } from '@/components/TextReveal';
 import { useCopyToClipboard } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
 import { useState } from 'react';
+import sitemap from './sitemap';
 
-export const ContactPage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const ContactPage = () => {
+  useSetThemeColor(sitemap.meta.themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
   const [icon, setIcon] = useState(<Copy />);
 
@@ -26,11 +26,8 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
   };
 
   return (
-    <Template id={id}>
-      <Head
-        description="My goal is to create unique, appealing, accessible, and user-friendly products while staying up to date with the latest standards and trends in today’s rapidly evolving digital world."
-        title={title}
-      />
+    <Template id={sitemap.id}>
+      <Head description={sitemap.meta.description} title={sitemap.meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading

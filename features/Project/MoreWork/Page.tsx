@@ -4,29 +4,24 @@ import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { Link } from '@/components/Link';
-import { MoreWorkHero } from '@/features/Project';
+import { MoreWorkHero } from './';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
 import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const MoreWorkPage = ({
-  id,
-  images,
-  themeColor,
-  title,
-  year,
-}: PageProjectProps) => {
+export const MoreWorkPage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
   const archive = getSitemap('archive');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
 
   return (
-    <Template id={id} variant="unstyled">
-      <Head title={title} />
+    <Template id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info
@@ -46,7 +41,7 @@ export const MoreWorkPage = ({
             </p>
           }
           type={['Web services', 'Web applications', 'Commissions']}
-          year={year}
+          year={sitemap.year}
         />
         <TemplateSection gridRowGap="l" id="hw-company" pt="15vw">
           <SubInfo

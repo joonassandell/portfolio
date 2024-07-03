@@ -4,27 +4,23 @@ import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { OrasHero } from '@/features/Project';
-import { type PageProjectProps } from '@/types';
+import { OrasHero } from './';
+import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const OrasPage = ({
-  id,
-  images,
-  themeColor,
-  title,
-}: PageProjectProps) => {
+export const OrasPage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('mediasignal');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
 
   return (
-    <Template id={id} variant="unstyled">
-      <Head title={title} />
+    <Template id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <OrasHero />
         <Info
-          client={{ name: title }}
+          client={{ name: sitemap.title }}
           heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
           role={['UI/UX design', 'Web development', 'Concept strategy']}
           smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
@@ -38,7 +34,7 @@ export const OrasPage = ({
             </p>
           }
           type={['Web service', 'Commission']}
-          year="2016"
+          year={sitemap.year}
         />
         <TemplateSection gridGap="m" pt={false} wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@l">

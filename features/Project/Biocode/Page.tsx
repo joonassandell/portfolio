@@ -1,30 +1,26 @@
-import { BiocodeHero } from '@/features/Project';
+import { BiocodeHero } from './Hero';
 import { Figure } from '@/components/Figure';
 import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const BiocodePage = ({
-  id,
-  images,
-  themeColor,
-  title,
-}: PageProjectProps) => {
+export const BiocodePage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('oras');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
 
   return (
-    <Template id={id} variant="unstyled">
-      <Head title={title} />
+    <Template id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <BiocodeHero />
         <Info
-          client={{ href: 'https://biocode.io', name: title }}
+          client={{ href: 'https://biocode.io', name: sitemap.title }}
           heading="Biocode is Carbon footprint calculator that makes sense. It’s aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
           role={['Product design', 'App development', 'Web development']}
           smallPrint="Building together with awesome co-workers from Biocode."

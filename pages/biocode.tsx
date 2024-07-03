@@ -1,18 +1,16 @@
-import { BiocodePage } from '@/features/Project';
+import { BiocodePage } from '@/features/Project/Biocode';
 import { getImages } from '@/lib/getImages';
-import { getSitemap } from '@/lib/utils';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
+import sitemap from '@/features/Project/Biocode/sitemap';
 
-export default function Page({ ...props }: PageProjectProps) {
-  return <BiocodePage {...props} />;
+export default function Page({ images }: PageProps) {
+  return <BiocodePage images={images} />;
 }
 
 export const getStaticProps = async () => {
-  const { imagesPath, ...sitemap } = getSitemap('biocode');
   return {
     props: {
-      images: await getImages(imagesPath),
-      ...sitemap,
+      images: await getImages(sitemap.imagesPath),
     },
   };
 };

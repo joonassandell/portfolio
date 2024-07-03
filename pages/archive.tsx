@@ -1,18 +1,16 @@
-import { ArchivePage } from '@/features/Project';
+import { ArchivePage } from '@/features/Project/Archive';
 import { getImages } from '@/lib/getImages';
-import { getSitemap } from '@/lib/utils';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
+import sitemap from '@/features/Project/Archive/sitemap';
 
-export default function Page({ ...props }: PageProjectProps) {
-  return <ArchivePage {...props} />;
+export default function Page({ images }: PageProps) {
+  return <ArchivePage images={images} />;
 }
 
 export const getStaticProps = async () => {
-  const { imagesPath, ...sitemap } = getSitemap('archive');
   return {
     props: {
-      images: await getImages(imagesPath),
-      ...sitemap,
+      images: await getImages(sitemap.imagesPath),
     },
   };
 };

@@ -4,7 +4,6 @@ import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
-import { type PageProps } from '@/types';
 import { SCROLL_SPEED } from '@/lib/config';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -13,18 +12,16 @@ import { useRef } from 'react';
 import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
 import profile from '@/public/images/joonassandell-profile-4.jpg';
+import sitemap from './sitemap';
 
-export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const ApproachPage = () => {
+  useSetThemeColor(sitemap.meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
 
   return (
-    <Template id={id}>
-      <Head
-        description="My goal is to create unique, appealing, accessible, and user-friendly products while staying up to date with the latest standards and trends in today’s rapidly evolving digital world."
-        title={title}
-      />
+    <Template id={sitemap.id}>
+      <Head description={sitemap.meta.description} title={sitemap.meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">

@@ -1,6 +1,3 @@
-import { type HeaderProps } from '@/components/Header';
-import { type TemplateProps } from '@/components/Template';
-
 /* =======================================
  * Sitemap, links
  * ======================================= */
@@ -41,15 +38,7 @@ export interface Links {
  * ======================================= */
 
 export interface PageProps {
-  id: TemplateProps['id'];
   images?: Image[];
-  themeColor?: string;
-  title: string;
-}
-
-export interface PageProjectProps extends PageProps {
-  navTitle: HeaderProps['navTitle'];
-  year: string | number;
 }
 
 /* =======================================

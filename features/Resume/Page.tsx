@@ -1,15 +1,19 @@
 import { Aside, Content, Recommendations } from './';
 import { Head } from '@/components/Head';
-import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const ResumePage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const ResumePage = () => {
+  useSetThemeColor();
 
   return (
-    <Template footerProps={{ fullWidth: true }} id={id} variant="unstyled">
-      <Head title={title} />
+    <Template
+      footerProps={{ fullWidth: true }}
+      id={sitemap.id}
+      variant="unstyled"
+    >
+      <Head title={sitemap.title} />
       <TemplateMain>
         <TemplateSection gridGap="m" gridRowGap="m" pt={false}>
           <Content />

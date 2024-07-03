@@ -1,27 +1,22 @@
-import { ArchiveHero } from '@/features/Project';
+import { ArchiveHero } from './Hero';
 import { Figure } from '@/components/Figure';
 import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const ArchivePage = ({
-  id,
-  images,
-  themeColor,
-  title,
-  year,
-}: PageProjectProps) => {
+export const ArchivePage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('biocode');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
 
   return (
-    <Template className="Template--moreWork" id={id} variant="unstyled">
-      <Head title={title} />
+    <Template className="Template--moreWork" id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <ArchiveHero />
         <Info
@@ -42,7 +37,7 @@ export const ArchivePage = ({
             </>
           }
           type={['Web services', 'Web applications', 'Commissions']}
-          year={year}
+          year={sitemap.year}
         />
         <TemplateSection
           className="Template-figureGrid"

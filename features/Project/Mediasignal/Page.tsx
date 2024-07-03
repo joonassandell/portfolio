@@ -2,30 +2,25 @@ import { Figure } from '@/components/Figure';
 import { getImage, getSitemap } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
-import { MediasignalHero } from '@/features/Project';
+import { MediasignalHero } from './';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
-import { type PageProjectProps } from '@/types';
+import { type PageProps } from '@/types';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
+import sitemap from './sitemap';
 
-export const MediasignalPage = ({
-  id,
-  images,
-  themeColor,
-  title,
-  year,
-}: PageProjectProps) => {
+export const MediasignalPage = ({ images }: PageProps) => {
   const { id: nextProjectId } = getSitemap('sandbox');
-  useSetThemeColor(themeColor);
+  useSetThemeColor(sitemap.meta.themeColor);
 
   return (
-    <Template id={id} variant="unstyled">
-      <Head title={title} />
+    <Template id={sitemap.id} variant="unstyled">
+      <Head title={sitemap.meta.title} />
       <TemplateMain>
         <MediasignalHero />
         <Info
-          client={{ href: 'https://mediasignal.fi/en', name: title }}
+          client={{ href: 'https://mediasignal.fi/en', name: sitemap.title }}
           heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
           smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
@@ -40,7 +35,7 @@ export const MediasignalPage = ({
             </p>
           }
           type={['Web service', 'Branding', 'Commission']}
-          year={year}
+          year={sitemap.year}
         />
         <TemplateSection gridGap="xl" pt="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
