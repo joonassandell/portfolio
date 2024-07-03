@@ -222,6 +222,10 @@
     pointer-events: none;
   }
 
+  .Header.is-animating:not(.has-scrollbar) & {
+    --scrollbar-overflow: hidden;
+  }
+
   &:before {
     background: linear-gradient(var(--bg-950) 50%, transparent);
     content: '';

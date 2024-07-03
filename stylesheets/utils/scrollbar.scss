@@ -4,7 +4,7 @@
 .scrollbar {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  overflow-y: auto;
+  overflow-y: var(--scrollbar-overflow, auto);
   overscroll-behavior: contain;
   scrollbar-color: var(--scrollbar-thumb) transparent;
   scrollbar-width: thin;

@@ -94,3 +94,8 @@ export const stripUrl = (url: string) => {
   const pattern = /^(https?:\/\/)?(www\.)?/;
   return url.replace(pattern, '');
 };
+
+export const hasScrollbar = (el: HTMLElement | null) => {
+  if (!el) return false;
+  return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
+};

@@ -20,7 +20,7 @@ import {
   maskNavVariant,
   maskOpenTransition,
 } from './';
-import { formatDate, getLink } from '@/lib/utils';
+import { formatDate, getLink, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -57,6 +57,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const [mask, setMask] = useState('closedReset');
   const maskRef = useRef<HTMLDivElement>(null);
   const maskAnim = useAnimation();
+  const maskHasScrollbar =
+    isBrowser && hasScrollbar(html.querySelector('.Header-mask'));
 
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const [btnFocus, setBtnFocus] = useState(false);
@@ -263,6 +265,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
     >
       <header
         className={c('Header', {
+          'has-scrollbar': maskHasScrollbar,
           'is-animating': animating,
           'is-open': maskOpen,
         })}
