@@ -16,7 +16,7 @@ import {
   mainItemOutVariant,
   mainItemVariant,
   maskCloseTransition,
-  maskNavItemVariant,
+  maskItemVariant,
   maskNavVariant,
   maskOpenTransition,
 } from './';
@@ -453,7 +453,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               <m.footer
                 animate={!open ? 'closed' : ''}
                 className="Header-footer wrap"
-                variants={maskNavItemVariant}
+                variants={maskItemVariant}
               >
                 <Text className="Header-footer-nav visible@m" size="l" tag="ul">
                   {SITEMAP.common
