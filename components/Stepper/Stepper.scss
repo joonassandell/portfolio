@@ -2,10 +2,21 @@
 @use 'stylesheets/mixins' as *;
 
 .Stepper {
-  border-left: var(--border-width) solid var(--border-200);
   counter-reset: step;
   margin-left: rem($space-s);
   padding-left: rem($space-m);
+  position: relative;
+
+  &:before {
+    border-left: var(--border-width) solid var(--border-200);
+    content: '';
+    inset: 0 auto 0 0;
+    mask-image: linear-gradient(
+      var(--black) calc(100% - #{rem($space-6xl)}),
+      transparent
+    );
+    position: absolute;
+  }
 }
 
 .Stepper-item {
