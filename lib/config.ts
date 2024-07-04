@@ -1,14 +1,6 @@
 import { type BezierDefinition, type Variants } from 'framer-motion';
 
 /* =======================================
- * Content
- * ======================================= */
-
-export const CONTENT = {
-  defaultNavTitle: 'Selected works',
-} as const;
-
-/* =======================================
  * Animations
  * =======================================
  *

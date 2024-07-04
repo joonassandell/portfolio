@@ -1,7 +1,7 @@
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
 import { stripUrl } from '@/lib/utils';
 import { Text } from '@/components/Text';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
@@ -23,11 +23,11 @@ export const Aside = () => (
     <Text className="mb:l" size="s" tag="ul">
       <li>
         E-mail:{' '}
-        <Link href="mailto:me@joonassandell.com" target="_self" truncate>
-          me@joonassandell.com
+        <Link href={`mailto:${CONTENT.person.email}`} target="_self" truncate>
+          {CONTENT.person.email}
         </Link>
       </li>
-      <li>Location: Helsinki, Finland</li>
+      <li>Location: {CONTENT.person.location}</li>
       <li>
         <Link href={SITEMAP.contact.url} truncate>
           Send me a message

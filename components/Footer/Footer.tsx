@@ -1,8 +1,8 @@
 import { BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { type FooterProps } from './';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
 import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
@@ -72,19 +72,21 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
               <Text className="mb:2xs mb@m" tag="p">
-                <FooterLink href={SITEMAP.home.url}>Joonas Sandell</FooterLink>
+                <FooterLink href={SITEMAP.home.url}>
+                  {CONTENT.person.name}
+                </FooterLink>
               </Text>
               <Text className="mb:m" color="mute:blend" size="s" tag="p">
-                UI/UX designer
+                {CONTENT.person.title.design}
                 <span className="hidden@m">, </span>
                 <br className="visible@m" />
-                Front-end developer
+                {CONTENT.person.title.developer}
               </Text>
             </div>
           </div>
           <Text className="Footer-bottom" size="s">
             <p className="mb:0">
-              &copy; {new Date().getFullYear()} Joonas Sandell
+              &copy; {new Date().getFullYear()} {CONTENT.person.name}
               <span className="color:mute:blend visible@s">
                 {' '}
                 ✳︎ Last updated:{' '}

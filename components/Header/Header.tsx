@@ -1,6 +1,7 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
-import { BUILD_DATE, CONTENT, GIT_COMMIT_SHA, MQ } from '@/lib/config';
+import { BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { debounce } from 'lodash-es';
 import {
   enterExitBtnArrow,
@@ -22,7 +23,6 @@ import {
 } from './';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -40,7 +40,9 @@ import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
-export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
+export const Header = ({
+  navTitle = CONTENT.header.defaultNavTitle,
+}: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
   const { html, setTransition, setTransitionInitial } = useApp();
@@ -52,7 +54,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
   const [animating, setAnimating] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
-  const isDefaultNavTitle = CONTENT.defaultNavTitle === navTitle;
+  const isDefaultNavTitle = CONTENT.header.defaultNavTitle === navTitle;
 
   const [maskOpen, setMaskOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');

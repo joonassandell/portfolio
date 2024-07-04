@@ -1,13 +1,21 @@
 import { APP_URL } from '@/lib/config';
 import { type AppHeadProps } from './';
+import { CONTENT } from '@/lib/sitemap';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 export const AppHead = ({ themeColor }: AppHeadProps) => {
   const { asPath } = useRouter();
-  const title = 'Joonas Sandell — Designer & Developer';
-  const description =
-    'Portfolio of Joonas Sandell, UI/UX designer and creative developer based in Helsinki, Finland.';
+  const { description, favIcon, favIconIco, ogImage, title, touchIcon } =
+    CONTENT.meta;
+  const {
+    email,
+    name,
+    thumbnail,
+    title: { combined },
+    twitter,
+    url,
+  } = CONTENT.person;
 
   return (
     <Head>
@@ -22,12 +30,9 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         key="og:description"
         property="og:description"
       />
-      <meta
-        content={`${APP_URL}/static/og-image.jpg?v=3`}
-        property="og:image"
-      />
+      <meta content={ogImage} property="og:image" />
       <meta content="en" property="og:locale" />
-      <meta content="Joonas Sandell" property="og:site_name" />
+      <meta content={CONTENT.person.name} property="og:site_name" />
       <meta content="website" property="og:type" />
       <meta content={`${APP_URL}${asPath}`} property="og:url" />
 
@@ -39,22 +44,15 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         property="twitter:description"
       />
       <meta content="summary_large_image" property="twitter:card" />
-      <meta content="@joonassandell" property="twitter:creator" />
-      <meta
-        content={`${APP_URL}/static/og-image.jpg?v=3`}
-        property="twitter:image"
-      />
-      <meta content="@joonassandell" property="twitter:site" />
+      <meta content={twitter} property="twitter:creator" />
+      <meta content={ogImage} property="twitter:image" />
+      <meta content={twitter} property="twitter:site" />
 
       {/* Icons */}
-      <link
-        href="/static/apple-touch-icon.png?v=2"
-        rel="apple-touch-icon"
-        sizes="180x180"
-      />
-      <link href="/static/favicon.ico?v=2" rel="icon" sizes="any" />
-      <link href="/static/favicon.svg?v=2" rel="icon" type="image/svg+xml" />
-      <link color="#eeeae5" href="/static/favicon.svg?v=2" rel="mask-icon" />
+      <link href={touchIcon} rel="apple-touch-icon" sizes="180x180" />
+      <link href={favIconIco} rel="icon" sizes="any" />
+      <link href={favIcon} rel="icon" type="image/svg+xml" />
+      <link color="#eeeae5" href={favIcon} rel="mask-icon" />
 
       {/* Web app */}
       <meta content="Joonas Sandell" name="apple-mobile-web-app-title" />
@@ -66,11 +64,11 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Person',
-            email: 'mailto:me@joonassandell.com',
-            image: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
-            jobTitle: 'UI/UX designer and Front-end developer',
-            name: 'Joonas Sandell',
-            url: 'https://joonassandell.com',
+            email: `mailto:${email}`,
+            image: thumbnail,
+            jobTitle: combined,
+            name,
+            url,
           }),
         }}
         type="application/ld+json"
@@ -100,10 +98,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       />
 
       {/* Google */}
-      <meta
-        content={`${APP_URL}/images/joonassandell-thumbnail.jpg`}
-        name="thumbnail"
-      />
+      <meta content={thumbnail} name="thumbnail" />
 
       {/* Essential */}
       <meta

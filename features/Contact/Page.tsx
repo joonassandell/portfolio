@@ -1,9 +1,9 @@
 import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
+import { CONTENT, LINK } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { LINK } from '@/lib/sitemap';
 import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -20,7 +20,7 @@ export const ContactPage = () => {
   const [icon, setIcon] = useState(<Copy />);
 
   const handleCopy = () => {
-    copyToClipboard('me@joonassandell.com');
+    copyToClipboard(CONTENT.person.email);
     setIcon(<Check />);
     setTimeout(() => setIcon(<Copy />), 2000);
   };
