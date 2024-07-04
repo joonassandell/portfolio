@@ -28,7 +28,10 @@ let scrollOnUpdateOnce = false;
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
-export const App = ({ Component, pageProps }: AppProps) => {
+export const App = ({
+  Component,
+  pageProps: { navTitle, ...pageProps },
+}: AppProps) => {
   const [appState, setAppState] = useState<
     Omit<
       AppContextProps,
@@ -283,7 +286,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
           watch={[loadingEnd]}
         >
           <div className="App">
-            <Header navTitle={pageProps.navTitle} />
+            <Header navTitle={navTitle} />
             <main className="App-main" data-s-container ref={containerRef}>
               <AnimatePresence
                 initial={false}

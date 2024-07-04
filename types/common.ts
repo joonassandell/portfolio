@@ -1,9 +1,12 @@
+import { type HeaderProps } from '@/components/Header';
+
 /* =======================================
  * Page
  * ======================================= */
 
 export interface PageProps {
   images?: Image[];
+  navTitle?: HeaderProps['navTitle'];
 }
 
 /* =======================================

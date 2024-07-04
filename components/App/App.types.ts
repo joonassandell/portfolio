@@ -1,7 +1,12 @@
 import { type Dispatch, type SetStateAction } from 'react';
+import { type HeaderProps } from '@/components/Header';
 import type { AppProps as NextAppProps } from 'next/app';
 
-export interface AppProps extends Omit<NextAppProps, 'router'> {}
+export interface AppProps extends Omit<NextAppProps, 'router'> {
+  pageProps: {
+    navTitle: HeaderProps['navTitle'];
+  };
+}
 
 export interface AppContextProps {
   detect: {
