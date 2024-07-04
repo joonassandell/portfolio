@@ -1,13 +1,13 @@
 import { figureBgVariants, Hero, type HeroProps } from '@/components/Hero';
 import { figureInnerVariants } from '@/features/Project/Mediasignal/Hero.animations';
-import { getSitemap } from '@/lib/utils';
 import { m } from 'framer-motion';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import heroImage from '@/public/archive/hero/joonassandell-archive-hero.png';
 import Image from 'next/image';
 
 export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
-  const { id, title, url, year } = getSitemap('archive');
+  const { id, title, url, year } = SITEMAP.archive;
 
   return (
     <Hero

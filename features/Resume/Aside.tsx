@@ -1,7 +1,8 @@
+import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { Figure } from '@/components/Figure';
-import { getLink, getSitemap, stripUrl } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { stripUrl } from '@/lib/utils';
 import { Text } from '@/components/Text';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
@@ -28,30 +29,30 @@ export const Aside = () => (
       </li>
       <li>Location: Helsinki, Finland</li>
       <li>
-        <Link href={getSitemap('contact', 'common').url} truncate>
+        <Link href={SITEMAP.contact.url} truncate>
           Send me a message
         </Link>
       </li>
     </Text>
     <Text className="mb:l visible@m" size="s" tag="ul">
       <li>
-        <Link href={getLink('linkedin').url} truncate>
-          {stripUrl(getLink('linkedin').url)}
+        <Link href={EXTERNAL_LINKS.linkedIn.url} truncate>
+          {stripUrl(EXTERNAL_LINKS.linkedIn.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('github').url} truncate>
-          {stripUrl(getLink('github').url)}
+        <Link href={EXTERNAL_LINKS.github.url} truncate>
+          {stripUrl(EXTERNAL_LINKS.github.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('dribbble').url} truncate>
-          {stripUrl(getLink('dribbble').url)}
+        <Link href={EXTERNAL_LINKS.dribbble.url} truncate>
+          {stripUrl(EXTERNAL_LINKS.dribbble.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('twitter').url} truncate>
-          {stripUrl(getLink('twitter').url)}
+        <Link href={EXTERNAL_LINKS.twitter.url} truncate>
+          {stripUrl(EXTERNAL_LINKS.twitter.url)}
         </Link>
       </li>
     </Text>

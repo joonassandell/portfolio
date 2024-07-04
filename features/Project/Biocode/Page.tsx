@@ -1,17 +1,18 @@
 import { BiocodeHero } from './Hero';
 import { Figure } from '@/components/Figure';
-import { getImage, getSitemap } from '@/lib/utils';
+import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
 
 export const BiocodePage = ({ images }: PageProps) => {
-  const { id: nextProjectId } = getSitemap('oras');
+  const { id: nextProjectId } = SITEMAP.oras;
   useSetThemeColor(sitemap.meta.themeColor);
 
   return (

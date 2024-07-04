@@ -1,9 +1,9 @@
 import { APP_URL } from '@/lib/config';
-import { SITEMAP, type SitemapItem } from '@/lib/sitemap';
+import { SITEMAP } from '@/lib/sitemap';
 import type { GetServerSideProps } from 'next';
 
-const generateSitemap = (sitemap: SitemapItem[]) => {
-  const uniqueURLs = (items: SitemapItem[]) => {
+const generateSitemap = (sitemap: (typeof SITEMAP)['all']) => {
+  const uniqueURLs = (items: typeof sitemap) => {
     const seenUrls = new Set<string>();
     return items.filter(({ url }) => {
       if (seenUrls.has(url)) {

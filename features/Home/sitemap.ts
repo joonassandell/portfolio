@@ -1,9 +1,6 @@
 import { type SitemapItem } from '@/lib/sitemap';
 
-const sitemap: SitemapItem = {
-  hidden: {
-    footerNav: true,
-  },
+const sitemap: SitemapItem<'home'> = {
   id: 'home',
   meta: {
     themeColor: '#eeeae5',

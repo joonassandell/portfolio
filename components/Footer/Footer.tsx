@@ -1,7 +1,7 @@
 import { BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
 import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { type FooterProps } from './';
-import { formatDate, getLink, getSitemap } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -61,7 +61,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   <Text className="visible@s" tag="ul">
                     {EXTERNAL_LINKS.social.map(item => {
                       return (
-                        <li key={item.id}>
+                        <li key={item.title}>
                           <LinkRoll href={item.url}>{item.title}</LinkRoll>
                         </li>
                       );
@@ -72,9 +72,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
               <Text className="mb:2xs mb@m" tag="p">
-                <FooterLink href={getSitemap('home', 'common').url}>
-                  Joonas Sandell
-                </FooterLink>
+                <FooterLink href={SITEMAP.home.url}>Joonas Sandell</FooterLink>
               </Text>
               <Text className="mb:m" color="mute:blend" size="s" tag="p">
                 UI/UX designer
@@ -94,16 +92,16 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   className="color:mute:blend"
                   href={
                     GIT_COMMIT_SHA
-                      ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
-                      : `${getLink('source', 'common').url}/commits`
+                      ? `${EXTERNAL_LINKS.source.url}/commit/${GIT_COMMIT_SHA}`
+                      : `${EXTERNAL_LINKS.source.url}/commits`
                   }
                 >
                   {formatDate(BUILD_DATE)}
                 </Link>
               </span>
             </p>
-            <Link href={getLink('source', 'common').url}>
-              {getLink('source', 'common').title}
+            <Link href={EXTERNAL_LINKS.source.url}>
+              {EXTERNAL_LINKS.source.title}
             </Link>
           </Text>
         </div>

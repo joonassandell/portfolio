@@ -1,6 +1,6 @@
 import { type SitemapItemWork } from '@/lib/sitemap';
 
-const sitemap: SitemapItemWork = {
+const sitemap: SitemapItemWork<'oras'> = {
   color: 'var(--oras-primary)',
   id: 'oras',
   imagesPath: './public/oras/*.{jpg,png}',

@@ -1,6 +1,6 @@
 import { type SitemapItemWork } from '@/lib/sitemap';
 
-const sitemap: SitemapItemWork = {
+const sitemap: SitemapItemWork<'mediasignal'> = {
   color: 'var(--mediasignal-primary)',
   id: 'mediasignal',
   imagesPath: './public/mediasignal/*.{jpg,png}',

@@ -1,6 +1,6 @@
 import { type SitemapItemWork } from '@/lib/sitemap';
 
-const sitemap: SitemapItemWork = {
+const sitemap: SitemapItemWork<'biocode'> = {
   color: 'var(--biocode-primary)',
   id: 'biocode',
   imagesPath: './public/biocode/*.{jpg,png}',

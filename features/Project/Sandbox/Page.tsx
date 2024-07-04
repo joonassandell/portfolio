@@ -1,18 +1,19 @@
 import { Figure } from '@/components/Figure';
-import { getImage, getSitemap } from '@/lib/utils';
+import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SandboxHero } from './';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useMedia } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
 
 export const SandboxPage = ({ images }: PageProps) => {
-  const { id: nextProjectId } = getSitemap('more-work');
+  const { id: nextProjectId } = SITEMAP.moreWork;
   useSetThemeColor(sitemap.meta.themeColor);
   const mqM = useMedia(MQ.m, false);
 

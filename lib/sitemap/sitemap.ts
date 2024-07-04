@@ -1,4 +1,3 @@
-import { type ExternalLinks } from './types';
 import about from '@/features/About/sitemap';
 import approach from '@/features/Approach/sitemap';
 import archive from '@/features/Project/Archive/sitemap';
@@ -12,21 +11,17 @@ import oras from '@/features/Project/Oras/sitemap';
 import resume from '@/features/Resume/sitemap';
 import sandbox from '@/features/Project/Sandbox/sitemap';
 
-const me = [about, milestones, approach, resume, contact] as const;
+/* =======================================
+ * Sitemap
+ * ======================================= */
 
-const work = [
-  biocode,
-  oras,
-  mediasignal,
-  sandbox,
-  moreWork,
-  archive,
-  home,
-] as const;
+const me = [about, milestones, approach, resume, contact];
+const work = [biocode, oras, mediasignal, sandbox, moreWork, archive];
+const all = [...me, ...work];
 
 export const SITEMAP = {
   about,
-  all: [...me, ...work],
+  all,
   approach,
   archive,
   biocode,
@@ -42,44 +37,52 @@ export const SITEMAP = {
   work,
 } as const;
 
-export const EXTERNAL_LINKS: ExternalLinks = {
-  common: [
-    {
-      id: 'source',
-      title: 'View source',
-      url: 'https://github.com/joonassandell/joonassandell-portfolio',
-    },
-  ],
-  social: [
-    {
-      id: 'twitter',
-      title: 'Twitter',
-      url: 'https://x.com/joonassandell',
-    },
-    {
-      id: 'github',
-      title: 'Github',
-      url: 'https://github.com/joonassandell',
-    },
-    {
-      id: 'linkedin',
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/joonassandell',
-    },
-    {
-      id: 'dribbble',
-      title: 'Dribbble',
-      url: 'https://dribbble.com/joonassandell',
-    },
-    {
-      id: 'instagram',
-      title: 'Instagram',
-      url: 'https://www.instagram.com/mode.apart',
-    },
-    {
-      id: 'soundcloud',
-      title: 'SoundCloud',
-      url: 'https://soundcloud.com/modeapart',
-    },
-  ],
+/* =======================================
+ * Links
+ * ======================================= */
+
+const twitter = {
+  title: 'Twitter',
+  url: 'https://x.com/joonassandell',
+};
+
+const github = {
+  title: 'Github',
+  url: 'https://github.com/joonassandell',
+};
+
+const linkedIn = {
+  title: 'LinkedIn',
+  url: 'https://www.linkedin.com/in/joonassandell',
+};
+
+const dribbble = {
+  title: 'Dribbble',
+  url: 'https://dribbble.com/joonassandell',
+};
+
+const instagram = {
+  title: 'Instagram',
+  url: 'https://www.instagram.com/mode.apart',
+};
+
+const soundcloud = {
+  title: 'SoundCloud',
+  url: 'https://soundcloud.com/modeapart',
+};
+const source = {
+  title: 'View source',
+  url: 'https://github.com/joonassandell/joonassandell-portfolio',
+};
+
+/* eslint-disable sort-keys-fix/sort-keys-fix */
+export const EXTERNAL_LINKS = {
+  social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
+  dribbble,
+  github,
+  instagram,
+  linkedIn,
+  soundcloud,
+  source,
+  twitter,
 } as const;

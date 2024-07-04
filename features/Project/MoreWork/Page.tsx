@@ -1,6 +1,6 @@
 import { ArrowRight } from '@/components/Icon';
 import { Figure } from '@/components/Figure';
-import { getImage, getSitemap } from '@/lib/utils';
+import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { Link } from '@/components/Link';
@@ -8,6 +8,7 @@ import { MoreWorkHero } from './';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
+import { SITEMAP } from '@/lib/sitemap';
 import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -15,8 +16,7 @@ import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
 
 export const MoreWorkPage = ({ images }: PageProps) => {
-  const { id: nextProjectId } = getSitemap('biocode');
-  const archive = getSitemap('archive');
+  const { id: nextProjectId } = SITEMAP.biocode;
   useSetThemeColor(sitemap.meta.themeColor);
 
   return (
@@ -449,11 +449,12 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               <>
                 <p>
                   Want to see even more? Then checkout the
-                  <Link href={archive.url}>archive</Link> featuring clients such
-                  as Fair Trade, Avecra, City of Tampere and Vapriikki.
+                  <Link href={SITEMAP.archive.url}>archive</Link> featuring
+                  clients such as Fair Trade, Avecra, City of Tampere and
+                  Vapriikki.
                 </p>
                 <Link
-                  href={archive.url}
+                  href={SITEMAP.archive.url}
                   icon={<ArrowRight />}
                   underline={false}
                 >
@@ -462,7 +463,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               </>
             }
             type={['Web services', 'Web applications', 'Commissions']}
-            year={archive.year}
+            year={SITEMAP.archive.year}
           />
         </TemplateSection>
       </TemplateMain>

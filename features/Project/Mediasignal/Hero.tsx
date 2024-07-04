@@ -5,14 +5,20 @@ import {
   type HeroProps,
 } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
-import { getSitemap } from '@/lib/utils';
 import { m } from 'framer-motion';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import heroImage from '@/public/mediasignal/hero/joonassandell-mediasignal-hero.png';
 import Image from 'next/image';
 
 export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
-  const { id, themeColor, title, url, year } = getSitemap('mediasignal');
+  const {
+    id,
+    meta: { themeColor },
+    title,
+    url,
+    year,
+  } = SITEMAP.mediasignal;
 
   return (
     <Hero

@@ -1,6 +1,5 @@
 import { BiocodeHero } from '@/features/Project/Biocode';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
-import { getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
@@ -9,6 +8,7 @@ import { MediasignalHero } from '@/features/Project/Mediasignal';
 import { MoreWorkHero } from '@/features/Project/MoreWork';
 import { OrasHero } from '@/features/Project/Oras';
 import { SandboxHero } from '@/features/Project/Sandbox';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import { useApp, useSetThemeColor } from '@/components/App';
 import {
@@ -17,8 +17,6 @@ import {
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
 import sitemap from './sitemap';
-
-const about = getSitemap('about', 'common');
 
 export const HomePage = () => {
   useSetThemeColor(sitemap.meta.themeColor);
@@ -65,7 +63,7 @@ export const HomePage = () => {
         >
           <div className="wrap">
             <div className="Template-about-mobile" hidden>
-              <Link href={about.url} orientation="vertical">
+              <Link href={SITEMAP.about.url} orientation="vertical">
                 About me
               </Link>
             </div>
@@ -73,8 +71,8 @@ export const HomePage = () => {
               <Heading size="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
-                <Link href={about.url}>about me</Link> or just keep scrolling
-                for selected works.
+                <Link href={SITEMAP.about.url}>about me</Link> or just keep
+                scrolling for selected works.
               </Heading>
             </div>
           </div>

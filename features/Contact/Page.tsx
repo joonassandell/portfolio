@@ -1,6 +1,6 @@
 import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { getLink } from '@/lib/utils';
+import { EXTERNAL_LINKS } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
@@ -50,7 +50,7 @@ export const ContactPage = () => {
                 I enjoy connecting with new people online and participating in
                 events. The easiest way to reach me is via email but
                 alternatively feel free to send me a message through{' '}
-                <Link href={getLink('twitter', 'social').url}>Twitter</Link>.
+                <Link href={EXTERNAL_LINKS.twitter.url}>Twitter</Link>.
               </p>
               <p className="flex flex-wrap:wrap flex-direction:column flex-direction:row@s gap">
                 <Button
@@ -61,10 +61,7 @@ export const ContactPage = () => {
                 >
                   Copy e-mail
                 </Button>
-                <Button
-                  href={getLink('twitter', 'social').url}
-                  icon={<ArrowRight />}
-                >
+                <Button href={EXTERNAL_LINKS.twitter.url} icon={<ArrowRight />}>
                   Send me a DM
                 </Button>
               </p>

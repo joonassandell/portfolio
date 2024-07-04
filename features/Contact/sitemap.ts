@@ -1,6 +1,6 @@
 import { type SitemapItem } from '@/lib/sitemap';
 
-const sitemap: SitemapItem = {
+const sitemap: SitemapItem<'contact'> = {
   id: 'contact',
   meta: {
     description:
@@ -10,6 +10,9 @@ const sitemap: SitemapItem = {
   },
   title: 'Contact',
   url: '/contact',
+  visible: {
+    headerNav: true,
+  },
 };
 
 export default sitemap;

@@ -1,6 +1,6 @@
 import { type SitemapItem } from '@/lib/sitemap';
 
-const sitemap: SitemapItem = {
+const sitemap: SitemapItem<'about'> = {
   id: 'about',
   meta: {
     description:

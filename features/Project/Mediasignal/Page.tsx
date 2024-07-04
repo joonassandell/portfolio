@@ -1,17 +1,18 @@
 import { Figure } from '@/components/Figure';
-import { getImage, getSitemap } from '@/lib/utils';
+import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
 import { MediasignalHero } from './';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
 
 export const MediasignalPage = ({ images }: PageProps) => {
-  const { id: nextProjectId } = getSitemap('sandbox');
+  const { id: nextProjectId } = SITEMAP.sandbox;
   useSetThemeColor(sitemap.meta.themeColor);
 
   return (

@@ -1,12 +1,15 @@
 import { type SitemapItem } from '@/lib/sitemap';
 
-const sitemap: SitemapItem = {
+const sitemap: SitemapItem<'milestones'> = {
   id: 'milestones',
   meta: {
     title: 'Milestones',
   },
   title: 'Milestones',
   url: '/milestones',
-} as SitemapItem;
+  visible: {
+    headerNav: true,
+  },
+};
 
 export default sitemap;

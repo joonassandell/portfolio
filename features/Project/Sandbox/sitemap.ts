@@ -1,6 +1,6 @@
 import { type SitemapItemWork } from '@/lib/sitemap';
 
-const sitemap: SitemapItemWork = {
+const sitemap: SitemapItemWork<'sandbox'> = {
   color: 'var(--sandbox-primary)',
   id: 'sandbox',
   imagesPath: './public/sandbox/*.{jpg,png}',

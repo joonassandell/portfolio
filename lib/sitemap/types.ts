@@ -1,12 +1,16 @@
-export interface SitemapItem {
+import { type AppHeadProps } from '@/components/App';
+import { type SITEMAP } from '@/lib/sitemap';
+import { type WithoutArrayKeys } from '@/types';
+
+export interface SitemapItem<Id = WithId> {
   hidden?: {
     footerNav?: boolean;
   };
-  id: string;
-  imagesPath?: `./${string}/*.${string}`;
+  id: Id;
+  imagesPath?: `./public/${string}/*.${string}`;
   meta: {
     description?: string;
-    themeColor?: string;
+    themeColor?: AppHeadProps['themeColor'];
     title: string | undefined;
   };
   title: string;
@@ -16,18 +20,16 @@ export interface SitemapItem {
   };
 }
 
-export interface SitemapItemWork extends SitemapItem {
+export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   color: string;
+  hidden?: SitemapItem['hidden'] & {
+    headerMaskNav?: boolean;
+  };
   year: string | number;
 }
 
-export interface ExternalLink {
-  id: string;
-  title: string;
-  url: URL['href'];
-}
+export type SitemapWithoutArrayKeys = keyof WithoutArrayKeys<typeof SITEMAP>;
 
-export interface ExternalLinks {
-  common: ExternalLink[];
-  social: ExternalLink[];
-}
+type WithId<Id extends string = ''> = {
+  id: Id;
+};

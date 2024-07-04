@@ -1,8 +1,8 @@
 import { type SitemapItemWork } from '@/lib/sitemap';
 
-const sitemap: SitemapItemWork = {
+const sitemap: SitemapItemWork<'moreWork'> = {
   color: 'var(--more-work-primary)',
-  id: 'more-work',
+  id: 'moreWork',
   imagesPath: './public/more-work/*.{jpg,png}',
   meta: {
     themeColor: '#CCCFC9',

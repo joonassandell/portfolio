@@ -1,5 +1,5 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
-import { BUILD_DATE, CONTENT, GIT_COMMIT_SHA, MQ, SITEMAP } from '@/lib/config';
+import { BUILD_DATE, CONTENT, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
 import { debounce } from 'lodash-es';
 import {
@@ -20,7 +20,8 @@ import {
   maskNavVariant,
   maskOpenTransition,
 } from './';
-import { formatDate, getLink, hasScrollbar, isBrowser } from '@/lib/utils';
+import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
+import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
@@ -389,8 +390,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
               </AnimatePresence>
             </m.button>
             <ul className="Header-nav">
-              {SITEMAP.common
-                .filter(item => !item.hidden)
+              {SITEMAP.all
+                .filter(item => item.visible?.headerNav)
                 .map(item => {
                   return (
                     <HeaderNavItem
@@ -399,7 +400,7 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                       key={item.id}
                       onClick={handleLinkClick}
                       openReveal={openReveal}
-                      title={item.navTitle}
+                      title={item.title}
                     />
                   );
                 })}
@@ -420,8 +421,8 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 variants={maskNavVariant}
               >
                 <ul>
-                  {SITEMAP.project
-                    .filter(item => !item.hidden && item.id != 'home')
+                  {SITEMAP.work
+                    .filter(item => !item.hidden?.headerMaskNav)
                     .map(item => {
                       return (
                         <HeaderMaskNavItem
@@ -429,25 +430,23 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                           href={item.url}
                           key={item.id}
                           onClick={handleLinkClick}
-                          title={item.navTitle}
+                          title={item.title}
                           year={item.year}
                         />
                       );
                     })}
                   {!mqM &&
-                    SITEMAP.common
-                      .filter(item => item.id != 'home')
-                      .map(item => {
-                        return (
-                          <HeaderMaskNavItemSecondary
-                            custom={{ y: '5rem' }}
-                            href={item.url}
-                            key={item.id}
-                            onClick={handleLinkClick}
-                            title={item.navTitle}
-                          />
-                        );
-                      })}
+                    SITEMAP.me.map(item => {
+                      return (
+                        <HeaderMaskNavItemSecondary
+                          custom={{ y: '5rem' }}
+                          href={item.url}
+                          key={item.id}
+                          onClick={handleLinkClick}
+                          title={item.title}
+                        />
+                      );
+                    })}
                 </ul>
               </m.nav>
               <m.footer
@@ -456,18 +455,16 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                 variants={maskItemVariant}
               >
                 <Text className="Header-footer-nav visible@m" size="l" tag="ul">
-                  {SITEMAP.common
-                    .filter(item => item.id != 'home')
-                    .map(item => {
-                      return (
-                        <HeaderFooterNavItem
-                          href={item.url}
-                          key={item.id}
-                          onClick={handleLinkClick}
-                          title={item.navTitle}
-                        />
-                      );
-                    })}
+                  {SITEMAP.me.map(item => {
+                    return (
+                      <HeaderFooterNavItem
+                        href={item.url}
+                        key={item.id}
+                        onClick={handleLinkClick}
+                        title={item.title}
+                      />
+                    );
+                  })}
                 </Text>
                 <div className="Header-footer-right">
                   <SomeIcons />
@@ -476,15 +473,15 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     <Link
                       href={
                         GIT_COMMIT_SHA
-                          ? `${getLink('source', 'common').url}/commit/${GIT_COMMIT_SHA}`
-                          : `${getLink('source', 'common').url}/commits`
+                          ? `${EXTERNAL_LINKS.source.url}/commit/${GIT_COMMIT_SHA}`
+                          : `${EXTERNAL_LINKS.source.url}/commits`
                       }
                     >
                       {formatDate(BUILD_DATE)}
                     </Link>
                     {' ✳︎ '}
-                    <Link href={getLink('source', 'common').url}>
-                      {getLink('source', 'common').title}
+                    <Link href={EXTERNAL_LINKS.source.url}>
+                      {EXTERNAL_LINKS.source.title}
                     </Link>
                   </Text>
                 </div>

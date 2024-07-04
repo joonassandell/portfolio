@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { Check, Download } from '@/components/Icon';
+import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { Figure } from '@/components/Figure';
-import { getLink, getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
@@ -66,7 +66,7 @@ export const Content = () => (
             sizes="3rem"
             {...biocodeLogomark}
           />{' '}
-          <Link href={getSitemap('biocode').url} underline={false}>
+          <Link href={SITEMAP.biocode.url} underline={false}>
             Biocode
           </Link>
         </Heading>
@@ -76,8 +76,7 @@ export const Content = () => (
         <Text maxWidth>
           <ul className="pl">
             <li>
-              Built the{' '}
-              <Link href={getSitemap('biocode').url}>application</Link>{' '}
+              Built the <Link href={SITEMAP.biocode.url}>application</Link>{' '}
               front-end together with the team including various features such
               as real time carbon footprint calculation
             </li>
@@ -92,7 +91,7 @@ export const Content = () => (
             </li>
             <li>
               Developed and designed{' '}
-              <Link href={getSitemap('biocode').url}>Biocode</Link>’s end-to-end{' '}
+              <Link href={SITEMAP.biocode.url}>Biocode</Link>’s end-to-end{' '}
               <Link href="https://biocode.io">website</Link> including
               dark/light modes, CMS and <em>Hubspot</em> integration among many
               other features
@@ -140,7 +139,7 @@ export const Content = () => (
             sizes="3rem"
             {...mediasignalLogomark}
           />{' '}
-          <Link href={getSitemap('mediasignal').url} underline={false}>
+          <Link href={SITEMAP.mediasignal.url} underline={false}>
             Mediasignal
           </Link>
         </Heading>
@@ -152,46 +151,38 @@ export const Content = () => (
             <li>
               Developed and designed applications for clients such as{' '}
               <em>
-                <Link
-                  href={`${getSitemap('more-work').url}/#academic-bookstore`}
-                >
+                <Link href={`${SITEMAP.moreWork.url}/#academic-bookstore`}>
                   Bonnier Books
                 </Link>
               </em>
               , <em>Finefoods</em>,{' '}
               <em>
-                <Link href={`${getSitemap('more-work').url}/#hukka`}>Luke</Link>
+                <Link href={`${SITEMAP.moreWork.url}/#hukka`}>Luke</Link>
               </em>
               , <em>Kesla</em>, <em>Dahl</em> and{' '}
               <em>
-                <Link href={`${getSitemap('more-work').url}/#finnpark`}>
-                  Finnpark
-                </Link>
+                <Link href={`${SITEMAP.moreWork.url}/#finnpark`}>Finnpark</Link>
               </em>
             </li>
             <li>
               Designed and developed websites, e-commerce stores and web
               services for clients such as{' '}
               <em>
-                <Link
-                  href={`${getSitemap('more-work').url}/#academic-bookstore`}
-                >
+                <Link href={`${SITEMAP.moreWork.url}/#academic-bookstore`}>
                   Academic Bookstore
                 </Link>
               </em>
               ,{' '}
               <em>
-                <Link href={getSitemap('oras').url}>Oras</Link>
+                <Link href={SITEMAP.oras.url}>Oras</Link>
               </em>
               , <em>Fair trade</em>, <em>Kia</em>, <em>Caverion</em>,{' '}
               <em>
-                <Link href={`${getSitemap('more-work').url}/#takk`}>TAKK</Link>
+                <Link href={`${SITEMAP.moreWork.url}/#takk`}>TAKK</Link>
               </em>{' '}
               and{' '}
               <em>
-                <Link href={`${getSitemap('more-work').url}/#hankkija`}>
-                  Hankkija
-                </Link>
+                <Link href={`${SITEMAP.moreWork.url}/#hankkija`}>Hankkija</Link>
               </em>
             </li>
             <li>
@@ -200,7 +191,7 @@ export const Content = () => (
             </li>
             <li>
               Refreshed{' '}
-              <Link href={getSitemap('mediasignal').url}>
+              <Link href={SITEMAP.mediasignal.url}>
                 Mediasignal’s brand twice
               </Link>{' '}
               including logomark design, brand book crafting, business card
@@ -209,9 +200,7 @@ export const Content = () => (
             <li>
               Developed and designed internal products such as{' '}
               <em>
-                <Link href={`${getSitemap('more-work').url}/#rubik`}>
-                  Rubik
-                </Link>
+                <Link href={`${SITEMAP.moreWork.url}/#rubik`}>Rubik</Link>
               </em>{' '}
               (PIM), <em>Avainia</em> and <em>ImageBank</em> that were sold to
               variety of customers
@@ -271,21 +260,21 @@ export const Content = () => (
     <Text maxWidth>
       <p>
         I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
-        <Link href={getLink('soundcloud').url}>music producer</Link>. I enjoy
-        connecting with new people online and dedicating some of my free time to
-        various projects.{' '}
-        <Link href={getSitemap('contact', 'common').url}>Contact me</Link> or
-        learn more about me from below.
+        <Link href={EXTERNAL_LINKS.soundcloud.url}>music producer</Link>. I
+        enjoy connecting with new people online and dedicating some of my free
+        time to various projects.{' '}
+        <Link href={SITEMAP.contact.url}>Contact me</Link> or learn more about
+        me from below.
       </p>
       <p className="flex flex-wrap:wrap gap:s">
-        <Button href={getSitemap('about', 'common').url} size="s">
-          {getSitemap('about', 'common').navTitle}
+        <Button href={SITEMAP.about.url} size="s">
+          {SITEMAP.about.title}
         </Button>
-        <Button href={getSitemap('milestones', 'common').url} size="s">
-          {getSitemap('milestones', 'common').navTitle}
+        <Button href={SITEMAP.milestones.url} size="s">
+          {SITEMAP.milestones.title}
         </Button>
-        <Button href={getSitemap('approach', 'common').url} size="s">
-          {getSitemap('approach', 'common').navTitle}
+        <Button href={SITEMAP.approach.url} size="s">
+          {SITEMAP.approach.title}
         </Button>
       </p>
     </Text>

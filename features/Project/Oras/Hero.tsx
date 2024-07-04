@@ -5,15 +5,21 @@ import {
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { getSitemap } from '@/lib/utils';
 import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
 import { m } from 'framer-motion';
+import { SITEMAP } from '@/lib/sitemap';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import Image from 'next/image';
 
 export const OrasHero = ({ onClick, ...props }: HeroProps) => {
-  const { id, themeColor, title, url, year } = getSitemap('oras');
+  const {
+    id,
+    meta: { themeColor },
+    title,
+    url,
+    year,
+  } = SITEMAP.oras;
   const dropDelay = 0.75;
 
   return (

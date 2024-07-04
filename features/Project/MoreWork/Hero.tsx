@@ -4,15 +4,21 @@ import {
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { getSitemap } from '@/lib/utils';
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';
 import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';
 import Image from 'next/image';
 
 export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
-  const { id, themeColor, title, url, year } = getSitemap('more-work');
+  const {
+    id,
+    meta: { themeColor },
+    title,
+    url,
+    year,
+  } = SITEMAP.moreWork;
 
   return (
     <Hero
