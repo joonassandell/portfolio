@@ -76,7 +76,7 @@ const source = {
 };
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
-export const EXTERNAL_LINKS = {
+export const LINK = {
   social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
   dribbble,
   github,

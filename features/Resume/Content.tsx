@@ -1,9 +1,9 @@
 import { Button } from '@/components/Button';
 import { Check, Download } from '@/components/Icon';
-import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
 import { Text } from '@/components/Text';
 import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
@@ -260,11 +260,10 @@ export const Content = () => (
     <Text maxWidth>
       <p>
         I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
-        <Link href={EXTERNAL_LINKS.soundcloud.url}>music producer</Link>. I
-        enjoy connecting with new people online and dedicating some of my free
-        time to various projects.{' '}
-        <Link href={SITEMAP.contact.url}>Contact me</Link> or learn more about
-        me from below.
+        <Link href={LINK.soundcloud.url}>music producer</Link>. I enjoy
+        connecting with new people online and dedicating some of my free time to
+        various projects. <Link href={SITEMAP.contact.url}>Contact me</Link> or
+        learn more about me from below.
       </p>
       <p className="flex flex-wrap:wrap gap:s">
         <Button href={SITEMAP.about.url} size="s">

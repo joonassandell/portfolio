@@ -1,8 +1,8 @@
 import { BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
-import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { type FooterProps } from './';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
@@ -59,7 +59,7 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   </Text>
                   <SomeIcons className="hidden@s" />
                   <Text className="visible@s" tag="ul">
-                    {EXTERNAL_LINKS.social.map(item => {
+                    {LINK.social.map(item => {
                       return (
                         <li key={item.title}>
                           <LinkRoll href={item.url}>{item.title}</LinkRoll>
@@ -92,17 +92,15 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                   className="color:mute:blend"
                   href={
                     GIT_COMMIT_SHA
-                      ? `${EXTERNAL_LINKS.source.url}/commit/${GIT_COMMIT_SHA}`
-                      : `${EXTERNAL_LINKS.source.url}/commits`
+                      ? `${LINK.source.url}/commit/${GIT_COMMIT_SHA}`
+                      : `${LINK.source.url}/commits`
                   }
                 >
                   {formatDate(BUILD_DATE)}
                 </Link>
               </span>
             </p>
-            <Link href={EXTERNAL_LINKS.source.url}>
-              {EXTERNAL_LINKS.source.title}
-            </Link>
+            <Link href={LINK.source.url}>{LINK.source.title}</Link>
           </Text>
         </div>
       </div>

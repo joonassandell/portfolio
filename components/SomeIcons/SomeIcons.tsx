@@ -6,7 +6,7 @@ import {
   SoundCloud,
   X,
 } from '@/components/Icon';
-import { EXTERNAL_LINKS } from '@/lib/sitemap';
+import { LINK } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
 import { type SomeIconsProps } from './';
 import c from 'clsx';
@@ -16,7 +16,7 @@ export const SomeIcons = ({ className, ...props }: SomeIconsProps) => {
 
   return (
     <div className={classes} {...props}>
-      {EXTERNAL_LINKS.social.map(({ title, url }) => {
+      {LINK.social.map(({ title, url }) => {
         return (
           <Link
             className="SomeIcons-link"

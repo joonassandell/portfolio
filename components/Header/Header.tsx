@@ -20,9 +20,9 @@ import {
   maskNavVariant,
   maskOpenTransition,
 } from './';
-import { EXTERNAL_LINKS, SITEMAP } from '@/lib/sitemap';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -473,16 +473,14 @@ export const Header = ({ navTitle = CONTENT.defaultNavTitle }: HeaderProps) => {
                     <Link
                       href={
                         GIT_COMMIT_SHA
-                          ? `${EXTERNAL_LINKS.source.url}/commit/${GIT_COMMIT_SHA}`
-                          : `${EXTERNAL_LINKS.source.url}/commits`
+                          ? `${LINK.source.url}/commit/${GIT_COMMIT_SHA}`
+                          : `${LINK.source.url}/commits`
                       }
                     >
                       {formatDate(BUILD_DATE)}
                     </Link>
                     {' ✳︎ '}
-                    <Link href={EXTERNAL_LINKS.source.url}>
-                      {EXTERNAL_LINKS.source.title}
-                    </Link>
+                    <Link href={LINK.source.url}>{LINK.source.title}</Link>
                   </Text>
                 </div>
               </m.footer>
