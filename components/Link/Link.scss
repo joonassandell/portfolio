@@ -21,6 +21,7 @@
   display: block;
   pointer-events: none;
   position: relative;
+  will-change: transform;
 
   &.-hover {
     position: absolute;
