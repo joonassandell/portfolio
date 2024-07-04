@@ -1,3 +1,4 @@
+import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App';
 import { BiocodeHero } from '@/features/Project/Biocode';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { Heading } from '@/components/Heading';
@@ -10,7 +11,6 @@ import { OrasHero } from '@/features/Project/Oras';
 import { SandboxHero } from '@/features/Project/Sandbox';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
-import { useApp, useSetThemeColor } from '@/components/App';
 import {
   useLocomotiveScroll,
   useScrollTo,
@@ -41,7 +41,7 @@ export const HomePage = () => {
       scroll.update();
     }
 
-    setThemeColor(el.dataset.themeColor);
+    setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
     setCurrentHero(el.dataset.id);
     setTimeout(
       () => scrollTo(el, () => setAnimation(true)),

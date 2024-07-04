@@ -1,3 +1,4 @@
+import { type AppHeadProps } from '@/components/App';
 import {
   type MouseEventHandler,
   type PropsWithChildren,
@@ -23,7 +24,7 @@ export interface HeroProps {
   onClick?: MouseEventHandler<HTMLElement>;
   stampAddVarsToParent?: boolean;
   stampOverlay?: boolean;
-  themeColor?: string;
+  themeColor?: AppHeadProps['themeColor'];
   transition?: 'pre';
   transitionStart?: boolean;
 }

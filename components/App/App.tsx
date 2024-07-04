@@ -79,7 +79,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
     }));
   };
 
-  const [themeColor, setThemeColor] = useState<string | undefined>();
+  const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
 
   /* ======
    * Initialize stuff on load etc.
