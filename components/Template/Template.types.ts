@@ -5,7 +5,7 @@ import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 export interface TemplateProps extends PropsWithChildren {
   className?: string;
   footerProps?: FooterProps;
-  id: SitemapWithoutArrayKeys;
+  id: SitemapWithoutArrayKeys | '404';
   variant?: 'unstyled' | 'default';
 }
 
