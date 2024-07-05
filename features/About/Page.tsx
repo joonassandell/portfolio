@@ -6,16 +6,17 @@ import {
   AboutTop,
 } from './';
 import { Head } from '@/components/Head';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const AboutPage = () => {
-  useSetThemeColor(sitemap.meta.themeColor);
+  const { id, meta } = SITEMAP.about;
+  useSetThemeColor(meta.themeColor);
 
   return (
-    <Template id={sitemap.id}>
-      <Head description={sitemap.meta.description} title={sitemap.meta.title} />
+    <Template id={id}>
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <AboutTop />
         <AboutIntro />

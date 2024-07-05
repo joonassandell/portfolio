@@ -5,6 +5,7 @@ import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
 import { SCROLL_SPEED } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
@@ -12,16 +13,16 @@ import { useRef } from 'react';
 import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
 import profile from '@/public/images/joonassandell-profile-4.jpg';
-import sitemap from './sitemap';
 
 export const ApproachPage = () => {
-  useSetThemeColor(sitemap.meta.themeColor);
+  const { id, meta } = SITEMAP.approach;
+  useSetThemeColor(meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
 
   return (
-    <Template id={sitemap.id}>
-      <Head description={sitemap.meta.description} title={sitemap.meta.title} />
+    <Template id={id}>
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">

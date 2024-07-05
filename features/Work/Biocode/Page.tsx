@@ -9,19 +9,19 @@ import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const BiocodePage = ({ images }: PageProps) => {
+  const { id, meta, title } = SITEMAP.biocode;
   const { id: nextProjectId } = SITEMAP.oras;
-  useSetThemeColor(sitemap.meta.themeColor);
+  useSetThemeColor(meta.themeColor);
 
   return (
-    <Template id={sitemap.id} variant="unstyled">
-      <Head title={sitemap.meta.title} />
+    <Template id={id} variant="unstyled">
+      <Head title={meta.title} />
       <TemplateMain>
         <BiocodeHero />
         <Info
-          client={{ href: 'https://biocode.io', name: sitemap.title }}
+          client={{ href: 'https://biocode.io', name: title }}
           heading="Biocode is Carbon footprint calculator that makes sense. It’s aimed for food brands, producers and farmers. It’s an easy tool for tackling the reporting chaos and clearly communicating environmental values to customers."
           role={['Product design', 'App development', 'Web development']}
           smallPrint="Building together with awesome co-workers from Biocode."

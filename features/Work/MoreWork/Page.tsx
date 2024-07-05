@@ -13,15 +13,15 @@ import { SubInfo } from '@/components/SubInfo';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const MoreWorkPage = ({ images }: PageProps) => {
+  const { id, meta, year } = SITEMAP.moreWork;
   const { id: nextProjectId } = SITEMAP.biocode;
-  useSetThemeColor(sitemap.meta.themeColor);
+  useSetThemeColor(meta.themeColor);
 
   return (
-    <Template id={sitemap.id} variant="unstyled">
-      <Head title={sitemap.meta.title} />
+    <Template id={id} variant="unstyled">
+      <Head title={meta.title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info
@@ -41,7 +41,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             </p>
           }
           type={['Web services', 'Web applications', 'Commissions']}
-          year={sitemap.year}
+          year={year}
         />
         <TemplateSection gridRowGap="l" id="hw-company" pt="15vw">
           <SubInfo

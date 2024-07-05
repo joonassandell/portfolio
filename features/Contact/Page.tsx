@@ -1,6 +1,6 @@
 import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { CONTENT, LINK } from '@/lib/sitemap';
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
@@ -12,10 +12,10 @@ import { TextReveal } from '@/components/TextReveal';
 import { useCopyToClipboard } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
 import { useState } from 'react';
-import sitemap from './sitemap';
 
 export const ContactPage = () => {
-  useSetThemeColor(sitemap.meta.themeColor);
+  const { id, meta } = SITEMAP.contact;
+  useSetThemeColor(meta.themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
   const [icon, setIcon] = useState(<Copy />);
 
@@ -26,8 +26,8 @@ export const ContactPage = () => {
   };
 
   return (
-    <Template id={sitemap.id}>
-      <Head description={sitemap.meta.description} title={sitemap.meta.title} />
+    <Template id={id}>
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading

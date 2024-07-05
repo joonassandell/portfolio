@@ -9,19 +9,19 @@ import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const MediasignalPage = ({ images }: PageProps) => {
+  const { id, meta, title, year } = SITEMAP.mediasignal;
   const { id: nextProjectId } = SITEMAP.sandbox;
-  useSetThemeColor(sitemap.meta.themeColor);
+  useSetThemeColor(meta.themeColor);
 
   return (
-    <Template id={sitemap.id} variant="unstyled">
-      <Head title={sitemap.meta.title} />
+    <Template id={id} variant="unstyled">
+      <Head title={meta.title} />
       <TemplateMain>
         <MediasignalHero />
         <Info
-          client={{ href: 'https://mediasignal.fi/en', name: sitemap.title }}
+          client={{ href: 'https://mediasignal.fi/en', name: title }}
           heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
           role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
           smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
@@ -36,7 +36,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             </p>
           }
           type={['Web service', 'Branding', 'Commission']}
-          year={sitemap.year}
+          year={year}
         />
         <TemplateSection gridGap="xl" pt="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">

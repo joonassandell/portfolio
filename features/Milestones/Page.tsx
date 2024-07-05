@@ -10,18 +10,19 @@ import { DelayedRender } from '@/components/DelayedRender';
 import { getMilliSeconds, objectEntries } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TRANS_TEMPLATE } from '@/lib/config';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const MilestonesPage = () => {
+  const { id, meta } = SITEMAP.milestones;
   useSetThemeColor();
 
   return (
-    <Template id={sitemap.id}>
-      <Head title={sitemap.meta.title} />
+    <Template id={id}>
+      <Head title={meta.title} />
       <TemplateMain>
         <TemplateSection>
           <div className="grid-col grid-col:9@m grid-col:6@l">

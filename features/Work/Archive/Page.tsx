@@ -9,15 +9,15 @@ import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const ArchivePage = ({ images }: PageProps) => {
   const { id: nextProjectId } = SITEMAP.biocode;
-  useSetThemeColor(sitemap.meta.themeColor);
+  const { id, meta, year } = SITEMAP.archive;
+  useSetThemeColor(meta.themeColor);
 
   return (
-    <Template className="Template--moreWork" id={sitemap.id} variant="unstyled">
-      <Head title={sitemap.meta.title} />
+    <Template className="Template--moreWork" id={id} variant="unstyled">
+      <Head title={meta.title} />
       <TemplateMain>
         <ArchiveHero />
         <Info
@@ -38,7 +38,7 @@ export const ArchivePage = ({ images }: PageProps) => {
             </>
           }
           type={['Web services', 'Web applications', 'Commissions']}
-          year={sitemap.year}
+          year={year}
         />
         <TemplateSection
           className="Template-figureGrid"

@@ -10,16 +10,16 @@ import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useMedia } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
 
 export const SandboxPage = ({ images }: PageProps) => {
+  const { id, meta, year } = SITEMAP.sandbox;
   const { id: nextProjectId } = SITEMAP.moreWork;
-  useSetThemeColor(sitemap.meta.themeColor);
+  useSetThemeColor(meta.themeColor);
   const mqM = useMedia(MQ.m, false);
 
   return (
-    <Template id={sitemap.id} variant="unstyled">
-      <Head title={sitemap.meta.title} />
+    <Template id={id} variant="unstyled">
+      <Head title={meta.title} />
       <TemplateMain>
         <SandboxHero />
         <Info
@@ -35,7 +35,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             </p>
           }
           type={['Web services', 'Applications', 'Concepts']}
-          year={sitemap.year}
+          year={year}
         />
         <TemplateSection gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">

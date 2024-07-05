@@ -16,10 +16,10 @@ import {
   useScrollTo,
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
-import sitemap from './sitemap';
 
 export const HomePage = () => {
-  useSetThemeColor(sitemap.meta.themeColor);
+  const { id, meta } = SITEMAP.home;
+  useSetThemeColor(meta.themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
   const { setThemeColor, setTransition, setTransitionInitial } = useApp();
@@ -52,7 +52,7 @@ export const HomePage = () => {
   return (
     <Template
       className={extraSpace ? 'is-extraSpace' : ''}
-      id={sitemap.id}
+      id={id}
       variant="unstyled"
     >
       <TemplateMain>
