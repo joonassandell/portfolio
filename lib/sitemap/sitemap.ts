@@ -1,16 +1,16 @@
 import { APP_URL } from '../config';
 import about from '@/features/About/sitemap';
 import approach from '@/features/Approach/sitemap';
-import archive from '@/features/Project/Archive/sitemap';
-import biocode from '@/features/Project/Biocode/sitemap';
+import archive from '@/features/Work/Archive/sitemap';
+import biocode from '@/features/Work/Biocode/sitemap';
 import contact from '@/features/Contact/sitemap';
 import home from '@/features/Home/sitemap';
-import mediasignal from '@/features/Project/Mediasignal/sitemap';
+import mediasignal from '@/features/Work/Mediasignal/sitemap';
 import milestones from '@/features/Milestones/sitemap';
-import moreWork from '@/features/Project/MoreWork/sitemap';
-import oras from '@/features/Project/Oras/sitemap';
+import moreWork from '@/features/Work/MoreWork/sitemap';
+import oras from '@/features/Work/Oras/sitemap';
 import resume from '@/features/Resume/sitemap';
-import sandbox from '@/features/Project/Sandbox/sitemap';
+import sandbox from '@/features/Work/Sandbox/sitemap';
 
 /* =======================================
  * Sitemap

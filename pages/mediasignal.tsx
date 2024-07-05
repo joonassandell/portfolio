@@ -1,8 +1,8 @@
 import { getImages } from '@/lib/getImages';
 import { type GetStaticProps } from 'next';
-import { MediasignalPage } from '@/features/Project/Mediasignal';
+import { MediasignalPage } from '@/features/Work/Mediasignal';
 import { type PageProps } from '@/types';
-import sitemap from '@/features/Project/Mediasignal/sitemap';
+import sitemap from '@/features/Work/Mediasignal/sitemap';
 
 export default function Page({ images }: PageProps) {
   return <MediasignalPage images={images} />;

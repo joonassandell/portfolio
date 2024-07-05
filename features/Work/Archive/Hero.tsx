@@ -1,5 +1,5 @@
 import { figureBgVariants, Hero, type HeroProps } from '@/components/Hero';
-import { figureInnerVariants } from '@/features/Project/Mediasignal/Hero.animations';
+import { figureInnerVariants } from '@/features/Work/Mediasignal/Hero.animations';
 import { m } from 'framer-motion';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';

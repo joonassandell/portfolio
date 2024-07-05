@@ -1,14 +1,14 @@
 import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App';
-import { BiocodeHero } from '@/features/Project/Biocode';
+import { BiocodeHero } from '@/features/Work/Biocode';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { m } from 'framer-motion';
-import { MediasignalHero } from '@/features/Project/Mediasignal';
-import { MoreWorkHero } from '@/features/Project/MoreWork';
-import { OrasHero } from '@/features/Project/Oras';
-import { SandboxHero } from '@/features/Project/Sandbox';
+import { MediasignalHero } from '@/features/Work/Mediasignal';
+import { MoreWorkHero } from '@/features/Work/MoreWork';
+import { OrasHero } from '@/features/Work/Oras';
+import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import {

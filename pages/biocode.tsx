@@ -1,8 +1,8 @@
-import { BiocodePage } from '@/features/Project/Biocode';
+import { BiocodePage } from '@/features/Work/Biocode';
 import { getImages } from '@/lib/getImages';
 import { type GetStaticProps } from 'next';
 import { type PageProps } from '@/types';
-import sitemap from '@/features/Project/Biocode/sitemap';
+import sitemap from '@/features/Work/Biocode/sitemap';
 
 export default function Page({ images }: PageProps) {
   return <BiocodePage images={images} />;
