@@ -1,4 +1,4 @@
-import { type HeaderMaskNavItemSecondaryProps, maskNavItemVariant } from './';
+import { type HeaderMaskNavItemSecondaryProps, maskItemVariant } from './';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m } from 'framer-motion';
 import { useUrlState } from '@/lib/useUrlState';
@@ -16,7 +16,7 @@ export const HeaderMaskNavItemSecondary = ({
   });
 
   return (
-    <m.li className={classes} custom={custom} variants={maskNavItemVariant}>
+    <m.li className={classes} custom={custom} variants={maskItemVariant}>
       <LinkRoll
         className="Header-mask-nav-secondary-link h6 mb:0"
         href={href}

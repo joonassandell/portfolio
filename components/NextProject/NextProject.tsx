@@ -1,9 +1,10 @@
-import { clamp } from 'lodash-es';
-import { getSitemap, mapRange } from '@/lib/utils';
+import { clamp, kebabCase } from 'lodash-es';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { mapRange } from '@/lib/utils';
 import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';
 import { type NextProjectProps } from './';
+import { SITEMAP } from '@/lib/sitemap';
 import { useApp } from '@/components/App';
 import { useEffect, useRef, useState } from 'react';
 import { useMeasure, useMedia, useMouseHovered } from 'react-use';
@@ -13,8 +14,8 @@ import Image from 'next/image';
 export const NextProject = ({ id }: NextProjectProps) => {
   const { setTransition } = useApp();
   const { push } = useRouter();
-  const { title, url } = getSitemap(id);
-  const src = `/${id}/joonassandell-${id}-thumbnail.jpg`;
+  const { title, url } = SITEMAP[id];
+  const src = `/${kebabCase(id)}/joonassandell-${kebabCase(id)}-thumbnail.jpg`;
   const ref = useRef<HTMLElement>(null);
   const [innerRef, { height, width }] = useMeasure<HTMLDivElement>();
   const [figureRef, { height: figureHeight, width: figureWidth }] =

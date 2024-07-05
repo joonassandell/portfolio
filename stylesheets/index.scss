@@ -65,5 +65,10 @@
 @include use('features/Contact');
 @include use('features/Home');
 @include use('features/Milestones');
-@include use('features/Project');
+@include use('features/Work/Archive');
+@include use('features/Work/Biocode');
+@include use('features/Work/Mediasignal');
+@include use('features/Work/MoreWork');
+@include use('features/Work/Oras');
+@include use('features/Work/Sandbox');
 @include use('features/Resume');

@@ -6,8 +6,8 @@ import {
   SoundCloud,
   X,
 } from '@/components/Icon';
+import { LINK } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
-import { LINKS } from '@/lib/config';
 import { type SomeIconsProps } from './';
 import c from 'clsx';
 
@@ -16,20 +16,20 @@ export const SomeIcons = ({ className, ...props }: SomeIconsProps) => {
 
   return (
     <div className={classes} {...props}>
-      {LINKS.social.map(({ id, title, url }) => {
+      {LINK.social.map(({ title, url }) => {
         return (
           <Link
             className="SomeIcons-link"
             href={url}
-            key={id}
+            key={title}
             underline={false}
           >
-            {id === 'twitter' && <X aria-hidden />}
-            {id === 'soundcloud' && <SoundCloud aria-hidden />}
-            {id === 'instagram' && <Instagram aria-hidden />}
-            {id === 'linkedin' && <LinkedIn aria-hidden />}
-            {id === 'github' && <Github aria-hidden />}
-            {id === 'dribbble' && <Dribbble aria-hidden />}
+            {title === 'Twitter' && <X aria-hidden />}
+            {title === 'SoundCloud' && <SoundCloud aria-hidden />}
+            {title === 'Instagram' && <Instagram aria-hidden />}
+            {title === 'LinkedIn' && <LinkedIn aria-hidden />}
+            {title === 'Github' && <Github aria-hidden />}
+            {title === 'Dribbble' && <Dribbble aria-hidden />}
             <span className="hideVisually">{title}</span>
           </Link>
         );

@@ -1,8 +1,11 @@
+import { CONTENT } from '@/lib/sitemap';
 import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
 export const Head = ({ children, description, title }: HeadProps) => {
-  const pageTitle = title ? `Joonas Sandell${title ? ' — ' + title : ''}` : '';
+  const pageTitle = title
+    ? `${CONTENT.meta.titlePrefix}${title ? ' — ' + title : ''}`
+    : '';
 
   return (
     <NextHead>

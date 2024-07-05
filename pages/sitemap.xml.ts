@@ -1,9 +1,9 @@
-import { APP_URL, SITEMAP } from '@/lib/config';
-import { type SitemapItem } from '@/types';
+import { APP_URL } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import type { GetServerSideProps } from 'next';
 
-const generateSitemap = (sitemap: SitemapItem[]) => {
-  const uniqueURLs = (items: SitemapItem[]) => {
+const generateSitemap = (sitemap: (typeof SITEMAP)['all']) => {
+  const uniqueURLs = (items: typeof sitemap) => {
     const seenUrls = new Set<string>();
     return items.filter(({ url }) => {
       if (seenUrls.has(url)) {
@@ -34,7 +34,7 @@ const generateSitemap = (sitemap: SitemapItem[]) => {
 export default function Page() {}
 
 export const getServerSideProps = (async ({ res }) => {
-  const data = [...SITEMAP.common, ...SITEMAP.project];
+  const data = [...SITEMAP.all];
   const sitemap = generateSitemap(data);
 
   res.setHeader('Content-Type', 'text/xml');

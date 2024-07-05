@@ -1,3 +1,5 @@
+import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
+
 export interface NextProjectProps {
-  id: string;
+  id: SitemapWithoutArrayKeys;
 }

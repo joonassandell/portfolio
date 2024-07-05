@@ -4,8 +4,8 @@ import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
-import { type PageProps } from '@/types';
 import { SCROLL_SPEED } from '@/lib/config';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
@@ -14,17 +14,15 @@ import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
 import profile from '@/public/images/joonassandell-profile-4.jpg';
 
-export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const ApproachPage = () => {
+  const { id, meta } = SITEMAP.approach;
+  useSetThemeColor(meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
 
   return (
     <Template id={id}>
-      <Head
-        description="My goal is to create unique, appealing, accessible, and user-friendly products while staying up to date with the latest standards and trends in today’s rapidly evolving digital world."
-        title={title}
-      />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">
@@ -102,8 +100,8 @@ export const ApproachPage = ({ id, themeColor, title }: PageProps) => {
               that every interaction feels polished and refined.
             </Text>
             <Text animate tag="p">
-              <em>“Good design is invisible”</em> like some say and I believe
-              that’s a good mindset to have when building a successful product.
+              <q>Good design is invisible</q> like some say and I believe that’s
+              a good mindset to have when building a successful product.
             </Text>
             <Text animate tag="p">
               In designing interfaces and end-to-end websites, I consider a

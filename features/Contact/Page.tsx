@@ -1,10 +1,9 @@
 import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { getLink } from '@/lib/utils';
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { type PageProps } from '@/types';
 import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
@@ -14,23 +13,21 @@ import { useCopyToClipboard } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
 import { useState } from 'react';
 
-export const ContactPage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const ContactPage = () => {
+  const { id, meta } = SITEMAP.contact;
+  useSetThemeColor(meta.themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
   const [icon, setIcon] = useState(<Copy />);
 
   const handleCopy = () => {
-    copyToClipboard('me@joonassandell.com');
+    copyToClipboard(CONTENT.person.email);
     setIcon(<Check />);
     setTimeout(() => setIcon(<Copy />), 2000);
   };
 
   return (
     <Template id={id}>
-      <Head
-        description="My goal is to create unique, appealing, accessible, and user-friendly products while staying up to date with the latest standards and trends in today’s rapidly evolving digital world."
-        title={title}
-      />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading
@@ -53,7 +50,7 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
                 I enjoy connecting with new people online and participating in
                 events. The easiest way to reach me is via email but
                 alternatively feel free to send me a message through{' '}
-                <Link href={getLink('twitter', 'social').url}>Twitter</Link>.
+                <Link href={LINK.twitter.url}>Twitter</Link>.
               </p>
               <p className="flex flex-wrap:wrap flex-direction:column flex-direction:row@s gap">
                 <Button
@@ -64,10 +61,7 @@ export const ContactPage = ({ id, themeColor, title }: PageProps) => {
                 >
                   Copy e-mail
                 </Button>
-                <Button
-                  href={getLink('twitter', 'social').url}
-                  icon={<ArrowRight />}
-                >
+                <Button href={LINK.twitter.url} icon={<ArrowRight />}>
                   Send me a DM
                 </Button>
               </p>

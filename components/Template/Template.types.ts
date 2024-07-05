@@ -1,10 +1,11 @@
 import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
 import { type FooterProps } from '@/components/Footer';
+import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 
 export interface TemplateProps extends PropsWithChildren {
   className?: string;
   footerProps?: FooterProps;
-  id: string;
+  id: SitemapWithoutArrayKeys | '404';
   variant?: 'unstyled' | 'default';
 }
 

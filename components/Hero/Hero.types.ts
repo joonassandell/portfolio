@@ -1,8 +1,10 @@
+import { type AppHeadProps } from '@/components/App';
 import {
   type MouseEventHandler,
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
+import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { type Variants } from 'framer-motion';
 
 export interface HeroProps {
@@ -19,11 +21,11 @@ export interface HeroProps {
   heading?: string;
   headingVariants?: Variants;
   href?: URL['href'];
-  id?: string;
+  id?: SitemapWithoutArrayKeys;
   onClick?: MouseEventHandler<HTMLElement>;
   stampAddVarsToParent?: boolean;
   stampOverlay?: boolean;
-  themeColor?: string;
+  themeColor?: AppHeadProps['themeColor'];
   transition?: 'pre';
   transitionStart?: boolean;
 }

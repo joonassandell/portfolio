@@ -1,7 +1,12 @@
 import { type Dispatch, type SetStateAction } from 'react';
+import { type HeaderProps } from '@/components/Header';
 import type { AppProps as NextAppProps } from 'next/app';
 
-export interface AppProps extends Omit<NextAppProps, 'router'> {}
+export interface AppProps extends Omit<NextAppProps, 'router'> {
+  pageProps: {
+    navTitle: HeaderProps['navTitle'];
+  };
+}
 
 export interface AppContextProps {
   detect: {
@@ -10,7 +15,7 @@ export interface AppContextProps {
   html: Document['documentElement'];
   loading: boolean;
   loadingEnd: boolean;
-  setThemeColor: Dispatch<SetStateAction<string | undefined>>;
+  setThemeColor: Dispatch<SetStateAction<AppHeadProps['themeColor']>>;
   setTransition: (value: AppContextProps['transition']) => void;
   setTransitionInitial: (value: AppContextProps['transitionInitial']) => void;
   transition: boolean | 'template';
@@ -18,5 +23,5 @@ export interface AppContextProps {
 }
 
 export interface AppHeadProps {
-  themeColor?: string;
+  themeColor?: `#${string}` | undefined;
 }

@@ -1,7 +1,8 @@
+import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Figure } from '@/components/Figure';
-import { getLink, getSitemap, stripUrl } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { stripUrl } from '@/lib/utils';
 import { Text } from '@/components/Text';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
@@ -22,36 +23,36 @@ export const Aside = () => (
     <Text className="mb:l" size="s" tag="ul">
       <li>
         E-mail:{' '}
-        <Link href="mailto:me@joonassandell.com" target="_self" truncate>
-          me@joonassandell.com
+        <Link href={`mailto:${CONTENT.person.email}`} target="_self" truncate>
+          {CONTENT.person.email}
         </Link>
       </li>
-      <li>Location: Helsinki, Finland</li>
+      <li>Location: {CONTENT.person.location}</li>
       <li>
-        <Link href={getSitemap('contact', 'common').url} truncate>
+        <Link href={SITEMAP.contact.url} truncate>
           Send me a message
         </Link>
       </li>
     </Text>
     <Text className="mb:l visible@m" size="s" tag="ul">
       <li>
-        <Link href={getLink('linkedin').url} truncate>
-          {stripUrl(getLink('linkedin').url)}
+        <Link href={LINK.linkedIn.url} truncate>
+          {stripUrl(LINK.linkedIn.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('github').url} truncate>
-          {stripUrl(getLink('github').url)}
+        <Link href={LINK.github.url} truncate>
+          {stripUrl(LINK.github.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('dribbble').url} truncate>
-          {stripUrl(getLink('dribbble').url)}
+        <Link href={LINK.dribbble.url} truncate>
+          {stripUrl(LINK.dribbble.url)}
         </Link>
       </li>
       <li>
-        <Link href={getLink('twitter').url} truncate>
-          {stripUrl(getLink('twitter').url)}
+        <Link href={LINK.twitter.url} truncate>
+          {stripUrl(LINK.twitter.url)}
         </Link>
       </li>
     </Text>

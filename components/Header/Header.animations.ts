@@ -119,7 +119,7 @@ export const maskNavVariant: Variants = {
   },
 };
 
-export const maskNavItemVariant: Variants = {
+export const maskItemVariant: Variants = {
   closed: ({ y = '11rem' } = {}) => ({
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
@@ -137,7 +137,7 @@ export const maskNavItemVariant: Variants = {
   },
 };
 
-export const maskNavItemMarqueeVariant: Variants = {
+export const maskItemMarqueeVariant: Variants = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -162,7 +162,7 @@ export const maskNavItemMarqueeVariant: Variants = {
   },
 };
 
-export const maskNavItemMarqueeInnerVariant: Variants = {
+export const maskItemMarqueeInnerVariant: Variants = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -187,4 +187,4 @@ export const maskNavItemMarqueeInnerVariant: Variants = {
   },
 };
 
-export const maskNavItemMarqueeTransition = TRANS_PRIMARY_FASTEST;
+export const maskItemMarqueeTransition = TRANS_PRIMARY_FASTEST;

@@ -6,19 +6,17 @@ import {
   AboutTop,
 } from './';
 import { Head } from '@/components/Head';
-import { type PageProps } from '@/types';
+import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
-export const AboutPage = ({ id, themeColor, title }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const AboutPage = () => {
+  const { id, meta } = SITEMAP.about;
+  useSetThemeColor(meta.themeColor);
 
   return (
     <Template id={id}>
-      <Head
-        description="I'm UI/UX designer and creative front-end developer of things that usually appear on screens."
-        title={title}
-      />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <AboutTop />
         <AboutIntro />

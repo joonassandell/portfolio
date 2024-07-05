@@ -1,22 +1,4 @@
-import {
-  type Entries,
-  type Image,
-  type Link,
-  type Links,
-  type Sitemap,
-  type SitemapItem,
-  type SitemapItemProject,
-} from '@/types';
-import { LINKS, SITEMAP } from '@/lib/config';
-
-export const getSitemap = (value: string, type: keyof Sitemap = 'project') => {
-  return SITEMAP[type].find(obj => obj['id'] === value) as SitemapItem &
-    SitemapItemProject;
-};
-
-export const getLink = (value: string, type: keyof Links = 'social'): Link => {
-  return LINKS[type].find(obj => obj['id'] === value) as Link;
-};
+import { type Entries, type Image } from '@/types';
 
 export const getImage = (image: Image['src'], images?: Image[]) =>
   images?.find(img => {

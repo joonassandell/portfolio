@@ -1,34 +1,31 @@
-import {
-  BiocodeHero,
-  MediasignalHero,
-  MoreWorkHero,
-  OrasHero,
-  SandboxHero,
-} from '@/features/Project';
+import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App';
+import { BiocodeHero } from '@/features/Work/Biocode';
 import { FADE_OUT_VARIANTS } from '@/lib/config';
-import { getSitemap } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { type LinkEvent, type PageProps } from '@/types';
+import { type LinkEvent } from '@/types';
 import { m } from 'framer-motion';
+import { MediasignalHero } from '@/features/Work/Mediasignal';
+import { MoreWorkHero } from '@/features/Work/MoreWork';
+import { OrasHero } from '@/features/Work/Oras';
+import { SandboxHero } from '@/features/Work/Sandbox';
+import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
-import { useApp, useSetThemeColor } from '@/components/App';
 import {
   useLocomotiveScroll,
   useScrollTo,
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
 
-const about = getSitemap('about', 'common');
-
-export const HomePage = ({ id, themeColor }: PageProps) => {
-  useSetThemeColor(themeColor);
+export const HomePage = () => {
+  const { id, meta } = SITEMAP.home;
+  useSetThemeColor(meta.themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
   const { setThemeColor, setTransition, setTransitionInitial } = useApp();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState<string>();
+  const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
 
   const handleClick = (e: LinkEvent) => {
     if (!scroll) return;
@@ -44,8 +41,8 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
       scroll.update();
     }
 
-    setThemeColor(el.dataset.themeColor);
-    setCurrentHero(el.dataset.id);
+    setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
+    setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
     setTimeout(
       () => scrollTo(el, () => setAnimation(true)),
       needsExtraSpace ? 220 : 0,
@@ -66,7 +63,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
         >
           <div className="wrap">
             <div className="Template-about-mobile" hidden>
-              <Link href={about.url} orientation="vertical">
+              <Link href={SITEMAP.about.url} orientation="vertical">
                 About me
               </Link>
             </div>
@@ -74,8 +71,8 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
               <Heading size="h1">
                 I'm a designer, creative developer and sometimes even a music
                 producer from Helsinki, Finland. Read more{' '}
-                <Link href={about.url}>about me</Link> or just keep scrolling
-                for selected works.
+                <Link href={SITEMAP.about.url}>about me</Link> or just keep
+                scrolling for selected works.
               </Heading>
             </div>
           </div>
@@ -104,7 +101,7 @@ export const HomePage = ({ id, themeColor }: PageProps) => {
           <MoreWorkHero
             onClick={handleClick}
             transition="pre"
-            transitionStart={currentHero === 'more-work' && animation}
+            transitionStart={currentHero === 'moreWork' && animation}
           />
         </div>
       </TemplateMain>

@@ -39,6 +39,10 @@
   margin: 0;
 }
 
+:where(q) {
+  font-style: italic;
+}
+
 :where(h1) {
   @extend .h1;
 }
