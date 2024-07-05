@@ -9,7 +9,7 @@ import { MediasignalHero } from '@/features/Project/Mediasignal';
 import { MoreWorkHero } from '@/features/Project/MoreWork';
 import { OrasHero } from '@/features/Project/Oras';
 import { SandboxHero } from '@/features/Project/Sandbox';
-import { SITEMAP } from '@/lib/sitemap';
+import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import {
   useLocomotiveScroll,
@@ -25,7 +25,7 @@ export const HomePage = () => {
   const { setThemeColor, setTransition, setTransitionInitial } = useApp();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState<string>();
+  const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
 
   const handleClick = (e: LinkEvent) => {
     if (!scroll) return;
@@ -42,7 +42,7 @@ export const HomePage = () => {
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
-    setCurrentHero(el.dataset.id);
+    setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
     setTimeout(
       () => scrollTo(el, () => setAnimation(true)),
       needsExtraSpace ? 220 : 0,
@@ -101,7 +101,7 @@ export const HomePage = () => {
           <MoreWorkHero
             onClick={handleClick}
             transition="pre"
-            transitionStart={currentHero === 'more-work' && animation}
+            transitionStart={currentHero === 'moreWork' && animation}
           />
         </div>
       </TemplateMain>
