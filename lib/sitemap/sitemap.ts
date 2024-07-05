@@ -113,7 +113,7 @@ export const CONTENT = {
   },
   meta: {
     description:
-      'Portfolio of Joonas Sandell, UI/UX designer and creative developer based in Helsinki, Finland.',
+      'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
     title: 'Joonas Sandell — Designer & Developer',
     titlePrefix: 'Joonas Sandell',
     ogImage: `${APP_URL}/static/og-image.jpg?v=3`,

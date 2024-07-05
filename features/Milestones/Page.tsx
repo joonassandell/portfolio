@@ -22,7 +22,7 @@ export const MilestonesPage = () => {
 
   return (
     <Template id={id}>
-      <Head title={meta.title} />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection>
           <div className="grid-col grid-col:9@m grid-col:6@l">

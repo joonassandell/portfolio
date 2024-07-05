@@ -5,6 +5,8 @@ const sitemap: SitemapItemWork<'sandbox'> = {
   id: 'sandbox',
   imagesPath: './public/sandbox/*.{jpg,png}',
   meta: {
+    description:
+      "Welcome to the playground. Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects.",
     themeColor: '#E2BCA7',
     title: 'Sandbox',
   },

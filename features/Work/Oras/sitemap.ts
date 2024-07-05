@@ -5,6 +5,8 @@ const sitemap: SitemapItemWork<'oras'> = {
   id: 'oras',
   imagesPath: './public/oras/*.{jpg,png}',
   meta: {
+    description:
+      'Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy.',
     title: 'Oras',
   },
   title: 'Oras',

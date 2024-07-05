@@ -17,14 +17,14 @@ export const ArchivePage = ({ images }: PageProps) => {
 
   return (
     <Template className="Template--moreWork" id={id} variant="unstyled">
-      <Head title={meta.title} />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <ArchiveHero />
         <Info
           client={{ name: 'Various' }}
           heading="You really must like my stuff since you are already in the archive page. This collection contains mainly thumbnail images of my past work."
           role={['UI/UX/Brand designs', 'Web development']}
-          smallPrint="Some projects made together with people from various sources."
+          smallPrint="Some projects are made together with people from various sources."
           text={
             <>
               <p>

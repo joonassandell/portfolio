@@ -9,6 +9,8 @@ const sitemap: SitemapItemWork<'archive'> = {
   id: 'archive',
   imagesPath: './public/archive/*.{jpg,png}',
   meta: {
+    description:
+      'You really must like my stuff since you are already in the archive page. This collection contains mainly thumbnail images of my past work.',
     themeColor: '#CCCFC9',
     title: 'Archive',
   },

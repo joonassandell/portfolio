@@ -21,7 +21,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
 
   return (
     <Template id={id} variant="unstyled">
-      <Head title={meta.title} />
+      <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <MoreWorkHero />
         <Info

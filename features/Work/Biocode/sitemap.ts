@@ -5,6 +5,8 @@ const sitemap: SitemapItemWork<'biocode'> = {
   id: 'biocode',
   imagesPath: './public/biocode/*.{jpg,png}',
   meta: {
+    description:
+      'I’m currently working for Biocode as lead product designer and front-end developer. I’m responsible for crafting our design system and making sure our application’s code stays manageable.',
     themeColor: '#00081F',
     title: 'Biocode',
   },
