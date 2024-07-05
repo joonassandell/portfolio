@@ -100,8 +100,8 @@ export const ApproachPage = () => {
               that every interaction feels polished and refined.
             </Text>
             <Text animate tag="p">
-              <em>“Good design is invisible”</em> like some say and I believe
-              that’s a good mindset to have when building a successful product.
+              <q>Good design is invisible</q> like some say and I believe that’s
+              a good mindset to have when building a successful product.
             </Text>
             <Text animate tag="p">
               In designing interfaces and end-to-end websites, I consider a
