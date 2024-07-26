@@ -7,7 +7,7 @@ import { type HTMLMotionProps } from 'framer-motion';
 
 export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   icon?: JSX.Element;
-  size?: 's' | 'm';
+  size?: 's' | 'm' | 's:square' | 'square';
   templateTransition?: boolean;
   variant?: 'default' | 'negative';
 }

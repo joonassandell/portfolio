@@ -22,6 +22,8 @@ export const Button = ({
 }: ButtonProps) => {
   const classes = c(className, 'Button Button--default', {
     '-size:s': size === 's',
+    '-size:square': size === 'square',
+    '-size:square:s': size === 's:square',
     'Button--default--negative': variant === 'negative',
   });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);
@@ -58,7 +60,13 @@ export const Button = ({
         target={target ?? externalTarget}
         {...props}
       >
-        {children}
+        <span
+          className={c({
+            hideVisually: size === 'square' || size === 's:square',
+          })}
+        >
+          {children}
+        </span>
         {icon && (
           <AnimatePresence initial={false} mode="popLayout">
             <m.span
