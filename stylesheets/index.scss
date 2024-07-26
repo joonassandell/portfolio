@@ -1,8 +1,8 @@
 @use 'mixins/use' as *;
 
-@layer root, vendors, components, utils;
+@layer base, vendors, components, utils;
 
-@layer root {
+@layer base {
   @include use('tokens');
   @include use('generic/base');
   @include use('generic/fonts');
@@ -72,3 +72,4 @@
 @include use('features/Work/Oras');
 @include use('features/Work/Sandbox');
 @include use('features/Resume');
+@include use('features/UiLab');

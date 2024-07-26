@@ -14,6 +14,7 @@
     "lint:fix": "next lint --fix",
     "lint": "next lint",
     "preview": "bun run build && bun run start",
+    "preview:ignore": "bun run build:ignore && bun run start",
     "start": "next start",
     "typecheck": "tsc --pretty --noEmit"
   },
@@ -28,6 +29,7 @@
     "locomotive-scroll": "^4.1.4",
     "lodash-es": "^4.17.21",
     "next": "14.2.3",
+    "next-themes": "^0.3.0",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -63,7 +65,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.76.0",
     "sass-mq": "^6.0.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5"
   },
   "engines": {
     "node": "20.x"

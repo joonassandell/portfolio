@@ -11,6 +11,7 @@ import moreWork from '@/features/Work/MoreWork/sitemap';
 import oras from '@/features/Work/Oras/sitemap';
 import resume from '@/features/Resume/sitemap';
 import sandbox from '@/features/Work/Sandbox/sitemap';
+import uiLab from '@/features/UiLab/sitemap';
 
 /* =======================================
  * Sitemap
@@ -18,7 +19,7 @@ import sandbox from '@/features/Work/Sandbox/sitemap';
 
 const me = [about, milestones, approach, resume, contact];
 const work = [biocode, oras, mediasignal, sandbox, moreWork, archive];
-const all = [...me, ...work];
+const all = [...me, uiLab, ...work];
 
 export const SITEMAP = {
   about,
@@ -35,6 +36,7 @@ export const SITEMAP = {
   oras,
   resume,
   sandbox,
+  uiLab,
   work,
 } as const;
 
@@ -112,6 +114,7 @@ export const CONTENT = {
     location: 'Helsinki, Finland',
   },
   meta: {
+    appName: 'Joonas Sandell',
     description:
       'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
     title: 'Joonas Sandell — Designer & Developer',
