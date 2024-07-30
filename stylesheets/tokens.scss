@@ -89,7 +89,6 @@
   // Text
   --text-50: var(--white);
   --text-100: var(--gray-400);
-  --text-700: var(--gray-500);
   --text-800-blend: hsl(var(--white-hsl) / 0.6);
   --text-800: var(--gray-600);
   --text-900: var(--gray-900);
@@ -153,7 +152,7 @@
   --vh: 100vh;
 
   // Typography
-  --font-family-sans: 'Px Grotesk', sans-serif;
+  --font-family-sans: 'Px Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
   --font-weight-400: 400;
