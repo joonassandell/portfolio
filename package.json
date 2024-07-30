@@ -6,7 +6,7 @@
   "packageManager": "bun@1.1.7",
   "scripts": {
     "analyze": "ANALYZE=true bun run build",
-    "build": "next build",
+    "build": "bun update @joonassandell/ui-lab && next build",
     "build:ignore": "IGNORE_ERRORS=true next build",
     "check": "bun run lint && bun run typecheck",
     "create:component": "bun --bun ./scripts/create-component.cjs",
@@ -19,6 +19,7 @@
     "typecheck": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@joonassandell/ui-lab": "^0.1.6",
     "@next/third-parties": "^14.2.4",
     "@nivo/line": "^0.86.0",
     "clsx": "^2.1.1",

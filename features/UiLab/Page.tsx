@@ -1,10 +1,10 @@
-import 'ui-lab/index.css';
+import '@joonassandell/ui-lab/index.css';
 import { Button } from '@/components/Button';
-import { DynamicPayButton } from 'ui-lab';
+import { DynamicPayButton } from '@joonassandell/ui-lab';
+import { Github, Moon, Sun } from '@/components/Icon';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
-import { Moon, Sun } from '@/components/Icon';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -25,19 +25,17 @@ export const UiLabPage = () => {
         defaultTheme="dark"
         disableTransitionOnChange
         enableSystem={false}
-        value={{ dark: 'ul-dark' }}
+        value={{ dark: 'u-dark' }}
       >
         <Head description={meta.description} title={meta.title} />
         <TemplateMain>
           <TemplateSection>
             <div className="grid-col grid-col:8@m grid-col:6@l">
               <Heading size="h1">UI Laboratory</Heading>
-              <Text size="l">
-                <p>
-                  A compilation of milestones from my professional activities,
-                  including project launches, feature releases, achievements,
-                  album releases, recognitions, and career progress.
-                </p>
+              <Text className="mb:0" size="l" tag="p">
+                A compilation of milestones from my professional activities,
+                including project launches, feature releases, achievements,
+                album releases, recognitions, and career progress.
               </Text>
             </div>
           </TemplateSection>
@@ -47,7 +45,7 @@ export const UiLabPage = () => {
               <Text className="mb" size="l" tag="h2">
                 <span className="color:mute">01</span> Dynamic Pay Button
               </Text>
-              <Text className="mb:0" tag="p">
+              <Text className="mb:0" color="mute" tag="p">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
                 error rerum dolore fugiat odit dolores quisquam.
               </Text>
@@ -64,6 +62,8 @@ export const UiLabPage = () => {
                   <ThemeToggle />
                   <Button
                     href="https://github.com/joonassandell/ui-lab/tree/main/app/dynamic-pay-button"
+                    icon={<Github />}
+                    radius="m"
                     size="s"
                   >
                     Source
@@ -94,9 +94,10 @@ const ThemeToggle = () => {
     <Button
       icon={theme === 'light' ? <Moon /> : <Sun />}
       onClick={handleThemeChange}
-      size="s:square"
+      radius="m"
+      size="square:s"
     >
-      {theme === 'light' ? <>Dark mode</> : <>Light mode</>}
+      {theme === 'light' ? 'Dark mode' : 'Light mode'}
     </Button>
   );
 };

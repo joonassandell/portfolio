@@ -7,29 +7,25 @@
 
   .Template-main {
     --Template-box-bg: #f4f4f5;
-    // var(--border-200); var(--border-100);
-    --Template-box-border: hsl(var(--black-hsl) / 0.07);
+    --Template-box-border: #dfdfe2;
 
     --Button-color: var(--text-800);
-    --Button-radius: var(--border-radius);
     --Button-hover-bg: var(--bg-50);
     --Button-hover-border: transparent;
     --Button-hover-shadow: var(--shadow-hover);
     --Button-hover-color: var(--text-950);
-
-    --heading: var(--text-950);
   }
 
-  .ul-dark & {
+  .u-dark & {
     --Template-bg: #09090b;
     --Footer-border: var(--border-900);
 
     .Template-main {
-      --Template-color: var(--text-700);
-      --Template-box-bg: #{lighten(#09090b, 1)};
+      --Template-color: var(--text-100);
+      --Template-box-bg: #0b0b0e;
       --Template-box-border: var(--border-900);
 
-      --Button-bg: #{lighten(#09090b, 3)};
+      --Button-bg: #101013;
       --Button-color: var(--text-100);
       --Button-shadow: var(--shadow-dark);
       --Button-hover-bg: var(--Button-bg);
@@ -37,7 +33,7 @@
       --Button-hover-color: var(--text-50);
 
       --heading: var(--text-50);
-      --text-800: var(--text-700);
+      --text-800: var(--text-100);
       --border-950: var(--border-900);
     }
   }
