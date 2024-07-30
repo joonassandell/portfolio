@@ -3,9 +3,6 @@ import { type SITEMAP } from '@/lib/sitemap';
 import { type WithoutArrayKeys } from '@/types';
 
 export interface SitemapItem<Id = WithId> {
-  hidden?: {
-    footerNav?: boolean;
-  };
   id: Id;
   imagesPath?: `./public/${string}/*.${string}`;
   meta: {
@@ -22,9 +19,6 @@ export interface SitemapItem<Id = WithId> {
 
 export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   color: string;
-  hidden?: SitemapItem['hidden'] & {
-    headerMaskNav?: boolean;
-  };
   year: string | number;
 }
 

@@ -17,9 +17,17 @@ import uiLab from '@/features/UiLab/sitemap';
  * Sitemap
  * ======================================= */
 
-const me = [about, milestones, approach, resume, contact];
+const me = [about, resume, approach, contact];
+const projects = [home, uiLab, milestones];
 const work = [biocode, oras, mediasignal, sandbox, moreWork, archive];
-const all = [...me, uiLab, ...work];
+const all = [...me, ...projects, ...work];
+
+const header = {
+  nav: [about, uiLab, milestones, contact],
+  navMask: [biocode, oras, mediasignal, sandbox, moreWork],
+  navMaskFooter: [...me, ...projects],
+  navMaskMobile: [about, uiLab, milestones, resume, approach, contact],
+};
 
 export const SITEMAP = {
   about,
@@ -28,12 +36,14 @@ export const SITEMAP = {
   archive,
   biocode,
   contact,
+  header,
   home,
   me,
   mediasignal,
   milestones,
   moreWork,
   oras,
+  projects,
   resume,
   sandbox,
   uiLab,
@@ -78,13 +88,12 @@ const source = {
   url: 'https://github.com/joonassandell/joonassandell-portfolio',
 };
 
-/* eslint-disable sort-keys-fix/sort-keys-fix */
 export const LINK = {
-  social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
   dribbble,
   github,
   instagram,
   linkedIn,
+  social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
   soundcloud,
   source,
   twitter,
@@ -98,30 +107,30 @@ export const CONTENT = {
   header: {
     defaultNavTitle: 'Selected works',
   },
-  person: {
-    name: 'Joonas Sandell',
-    email: 'me@joonassandell.com',
-    nickname: 'joonassandell',
-    title: {
-      simple: 'Designer & Developer',
-      design: 'UI/UX designer',
-      developer: 'Front-end developer',
-      combined: 'UI/UX designer and Front-end developer',
-    },
-    url: 'https://joonassandell.com',
-    thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
-    twitter: '@joonassandell',
-    location: 'Helsinki, Finland',
-  },
   meta: {
     appName: 'Joonas Sandell',
     description:
       'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
-    title: 'Joonas Sandell — Designer & Developer',
-    titlePrefix: 'Joonas Sandell',
-    ogImage: `${APP_URL}/static/og-image.jpg?v=3`,
     favIcon: '/static/favicon.svg?v=2',
     favIconIco: '/static/favicon.ico?v=2',
+    ogImage: `${APP_URL}/static/og-image.jpg?v=3`,
+    title: 'Joonas Sandell — Designer & Developer',
+    titlePrefix: 'Joonas Sandell',
     touchIcon: '/static/apple-touch-icon.png?v=2',
+  },
+  person: {
+    email: 'me@joonassandell.com',
+    location: 'Helsinki, Finland',
+    name: 'Joonas Sandell',
+    nickname: 'joonassandell',
+    thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
+    title: {
+      combined: 'UI/UX designer and Front-end developer',
+      design: 'UI/UX designer',
+      developer: 'Front-end developer',
+      simple: 'Designer & Developer',
+    },
+    twitter: '@joonassandell',
+    url: 'https://joonassandell.com',
   },
 } as const;
