@@ -3,7 +3,7 @@ import { type ButtonEvent, type LinkEvent } from '@/types';
 import { type ButtonProps } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { default as NextLink } from 'next/link';
-import { TRANS_SECONDARY_FASTEST } from '@/lib/config';
+import { TRANS_PRIMARY_FASTEST } from '@/lib/config';
 import { useApp } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
@@ -14,6 +14,7 @@ export const Button = ({
   href,
   icon,
   onClick,
+  radius,
   size,
   target,
   templateTransition = true,
@@ -21,9 +22,10 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const classes = c(className, 'Button Button--default', {
+    '-radius:m': radius === 'm',
     '-size:s': size === 's',
     '-size:square': size === 'square',
-    '-size:square:s': size === 's:square',
+    '-size:square:s': size === 'square:s',
     'Button--default--negative': variant === 'negative',
   });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);
@@ -61,8 +63,8 @@ export const Button = ({
         {...props}
       >
         <span
-          className={c({
-            hideVisually: size === 'square' || size === 's:square',
+          className={c('Button-text', {
+            hideVisually: size?.includes('square'),
           })}
         >
           {children}
@@ -75,7 +77,7 @@ export const Button = ({
               exit={{ rotate: 45, scale: 0 }}
               initial={{ rotate: -45, scale: 0 }}
               key={icon.type.name}
-              transition={TRANS_SECONDARY_FASTEST}
+              transition={TRANS_PRIMARY_FASTEST}
             >
               {icon}
             </m.span>

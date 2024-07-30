@@ -33,7 +33,19 @@
 
   .Button-icon {
     margin-right: rem($space-3xs * -1);
-    // will-change: transform;
+
+    @at-root .is-ios & {
+      will-change: transform;
+    }
+  }
+
+  .Button-text {
+    position: relative;
+    top: rem($space-5xs * -1);
+
+    @at-root .is-ios & {
+      top: 0;
+    }
   }
 }
 
@@ -42,6 +54,12 @@
  * ======================================= */
 
 .Button--default {
+  &.-radius\:m {
+    --Button-radius: var(--border-radius);
+    padding-left: rem($space);
+    padding-right: rem($space);
+  }
+
   &.-size\:s,
   &.-size\:square\:s {
     .Button-icon {
@@ -52,11 +70,15 @@
   &.-size\:s {
     min-height: rem($space-ml);
     padding: rem($space-3xs) rem($space);
+
+    &.-radius\:m {
+      padding-left: rem($space-s);
+      padding-right: rem($space-s);
+    }
   }
 
   &.-size\:square,
   &.-size\:square\:s {
-    flex-shrink: 0;
     justify-content: center;
     padding: 0;
 
@@ -77,12 +99,9 @@
 }
 
 .Button--default--negative {
-  background: var(--bg-950);
-  box-shadow: unset;
-  color: var(--text-50);
-
-  &:hover,
-  &:focus-visible {
-    background: var(--bg-900);
-  }
+  --Button-bg: var(--bg-950);
+  --Button-color: var(--text-50);
+  --Button-shadow: unset;
+  --Button-hover-bg: var(--bg-900);
+  --Button-hover-color: var(--text-50);
 }
