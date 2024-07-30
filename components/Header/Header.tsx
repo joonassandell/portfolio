@@ -40,6 +40,8 @@ import { useRouter } from 'next/router';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
+const { header } = SITEMAP;
+
 export const Header = ({
   navTitle = CONTENT.header.defaultNavTitle,
 }: HeaderProps) => {
@@ -392,20 +394,18 @@ export const Header = ({
               </AnimatePresence>
             </m.button>
             <ul className="Header-nav">
-              {SITEMAP.all
-                .filter(item => item.visible?.headerNav)
-                .map(item => {
-                  return (
-                    <HeaderNavItem
-                      href={item.url}
-                      isOpen={open}
-                      key={item.id}
-                      onClick={handleLinkClick}
-                      openReveal={openReveal}
-                      title={item.title}
-                    />
-                  );
-                })}
+              {header.nav.map(item => {
+                return (
+                  <HeaderNavItem
+                    href={item.url}
+                    isOpen={open}
+                    key={item.id}
+                    onClick={handleLinkClick}
+                    openReveal={openReveal}
+                    title={item.title}
+                  />
+                );
+              })}
             </ul>
           </div>
         </m.div>
@@ -423,22 +423,20 @@ export const Header = ({
                 variants={maskNavVariant}
               >
                 <ul>
-                  {SITEMAP.work
-                    .filter(item => !item.hidden?.headerMaskNav)
-                    .map(item => {
-                      return (
-                        <HeaderMaskNavItem
-                          color={item.color}
-                          href={item.url}
-                          key={item.id}
-                          onClick={handleLinkClick}
-                          title={item.title}
-                          year={item.year}
-                        />
-                      );
-                    })}
+                  {header.navMask.map(item => {
+                    return (
+                      <HeaderMaskNavItem
+                        color={item.color}
+                        href={item.url}
+                        key={item.id}
+                        onClick={handleLinkClick}
+                        title={item.title}
+                        year={item.year}
+                      />
+                    );
+                  })}
                   {!mqM &&
-                    SITEMAP.me.map(item => {
+                    header.navMaskMobile.map(item => {
                       return (
                         <HeaderMaskNavItemSecondary
                           custom={{ y: '5rem' }}
@@ -456,8 +454,8 @@ export const Header = ({
                 className="Header-footer wrap"
                 variants={maskItemVariant}
               >
-                <Text className="Header-footer-nav visible@m" size="l" tag="ul">
-                  {SITEMAP.me.map(item => {
+                <Text className="Header-footer-nav visible@m" tag="ul">
+                  {header.navMaskFooter.map(item => {
                     return (
                       <HeaderFooterNavItem
                         href={item.url}
