@@ -4,7 +4,7 @@ import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
 import c from 'clsx';
 
-export const Hr = ({ animate, className, ...props }: HrProps) => {
+export const Hr = ({ animate = true, className, ...props }: HrProps) => {
   const classes = c('Hr', className);
   const ref = useRef(null);
   const inView = useInView(ref);
