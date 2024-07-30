@@ -27,17 +27,18 @@ bun run dev
 
 ## Scripts
 
-- `bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser
+- `bun run analyze`: Run build with [@next/bundle-analyzer](https://nextjs.org/docs/app/building-your-application/optimizing/bundle-analyzer)
+- `bun run build:ignore`: Run build and ignore errors
 - `bun run build`: Build the application
+- `bun run check`: Run TypeScript type checking and ESLint
+- `bun run create:component <ComponentName>`: Create a new component skeleton to `components/` directory
+- `bun run dev`: Run a development server and open [localhost:3000](https://localhost:3000) with your browser
+- `bun run lint:fix`: Run ESLint and fix possible errors
+- `bun run lint`: Run ESLint
+- `bun run preview:ignore`: Build the application and preview it locally by ignoring errors
 - `bun run preview`: Build the application and preview it locally
 - `bun run start`: Start the application in production mode. The application should be build first.
-- `bun run create:component <ComponentName>`: Create a new component skeleton to `components/` directory
 - `bun run typecheck`: Run TS type checking
-- `bun run check`: Run TS type checking and ESLint
-- `bun run build:ignore`: Run build and ignore errors
-- `bun run lint`: Run ESLint
-- `bun run lint:fix`: Run ESLint and fix possible errors
-- `bun run analyze`: Run build with [@next/bundle-analyzer](https://nextjs.org/docs/app/building-your-application/optimizing/bundle-analyzer)
 
 Read about environment variables from [.env.development](.env.development).
 
