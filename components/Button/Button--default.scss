@@ -12,6 +12,7 @@
   gap: rem($space-xs);
   justify-content: space-between;
   min-height: rem($space-xl);
+  opacity: 1;
   padding: rem($space-xs) rem($space-m);
   transition:
     background-color var(--trans-primary-fastest),
