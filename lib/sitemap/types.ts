@@ -22,7 +22,9 @@ export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   year: string | number;
 }
 
-export type SitemapWithoutArrayKeys = keyof WithoutArrayKeys<typeof SITEMAP>;
+export type SitemapWithoutArrayKeys = keyof WithoutArrayKeys<
+  Omit<typeof SITEMAP, 'header'>
+>;
 
 type WithId<Id extends string = ''> = {
   id: Id;
