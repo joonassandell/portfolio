@@ -19,7 +19,7 @@
     "typecheck": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "@joonassandell/ui-lab": "^0.1.6",
+    "@joonassandell/ui-lab": "^0.1.7",
     "@next/third-parties": "^14.2.4",
     "@nivo/line": "^0.86.0",
     "clsx": "^2.1.1",
