@@ -6,7 +6,7 @@ const sitemap: SitemapItem<'home'> = {
     themeColor: '#eeeae5',
     title: undefined,
   },
-  title: 'Selected works',
+  title: 'Work',
   url: '/',
 };
 
