@@ -4,6 +4,7 @@ import { Github, Moon, Sun } from '@/components/Icon';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
+import { Link } from '@/components/Link';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -36,9 +37,12 @@ export const UiLabPage = () => {
             <div className="grid-col grid-col:8@m grid-col:6@l">
               <Heading size="h1">UI Laboratory</Heading>
               <Text className="mb:0" size="l" tag="p">
-                A compilation of milestones from my professional activities,
-                including project launches, feature releases, achievements,
-                album releases, recognitions, and career progress.
+                A showcase of user interface component ideas and experiments.
+                This space serves as a playground for exploring design concepts
+                with a bunch of interactive elements.{' '}
+                <Link href="https://github.com/joonassandell/ui-lab">
+                  View source.
+                </Link>
               </Text>
             </div>
           </TemplateSection>
@@ -49,8 +53,9 @@ export const UiLabPage = () => {
                 <span className="color:mute">01</span> Dynamic Pay Button
               </Text>
               <Text className="mb:0" color="mute" tag="p">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
-                error rerum dolore fugiat odit dolores quisquam.
+                A dynamic button that expands to a "wallet" for quickly
+                purchasing and choosing payment methods. Try dragging between
+                the credit cards to switch the active payment card.
               </Text>
             </div>
             <div className="grid-col grid-col:7@m -start:6@m">
