@@ -10,9 +10,6 @@ const sitemap: SitemapItem<'about'> = {
   },
   title: 'About',
   url: '/about',
-  visible: {
-    headerNav: true,
-  },
 };
 
 export default sitemap;

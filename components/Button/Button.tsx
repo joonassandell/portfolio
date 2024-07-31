@@ -14,11 +14,11 @@ export const Button = ({
   href,
   icon,
   onClick,
-  radius,
-  size,
+  radius = 'full',
+  size = 'm',
   target,
   templateTransition = true,
-  variant,
+  variant = 'default',
   ...props
 }: ButtonProps) => {
   const classes = c(className, 'Button Button--default', {

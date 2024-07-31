@@ -12,9 +12,6 @@ export interface SitemapItem<Id = WithId> {
   };
   title: string;
   url: `/${URL['href']}`;
-  visible?: {
-    headerNav?: boolean;
-  };
 }
 
 export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
