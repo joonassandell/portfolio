@@ -51,6 +51,8 @@
     flex: 1;
     min-height: rem($space * 24);
     place-content: center;
+    position: relative;
+    z-index: 1;
 
     @include mq(s) {
       min-height: rem($space * 26);
