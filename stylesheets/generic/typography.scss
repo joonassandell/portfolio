@@ -11,15 +11,6 @@
 :where(a) {
   color: var(--link);
   text-decoration: none;
-  transition:
-    opacity var(--trans-primary-fastest),
-    color var(--trans-primary-fastest);
-
-  &:hover,
-  &:focus-visible {
-    color: var(--link-hover, var(--link));
-    opacity: var(--link-hover-opacity, 0.6);
-  }
 }
 
 :where(p) {

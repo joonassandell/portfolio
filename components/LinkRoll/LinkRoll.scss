@@ -9,6 +9,14 @@
   display: inline-flex;
   overflow: hidden;
   position: relative;
+  transition:
+    color var(--trans-primary-fastest),
+    opacity var(--trans-primary-fastest);
+
+  &:hover {
+    color: var(--link-hover, var(--link));
+    opacity: var(--link-hover-opacity);
+  }
 }
 
 .LinkRoll-text {
