@@ -1,4 +1,3 @@
-import '@joonassandell/ui-lab/index.css';
 import { Button } from '@/components/Button';
 import { DynamicPayButton } from '@joonassandell/ui-lab';
 import { Github, Moon, Sun } from '@/components/Icon';
@@ -12,14 +11,18 @@ import { ThemeProvider, useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import { useSetThemeColor } from '@/components/App';
+import dynamic from 'next/dynamic';
+
+const Styles = dynamic(() => import('./Styles').then(c => c.UiLabStyles));
 
 export const UiLabPage = () => {
-  const { scroll } = useLocomotiveScroll();
   const { id, meta } = SITEMAP.uiLab;
+  const { scroll } = useLocomotiveScroll();
   useSetThemeColor(meta.themeColor);
 
   return (
     <Template id={id}>
+      <Styles />
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
