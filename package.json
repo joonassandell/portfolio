@@ -6,8 +6,9 @@
   "packageManager": "bun@1.1.7",
   "scripts": {
     "analyze": "ANALYZE=true bun run build",
-    "build": "bun update @joonassandell/ui-lab && next build",
-    "build:ignore": "IGNORE_ERRORS=true next build",
+    "build": "next build",
+    "build:update": "bun update @joonassandell/ui-lab && bun run build",
+    "build:ignore": "IGNORE_ERRORS=true bun run build",
     "check": "bun run lint && bun run typecheck",
     "create:component": "bun --bun ./scripts/create-component.cjs",
     "dev": "next dev",
