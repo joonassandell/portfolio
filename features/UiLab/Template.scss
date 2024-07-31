@@ -2,12 +2,9 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--uiLab {
-  --Template-bg: #fafafa;
-  --Footer-border: var(--border-900);
-
   .Template-main {
-    --Template-box-bg: #f4f4f5;
-    --Template-box-border: #dfdfe2;
+    --Template-box-bg: #fafafa;
+    --Template-box-border: var(--border-100);
 
     --Button-color: var(--text-800);
     --Button-hover-bg: var(--bg-50);

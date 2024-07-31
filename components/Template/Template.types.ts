@@ -18,7 +18,7 @@ export interface TemplateSectionProps
   grid?: boolean;
   gridGap?: 'm' | 'l' | 'xl' | false;
   gridRowGap?: 'm' | 'l' | 'xl' | false;
-  pb?: '10vw' | '15vw' | false;
+  pb?: '5vw' | '10vw' | '15vw' | false;
   pt?: 'base' | 'm' | 'l' | '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
   theme?: 'dark' | 'light';
   wrap?: boolean;

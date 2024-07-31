@@ -33,6 +33,7 @@ export const TemplateSection = ({
     'pt:20vw': pt === '20vw',
     'pb:10vw': pb === '10vw',
     'pb:15vw': pb === '15vw',
+    'pb:5vw': pb === '5vw',
     'theme:dark': theme === 'dark',
     'theme:light': theme === 'light',
   });

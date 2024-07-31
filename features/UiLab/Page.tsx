@@ -46,16 +46,18 @@ export const UiLabPage = () => {
               </Text>
             </div>
           </TemplateSection>
-          <TemplateSection gridRowGap="l" id="dynamic-pay-button" pb="15vw">
+          <TemplateSection gridRowGap="m" id="dynamic-pay-button" pb="5vw">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
                 <span className="color:mute">01</span> Dynamic Pay Button
               </Text>
-              <Text className="mb:0" color="mute" tag="p">
-                A dynamic button that expands to a "wallet" for quickly
-                purchasing and choosing payment methods. Try dragging between
-                the credit cards to switch the active payment card.
+              <Text className="mb:xs" color="mute">
+                <p>
+                  A dynamic button that expands to a <q>wallet</q> for quickly
+                  purchasing and choosing payment methods. Try dragging between
+                  the credit cards to switch the active payment card.
+                </p>
               </Text>
             </div>
             <div className="grid-col grid-col:7@m -start:6@m">
@@ -76,6 +78,38 @@ export const UiLabPage = () => {
                   >
                     Source
                   </Button>
+                </div>
+              </div>
+            </div>
+          </TemplateSection>
+          <TemplateSection gridRowGap="m" id="tba" pb="15vw">
+            <div className="grid-col grid-col:4@m">
+              <Hr animate={false} className="mb:ml" />
+              <Text className="mb" size="l" tag="h2">
+                <span className="color:mute">02</span> TBA
+              </Text>
+              <Text className="mb:xs" color="mute">
+                <p>
+                  Nothing here yet but I'm planning on something new. Various
+                  ideas:
+                </p>
+                <ul>
+                  <li>Some sort of expanding git history</li>
+                  <li>TV Remote Control Display</li>
+                  <li>Dynamic Audio Player</li>
+                  <li>CTA button that turns into navigation</li>
+                </ul>
+              </Text>
+            </div>
+            <div className="grid-col grid-col:7@m -start:6@m">
+              <div className="Template-box">
+                <div className="Template-box-content">
+                  <Text color="mute">
+                    <p>To be announced…</p>
+                  </Text>
+                </div>
+                <div className="Template-box-footer">
+                  <ThemeToggle />
                 </div>
               </div>
             </div>
