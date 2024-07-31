@@ -52,10 +52,16 @@
 
 .Header-logo,
 .Header-button-text-item {
+  flex-shrink: 0;
   height: rem($space-ml);
   line-height: rem($space-ml);
+  white-space: nowrap;
 
   @include mq(m) {
+    @include fontSize($h6-font-size-min, false, $h6-font-size-max);
+  }
+
+  @include mq(ml) {
     @include fontSize($h5-font-size-min, false, $h5-font-size-max);
   }
 }
@@ -89,11 +95,16 @@
     flex-direction: column;
     height: rem($space-ml);
     justify-content: center;
-    margin: 0 rem($space-s);
+    margin: 0 rem($space-xs);
     overflow: hidden;
     position: relative;
-    width: rem($space * 1.25);
+    width: rem($space);
     z-index: 1;
+  }
+
+  @include mq(ml) {
+    margin: 0 rem($space-s);
+    width: rem($space * 1.25);
   }
 }
 
@@ -123,7 +134,7 @@
     }
   }
 
-  @include mq(m) {
+  @include mq(ml) {
     gap: rem($space);
   }
 }
