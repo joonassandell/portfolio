@@ -23,6 +23,7 @@ export const UiLabPage = () => {
 
   return (
     <Template id={id}>
+      <Head description={meta.description} title={meta.title} />
       <Styles />
       <ThemeProvider
         attribute="class"
@@ -31,32 +32,39 @@ export const UiLabPage = () => {
         enableSystem={false}
         value={{ dark: 'u-dark' }}
       >
-        <Head description={meta.description} title={meta.title} />
         <TemplateMain>
-          <TemplateSection>
+          <div className="Template-bg">
+            <div className="Template-bg-1" />
+            <div className="Template-bg-2" />
+          </div>
+          <TemplateSection gridRowGap={false}>
+            <div className="grid-col">
+              <Heading className="Template-heading" size="display">
+                UI Lab
+              </Heading>
+            </div>
             <div className="grid-col grid-col:8@m grid-col:6@l">
-              <Heading size="h1">UI Laboratory</Heading>
-              <Text className="mb:0" size="l" tag="p">
-                A showcase of user interface component ideas and experiments.
-                This space serves as a playground for exploring design concepts
-                with a bunch of interactive elements.{' '}
+              <Heading className="Template-subtitle mb:0" size="h5" tag="h2">
                 <Link href="https://github.com/joonassandell/ui-lab">
-                  View source.
-                </Link>
-              </Text>
+                  <em>User interface laboratory</em>
+                </Link>{' '}
+                is a showcase of various UI component experiments and
+                interactive design concepts.
+              </Heading>
             </div>
           </TemplateSection>
           <TemplateSection gridRowGap="m" id="dynamic-pay-button" pb="5vw">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
-                <span className="color:mute">01</span> Dynamic Pay Button
+                <span className="Template-highlightColor">01</span> Dynamic Pay
+                Button
               </Text>
               <Text className="mb:xs" color="mute">
                 <p>
                   A dynamic button that expands to a <q>wallet</q> for quickly
-                  purchasing and choosing payment methods. Try dragging between
-                  the credit cards to switch the active payment card.
+                  purchasing and choosing payment methods. Try dragging the
+                  credit cards to switch between the active one.
                 </p>
               </Text>
             </div>
@@ -86,7 +94,7 @@ export const UiLabPage = () => {
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
-                <span className="color:mute">02</span> TBA
+                <span className="Template-highlightColor">02</span> TBA
               </Text>
               <Text className="mb:xs" color="mute">
                 <p>
@@ -128,9 +136,7 @@ const ThemeToggle = () => {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <Button

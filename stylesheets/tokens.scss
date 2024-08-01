@@ -77,6 +77,8 @@
   --accent-1: hsl(var(--accent-1-hsl));
   --accent-2: #2300ff;
   --accent-3: #f59e0b;
+  --accent-4-hsl: 288 100% 50%;
+  --accent-4: hsl(var(--accent-4-hsl));
 
   // Primary
   --primary-hsl: var(--accent-1-hsl);
