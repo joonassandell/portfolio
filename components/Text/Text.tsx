@@ -23,7 +23,6 @@ export const Text = ({
       '-size:l': size === 'l',
       '-size:m': size === 'm',
       '-size:s': size === 's',
-      '-size:xl': size === 'xl',
       '-size:xs': size === 'xs',
       'color:mute': color === 'mute',
       'color:mute:blend': color === 'mute:blend',
