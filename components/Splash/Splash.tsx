@@ -16,7 +16,7 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
           variants={splashVariants}
         >
           <div className="Splash-main">
-            <Text className="Splash-row" size="xl">
+            <Heading className="Splash-row mb:2xs" size="h6" tag="div">
               <m.div
                 className="Splash-text"
                 exit="exit"
@@ -24,8 +24,8 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
               >
                 Portfolio of
               </m.div>
-            </Text>
-            <Heading className="Splash-row" size="h3" tag="div">
+            </Heading>
+            <Heading className="Splash-row mb:m" size="h3" tag="div">
               <m.div
                 className="Splash-text"
                 exit="exit"

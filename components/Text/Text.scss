@@ -25,10 +25,6 @@
     }
   }
 
-  &.-size\:xl {
-    @include text(xl);
-  }
-
   &.-maxWidth {
     max-width: rem($space * 34);
   }

@@ -2,9 +2,7 @@
 @use 'fontSize' as *;
 
 @mixin text($size: null) {
-  @if $size == 'xl' {
-    @include fontSize($font-size, $line-height-xl, $font-size-xl);
-  } @else if $size == 'l' {
+  @if $size == 'l' {
     @include fontSize($font-size, $line-height-l, $font-size-l);
   } @else if $size == 'm' {
     @include fontSize($font-size, $line-height);
