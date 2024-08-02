@@ -15,7 +15,11 @@ export const UiLabPage = () => {
 
   return (
     <Template id={id}>
-      <Head description={meta.description} title={meta.title} />
+      <Head
+        description={meta.description}
+        ogImage={meta.ogImage}
+        title={meta.title}
+      />
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -59,7 +63,7 @@ export const UiLabPage = () => {
                 </p>
               </Text>
             </div>
-            <div className="grid-col grid-col:7@m -start:6@m">
+            <div className="grid-col grid-col:8@m grid-col:7@l -end">
               <Box
                 source="https://github.com/joonassandell/ui-lab/tree/main/app/dynamic-pay-button"
                 src="dynamic-pay-button"
@@ -85,7 +89,7 @@ export const UiLabPage = () => {
                 </ul>
               </Text>
             </div>
-            <div className="grid-col grid-col:7@m -start:6@m">
+            <div className="grid-col grid-col:8@m grid-col:7@l -end">
               <Box>
                 <Text color="mute">
                   <p>To be announced…</p>
