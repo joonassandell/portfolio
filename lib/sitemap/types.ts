@@ -1,4 +1,5 @@
 import { type AppHeadProps } from '@/components/App';
+import { type HeadProps } from '@/components/Head';
 import { type SITEMAP } from '@/lib/sitemap';
 import { type WithoutArrayKeys } from '@/types';
 
@@ -6,9 +7,10 @@ export interface SitemapItem<Id = WithId> {
   id: Id;
   imagesPath?: `./public/${string}/*.${string}`;
   meta: {
-    description?: string;
+    description?: HeadProps['description'];
+    ogImage?: HeadProps['ogImage'];
     themeColor?: AppHeadProps['themeColor'];
-    title: string | undefined;
+    title: HeadProps['title'];
   };
   title: string;
   url: `/${URL['href']}`;

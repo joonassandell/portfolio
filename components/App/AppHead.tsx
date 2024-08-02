@@ -36,7 +36,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         key="og:description"
         property="og:description"
       />
-      <meta content={ogImage} property="og:image" />
+      <meta content={ogImage} key="og:image" property="og:image" />
       <meta content="en" property="og:locale" />
       <meta content={appName} property="og:site_name" />s
       <meta content="website" property="og:type" />
@@ -50,7 +50,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       />
       <meta content="summary_large_image" property="twitter:card" />
       <meta content={twitter} property="twitter:creator" />
-      <meta content={ogImage} property="twitter:image" />
+      <meta content={ogImage} key="twitter:image" property="twitter:image" />
       <meta content={twitter} property="twitter:site" />
       {/* Icons */}
       <link href={touchIcon} rel="apple-touch-icon" sizes="180x180" />

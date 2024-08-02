@@ -1,8 +1,9 @@
+import { APP_URL } from '@/lib/config';
 import { CONTENT } from '@/lib/sitemap';
 import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
-export const Head = ({ children, description, title }: HeadProps) => {
+export const Head = ({ children, description, ogImage, title }: HeadProps) => {
   const pageTitle = title
     ? `${CONTENT.meta.titlePrefix}${title ? ' — ' + title : ''}`
     : '';
@@ -32,6 +33,20 @@ export const Head = ({ children, description, title }: HeadProps) => {
             content={description}
             key="twitter:description"
             property="twitter:description"
+          />
+        </>
+      )}
+      {ogImage && (
+        <>
+          <meta
+            content={`${APP_URL}${ogImage}`}
+            key="og:image"
+            property="og:image"
+          />
+          <meta
+            content={`${APP_URL}${ogImage}`}
+            key="twitter:image"
+            property="twitter:image"
           />
         </>
       )}
