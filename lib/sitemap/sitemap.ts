@@ -113,7 +113,7 @@ export const CONTENT = {
       'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
     favIcon: '/static/favicon.svg?v=2',
     favIconIco: '/static/favicon.ico?v=2',
-    ogImage: `${APP_URL}/static/og-image.jpg?v=3`,
+    ogImage: `${APP_URL}/static/og.jpg`,
     title: 'Joonas Sandell — Designer & Developer',
     titlePrefix: 'Joonas Sandell',
     touchIcon: '/static/apple-touch-icon.png?v=2',
