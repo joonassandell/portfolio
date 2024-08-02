@@ -48,6 +48,12 @@
   justify-content: space-between;
 }
 
+.Footer-bottom-updated {
+  --link: var(--text-800-blend);
+  --link-hover-opacity: 1;
+  --link-hover: var(--text-50);
+}
+
 /* =======================================
  * Variants
  * ======================================= */

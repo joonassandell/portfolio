@@ -11,7 +11,9 @@ import DribbbleIcon from './icons/dribbble.svg';
 import GithubIcon from './icons/github.svg';
 import InstagramIcon from './icons/instagram.svg';
 import LinkedInIcon from './icons/linkedin.svg';
+import MoonIcon from './icons/moon.svg';
 import SoundCloudIcon from './icons/soundcloud.svg';
+import SunIcon from './icons/sun.svg';
 import XIcon from './icons/x.svg';
 
 const Icon = ({
@@ -69,4 +71,12 @@ export const Check = (props: IconProps) => (
 
 export const Copy = (props: IconProps) => (
   <Icon Icon={CopyIcon} name="copy" {...props} />
+);
+
+export const Sun = (props: IconProps) => (
+  <Icon Icon={SunIcon} name="sun" {...props} />
+);
+
+export const Moon = (props: IconProps) => (
+  <Icon Icon={MoonIcon} name="moon" {...props} />
 );

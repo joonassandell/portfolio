@@ -5,6 +5,7 @@
  * 1. Fix possible background leaking related to scroll transform glitches
  */
 .NextProject {
+  --link: var(--text-50);
   background-color: var(--NextProject-bg, var(--Template-bg, var(--bg-50)));
   margin: -1px 0; // [1.]
   padding-top: rem($space-3xl);
@@ -12,9 +13,9 @@
 
 .NextProject-link {
   @include fontSize(16px, 16px, 112px, 10vw);
-  color: var(--text-50);
   mix-blend-mode: difference;
   opacity: 1;
+  padding-bottom: rem($space-4xs);
   z-index: 1;
 }
 

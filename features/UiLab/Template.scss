@@ -1,0 +1,171 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--uiLab {
+  .Template-main {
+    --Template-box-bg: #fafafa;
+    --Template-box-border: var(--border-100);
+
+    --Button-color: var(--text-800);
+    --Button-hover-bg: var(--bg-50);
+    --Button-hover-border: transparent;
+    --Button-hover-shadow: var(--shadow-hover);
+    --Button-hover-color: var(--text-950);
+  }
+
+  .Template-section {
+    position: relative;
+  }
+
+  .Template-heading {
+    background: linear-gradient(
+        160deg,
+        var(--black) 40%,
+        hsl(var(--black-hsl) / 0.7)
+      )
+      text;
+    color: transparent;
+    display: inline-block;
+    padding-right: rem($space-2xs);
+  }
+
+  .Template-highlightColor {
+    background: linear-gradient(150deg, var(--accent-1), var(--accent-4));
+    background-clip: text;
+    color: transparent;
+  }
+
+  .Template-box {
+    background: var(--Template-box-bg);
+    border: var(--border-width) solid var(--Template-box-border);
+    border-radius: var(--border-radius-l);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .Template-box-content {
+    display: flex;
+    flex: 1;
+    min-height: rem($space * 24);
+
+    &:not(:has(.Template-box-iframe)) {
+      display: grid;
+      place-content: center;
+    }
+
+    @include mq(s) {
+      min-height: rem($space * 26);
+    }
+  }
+
+  .Template-box-iframe {
+    width: 100%;
+  }
+
+  .Template-box-footer {
+    border-top: var(--border-width) solid var(--Template-box-border);
+    display: flex;
+    gap: rem($space-s);
+    padding: rem($space-s) rem($space);
+  }
+
+  .Template-bg {
+    inset: 0;
+    isolation: isolate;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .Template-bg-1,
+  .Template-bg-2 {
+    inset: 0 auto auto 0;
+    position: absolute;
+    rotate: -45deg;
+  }
+
+  .Template-bg-1 {
+    background: radial-gradient(
+      80% 70% at 50% 30%,
+      hsl(var(--accent-4-hsl) / 0.4),
+      transparent 50%
+    );
+    height: rem($space * 85);
+    translate: 0 rem($space * -22);
+    width: rem($space * 35);
+    z-index: 1;
+  }
+
+  .Template-bg-2 {
+    z-index: 0;
+
+    @include mq($until: m) {
+      display: none;
+    }
+  }
+
+  .dark & {
+    --Template-bg: hsl(240deg 10% 4%);
+    --Footer-border: var(--border-900);
+
+    .Template-main {
+      --Template-color: var(--text-50);
+      --Template-box-bg: hsl(240deg 5% 4%);
+      --Template-box-border: hsl(var(--white-hsl) / 0.03);
+
+      --Button-bg: hsl(240deg 8% 7%);
+      --Button-color: var(--text-100);
+      --Button-shadow: var(--shadow-dark);
+      --Button-hover-bg: var(--Button-bg);
+      --Button-hover-shadow: var(--shadow-dark-hover);
+      --Button-hover-color: var(--text-50);
+
+      --text-800: var(--text-100);
+      --border-950: var(--border-900);
+      --link: var(--text-50);
+    }
+
+    .Template-heading {
+      background-image: linear-gradient(
+        160deg,
+        var(--white) 40%,
+        hsl(var(--white-hsl) / 0.5)
+      );
+    }
+
+    .Template-subtitle {
+      color: var(--text-100);
+    }
+
+    .Template-bg {
+      @at-root .has-themeColor.dark .Template--uiLab .Template-bg {
+        &:before {
+          background: linear-gradient(var(--Template-bg), transparent 2%);
+          content: '';
+          inset: 0;
+          position: absolute;
+          z-index: 2;
+        }
+      }
+    }
+
+    .Template-bg-1 {
+      background: radial-gradient(
+        80% 70% at 50% 30%,
+        hsl(240deg 15% 10%),
+        transparent 50%
+      );
+    }
+
+    .Template-bg-2 {
+      background: radial-gradient(
+        50% 100% at center,
+        hsl(240deg 15% 10%),
+        var(--Template-bg) 50%
+      );
+      height: rem($space * 70);
+      translate: 0 rem($space * -45);
+      width: rem($space * 30);
+    }
+  }
+}

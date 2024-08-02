@@ -9,9 +9,12 @@
   display: inline-flex;
   overflow: hidden;
   position: relative;
-  transition: opacity var(--trans-primary-fastest);
+  transition:
+    color var(--trans-primary-fastest),
+    opacity var(--trans-primary-fastest);
 
   &:hover {
+    color: var(--link-hover, var(--link));
     opacity: var(--link-hover-opacity);
   }
 }
@@ -43,7 +46,7 @@
       &:after {
         border-bottom: var(--border-width) solid;
         content: '';
-        inset: auto -1px rem($space-4xs) 0;
+        inset: auto -1px rem($space-5xs) 0;
         opacity: 0;
         position: absolute;
         transition: opacity var(--trans-primary);

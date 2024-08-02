@@ -37,20 +37,16 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                 </div>
                 <div className="grid-col grid-col:5 grid-col:4@s">
                   <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                    Work
+                    Projects
                   </Text>
                   <Text tag="ul">
-                    {SITEMAP.work
-                      .filter(item => !item.hidden?.footerNav)
-                      .map(item => {
-                        return (
-                          <li key={item.id}>
-                            <FooterLink href={item.url}>
-                              {item.title}
-                            </FooterLink>
-                          </li>
-                        );
-                      })}
+                    {SITEMAP.projects.map(item => {
+                      return (
+                        <li key={item.id}>
+                          <FooterLink href={item.url}>{item.title}</FooterLink>
+                        </li>
+                      );
+                    })}
                   </Text>
                 </div>
                 <div className="grid-col grid-col:4@s">
@@ -85,13 +81,12 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
           </div>
           <Text className="Footer-bottom" size="s">
-            <p className="mb:0">
-              &copy; {new Date().getFullYear()} {CONTENT.person.name}
+            <p className="Footer-bottom-updated mb:0">
+              © {new Date().getFullYear()} {CONTENT.person.name}
               <span className="color:mute:blend visible@s">
                 {' '}
                 ✳︎ Last updated:{' '}
                 <Link
-                  className="color:mute:blend"
                   href={
                     GIT_COMMIT_SHA
                       ? `${LINK.source.url}/commit/${GIT_COMMIT_SHA}`

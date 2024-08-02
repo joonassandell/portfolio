@@ -1,6 +1,9 @@
 .Icon {
   display: inline-flex;
-  fill: currentColor;
   height: var(--Icon-size, var(--Icon-size-m));
   width: var(--Icon-size, var(--Icon-size-m));
+
+  &:not([fill='none']) {
+    fill: currentColor;
+  }
 }

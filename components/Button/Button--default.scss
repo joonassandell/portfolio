@@ -4,25 +4,27 @@
 .Button--default {
   @include text(m);
   align-items: center;
-  background: var(--bg-50);
+  background: var(--Button-bg, var(--bg-50));
   border: var(--border-width) solid transparent;
-  border-radius: var(--border-radius-pill);
-  box-shadow: var(--shadow);
-  color: var(--text-950);
+  border-radius: var(--Button-radius, var(--border-radius-pill));
+  box-shadow: var(--Button-shadow, var(--shadow));
+  color: var(--Button-color, var(--text-950));
   gap: rem($space-xs);
   justify-content: space-between;
   min-height: rem($space-xl);
   padding: rem($space-xs) rem($space-m);
   transition:
     background-color var(--trans-primary-fastest),
+    color var(--trans-primary-fastest),
     border-color var(--trans-primary-fastest),
     box-shadow var(--trans-primary-fastest);
 
   &:hover,
   &:focus-visible {
-    background: transparent;
-    border-color: var(--border-950);
-    box-shadow: unset;
+    background: var(--Button-hover-bg, transparent);
+    border-color: var(--Button-hover-border, var(--border-950));
+    box-shadow: var(--Button-hover-shadow, unset);
+    color: var(--Button-hover-color, var(--text-950));
   }
 
   &:active {
@@ -31,7 +33,19 @@
 
   .Button-icon {
     margin-right: rem($space-3xs * -1);
-    will-change: transform;
+
+    @at-root .is-ios & {
+      will-change: transform;
+    }
+  }
+
+  .Button-text {
+    position: relative;
+    top: rem($space-5xs * -1);
+
+    @at-root .is-ios & {
+      top: 0;
+    }
   }
 }
 
@@ -39,20 +53,55 @@
  * Variants
  * ======================================= */
 
-.Button--default--negative {
-  background: var(--bg-950);
-  box-shadow: unset;
-  color: var(--text-50);
+.Button--default {
+  &.-radius\:m {
+    --Button-radius: var(--border-radius);
+    padding-left: rem($space);
+    padding-right: rem($space);
+  }
 
-  &:hover,
-  &:focus-visible {
-    background: var(--bg-900);
+  &.-size\:s,
+  &.-size\:square\:s {
+    .Button-icon {
+      --Icon-size: var(--Icon-size-s);
+    }
+  }
+
+  &.-size\:s {
+    min-height: rem($space-ml);
+    padding: rem($space-3xs) rem($space);
+
+    &.-radius\:m {
+      padding-left: rem($space-s);
+      padding-right: rem($space-s);
+    }
+  }
+
+  &.-size\:square,
+  &.-size\:square\:s {
+    justify-content: center;
+    padding: 0;
+
+    .Button-icon {
+      margin: 0;
+    }
+  }
+
+  &.-size\:square {
+    min-height: rem($space-xl);
+    width: rem($space-xl);
+  }
+
+  &.-size\:square\:s {
+    min-height: rem($space-ml);
+    width: rem($space-ml);
   }
 }
 
-.Button {
-  &.-size\:s {
-    min-height: rem($space-l);
-    padding: rem($space-2xs) rem($space);
-  }
+.Button--default--negative {
+  --Button-bg: var(--bg-950);
+  --Button-color: var(--text-50);
+  --Button-shadow: unset;
+  --Button-hover-bg: var(--bg-900);
+  --Button-hover-color: var(--text-50);
 }

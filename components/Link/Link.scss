@@ -9,10 +9,13 @@
   overflow: hidden;
   pointer-events: all;
   position: relative;
-  transition: opacity var(--trans-primary-fastest);
+  transition:
+    color var(--trans-primary-fastest),
+    opacity var(--trans-primary-fastest);
   word-break: break-word;
 
   &:hover {
+    color: var(--link-hover, var(--link));
     opacity: var(--link-hover-opacity);
   }
 }

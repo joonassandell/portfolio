@@ -99,6 +99,7 @@ export const App = ({
       const {
         hasThemeColor,
         hasTouch,
+        isIos,
         isSafari,
         isSafariDesktop,
         isSafariIphone,
@@ -106,6 +107,7 @@ export const App = ({
       } = await import('@/lib/detect');
       if (isWindows) html.classList.add('is-windows');
       if (hasThemeColor) html.classList.add('has-themeColor');
+      if (isIos) html.classList.add('is-ios');
       if (isSafari) html.classList.add('is-safari');
       if (isSafariIphone) html.classList.add('is-safari:iphone');
       if (isSafariDesktop) html.classList.add('is-safari:desktop');

@@ -9,9 +9,6 @@ const sitemap: SitemapItem<'milestones'> = {
   },
   title: 'Milestones',
   url: '/milestones',
-  visible: {
-    headerNav: true,
-  },
 };
 
 export default sitemap;

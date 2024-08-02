@@ -1,34 +1,29 @@
 import { type AppHeadProps } from '@/components/App';
+import { type HeadProps } from '@/components/Head';
 import { type SITEMAP } from '@/lib/sitemap';
 import { type WithoutArrayKeys } from '@/types';
 
 export interface SitemapItem<Id = WithId> {
-  hidden?: {
-    footerNav?: boolean;
-  };
   id: Id;
   imagesPath?: `./public/${string}/*.${string}`;
   meta: {
-    description?: string;
+    description?: HeadProps['description'];
+    ogImage?: HeadProps['ogImage'];
     themeColor?: AppHeadProps['themeColor'];
-    title: string | undefined;
+    title: HeadProps['title'];
   };
   title: string;
   url: `/${URL['href']}`;
-  visible?: {
-    headerNav?: boolean;
-  };
 }
 
 export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   color: string;
-  hidden?: SitemapItem['hidden'] & {
-    headerMaskNav?: boolean;
-  };
   year: string | number;
 }
 
-export type SitemapWithoutArrayKeys = keyof WithoutArrayKeys<typeof SITEMAP>;
+export type SitemapWithoutArrayKeys = keyof WithoutArrayKeys<
+  Omit<typeof SITEMAP, 'header'>
+>;
 
 type WithId<Id extends string = ''> = {
   id: Id;

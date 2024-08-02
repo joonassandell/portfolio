@@ -6,8 +6,15 @@ import Head from 'next/head';
 
 export const AppHead = ({ themeColor }: AppHeadProps) => {
   const { asPath } = useRouter();
-  const { description, favIcon, favIconIco, ogImage, title, touchIcon } =
-    CONTENT.meta;
+  const {
+    appName,
+    description,
+    favIcon,
+    favIconIco,
+    ogImage,
+    title,
+    touchIcon,
+  } = CONTENT.meta;
   const {
     email,
     name,
@@ -22,7 +29,6 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       {/* Common */}
       <title>{title}</title>
       <meta content={description} key="description" name="description" />
-
       {/* Open Graph */}
       <meta content={title} key="og:title" property="og:title" />
       <meta
@@ -30,12 +36,11 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         key="og:description"
         property="og:description"
       />
-      <meta content={ogImage} property="og:image" />
+      <meta content={ogImage} key="og:image" property="og:image" />
       <meta content="en" property="og:locale" />
-      <meta content={CONTENT.person.name} property="og:site_name" />
+      <meta content={appName} property="og:site_name" />s
       <meta content="website" property="og:type" />
       <meta content={`${APP_URL}${asPath}`} property="og:url" />
-
       {/* Twitter */}
       <meta content={title} key="twitter:title" property="twitter:title" />
       <meta
@@ -45,19 +50,16 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
       />
       <meta content="summary_large_image" property="twitter:card" />
       <meta content={twitter} property="twitter:creator" />
-      <meta content={ogImage} property="twitter:image" />
+      <meta content={ogImage} key="twitter:image" property="twitter:image" />
       <meta content={twitter} property="twitter:site" />
-
       {/* Icons */}
       <link href={touchIcon} rel="apple-touch-icon" sizes="180x180" />
       <link href={favIconIco} rel="icon" sizes="any" />
       <link href={favIcon} rel="icon" type="image/svg+xml" />
       <link color="#eeeae5" href={favIcon} rel="mask-icon" />
-
       {/* Web app */}
-      <meta content="Joonas Sandell" name="apple-mobile-web-app-title" />
-      <meta content="Joonas Sandell" name="application-name" />
-
+      <meta content={appName} name="apple-mobile-web-app-title" />
+      <meta content={appName} name="application-name" />
       {/* Schema.org */}
       <script
         dangerouslySetInnerHTML={{
@@ -73,36 +75,33 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         }}
         type="application/ld+json"
       />
-
       {/* Fonts */}
       <link
         as="font"
         crossOrigin="anonymous"
-        href="/static/fonts/Px-Grotesk-Regular.woff2"
+        href="/static/fonts/Px-Grotesk-Regular.woff2?v=2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
         crossOrigin="anonymous"
-        href="/static/fonts/Px-Grotesk-Regular-Italic.woff2"
+        href="/static/fonts/Px-Grotesk-Regular-Italic.woff2?v=2"
         rel="preload"
         type="font/woff2"
       />
       <link
         as="font"
         crossOrigin="anonymous"
-        href="/static/fonts/Px-Grotesk-Light.woff2"
+        href="/static/fonts/Px-Grotesk-Light.woff2?v=2"
         rel="preload"
         type="font/woff2"
       />
-
       {/* Google */}
       <meta content={thumbnail} name="thumbnail" />
-
       {/* Essential */}
       <meta
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
         name="viewport"
       />
       <meta

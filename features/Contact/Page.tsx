@@ -31,7 +31,6 @@ export const ContactPage = () => {
       <TemplateMain>
         <TemplateSection className="Template-top" grid={false}>
           <Heading
-            aria-hidden
             className="white-space:nowrap mb:0"
             data-s
             data-s-direction="horizontal"
@@ -40,7 +39,8 @@ export const ContactPage = () => {
             size="display"
             tag="h1"
           >
-            <TextReveal text={['Get in touch ✳︎ Get in touch']} />
+            <TextReveal aria-hidden text={['Get in touch ✳︎ Get in touch']} />
+            <span className="hideVisually">Get in touch</span>
           </Heading>
         </TemplateSection>
         <TemplateSection gridRowGap="l" pb="15vw" pt="5vw">

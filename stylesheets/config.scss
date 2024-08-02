@@ -1,12 +1,9 @@
-// =========
-// Typography
-// =========
+/* =======================================
+ * Base font size
+ * ======================================= */
 
 $font-size: 16px;
 $line-height: 24px;
-
-$font-size-xl: 22px;
-$line-height-xl: 22px;
 
 $font-size-l: 19px;
 $line-height-l: 22px;
@@ -16,6 +13,10 @@ $line-height-s: 20px;
 
 $font-size-xs: 13px;
 $line-height-xs: 18px;
+
+/* =======================================
+ * Heading font size
+ * ======================================= */
 
 $h1-font-size-min: 40px;
 $h1-font-size-max: 102px;
@@ -35,15 +36,15 @@ $h4-line-height: 28px;
 
 $h5-font-size-min: 18px;
 $h5-font-size-max: 24px;
-$h5-line-height: 22px;
+$h5-line-height: 24px;
 
 $h6-font-size-min: 16px;
 $h6-font-size-max: 22px;
 $h6-line-height: 22px;
 
-// =========
-// Spacing and sizing
-// =========
+/* =======================================
+ * Spacing
+ * ======================================= */
 
 $space-6xs: 0.5px;
 $space-5xs: 1px;
@@ -63,9 +64,9 @@ $space-4xl: 96px;
 $space-5xl: 112px;
 $space-6xl: 128px;
 
-// =========
-// Breakpoints
-// =========
+/* =======================================
+ * Breakpoints
+ * ======================================= */
 
 $breakpoints: (
   '3xs': 320px,

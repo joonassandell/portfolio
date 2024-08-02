@@ -76,11 +76,9 @@ export const AboutIntro = () => {
           <Heading className="mb:m" size="h3" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
-          <Text className="mb:l" size="xl">
-            <p>
-              <TextReveal text={mqS ? lead.desktop : lead.mobile} />
-            </p>
-          </Text>
+          <Heading className="mb:l" size="h6" tag="h2">
+            <TextReveal text={mqS ? lead.desktop : lead.mobile} />
+          </Heading>
           <Text animate className="mb:m">
             <Button href={SITEMAP.resume.url} icon={<ArrowRight />}>
               View resume
