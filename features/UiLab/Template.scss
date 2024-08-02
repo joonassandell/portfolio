@@ -98,6 +98,10 @@
 
   .Template-bg-2 {
     z-index: 0;
+
+    @include mq($until: m) {
+      display: none;
+    }
   }
 
   .dark & {
@@ -149,7 +153,7 @@
       background: radial-gradient(
         80% 70% at 50% 30%,
         hsl(240deg 15% 10%),
-        hsl(240deg 15% 10% / 0) 50%
+        transparent 50%
       );
     }
 

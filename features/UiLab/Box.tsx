@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { Github, Moon, Sun } from '@/components/Icon';
 import { m } from 'framer-motion';
-import { TRANS_PRIMARY_FAST, UI_LAB_URL } from '@/lib/config';
+import { TRANS_PRIMARY_FASTEST, UI_LAB_URL } from '@/lib/config';
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
@@ -27,7 +27,7 @@ export const Box = ({ children, source, src }: any) => {
             onLoad={() => setLoaded(true)}
             ref={iframe}
             src={`${UI_LAB_URL}/${src}`}
-            transition={TRANS_PRIMARY_FAST}
+            transition={TRANS_PRIMARY_FASTEST}
           />
         )}
       </div>
