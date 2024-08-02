@@ -41,19 +41,26 @@
     border-radius: var(--border-radius-l);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .Template-box-content {
-    display: grid;
+    display: flex;
     flex: 1;
     min-height: rem($space * 24);
-    place-content: center;
-    position: relative;
-    z-index: 1;
+
+    &:not(:has(.Template-box-iframe)) {
+      display: grid;
+      place-content: center;
+    }
 
     @include mq(s) {
       min-height: rem($space * 26);
     }
+  }
+
+  .Template-box-iframe {
+    width: 100%;
   }
 
   .Template-box-footer {
@@ -93,7 +100,7 @@
     z-index: 0;
   }
 
-  .u-dark & {
+  .dark & {
     --Template-bg: hsl(240deg 10% 4%);
     --Footer-border: var(--border-900);
 
@@ -127,7 +134,7 @@
     }
 
     .Template-bg {
-      @at-root .has-themeColor.u-dark .Template--uiLab .Template-bg {
+      @at-root .has-themeColor.dark .Template--uiLab .Template-bg {
         &:before {
           background: linear-gradient(var(--Template-bg), transparent 2%);
           content: '';

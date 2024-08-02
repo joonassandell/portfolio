@@ -1,6 +1,4 @@
-import { Button } from '@/components/Button';
-import { DynamicPayButton } from '@joonassandell/ui-lab';
-import { Github, Moon, Sun } from '@/components/Icon';
+import { Box } from './';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
@@ -8,29 +6,22 @@ import { Link } from '@/components/Link';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
-import { ThemeProvider, useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
+import { ThemeProvider } from 'next-themes';
 import { useSetThemeColor } from '@/components/App';
-import dynamic from 'next/dynamic';
-
-const Styles = dynamic(() => import('./Styles').then(c => c.UiLabStyles));
 
 export const UiLabPage = () => {
   const { id, meta } = SITEMAP.uiLab;
-  const { scroll } = useLocomotiveScroll();
   useSetThemeColor(meta.themeColor);
 
   return (
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
-      <Styles />
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
         disableTransitionOnChange
         enableSystem={false}
-        value={{ dark: 'u-dark' }}
+        value={{ dark: 'dark' }}
       >
         <TemplateMain>
           <div className="Template-bg">
@@ -69,25 +60,10 @@ export const UiLabPage = () => {
               </Text>
             </div>
             <div className="grid-col grid-col:7@m -start:6@m">
-              <div className="Template-box">
-                <div className="Template-box-content">
-                  <DynamicPayButton
-                    onCardTouchEnd={() => scroll?.start()}
-                    onCardTouchStart={() => scroll?.stop()}
-                  />
-                </div>
-                <div className="Template-box-footer">
-                  <ThemeToggle />
-                  <Button
-                    href="https://github.com/joonassandell/ui-lab/tree/main/app/dynamic-pay-button"
-                    icon={<Github />}
-                    radius="m"
-                    size="s"
-                  >
-                    Source
-                  </Button>
-                </div>
-              </div>
+              <Box
+                source="https://github.com/joonassandell/ui-lab/tree/main/app/dynamic-pay-button"
+                src="dynamic-pay-button"
+              />
             </div>
           </TemplateSection>
           <TemplateSection gridRowGap="m" id="tba" pb="15vw">
@@ -110,42 +86,15 @@ export const UiLabPage = () => {
               </Text>
             </div>
             <div className="grid-col grid-col:7@m -start:6@m">
-              <div className="Template-box">
-                <div className="Template-box-content">
-                  <Text color="mute">
-                    <p>To be announced…</p>
-                  </Text>
-                </div>
-                <div className="Template-box-footer">
-                  <ThemeToggle />
-                </div>
-              </div>
+              <Box>
+                <Text color="mute">
+                  <p>To be announced…</p>
+                </Text>
+              </Box>
             </div>
           </TemplateSection>
         </TemplateMain>
       </ThemeProvider>
     </Template>
-  );
-};
-
-const ThemeToggle = () => {
-  const [mounted, setMounted] = useState(false);
-  const { setTheme, theme } = useTheme();
-  const handleThemeChange = () =>
-    setTheme(theme === 'light' ? 'dark' : 'light');
-
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
-  return (
-    <Button
-      icon={theme === 'light' ? <Moon /> : <Sun />}
-      onClick={handleThemeChange}
-      radius="m"
-      size="square:s"
-    >
-      {theme === 'light' ? 'Dark mode' : 'Light mode'}
-    </Button>
   );
 };
