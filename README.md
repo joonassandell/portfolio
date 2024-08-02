@@ -40,7 +40,7 @@ bun run dev
 - `bun run start`: Start the application in production mode. The application should be build first.
 - `bun run typecheck`: Run TS type checking
 
-Read about environment variables from [.env.development](.env.development).
+Read about environment variables from [.env.development](.env.development) and [.env](.env).
 
 ## Copyright
 
