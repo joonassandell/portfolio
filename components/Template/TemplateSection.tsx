@@ -20,7 +20,8 @@ export const TemplateSection = ({
     '-gap:xl': grid && gridGap === 'xl',
     '-gap:l': grid && gridGap === 'l',
     '-gap:0': grid && gridGap === false,
-    '-gap:row:xl': grid && (gridRowGap === 'xl' || gridGap === 'xl'),
+    '-gap:row:xl':
+      grid && (gridRowGap === 'xl' || (gridGap === 'xl' && gridRowGap != 'm')),
     '-gap:row:l': grid && gridRowGap === 'l',
     '-gap:row:0': grid && gridRowGap === false,
     pt: pt === 'base',
