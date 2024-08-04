@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes';
 
 export const Box = ({ children, source, src }: any) => {
   const { theme } = useTheme();
-  const [loaded, setLoaded] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
   const iframe = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -20,14 +20,22 @@ export const Box = ({ children, source, src }: any) => {
         {children}
         {src && (
           <m.iframe
-            animate={loaded && { opacity: 1 }}
+            animate={iframeLoaded ? 'animate' : ''}
             className="Template-box-iframe"
-            initial={{ opacity: 0 }}
+            initial="initial"
             loading="lazy"
-            onLoad={() => setLoaded(true)}
+            onLoad={() => setIframeLoaded(true)}
             ref={iframe}
             src={`${UI_LAB_URL}/${src}`}
             transition={TRANS_PRIMARY_FASTEST}
+            variants={{
+              animate: {
+                opacity: 1,
+              },
+              initial: {
+                opacity: 0,
+              },
+            }}
           />
         )}
       </div>
