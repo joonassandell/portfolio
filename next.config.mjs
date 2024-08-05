@@ -20,7 +20,6 @@ const config = {
   },
   experimental: {
     optimizeCss: true,
-    nextScriptWorkers: true,
   },
   ...(VERCEL_ENV === 'production' && {
     compiler: {

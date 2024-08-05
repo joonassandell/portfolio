@@ -10,6 +10,7 @@
 
 # Build
 /build
+/public/~partytown
 
 # Debug
 npm-debug.log*

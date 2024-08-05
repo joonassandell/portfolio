@@ -4,9 +4,7 @@ import {
   DISABLE_LOADING,
   EASE,
   EASE_CSS,
-  GOOGLE_ANALYTICS,
   PRODUCTION,
-  PRODUCTION_LIVE,
   SLOW_NETWORK_DELAY,
 } from '@/lib/config';
 import {
@@ -16,7 +14,6 @@ import {
   type AppProps,
 } from './';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
 import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
@@ -225,9 +222,6 @@ export const App = ({
   return (
     <LazyMotion features={domAnimation} strict>
       <AppHead themeColor={loadingEnd ? themeColor : undefined} />
-      {PRODUCTION_LIVE && GOOGLE_ANALYTICS && (
-        <GoogleAnalytics gaId={GOOGLE_ANALYTICS as string} />
-      )}
       {!DISABLE_LOADING && (
         <Splash
           loading={loading}
