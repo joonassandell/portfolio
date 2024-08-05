@@ -19,6 +19,7 @@
     "typecheck": "tsc --pretty --noEmit"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.10.2",
     "@next/third-parties": "^14.2.4",
     "@nivo/line": "^0.86.0",
     "clsx": "^2.1.1",

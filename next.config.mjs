@@ -18,7 +18,10 @@ const config = {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
     ignoreDuringBuilds: IGNORE_ERRORS ? true : false,
   },
-  experimental: { optimizeCss: true },
+  experimental: {
+    optimizeCss: true,
+    nextScriptWorkers: true,
+  },
   ...(VERCEL_ENV === 'production' && {
     compiler: {
       removeConsole: {
