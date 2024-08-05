@@ -1,9 +1,9 @@
+import { ArrowRight, Check, Download } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { Check, Download } from '@/components/Icon';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
 import { LINK, SITEMAP } from '@/lib/sitemap';
+import { Link } from '@/components/Link';
 import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
 import { Text } from '@/components/Text';
 import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
@@ -76,7 +76,7 @@ export const Content = () => (
         <Text maxWidth>
           <ul className="pl">
             <li>
-              Built the <Link href={SITEMAP.biocode.url}>application</Link>{' '}
+              Built the <Link href={SITEMAP.biocode.url}>software</Link>{' '}
               front-end together with the team including various features such
               as real time carbon footprint calculation
             </li>
@@ -124,6 +124,9 @@ export const Content = () => (
               Aided other engineers to ensure quality UI/UX and implementation
             </li>
           </ul>
+          <Button href={SITEMAP.biocode.url} icon={<ArrowRight />} size="s">
+            Case study
+          </Button>
         </Text>
       </StepperItem>
       <StepperItem>
@@ -221,6 +224,9 @@ export const Content = () => (
               customers about project progress’
             </li>
           </ul>
+          <Button href={SITEMAP.mediasignal.url} icon={<ArrowRight />} size="s">
+            Case study
+          </Button>
         </Text>
       </StepperItem>
       <StepperItem>

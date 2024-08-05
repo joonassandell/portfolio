@@ -73,9 +73,9 @@ export const Aside = () => (
         Essential tech
       </Text>
       <p>
-        React, Next.js, Bundlers, Git, Databases, GraphQL, Storybook, WordPress,
-        Firebase, AWS, Apache, Unix, GSAP, Framer motion, ChatGPT, Redux,
-        Zustand
+        React, Next.js, Bundlers, Git, AWS, Databases, GraphQL, Storybook,
+        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer motion,
+        ChatGPT, Redux, Zustand
       </p>
     </Text>
     <Text className="mb:m" size="s">
@@ -84,7 +84,7 @@ export const Aside = () => (
       </Text>
       <p>Figma, Sketch, Adobe CC</p>
     </Text>
-    <Text size="s">
+    <Text className="mb:l" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
         Competencies
       </Text>
@@ -92,6 +92,24 @@ export const Aside = () => (
         UI/UX design, Product design, Website design & development, Software
         design & development, Responsive design, Design systems & patterns,
         Animations
+      </p>
+    </Text>
+    <Heading size="h6" tag="h4">
+      Selected projects
+    </Heading>
+    <Text className="mb:m" size="s">
+      <p className="mb:2xs">
+        <Link href={SITEMAP.biocode.url}>Biocode</Link>
+      </p>
+      <p>Case study of the various projects I have crafted for Biocode.</p>
+    </Text>
+    <Text size="s">
+      <p className="mb:2xs">
+        <Link href={SITEMAP.uiLab.url}>UI Laboratory</Link>
+      </p>
+      <p>
+        Showcase of various UI component experiments and interactive design
+        concepts.
       </p>
     </Text>
   </aside>
