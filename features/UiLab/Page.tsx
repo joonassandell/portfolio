@@ -8,6 +8,7 @@ import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { ThemeProvider } from 'next-themes';
 import { useSetThemeColor } from '@/components/App';
+import Lego from './lego.svg';
 
 export const UiLabPage = () => {
   const { id, meta } = SITEMAP.uiLab;
@@ -34,9 +35,16 @@ export const UiLabPage = () => {
           </div>
           <TemplateSection gridRowGap={false}>
             <div className="grid-col">
-              <Heading className="Template-heading" size="display">
-                UI Lab
-              </Heading>
+              <div className="Template-headingArea">
+                <Heading className="Template-heading" size="display">
+                  UI Lab
+                </Heading>
+                <div className="Template-legos">
+                  <Lego className="Template-lego Template-lego--3" />
+                  <Lego className="Template-lego Template-lego--1" />
+                  <Lego className="Template-lego Template-lego--2" />
+                </div>
+              </div>
             </div>
             <div className="grid-col grid-col:8@m grid-col:6@l">
               <Heading className="Template-subtitle mb:0" size="h5" tag="h2">

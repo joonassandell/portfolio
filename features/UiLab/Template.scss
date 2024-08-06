@@ -17,6 +17,10 @@
     position: relative;
   }
 
+  .Template-headingArea {
+    position: relative;
+  }
+
   .Template-heading {
     background: linear-gradient(
         160deg,
@@ -27,6 +31,73 @@
     color: transparent;
     display: inline-block;
     padding-right: rem($space-2xs);
+  }
+
+  .Template-legos {
+    display: grid;
+    inset: 0 0 auto auto;
+    position: absolute;
+    rotate: -33deg;
+    transition: rotate var(--trans-primary-fast);
+    width: 10vw;
+
+    &:hover {
+      rotate: -15deg;
+
+      .Template-lego--1 {
+        transform: translate(0, -4.65vw);
+      }
+
+      .Template-lego--2 {
+        transform: translate(-4.1vw, 2.35vw);
+      }
+
+      .Template-lego--3 {
+        transform: rotateZ(0) translate(0, 0);
+      }
+    }
+
+    @include mq(l) {
+      inset: rem($space-m) 0 auto auto;
+      width: 7vw;
+
+      &:hover {
+        .Template-lego--1 {
+          transform: translate(0, -3.3vw);
+        }
+
+        .Template-lego--2 {
+          transform: translate(-2.8vw, 1.6vw);
+        }
+      }
+    }
+  }
+
+  .Template-lego {
+    grid-area: 1 / 1;
+    transition: transform var(--trans-primary-fast) 0.1s;
+  }
+
+  .Template-lego--1 {
+    filter: hue-rotate(310deg);
+  }
+
+  .Template-lego--2 {
+    filter: hue-rotate(10deg);
+    transform: translate(-7.7vw, 0);
+
+    @include mq(l) {
+      transform: translate(-5.35vw, 0.1vw);
+    }
+  }
+
+  .Template-lego--3 {
+    filter: hue-rotate(270deg);
+    transform: rotateZ(-50deg) translate(0, 20vw);
+
+    @include mq(l) {
+      transform-origin: bottom left;
+    }
   }
 
   .Template-highlightColor {
@@ -111,7 +182,7 @@
     .Template-main {
       --Template-color: var(--text-50);
       --Template-box-bg: hsl(240deg 5% 4%);
-      --Template-box-border: hsl(var(--white-hsl) / 0.03);
+      --Template-box-border: hsl(var(--white-hsl) / 0.04);
 
       --Button-bg: hsl(240deg 8% 7%);
       --Button-color: var(--text-100);
