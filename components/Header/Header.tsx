@@ -439,7 +439,7 @@ export const Header = ({
                     header.navMaskMobile.map(item => {
                       return (
                         <HeaderMaskNavItemSecondary
-                          custom={{ y: '5rem' }}
+                          custom={{ y: '3rem' }}
                           href={item.url}
                           key={item.id}
                           onClick={handleLinkClick}
