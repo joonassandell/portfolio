@@ -1,5 +1,6 @@
 import { type AvatarProps } from './';
 import { Figure } from '@/components/Figure';
+import { MQ } from '@/lib/config';
 import { Text } from '@/components/Text';
 import c from 'clsx';
 
@@ -21,7 +22,7 @@ export const Avatar = ({
           animate={false}
           borderRadius="var(--border-radius-pill)"
           className="Avatar-figure"
-          sizes="3rem"
+          sizes={`${MQ['2xl']} 5rem, 3rem`}
         />
       )}
       {(name ?? text) && (
