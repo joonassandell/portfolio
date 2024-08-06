@@ -29,9 +29,9 @@
 
   @if $root {
     @if $scaling == 'scale' and $maxFontSize {
-      font-size: clamp(rem($minFontSize), $scaleValue, rem($maxFontSize));
+      font-size: clamp($minFontSize, $scaleValue, $maxFontSize);
     } @else {
-      font-size: rem($minFontSize);
+      font-size: $minFontSize;
     }
   }
 
