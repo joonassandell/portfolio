@@ -124,7 +124,7 @@ export const Content = () => (
               Aided other engineers to ensure quality UI/UX and implementation
             </li>
           </ul>
-          <Button href={SITEMAP.biocode.url} icon={<ArrowRight />} size="s">
+          <Button href={SITEMAP.biocode.url} icon={<ArrowRight />}>
             Case study
           </Button>
         </Text>
@@ -224,7 +224,7 @@ export const Content = () => (
               customers about project progress’
             </li>
           </ul>
-          <Button href={SITEMAP.mediasignal.url} icon={<ArrowRight />} size="s">
+          <Button href={SITEMAP.mediasignal.url} icon={<ArrowRight />}>
             Case study
           </Button>
         </Text>
