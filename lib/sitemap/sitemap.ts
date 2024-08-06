@@ -83,15 +83,9 @@ const soundcloud = {
   title: 'SoundCloud',
   url: 'https://soundcloud.com/modeapart',
 };
-
 const source = {
   title: 'View source',
   url: 'https://github.com/joonassandell/joonassandell-portfolio',
-};
-
-const readDotCv = {
-  title: 'Read.cv',
-  url: 'https://read.cv/joonassandell',
 };
 
 export const LINK = {
@@ -99,16 +93,7 @@ export const LINK = {
   github,
   instagram,
   linkedIn,
-  readDotCv,
-  social: [
-    twitter,
-    github,
-    linkedIn,
-    dribbble,
-    readDotCv,
-    instagram,
-    soundcloud,
-  ],
+  social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
   soundcloud,
   source,
   twitter,
