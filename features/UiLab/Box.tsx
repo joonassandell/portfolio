@@ -41,9 +41,11 @@ export const Box = ({ children, source, src }: any) => {
       </div>
       <div className="Template-box-footer">
         <ThemeToggle />
-        <Button href={source} icon={<Github />} radius="m" size="s">
-          Source
-        </Button>
+        {source && (
+          <Button href={source} icon={<Github />} radius="m" size="s">
+            Source
+          </Button>
+        )}
       </div>
     </div>
   );
