@@ -42,7 +42,13 @@ const config = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    return config;
+
+    return {
+      ...config,
+      optimization: {
+        minimize: false,
+      },
+    };
   },
   async headers() {
     return [
