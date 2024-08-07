@@ -12,6 +12,7 @@ import GithubIcon from './icons/github.svg';
 import InstagramIcon from './icons/instagram.svg';
 import LinkedInIcon from './icons/linkedin.svg';
 import MoonIcon from './icons/moon.svg';
+import ReadDotCvIcon from './icons/read-dot-cv.svg';
 import SoundCloudIcon from './icons/soundcloud.svg';
 import SunIcon from './icons/sun.svg';
 import XIcon from './icons/x.svg';
@@ -79,4 +80,8 @@ export const Sun = (props: IconProps) => (
 
 export const Moon = (props: IconProps) => (
   <Icon Icon={MoonIcon} name="moon" {...props} />
+);
+
+export const ReadDotCv = (props: IconProps) => (
+  <Icon Icon={ReadDotCvIcon} name="readDotCv" {...props} />
 );

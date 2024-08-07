@@ -3,11 +3,12 @@ import {
   Github,
   Instagram,
   LinkedIn,
+  ReadDotCv,
   SoundCloud,
   X,
 } from '@/components/Icon';
-import { LINK } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
+import { LINK } from '@/lib/sitemap';
 import { type SomeIconsProps } from './';
 import c from 'clsx';
 
@@ -29,6 +30,7 @@ export const SomeIcons = ({ className, ...props }: SomeIconsProps) => {
             {title === 'Instagram' && <Instagram aria-hidden />}
             {title === 'LinkedIn' && <LinkedIn aria-hidden />}
             {title === 'Github' && <Github aria-hidden />}
+            {title === 'Read.cv' && <ReadDotCv aria-hidden />}
             {title === 'Dribbble' && <Dribbble aria-hidden />}
             <span className="hideVisually">{title}</span>
           </Link>

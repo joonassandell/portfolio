@@ -12,7 +12,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const config = {
   env: {
-    NEXT_PUBLIC_BUILD_DATE: new Date().toISOString(),
+    NEXT_PUBLIC_BUILD_DATE: new Date().toUTCString(),
   },
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
@@ -42,13 +42,7 @@ const config = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-
-    return {
-      ...config,
-      optimization: {
-        minimize: false,
-      },
-    };
+    return config;
   },
   async headers() {
     return [
