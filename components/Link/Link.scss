@@ -1,6 +1,10 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
+/**
+ * 1. Fixes odd issue in Chromium where there sometimes seems to be extra text
+ *    element under the animating elements
+ */
 .Link {
   align-items: center;
   display: inline-flex;
@@ -12,6 +16,7 @@
   transition:
     color var(--trans-primary-fastest),
     opacity var(--trans-primary-fastest);
+  will-change: opacity; // [1.]
   word-break: break-word;
 
   &:hover {
