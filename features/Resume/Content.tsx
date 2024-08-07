@@ -56,7 +56,7 @@ export const Content = () => (
       <StepperItem>
         <StepperStep beacon />
         <Heading className="mb:2xs" size="h6" tag="h3">
-          Lead product designer, Front-end developer —{' '}
+          Lead Product Designer, Front-end Developer —{' '}
           <Figure
             alt="Biocode logomark"
             animate={false}
@@ -132,7 +132,7 @@ export const Content = () => (
       <StepperItem>
         <StepperStep icon={<Check />} />
         <Heading className="mb:2xs" size="h6" tag="h3">
-          UI/UX designer, Front-end developer —{' '}
+          UI/UX Designer, Front-end Developer —{' '}
           <Figure
             alt="Mediasignal logomark"
             animate={false}
@@ -232,7 +232,7 @@ export const Content = () => (
       <StepperItem>
         <StepperStep icon={<Check />} />
         <Heading className="mb:2xs" size="h6" tag="h3">
-          UI/UX designer, Front-end developer — City of Tampere
+          UI/UX Designer, Front-end Developer — City of Tampere
         </Heading>
         <Text color="mute" tag="p">
           Apr 2007 – Sep 2014

@@ -17,10 +17,10 @@ export const Aside = () => (
       sizes="20vw"
       {...profile}
     />
-    <Heading className="mb:xs hidden@m" size="h6" tag="h4">
+    <Heading className="mb:s hidden@m" size="h6" tag="h4">
       Contact
     </Heading>
-    <Text className="mb:l" size="s" tag="ul">
+    <Text className="mb:m" size="s" tag="ul">
       <li>
         E-mail:{' '}
         <Link href={`mailto:${CONTENT.person.email}`} target="_self" truncate>
@@ -56,10 +56,10 @@ export const Aside = () => (
         </Link>
       </li>
     </Text>
-    <Heading size="h6" tag="h4">
+    <Heading className="mb:s" size="h6" tag="h4">
       Skills
     </Heading>
-    <Text className="mb:m" size="s">
+    <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
         Languages
       </Text>
@@ -68,7 +68,7 @@ export const Aside = () => (
         (fluent), Finnish (native)
       </p>
     </Text>
-    <Text className="mb:m" size="s">
+    <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
         Essential tech
       </Text>
@@ -78,7 +78,7 @@ export const Aside = () => (
         ChatGPT, Redux, Zustand
       </p>
     </Text>
-    <Text className="mb:m" size="s">
+    <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
         Design tools
       </Text>
@@ -94,16 +94,16 @@ export const Aside = () => (
         Animations
       </p>
     </Text>
-    <Heading size="h6" tag="h4">
+    <Heading className="mb:s" size="h6" tag="h4">
       Selected projects
     </Heading>
-    <Text className="mb:m" size="s">
+    <Text className="mb" size="s">
       <p className="mb:2xs">
         <Link href={SITEMAP.biocode.url}>Biocode</Link>
       </p>
       <p>Case study of the various projects I have crafted for Biocode.</p>
     </Text>
-    <Text size="s">
+    <Text className="mb:l" size="s">
       <p className="mb:2xs">
         <Link href={SITEMAP.uiLab.url}>UI Laboratory</Link>
       </p>
@@ -111,6 +111,15 @@ export const Aside = () => (
         Showcase of various UI component experiments and interactive design
         concepts.
       </p>
+    </Text>
+    <Heading className="mb:s" size="h6" tag="h4">
+      Education
+    </Heading>
+    <Text size="s">
+      <Text className="mb:2xs" color="mute" tag="p">
+        2011 – 2013
+      </Text>
+      <p>Degree in Audiovisual communications at TAKK</p>
     </Text>
   </aside>
 );

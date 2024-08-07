@@ -25,7 +25,7 @@
     border: var(--border-width) solid var(--border-950);
     border-radius: var(--border-radius);
     margin: rem($space-l) 0 rem($space-2xl) 0;
-    padding: rem($space-m);
+    padding: rem($space-ml) rem($space-m);
     text-wrap: balance;
 
     @include mq(m) {
