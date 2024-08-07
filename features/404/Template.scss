@@ -2,9 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--404 {
-  .Template-main {
-    display: grid;
-    padding-bottom: rem($space-2xl);
-    place-content: center;
+  .Template-section {
+    min-height: max(rem($space * 33), 75svh);
   }
 }

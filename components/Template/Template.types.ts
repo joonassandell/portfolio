@@ -9,9 +9,7 @@ export interface TemplateProps extends PropsWithChildren {
   variant?: 'unstyled' | 'default';
 }
 
-export interface TemplateMainProps extends PropsWithChildren {
-  className?: string;
-}
+export interface TemplateMainProps extends PropsWithChildren {}
 
 export interface TemplateSectionProps
   extends ComponentPropsWithoutRef<'section'> {
