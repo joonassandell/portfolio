@@ -6,5 +6,5 @@ export interface LinkRollProps extends HTMLMotionProps<'a'> {
   href: URL['href'];
   tag?: TagAction | TagGeneric;
   templateTransition?: boolean;
-  underline?: boolean;
+  underline?: boolean | 'active';
 }

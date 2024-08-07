@@ -5,7 +5,6 @@ import {
 } from './';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m } from 'framer-motion';
-import { useUrlState } from '@/lib/useUrlState';
 
 export const HeaderNavItem = ({
   href,
@@ -15,8 +14,6 @@ export const HeaderNavItem = ({
   target,
   title,
 }: HeaderNavItemProps) => {
-  const { active } = useUrlState(href);
-
   return (
     <li className="Header-nav-item">
       <m.div variants={mainItemOutVariant}>
@@ -24,7 +21,7 @@ export const HeaderNavItem = ({
           href={href}
           onClick={onClick}
           target={target}
-          underline={active}
+          underline="active"
           {...(isOpen && { hidden: true, tabIndex: -1 })}
         >
           {title}
@@ -37,7 +34,7 @@ export const HeaderNavItem = ({
             onClick={onClick}
             target={target}
             templateTransition={false}
-            underline={active}
+            underline="active"
           >
             {title}
           </LinkRoll>

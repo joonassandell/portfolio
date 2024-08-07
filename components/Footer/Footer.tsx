@@ -3,10 +3,9 @@ import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { type FooterProps } from './';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/components/Link';
-import { LinkRoll, type LinkRollProps } from '@/components/LinkRoll';
+import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
-import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 
 export const Footer = ({ className, fullWidth }: FooterProps) => {
@@ -29,7 +28,9 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                     {SITEMAP.me.map(item => {
                       return (
                         <li key={item.id}>
-                          <FooterLink href={item.url}>{item.title}</FooterLink>
+                          <LinkRoll href={item.url} underline="active">
+                            {item.title}
+                          </LinkRoll>
                         </li>
                       );
                     })}
@@ -43,7 +44,9 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
                     {SITEMAP.projects.map(item => {
                       return (
                         <li key={item.id}>
-                          <FooterLink href={item.url}>{item.title}</FooterLink>
+                          <LinkRoll href={item.url} underline="active">
+                            {item.title}
+                          </LinkRoll>
                         </li>
                       );
                     })}
@@ -68,9 +71,9 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
             </div>
             <div className="Footer-nameCol grid-col grid-col:4@m">
               <Text className="mb:2xs mb@m" tag="p">
-                <FooterLink href={SITEMAP.home.url}>
+                <LinkRoll href={SITEMAP.home.url} underline="active">
                   {CONTENT.person.name}
-                </FooterLink>
+                </LinkRoll>
               </Text>
               <Text className="mb:m" color="mute:blend" size="s" tag="p">
                 {CONTENT.person.title.design}
@@ -102,15 +105,5 @@ export const Footer = ({ className, fullWidth }: FooterProps) => {
         </div>
       </div>
     </footer>
-  );
-};
-
-const FooterLink = ({ children, ...props }: LinkRollProps) => {
-  const { active } = useUrlState(props.href);
-
-  return (
-    <LinkRoll underline={active} {...props}>
-      {children}
-    </LinkRoll>
   );
 };

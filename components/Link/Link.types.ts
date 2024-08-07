@@ -9,5 +9,5 @@ export interface LinkProps extends HTMLMotionProps<'a'> {
   tag?: TagAction | TagGeneric;
   templateTransition?: boolean;
   truncate?: boolean;
-  underline?: boolean;
+  underline?: boolean | 'active';
 }

@@ -8,10 +8,11 @@ import {
   outVariant,
   outVariantX,
 } from './';
-import { default as NextLink } from 'next/link';
+import { isBoolean } from '@/lib/utils';
 import { useApp } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
+import NextLink from 'next/link';
 
 export const Link = ({
   children,
@@ -28,13 +29,16 @@ export const Link = ({
   ...props
 }: LinkProps) => {
   const { setTransition } = useApp();
+  const { active, external, externalTarget } = useUrlState(href);
   const [hover, setHover] = useState(false);
+  const underlineActive = underline === 'active';
   const classes = c(className, 'Link', {
-    '-underline': underline,
+    '-underline':
+      (isBoolean(underline) && underline && !underlineActive) ||
+      (underlineActive && active),
     '-vertical': orientation === 'vertical',
   });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
-  const { active, external, externalTarget } = useUrlState(href);
   const shouldNavigate =
     Boolean(href) && !external && target != '_blank' && target != '_new';
 
@@ -72,7 +76,7 @@ export const Link = ({
         {...props}
       >
         <m.span
-          className={`Link-text ${truncate ? 'text:truncate' : ''}`}
+          className={c('Link-text', { 'text:truncate': truncate })}
           variants={orientation === 'vertical' ? outVariantX : outVariant}
         >
           {children}
@@ -81,7 +85,7 @@ export const Link = ({
           {hover && (
             <m.span
               animate="in"
-              className={`Link-text -hover ${truncate ? 'text:truncate' : ''}`}
+              className={c('Link-text -hover', { 'text:truncate': truncate })}
               exit="out"
               hidden
               initial="initial"

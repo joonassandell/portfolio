@@ -8,10 +8,10 @@ import {
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
 import { isBoolean, isEmptyString } from '@/lib/utils';
-import { default as NextLink } from 'next/link';
 import { useApp } from '@/components/App';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
+import NextLink from 'next/link';
 
 export const LinkRoll = ({
   children,
@@ -25,14 +25,17 @@ export const LinkRoll = ({
   ...props
 }: LinkRollProps) => {
   const { setTransition } = useApp();
+  const { active, external, externalTarget } = useUrlState(href);
   const [hover, setHover] = useState(false);
   const characters = children?.split('');
+  const underlineActive = underline === 'active';
   const classes = c(className, 'LinkRoll', {
-    '-underline': underline,
-    'has-underline': isBoolean(underline),
+    '-underline':
+      (isBoolean(underline) && underline && !underlineActive) ||
+      (underlineActive && active),
+    'has-underline': underline,
   });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
-  const { active, external, externalTarget } = useUrlState(href);
   const shouldNavigate =
     Boolean(href) && !external && target != '_blank' && target != '_new';
 

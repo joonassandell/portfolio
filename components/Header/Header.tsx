@@ -8,9 +8,7 @@ import {
   enterExitBtnArrowIfNavOpen,
   enterExitBtnText,
   enterExitBtnTextIfNavOpen,
-  HeaderFooterNavItem,
   HeaderMaskNavItem,
-  HeaderMaskNavItemSecondary,
   HeaderNavItem,
   type HeaderProps,
   mainItemInVariant,
@@ -438,13 +436,22 @@ export const Header = ({
                   {!mqM &&
                     header.navMaskMobile.map(item => {
                       return (
-                        <HeaderMaskNavItemSecondary
+                        <m.li
+                          className="Header-mask-nav-secondary-item wrap hidden@m"
                           custom={{ y: '3rem' }}
-                          href={item.url}
                           key={item.id}
-                          onClick={handleLinkClick}
-                          title={item.title}
-                        />
+                          variants={maskItemVariant}
+                        >
+                          <LinkRoll
+                            className="Header-mask-nav-secondary-link h6 mb:0"
+                            href={item.url}
+                            onClick={handleLinkClick}
+                            templateTransition={false}
+                            underline="active"
+                          >
+                            {item.title}
+                          </LinkRoll>
+                        </m.li>
                       );
                     })}
                 </ul>
@@ -457,12 +464,15 @@ export const Header = ({
                 <Text className="Header-footer-nav visible@m" tag="ul">
                   {header.navMaskFooter.map(item => {
                     return (
-                      <HeaderFooterNavItem
+                      <LinkRoll
                         href={item.url}
                         key={item.id}
                         onClick={handleLinkClick}
-                        title={item.title}
-                      />
+                        templateTransition={false}
+                        underline="active"
+                      >
+                        {item.title}
+                      </LinkRoll>
                     );
                   })}
                 </Text>
