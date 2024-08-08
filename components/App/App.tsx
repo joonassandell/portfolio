@@ -130,6 +130,10 @@ export const App = ({
       loading: false,
     }));
 
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+
     return () => window.removeEventListener('resize', rootHeight);
   }, [html]);
 
