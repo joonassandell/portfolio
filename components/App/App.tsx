@@ -292,7 +292,7 @@ export const App = ({
         >
           <div className="App">
             <Header navTitle={navTitle} />
-            <main className="App-main" ref={containerRef}>
+            <main className="App-main" data-scroll-container ref={containerRef}>
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => {

@@ -1,5 +1,6 @@
 import { createContext, useEffect, useMemo, useRef, useState } from 'react';
 import { debounce } from 'lodash-es';
+import { isBrowser } from '@/lib/utils';
 import {
   type LocomotiveScrollContextProps,
   type LocomotiveScrollProviderProps,
@@ -33,17 +34,16 @@ export const LocomotiveScrollProvider = ({
     ref: containerRef,
   });
 
+  const dataScrollContainer =
+    isBrowser &&
+    (document.querySelector('[data-scroll-container]') as HTMLElement);
+
   useEffect(() => {
     (async () => {
       try {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
-        // const dataScrollContainer = document.querySelector(
-        //   '[data-scroll-container]',
-        // ) as HTMLElement;
-
         LocomotiveScrollRef.current = new LocomotiveScroll({
-          // el: dataScrollContainer ?? undefined,
           ...options,
         }) as ScrollProps;
 
@@ -82,6 +82,7 @@ export const LocomotiveScrollProvider = ({
     }
 
     LocomotiveScrollRef.current.resize();
+    LocomotiveScrollRef.current.addScrollElements(dataScrollContainer);
 
     if (onLocationChange) {
       onLocationChange(LocomotiveScrollRef.current);
