@@ -75,7 +75,7 @@ export const TRANS_TAP = {
  * ======================================= */
 
 export const SCROLL_TO_DURATION = 1;
-export const SCROLL_SPEED = 0.15;
+export const SCROLL_SPEED = 0.1;
 export const SLOW_NETWORK_DELAY = 1000;
 
 // https://easings.net/#easeOutQuart

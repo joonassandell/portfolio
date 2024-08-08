@@ -43,9 +43,9 @@ export const ApproachPage = () => {
             <div
               aria-hidden
               className="Template-cube"
-              data-s
-              data-s-position="top"
-              data-s-speed={SCROLL_SPEED}
+              data-scroll
+              data-scroll-position="top"
+              data-scroll-speed={SCROLL_SPEED}
             >
               <m.div
                 animate={lineCubeInView ? 'animate' : ''}

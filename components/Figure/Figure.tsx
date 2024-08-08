@@ -81,12 +81,13 @@ export const Figure = ({
           ? borderRadius
           : undefined,
       }}
-      {...(scroll && { 'data-s': true })}
-      {...(scroll && scrollSpeed && { 'data-s-speed': scrollSpeed })}
-      {...(scroll && scrollOffset && { 'data-s-offset': scrollOffset })}
-      {...(scroll && scrollPosition && { 'data-s-position': scrollPosition })}
-      {...(scroll && scrollDelay && { 'data-s-delay': scrollDelay })}
-      {...(mask && { 'data-s-id': id })}
+      {...(scroll && { 'data-scroll': true })}
+      {...(scroll && scrollSpeed && { 'data-scroll-speed': scrollSpeed })}
+      {...(scroll && scrollOffset && { 'data-scroll-offset': scrollOffset })}
+      {...(scroll &&
+        scrollPosition && { 'data-scroll-position': scrollPosition })}
+      {...(scroll && scrollDelay && { 'data-scroll-delay': scrollDelay })}
+      {...(mask && { 'data-scroll-id': id })}
       {...(mask &&
         appTransition === 'template' &&
         scrollPosition != 'top' && {
@@ -98,13 +99,14 @@ export const Figure = ({
       <figure
         className="Figure-figure"
         {...(mask && {
-          'data-s': true,
-          'data-s-prevent': true,
-          'data-s-speed': scrollImageSpeed,
-          'data-s-target': `[data-s-id="${id}"]`,
+          'data-scroll': true,
+          'data-scroll-prevent': true,
+          'data-scroll-speed': scrollImageSpeed,
+          'data-scroll-target': `[data-scroll-id="${id}"]`,
         })}
-        {...(mask && scrollPosition && { 'data-s-position': scrollPosition })}
-        {...(mask && scrollDelay && { 'data-s-delay': scrollDelay })}
+        {...(mask &&
+          scrollPosition && { 'data-scroll-position': scrollPosition })}
+        {...(mask && scrollDelay && { 'data-scroll-delay': scrollDelay })}
       >
         <m.div
           className="Figure-figure-main"

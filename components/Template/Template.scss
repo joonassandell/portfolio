@@ -21,8 +21,8 @@
      * Hack to remove the applied scroll values from the new view. Why are those
      * even there?! This happens sometimes at least w/ Chromium.
      */
-    [data-s-section],
-    [data-s] {
+    [data-scroll-section],
+    [data-scroll] {
       transform: none !important;
     }
   }
@@ -39,7 +39,7 @@
    * smoothens this issue like it's intentional.
    */
   :root.is-transition\:template\:withDelay & {
-    [data-s-target]:not([data-s-prevent]) {
+    [data-scroll-target]:not([data-scroll-prevent]) {
       transition: 0.2s ease-in-out;
     }
   }

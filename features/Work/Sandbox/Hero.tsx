@@ -43,9 +43,9 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
               >
                 <figure
                   className="Hero-figure-figure"
-                  data-s
-                  data-s-speed={-SCROLL_SPEED}
-                  data-s-target={`[data-s-id=${id}]`}
+                  data-scroll
+                  data-scroll-speed={-SCROLL_SPEED}
+                  data-scroll-target={`[data-scroll-id=${id}]`}
                 >
                   <m.div
                     className="Hero-figure-figure-inner"

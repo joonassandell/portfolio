@@ -67,9 +67,9 @@ export const AboutIntro = () => {
       <div
         className="grid pb:5vw"
         {...(mqS && {
-          'data-s': true,
-          'data-s-position': 'top',
-          'data-s-speed': SCROLL_SPEED,
+          'data-scroll': true,
+          'data-scroll-position': 'top',
+          'data-scroll-speed': SCROLL_SPEED,
         })}
       >
         <div className="grid-col -start:2@m -start:3@l">
@@ -89,9 +89,9 @@ export const AboutIntro = () => {
       <div
         aria-hidden
         className="Template-cube-2"
-        data-s
-        data-s-position="top"
-        data-s-speed={SCROLL_SPEED * -2}
+        data-scroll
+        data-scroll-position="top"
+        data-scroll-speed={SCROLL_SPEED * -2}
       >
         <m.div
           animate={lineCubeInView ? 'animate' : ''}

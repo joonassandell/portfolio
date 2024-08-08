@@ -36,9 +36,9 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
             <div className="Hero-figure grid-col grid-col:6 grid-col:6@l">
               <figure
                 className="Hero-figure-figure"
-                data-s
-                data-s-speed={-SCROLL_SPEED}
-                data-s-target={`[data-s-id=${id}]`}
+                data-scroll
+                data-scroll-speed={-SCROLL_SPEED}
+                data-scroll-target={`[data-scroll-id=${id}]`}
               >
                 <Image
                   alt="Omoroi homepage in phone"
@@ -50,9 +50,9 @@ export const MoreWorkHero = ({ onClick, ...props }: HeroProps) => {
               </figure>
               <figure
                 className="Hero-figure-figure Hero-figure-figure--bottom"
-                data-s
-                data-s-speed={SCROLL_SPEED}
-                data-s-target={`[data-s-id=${id}]`}
+                data-scroll
+                data-scroll-speed={SCROLL_SPEED}
+                data-scroll-target={`[data-scroll-id=${id}]`}
               >
                 <Image
                   alt="Hankkija homepage in phone"

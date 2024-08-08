@@ -290,7 +290,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
               scroll="mask"
-              scrollImageSpeed={-2}
+              scrollImageSpeed={-0.13}
               sizes="50vw"
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand-2', images)}
@@ -448,7 +448,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             text={
               <>
                 <p>
-                  Want to see even more? Then checkout the
+                  Want to see even more? Then checkout the{' '}
                   <Link href={SITEMAP.archive.url}>archive</Link> featuring
                   clients such as Fair Trade, Avecra, City of Tampere and
                   Vapriikki.

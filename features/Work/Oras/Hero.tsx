@@ -60,16 +60,16 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                     })}
                   >
                     <figure
-                      data-s
-                      data-s-prevent
-                      data-s-speed={-SCROLL_SPEED}
-                      data-s-target={`[data-s-id=${id}]`}
+                      data-scroll
+                      data-scroll-prevent
+                      data-scroll-speed={-SCROLL_SPEED}
+                      data-scroll-target={`[data-scroll-id=${id}]`}
                     >
                       <Image
                         alt="Oras faucet"
                         draggable="false"
                         priority={!transitionPre}
-                        quality="60"
+                        quality={60}
                         sizes={`${MQ.ml} 33vw, 50vw`}
                         src={heroImage}
                       />
@@ -143,10 +143,10 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
               variants={dropVariants3}
             >
               <div
-                data-s
-                data-s-delay="0.15"
-                data-s-speed="1"
-                data-s-target={`[data-s-id=${id}]`}
+                data-scroll
+                data-scroll-delay={0.15}
+                data-scroll-speed={0.06}
+                data-scroll-target={`[data-scroll-id=${id}]`}
               >
                 <Image
                   alt="Oras drop"

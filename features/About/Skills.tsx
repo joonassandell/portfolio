@@ -20,10 +20,10 @@ export const AboutSkills = () => (
     </div>
     <Heading
       className="white-space:nowrap"
-      data-s
-      data-s-direction="horizontal"
-      data-s-position="left"
-      data-s-speed={SCROLL_SPEED * 4}
+      data-scroll
+      data-scroll-direction="horizontal"
+      data-scroll-position="left"
+      data-scroll-speed={SCROLL_SPEED * 0.26}
       size="h2"
     >
       <TextReveal
@@ -34,10 +34,10 @@ export const AboutSkills = () => (
     </Heading>
     <Heading
       className="white-space:nowrap flex justify-content:end"
-      data-s
-      data-s-direction="horizontal"
-      data-s-position="left"
-      data-s-speed={SCROLL_SPEED * -3}
+      data-scroll
+      data-scroll-direction="horizontal"
+      data-scroll-position="left"
+      data-scroll-speed={SCROLL_SPEED * -0.2}
       size="h2"
     >
       <TextReveal
@@ -48,10 +48,10 @@ export const AboutSkills = () => (
     </Heading>
     <Heading
       className="white-space:nowrap"
-      data-s
-      data-s-direction="horizontal"
-      data-s-position="left"
-      data-s-speed={SCROLL_SPEED * 2}
+      data-scroll
+      data-scroll-direction="horizontal"
+      data-scroll-position="left"
+      data-scroll-speed={SCROLL_SPEED * 0.13}
       size="h2"
     >
       <TextReveal
@@ -62,10 +62,10 @@ export const AboutSkills = () => (
     </Heading>
     <Heading
       className="white-space:nowrap flex justify-content:end"
-      data-s
-      data-s-direction="horizontal"
-      data-s-position="left"
-      data-s-speed={SCROLL_SPEED * -2}
+      data-scroll
+      data-scroll-direction="horizontal"
+      data-scroll-position="left"
+      data-scroll-speed={SCROLL_SPEED * -0.13}
       size="h2"
     >
       <TextReveal

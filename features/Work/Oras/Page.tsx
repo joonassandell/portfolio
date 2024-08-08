@@ -85,7 +85,7 @@ export const OrasPage = ({ images }: PageProps) => {
               alt="Oras lifestyle animation concept"
               className="Template-videoBathroom"
               scroll
-              scrollSpeed={-1}
+              scrollSpeed={-0.06}
               src="/oras/joonassandell-oras-bathroom.mp4"
               transition="clip"
             />
@@ -94,7 +94,7 @@ export const OrasPage = ({ images }: PageProps) => {
             <Figure
               alt="Oras get inspired animation concept"
               scroll
-              scrollSpeed={0.5}
+              scrollSpeed={0.03}
               src="/oras/joonassandell-oras-get-inspired.mp4"
               transition="clip"
             />
@@ -129,7 +129,7 @@ export const OrasPage = ({ images }: PageProps) => {
               alt="Oras homepage hero"
               border
               scroll
-              scrollSpeed={0.5}
+              scrollSpeed={0.03}
               sizes={`${MQ.m} 70vw, 100vw`}
               transition="clip"
               {...getImage('joonassandell-oras-home-hero', images)}

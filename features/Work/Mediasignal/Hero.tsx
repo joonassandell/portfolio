@@ -44,9 +44,9 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
             <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
               <figure
                 className="Hero-figure-figure"
-                data-s
-                data-s-speed={-SCROLL_SPEED}
-                data-s-target={`[data-s-id=${id}]`}
+                data-scroll
+                data-scroll-speed={-SCROLL_SPEED}
+                data-scroll-target={`[data-scroll-id=${id}]`}
               >
                 <m.div
                   className="Hero-figure-figure-inner"

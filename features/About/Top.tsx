@@ -11,10 +11,10 @@ export const AboutTop = () => (
       <Heading
         aria-hidden
         className="white-space:nowrap mb:0"
-        data-s
-        data-s-direction="horizontal"
-        data-s-position="left"
-        data-s-speed={SCROLL_SPEED}
+        data-scroll
+        data-scroll-direction="horizontal"
+        data-scroll-position="left"
+        data-scroll-speed={SCROLL_SPEED}
         size="display"
         tag="div"
       >
@@ -29,7 +29,7 @@ export const AboutTop = () => (
           priority
           quality={90}
           scroll="mask"
-          scrollImageSpeed={-4}
+          scrollImageSpeed={-0.26}
           scrollPosition="top"
           sizes={`${MQ.s} 50vw, 80vw`}
           transition="clip"
@@ -44,7 +44,7 @@ export const AboutTop = () => (
           priority
           scroll
           scrollPosition="top"
-          scrollSpeed={3}
+          scrollSpeed={0.2}
           sizes="33vw"
           {...lineCube}
         />

@@ -32,10 +32,10 @@ export const ContactPage = () => {
         <TemplateSection className="Template-top" grid={false}>
           <Heading
             className="white-space:nowrap mb:0"
-            data-s
-            data-s-direction="horizontal"
-            data-s-position="left"
-            data-s-speed={SCROLL_SPEED}
+            data-scroll
+            data-scroll-direction="horizontal"
+            data-scroll-position="left"
+            data-scroll-speed={SCROLL_SPEED}
             size="display"
             tag="h1"
           >

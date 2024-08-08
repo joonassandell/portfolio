@@ -96,7 +96,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               glare
               scroll
-              scrollSpeed={2}
+              scrollSpeed={0.13}
               src="/biocode/joonassandell-biocode-website-home.mp4"
             />
           </div>
@@ -117,7 +117,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.3}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.3}
+              scrollSpeed={SCROLL_SPEED + 0.03}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-producer-mark', images)}
             />
@@ -128,7 +128,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.6}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.6}
+              scrollSpeed={SCROLL_SPEED + 0.06}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-product-mark', images)}
             />
@@ -139,7 +139,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.9}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.9}
+              scrollSpeed={SCROLL_SPEED + 0.09}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-report-mark', images)}
             />
@@ -214,7 +214,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               quality={100}
               scroll
-              scrollSpeed={1}
+              scrollSpeed={0.06}
               sizes={`${MQ.m} 70vw, 90w`}
               {...getImage(
                 'joonassandell-biocode-website-features-hero',
