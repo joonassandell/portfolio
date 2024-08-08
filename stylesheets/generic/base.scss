@@ -54,8 +54,8 @@ body {
 }
 
 ::selection {
-  background: var(--bg-950);
-  color: var(--tone-50);
+  background: var(--selection-bg);
+  color: var(--selection);
 }
 
 img::selection {
@@ -91,6 +91,10 @@ img::-moz-selection {
 }
 
 :where(iframe) {
-  background: transparent;
   border: 0;
+
+  &,
+  &::selection {
+    background: transparent;
+  }
 }

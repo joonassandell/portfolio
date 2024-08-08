@@ -123,6 +123,10 @@
   --scrollbar-thumb: hsl(var(--black-hsl) / 0.15);
   --scrollbar-thumb-negative: hsl(var(--white-hsl) / 0.15);
 
+  // Selection
+  --selection-bg: var(--bg-950);
+  --selection: var(--text-50);
+
   // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);
   --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);

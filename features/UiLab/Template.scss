@@ -176,6 +176,8 @@
   }
 
   .dark & {
+    --selection-bg: var(--bg-50);
+    --selection: var(--text-950);
     --Template-bg: hsl(240deg 10% 4%);
     --Footer-border: var(--border-900);
 

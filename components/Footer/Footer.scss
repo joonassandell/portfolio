@@ -2,6 +2,8 @@
 @use 'stylesheets/mixins' as *;
 
 .Footer {
+  --selection-bg: var(--bg-50);
+  --selection: var(--text-950);
   --focus-visible-bg: var(--bg-50);
   --focus-visible-fg: var(--text-950);
   --link: var(--text-50);
