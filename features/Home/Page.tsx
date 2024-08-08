@@ -35,17 +35,18 @@ export const HomePage = () => {
 
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
-    const needsExtraSpace = scroll.scroll.instance.limit.y < el?.offsetTop;
+    const needsExtraSpace = scroll.lenisInstance.limit < el?.offsetTop;
+
     if (needsExtraSpace) {
       setExtraSpace(true);
-      scroll.update();
+      scroll.resize();
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
     setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
     setTimeout(
       () => scrollTo(el, () => setAnimation(true)),
-      needsExtraSpace ? 220 : 0,
+      needsExtraSpace ? 400 : 0,
     );
   };
 

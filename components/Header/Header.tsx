@@ -113,7 +113,7 @@ export const Header = ({
      * Header is open/closed. Note that scroll will stay stopped if header links
      * are clicked but App takes care of enabling it after route change.
      */
-    scroll && !scroll.scroll.stop ? scroll.stop() : scroll?.start();
+    scroll && !scroll.lenisInstance.isStopped ? scroll.stop() : scroll?.start();
 
     if (mask === 'closed' || mask === 'closedReset') setMask('open');
     if (mask === 'open' || mask === 'openReset') setMask('closed');

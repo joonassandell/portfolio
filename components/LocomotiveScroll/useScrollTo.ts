@@ -1,4 +1,4 @@
-import { EASE, SCROLL_TO_DURATION } from '@/lib/config';
+import { SCROLL_TO_DURATION, SCROLL_TO_EASE } from '@/lib/config';
 import { useLocomotiveScroll } from './';
 
 export const useScrollTo = (
@@ -17,17 +17,18 @@ export const useScrollTo = (
 
   const scrollTo = (el: HTMLElement | number, callback?: () => void) => {
     if (scroll) {
-      if (scrollLock) scroll.stop();
       scroll.scrollTo(el, {
-        callback: () => {
+        duration: SCROLL_TO_DURATION,
+        easing: SCROLL_TO_EASE,
+        lock: scrollLock,
+        onComplete: () => {
+          if (scrollLock) scroll.stop();
           if (callback) {
             setTimeout(() => {
               callback();
             }, callbackDelay);
           }
         },
-        duration: SCROLL_TO_DURATION,
-        easing: EASE,
       });
     }
   };

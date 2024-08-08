@@ -53,6 +53,20 @@ export const Template = ({
           if (scroll) scroll.stop();
         }
       }}
+      onUpdate={e => {
+        /**
+         * Scroll top top just before the template transition finishes to
+         * prevent a flash in the scroll
+         */
+        if (
+          animState === 'animStart' &&
+          templateTransition &&
+          (e.y as number) < 0.01
+        ) {
+          console.log('Template scroll restored');
+          window.scrollTo(0, 0);
+        }
+      }}
       {...(!templateTransition && {
         variants: variantsWithoutTransition,
       })}
@@ -61,7 +75,7 @@ export const Template = ({
       })}
     >
       <AnimatePresence>
-        <div className="Template-inner" data-s-section>
+        <div className="Template-inner">
           {children}
           <Footer {...footerProps} />
         </div>

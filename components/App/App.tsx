@@ -2,7 +2,6 @@ import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
 import {
   APP_URL,
   DISABLE_LOADING,
-  EASE,
   EASE_CSS,
   PRODUCTION,
   SLOW_NETWORK_DELAY,
@@ -195,7 +194,9 @@ export const App = ({
   const [popStateTimeout, setPopStateTimeout] =
     useState<ReturnType<typeof setTimeout>>();
   useEffect(() => {
-    beforePopState(({ as, url }) => {
+    beforePopState(({ as, options, url }) => {
+      options.scroll = false;
+
       if (transition === 'template') {
         setPopStateTimeout(
           setTimeout(() => {
@@ -240,15 +241,16 @@ export const App = ({
           containerRef={containerRef}
           location={animationComplete}
           onLocationChange={scroll => {
-            scroll.scroll.stop && scroll.start();
+            scroll.lenisInstance.isStopped && scroll.start();
 
             const url = new URL(asPath, APP_URL);
             const el = html.querySelector(url.hash || '#null') as HTMLElement;
-            scroll.scrollTo(el ?? 0, {
-              disableLerp: el ? false : true,
-              duration: 0,
-              easing: EASE,
-            });
+
+            if (!el) {
+              window.scrollTo(0, 0);
+            } else {
+              el.scrollIntoView();
+            }
 
             if (transition) setTransition(false);
           }}
@@ -261,29 +263,32 @@ export const App = ({
               }
             }
           }}
-          options={{
-            class: '@',
-            draggingClass: 'is-drag',
-            initClass: 'is-init',
-            name: 's',
-            scrollbarClass: 'ScrollBar',
-            scrollingClass: 'is-scroll',
-            smartphone: {
-              smooth: true,
-            },
-            smooth: true,
-            smoothClass: 'is-smooth',
-            tablet: {
-              breakpoint: 1024,
-              smooth: true,
-            },
-            touchMultiplier: 4,
-          }}
+          options={
+            {
+              // class: '@',
+              // draggingClass: 'is-drag',
+              // initClass: 'is-init',
+              // name: 's',
+              // scrollbarClass: 'ScrollBar',
+              // scrollingClass: 'is-scroll',
+              // smartphone: {
+              //   smooth: true,
+              // },
+              // smooth: true,
+              // smoothClass: 'is-smooth',
+              // tablet: {
+              //   breakpoint: 1024,
+              //   smooth: true,
+              // },
+              // touchMultiplier: 4,
+              // lenisOptions: {},
+            }
+          }
           watch={[loadingEnd]}
         >
           <div className="App">
             <Header navTitle={navTitle} />
-            <main className="App-main" data-s-container ref={containerRef}>
+            <main className="App-main" ref={containerRef}>
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => {

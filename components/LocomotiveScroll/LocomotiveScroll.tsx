@@ -38,12 +38,12 @@ export const LocomotiveScrollProvider = ({
       try {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
-        const dataScrollContainer = document.querySelector(
-          '[data-s-container]',
-        ) as HTMLElement;
+        // const dataScrollContainer = document.querySelector(
+        //   '[data-s-container]',
+        // ) as HTMLElement;
 
         LocomotiveScrollRef.current = new LocomotiveScroll({
-          el: dataScrollContainer ?? undefined,
+          // el: dataScrollContainer ?? undefined,
           ...options,
         }) as ScrollProps;
 
@@ -66,7 +66,7 @@ export const LocomotiveScrollProvider = ({
         return;
       }
 
-      LocomotiveScrollRef.current.update();
+      LocomotiveScrollRef.current.resize();
 
       if (onUpdate) {
         onUpdate(LocomotiveScrollRef.current);
@@ -81,7 +81,7 @@ export const LocomotiveScrollProvider = ({
       return;
     }
 
-    LocomotiveScrollRef.current.update();
+    LocomotiveScrollRef.current.resize();
 
     if (onLocationChange) {
       onLocationChange(LocomotiveScrollRef.current);
