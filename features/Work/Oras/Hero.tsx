@@ -24,10 +24,9 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
   } = SITEMAP.oras;
   const dropDelay = 0.75;
   const ref = useRef(null);
-  // const { value: y } = useParallax(ref, { distance: [-80], reverse: true });
   const { value: y } = useParallax(ref, {
-    distance: [-80, 150],
     reverse: true,
+    startPosition: 'negative',
   });
 
   return (
