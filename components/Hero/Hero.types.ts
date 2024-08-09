@@ -1,5 +1,6 @@
 import { type AppHeadProps } from '@/components/App';
 import {
+  type ComponentPropsWithRef,
   type MouseEventHandler,
   type PropsWithChildren,
   type ReactNode,
@@ -7,7 +8,8 @@ import {
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { type Variants } from 'framer-motion';
 
-export interface HeroProps {
+export interface HeroProps
+  extends Omit<ComponentPropsWithRef<'section'>, 'children'> {
   children?:
     | ((passedProps: {
         noTransition: boolean;

@@ -5,9 +5,11 @@ import {
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { JUMP_FIX_VARIANTS, MQ, SCROLL_SPEED } from '@/lib/config';
+import { JUMP_FIX_VARIANTS, MQ } from '@/lib/config';
 import { m } from 'framer-motion';
 import { SITEMAP } from '@/lib/sitemap';
+import { useParallax } from '@/lib/useParallax';
+import { useRef } from 'react';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import Image from 'next/image';
@@ -21,6 +23,12 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
     year,
   } = SITEMAP.oras;
   const dropDelay = 0.75;
+  const ref = useRef(null);
+  // const { value: y } = useParallax(ref, { distance: [-80], reverse: true });
+  const { value: y } = useParallax(ref, {
+    distance: [-80, 150],
+    reverse: true,
+  });
 
   return (
     <Hero
@@ -29,6 +37,7 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
       href={url}
       id={id}
       onClick={onClick}
+      ref={ref}
       themeColor={themeColor}
       {...props}
     >
@@ -51,12 +60,11 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                     grid-col:4@l -start:6@l
                   "
                 >
-                  <figure
+                  <m.figure
                     className="Hero-figure-figure"
-                    data-scroll
-                    data-scroll-prevent
-                    data-scroll-speed={-SCROLL_SPEED}
-                    data-scroll-target={`[data-scroll-id=${id}]`}
+                    style={{
+                      y,
+                    }}
                   >
                     <m.div
                       {...(transitionPre && {
@@ -74,7 +82,7 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                         src={heroImage}
                       />
                     </m.div>
-                  </figure>
+                  </m.figure>
                   <m.div
                     className="Hero-figure-bg Hero-figure-bg--animate"
                     variants={figureBgVariants}
