@@ -49,7 +49,6 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
                 data-s-target={`[data-s-id=${id}]`}
               >
                 <m.div
-                  className="Hero-figure-figure-inner"
                   {...(transitionInitial && {
                     animate: 'animate',
                     initial: 'initial',
@@ -62,7 +61,7 @@ export const MediasignalHero = ({ onClick, ...props }: HeroProps) => {
                     alt="Mediasignal homepage sketch in iPad"
                     draggable="false"
                     priority={!transitionPre}
-                    quality="85"
+                    quality={85}
                     sizes={`${MQ.l} 60vw, 90vw`}
                     src={heroImage}
                   />

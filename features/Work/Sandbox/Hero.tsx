@@ -48,7 +48,6 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                   data-s-target={`[data-s-id=${id}]`}
                 >
                   <m.div
-                    className="Hero-figure-figure-inner"
                     {...(transitionInitial && {
                       animate: 'animate',
                       initial: 'initial',
@@ -60,7 +59,7 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
                       alt="Box of projects"
                       draggable="false"
                       priority={!transitionPre}
-                      quality="80"
+                      quality={80}
                       sizes="33vw"
                       src={heroImage}
                     />

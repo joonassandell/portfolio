@@ -448,7 +448,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             text={
               <>
                 <p>
-                  Want to see even more? Then checkout the
+                  Want to see even more? Then checkout the{' '}
                   <Link href={SITEMAP.archive.url}>archive</Link> featuring
                   clients such as Fair Trade, Avecra, City of Tampere and
                   Vapriikki.
