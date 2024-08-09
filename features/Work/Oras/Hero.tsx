@@ -51,19 +51,19 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                     grid-col:4@l -start:6@l
                   "
                 >
-                  <m.div
+                  <figure
                     className="Hero-figure-figure"
-                    {...(transitionPre && {
-                      animate: 'animate',
-                      initial: templateTransition && 'initial',
-                      variants: JUMP_FIX_VARIANTS,
-                    })}
+                    data-scroll
+                    data-scroll-prevent
+                    data-scroll-speed={-SCROLL_SPEED}
+                    data-scroll-target={`[data-scroll-id=${id}]`}
                   >
-                    <figure
-                      data-scroll
-                      data-scroll-prevent
-                      data-scroll-speed={-SCROLL_SPEED}
-                      data-scroll-target={`[data-scroll-id=${id}]`}
+                    <m.div
+                      {...(transitionPre && {
+                        animate: 'animate',
+                        initial: templateTransition && 'initial',
+                        variants: JUMP_FIX_VARIANTS,
+                      })}
                     >
                       <Image
                         alt="Oras faucet"
@@ -73,8 +73,8 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
                         sizes={`${MQ.ml} 33vw, 50vw`}
                         src={heroImage}
                       />
-                    </figure>
-                  </m.div>
+                    </m.div>
+                  </figure>
                   <m.div
                     className="Hero-figure-bg Hero-figure-bg--animate"
                     variants={figureBgVariants}

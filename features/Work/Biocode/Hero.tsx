@@ -5,6 +5,7 @@ import { m } from 'framer-motion';
 import { MQ, SCROLL_SPEED } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { TextReveal } from '@/components/TextReveal';
+import { useMedia } from 'react-use';
 import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
 import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
 import Image from 'next/image';
@@ -19,6 +20,7 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
   } = SITEMAP.biocode;
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
+  const mqM = useMedia(MQ.m, false);
 
   return (
     <Hero
@@ -39,21 +41,20 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
             {transitionPre && (
               <div className="Hero-pre wrap grid -gap:l -gap:row:0">
                 <div className={figureClasses}>
-                  <figure className="Hero-figure-globe Hero-figure-globe--pre">
-                    <div
-                      data-scroll
-                      data-scroll-speed={-SCROLL_SPEED}
-                      data-scroll-target={`[data-scroll-id=${id}]`}
-                    >
-                      <Image
-                        alt="Light globe"
-                        draggable="false"
-                        priority
-                        quality="80"
-                        sizes={`${MQ.l} 33vw, 50vw`}
-                        src={heroImagePre}
-                      />
-                    </div>
+                  <figure
+                    className="Hero-figure-globe Hero-figure-globe--pre"
+                    data-scroll
+                    data-scroll-speed={-SCROLL_SPEED}
+                    data-scroll-target={`[data-scroll-id=${id}]`}
+                  >
+                    <Image
+                      alt="Light globe"
+                      draggable="false"
+                      priority
+                      quality={mqM ? 80 : 60}
+                      sizes={`${MQ.l} 33vw, 50vw`}
+                      src={heroImagePre}
+                    />
                   </figure>
                 </div>
                 <HeroContent
@@ -76,23 +77,22 @@ export const BiocodeHero = ({ onClick, ...props }: HeroProps) => {
               variants={maskVariants}
             >
               <div className={figureClasses}>
-                <figure className="Hero-figure-globe Hero-figure-globe--default">
-                  <div
-                    {...(!transitionPre && {
-                      'data-scroll': true,
-                      'data-scroll-speed': -SCROLL_SPEED,
-                      'data-scroll-target': `[data-scroll-id=${id}]`,
-                    })}
-                  >
-                    <Image
-                      alt="Globe"
-                      draggable="false"
-                      priority={!transitionPre}
-                      quality="80"
-                      sizes={`${MQ.l} 33vw, 50vw`}
-                      src={heroImage}
-                    />
-                  </div>
+                <figure
+                  className="Hero-figure-globe Hero-figure-globe--default"
+                  {...(!transitionPre && {
+                    'data-scroll': true,
+                    'data-scroll-speed': -SCROLL_SPEED,
+                    'data-scroll-target': `[data-scroll-id=${id}]`,
+                  })}
+                >
+                  <Image
+                    alt="Globe"
+                    draggable="false"
+                    priority={!transitionPre}
+                    quality={80}
+                    sizes={`${MQ.l} 33vw, 50vw`}
+                    src={heroImage}
+                  />
                 </figure>
               </div>
             </m.div>

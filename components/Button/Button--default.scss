@@ -40,11 +40,9 @@
   }
 
   .Button-text {
-    position: relative;
-    top: rem($space-5xs * -1);
-
     @at-root .is-ios & {
-      top: 0;
+      position: relative;
+      top: rem($space-5xs * 1);
     }
   }
 }
