@@ -18,6 +18,10 @@ body {
   overflow: hidden;
 }
 
+.is-scroll iframe {
+  pointer-events: none;
+}
+
 /* =======================================
  * Scrollbar
  * ======================================= */
@@ -53,6 +57,10 @@ body {
 
   @include mq(s) {
     width: 13px;
+  }
+
+  @include mqTouch() {
+    pointer-events: none;
   }
 }
 
