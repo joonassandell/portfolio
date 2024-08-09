@@ -11,10 +11,9 @@
   display: inline-flex;
   flex-shrink: 0;
   gap: rem($space-2xs);
-  line-height: 1;
   max-width: 100%;
   min-height: rem($space-m);
-  padding: rem($space-3xs) rem($space-xs) rem($space-3xs) rem($space-xs);
+  padding: rem($space-5xs) rem($space-xs) 0 rem($space-xs);
   position: relative;
   text-decoration: none;
   user-select: none;
@@ -24,7 +23,10 @@
   background: var(--Badge-beacon, var(--primary));
   border-radius: var(--border-radius-pill);
   height: rem($space-xs);
+  position: relative;
+  top: rem($space-4xs * -0.5);
   width: rem($space-xs);
+  will-change: transform; // Fix some rounding issues
 }
 
 /* =======================================
