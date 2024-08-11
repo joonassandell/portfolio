@@ -1,15 +1,14 @@
 import { type AppHeadProps } from '@/components/App';
 import {
-  type ComponentPropsWithRef,
   type MouseEventHandler,
+  type MutableRefObject,
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { type Variants } from 'framer-motion';
 
-export interface HeroProps
-  extends Omit<ComponentPropsWithRef<'section'>, 'children'> {
+export interface HeroProps {
   children?:
     | ((passedProps: {
         noTransition: boolean;
@@ -24,6 +23,7 @@ export interface HeroProps
   headingVariants?: Variants;
   href?: URL['href'];
   id?: SitemapWithoutArrayKeys;
+  innerRef?: MutableRefObject<null>;
   onClick?: MouseEventHandler<HTMLElement>;
   stampAddVarsToParent?: boolean;
   stampOverlay?: boolean;

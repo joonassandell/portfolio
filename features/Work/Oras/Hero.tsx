@@ -14,7 +14,7 @@ import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import Image from 'next/image';
 
-export const OrasHero = ({ onClick, ...props }: HeroProps) => {
+export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
     id,
     meta: { themeColor },
@@ -25,8 +25,9 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
   const dropDelay = 0.75;
   const ref = useRef(null);
   const { value: y } = useParallax(ref, {
+    offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
-    startPosition: 'negative',
+    startPosition: transition === 'pre' ? 'negative' : 0,
   });
 
   return (
@@ -35,9 +36,10 @@ export const OrasHero = ({ onClick, ...props }: HeroProps) => {
       heading={`${title} — ${year}`}
       href={url}
       id={id}
+      innerRef={ref}
       onClick={onClick}
-      ref={ref}
       themeColor={themeColor}
+      transition={transition}
       {...props}
     >
       {({

@@ -44,7 +44,7 @@ export const App = ({
     transition: false,
     transitionInitial: false,
   });
-  const { html, loading, loadingEnd, transition } = appState;
+  const { detect, html, loading, loadingEnd, transition } = appState;
   const { asPath, beforePopState, events, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
@@ -113,8 +113,10 @@ export const App = ({
         detect: {
           hasThemeColor,
           hasTouch,
+          isIos,
           isSafari,
           isSafariDesktop,
+          isSafariIphone,
           isWindows,
         },
       }));
@@ -136,6 +138,19 @@ export const App = ({
 
     return () => window.removeEventListener('resize', rootHeight);
   }, [html]);
+
+  useEffect(() => {
+    /**
+     * Fix parallax elements "jump" that might happen during initial
+     * touch scroll in iPhone (and in possibly other iOS devices as well)
+     */
+    if (detect.isIos) {
+      window.scrollTo({
+        behavior: 'smooth',
+        top: 1,
+      });
+    }
+  }, [detect]);
 
   /* ======
    * Various
