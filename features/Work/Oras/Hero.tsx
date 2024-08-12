@@ -9,7 +9,6 @@ import { JUMP_FIX_VARIANTS, MQ } from '@/lib/config';
 import { m } from 'framer-motion';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';
-import { useRef } from 'react';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
 import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
 import Image from 'next/image';
@@ -23,8 +22,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
     year,
   } = SITEMAP.oras;
   const dropDelay = 0.75;
-  const ref = useRef(null);
-  const { value: y } = useParallax(ref, {
+  const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
