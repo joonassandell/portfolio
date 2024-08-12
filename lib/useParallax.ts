@@ -1,4 +1,5 @@
 import { type MutableRefObject, useRef } from 'react';
+import { useApp } from '@/components/App';
 import { useScroll, useSpring, useTransform } from 'framer-motion';
 import { useWindowSize } from '@/lib/useWindowSize';
 import useResizeObserver from 'use-resize-observer';
@@ -8,15 +9,23 @@ interface UseParallaxOptions {
   /**
    * https://www.framer.com/motion/use-scroll/##scroll-offsets
    */
-  offset?: any[] | 'start-end' | 'start-start' | 'end-start';
+  offset?:
+    | any[]
+    | 'start-end'
+    | 'start-start'
+    | 'end-start'
+    | 'start-center'
+    | 'start-80';
   ref?: MutableRefObject<null>;
   reverse?: boolean;
-  speed?: number;
+  speed?: number | 'fast' | 'fastest';
   startPosition?: 0 | 'negative';
   startPositionMultiplier?: number;
 }
 
-export const SCROLL_SPEED = 0.15;
+const SCROLL_SPEED = 0.15;
+const SCROLL_SPEED_FAST = 0.25;
+const SCROLL_SPEED_FASTEST = 0.4;
 
 export const useParallax = ({
   height = 'viewport',
@@ -27,6 +36,10 @@ export const useParallax = ({
   startPosition = 0,
   startPositionMultiplier = 1,
 }: UseParallaxOptions = {}) => {
+  const {
+    detect: { hasTouch },
+  } = useApp();
+
   switch (offset) {
     case 'start-end':
       offset = ['start end', 'end start'];
@@ -34,10 +47,26 @@ export const useParallax = ({
     case 'start-start':
       offset = ['start start', 'end start'];
       break;
+    case 'start-center':
+      offset = ['start center', 'end start'];
+      break;
+    case 'start-80':
+      offset = ['start 0.8', 'end start'];
+      break;
     case 'end-start':
       offset = ['end start', 'start end'];
       break;
   }
+
+  switch (speed) {
+    case 'fast':
+      speed = SCROLL_SPEED_FAST;
+      break;
+    case 'fastest':
+      speed = SCROLL_SPEED_FASTEST;
+      break;
+  }
+
   const createdRef = useRef(null);
   const assignedRef = ref ?? createdRef;
   const { scrollYProgress } = useScroll({
@@ -55,15 +84,15 @@ export const useParallax = ({
       : startPosition;
 
   const spring = useSpring(scrollYProgress, {
-    damping: 40,
+    damping: 60,
     restSpeed: 1,
-    stiffness: 500,
+    stiffness: 600,
   });
 
   return {
     ref: assignedRef,
     value: useTransform(
-      spring,
+      hasTouch ? spring : scrollYProgress,
       [0, 1],
       [scrollStartPos, scrollHeight * scrollSpeed],
     ),
