@@ -6,12 +6,12 @@ import {
 } from '@/components/Hero';
 import { figureInnerVariants } from './Hero.animations';
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
+import { useParallax } from '@/lib/useParallax';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
 import Image from 'next/image';
 
-export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
+export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
     id,
     meta: { themeColor },
@@ -19,6 +19,11 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
     url,
     year,
   } = SITEMAP.sandbox;
+  const { ref, value: y } = useParallax({
+    offset: transition === 'pre' ? 'start-end' : 'start-start',
+    reverse: true,
+    startPosition: transition === 'pre' ? 'negative' : 0,
+  });
 
   return (
     <Hero
@@ -26,62 +31,57 @@ export const SandboxHero = ({ onClick, ...props }: HeroProps) => {
       heading={`${title} — ${year}`}
       href={url}
       id={id}
+      innerRef={ref}
       onClick={onClick}
       themeColor={themeColor}
+      transition={transition}
       {...props}
     >
-      {({ noTransition, transitionInitial, transitionPre }) => {
-        return (
-          <div className="wrap">
-            <div className="grid -gap:l">
-              <div
-                className="
+      {({ noTransition, transitionInitial, transitionPre }) => (
+        <div className="wrap">
+          <div className="grid -gap:l">
+            <div
+              className="
                   Hero-figure grid-col
                   grid-col:7 -start:6
                   grid-col:4@l -start:6@l
                 "
-              >
-                <figure
-                  className="Hero-figure-figure"
-                  data-scroll
-                  data-scroll-speed={-SCROLL_SPEED}
-                  data-scroll-target={`[data-scroll-id=${id}]`}
-                >
-                  <m.div
-                    {...(transitionInitial && {
-                      animate: 'animate',
-                      initial: 'initial',
-                    })}
-                    {...(noTransition && { initial: 'animate' })}
-                    variants={figureInnerVariants}
-                  >
-                    <Image
-                      alt="Box of projects"
-                      draggable="false"
-                      priority={!transitionPre}
-                      quality={80}
-                      sizes="33vw"
-                      src={heroImage}
-                    />
-                  </m.div>
-                </figure>
+            >
+              <m.figure className="Hero-figure-figure" style={{ y }}>
                 <m.div
-                  className="Hero-figure-bg Hero-figure-bg--animate"
-                  variants={figureBgVariants}
-                />
-              </div>
-              <HeroContent
-                className="grid-col grid-col:3"
-                heading={title}
-                href={url}
-                onClick={onClick}
-                role={['Various web service and application concepts']}
-                transitionPre={transitionPre}
+                  {...(transitionInitial && {
+                    animate: 'animate',
+                    initial: 'initial',
+                  })}
+                  {...(noTransition && { initial: 'animate' })}
+                  variants={figureInnerVariants}
+                >
+                  <Image
+                    alt="Box of projects"
+                    draggable="false"
+                    priority={!transitionPre}
+                    quality={80}
+                    sizes="33vw"
+                    src={heroImage}
+                  />
+                </m.div>
+              </m.figure>
+              <m.div
+                className="Hero-figure-bg Hero-figure-bg--animate"
+                variants={figureBgVariants}
               />
             </div>
+            <HeroContent
+              className="grid-col grid-col:3"
+              heading={title}
+              href={url}
+              onClick={onClick}
+              role={['Various web service and application concepts']}
+              transitionPre={transitionPre}
+            />
           </div>
-        );
-      }}
+        </div>
+      )}
     </Hero>
   );
 };

@@ -23,7 +23,7 @@ export interface HeroProps {
   headingVariants?: Variants;
   href?: URL['href'];
   id?: SitemapWithoutArrayKeys;
-  innerRef?: MutableRefObject<null>;
+  innerRef?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;
   onClick?: MouseEventHandler<HTMLElement>;
   stampAddVarsToParent?: boolean;
   stampOverlay?: boolean;
