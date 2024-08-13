@@ -79,16 +79,12 @@ export const Hero = ({
       ref={ref}
     >
       <div className="Hero-inner" data-scroll-id={id} ref={innerRef}>
-        <div
-          className="Hero-heading wrap"
-          {...(transitionPre && { 'aria-hidden': true })}
-        >
+        <div className="Hero-heading wrap">
           <Heading
             className="Hero-heading-inner"
             onClick={onClick}
             size="display"
-            // @ts-expect-error Heading should include "asChild" prop eventually
-            tag={transitionPre ? m.h2 : m.h1}
+            tag={transitionPre ? 'h2' : 'h1'}
             variants={headingVariants}
           >
             <div
