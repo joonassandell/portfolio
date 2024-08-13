@@ -39,6 +39,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       scrollOffset,
       scrollReverse,
       scrollSpeed,
+      scrollSpeedMultiplier,
+      scrollStartPosition = 'negative',
       sizes = '100vw',
       src,
       transition = 'move',
@@ -50,7 +52,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
   ) => {
     const { transition: appTransition } = useApp();
     const mask = scroll === 'mask';
-    const negativeStartPosition = mask && scrollOffset != 'start-start';
+    const negativeStartPosition =
+      scrollStartPosition === 'negative' && scrollOffset != 'start-start';
     const classes = c(className, 'Figure', {
       '-bg': background,
       '-border': border,
@@ -74,7 +77,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       ref,
       reverse: scrollReverse,
       speed: scrollSpeed,
-      startPosition: negativeStartPosition ? 'negative' : 0,
+      speedMultiplier: scrollSpeedMultiplier,
+      startPosition: negativeStartPosition ? scrollStartPosition : 0,
     });
 
     const { value: maskY } = useParallax({
@@ -82,7 +86,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       ref,
       reverse: true,
       speed: scrollImageSpeed,
-      startPosition: negativeStartPosition ? 'negative' : 0,
+      speedMultiplier: scrollSpeedMultiplier,
+      startPosition: negativeStartPosition ? scrollStartPosition : 0,
     });
 
     // Stop caching images in development, uncomment if you keep testing new images

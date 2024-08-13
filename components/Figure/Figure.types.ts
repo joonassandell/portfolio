@@ -32,6 +32,8 @@ export interface FigureProps
   scrollOffset?: UseParallaxOptions['offset'];
   scrollReverse?: UseParallaxOptions['reverse'];
   scrollSpeed?: UseParallaxOptions['speed'];
+  scrollSpeedMultiplier?: UseParallaxOptions['speedMultiplier'];
+  scrollStartPosition?: UseParallaxOptions['startPosition'];
   src: string;
   style?: HTMLMotionProps<'div'>['style'];
   transition?: 'move' | 'clip';
