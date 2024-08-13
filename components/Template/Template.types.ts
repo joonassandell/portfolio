@@ -1,4 +1,4 @@
-import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
+import { type ComponentPropsWithRef, type PropsWithChildren } from 'react';
 import { type FooterProps } from '@/components/Footer';
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 
@@ -11,8 +11,7 @@ export interface TemplateProps extends PropsWithChildren {
 
 export interface TemplateMainProps extends PropsWithChildren {}
 
-export interface TemplateSectionProps
-  extends ComponentPropsWithoutRef<'section'> {
+export interface TemplateSectionProps extends ComponentPropsWithRef<'section'> {
   grid?: boolean;
   gridGap?: 'm' | 'l' | 'xl' | false;
   gridRowGap?: 'm' | 'l' | 'xl' | false;
