@@ -11,20 +11,22 @@ export interface UseParallaxOptions {
    * https://www.framer.com/motion/use-scroll/##scroll-offsets
    */
   offset?:
-    | any[]
     | 'start-end'
     | 'start-start'
-    | 'end-start'
     | 'start-center'
-    | 'start-80';
+    | 'start-80'
+    | 'end-start'
+    | any[];
   ref?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;
   reverse?: boolean;
-  speed?: number | 'fast' | 'fastest';
+  speed?: 'slowest' | 'slow' | 'medium' | 'fast' | 'fastest' | number;
   speedMultiplier?: number;
   startPosition?: 0 | 'negative';
   startPositionMultiplier?: number;
 }
 
+const SCROLL_SPEED_SLOWEST = 0.05;
+const SCROLL_SPEED_SLOW = 0.1;
 const SCROLL_SPEED = 0.15;
 const SCROLL_SPEED_FAST = 0.25;
 const SCROLL_SPEED_FASTEST = 0.4;
@@ -35,7 +37,7 @@ export const useParallax = ({
   offset = 'start-end',
   ref,
   reverse = false,
-  speed = SCROLL_SPEED,
+  speed = 'medium',
   speedMultiplier = 1,
   startPosition = 0,
   startPositionMultiplier = 1,
@@ -63,6 +65,15 @@ export const useParallax = ({
   }
 
   switch (speed) {
+    case 'slowest':
+      speed = SCROLL_SPEED_SLOWEST;
+      break;
+    case 'slow':
+      speed = SCROLL_SPEED_SLOW;
+      break;
+    case 'medium':
+      speed = SCROLL_SPEED;
+      break;
     case 'fast':
       speed = SCROLL_SPEED_FAST;
       break;
