@@ -3,7 +3,7 @@ import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
-import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
@@ -70,7 +70,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               quality={100}
               scroll
-              scrollSpeed="negative"
+              scrollReverse
               sizes={`${MQ.m} 40vw, 70vw`}
               {...getImage(
                 'joonassandell-biocode-website-home-calculate',
@@ -96,7 +96,6 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               glare
               scroll
-              scrollSpeed={0.13}
               src="/biocode/joonassandell-biocode-website-home.mp4"
             />
           </div>
@@ -117,7 +116,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.3}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.03}
+              scrollSpeedMultiplier={1.2}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-producer-mark', images)}
             />
@@ -128,7 +127,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.6}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.06}
+              scrollSpeedMultiplier={1.4}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-product-mark', images)}
             />
@@ -139,7 +138,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               inViewOffset={0.9}
               scroll
-              scrollSpeed={SCROLL_SPEED + 0.09}
+              scrollSpeedMultiplier={1.6}
               sizes={`${MQ.m} 20vw, 50vw`}
               {...getImage('joonassandell-biocode-report-mark', images)}
             />
@@ -214,7 +213,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               border
               quality={100}
               scroll
-              scrollSpeed={0.06}
+              scrollSpeed="slow"
               sizes={`${MQ.m} 70vw, 90w`}
               {...getImage(
                 'joonassandell-biocode-website-features-hero',

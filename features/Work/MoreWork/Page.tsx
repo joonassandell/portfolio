@@ -290,7 +290,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
               scroll="mask"
-              scrollImageSpeed={-0.13}
+              scrollSpeed="slowest"
               sizes="50vw"
               transition="clip"
               {...getImage('joonassandell-academic-bookstore-brand-2', images)}

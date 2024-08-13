@@ -158,7 +158,8 @@ export const SandboxPage = ({ images }: PageProps) => {
             <Figure
               alt="Shopping mall app"
               scroll={mqM}
-              scrollSpeed={-0.06}
+              scrollReverse
+              scrollSpeed="slow"
               sizes={`${MQ.m} 40vw, 100vw`}
               {...getImage('joonassandell-shopping-mall-app', images)}
             />

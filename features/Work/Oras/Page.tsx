@@ -2,7 +2,7 @@ import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
-import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { OrasHero } from './';
 import { type PageProps } from '@/types';
@@ -85,7 +85,8 @@ export const OrasPage = ({ images }: PageProps) => {
               alt="Oras lifestyle animation concept"
               className="Template-videoBathroom"
               scroll
-              scrollSpeed={-0.06}
+              scrollReverse
+              scrollSpeed="slow"
               src="/oras/joonassandell-oras-bathroom.mp4"
               transition="clip"
             />
@@ -94,7 +95,7 @@ export const OrasPage = ({ images }: PageProps) => {
             <Figure
               alt="Oras get inspired animation concept"
               scroll
-              scrollSpeed={0.03}
+              scrollSpeed="slowest"
               src="/oras/joonassandell-oras-get-inspired.mp4"
               transition="clip"
             />
@@ -129,7 +130,7 @@ export const OrasPage = ({ images }: PageProps) => {
               alt="Oras homepage hero"
               border
               scroll
-              scrollSpeed={0.03}
+              scrollSpeed="slow"
               sizes={`${MQ.m} 70vw, 100vw`}
               transition="clip"
               {...getImage('joonassandell-oras-home-hero', images)}
@@ -139,7 +140,7 @@ export const OrasPage = ({ images }: PageProps) => {
             <Figure
               alt="Oras live more page hero"
               scroll
-              scrollSpeed="negative"
+              scrollReverse
               sizes={`${MQ.m} 33vw, 80vw`}
               transition="clip"
               {...getImage('joonassandell-oras-live-more-hero', images)}
@@ -266,7 +267,7 @@ export const OrasPage = ({ images }: PageProps) => {
               <Figure
                 alt="Oras homepage mobile 2"
                 scroll
-                scrollSpeed="negative"
+                scrollReverse
                 sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-2', images)}
               />
@@ -277,7 +278,7 @@ export const OrasPage = ({ images }: PageProps) => {
               <Figure
                 alt="Oras homepage mobile 3"
                 scroll
-                scrollSpeed={SCROLL_SPEED * 2}
+                scrollSpeed="fast"
                 sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-mobile-3', images)}
               />
