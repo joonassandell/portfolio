@@ -20,6 +20,7 @@ export interface UseParallaxOptions {
   ref?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;
   reverse?: boolean;
   speed?: number | 'fast' | 'fastest';
+  speedMultiplier?: number;
   startPosition?: 0 | 'negative';
   startPositionMultiplier?: number;
 }
@@ -35,6 +36,7 @@ export const useParallax = ({
   ref,
   reverse = false,
   speed = SCROLL_SPEED,
+  speedMultiplier = 1,
   startPosition = 0,
   startPositionMultiplier = 1,
 }: UseParallaxOptions = {}) => {
@@ -79,7 +81,9 @@ export const useParallax = ({
   const { height: elementHeight = 0 } = useResizeObserver({ ref: assignedRef });
 
   const scrollHeight = height === 'element' ? elementHeight : clientHeight;
-  const scrollSpeed = reverse ? speed : -speed;
+  const scrollSpeed = reverse
+    ? speed * speedMultiplier
+    : -speed * speedMultiplier;
   const scrollStartPos =
     startPosition === 'negative'
       ? scrollHeight * -scrollSpeed * startPositionMultiplier
