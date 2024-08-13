@@ -284,23 +284,10 @@ export const App = ({
           }}
           options={
             {
-              // class: '@',
-              // draggingClass: 'is-drag',
-              // initClass: 'is-init',
-              // name: 's',
-              // scrollbarClass: 'ScrollBar',
-              // scrollingClass: 'is-scroll',
-              // smartphone: {
-              //   smooth: true,
+              // lenisOptions: {
+              //   syncTouch: true,
+              //   // touchInertiaMultiplier: 20,
               // },
-              // smooth: true,
-              // smoothClass: 'is-smooth',
-              // tablet: {
-              //   breakpoint: 1024,
-              //   smooth: true,
-              // },
-              // touchMultiplier: 4,
-              // lenisOptions: {},
             }
           }
           watch={[loadingEnd]}

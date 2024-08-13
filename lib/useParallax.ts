@@ -4,7 +4,8 @@ import { useScroll, useSpring, useTransform } from 'framer-motion';
 import { useWindowSize } from '@/lib/useWindowSize';
 import useResizeObserver from 'use-resize-observer';
 
-interface UseParallaxOptions {
+export interface UseParallaxOptions {
+  endPositionMultiplier?: number;
   height?: 'element' | 'viewport';
   /**
    * https://www.framer.com/motion/use-scroll/##scroll-offsets
@@ -16,7 +17,7 @@ interface UseParallaxOptions {
     | 'end-start'
     | 'start-center'
     | 'start-80';
-  ref?: MutableRefObject<null>;
+  ref?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;
   reverse?: boolean;
   speed?: number | 'fast' | 'fastest';
   startPosition?: 0 | 'negative';
@@ -28,6 +29,7 @@ const SCROLL_SPEED_FAST = 0.25;
 const SCROLL_SPEED_FASTEST = 0.4;
 
 export const useParallax = ({
+  endPositionMultiplier = 1,
   height = 'viewport',
   offset = 'start-end',
   ref,
@@ -94,7 +96,7 @@ export const useParallax = ({
     value: useTransform(
       hasTouch ? spring : scrollYProgress,
       [0, 1],
-      [scrollStartPos, scrollHeight * scrollSpeed],
+      [scrollStartPos, scrollHeight * scrollSpeed * endPositionMultiplier],
     ),
   };
 };
