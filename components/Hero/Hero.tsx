@@ -78,10 +78,7 @@ export const Hero = ({
       ref={ref}
     >
       <div className="Hero-inner" data-s-id={id}>
-        <div
-          className="Hero-heading wrap"
-          {...(transitionPre && { 'aria-hidden': true })}
-        >
+        <div className="Hero-heading wrap">
           <Heading
             className="Hero-heading-inner"
             onClick={onClick}
