@@ -8,6 +8,7 @@ import { MQ, TEXT_VARIANTS } from '@/lib/config';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
+import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 
 export const Info = ({
@@ -26,17 +27,16 @@ export const Info = ({
   const gridInView = useInView(gridRef);
   const textRef = useRef(null);
   const textInView = useInView(textRef);
+  const { ref, value: y } = useParallax({
+    offset: 'start-center',
+    speed: 'slowest',
+  });
 
   return (
-    <section className="Info wrap grid -gap:row:l">
-      <div
-        className="grid-col"
-        data-scroll
-        data-scroll-position="top"
-        data-scroll-speed={0.03}
-      >
+    <section className="Info wrap grid -gap:row:l" ref={ref}>
+      <m.div className="grid-col" style={{ y }}>
         <Hr className="mb:0@until:l" />
-      </div>
+      </m.div>
       <m.div
         animate={gridInView && 'animate'}
         className="grid-col grid-col:5@l"

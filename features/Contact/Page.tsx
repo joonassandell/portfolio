@@ -4,12 +4,12 @@ import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
-import { SCROLL_SPEED } from '@/lib/config';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useCopyToClipboard } from 'react-use';
+import { useParallax } from '@/lib/useParallax';
 import { useSetThemeColor } from '@/components/App';
 import { useState } from 'react';
 
@@ -18,6 +18,7 @@ export const ContactPage = () => {
   useSetThemeColor(meta.themeColor);
   const [, copyToClipboard] = useCopyToClipboard();
   const [icon, setIcon] = useState(<Copy />);
+  const { value: x } = useParallax({ offset: 'start-start' });
 
   const handleCopy = () => {
     copyToClipboard(CONTENT.person.email);
@@ -32,11 +33,8 @@ export const ContactPage = () => {
         <TemplateSection className="Template-top" grid={false}>
           <Heading
             className="white-space:nowrap mb:0"
-            data-scroll
-            data-scroll-direction="horizontal"
-            data-scroll-position="left"
-            data-scroll-speed={SCROLL_SPEED}
             size="display"
+            style={{ x }}
             tag="h1"
           >
             <TextReveal aria-hidden text={['Get in touch ✳︎ Get in touch']} />
