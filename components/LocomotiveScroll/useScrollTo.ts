@@ -3,13 +3,10 @@ import { useLocomotiveScroll } from './';
 
 export const useScrollTo = (
   {
-    callbackDelay,
     scrollLock,
   }: {
-    callbackDelay?: number;
     scrollLock?: boolean;
   } = {
-    callbackDelay: 0,
     scrollLock: false,
   },
 ) => {
@@ -23,11 +20,7 @@ export const useScrollTo = (
         lock: scrollLock,
         onComplete: () => {
           if (scrollLock) scroll.stop();
-          if (callback) {
-            setTimeout(() => {
-              callback();
-            }, callbackDelay);
-          }
+          callback && callback();
         },
       });
     }
