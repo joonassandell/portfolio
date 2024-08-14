@@ -14,6 +14,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: var(--root-min-width);
+  overflow-y: scroll;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   text-wrap: pretty;

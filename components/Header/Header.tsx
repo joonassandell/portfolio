@@ -29,12 +29,10 @@ import { urlState } from '@/lib/useUrlState';
 import { useApp } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useEffect, useRef, useState } from 'react';
-import {
-  useLocomotiveScroll,
-  useScrollTo,
-} from '@/components/LocomotiveScroll';
+import { useLenis } from '@studio-freight/react-lenis';
 import { useMedia } from 'react-use';
 import { useRouter } from 'next/router';
+import { useScrollTo } from '@/lib/useScrollTo';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
@@ -46,7 +44,7 @@ export const Header = ({
   const router = useRouter();
   const { asPath, events, push } = router;
   const { html, setTransition, setTransitionInitial } = useApp();
-  const { scroll } = useLocomotiveScroll();
+  const lenis = useLenis();
   const scrollTo = useScrollTo();
   const mqM = useMedia(MQ.m, true);
 
@@ -113,7 +111,7 @@ export const Header = ({
      * Header is open/closed. Note that scroll will stay stopped if header links
      * are clicked but App takes care of enabling it after route change.
      */
-    scroll && !scroll.lenisInstance.isStopped ? scroll.stop() : scroll?.start();
+    lenis && !lenis.isStopped ? lenis.stop() : lenis?.start();
 
     if (mask === 'closed' || mask === 'closedReset') setMask('open');
     if (mask === 'open' || mask === 'openReset') setMask('closed');
@@ -410,6 +408,7 @@ export const Header = ({
         <m.div
           animate={maskAnim}
           className="Header-mask scrollbar -color:negative"
+          data-lenis-prevent
           ref={maskRef}
         >
           {maskOpen && (

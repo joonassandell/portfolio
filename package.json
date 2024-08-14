@@ -22,6 +22,7 @@
   "dependencies": {
     "@builder.io/partytown": "^0.10.2",
     "@nivo/line": "^0.86.0",
+    "@studio-freight/react-lenis": "^0.0.47",
     "clsx": "^2.1.1",
     "critters": "^0.0.24",
     "focus-trap-react": "^10.2.3",

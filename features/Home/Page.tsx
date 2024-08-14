@@ -11,10 +11,8 @@ import { OrasHero } from '@/features/Work/Oras';
 import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
-import {
-  useLocomotiveScroll,
-  useScrollTo,
-} from '@/components/LocomotiveScroll';
+import { useLenis } from '@studio-freight/react-lenis';
+import { useScrollTo } from '@/lib/useScrollTo';
 import { useState } from 'react';
 import c from 'clsx';
 
@@ -22,7 +20,7 @@ export const HomePage = () => {
   const { id, meta } = SITEMAP.home;
   useSetThemeColor(meta.themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
-  const { scroll } = useLocomotiveScroll();
+  const lenis = useLenis();
   const {
     detect: { isIos },
     freezeTemplate,
@@ -34,24 +32,24 @@ export const HomePage = () => {
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
 
-  const iosFreeze = (el: HTMLElement) => {
+  const freezeIos = (el: HTMLElement) => {
     if (!isIos) return;
     const els = el.querySelectorAll('[data-iosfreeze]');
     els.forEach(el => el.classList.add('transform-none'));
   };
 
   const handleClick = (e: LinkEvent) => {
-    if (!scroll) return;
+    if (!lenis) return;
     e.preventDefault();
     setTransition(true);
     setTransitionInitial(false);
 
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
-    const needsExtraSpace = scroll.lenisInstance.limit < el?.offsetTop;
+    const needsExtraSpace = lenis.limit < el?.offsetTop;
     if (needsExtraSpace) {
       setExtraSpace(true);
-      scroll.resize();
+      lenis.resize();
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
@@ -62,7 +60,7 @@ export const HomePage = () => {
       () => {
         scrollTo(el, () => {
           setTimeout(() => {
-            iosFreeze(el);
+            freezeIos(el);
             freezeTemplate();
           }, 0);
         });

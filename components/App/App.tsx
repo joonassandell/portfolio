@@ -17,17 +17,14 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from 'react';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
-import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-
-let scrollOnUpdateOnce = false;
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
@@ -60,7 +57,7 @@ export const App = ({
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
-  const containerRef = useRef(null);
+  const lenis = useLenis();
 
   /* ======
    * App set state functions
@@ -99,14 +96,14 @@ export const App = ({
   const freezeTemplate = useCallback(() => {
     if (!templateRef?.current) return;
     templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
-    templateRef.current.style.position = `fixed`;
+    templateRef.current.style.position = 'fixed';
   }, [templateRef]);
 
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
 
-  /* ======
-   * Initialize stuff on load etc.
-   * ====== */
+  /* =======================================
+   * Initialize
+   * ======================================= */
 
   useEffect(() => {
     if (PRODUCTION) {
@@ -176,9 +173,9 @@ export const App = ({
     }
   }, [detect]);
 
-  /* ======
+  /* =======================================
    * Various
-   * ====== */
+   * ======================================= */
 
   useEffect(() => {
     if (loadingEnd) html.classList.remove('is-loading');
@@ -203,6 +200,13 @@ export const App = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition, html]);
+
+  /**
+   * Set initial transitions ready for animation (e.g. for Hero)
+   */
+  useEffect(() => {
+    if (transition === 'template') setTransitionInitial(true);
+  }, [transition]);
 
   /**
    * Add loader with nprogress for slow networks
@@ -261,12 +265,30 @@ export const App = ({
     return () => popStateTimeout && clearTimeout(popStateTimeout);
   }, [transition, beforePopState, push, popStateTimeout]);
 
-  /**
-   * Set initial transitions ready for animation (e.g. for Hero)
-   */
   useEffect(() => {
-    if (transition === 'template') setTransitionInitial(true);
-  }, [transition]);
+    lenis?.isStopped && lenis.start();
+
+    const url = new URL(asPath, APP_URL);
+    const el = html.querySelector(url.hash || '#null') as HTMLElement;
+
+    /**
+     * Scrolling to top is handled by freezing the current template
+     * which removes the scroll position, so basically this exists just
+     * to make sure scroll is a the top. This could probably be removed
+     * eventually.
+     */
+    if (!el && window.scrollY != 0) {
+      window.scrollTo(0, 0);
+    }
+
+    if (el) {
+      el.scrollIntoView();
+    }
+
+    if (transition) setTransition(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [animationComplete, html]);
 
   return (
     <LazyMotion features={domAnimation} strict>
@@ -287,53 +309,10 @@ export const App = ({
           setTransitionInitial,
         }}
       >
-        <LocomotiveScrollProvider
-          containerRef={containerRef}
-          location={animationComplete}
-          onLocationChange={scroll => {
-            scroll.lenisInstance.isStopped && scroll.start();
-
-            const url = new URL(asPath, APP_URL);
-            const el = html.querySelector(url.hash || '#null') as HTMLElement;
-
-            /**
-             * Scrolling to top is handled by freezing the current template
-             * which removes the scroll position, so basically this exists just
-             * to make sure scroll is a the top. This could probably be removed
-             * eventually.
-             */
-            if (!el && window.scrollY != 0) {
-              window.scrollTo(0, 0);
-            }
-
-            if (el) {
-              el.scrollIntoView();
-            }
-
-            if (transition) setTransition(false);
-          }}
-          onUpdate={scroll => {
-            if (!DISABLE_LOADING) {
-              if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
-              if (!scrollOnUpdateOnce && loadingEnd) {
-                scrollOnUpdateOnce = true;
-                scroll.start();
-              }
-            }
-          }}
-          options={
-            {
-              // lenisOptions: {
-              //   syncTouch: true,
-              //   // touchInertiaMultiplier: 20,
-              // },
-            }
-          }
-          watch={[loadingEnd]}
-        >
+        <ReactLenis root>
           <div className="App">
             <Header navTitle={navTitle} />
-            <main className="App-main" data-scroll-container ref={containerRef}>
+            <main className="App-main">
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => {
@@ -345,7 +324,7 @@ export const App = ({
               </AnimatePresence>
             </main>
           </div>
-        </LocomotiveScrollProvider>
+        </ReactLenis>
       </AppContext.Provider>
     </LazyMotion>
   );
