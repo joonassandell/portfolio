@@ -21,7 +21,7 @@ import {
 } from 'react';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
+import { ReactLenis } from '@studio-freight/react-lenis';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -57,7 +57,6 @@ export const App = ({
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
-  const lenis = useLenis();
 
   /* ======
    * App set state functions
@@ -266,20 +265,8 @@ export const App = ({
   }, [transition, beforePopState, push, popStateTimeout]);
 
   useEffect(() => {
-    lenis?.isStopped && lenis.start();
-
     const url = new URL(asPath, APP_URL);
     const el = html.querySelector(url.hash || '#null') as HTMLElement;
-
-    /**
-     * Scrolling to top is handled by freezing the current template
-     * which removes the scroll position, so basically this exists just
-     * to make sure scroll is a the top. This could probably be removed
-     * eventually.
-     */
-    if (!el && window.scrollY != 0) {
-      window.scrollTo(0, 0);
-    }
 
     if (el) {
       el.scrollIntoView();

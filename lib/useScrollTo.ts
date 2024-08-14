@@ -16,7 +16,6 @@ export const useScrollTo = ({
       easing: SCROLL_TO_EASE,
       lock: scrollLock,
       onComplete: () => {
-        if (scrollLock) lenis.stop();
         callback && callback();
       },
     });
