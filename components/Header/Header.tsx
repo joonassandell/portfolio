@@ -147,7 +147,7 @@ export const Header = ({
 
     // Set proper page transitions before routing
     if (open) {
-      setTransition(true);
+      setTransition('instant');
       setTransitionInitial(false);
     }
 

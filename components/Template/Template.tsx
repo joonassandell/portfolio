@@ -8,7 +8,7 @@ import {
   variantsWithTransition,
 } from './';
 import { useApp } from '@/components/App';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
 import c from 'clsx';
 
@@ -22,7 +22,7 @@ export const Template = ({
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
   );
-  const { transition } = useApp();
+  const { setTemplateRef, transition } = useApp();
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const defaultTransition = transition && !templateTransition;
@@ -35,10 +35,15 @@ export const Template = ({
     'is-transition:template:exit':
       templateTransition && animState === 'animExit',
   });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isPresent) setAnimState('animExit');
-    if (isPresent) setAnimState('animStart');
+    if (isPresent) {
+      setTemplateRef(ref);
+      setAnimState('animStart');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPresent]);
 
   return (
@@ -53,26 +58,9 @@ export const Template = ({
           if (scroll) scroll.stop();
         }
       }}
-      onUpdate={e => {
-        /**
-         * Scroll top top just before the template transition finishes to
-         * prevent a flash in the scroll
-         */
-        if (
-          animState === 'animStart' &&
-          templateTransition &&
-          (e.y as number) < 0.01
-        ) {
-          console.log('Template scroll restored');
-          window.scrollTo(0, 0);
-        }
-      }}
-      {...(!templateTransition && {
-        variants: variantsWithoutTransition,
-      })}
-      {...(templateTransition && {
-        variants: variantsWithTransition,
-      })}
+      ref={ref}
+      {...(!templateTransition && { variants: variantsWithoutTransition })}
+      {...(templateTransition && { variants: variantsWithTransition })}
     >
       <AnimatePresence>
         <div className="Template-inner">

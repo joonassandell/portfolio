@@ -12,7 +12,14 @@ import {
   type AppHeadProps,
   type AppProps,
 } from './';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Header } from '@/components/Header';
 import { isBrowser } from '@/lib/utils';
 import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
@@ -35,16 +42,20 @@ export const App = ({
       | 'setTransition'
       | 'setTransitionInitial'
       | 'setThemeColor'
+      | 'setTemplateRef'
+      | 'freezeTemplate'
     >
   >({
     detect: {},
     html: (isBrowser && document.documentElement) as AppContextProps['html'],
     loading: DISABLE_LOADING ? false : true,
     loadingEnd: DISABLE_LOADING ? true : false,
+    templateRef: null,
     transition: false,
     transitionInitial: false,
   });
-  const { detect, html, loading, loadingEnd, transition } = appState;
+  const { detect, html, loading, loadingEnd, templateRef, transition } =
+    appState;
   const { asPath, beforePopState, events, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
@@ -77,6 +88,19 @@ export const App = ({
       loadingEnd: value,
     }));
   };
+
+  const setTemplateRef = (value: AppContextProps['templateRef']) => {
+    setAppState(prevState => ({
+      ...prevState,
+      templateRef: value,
+    }));
+  };
+
+  const freezeTemplate = useCallback(() => {
+    if (!templateRef?.current) return;
+    templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
+    templateRef.current.style.position = `fixed`;
+  }, [templateRef]);
 
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
 
@@ -165,6 +189,10 @@ export const App = ({
       html.classList.add('is-transition', 'is-transition:withDelay');
     }
 
+    if (transition === 'instant' || transition === 'template') {
+      freezeTemplate();
+    }
+
     const hackClass = 'is-transition:template:withDelay';
     if (transition === 'template') html.classList.add(hackClass);
 
@@ -173,6 +201,7 @@ export const App = ({
       setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
       setTimeout(() => html.classList.remove(hackClass), 300);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition, html]);
 
   /**
@@ -251,6 +280,8 @@ export const App = ({
       <AppContext.Provider
         value={{
           ...appState,
+          freezeTemplate,
+          setTemplateRef,
           setThemeColor,
           setTransition,
           setTransitionInitial,
@@ -265,9 +296,17 @@ export const App = ({
             const url = new URL(asPath, APP_URL);
             const el = html.querySelector(url.hash || '#null') as HTMLElement;
 
-            if (!el) {
+            /**
+             * Scrolling to top is handled by freezing the current template
+             * which removes the scroll position, so basically this exists just
+             * to make sure scroll is a the top. This could probably be removed
+             * eventually.
+             */
+            if (!el && window.scrollY != 0) {
               window.scrollTo(0, 0);
-            } else {
+            }
+
+            if (el) {
               el.scrollIntoView();
             }
 
