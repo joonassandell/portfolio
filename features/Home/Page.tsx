@@ -16,16 +16,29 @@ import {
   useScrollTo,
 } from '@/components/LocomotiveScroll';
 import { useState } from 'react';
+import c from 'clsx';
 
 export const HomePage = () => {
   const { id, meta } = SITEMAP.home;
   useSetThemeColor(meta.themeColor);
   const scrollTo = useScrollTo({ scrollLock: true });
   const { scroll } = useLocomotiveScroll();
-  const { setThemeColor, setTransition, setTransitionInitial } = useApp();
+  const {
+    detect: { isIos },
+    freezeTemplate,
+    setThemeColor,
+    setTransition,
+    setTransitionInitial,
+  } = useApp();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
+
+  const iosFreeze = (el: HTMLElement) => {
+    if (!isIos) return;
+    const els = el.querySelectorAll('[data-iosfreeze]');
+    els.forEach(el => el.classList.add('transform-none'));
+  };
 
   const handleClick = (e: LinkEvent) => {
     if (!scroll) return;
@@ -36,7 +49,6 @@ export const HomePage = () => {
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
     const needsExtraSpace = scroll.lenisInstance.limit < el?.offsetTop;
-
     if (needsExtraSpace) {
       setExtraSpace(true);
       scroll.resize();
@@ -44,15 +56,24 @@ export const HomePage = () => {
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
     setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
+    setAnimation(true);
+
     setTimeout(
-      () => scrollTo(el, () => setAnimation(true)),
-      needsExtraSpace ? 400 : 0,
+      () => {
+        scrollTo(el, () => {
+          setTimeout(() => {
+            iosFreeze(el);
+            freezeTemplate();
+          }, 0);
+        });
+      },
+      needsExtraSpace ? 300 : 0,
     );
   };
 
   return (
     <Template
-      className={extraSpace ? 'is-extraSpace' : ''}
+      className={c({ 'is-extraSpace': extraSpace })}
       id={id}
       variant="unstyled"
     >

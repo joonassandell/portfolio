@@ -50,6 +50,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
               <div className={figureClasses}>
                 <m.figure
                   className="Hero-figure-globe Hero-figure-globe--pre"
+                  data-iosfreeze
                   style={{ y }}
                 >
                   <Image

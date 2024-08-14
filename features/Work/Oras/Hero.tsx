@@ -27,7 +27,11 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
   });
-  const { value: dropY } = useParallax({ ref, startPosition: 'negative' });
+  const { value: dropY } = useParallax({
+    offset: transition === 'pre' ? 'start-end' : 'start-start',
+    ref,
+    startPosition: transition === 'pre' ? 'negative' : 0,
+  });
 
   return (
     <Hero
@@ -61,9 +65,8 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
               >
                 <m.figure
                   className="Hero-figure-figure"
-                  style={{
-                    y,
-                  }}
+                  data-iosfreeze
+                  style={{ y }}
                 >
                   <m.div
                     {...(transitionPre && {
@@ -149,7 +152,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             custom={{ delay: transitionInitial ? dropDelay : 0 }}
             variants={dropVariants3}
           >
-            <m.div style={{ y: dropY }}>
+            <m.div data-iosfreeze style={{ y: dropY }}>
               <Image
                 alt="Oras drop"
                 aria-hidden="true"

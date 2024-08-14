@@ -47,7 +47,11 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
                   grid-col:4@l -start:6@l
                 "
             >
-              <m.figure className="Hero-figure-figure" style={{ y }}>
+              <m.figure
+                className="Hero-figure-figure"
+                data-iosfreeze
+                style={{ y }}
+              >
                 <m.div
                   {...(transitionInitial && {
                     animate: 'animate',

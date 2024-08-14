@@ -45,7 +45,11 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
       {({ transitionPre }) => (
         <div className="wrap grid -gap:l pl:0">
           <div className="Hero-figure grid-col grid-col:6 grid-col:6@l">
-            <m.figure className="Hero-figure-figure" style={{ y }}>
+            <m.figure
+              className="Hero-figure-figure"
+              data-iosfreeze
+              style={{ y }}
+            >
               <Image
                 alt="Omoroi homepage in phone"
                 draggable="false"
@@ -56,6 +60,7 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
             </m.figure>
             <m.figure
               className="Hero-figure-figure Hero-figure-figure--bottom"
+              data-iosfreeze
               style={{ y: y2 }}
             >
               <Image

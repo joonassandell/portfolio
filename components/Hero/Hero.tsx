@@ -93,7 +93,7 @@ export const Hero = ({
             tag={transitionPre ? 'h2' : 'h1'}
             variants={headingVariants}
           >
-            <m.div style={{ x }}>
+            <m.div data-iosfreeze style={{ x }}>
               <TextReveal
                 custom={
                   transitionPre && {
