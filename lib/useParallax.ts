@@ -1,6 +1,6 @@
-import { type MutableRefObject, useRef } from 'react';
+import { MotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { type MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useApp } from '@/components/App';
-import { useScroll, useSpring, useTransform } from 'framer-motion';
 import { useWindowSize } from '@/lib/useWindowSize';
 import useResizeObserver from 'use-resize-observer';
 
@@ -42,6 +42,7 @@ export const useParallax = ({
   startPosition = 0,
   startPositionMultiplier = 1,
 }: UseParallaxOptions = {}) => {
+  const [mounted, setMounted] = useState(false);
   const {
     detect: { hasTouch },
   } = useApp();
@@ -100,18 +101,22 @@ export const useParallax = ({
       ? scrollHeight * -scrollSpeed * startPositionMultiplier
       : startPosition;
 
+  useEffect(() => setMounted(true), []);
+
   const spring = useSpring(scrollYProgress, {
     damping: 60,
     restSpeed: 1,
     stiffness: 600,
   });
 
+  const transformValue = useTransform(
+    hasTouch ? spring : scrollYProgress,
+    [0, 1],
+    [scrollStartPos, scrollHeight * scrollSpeed * endPositionMultiplier],
+  );
+
   return {
     ref: assignedRef,
-    value: useTransform(
-      hasTouch ? spring : scrollYProgress,
-      [0, 1],
-      [scrollStartPos, scrollHeight * scrollSpeed * endPositionMultiplier],
-    ),
+    value: mounted ? transformValue : new MotionValue(),
   };
 };
