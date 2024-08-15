@@ -1,5 +1,6 @@
 import { MotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import { type MutableRefObject, useEffect, useRef, useState } from 'react';
+import { SCROLL_SPEED } from '@/lib/config';
 import { useApp } from '@/components/App';
 import { useWindowSize } from '@/lib/useWindowSize';
 import useResizeObserver from 'use-resize-observer';
@@ -24,12 +25,6 @@ export interface UseParallaxOptions {
   startPosition?: 0 | 'negative';
   startPositionMultiplier?: number;
 }
-
-const SCROLL_SPEED_SLOWEST = 0.05;
-const SCROLL_SPEED_SLOW = 0.1;
-const SCROLL_SPEED = 0.15;
-const SCROLL_SPEED_FAST = 0.25;
-const SCROLL_SPEED_FASTEST = 0.4;
 
 export const useParallax = ({
   endPositionMultiplier = 1,
@@ -67,19 +62,19 @@ export const useParallax = ({
 
   switch (speed) {
     case 'slowest':
-      speed = SCROLL_SPEED_SLOWEST;
+      speed = SCROLL_SPEED.SLOWEST;
       break;
     case 'slow':
-      speed = SCROLL_SPEED_SLOW;
+      speed = SCROLL_SPEED.SLOW;
       break;
     case 'medium':
-      speed = SCROLL_SPEED;
+      speed = SCROLL_SPEED.MEDIUM;
       break;
     case 'fast':
-      speed = SCROLL_SPEED_FAST;
+      speed = SCROLL_SPEED.FAST;
       break;
     case 'fastest':
-      speed = SCROLL_SPEED_FASTEST;
+      speed = SCROLL_SPEED.FASTEST;
       break;
   }
 

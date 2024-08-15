@@ -71,15 +71,27 @@ export const TRANS_TAP = {
 };
 
 /* =======================================
- * Various
+ * Scroll
  * ======================================= */
 
 export const SCROLL_TO_DURATION = 1;
-export const SCROLL_SPEED = 0.1;
-export const SLOW_NETWORK_DELAY = 1000;
+
+export const SCROLL_SPEED = {
+  FAST: 0.25,
+  FASTEST: 0.4,
+  MEDIUM: 0.15,
+  SLOW: 0.1,
+  SLOWEST: 0.05,
+};
 
 // https://easings.net/#easeOutQuart
 export const SCROLL_TO_EASE = (x: number) => 1 - Math.pow(1 - x, 4);
+
+/* =======================================
+ * Various
+ * ======================================= */
+
+export const SLOW_NETWORK_DELAY = 1000;
 
 /* =======================================
  * Variants
