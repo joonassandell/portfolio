@@ -8,10 +8,10 @@ export const variantsWithTransition: Variants = {
   },
   exit: {
     transition: TRANS_TEMPLATE,
-    y: '-50vh',
+    y: '-50svh',
   },
   initial: {
-    y: 'var(--vh)',
+    y: '100svh',
   },
 };
 

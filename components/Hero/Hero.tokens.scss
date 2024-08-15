@@ -20,7 +20,7 @@
   }
 
   @include mq(l) {
-    --Hero-height: var(--vh);
+    --Hero-height: 100svh;
     --Hero-min-height: #{rem($space * 42)};
   }
 

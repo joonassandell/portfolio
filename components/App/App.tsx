@@ -159,11 +159,6 @@ export const App = ({
       }));
     })();
 
-    const rootHeight = () =>
-      html.style.setProperty('--vh', `${window.innerHeight}px`);
-    window.addEventListener('resize', rootHeight);
-    rootHeight();
-
     html.style.setProperty('--sw', `${scrollbarWidth}px`);
 
     setAppState(prevState => ({
@@ -174,8 +169,6 @@ export const App = ({
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
-
-    return () => window.removeEventListener('resize', rootHeight);
   }, [html]);
 
   useEffect(() => {
