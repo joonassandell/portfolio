@@ -24,12 +24,10 @@ export const Template = ({
   const { setTemplateRef, transition } = useApp();
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
-  const defaultTransition = transition && !templateTransition;
   const isPresent = useIsPresent();
   const classes = c('Template', `Template--${camelCase(id)}`, className, {
     'Template--default': variant === 'default',
-    'is-transition:exit': defaultTransition && animState === 'animExit',
-    'is-transition:template': templateTransition,
+    'is-transition:template:enter': templateTransition,
     'is-transition:template:exit':
       templateTransition && animState === 'animExit',
   });
@@ -50,11 +48,6 @@ export const Template = ({
       className={classes}
       exit="exit"
       initial="initial"
-      onAnimationStart={() => {
-        if (animState === 'animStart' && templateTransition) {
-          console.log('Template transition start:', id);
-        }
-      }}
       ref={ref}
       {...(!templateTransition && { variants: variantsWithoutTransition })}
       {...(templateTransition && { variants: variantsWithTransition })}

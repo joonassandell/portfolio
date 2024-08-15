@@ -292,7 +292,7 @@ export const App = ({
         value={{
           ...appState,
           lockScroll,
-          lockTemplate: lockTemplate,
+          lockTemplate,
           setTemplateRef,
           setThemeColor,
           setTransition,
@@ -305,10 +305,7 @@ export const App = ({
             <main className="App-main">
               <AnimatePresence
                 initial={false}
-                onExitComplete={() => {
-                  console.log('App animation complete');
-                  setAnimationComplete(asPath);
-                }}
+                onExitComplete={() => setAnimationComplete(asPath)}
               >
                 <Component {...pageProps} key={asPath} />
               </AnimatePresence>
