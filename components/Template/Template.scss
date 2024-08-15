@@ -4,9 +4,9 @@
 .Template {
   --Template-overlay: var(--black);
   --Template-overlay-initial: var(--black-transparent);
-  background-color: var(--Template-bg, var(--bg-50));
   min-height: 100svh;
   overflow: hidden;
+  position: relative;
   width: 100vw;
 
   &:last-child:not(:only-child).is-transition\:template\:enter {
@@ -16,7 +16,6 @@
   }
 
   &.is-transition\:template\:exit {
-    position: relative;
     top: 0;
     z-index: 0;
   }
