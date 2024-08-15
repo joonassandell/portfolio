@@ -19,56 +19,56 @@ export const EASE_TERTIARY: BezierDefinition = [0.4, 0, 0.28, 1];
 export const TRANS_PRIMARY = {
   duration: 1.3,
   ease: EASE,
-};
+} as const;
 
 export const TRANS_PRIMARY_FAST = {
   duration: 0.6,
   ease: EASE,
-};
+} as const;
 
 export const TRANS_PRIMARY_FASTEST = {
   duration: 0.3,
   ease: EASE,
-};
+} as const;
 
 export const TRANS_SECONDARY = {
   duration: 1,
   ease: EASE_SECONDARY,
-};
+} as const;
 
 export const TRANS_SECONDARY_FAST = {
   duration: 0.6,
   ease: EASE_SECONDARY,
-};
+} as const;
 
 export const TRANS_SECONDARY_FASTEST = {
   duration: 0.3,
   ease: EASE_SECONDARY,
-};
+} as const;
 
 export const TRANS_TERTIARY = {
   duration: 1.3,
   ease: EASE_TERTIARY,
-};
+} as const;
 
 export const TRANS_TERTIARY_FAST = {
   duration: 1,
   ease: EASE_TERTIARY,
-};
+} as const;
 
 export const TRANS_TERTIARY_FASTEST = {
   duration: 0.3,
   ease: EASE_TERTIARY,
-};
+} as const;
 
 export const TRANS_TEMPLATE = {
   duration: 1,
   ease: [0.76, 0, 0.18, 1],
-};
+} as const;
 
 export const TRANS_TAP = {
   duration: 0.1,
-};
+} as const;
 
 /* =======================================
  * Scroll
@@ -76,15 +76,18 @@ export const TRANS_TAP = {
 
 export const SCROLL_TO_DURATION = 1;
 
+/* eslint-disable sort-keys-fix/sort-keys-fix */
 export const SCROLL_SPEED = {
-  FAST: 0.25,
   FASTEST: 0.4,
+  FAST: 0.25,
   MEDIUM: 0.15,
   SLOW: 0.1,
   SLOWEST: 0.05,
-};
+} as const;
 
-// https://easings.net/#easeOutQuart
+/**
+ * @link https://easings.net/#easeOutQuart
+ */
 export const SCROLL_TO_EASE = (x: number) => 1 - Math.pow(1 - x, 4);
 
 /* =======================================

@@ -79,7 +79,6 @@ export const Hero = ({
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
           push(href as URL['href'], undefined, { scroll: false });
-          console.log('Hero: Animation complete');
         }
       }}
       ref={ref}
