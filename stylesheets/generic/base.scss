@@ -25,6 +25,10 @@
     pointer-events: none;
     touch-action: none;
   }
+
+  &.is-loading {
+    overflow: hidden;
+  }
 }
 
 * {

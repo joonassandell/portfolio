@@ -20,8 +20,8 @@ import {
   useState,
 } from 'react';
 import { Header } from '@/components/Header';
-import { isBrowser } from '@/lib/utils';
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { isBrowser, scrollbarWidth } from '@/lib/utils';
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -41,6 +41,7 @@ export const App = ({
       | 'setThemeColor'
       | 'setTemplateRef'
       | 'freezeTemplate'
+      | 'lockScroll'
     >
   >({
     detect: {},
@@ -57,10 +58,11 @@ export const App = ({
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
+  const lenis = useLenis();
 
-  /* ======
-   * App set state functions
-   * ====== */
+  /* =======================================
+   * App state functions
+   * ======================================= */
 
   const setTransition = (value: AppContextProps['transition']) => {
     setAppState(prevState => ({
@@ -92,16 +94,24 @@ export const App = ({
     }));
   };
 
+  const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
+
+  const lockScroll = useCallback(
+    (enable: boolean = true) => {
+      if (!isBrowser || !lenis) return;
+      enable ? lenis.stop() : lenis.start();
+    },
+    [lenis],
+  );
+
   const freezeTemplate = useCallback(() => {
     if (!templateRef?.current) return;
     templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
     templateRef.current.style.position = 'fixed';
   }, [templateRef]);
 
-  const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
-
   /* =======================================
-   * Initialize
+   * Setup
    * ======================================= */
 
   useEffect(() => {
@@ -147,6 +157,8 @@ export const App = ({
     window.addEventListener('resize', rootHeight);
     rootHeight();
 
+    html.style.setProperty('--sw', `${scrollbarWidth}px`);
+
     setAppState(prevState => ({
       ...prevState,
       loading: false,
@@ -172,13 +184,14 @@ export const App = ({
     }
   }, [detect]);
 
-  /* =======================================
-   * Various
-   * ======================================= */
-
   useEffect(() => {
-    if (loadingEnd) html.classList.remove('is-loading');
-  }, [loadingEnd, html]);
+    if (loadingEnd) {
+      lockScroll(false);
+      html.classList.remove('is-loading');
+    } else {
+      lockScroll(true);
+    }
+  }, [loadingEnd, lockScroll, html]);
 
   useEffect(() => {
     if (transition) {
@@ -290,6 +303,7 @@ export const App = ({
         value={{
           ...appState,
           freezeTemplate,
+          lockScroll,
           setTemplateRef,
           setThemeColor,
           setTransition,

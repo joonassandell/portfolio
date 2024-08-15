@@ -16,6 +16,7 @@ export interface AppContextProps {
   html: Document['documentElement'];
   loading: boolean;
   loadingEnd: boolean;
+  lockScroll: (enable?: boolean) => void;
   setTemplateRef: (value: AppContextProps['templateRef']) => void;
   setThemeColor: Dispatch<SetStateAction<AppHeadProps['themeColor']>>;
   setTransition: (value: AppContextProps['transition']) => void;

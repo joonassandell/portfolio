@@ -42,7 +42,7 @@ export const Header = ({
 }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
-  const { html, setTransition, setTransitionInitial } = useApp();
+  const { html, lockScroll, setTransition, setTransitionInitial } = useApp();
   const scrollTo = useScrollTo();
   const mqM = useMedia(MQ.m, true);
 
@@ -100,6 +100,7 @@ export const Header = ({
     if (!open) html.classList.add('is-headerOpen');
     if (!open) setOpenReveal(true);
     if (open && btnFocus) btnRef?.current?.blur();
+    !open ? lockScroll(true) : lockScroll(false);
 
     setAnimating(true);
     setNavRevealTitle(navTitle);
