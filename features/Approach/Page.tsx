@@ -19,13 +19,13 @@ export const ApproachPage = () => {
   useSetThemeColor(meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
-  const { value: y } = useParallax({ offset: 'start-start' });
+  const { ref, value: y } = useParallax({ offset: 'start-start' });
 
   return (
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateSection className="Template-top" grid={false}>
+        <TemplateSection className="Template-top" grid={false} ref={ref}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">
             <Text className="Template-heading-subtitle" size="m" tag="span">
               Approach
