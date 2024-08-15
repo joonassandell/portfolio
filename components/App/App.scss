@@ -1,10 +1,8 @@
 .App {
+  isolation: isolate;
   overflow: hidden;
-  position: relative;
-  z-index: var(--z-index-700);
 }
 
 .App-main {
-  position: relative;
-  z-index: var(--z-index-700);
+  isolation: isolate;
 }
