@@ -9,10 +9,7 @@
   overflow: hidden;
   width: 100vw;
 
-  /**
-   * Enter transition
-   */
-  &:last-child:not(:only-child).is-transition\:template {
+  &:last-child:not(:only-child).is-transition\:template\:enter {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -27,8 +24,12 @@
 
 .Template-overlay {
   inset: 0;
+  isolation: isolate;
   position: absolute;
-  z-index: 1;
+}
+
+.Template-inner {
+  isolation: isolate;
 }
 
 .Template-main {
