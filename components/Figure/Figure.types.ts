@@ -1,4 +1,3 @@
-import { type ElementAttributes } from '../LocomotiveScroll';
 import { type HTMLMotionProps } from 'framer-motion';
 import { type ImageProps } from 'next/image';
 import { type UseParallaxOptions } from '@/lib/useParallax';
@@ -23,7 +22,7 @@ export interface FigureProps
   border?: string | boolean;
   borderRadius?: string | boolean;
   glare?: boolean;
-  id?: ElementAttributes['id'];
+  id?: string;
   inViewOffset?: number;
   inline?: boolean;
   placeholder?: boolean;

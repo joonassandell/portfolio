@@ -16,32 +16,12 @@
     position: fixed;
     top: 0;
     z-index: 1;
-
-    /**
-     * Hack to remove the applied scroll values from the new view. Why are those
-     * even there?! This happens sometimes at least w/ Chromium.
-     */
-    [data-scroll-section],
-    [data-scroll] {
-      transform: none !important;
-    }
   }
 
   &.is-transition\:template\:exit {
     position: relative;
     top: 0;
     z-index: 0;
-  }
-
-  /**
-   * After locomotive scroll is updated the animated elements will jump to their
-   * initial positions which is sometimes visible. This slight transition
-   * smoothens this issue like it's intentional.
-   */
-  :root.is-transition\:template\:withDelay & {
-    [data-scroll-target]:not([data-scroll-prevent]) {
-      transition: 0.2s ease-in-out;
-    }
   }
 }
 

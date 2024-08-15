@@ -9,9 +9,7 @@ import {
 } from './';
 import { forwardRef, type RefObject, useRef, useState } from 'react';
 import { isString } from '@/lib/utils';
-import { JUMP_FIX_VARIANTS } from '@/lib/config';
 import { default as NextImage } from 'next/image';
-import { useApp } from '@/components/App';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useParallax } from '@/lib/useParallax';
 import c from 'clsx';
@@ -50,7 +48,6 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     },
     forwardedRef,
   ) => {
-    const { transition: appTransition } = useApp();
     const mask = scroll === 'mask';
     const negativeStartPosition =
       scrollStartPosition === 'negative' && scrollOffset != 'start-start';
@@ -109,13 +106,6 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           y: scroll ? y : 0,
           ...props.style,
         }}
-        {...(mask &&
-          appTransition === 'template' &&
-          negativeStartPosition && {
-            animate: 'animate',
-            initial: 'initial',
-            variants: JUMP_FIX_VARIANTS,
-          })}
       >
         <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
           <m.div

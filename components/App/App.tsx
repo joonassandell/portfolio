@@ -194,31 +194,21 @@ export const App = ({
   }, [loadingEnd, lockScroll, html]);
 
   useEffect(() => {
-    if (transition) {
-      html.classList.add('is-transition', 'is-transition:withDelay');
-    }
-
+    if (transition) html.classList.add('is-transition');
     if (transition === 'instant' || transition === 'template') {
       freezeTemplate();
     }
 
-    const hackClass = 'is-transition:template:withDelay';
-    if (transition === 'template') html.classList.add(hackClass);
+    /**
+     * Set initial transitions ready for animations (e.g. for Hero)
+     */
+    if (transition === 'template') setTransitionInitial(true);
 
     if (!transition) {
       html.classList.remove('is-transition');
-      setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
-      setTimeout(() => html.classList.remove(hackClass), 300);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition, html]);
-
-  /**
-   * Set initial transitions ready for animation (e.g. for Hero)
-   */
-  useEffect(() => {
-    if (transition === 'template') setTransitionInitial(true);
-  }, [transition]);
 
   /**
    * Add loader with nprogress for slow networks
@@ -281,10 +271,7 @@ export const App = ({
     const url = new URL(asPath, APP_URL);
     const el = html.querySelector(url.hash || '#null') as HTMLElement;
 
-    if (el) {
-      el.scrollIntoView();
-    }
-
+    if (el) el.scrollIntoView();
     if (transition) setTransition(false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

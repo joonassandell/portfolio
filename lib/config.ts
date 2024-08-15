@@ -92,20 +92,6 @@ export const FADE_OUT_VARIANTS: Variants = {
   },
 };
 
-export const JUMP_FIX_VARIANTS: Variants = {
-  animate: {
-    opacity: 1,
-    transition: {
-      delay: TRANS_TEMPLATE.duration + 0.3,
-      duration: 0.3,
-      ease: 'linear',
-    },
-  },
-  initial: {
-    opacity: 0,
-  },
-};
-
 export const TEXT_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,

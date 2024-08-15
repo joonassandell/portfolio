@@ -5,8 +5,8 @@ import {
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { JUMP_FIX_VARIANTS, MQ } from '@/lib/config';
 import { m } from 'framer-motion';
+import { MQ } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';
 import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
@@ -47,7 +47,6 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
     >
       {({
         noTransition,
-        templateTransition,
         transitionInitial,
         transitionPre,
         transitionStartOrDefault,
@@ -68,22 +67,14 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                   data-iosfreeze
                   style={{ y }}
                 >
-                  <m.div
-                    {...(transitionPre && {
-                      animate: 'animate',
-                      initial: templateTransition && 'initial',
-                      variants: JUMP_FIX_VARIANTS,
-                    })}
-                  >
-                    <Image
-                      alt="Oras faucet"
-                      draggable="false"
-                      priority={!transitionPre}
-                      quality={60}
-                      sizes={`${MQ.ml} 33vw, 50vw`}
-                      src={heroImage}
-                    />
-                  </m.div>
+                  <Image
+                    alt="Oras faucet"
+                    draggable="false"
+                    priority={!transitionPre}
+                    quality={60}
+                    sizes={`${MQ.ml} 33vw, 50vw`}
+                    src={heroImage}
+                  />
                 </m.figure>
                 <m.div
                   className="Hero-figure-bg Hero-figure-bg--animate"

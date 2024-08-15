@@ -62,7 +62,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             <Figure
               alt="Mediasignal company page"
               scroll
-              scrollSpeed="negative"
+              scrollReverse
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-company-screen', images)}
             />
