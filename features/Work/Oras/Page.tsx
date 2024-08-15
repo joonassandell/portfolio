@@ -225,7 +225,7 @@ export const OrasPage = ({ images }: PageProps) => {
                   alt="Oras strategy 5"
                   border
                   sizes={`${MQ.m} 33vw, 80vw`}
-                  {...getImage('joonassandell-oras-strategy-2', images)}
+                  {...getImage('joonassandell-oras-strategy-3', images)}
                 />
               </div>
               <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
