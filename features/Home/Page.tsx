@@ -19,7 +19,7 @@ import c from 'clsx';
 export const HomePage = () => {
   const { id, meta } = SITEMAP.home;
   useSetThemeColor(meta.themeColor);
-  const scrollTo = useScrollTo({ scrollLock: true });
+  const scrollTo = useScrollTo({ lock: true, stopOnComplete: true });
   const lenis = useLenis();
   const {
     detect: { isIos },
@@ -39,17 +39,16 @@ export const HomePage = () => {
   };
 
   const handleClick = (e: LinkEvent) => {
-    if (!lenis) return;
     e.preventDefault();
     setTransition(true);
     setTransitionInitial(false);
 
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
-    const needsExtraSpace = lenis.limit < el?.offsetTop;
+    const needsExtraSpace = lenis?.limit < el?.offsetTop;
     if (needsExtraSpace) {
       setExtraSpace(true);
-      lenis.resize();
+      lenis?.resize();
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);

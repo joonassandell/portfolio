@@ -26,7 +26,8 @@
     touch-action: none;
   }
 
-  &.is-loading {
+  &.is-loading,
+  &.is-lock {
     overflow: hidden;
   }
 }

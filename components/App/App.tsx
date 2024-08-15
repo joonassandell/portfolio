@@ -97,11 +97,18 @@ export const App = ({
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
 
   const lockScroll = useCallback(
-    (enable: boolean = true) => {
+    (enable = false) => {
       if (!isBrowser || !lenis) return;
-      enable ? lenis.stop() : lenis.start();
+
+      if (enable) {
+        lenis.stop();
+        html.classList.add('is-lock');
+      } else {
+        lenis.start();
+        html.classList.remove('is-lock');
+      }
     },
-    [lenis],
+    [lenis, html],
   );
 
   const freezeTemplate = useCallback(() => {
@@ -195,6 +202,7 @@ export const App = ({
 
   useEffect(() => {
     if (transition) html.classList.add('is-transition');
+
     if (transition === 'instant' || transition === 'template') {
       freezeTemplate();
     }
@@ -268,6 +276,7 @@ export const App = ({
   }, [transition, beforePopState, push, popStateTimeout]);
 
   useEffect(() => {
+    lenis?.isStopped && lenis.start();
     const url = new URL(asPath, APP_URL);
     const el = html.querySelector(url.hash || '#null') as HTMLElement;
 
