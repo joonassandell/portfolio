@@ -11,7 +11,7 @@
 
 @layer vendors {
   @include use('stylesheets/vendors/nprogress');
-  @include use('stylesheets/vendors/locomotive-scroll');
+  @include use('stylesheets/vendors/lenis');
 }
 
 @layer utils {

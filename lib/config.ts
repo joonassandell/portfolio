@@ -71,11 +71,26 @@ export const TRANS_TAP = {
 };
 
 /* =======================================
+ * Scroll
+ * ======================================= */
+
+export const SCROLL_TO_DURATION = 1;
+
+export const SCROLL_SPEED = {
+  FAST: 0.25,
+  FASTEST: 0.4,
+  MEDIUM: 0.15,
+  SLOW: 0.1,
+  SLOWEST: 0.05,
+};
+
+// https://easings.net/#easeOutQuart
+export const SCROLL_TO_EASE = (x: number) => 1 - Math.pow(1 - x, 4);
+
+/* =======================================
  * Various
  * ======================================= */
 
-export const SCROLL_TO_DURATION = 200;
-export const SCROLL_SPEED = 1.5;
 export const SLOW_NETWORK_DELAY = 1000;
 
 /* =======================================
@@ -86,20 +101,6 @@ export const FADE_OUT_VARIANTS: Variants = {
   animate: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
-  },
-};
-
-export const JUMP_FIX_VARIANTS: Variants = {
-  animate: {
-    opacity: 1,
-    transition: {
-      delay: TRANS_TEMPLATE.duration + 0.3,
-      duration: 0.3,
-      ease: 'linear',
-    },
-  },
-  initial: {
-    opacity: 0,
   },
 };
 

@@ -8,8 +8,7 @@ import {
   variantsWithTransition,
 } from './';
 import { useApp } from '@/components/App';
-import { useEffect, useState } from 'react';
-import { useLocomotiveScroll } from '@/components/LocomotiveScroll';
+import { useEffect, useRef, useState } from 'react';
 import c from 'clsx';
 
 export const Template = ({
@@ -22,12 +21,11 @@ export const Template = ({
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
   );
-  const { transition } = useApp();
+  const { setTemplateRef, transition } = useApp();
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const defaultTransition = transition && !templateTransition;
   const isPresent = useIsPresent();
-  const { scroll } = useLocomotiveScroll();
   const classes = c('Template', `Template--${camelCase(id)}`, className, {
     'Template--default': variant === 'default',
     'is-transition:exit': defaultTransition && animState === 'animExit',
@@ -35,10 +33,15 @@ export const Template = ({
     'is-transition:template:exit':
       templateTransition && animState === 'animExit',
   });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isPresent) setAnimState('animExit');
-    if (isPresent) setAnimState('animStart');
+    if (isPresent) {
+      setTemplateRef(ref);
+      setAnimState('animStart');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPresent]);
 
   return (
@@ -50,18 +53,14 @@ export const Template = ({
       onAnimationStart={() => {
         if (animState === 'animStart' && templateTransition) {
           console.log('Template transition start:', id);
-          if (scroll) scroll.stop();
         }
       }}
-      {...(!templateTransition && {
-        variants: variantsWithoutTransition,
-      })}
-      {...(templateTransition && {
-        variants: variantsWithTransition,
-      })}
+      ref={ref}
+      {...(!templateTransition && { variants: variantsWithoutTransition })}
+      {...(templateTransition && { variants: variantsWithTransition })}
     >
       <AnimatePresence>
-        <div className="Template-inner" data-s-section>
+        <div className="Template-inner">
           {children}
           <Footer {...footerProps} />
         </div>

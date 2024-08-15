@@ -2,23 +2,35 @@ import { ArrowRight } from '@/components/Icon';
 import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
 import { LINK, SITEMAP } from '@/lib/sitemap';
+import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
-import { MQ, SCROLL_SPEED } from '@/lib/config';
+import { MQ } from '@/lib/config';
 import { TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
+import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import lineCube from '@/public/images/line-cube.png';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
 export const AboutIntro = () => {
-  const mqS = useMedia(MQ.s, true);
+  const mqS = useMedia(MQ.s, false);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
+  const { ref: textRef, value: textY } = useParallax({
+    offset: 'start-80',
+    speed: 'fast',
+  });
+  const { ref: lineCubeRef, value: lineCubeY } = useParallax({
+    endPositionMultiplier: 1.1,
+    height: 'element',
+    offset: 'start-80',
+    reverse: true,
+    speed: 'fastest',
+  });
 
   const heading = {
     desktop: [
@@ -64,13 +76,10 @@ export const AboutIntro = () => {
       id="intro"
       pt="15vw"
     >
-      <div
+      <m.div
         className="grid pb:5vw"
-        {...(mqS && {
-          'data-s': true,
-          'data-s-position': 'top',
-          'data-s-speed': SCROLL_SPEED,
-        })}
+        ref={textRef}
+        style={{ y: mqS ? textY : 0 }}
       >
         <div className="grid-col -start:2@m -start:3@l">
           <Heading className="mb:m" size="h3" tag="h1">
@@ -85,17 +94,12 @@ export const AboutIntro = () => {
             </Button>
           </Text>
         </div>
-      </div>
-      <div
-        aria-hidden
-        className="Template-cube-2"
-        data-s
-        data-s-position="top"
-        data-s-speed={SCROLL_SPEED * -2}
-      >
+      </m.div>
+      <div aria-hidden className="Template-cube-2" ref={lineCubeRef}>
         <m.div
           animate={lineCubeInView ? 'animate' : ''}
           ref={lineCubeAnim}
+          style={{ y: lineCubeY }}
           variants={{
             animate: {
               rotate: 360,

@@ -253,7 +253,6 @@ function Tooltip(props: {
     height: number;
     width: number;
   }>({ height: 0, width: 0 });
-
   const [tooltipSize, setTooltipSize] = useState<{
     height: number;
     width: number;
@@ -273,16 +272,17 @@ function Tooltip(props: {
       const { height, width } = tooltip.getBoundingClientRect();
       setTooltipSize({ height, width });
     }
-  }, [setTooltipSize]);
+  }, [setTooltipSize, props.point.x]);
 
   const offsetHorizontal = useMemo(() => {
     if (props.point.x < tooltipSize.width) {
-      return tooltipSize.width / 3;
+      return tooltipSize.width / 5;
     }
 
-    const rightEdge = containerSize.width - props.point.x;
+    const rightEdge = containerSize.width - props.point.x - 16;
+
     if (rightEdge < tooltipSize.width) {
-      return -(tooltipSize.width / 4);
+      return -(tooltipSize.width / 5);
     }
 
     return 0;

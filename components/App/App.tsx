@@ -2,7 +2,6 @@ import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
 import {
   APP_URL,
   DISABLE_LOADING,
-  EASE,
   EASE_CSS,
   PRODUCTION,
   SLOW_NETWORK_DELAY,
@@ -13,15 +12,19 @@ import {
   type AppHeadProps,
   type AppProps,
 } from './';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Header } from '@/components/Header';
-import { isBrowser } from '@/lib/utils';
-import { LocomotiveScrollProvider } from '@/components/LocomotiveScroll';
+import { isBrowser, scrollbarWidth } from '@/lib/utils';
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
-
-let scrollOnUpdateOnce = false;
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
@@ -36,25 +39,30 @@ export const App = ({
       | 'setTransition'
       | 'setTransitionInitial'
       | 'setThemeColor'
+      | 'setTemplateRef'
+      | 'lockTemplate'
+      | 'lockScroll'
     >
   >({
     detect: {},
     html: (isBrowser && document.documentElement) as AppContextProps['html'],
     loading: DISABLE_LOADING ? false : true,
     loadingEnd: DISABLE_LOADING ? true : false,
+    templateRef: null,
     transition: false,
     transitionInitial: false,
   });
-  const { html, loading, loadingEnd, transition } = appState;
+  const { detect, html, loading, loadingEnd, templateRef, transition } =
+    appState;
   const { asPath, beforePopState, events, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
-  const containerRef = useRef(null);
+  const lenis = useLenis();
 
-  /* ======
-   * App set state functions
-   * ====== */
+  /* =======================================
+   * App state functions
+   * ======================================= */
 
   const setTransition = (value: AppContextProps['transition']) => {
     setAppState(prevState => ({
@@ -79,11 +87,39 @@ export const App = ({
     }));
   };
 
+  const setTemplateRef = (value: AppContextProps['templateRef']) => {
+    setAppState(prevState => ({
+      ...prevState,
+      templateRef: value,
+    }));
+  };
+
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
 
-  /* ======
-   * Initialize stuff on load etc.
-   * ====== */
+  const lockScroll = useCallback(
+    (enable = false) => {
+      if (!isBrowser || !lenis) return;
+
+      if (enable) {
+        lenis.stop();
+        html.classList.add('is-lock');
+      } else {
+        lenis.start();
+        html.classList.remove('is-lock');
+      }
+    },
+    [lenis, html],
+  );
+
+  const lockTemplate = useCallback(() => {
+    if (!templateRef?.current) return;
+    templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
+    templateRef.current.style.position = 'fixed';
+  }, [templateRef]);
+
+  /* =======================================
+   * Setup
+   * ======================================= */
 
   useEffect(() => {
     if (PRODUCTION) {
@@ -114,47 +150,65 @@ export const App = ({
         detect: {
           hasThemeColor,
           hasTouch,
+          isIos,
           isSafari,
           isSafariDesktop,
+          isSafariIphone,
           isWindows,
         },
       }));
     })();
 
-    const rootHeight = () =>
-      html.style.setProperty('--vh', `${window.innerHeight}px`);
-    window.addEventListener('resize', rootHeight);
-    rootHeight();
+    html.style.setProperty('--sw', `${scrollbarWidth}px`);
 
     setAppState(prevState => ({
       ...prevState,
       loading: false,
     }));
 
-    return () => window.removeEventListener('resize', rootHeight);
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
   }, [html]);
 
-  /* ======
-   * Various
-   * ====== */
+  useEffect(() => {
+    /**
+     * Fix parallax elements "jump" that might happen during initial
+     * touch scroll in iPhone (and in possibly other iOS devices as well)
+     */
+    if (detect.isIos) {
+      window.scrollTo({
+        behavior: 'smooth',
+        top: 1,
+      });
+    }
+  }, [detect]);
 
   useEffect(() => {
-    if (loadingEnd) html.classList.remove('is-loading');
-  }, [loadingEnd, html]);
+    if (loadingEnd) {
+      lockScroll(false);
+      html.classList.remove('is-loading');
+    } else {
+      lockScroll(true);
+    }
+  }, [loadingEnd, lockScroll, html]);
 
   useEffect(() => {
-    if (transition) {
-      html.classList.add('is-transition', 'is-transition:withDelay');
+    if (transition) html.classList.add('is-transition');
+
+    if (transition === 'instant' || transition === 'template') {
+      lockTemplate();
     }
 
-    const hackClass = 'is-transition:template:withDelay';
-    if (transition === 'template') html.classList.add(hackClass);
+    /**
+     * Set initial transitions ready for animations (e.g. for Hero)
+     */
+    if (transition === 'template') setTransitionInitial(true);
 
     if (!transition) {
       html.classList.remove('is-transition');
-      setTimeout(() => html.classList.remove('is-transition:withDelay'), 300);
-      setTimeout(() => html.classList.remove(hackClass), 300);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transition, html]);
 
   /**
@@ -195,7 +249,9 @@ export const App = ({
   const [popStateTimeout, setPopStateTimeout] =
     useState<ReturnType<typeof setTimeout>>();
   useEffect(() => {
-    beforePopState(({ as, url }) => {
+    beforePopState(({ as, options, url }) => {
+      options.scroll = false;
+
       if (transition === 'template') {
         setPopStateTimeout(
           setTimeout(() => {
@@ -212,12 +268,16 @@ export const App = ({
     return () => popStateTimeout && clearTimeout(popStateTimeout);
   }, [transition, beforePopState, push, popStateTimeout]);
 
-  /**
-   * Set initial transitions ready for animation (e.g. for Hero)
-   */
   useEffect(() => {
-    if (transition === 'template') setTransitionInitial(true);
-  }, [transition]);
+    lenis?.isStopped && lenis.start();
+    const url = new URL(asPath, APP_URL);
+    const el = html.querySelector(url.hash || '#null') as HTMLElement;
+
+    if (el) el.scrollIntoView();
+    if (transition) setTransition(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [animationComplete, html]);
 
   return (
     <LazyMotion features={domAnimation} strict>
@@ -231,59 +291,18 @@ export const App = ({
       <AppContext.Provider
         value={{
           ...appState,
+          lockScroll,
+          lockTemplate: lockTemplate,
+          setTemplateRef,
           setThemeColor,
           setTransition,
           setTransitionInitial,
         }}
       >
-        <LocomotiveScrollProvider
-          containerRef={containerRef}
-          location={animationComplete}
-          onLocationChange={scroll => {
-            scroll.scroll.stop && scroll.start();
-
-            const url = new URL(asPath, APP_URL);
-            const el = html.querySelector(url.hash || '#null') as HTMLElement;
-            scroll.scrollTo(el ?? 0, {
-              disableLerp: el ? false : true,
-              duration: 0,
-              easing: EASE,
-            });
-
-            if (transition) setTransition(false);
-          }}
-          onUpdate={scroll => {
-            if (!DISABLE_LOADING) {
-              if (!scrollOnUpdateOnce && !loadingEnd) scroll.stop();
-              if (!scrollOnUpdateOnce && loadingEnd) {
-                scrollOnUpdateOnce = true;
-                scroll.start();
-              }
-            }
-          }}
-          options={{
-            class: '@',
-            draggingClass: 'is-drag',
-            initClass: 'is-init',
-            name: 's',
-            scrollbarClass: 'ScrollBar',
-            scrollingClass: 'is-scroll',
-            smartphone: {
-              smooth: true,
-            },
-            smooth: true,
-            smoothClass: 'is-smooth',
-            tablet: {
-              breakpoint: 1024,
-              smooth: true,
-            },
-            touchMultiplier: 4,
-          }}
-          watch={[loadingEnd]}
-        >
+        <ReactLenis root>
           <div className="App">
             <Header navTitle={navTitle} />
-            <main className="App-main" data-s-container ref={containerRef}>
+            <main className="App-main">
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => {
@@ -295,7 +314,7 @@ export const App = ({
               </AnimatePresence>
             </main>
           </div>
-        </LocomotiveScrollProvider>
+        </ReactLenis>
       </AppContext.Provider>
     </LazyMotion>
   );

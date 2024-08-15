@@ -51,7 +51,10 @@
         // Axis right. These need to be added like so for Firefox.
         > g:nth-last-of-type(5) {
           > text {
-            transform: translate(calc(#{rem($space)} * -1), rem($space * 6.75))
+            transform: translate(
+                calc(#{rem($space)} * -1 - var(--sw)),
+                rem($space * 6.75)
+              )
               rotate(-90deg) !important;
           }
         }

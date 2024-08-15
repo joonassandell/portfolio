@@ -27,6 +27,7 @@
   mix-blend-mode: difference;
   pointer-events: none; // [1.]
   position: fixed;
+  width: 100vw;
   z-index: var(--z-index-900);
 
   // [2.]
@@ -224,6 +225,7 @@
   inset: 0;
   min-width: var(--root-min-width);
   position: fixed;
+  width: 100vw;
   z-index: var(--z-index-800);
 
   .Header.is-open & {

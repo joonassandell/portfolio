@@ -29,12 +29,9 @@ import { urlState } from '@/lib/useUrlState';
 import { useApp } from '@/components/App';
 import { useCallbackRef } from 'use-callback-ref';
 import { useEffect, useRef, useState } from 'react';
-import {
-  useLocomotiveScroll,
-  useScrollTo,
-} from '@/components/LocomotiveScroll';
 import { useMedia } from 'react-use';
 import { useRouter } from 'next/router';
+import { useScrollTo } from '@/lib/useScrollTo';
 import c from 'clsx';
 import FocusTrap from 'focus-trap-react';
 
@@ -45,8 +42,7 @@ export const Header = ({
 }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
-  const { html, setTransition, setTransitionInitial } = useApp();
-  const { scroll } = useLocomotiveScroll();
+  const { html, lockScroll, setTransition, setTransitionInitial } = useApp();
   const scrollTo = useScrollTo();
   const mqM = useMedia(MQ.m, true);
 
@@ -104,16 +100,10 @@ export const Header = ({
     if (!open) html.classList.add('is-headerOpen');
     if (!open) setOpenReveal(true);
     if (open && btnFocus) btnRef?.current?.blur();
+    !open ? lockScroll(true) : lockScroll(false);
 
     setAnimating(true);
     setNavRevealTitle(navTitle);
-
-    /**
-     * Scroll could be triggered e.g. w/ pgUp/pgDown so disable/enable it if
-     * Header is open/closed. Note that scroll will stay stopped if header links
-     * are clicked but App takes care of enabling it after route change.
-     */
-    scroll && !scroll.scroll.stop ? scroll.stop() : scroll?.start();
 
     if (mask === 'closed' || mask === 'closedReset') setMask('open');
     if (mask === 'open' || mask === 'openReset') setMask('closed');
@@ -147,7 +137,7 @@ export const Header = ({
 
     // Set proper page transitions before routing
     if (open) {
-      setTransition(true);
+      setTransition('instant');
       setTransitionInitial(false);
     }
 
@@ -410,6 +400,7 @@ export const Header = ({
         <m.div
           animate={maskAnim}
           className="Header-mask scrollbar -color:negative"
+          data-lenis-prevent
           ref={maskRef}
         >
           {maskOpen && (

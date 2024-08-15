@@ -4,11 +4,11 @@ import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
+import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
@@ -19,6 +19,7 @@ export const ApproachPage = () => {
   useSetThemeColor(meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
+  const { value: y } = useParallax({ offset: 'start-start' });
 
   return (
     <Template id={id}>
@@ -40,16 +41,11 @@ export const ApproachPage = () => {
             size="h4"
             tag="div"
           >
-            <div
-              aria-hidden
-              className="Template-cube"
-              data-s
-              data-s-position="top"
-              data-s-speed={SCROLL_SPEED}
-            >
+            <div aria-hidden className="Template-cube">
               <m.div
                 animate={lineCubeInView ? 'animate' : ''}
                 ref={lineCubeAnim}
+                style={{ y }}
                 variants={{
                   animate: {
                     rotate: 360,
@@ -80,7 +76,6 @@ export const ApproachPage = () => {
               alt="Joonas Sandell"
               animate={false}
               className="Template-profileMobile hidden@l"
-              scrollPosition="top"
               sizes="25vw"
               {...profile}
             />
