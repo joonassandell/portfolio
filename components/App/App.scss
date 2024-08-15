@@ -1,12 +1,10 @@
 .App {
-  min-height: var(--vh);
   overflow: hidden;
   position: relative;
   z-index: var(--z-index-700);
 }
 
 .App-main {
-  min-height: 100vh;
   position: relative;
   z-index: var(--z-index-700);
 }
