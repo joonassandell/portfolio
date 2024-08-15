@@ -64,7 +64,7 @@ export const HomePage = () => {
           }, 0);
         });
       },
-      needsExtraSpace ? 300 : 0,
+      needsExtraSpace ? 350 : 0,
     );
   };
 
