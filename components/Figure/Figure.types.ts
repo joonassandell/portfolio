@@ -28,6 +28,7 @@ export interface FigureProps
   placeholder?: boolean;
   scroll?: boolean | 'mask';
   scrollImageSpeed?: UseParallaxOptions['speed'];
+  scrollMaxClientHeight?: UseParallaxOptions['maxClientHeight'];
   scrollOffset?: UseParallaxOptions['offset'];
   scrollReverse?: UseParallaxOptions['reverse'];
   scrollSpeed?: UseParallaxOptions['speed'];

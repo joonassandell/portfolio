@@ -21,6 +21,7 @@ export const AboutIntro = () => {
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
   const { ref: textRef, value: textY } = useParallax({
+    maxClientHeight: 800,
     offset: 'start-80',
     speed: 'fast',
   });
@@ -130,6 +131,7 @@ export const AboutIntro = () => {
             className="Template-profile"
             inViewOffset={-1}
             scroll="mask"
+            scrollMaxClientHeight={mqS ? 800 : 480}
             sizes={`${MQ.s} 25vw, 70vw`}
             {...profile}
           />

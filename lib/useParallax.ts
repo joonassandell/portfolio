@@ -8,6 +8,7 @@ import useResizeObserver from 'use-resize-observer';
 export interface UseParallaxOptions {
   endPositionMultiplier?: number;
   height?: 'element' | 'viewport';
+  maxClientHeight?: number;
   /**
    * https://www.framer.com/motion/use-scroll/##scroll-offsets
    */
@@ -23,19 +24,18 @@ export interface UseParallaxOptions {
   speed?: 'slowest' | 'slow' | 'medium' | 'fast' | 'fastest' | number;
   speedMultiplier?: number;
   startPosition?: 0 | 'negative';
-  startPositionMultiplier?: number;
 }
 
 export const useParallax = ({
   endPositionMultiplier = 1,
   height = 'viewport',
+  maxClientHeight,
   offset = 'start-end',
   ref,
   reverse = false,
   speed = 'medium',
   speedMultiplier = 1,
   startPosition = 0,
-  startPositionMultiplier = 1,
 }: UseParallaxOptions = {}) => {
   const [mounted, setMounted] = useState(false);
   const {
@@ -87,14 +87,17 @@ export const useParallax = ({
   const { clientHeight = 0 } = useWindowSize();
   const { height: elementHeight = 0 } = useResizeObserver({ ref: assignedRef });
 
-  const scrollHeight = height === 'element' ? elementHeight : clientHeight;
+  const scrollHeight =
+    height === 'element'
+      ? elementHeight
+      : maxClientHeight
+        ? Math.min(clientHeight, maxClientHeight)
+        : clientHeight;
   const scrollSpeed = reverse
     ? speed * speedMultiplier
     : -speed * speedMultiplier;
   const scrollStartPos =
-    startPosition === 'negative'
-      ? scrollHeight * -scrollSpeed * startPositionMultiplier
-      : startPosition;
+    startPosition === 'negative' ? scrollHeight * -scrollSpeed : startPosition;
 
   useEffect(() => setMounted(true), []);
 

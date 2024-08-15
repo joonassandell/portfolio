@@ -34,6 +34,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       quality,
       scroll,
       scrollImageSpeed = 'fast',
+      scrollMaxClientHeight,
       scrollOffset,
       scrollReverse,
       scrollSpeed,
@@ -70,6 +71,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     useInViewVideo(refVideo, inViewOffset);
 
     const { value: y } = useParallax({
+      maxClientHeight: scrollMaxClientHeight,
       offset: scrollOffset,
       ref,
       reverse: scrollReverse,
@@ -79,6 +81,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     });
 
     const { value: maskY } = useParallax({
+      maxClientHeight: scrollMaxClientHeight,
       offset: scrollOffset,
       ref,
       reverse: true,

@@ -141,6 +141,7 @@ export const ApproachPage = () => {
               borderRadius="var(--border-radius-pill)"
               inViewOffset={-1}
               scroll="mask"
+              scrollMaxClientHeight={560}
               sizes="25vw"
               {...profile}
             />
