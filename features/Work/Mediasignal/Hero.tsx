@@ -55,7 +55,7 @@ export const MediasignalHero = ({
           <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
             <m.figure
               className="Hero-figure-figure"
-              data-iosfreeze
+              data-lock-ios
               style={{ y }}
             >
               <m.div

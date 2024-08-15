@@ -49,7 +49,7 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
             >
               <m.figure
                 className="Hero-figure-figure"
-                data-iosfreeze
+                data-lock-ios
                 style={{ y }}
               >
                 <m.div

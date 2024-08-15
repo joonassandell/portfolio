@@ -40,7 +40,7 @@ export const App = ({
       | 'setTransitionInitial'
       | 'setThemeColor'
       | 'setTemplateRef'
-      | 'freezeTemplate'
+      | 'lockTemplate'
       | 'lockScroll'
     >
   >({
@@ -111,7 +111,7 @@ export const App = ({
     [lenis, html],
   );
 
-  const freezeTemplate = useCallback(() => {
+  const lockTemplate = useCallback(() => {
     if (!templateRef?.current) return;
     templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
     templateRef.current.style.position = 'fixed';
@@ -197,7 +197,7 @@ export const App = ({
     if (transition) html.classList.add('is-transition');
 
     if (transition === 'instant' || transition === 'template') {
-      freezeTemplate();
+      lockTemplate();
     }
 
     /**
@@ -291,8 +291,8 @@ export const App = ({
       <AppContext.Provider
         value={{
           ...appState,
-          freezeTemplate,
           lockScroll,
+          lockTemplate: lockTemplate,
           setTemplateRef,
           setThemeColor,
           setTransition,

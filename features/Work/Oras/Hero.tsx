@@ -64,7 +64,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
               >
                 <m.figure
                   className="Hero-figure-figure"
-                  data-iosfreeze
+                  data-lock-ios
                   style={{ y }}
                 >
                   <Image
@@ -143,7 +143,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             custom={{ delay: transitionInitial ? dropDelay : 0 }}
             variants={dropVariants3}
           >
-            <m.div data-iosfreeze style={{ y: dropY }}>
+            <m.div data-lock-ios style={{ y: dropY }}>
               <Image
                 alt="Oras drop"
                 aria-hidden="true"

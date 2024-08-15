@@ -23,7 +23,7 @@ export const HomePage = () => {
   const lenis = useLenis();
   const {
     detect: { isIos },
-    freezeTemplate,
+    lockTemplate,
     setThemeColor,
     setTransition,
     setTransitionInitial,
@@ -32,9 +32,9 @@ export const HomePage = () => {
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
 
-  const freezeIos = (el: HTMLElement) => {
+  const lockIos = (el: HTMLElement) => {
     if (!isIos) return;
-    const els = el.querySelectorAll('[data-iosfreeze]');
+    const els = el.querySelectorAll('[data-lock-ios]');
     els.forEach(el => el.classList.add('transform-none'));
   };
 
@@ -59,8 +59,8 @@ export const HomePage = () => {
       () => {
         scrollTo(el, () => {
           setTimeout(() => {
-            freezeIos(el);
-            freezeTemplate();
+            lockIos(el);
+            lockTemplate();
           }, 0);
         });
       },
