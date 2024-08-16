@@ -14,11 +14,7 @@ export const Head = ({ children, description, ogImage, title }: HeadProps) => {
         <>
           <title>{pageTitle}</title>
           <meta content={pageTitle} key="og:title" property="og:title" />
-          <meta
-            content={pageTitle}
-            key="twitter:title"
-            property="twitter:title"
-          />
+          <meta content={pageTitle} key="twitter:title" name="twitter:title" />
         </>
       )}
       {description && (
@@ -32,7 +28,7 @@ export const Head = ({ children, description, ogImage, title }: HeadProps) => {
           <meta
             content={description}
             key="twitter:description"
-            property="twitter:description"
+            name="twitter:description"
           />
         </>
       )}
@@ -46,7 +42,7 @@ export const Head = ({ children, description, ogImage, title }: HeadProps) => {
           <meta
             content={`${APP_URL}${ogImage}`}
             key="twitter:image"
-            property="twitter:image"
+            name="twitter:image"
           />
         </>
       )}

@@ -45,16 +45,16 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         <meta content="website" property="og:type" />
         <meta content={`${APP_URL}${asPath}`} property="og:url" />
         {/* Twitter */}
-        <meta content={title} key="twitter:title" property="twitter:title" />
+        <meta content={title} key="twitter:title" name="twitter:title" />
         <meta
           content={description}
           key="twitter:description"
-          property="twitter:description"
+          name="twitter:description"
         />
-        <meta content="summary_large_image" property="twitter:card" />
-        <meta content={twitter} property="twitter:creator" />
-        <meta content={ogImage} key="twitter:image" property="twitter:image" />
-        <meta content={twitter} property="twitter:site" />
+        <meta content="summary_large_image" name="twitter:card" />
+        <meta content={twitter} name="twitter:creator" />
+        <meta content={ogImage} key="twitter:image" name="twitter:image" />
+        <meta content={twitter} name="twitter:site" />
         {/* Icons */}
         <link href={touchIcon} rel="apple-touch-icon" sizes="180x180" />
         <link href={favIconIco} rel="icon" sizes="any" />
