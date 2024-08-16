@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "bun@1.1.21",
   "scripts": {
-    "analyze": "ANALYZE=true bun run build",
+    "analyze": "ANALYZE=true bun run build:ignore",
     "build:ignore": "IGNORE_ERRORS=true bun run build",
     "build": "bun run partytown && next build",
     "check": "bun run lint && bun run typecheck",

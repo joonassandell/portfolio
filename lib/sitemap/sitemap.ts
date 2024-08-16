@@ -86,7 +86,7 @@ const soundcloud = {
 
 const source = {
   title: 'View source',
-  url: 'https://github.com/joonassandell/joonassandell-portfolio',
+  url: 'https://github.com/joonassandell/portfolio',
 };
 
 const readDotCv = {
