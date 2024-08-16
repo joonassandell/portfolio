@@ -7,6 +7,13 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
    * ======================================= */
 
   {
+    date: '2024-08-06',
+    event: 'Launched UI Laboratory',
+    highlight: true,
+    major: true,
+    url: 'https://x.com/joonassandell/status/1820739735939146047',
+  },
+  {
     date: '2023-07-10',
     event: 'Launched my portfolio',
     major: true,

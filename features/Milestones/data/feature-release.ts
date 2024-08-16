@@ -9,7 +9,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2024-06-07',
     event: 'Shipped updated CV 2024',
-    highlight: true,
     url: 'https://x.com/joonassandell/status/1801885988580442466',
   },
   {
