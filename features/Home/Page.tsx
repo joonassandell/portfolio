@@ -5,10 +5,10 @@ import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { m } from 'framer-motion';
-// import { MediasignalHero } from '@/features/Work/Mediasignal';
-// import { MoreWorkHero } from '@/features/Work/MoreWork';
-// import { OrasHero } from '@/features/Work/Oras';
-// import { SandboxHero } from '@/features/Work/Sandbox';
+import { MediasignalHero } from '@/features/Work/Mediasignal';
+import { MoreWorkHero } from '@/features/Work/MoreWork';
+import { OrasHero } from '@/features/Work/Oras';
+import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
 import { useLenis } from '@studio-freight/react-lenis';
@@ -102,7 +102,7 @@ export const HomePage = () => {
             transition="pre"
             transitionStart={currentHero === 'biocode' && animation}
           />
-          {/* <OrasHero
+          <OrasHero
             onClick={handleClick}
             transition="pre"
             transitionStart={currentHero === 'oras' && animation}
@@ -121,7 +121,7 @@ export const HomePage = () => {
             onClick={handleClick}
             transition="pre"
             transitionStart={currentHero === 'moreWork' && animation}
-          /> */}
+          />
         </div>
       </TemplateMain>
     </Template>
