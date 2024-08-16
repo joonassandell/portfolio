@@ -25,6 +25,7 @@ export const UiLabPage = () => {
         attribute="class"
         defaultTheme="dark"
         disableTransitionOnChange
+        enableColorScheme={false}
         enableSystem={false}
         value={{ dark: 'dark' }}
       >

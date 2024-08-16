@@ -46,14 +46,17 @@
   .Template-figure {
     inset: 0 0 auto 0;
     position: absolute;
+    width: 100vw;
   }
 
   .Template-cube {
-    inset: 20vw 0 0 -12vw;
+    inset: 0 0 0 -12vw;
+    padding-top: 20vw;
     width: 45vw;
 
     @include mq(m) {
-      inset: 9vw 0 0 30vw;
+      inset: 0 0 0 30vw;
+      padding-top: 9vw;
       width: 30vw;
     }
   }

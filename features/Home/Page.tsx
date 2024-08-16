@@ -11,47 +11,66 @@ import { OrasHero } from '@/features/Work/Oras';
 import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template, TemplateMain } from '@/components/Template';
-import {
-  useLocomotiveScroll,
-  useScrollTo,
-} from '@/components/LocomotiveScroll';
+import { useLenis } from '@studio-freight/react-lenis';
+import { useScrollTo } from '@/lib/useScrollTo';
 import { useState } from 'react';
+import c from 'clsx';
 
 export const HomePage = () => {
   const { id, meta } = SITEMAP.home;
   useSetThemeColor(meta.themeColor);
-  const scrollTo = useScrollTo({ scrollLock: true });
-  const { scroll } = useLocomotiveScroll();
-  const { setThemeColor, setTransition, setTransitionInitial } = useApp();
+  const scrollTo = useScrollTo({ lock: true, stopOnComplete: true });
+  const lenis = useLenis();
+  const {
+    detect: { isIos },
+    lockTemplate,
+    setThemeColor,
+    setTransition,
+    setTransitionInitial,
+  } = useApp();
   const [animation, setAnimation] = useState(false);
   const [extraSpace, setExtraSpace] = useState(false);
   const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
 
+  const lockIos = (el: HTMLElement) => {
+    if (!isIos) return;
+    const els = el.querySelectorAll('[data-lock-ios]');
+    els.forEach(el => el.classList.add('transform-none'));
+  };
+
   const handleClick = (e: LinkEvent) => {
-    if (!scroll) return;
     e.preventDefault();
     setTransition(true);
     setTransitionInitial(false);
 
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
-    const needsExtraSpace = scroll.scroll.instance.limit.y < el?.offsetTop;
+    const needsExtraSpace = lenis?.limit < el?.offsetTop;
     if (needsExtraSpace) {
       setExtraSpace(true);
-      scroll.update();
+      lenis?.resize();
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
     setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
+    setAnimation(true);
+
     setTimeout(
-      () => scrollTo(el, () => setAnimation(true)),
-      needsExtraSpace ? 220 : 0,
+      () => {
+        scrollTo(el, () => {
+          setTimeout(() => {
+            lockIos(el);
+            lockTemplate();
+          }, 0);
+        });
+      },
+      needsExtraSpace ? 350 : 0,
     );
   };
 
   return (
     <Template
-      className={extraSpace ? 'is-extraSpace' : ''}
+      className={c({ 'is-extraSpace': extraSpace })}
       id={id}
       variant="unstyled"
     >

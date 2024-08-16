@@ -1,5 +1,6 @@
-import { type ElementAttributes } from '../LocomotiveScroll';
+import { type HTMLMotionProps } from 'framer-motion';
 import { type ImageProps } from 'next/image';
+import { type UseParallaxOptions } from '@/lib/useParallax';
 
 export interface FigureProps
   extends Omit<
@@ -14,22 +15,26 @@ export interface FigureProps
     | 'objectPosition'
     | 'lazyBoundary'
     | 'lazyRoot'
+    | 'style'
   > {
   animate?: boolean;
   background?: string | boolean;
   border?: string | boolean;
   borderRadius?: string | boolean;
   glare?: boolean;
-  id?: ElementAttributes['id'];
+  id?: string;
   inViewOffset?: number;
   inline?: boolean;
   placeholder?: boolean;
   scroll?: boolean | 'mask';
-  scrollDelay?: number;
-  scrollImageSpeed?: number;
-  scrollOffset?: ElementAttributes['offset'];
-  scrollPosition?: ElementAttributes['position'];
-  scrollSpeed?: ElementAttributes['speed'] | 'negative';
+  scrollImageSpeed?: UseParallaxOptions['speed'];
+  scrollMaxClientHeight?: UseParallaxOptions['maxClientHeight'];
+  scrollOffset?: UseParallaxOptions['offset'];
+  scrollReverse?: UseParallaxOptions['reverse'];
+  scrollSpeed?: UseParallaxOptions['speed'];
+  scrollSpeedMultiplier?: UseParallaxOptions['speedMultiplier'];
+  scrollStartPosition?: UseParallaxOptions['startPosition'];
   src: string;
+  style?: HTMLMotionProps<'div'>['style'];
   transition?: 'move' | 'clip';
 }

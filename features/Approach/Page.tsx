@@ -4,11 +4,11 @@ import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
-import { SCROLL_SPEED } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
+import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
@@ -19,12 +19,13 @@ export const ApproachPage = () => {
   useSetThemeColor(meta.themeColor);
   const lineCubeAnim = useRef(null);
   const lineCubeInView = useInView(lineCubeAnim, 0, false);
+  const { ref, value: y } = useParallax({ offset: 'start-start' });
 
   return (
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateSection className="Template-top" grid={false}>
+        <TemplateSection className="Template-top" grid={false} ref={ref}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">
             <Text className="Template-heading-subtitle" size="m" tag="span">
               Approach
@@ -40,16 +41,11 @@ export const ApproachPage = () => {
             size="h4"
             tag="div"
           >
-            <div
-              aria-hidden
-              className="Template-cube"
-              data-s
-              data-s-position="top"
-              data-s-speed={SCROLL_SPEED}
-            >
+            <div aria-hidden className="Template-cube">
               <m.div
                 animate={lineCubeInView ? 'animate' : ''}
                 ref={lineCubeAnim}
+                style={{ y }}
                 variants={{
                   animate: {
                     rotate: 360,
@@ -80,7 +76,6 @@ export const ApproachPage = () => {
               alt="Joonas Sandell"
               animate={false}
               className="Template-profileMobile hidden@l"
-              scrollPosition="top"
               sizes="25vw"
               {...profile}
             />
@@ -146,6 +141,7 @@ export const ApproachPage = () => {
               borderRadius="var(--border-radius-pill)"
               inViewOffset={-1}
               scroll="mask"
+              scrollMaxClientHeight={560}
               sizes="25vw"
               {...profile}
             />

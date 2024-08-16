@@ -3,10 +3,11 @@ import { Heading } from '@/components/Heading';
 import { headingVariants as headingVars, type HeroProps } from './';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
-import { SCROLL_SPEED, TRANS_TERTIARY_FAST } from '@/lib/config';
 import { Stamp } from '@/components/Stamp';
 import { TextReveal } from '@/components/TextReveal';
+import { TRANS_TERTIARY_FAST } from '@/lib/config';
 import { useApp } from '@/components/App';
+import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import c from 'clsx';
@@ -18,6 +19,7 @@ export const Hero = ({
   headingVariants = headingVars,
   href,
   id,
+  innerRef,
   onClick,
   stampAddVarsToParent,
   stampOverlay = true,
@@ -25,12 +27,12 @@ export const Hero = ({
   transition,
   transitionStart,
 }: HeroProps) => {
+  const ref = useRef(null);
   const transitionPre = transition === 'pre';
   const { transition: appTransition, transitionInitial: appTransitionInitial } =
     useApp();
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
-  const ref = useRef(null);
   const classes = c(
     'Hero',
     {
@@ -39,6 +41,11 @@ export const Hero = ({
     },
     className,
   );
+  const { value: x } = useParallax({
+    offset: transitionPre ? 'start-end' : 'start-start',
+    ref: innerRef,
+    startPosition: transitionPre ? 'negative' : 0,
+  });
 
   /**
    * Default state: On mount (e.g. after pre transition or at page load)
@@ -72,27 +79,20 @@ export const Hero = ({
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
           push(href as URL['href'], undefined, { scroll: false });
-          console.log('Hero: Animation complete');
         }
       }}
       ref={ref}
     >
-      <div className="Hero-inner" data-s-id={id}>
+      <div className="Hero-inner" ref={innerRef}>
         <div className="Hero-heading wrap">
           <Heading
             className="Hero-heading-inner"
             onClick={onClick}
             size="display"
-            // @ts-expect-error Heading should include "asChild" prop eventually
-            tag={transitionPre ? m.h2 : m.h1}
+            tag={transitionPre ? 'h2' : 'h1'}
             variants={headingVariants}
           >
-            <div
-              data-s
-              data-s-direction="horizontal"
-              data-s-speed={SCROLL_SPEED}
-              data-s-target={`[data-s-id="${id}"]`}
-            >
+            <m.div data-lock-ios style={{ x }}>
               <TextReveal
                 custom={
                   transitionPre && {
@@ -103,7 +103,7 @@ export const Hero = ({
                 text={[heading as string]}
                 {...(noTransition && { initial: 'animate' })}
               />
-            </div>
+            </m.div>
           </Heading>
         </div>
         {typeof children === 'function' ? children(passedProps) : children}

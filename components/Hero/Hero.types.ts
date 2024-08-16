@@ -1,6 +1,7 @@
 import { type AppHeadProps } from '@/components/App';
 import {
   type MouseEventHandler,
+  type MutableRefObject,
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
@@ -22,6 +23,7 @@ export interface HeroProps {
   headingVariants?: Variants;
   href?: URL['href'];
   id?: SitemapWithoutArrayKeys;
+  innerRef?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;
   onClick?: MouseEventHandler<HTMLElement>;
   stampAddVarsToParent?: boolean;
   stampOverlay?: boolean;

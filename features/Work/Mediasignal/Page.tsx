@@ -53,7 +53,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             <Figure
               alt="Mediasignal blog page"
               scroll
-              scrollSpeed={0.5}
+              scrollSpeed="slow"
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-blog-screen', images)}
             />
@@ -62,7 +62,8 @@ export const MediasignalPage = ({ images }: PageProps) => {
             <Figure
               alt="Mediasignal company page"
               scroll
-              scrollSpeed="negative"
+              scrollReverse
+              scrollSpeed="slowest"
               sizes={`${MQ.m} 50vw, 70vw`}
               {...getImage('joonassandell-mediasignal-company-screen', images)}
             />
@@ -108,7 +109,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
               alt="Mediasignal logomark in dark background"
               inViewOffset={0.5}
               scroll
-              scrollSpeed={3}
+              scrollSpeed="slow"
               sizes="50vw"
               {...getImage(
                 'joonassandell-mediasignal-logomark-bg-dark',
@@ -193,7 +194,6 @@ export const MediasignalPage = ({ images }: PageProps) => {
             <Figure
               alt="Mediasignal company page"
               scroll
-              scrollSpeed={1}
               sizes={`${MQ.m} 70vw, 90w`}
               {...getImage('joonassandell-mediasignal-company', images)}
             />

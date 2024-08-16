@@ -4,51 +4,31 @@
 .Template {
   --Template-overlay: var(--black);
   --Template-overlay-initial: var(--black-transparent);
-  background-color: var(--Template-bg, var(--bg-50));
-  min-height: var(--vh);
+  min-height: 100svh;
   overflow: hidden;
-  width: 100%;
+  position: relative;
+  width: 100vw;
 
-  /**
-   * Enter transition
-   */
-  &:last-child:not(:only-child).is-transition\:template {
+  &:last-child:not(:only-child).is-transition\:template\:enter {
     position: fixed;
     top: 0;
     z-index: 1;
-
-    /**
-     * Hack to remove the applied scroll values from the new view. Why are those
-     * even there?! This happens sometimes at least w/ Chromium.
-     */
-    [data-s-section],
-    [data-s] {
-      transform: none !important;
-    }
   }
 
   &.is-transition\:template\:exit {
-    position: relative;
     top: 0;
     z-index: 0;
-  }
-
-  /**
-   * After locomotive scroll is updated the animated elements will jump to their
-   * initial positions which is sometimes visible. This slight transition
-   * smoothens this issue like it's intentional.
-   */
-  :root.is-transition\:template\:withDelay & {
-    [data-s-target]:not([data-s-prevent]) {
-      transition: 0.2s ease-in-out;
-    }
   }
 }
 
 .Template-overlay {
   inset: 0;
+  isolation: isolate;
   position: absolute;
-  z-index: 1;
+}
+
+.Template-inner {
+  isolation: isolate;
 }
 
 .Template-main {

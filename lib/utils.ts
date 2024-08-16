@@ -81,3 +81,20 @@ export const hasScrollbar = (el: HTMLElement | null) => {
   if (!el) return false;
   return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
 };
+
+/**
+ * Get scrollbar width
+ */
+export const scrollbarWidth = (() => {
+  if (!isBrowser) return;
+  const scrollDiv = document.createElement('div');
+  scrollDiv.style.height = '100px';
+  scrollDiv.style.overflow = 'scroll';
+  scrollDiv.style.position = 'absolute';
+  scrollDiv.style.top = '-999px';
+  scrollDiv.style.width = '100px';
+  document.documentElement.appendChild(scrollDiv);
+  const scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.documentElement.removeChild(scrollDiv);
+  return scrollBarWidth;
+})();
