@@ -102,7 +102,7 @@ export const HomePage = () => {
             transition="pre"
             transitionStart={currentHero === 'biocode' && animation}
           />
-          <OrasHero
+          {/* <OrasHero
             onClick={handleClick}
             transition="pre"
             transitionStart={currentHero === 'oras' && animation}
@@ -121,7 +121,7 @@ export const HomePage = () => {
             onClick={handleClick}
             transition="pre"
             transitionStart={currentHero === 'moreWork' && animation}
-          />
+          /> */}
         </div>
       </TemplateMain>
     </Template>
