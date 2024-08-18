@@ -25,7 +25,7 @@ export const Content = () => (
       Joonas Sandell
     </Heading>
     <Text color="mute" tag="p">
-      UI/UX designer, Front-end developer ✳︎ CV
+      UI/UX Designer, Front-end Developer ✳︎ CV
     </Text>
     <Text className="mb:m" maxWidth size="l">
       <p className="hidden@m">
