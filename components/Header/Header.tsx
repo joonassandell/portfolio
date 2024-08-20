@@ -455,15 +455,16 @@ export const Header = ({
                 <Text className="Header-footer-nav visible@m" tag="ul">
                   {header.navMaskFooter.map(item => {
                     return (
-                      <LinkRoll
-                        href={item.url}
-                        key={item.id}
-                        onClick={handleLinkClick}
-                        templateTransition={false}
-                        underline="active"
-                      >
-                        {item.title}
-                      </LinkRoll>
+                      <li key={item.id}>
+                        <LinkRoll
+                          href={item.url}
+                          onClick={handleLinkClick}
+                          templateTransition={false}
+                          underline="active"
+                        >
+                          {item.title}
+                        </LinkRoll>
+                      </li>
                     );
                   })}
                 </Text>

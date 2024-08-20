@@ -1,3 +1,4 @@
+import { type BoxProps } from './';
 import { Button } from '@/components/Button';
 import { Github, Moon, Sun } from '@/components/Icon';
 import { m } from 'framer-motion';
@@ -5,7 +6,7 @@ import { TRANS_PRIMARY_FASTEST, UI_LAB_URL } from '@/lib/config';
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-export const Box = ({ children, source, src }: any) => {
+export const Box = ({ children, source, src, ...props }: BoxProps) => {
   const { theme } = useTheme();
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const iframe = useRef<HTMLIFrameElement>(null);
@@ -21,6 +22,7 @@ export const Box = ({ children, source, src }: any) => {
         {src && (
           <m.iframe
             animate={iframeLoaded ? 'animate' : ''}
+            aria-label={props['aria-label']}
             className="Template-box-iframe"
             initial="initial"
             loading="lazy"

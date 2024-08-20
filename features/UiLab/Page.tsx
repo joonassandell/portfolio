@@ -74,6 +74,7 @@ export const UiLabPage = () => {
             </div>
             <div className="grid-col grid-col:8@m grid-col:7@l -end">
               <Box
+                aria-label="Dynamic Pay Button component"
                 source="https://github.com/joonassandell/ui-lab/tree/main/app/dynamic-pay-button"
                 src="dynamic-pay-button"
               />
