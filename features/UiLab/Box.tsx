@@ -26,7 +26,7 @@ export const Box = ({ children, source, src }: any) => {
             loading="lazy"
             onLoad={() => setIframeLoaded(true)}
             ref={iframe}
-            src={`${UI_LAB_URL}/${src}`}
+            src={`${UI_LAB_URL}/${src}?scale=true`}
             transition={TRANS_PRIMARY_FASTEST}
             variants={{
               animate: {
