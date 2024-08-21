@@ -1,4 +1,4 @@
-import { debounce } from 'lodash-es';
+import { debounce } from 'es-toolkit';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
   overlayVariants,

@@ -1,5 +1,5 @@
 import { AnimatePresence, m, useIsPresent } from 'framer-motion';
-import { camelCase } from 'lodash-es';
+import { camelCase } from 'es-toolkit';
 import { Footer } from '@/components/Footer';
 import {
   overlayVariants,

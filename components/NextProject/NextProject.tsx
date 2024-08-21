@@ -1,4 +1,4 @@
-import { clamp, kebabCase } from 'lodash-es';
+import { clamp, kebabCase } from 'es-toolkit';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { mapRange } from '@/lib/utils';

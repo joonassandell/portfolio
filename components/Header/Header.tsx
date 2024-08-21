@@ -2,7 +2,7 @@ import { AnimatePresence, m, useAnimation } from 'framer-motion';
 import { BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
 import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
-import { debounce } from 'lodash-es';
+import { debounce } from 'es-toolkit';
 import {
   enterExitBtnArrow,
   enterExitBtnArrowIfNavOpen,
