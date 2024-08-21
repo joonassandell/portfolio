@@ -20,6 +20,7 @@ export const UiLabPage = () => {
         description={meta.description}
         ogImage={meta.ogImage}
         title={meta.title}
+        zoom={false}
       />
       <ThemeProvider
         attribute="class"

@@ -105,6 +105,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         {/* Essential */}
         <meta
           content="width=device-width, initial-scale=1, viewport-fit=cover"
+          key="viewport"
           name="viewport"
         />
         <meta

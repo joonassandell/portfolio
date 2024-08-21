@@ -3,7 +3,13 @@ import { CONTENT } from '@/lib/sitemap';
 import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
-export const Head = ({ children, description, ogImage, title }: HeadProps) => {
+export const Head = ({
+  children,
+  description,
+  ogImage,
+  title,
+  zoom = true,
+}: HeadProps) => {
   const pageTitle = title
     ? `${CONTENT.meta.titlePrefix}${title ? ' — ' + title : ''}`
     : '';
@@ -45,6 +51,13 @@ export const Head = ({ children, description, ogImage, title }: HeadProps) => {
             name="twitter:image"
           />
         </>
+      )}
+      {!zoom && (
+        <meta
+          content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+          key="viewport"
+          name="viewport"
+        />
       )}
       {children}
     </NextHead>
