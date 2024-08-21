@@ -140,8 +140,8 @@
   --trans-secondary: 1s var(--ease-secondary);
 
   // Wrap
-  --wrap-space-left: 6.25%;
-  --wrap-space-right: 6.25%;
+  --wrap-space-left: max(env(safe-area-inset-left), 6.25%);
+  --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
 
   // Grid
   --grid-gap-scale: 5vw;
@@ -174,12 +174,12 @@
    * ======================================= */
 
   @include mq(m) {
-    --wrap-space-left: #{rem($space-l)};
-    --wrap-space-right: #{rem($space-l)};
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
+    --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});
   }
 
   @include mq(l) {
-    --wrap-space-left: #{rem($space-2xl)};
-    --wrap-space-right: #{rem($space-xl)};
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-2xl)});
+    --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-xl)});
   }
 }
