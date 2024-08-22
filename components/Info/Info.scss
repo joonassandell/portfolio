@@ -12,10 +12,5 @@
 }
 
 .Info-text {
-  color: var(--text-950);
-  margin-bottom: rem($space-xl);
-
-  @include mq(l) {
-    margin-bottom: 0;
-  }
+  color: var(--Info-text, currentColor);
 }

@@ -148,7 +148,7 @@ export const Info = ({
         ref={textRef}
         variants={TEXT_VARIANTS}
       >
-        <Heading className="mb:l" size="h4" tag="h2">
+        <Heading className="mb:ml" size="h4" tag="h2">
           {heading}
         </Heading>
         <div className="grid">
