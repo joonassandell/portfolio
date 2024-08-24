@@ -255,7 +255,9 @@ export const App = ({
   }, [transition, beforePopState, push, popStateTimeout]);
 
   useEffect(() => {
+    if (!animationComplete) return;
     lenis?.isStopped && lenis.start();
+
     const url = new URL(asPath, APP_URL);
     const el = html.querySelector(url.hash || '#null') as HTMLElement;
 
