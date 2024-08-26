@@ -142,7 +142,7 @@ export const Info = ({
       </m.div>
       <m.div
         animate={textInView && 'animate'}
-        className="grid-col grid-col:9@m grid-col:7@l grid-col:6@xl"
+        className="grid-col grid-col:9@m grid-col:7@l"
         custom={{ delay: mqL ? 0.4 : 0 }}
         initial="initial"
         ref={textRef}
@@ -154,7 +154,7 @@ export const Info = ({
         <div className="grid">
           <Text
             animate
-            className="Info-text grid-col grid-col:8@s grid-col:7@m"
+            className="Info-text grid-col grid-col:8@s grid-col:6@m"
           >
             {text}
           </Text>
