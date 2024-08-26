@@ -62,19 +62,19 @@ export const useParallax = ({
 
   switch (speed) {
     case 'slowest':
-      speed = SCROLL_SPEED.SLOWEST;
+      speed = SCROLL_SPEED.slowest;
       break;
     case 'slow':
-      speed = SCROLL_SPEED.SLOW;
+      speed = SCROLL_SPEED.slow;
       break;
     case 'medium':
-      speed = SCROLL_SPEED.MEDIUM;
+      speed = SCROLL_SPEED.medium;
       break;
     case 'fast':
-      speed = SCROLL_SPEED.FAST;
+      speed = SCROLL_SPEED.fast;
       break;
     case 'fastest':
-      speed = SCROLL_SPEED.FASTEST;
+      speed = SCROLL_SPEED.fastest;
       break;
   }
 

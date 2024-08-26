@@ -74,7 +74,7 @@ export const Aside = () => (
       </Text>
       <p>
         React, Next.js, Bundlers, Git, AWS, Databases, GraphQL, Storybook,
-        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer motion,
+        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer Motion,
         ChatGPT, Redux, Zustand
       </p>
     </Text>

@@ -11,7 +11,7 @@ export const Subtitle = ({
   className,
   ...props
 }: SubtitleProps) => {
-  const classes = c('Subtitle mb:m', className);
+  const classes = c('Subtitle', className);
   const ref = useRef(null);
   const inView = useInView(ref);
 
