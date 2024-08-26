@@ -33,6 +33,22 @@
       padding-top: rem($space-2xl);
     }
   }
+
+  @include mq(l) {
+    &\@l {
+      padding-top: rem($space-2xl);
+    }
+  }
+}
+
+.pt\:5xl {
+  padding-top: rem($space-5xl);
+
+  @include mq(l) {
+    &\@l {
+      padding-top: rem($space-5xl);
+    }
+  }
 }
 
 .pt\:5vw {
@@ -63,6 +79,26 @@
  * Padding bottom
  * ======================================= */
 
+.pb\:2xl {
+  padding-bottom: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      padding-bottom: rem($space-2xl);
+    }
+  }
+}
+
+.pb\:5xl {
+  padding-bottom: rem($space-5xl);
+
+  @include mq(l) {
+    &\@l {
+      padding-bottom: rem($space-5xl);
+    }
+  }
+}
+
 .pb\:5vw {
   padding-bottom: 5vw;
 }
@@ -73,10 +109,6 @@
 
 .pb\:15vw {
   padding-bottom: 15vw;
-}
-
-.pb\:2xl {
-  padding-bottom: rem($space-2xl);
 }
 
 /* =======================================

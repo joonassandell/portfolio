@@ -5,7 +5,7 @@ export interface InfoProps {
     href?: string;
     name: string;
   };
-  heading: string;
+  heading: string | ReactNode;
   role: string[];
   smallPrint?: string;
   tech?: string[];

@@ -5,6 +5,10 @@
  * Margin top
  * ======================================= */
 
+.mt\:auto {
+  margin-top: auto;
+}
+
 .mt\:s {
   margin-top: rem($space-s);
 
@@ -15,8 +19,32 @@
   }
 }
 
+.mt\:m {
+  margin-top: rem($space-m);
+}
+
+.mt\:ml {
+  margin-top: rem($space-ml);
+}
+
+.mt\:l {
+  margin-top: rem($space-l);
+}
+
 .mt\:xl {
   margin-top: rem($space-xl);
+}
+
+.mt\:2xl {
+  margin-top: rem($space-2xl);
+}
+
+/* =======================================
+ * Margin right
+ * ======================================= */
+
+.mr\:auto {
+  margin-right: auto;
 }
 
 /* =======================================
@@ -65,15 +93,29 @@
 
 .mb\:l {
   margin-bottom: rem($space-l);
+
+  @include mq(l) {
+    &\@l {
+      margin-bottom: rem($space-l);
+    }
+  }
 }
 
 .mb\:xl {
   margin-bottom: rem($space-xl);
 }
 
+.mb\:2xl {
+  margin-bottom: rem($space-2xl);
+}
+
 /* =======================================
  * Margin left
  * ======================================= */
+
+.ml\:auto {
+  margin-left: auto;
+}
 
 .ml\:s {
   margin-left: rem($space-s);
