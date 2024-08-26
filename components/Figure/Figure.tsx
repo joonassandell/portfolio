@@ -147,7 +147,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
               <NextImage
                 alt={alt}
                 className="Figure-img"
-                draggable="false"
+                draggable={false}
                 height={height}
                 loading={loading}
                 onLoad={() => setImgLoaded(true)}
