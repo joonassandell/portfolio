@@ -1,4 +1,8 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .Subtitle {
   color: var(--Subtitle-text, var(--text-900));
+  margin-bottom: rem($space-m);
   text-transform: uppercase;
 }

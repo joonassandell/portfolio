@@ -78,11 +78,11 @@ export const SCROLL_TO_DURATION = 1;
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const SCROLL_SPEED = {
-  FASTEST: 0.4,
-  FAST: 0.25,
-  MEDIUM: 0.15,
-  SLOW: 0.1,
-  SLOWEST: 0.05,
+  fastest: 0.4,
+  fast: 0.25,
+  medium: 0.15,
+  slow: 0.1,
+  slowest: 0.05,
 } as const;
 
 /**
