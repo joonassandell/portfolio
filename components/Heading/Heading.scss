@@ -3,6 +3,10 @@
 
 .Heading {
   color: var(--heading);
+
+  &.-maxWidth {
+    max-width: rem($space * 34);
+  }
 }
 
 .Heading--display {
