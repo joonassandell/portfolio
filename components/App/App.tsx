@@ -97,7 +97,7 @@ export const App = ({
 
   const lockScroll = useCallback(
     (enable = false) => {
-      if (!isBrowser || !lenis) return;
+      if (!lenis) return;
 
       if (enable) {
         lenis.stop();
@@ -171,13 +171,14 @@ export const App = ({
   }, [html]);
 
   useEffect(() => {
+    if (!lenis) return;
     if (loadingEnd) {
       lockScroll(false);
       html.classList.remove('is-loading');
     } else {
       lockScroll(true);
     }
-  }, [loadingEnd, lockScroll, html]);
+  }, [loadingEnd, lockScroll, lenis, html]);
 
   useEffect(() => {
     if (transition) html.classList.add('is-transition');
@@ -290,7 +291,7 @@ export const App = ({
         <ReactLenis root>
           <div className="App">
             <Header navTitle={navTitle} />
-            <main className="App-main">
+            <main>
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => setAnimationComplete(asPath)}
