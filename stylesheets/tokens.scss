@@ -178,7 +178,11 @@
   }
 
   @include mq(l) {
-    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-2xl)});
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-xl)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-xl)});
+  }
+
+  @include mq('3xl') {
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-2xl)});
   }
 }
