@@ -27,16 +27,8 @@
   margin-top: rem($space-ml);
 }
 
-.mt\:l {
-  margin-top: rem($space-l);
-}
-
 .mt\:xl {
   margin-top: rem($space-xl);
-}
-
-.mt\:2xl {
-  margin-top: rem($space-2xl);
 }
 
 /* =======================================
@@ -53,12 +45,6 @@
 
 .mb\:0 {
   margin-bottom: 0;
-
-  @include mq($until: l) {
-    &\@until\:l {
-      margin-bottom: 0;
-    }
-  }
 }
 
 .mb\:2xs {

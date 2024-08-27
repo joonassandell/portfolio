@@ -58,7 +58,7 @@ export const BiocodePage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        {/* <TemplateArea gridRowGap="m" pt="10vw">
+        {/* <TemplateArea gridRowGap="m" pt="2xl-5xl">
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode for producers mark"

@@ -37,7 +37,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           type={['Web services', 'Applications', 'Concepts']}
           year={year}
         />
-        <TemplateArea gridRowGap="l" pt="15vw">
+        <TemplateArea gridRowGap="l" pt="2xl-5xl">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Charity home page"
@@ -54,7 +54,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="xl" pt="15vw" wrap={false}>
+        <TemplateArea gridGap="xl" pt="2xl-5xl" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
             <Figure
               alt="VR Company solutions page"
@@ -80,7 +80,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="xl" pt="15vw" wrap={false}>
+        <TemplateArea gridGap="xl" pt="2xl-5xl" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:6@m -align:end">
             <Figure
               alt="Art school home page"
@@ -104,7 +104,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" pt="15vw">
+        <TemplateArea gridRowGap="l" pt="2xl-5xl">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Animal welfare home page"
@@ -121,7 +121,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="xl" pt="15vw">
+        <TemplateArea gridGap="xl" pt="2xl-5xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Biocode early mobile home page"
@@ -171,7 +171,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea pb="15vw" pt="2xl">
+        <TemplateArea pb="2xl-5xl" pt="2xl">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="404 concept animation"

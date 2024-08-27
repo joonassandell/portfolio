@@ -28,14 +28,14 @@ export const Info = ({
   const textRef = useRef(null);
   const textInView = useInView(textRef);
   const { ref, value: y } = useParallax({
-    offset: 'start-center',
-    speed: 'slowest',
+    offset: 'start-80',
+    speed: 'slow',
   });
 
   return (
     <section className="Info wrap grid -gap:row:l" ref={ref}>
       <m.div className="grid-col" style={{ y }}>
-        <Hr className="mb:0@until:l" />
+        <Hr className="mb:0 mb@m" />
       </m.div>
       <m.div
         animate={gridInView && 'animate'}

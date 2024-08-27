@@ -12,8 +12,8 @@ export const AboutMilestones = () => (
     className="Template-milestones"
     gridGap="m"
     gridRowGap="m"
-    pb="10vw"
-    pt="10vw"
+    pb="2xl-5xl"
+    pt="2xl-5xl"
   >
     <div className="grid-col grid-col:8@s grid-col:6@m">
       <Hr className="mb:l" />

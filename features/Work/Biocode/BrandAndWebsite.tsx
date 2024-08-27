@@ -11,7 +11,7 @@ import { Text } from '@/components/Text';
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <>
-    <TemplateArea className="pt:2xl pt:5xl@l" gridGap="xl" pt={false}>
+    <TemplateArea gridGap="xl" pt="2xl-5xl">
       <div className="grid-col grid-col:10@l -start:2@l">
         <Figure
           alt="Biocode homepage and isometric Biocode application"
@@ -24,12 +24,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea
-      className="pt:2xl pt:5xl@l pb:2xl"
-      grid={false}
-      id="brand"
-      pt={false}
-    >
+    <TemplateArea grid={false} id="brand" pt="2xl-5xl">
       <Subtitle animate className="text:center ml:auto mr:auto">
         New brand & website
       </Subtitle>
@@ -56,7 +51,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         efficient carbon footprint calculator
       </Text>
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pt={false}>
+    <TemplateArea gridRowGap="m">
       <div className="grid-col grid -gap:row:0">
         <div className="grid-col">
           <Hr animate className="mb:2xl" />
@@ -112,8 +107,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Hr animate className="mb:0 mt:ml" />
       </div>
     </TemplateArea>
-    <TemplateArea className="pt:5xl@l" gridGap="xl">
-      <div className="grid-col grid-col:10@m grid-col:7@l ">
+    <TemplateArea gridGap="xl" pt="2xl-5xl">
+      <div className="grid-col grid-col:10@m grid-col:7@l">
         <Figure
           alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
           border
@@ -169,11 +164,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea
-      className="pt:2xl pt:5xl@l pb:2xl pb:5xl@l"
-      grid={false}
-      pt={false}
-    >
+    <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl">
       <Subtitle animate className="text:center ml:auto mr:auto mb">
         New brand & website
       </Subtitle>
@@ -304,7 +295,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </div>
       </div>
     </TemplateArea>
-    <TemplateArea className="pt:2xl pt:5xl@l" gridRowGap="m" pt={false}>
+    <TemplateArea gridRowGap="m" pt="2xl-5xl">
       <div className="grid-col grid-col:10@m grid-col:8@l">
         <Figure
           alt="Biocode feature page hero cards"
@@ -417,7 +408,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea className="pt:2xl pt:5xl@l">
+    <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:10@m grid-col:8@l">
         <Figure
           alt="About us page of Biocode homepage"

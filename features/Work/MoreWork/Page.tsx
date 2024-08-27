@@ -43,7 +43,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
-        <TemplateArea gridRowGap="l" id="hw-company" pt="15vw">
+        <TemplateArea gridRowGap="l" id="hw-company" pt="2xl-5xl">
           <SubInfo
             client={{ name: 'HW-Company' }}
             heading="HW-Company 🏌️"
@@ -92,7 +92,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="omoroi" pt="15vw">
+        <TemplateArea gridRowGap="l" id="omoroi" pt="2xl-5xl">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Omoroi homepage"
@@ -131,7 +131,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="hankkija" pt="15vw">
+        <TemplateArea gridRowGap="l" id="hankkija" pt="2xl-5xl">
           <SubInfo
             client={{ name: 'Hankkija' }}
             heading="Hankkija 🍃"
@@ -186,7 +186,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             </Text>
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="hukka" pt="15vw">
+        <TemplateArea gridRowGap="l" id="hukka" pt="2xl-5xl">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="Hukka dashboard mobile view"
@@ -231,7 +231,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="academic-bookstore" pt="15vw">
+        <TemplateArea gridRowGap="l" id="academic-bookstore" pt="2xl-5xl">
           <SubInfo
             client={{ name: 'Bonnier Books' }}
             heading="Academic Bookstore 📚"
@@ -306,7 +306,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="rubik" pt="15vw">
+        <TemplateArea gridRowGap="l" id="rubik" pt="2xl-5xl">
           <SubInfo
             client={{ name: 'Mediasignal' }}
             heading="Rubik 📦"
@@ -342,7 +342,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="takk" pt="15vw">
+        <TemplateArea gridRowGap="l" id="takk" pt="2xl-5xl">
           <div className="grid-col grid-col:8@m grid-col:6@l">
             <Figure
               alt="TAKK homepage in laptop"
@@ -387,7 +387,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="finnpark" pt="15vw">
+        <TemplateArea gridRowGap="l" id="finnpark" pt="2xl-5xl">
           <SubInfo
             client={{ name: 'Finnpark' }}
             heading="Parking Guidance App 🛞"
@@ -433,7 +433,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             </Text>
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" id="archive" pb="15vw" pt="15vw">
+        <TemplateArea gridRowGap="l" id="archive" pb="2xl-5xl" pt="2xl-5xl">
           <div className="grid-col grid-col:6@l">
             <Figure
               alt="Jatke homepage in laptop"

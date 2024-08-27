@@ -25,7 +25,7 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
       {...props}
     >
       {({ noTransition, transitionInitial }) => (
-        <div className="wrap grid -gap:l pl:0@until:l">
+        <div className="wrap grid -gap:l pl:0@max:l">
           <div className="Hero-figure grid-col grid-col:6 grid-col:5@l -start:4@l">
             <m.figure className="Hero-figure-figure" style={{ y }}>
               <m.div
