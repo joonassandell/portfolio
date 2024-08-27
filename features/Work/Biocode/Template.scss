@@ -1,35 +1,15 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--biocode {
-  .Template-main {
-    --Template-bg: var(--biocode-bg-50);
-    --Figure-placeholder-bg: var(--biocode-bg-100);
-    --Figure-glare-opacity: 0.05;
-    --Info-text: var(--text-900);
-    --Subtitle-text: var(--biocode-primary-text);
+  --Template-bg: var(--biocode-bg-50);
+  --Figure-placeholder-bg: var(--biocode-bg-100);
+  --Figure-glare-opacity: 0.05;
+  --Info-text: var(--text-900);
+  --Subtitle-text: var(--biocode-primary-text);
 
-    --border-100: var(--biocode-border);
-    --border-950: var(--biocode-border);
-    --link: var(--biocode-text-950);
-    --text-900: var(--biocode-text-900);
-    --text-950: var(--biocode-text-950);
-  }
-
-  .Template-area {
-    &.theme\:light {
-      --Template-area-bg: var(--biocode-bg-50);
-      --Figure-placeholder-bg: var(--biocode-bg-200);
-      --Figure-glare-opacity: 1;
-      --border-100: var(--biocode-border);
-    }
-  }
-
-  .Template-app {
-    margin-top: -10vw;
-    padding-top: 25vw;
-  }
-
-  @include mq($until: l) {
-    --border-radius: var(--border-radius-s);
-  }
+  --border-100: var(--biocode-border);
+  --border-950: var(--biocode-border);
+  --link: var(--biocode-text-950);
+  --text-900: var(--biocode-text-900);
+  --text-950: var(--biocode-text-950);
 }
