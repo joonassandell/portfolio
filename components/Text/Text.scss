@@ -3,7 +3,6 @@
 
 .Text {
   letter-spacing: normal;
-  transform-origin: top left;
 
   &.-size\:xs {
     @include text(xs);

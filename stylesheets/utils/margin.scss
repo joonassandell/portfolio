@@ -89,6 +89,12 @@
 
 .mb\:xl {
   margin-bottom: rem($space-xl);
+
+  @include mq(s) {
+    &\@s {
+      margin-bottom: rem($space-xl);
+    }
+  }
 }
 
 .mb\:2xl {
