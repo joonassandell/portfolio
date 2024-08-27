@@ -12,7 +12,6 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
       gridRowGap = 'xl',
       pb,
       pt = '2xl',
-      theme,
       wrap = true,
       ...props
     },
@@ -37,8 +36,6 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
       'pt:5xl@l': pt === '2xl-5xl',
       'pb:2xl': pb === '2xl' || pb === '2xl-5xl',
       'pb:5xl@l': pb === '2xl-5xl',
-      'theme:dark': theme === 'dark',
-      'theme:light': theme === 'light',
     });
 
     return (

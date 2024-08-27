@@ -17,6 +17,5 @@ export interface TemplateAreaProps extends ComponentPropsWithRef<'div'> {
   gridRowGap?: 'm' | 'l' | 'xl' | false;
   pb?: '2xl' | '2xl-5xl' | false;
   pt?: 'base' | 'm' | 'l' | '2xl' | '2xl-5xl' | false;
-  theme?: 'dark' | 'light';
   wrap?: boolean;
 }
