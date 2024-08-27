@@ -99,7 +99,7 @@
 .Button--default--negative {
   --Button-bg: var(--bg-950);
   --Button-text: var(--text-50);
-  --Button-shadow: unset;
+  --Button-shadow: none;
   --Button-hover-bg: var(--bg-800);
   --Button-hover-border: var(--bg-800);
   --Button-hover-text: var(--text-50);
