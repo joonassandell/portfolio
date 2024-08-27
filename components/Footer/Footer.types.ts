@@ -1,5 +1,4 @@
-import { type ComponentPropsWithoutRef } from 'react';
-
-export interface FooterProps extends ComponentPropsWithoutRef<'footer'> {
+export interface FooterProps {
+  border?: boolean;
   fullWidth?: boolean;
 }
