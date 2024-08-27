@@ -1,4 +1,4 @@
-import { BiocodeBrand, BiocodeHero } from './';
+import { BiocodeBrandAndWebsite, BiocodeHero } from './';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
@@ -34,16 +34,15 @@ export const BiocodePage = ({ images }: PageProps) => {
           tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
           text={
             <p>
-              I’m currently working for Biocode as lead product designer and
-              front-end developer. I’m responsible for crafting our design
-              system, building our website and making sure our application’s
-              code stays manageable.
+              I’m currently working for Biocode as a Lead Product Designer and
+              Front-end Developer. I’m responsible for crafting our design
+              system, building our website and developing our software.
             </p>
           }
           type={['Web app', 'Web service', 'Commission']}
           year="2020–"
         />
-        <BiocodeBrand images={images} />
+        <BiocodeBrandAndWebsite images={images} />
         <TemplateSection>
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
