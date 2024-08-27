@@ -71,6 +71,7 @@ export const HomePage = () => {
   return (
     <Template
       className={c({ 'is-extraSpace': extraSpace })}
+      footerProps={{ border: false }}
       id={id}
       variant="unstyled"
     >

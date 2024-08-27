@@ -71,20 +71,6 @@
     }
   }
 
-  .Template-heros {
-    position: relative;
-    z-index: 1;
-  }
-
-  .Footer {
-    position: relative;
-    z-index: 0;
-  }
-
-  .Footer-inner {
-    border-top: 0;
-  }
-
   &.is-extraSpace {
     padding-bottom: 100vh;
   }
