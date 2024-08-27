@@ -7,7 +7,7 @@ import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const ArchivePage = ({ images }: PageProps) => {
@@ -40,7 +40,7 @@ export const ArchivePage = ({ images }: PageProps) => {
           type={['Web services', 'Web applications', 'Commissions']}
           year={year}
         />
-        <TemplateSection
+        <TemplateArea
           className="Template-figureGrid"
           grid={false}
           pb="15vw"
@@ -112,7 +112,7 @@ export const ArchivePage = ({ images }: PageProps) => {
             sizes={`${MQ.m} 50vw, 100vw`}
             {...getImage('joonassandell-vapriikki-figures', images)}
           />
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>

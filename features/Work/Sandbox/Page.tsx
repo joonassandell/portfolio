@@ -7,7 +7,7 @@ import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SandboxHero } from './';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { useMedia } from 'react-use';
 import { useSetThemeColor } from '@/components/App';
 
@@ -37,7 +37,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           type={['Web services', 'Applications', 'Concepts']}
           year={year}
         />
-        <TemplateSection gridRowGap="l" pt="15vw">
+        <TemplateArea gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Charity home page"
@@ -53,8 +53,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-charity-home-2', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="xl" pt="15vw" wrap={false}>
+        </TemplateArea>
+        <TemplateArea gridGap="xl" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
             <Figure
               alt="VR Company solutions page"
@@ -70,8 +70,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-vr-company-home', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection pt="2xl">
+        </TemplateArea>
+        <TemplateArea pt="2xl">
           <div className="grid-col grid-col:8@m -end">
             <Figure
               alt="VR Company home page carousel animation"
@@ -79,8 +79,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               src="/sandbox/joonassandell-vr-company.mp4"
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="xl" pt="15vw" wrap={false}>
+        </TemplateArea>
+        <TemplateArea gridGap="xl" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:11 grid-col:6@m -align:end">
             <Figure
               alt="Art school home page"
@@ -95,16 +95,16 @@ export const SandboxPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-art-school-home-3', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection pt="2xl">
+        </TemplateArea>
+        <TemplateArea pt="2xl">
           <div className="grid-col">
             <Figure
               alt="Third art school home page"
               {...getImage('joonassandell-art-school-home-2', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridRowGap="l" pt="15vw">
+        </TemplateArea>
+        <TemplateArea gridRowGap="l" pt="15vw">
           <div className="grid-col grid-col:10@m">
             <Figure
               alt="Animal welfare home page"
@@ -120,8 +120,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-animal-welfare-home-2', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="xl" pt="15vw">
+        </TemplateArea>
+        <TemplateArea gridGap="xl" pt="15vw">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Biocode early mobile home page"
@@ -137,8 +137,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-biocode-home', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="xl" pt="2xl">
+        </TemplateArea>
+        <TemplateArea gridGap="xl" pt="2xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="CV of Joonas Sandell"
@@ -170,8 +170,8 @@ export const SandboxPage = ({ images }: PageProps) => {
               src="/sandbox/joonassandell-higher-purpose.mp4"
             />
           </div>
-        </TemplateSection>
-        <TemplateSection pb="15vw" pt="2xl">
+        </TemplateArea>
+        <TemplateArea pb="15vw" pt="2xl">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="404 concept animation"
@@ -179,7 +179,7 @@ export const SandboxPage = ({ images }: PageProps) => {
               src="/sandbox/joonassandell-404-concept.mp4"
             />
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>

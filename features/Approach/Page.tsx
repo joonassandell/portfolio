@@ -5,7 +5,7 @@ import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
 import { useParallax } from '@/lib/useParallax';
@@ -25,7 +25,7 @@ export const ApproachPage = () => {
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateSection className="Template-top" grid={false} ref={ref}>
+        <TemplateArea className="Template-top" grid={false} ref={ref}>
           <Heading className="Template-heading visible@l" size="h2" tag="h1">
             <Text className="Template-heading-subtitle" size="m" tag="span">
               Approach
@@ -84,8 +84,8 @@ export const ApproachPage = () => {
               engineer.
             </span>
           </Heading>
-        </TemplateSection>
-        <TemplateSection gridRowGap={false} pb="10vw" pt="l">
+        </TemplateArea>
+        <TemplateArea gridRowGap={false} pb="10vw" pt="l">
           <div className="grid-col grid-col:6@m grid-col:4@l">
             <Text animate tag="p">
               In my approach to design, I generally prioritise adherence to UI
@@ -146,7 +146,7 @@ export const ApproachPage = () => {
               {...profile}
             />
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
     </Template>
   );

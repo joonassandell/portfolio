@@ -11,7 +11,7 @@ import { getMilliSeconds, objectEntries } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TRANS_TEMPLATE } from '@/lib/config';
 import { useSetThemeColor } from '@/components/App';
@@ -24,7 +24,7 @@ export const MilestonesPage = () => {
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateSection>
+        <TemplateArea>
           <div className="grid-col grid-col:9@m grid-col:6@l">
             <Heading size="h1">Milestones</Heading>
             <Text size="l">
@@ -35,8 +35,8 @@ export const MilestonesPage = () => {
               </p>
             </Text>
           </div>
-        </TemplateSection>
-        <TemplateSection
+        </TemplateArea>
+        <TemplateArea
           aria-hidden
           className="pt:2xl@m"
           grid={false}
@@ -44,13 +44,8 @@ export const MilestonesPage = () => {
           wrap={false}
         >
           <MilestonesLine />
-        </TemplateSection>
-        <TemplateSection
-          aria-hidden
-          className="pr:0 pl:0"
-          grid={false}
-          pt="base"
-        >
+        </TemplateArea>
+        <TemplateArea aria-hidden className="pr:0 pl:0" grid={false} pt="base">
           <div className="Template-badges scrollbar">
             {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
               return (
@@ -60,21 +55,21 @@ export const MilestonesPage = () => {
               );
             })}
           </div>
-        </TemplateSection>
-        <TemplateSection grid={false}>
+        </TemplateArea>
+        <TemplateArea grid={false}>
           <Text className="ml:s ml@l mb" size="l" tag="h2">
             Highlighted milestones
           </Text>
           <MilestonesTableHighlight />
-        </TemplateSection>
-        <TemplateSection grid={false} pb="10vw">
+        </TemplateArea>
+        <TemplateArea grid={false} pb="10vw">
           <DelayedRender delay={getMilliSeconds(TRANS_TEMPLATE.duration + 0.3)}>
             <Text className="ml:s ml@l mb" size="l" tag="h2">
               All milestones
             </Text>
             <MilestonesTable />
           </DelayedRender>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
     </Template>
   );

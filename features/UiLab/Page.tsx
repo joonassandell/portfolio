@@ -4,7 +4,7 @@ import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { Link } from '@/components/Link';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { ThemeProvider } from 'next-themes';
 import { useSetThemeColor } from '@/components/App';
@@ -35,7 +35,7 @@ export const UiLabPage = () => {
             <div className="Template-bg-1" />
             <div className="Template-bg-2" />
           </div>
-          <TemplateSection gridRowGap={false}>
+          <TemplateArea gridRowGap={false}>
             <div className="grid-col">
               <div className="Template-headingArea">
                 <Heading className="Template-heading" size="display">
@@ -57,8 +57,8 @@ export const UiLabPage = () => {
                 interactive design concepts.
               </Heading>
             </div>
-          </TemplateSection>
-          <TemplateSection gridRowGap="m" id="dynamic-pay-button" pb="5vw">
+          </TemplateArea>
+          <TemplateArea gridRowGap="m" id="dynamic-pay-button" pb="5vw">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
@@ -80,8 +80,8 @@ export const UiLabPage = () => {
                 src="dynamic-pay-button"
               />
             </div>
-          </TemplateSection>
-          <TemplateSection gridRowGap="m" id="tba" pb="15vw">
+          </TemplateArea>
+          <TemplateArea gridRowGap="m" id="tba" pb="15vw">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
@@ -107,7 +107,7 @@ export const UiLabPage = () => {
                 </Text>
               </Box>
             </div>
-          </TemplateSection>
+          </TemplateArea>
         </TemplateMain>
       </ThemeProvider>
     </Template>

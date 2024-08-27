@@ -7,7 +7,7 @@ import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const MediasignalPage = ({ images }: PageProps) => {
@@ -38,7 +38,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
           type={['Web service', 'Branding', 'Commission']}
           year={year}
         />
-        <TemplateSection gridGap="xl" pt="10vw">
+        <TemplateArea gridGap="xl" pt="10vw">
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Mediasignal homepage"
@@ -47,8 +47,8 @@ export const MediasignalPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-mediasignal-home', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridRowGap="l" pt="10vw">
+        </TemplateArea>
+        <TemplateArea gridRowGap="l" pt="10vw">
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Mediasignal blog page"
@@ -87,8 +87,8 @@ export const MediasignalPage = ({ images }: PageProps) => {
               )}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="xl">
+        </TemplateArea>
+        <TemplateArea gridGap="xl">
           <div className="grid-col">
             <Figure
               alt="Mediasignal business card"
@@ -117,8 +117,8 @@ export const MediasignalPage = ({ images }: PageProps) => {
               )}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap="l" gridRowGap="m" pt="15vw" wrap={false}>
+        </TemplateArea>
+        <TemplateArea gridGap="l" gridRowGap="m" pt="15vw" wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Logomark"
@@ -188,8 +188,8 @@ export const MediasignalPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-mediasignal-brand-9', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridRowGap="l" pb="15vw">
+        </TemplateArea>
+        <TemplateArea gridRowGap="l" pb="15vw">
           <div className="grid-col grid-col:11 grid-col:10@m">
             <Figure
               alt="Mediasignal company page"
@@ -205,7 +205,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-mediasignal-work', images)}
             />
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>

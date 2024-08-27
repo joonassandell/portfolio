@@ -1,5 +1,5 @@
 import { Heading } from '@/components/Heading';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useParallax } from '@/lib/useParallax';
@@ -16,7 +16,7 @@ export const AboutSkills = () => {
   });
 
   return (
-    <TemplateSection
+    <TemplateArea
       className="Template-skills"
       grid={false}
       id="skills"
@@ -68,6 +68,6 @@ export const AboutSkills = () => {
           ]}
         />
       </Heading>
-    </TemplateSection>
+    </TemplateArea>
   );
 };

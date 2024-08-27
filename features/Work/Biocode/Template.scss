@@ -15,9 +15,9 @@
     --text-950: var(--biocode-text-950);
   }
 
-  .Template-section {
+  .Template-area {
     &.theme\:light {
-      --Template-section-bg: var(--biocode-bg-50);
+      --Template-area-bg: var(--biocode-bg-50);
       --Figure-placeholder-bg: var(--biocode-bg-200);
       --Figure-glare-opacity: 1;
       --border-100: var(--biocode-border);

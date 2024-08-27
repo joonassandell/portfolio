@@ -11,7 +11,7 @@ export interface TemplateProps extends PropsWithChildren {
 
 export interface TemplateMainProps extends PropsWithChildren {}
 
-export interface TemplateSectionProps extends ComponentPropsWithRef<'section'> {
+export interface TemplateAreaProps extends ComponentPropsWithRef<'div'> {
   grid?: boolean;
   gridGap?: 'm' | 'l' | 'xl' | false;
   gridRowGap?: 'm' | 'l' | 'xl' | false;

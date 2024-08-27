@@ -1,13 +1,13 @@
 import { Avatar } from '@/components/Avatar';
 import { Heading } from '@/components/Heading';
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import profileJoni from '@/public/images/joni.jpg';
 import profileJussi from '@/public/images/jussi.jpg';
 import profileSami from '@/public/images/sami.png';
 
 export const ResumeRecommendations = () => (
-  <TemplateSection
+  <TemplateArea
     className="Template-recommendations"
     gridGap="m"
     gridRowGap="m"
@@ -100,5 +100,5 @@ export const ResumeRecommendations = () => (
         </Quote>
       </div>
     </div>
-  </TemplateSection>
+  </TemplateArea>
 );

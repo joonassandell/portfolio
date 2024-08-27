@@ -7,7 +7,7 @@ import { NextProject } from '@/components/NextProject';
 import { OrasHero } from './';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const OrasPage = ({ images }: PageProps) => {
@@ -37,7 +37,7 @@ export const OrasPage = ({ images }: PageProps) => {
           type={['Web service', 'Commission']}
           year={year}
         />
-        <TemplateSection gridGap="m" pt={false} wrap={false}>
+        <TemplateArea gridGap="m" pt={false} wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@l">
             <Figure
               alt="Oras woman showering"
@@ -62,8 +62,8 @@ export const OrasPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-oras-man-square', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection
+        </TemplateArea>
+        <TemplateArea
           className="bg:gradient-0-100-0"
           gridGap="m"
           pb="15vw"
@@ -78,8 +78,8 @@ export const OrasPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-oras-product-family', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection pt={false} wrap={false}>
+        </TemplateArea>
+        <TemplateArea pt={false} wrap={false}>
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Oras lifestyle animation concept"
@@ -100,8 +100,8 @@ export const OrasPage = ({ images }: PageProps) => {
               transition="clip"
             />
           </div>
-        </TemplateSection>
-        <TemplateSection className="bg:gradient-0-100-0" pt="15vw">
+        </TemplateArea>
+        <TemplateArea className="bg:gradient-0-100-0" pt="15vw">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
@@ -123,8 +123,8 @@ export const OrasPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-oras-ux-kitchen', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection gridGap={false} pt="15vw">
+        </TemplateArea>
+        <TemplateArea gridGap={false} pt="15vw">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Oras homepage hero"
@@ -154,16 +154,16 @@ export const OrasPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-oras-look-booked', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection grid={false} pt="15vw" wrap={false}>
+        </TemplateArea>
+        <TemplateArea grid={false} pt="15vw" wrap={false}>
           <Figure
             alt="Oras sense faucet"
             borderRadius={false}
             scroll="mask"
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
-        </TemplateSection>
-        <TemplateSection className="bg:gradient-0-100-0" pt="15vw">
+        </TemplateArea>
+        <TemplateArea className="bg:gradient-0-100-0" pt="15vw">
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
@@ -179,8 +179,8 @@ export const OrasPage = ({ images }: PageProps) => {
               {...getImage('joonassandell-oras-man', images)}
             />
           </div>
-        </TemplateSection>
-        <TemplateSection grid={false} pt="15vw" wrap={false}>
+        </TemplateArea>
+        <TemplateArea grid={false} pt="15vw" wrap={false}>
           <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid-col grid-col:10 grid-col:4@m -align:end">
               <Figure
@@ -246,13 +246,8 @@ export const OrasPage = ({ images }: PageProps) => {
               />
             </div>
           </div>
-        </TemplateSection>
-        <TemplateSection
-          className="Template-section"
-          grid={false}
-          pb="15vw"
-          pt="10vw"
-        >
+        </TemplateArea>
+        <TemplateArea grid={false} pb="15vw" pt="10vw">
           <div className="grid -gap:l pb:2xl">
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure
@@ -284,7 +279,7 @@ export const OrasPage = ({ images }: PageProps) => {
               />
             </div>
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>
