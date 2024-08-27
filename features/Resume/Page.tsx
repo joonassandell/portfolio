@@ -1,5 +1,5 @@
-import { Aside, Content, Recommendations } from './';
 import { Head } from '@/components/Head';
+import { ResumeAside, ResumeContent, ResumeRecommendations } from './';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateMain, TemplateSection } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
@@ -13,10 +13,10 @@ export const ResumePage = () => {
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
         <TemplateSection gridGap="m" gridRowGap="m" pt={false}>
-          <Content />
-          <Aside />
+          <ResumeContent />
+          <ResumeAside />
         </TemplateSection>
-        <Recommendations />
+        <ResumeRecommendations />
       </TemplateMain>
     </Template>
   );

@@ -10,7 +10,7 @@ import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomar
 import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
-export const Content = () => (
+export const ResumeContent = () => (
   <div className="Template-content grid-col grid-col:11@s grid-col:9@m">
     <Figure
       alt="Joonas Sandell profile picture"
