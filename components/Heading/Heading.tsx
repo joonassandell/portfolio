@@ -14,7 +14,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
     const classes = c(
       'Heading',
       {
-        [`${size}`]: size && size != tag && !display,
+        [`${size}`]: size && tag && size != tag && !display,
         '-maxWidth': maxWidth,
         'Heading--display': display,
       },
