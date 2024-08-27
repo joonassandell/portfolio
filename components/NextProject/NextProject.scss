@@ -1,13 +1,9 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
-/**
- * 1. Fix possible background leaking related to scroll transform glitches
- */
 .NextProject {
   --link: var(--text-50);
   background-color: var(--NextProject-bg, var(--Template-bg, var(--bg-50)));
-  margin: -1px 0; // [1.]
   padding-top: rem($space-3xl);
 }
 
