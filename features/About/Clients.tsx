@@ -2,13 +2,13 @@ import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { MQ } from '@/lib/config';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import lineBall from '@/public/images/line-ball.png';
 
 export const AboutClients = () => (
-  <TemplateSection
+  <TemplateArea
     className="Template-clients"
     gridGap="m"
     gridRowGap="m"
@@ -74,5 +74,5 @@ export const AboutClients = () => (
         VR Group
       </Text>
     </div>
-  </TemplateSection>
+  </TemplateArea>
 );

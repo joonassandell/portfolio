@@ -6,7 +6,7 @@ import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useInView } from '@/lib/useInView';
@@ -71,12 +71,7 @@ export const AboutIntro = () => {
   };
 
   return (
-    <TemplateSection
-      className="Template-intro"
-      grid={false}
-      id="intro"
-      pt="15vw"
-    >
+    <TemplateArea className="Template-intro" grid={false} id="intro" pt="15vw">
       <m.div
         className="grid pb:5vw"
         ref={textRef}
@@ -163,6 +158,6 @@ export const AboutIntro = () => {
           </Text>
         </div>
       </div>
-    </TemplateSection>
+    </TemplateArea>
   );
 };

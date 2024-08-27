@@ -3,7 +3,7 @@ import { Button } from '@/components/Button';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
@@ -15,8 +15,8 @@ export const Page404 = () => {
     <Template id={sitemap.id}>
       <Head title={sitemap.meta.title} />
       <TemplateMain>
-        <TemplateSection
-          className="Template-section flex flex-direction:column align-items:center justify-content:center"
+        <TemplateArea
+          className="Template-area flex flex-direction:column align-items:center justify-content:center"
           grid={false}
           pb="15vw"
           pt="10vw"
@@ -33,7 +33,7 @@ export const Page404 = () => {
               Go to homepage
             </Button>
           </Text>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
     </Template>
   );

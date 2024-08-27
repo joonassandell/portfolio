@@ -2,7 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--404 {
-  .Template-section {
+  .Template-area {
     min-height: max(rem($space * 33), 75svh);
   }
 }

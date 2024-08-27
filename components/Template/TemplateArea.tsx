@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
-import { type TemplateSectionProps } from './';
+import { type TemplateAreaProps } from './';
 import c from 'clsx';
 
-export const TemplateSection = forwardRef<HTMLElement, TemplateSectionProps>(
+export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
   (
     {
       children,
@@ -19,7 +19,7 @@ export const TemplateSection = forwardRef<HTMLElement, TemplateSectionProps>(
     ref,
   ) => {
     /* eslint-disable sort-keys-fix/sort-keys-fix */
-    const classes = c('Template-section', className, {
+    const classes = c('Template-area', className, {
       wrap,
       grid,
       '-gap:xl': grid && gridGap === 'xl',
@@ -46,11 +46,11 @@ export const TemplateSection = forwardRef<HTMLElement, TemplateSectionProps>(
     });
 
     return (
-      <section className={classes} ref={ref} {...props}>
+      <div className={classes} ref={ref} {...props}>
         {children}
-      </section>
+      </div>
     );
   },
 );
 
-TemplateSection.displayName = 'TemplateSection';
+TemplateArea.displayName = 'TemplateArea';

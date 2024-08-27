@@ -6,12 +6,12 @@ import { Link } from '@/components/Link';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
 import { Subtitle } from '@/components/Subtitle';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <>
-    <TemplateSection className="pt:2xl pt:5xl@l" gridGap="xl" pt={false}>
+    <TemplateArea className="pt:2xl pt:5xl@l" gridGap="xl" pt={false}>
       <div className="grid-col grid-col:10@l -start:2@l">
         <Figure
           alt="Biocode homepage and isometric Biocode application"
@@ -23,8 +23,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           {...getImage('joonassandell-biocode-website-home-hero', images)}
         />
       </div>
-    </TemplateSection>
-    <TemplateSection
+    </TemplateArea>
+    <TemplateArea
       className="pt:2xl pt:5xl@l pb:2xl"
       grid={false}
       id="brand"
@@ -55,8 +55,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         product, aligning with our mission to provide food businesses with an
         efficient carbon footprint calculator
       </Text>
-    </TemplateSection>
-    <TemplateSection gridRowGap="m" pt={false}>
+    </TemplateArea>
+    <TemplateArea gridRowGap="m" pt={false}>
       <div className="grid-col grid -gap:row:0">
         <div className="grid-col">
           <Hr animate className="mb:2xl" />
@@ -111,8 +111,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       <div className="grid-col hidden@s">
         <Hr animate className="mb:0 mt:ml" />
       </div>
-    </TemplateSection>
-    <TemplateSection className="pt:5xl@l" gridGap="xl">
+    </TemplateArea>
+    <TemplateArea className="pt:5xl@l" gridGap="xl">
       <div className="grid-col grid-col:10@m grid-col:7@l ">
         <Figure
           alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
@@ -168,8 +168,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           {...getImage('joonassandell-biocode-website-home-reporting', images)}
         />
       </div>
-    </TemplateSection>
-    <TemplateSection
+    </TemplateArea>
+    <TemplateArea
       className="pt:2xl pt:5xl@l pb:2xl pb:5xl@l"
       grid={false}
       pt={false}
@@ -197,8 +197,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         modern SaaS efficiency. Guided by the positioning, the redesign focused
         on presenting Biocode as a clear and compelling software solution.
       </Text>
-    </TemplateSection>
-    <TemplateSection gridGap="xl" pt={false}>
+    </TemplateArea>
+    <TemplateArea gridGap="xl" pt={false}>
       <div className="grid-col grid-col:8@l">
         <Figure
           alt="Biocode homepage animation"
@@ -218,8 +218,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           eveyone.
         </Text>
       </div>
-    </TemplateSection>
-    <TemplateSection gridGap="xl">
+    </TemplateArea>
+    <TemplateArea gridGap="xl">
       <div className="grid-col grid-col:6 -start:4 grid-col:4@m -start:3@m grid-col:3@l -start:3@l">
         <Figure
           alt="Mobile view of Biocode's homepage"
@@ -242,8 +242,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           capabilities.
         </Text>
       </div>
-    </TemplateSection>
-    <TemplateSection
+    </TemplateArea>
+    <TemplateArea
       className="pt:2xl pt:5xl@l"
       gridGap="xl"
       gridRowGap="m"
@@ -303,8 +303,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           />
         </div>
       </div>
-    </TemplateSection>
-    <TemplateSection className="pt:2xl pt:5xl@l" gridRowGap="m" pt={false}>
+    </TemplateArea>
+    <TemplateArea className="pt:2xl pt:5xl@l" gridRowGap="m" pt={false}>
       <div className="grid-col grid-col:10@m grid-col:8@l">
         <Figure
           alt="Biocode feature page hero cards"
@@ -416,8 +416,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           )}
         />
       </div>
-    </TemplateSection>
-    <TemplateSection className="pt:2xl pt:5xl@l">
+    </TemplateArea>
+    <TemplateArea className="pt:2xl pt:5xl@l">
       <div className="grid-col grid-col:10@m grid-col:8@l">
         <Figure
           alt="About us page of Biocode homepage"
@@ -437,6 +437,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           calculations and clear, reliable results.
         </Text>
       </div>
-    </TemplateSection>
+    </TemplateArea>
   </>
 );

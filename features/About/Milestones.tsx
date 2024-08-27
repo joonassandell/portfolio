@@ -3,12 +3,12 @@ import { Button } from '@/components/Button';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { MilestonesTableHighlight } from '@/features/Milestones';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 
 export const AboutMilestones = () => (
-  <TemplateSection
+  <TemplateArea
     className="Template-milestones"
     gridGap="m"
     gridRowGap="m"
@@ -36,5 +36,5 @@ export const AboutMilestones = () => (
         Explore milestones
       </Button>
     </div>
-  </TemplateSection>
+  </TemplateArea>
 );

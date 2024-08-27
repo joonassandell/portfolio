@@ -5,7 +5,7 @@ import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { SomeIcons } from '@/components/SomeIcons';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useCopyToClipboard } from 'react-use';
@@ -30,7 +30,7 @@ export const ContactPage = () => {
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateSection className="Template-top" grid={false}>
+        <TemplateArea className="Template-top" grid={false}>
           <Heading
             className="white-space:nowrap mb:0"
             size="display"
@@ -40,8 +40,8 @@ export const ContactPage = () => {
             <TextReveal aria-hidden text={['Get in touch ✳︎ Get in touch']} />
             <span className="hideVisually">Get in touch</span>
           </Heading>
-        </TemplateSection>
-        <TemplateSection gridRowGap="l" pb="15vw" pt="5vw">
+        </TemplateArea>
+        <TemplateArea gridRowGap="l" pb="15vw" pt="5vw">
           <div className="grid-col grid-col:8@m grid-col:6@l grid-col:5@xl">
             <Text animate size="l">
               <p>
@@ -72,7 +72,7 @@ export const ContactPage = () => {
               <SomeIcons />
             </Text>
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
     </Template>
   );

@@ -7,7 +7,7 @@ import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea, TemplateMain } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const BiocodePage = ({ images }: PageProps) => {
@@ -43,7 +43,7 @@ export const BiocodePage = ({ images }: PageProps) => {
           year="2020–"
         />
         <BiocodeBrandAndWebsite images={images} />
-        <TemplateSection>
+        <TemplateArea>
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Biocode for producers app in dark mode"
@@ -57,8 +57,8 @@ export const BiocodePage = ({ images }: PageProps) => {
               )}
             />
           </div>
-        </TemplateSection>
-        {/* <TemplateSection gridRowGap="m" pt="10vw">
+        </TemplateArea>
+        {/* <TemplateArea gridRowGap="m" pt="10vw">
           <div className="grid-col grid-col:6 grid-col:3@m">
             <Figure
               alt="Biocode for producers mark"
@@ -92,8 +92,8 @@ export const BiocodePage = ({ images }: PageProps) => {
               {...getImage('joonassandell-biocode-report-mark', images)}
             />
           </div>
-        </TemplateSection> */}
-        <TemplateSection className="Template-app" pt={false} theme="light">
+        </TemplateArea> */}
+        <TemplateArea className="Template-app" pt={false} theme="light">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Biocode app sign in page"
@@ -145,7 +145,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               {...getImage('joonassandell-biocode-app-producer-frame', images)}
             />
           </div>
-        </TemplateSection>
+        </TemplateArea>
       </TemplateMain>
       <NextProject id={nextProjectId} />
     </Template>
