@@ -38,7 +38,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
           type={['Web service', 'Branding', 'Commission']}
           year={year}
         />
-        <TemplateArea gridGap="xl" pt="10vw">
+        <TemplateArea gridGap="xl" pt="2xl-5xl">
           <div className="grid-col grid-col:10@l -start:2@l">
             <Figure
               alt="Mediasignal homepage"
@@ -48,7 +48,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" pt="10vw">
+        <TemplateArea gridRowGap="l" pt="2xl-5xl">
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Mediasignal blog page"
@@ -88,7 +88,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="xl">
+        <TemplateArea gridGap="xl" gridRowGap={false}>
           <div className="grid-col">
             <Figure
               alt="Mediasignal business card"
@@ -118,7 +118,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="l" gridRowGap="m" pt="15vw" wrap={false}>
+        <TemplateArea gridGap="l" gridRowGap="m" pt="2xl-5xl" wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Logomark"
@@ -189,7 +189,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" pb="15vw">
+        <TemplateArea gridRowGap="l" pb="2xl-5xl">
           <div className="grid-col grid-col:11 grid-col:10@m">
             <Figure
               alt="Mediasignal company page"

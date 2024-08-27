@@ -30,7 +30,7 @@ export const ContactPage = () => {
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
       <TemplateMain>
-        <TemplateArea className="Template-top" grid={false}>
+        <TemplateArea grid={false}>
           <Heading
             className="white-space:nowrap mb:0"
             size="display"
@@ -41,7 +41,7 @@ export const ContactPage = () => {
             <span className="hideVisually">Get in touch</span>
           </Heading>
         </TemplateArea>
-        <TemplateArea gridRowGap="l" pb="15vw" pt="5vw">
+        <TemplateArea className="pt:2xl@l" gridRowGap="l" pb="2xl-5xl" pt="m">
           <div className="grid-col grid-col:8@m grid-col:6@l grid-col:5@xl">
             <Text animate size="l">
               <p>

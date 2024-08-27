@@ -43,8 +43,8 @@ export const ArchivePage = ({ images }: PageProps) => {
         <TemplateArea
           className="Template-figureGrid"
           grid={false}
-          pb="15vw"
-          pt="15vw"
+          pb="2xl-5xl"
+          pt="2xl-5xl"
         >
           <Figure
             alt="Jatke project page"

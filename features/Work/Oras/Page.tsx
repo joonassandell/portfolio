@@ -66,8 +66,8 @@ export const OrasPage = ({ images }: PageProps) => {
         <TemplateArea
           className="bg:gradient-0-100-0"
           gridGap="m"
-          pb="15vw"
-          pt="10vw"
+          pb="2xl-5xl"
+          pt="2xl-5xl"
         >
           <div className="grid-col grid-col:10@m -start:2@m">
             <Figure
@@ -79,7 +79,7 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea pt={false} wrap={false}>
+        <TemplateArea wrap={false}>
           <div className="grid-col grid-col:10 grid-col:6@m">
             <Figure
               alt="Oras lifestyle animation concept"
@@ -101,7 +101,7 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea className="bg:gradient-0-100-0" pt="15vw">
+        <TemplateArea className="bg:gradient-0-100-0" pt="2xl-5xl">
           <div className="grid-col grid-col:9@m">
             <Figure
               alt="Oras products overview"
@@ -124,7 +124,7 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap={false} pt="15vw">
+        <TemplateArea gridGap={false} pt="2xl-5xl">
           <div className="grid-col grid-col:7@m">
             <Figure
               alt="Oras homepage hero"
@@ -155,7 +155,7 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea grid={false} pt="15vw" wrap={false}>
+        <TemplateArea grid={false} pt="2xl-5xl" wrap={false}>
           <Figure
             alt="Oras sense faucet"
             borderRadius={false}
@@ -163,7 +163,7 @@ export const OrasPage = ({ images }: PageProps) => {
             {...getImage('joonassandell-oras-hero-sense', images)}
           />
         </TemplateArea>
-        <TemplateArea className="bg:gradient-0-100-0" pt="15vw">
+        <TemplateArea className="bg:gradient-0-100-0" pt="2xl-5xl">
           <div className="grid-col grid-col:8@m">
             <Figure
               alt="Oras single product page"
@@ -180,7 +180,7 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea grid={false} pt="15vw" wrap={false}>
+        <TemplateArea grid={false} pt="2xl-5xl" wrap={false}>
           <div className="grid -gap:l -gap:row:xl pb:2xl">
             <div className="grid-col grid-col:10 grid-col:4@m -align:end">
               <Figure
@@ -247,7 +247,7 @@ export const OrasPage = ({ images }: PageProps) => {
             </div>
           </div>
         </TemplateArea>
-        <TemplateArea grid={false} pb="15vw" pt="10vw">
+        <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl">
           <div className="grid -gap:l pb:2xl">
             <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
               <Figure

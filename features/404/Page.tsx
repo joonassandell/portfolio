@@ -16,10 +16,10 @@ export const Page404 = () => {
       <Head title={sitemap.meta.title} />
       <TemplateMain>
         <TemplateArea
-          className="Template-area flex flex-direction:column align-items:center justify-content:center"
+          className="flex flex-direction:column align-items:center justify-content:center"
           grid={false}
-          pb="15vw"
-          pt="10vw"
+          pb="2xl-5xl"
+          pt="2xl-5xl"
         >
           <Heading className="mb:s" size="display" tag="h1">
             404

@@ -58,7 +58,7 @@ export const UiLabPage = () => {
               </Heading>
             </div>
           </TemplateArea>
-          <TemplateArea gridRowGap="m" id="dynamic-pay-button" pb="5vw">
+          <TemplateArea gridRowGap="m" id="dynamic-pay-button">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">
@@ -81,7 +81,7 @@ export const UiLabPage = () => {
               />
             </div>
           </TemplateArea>
-          <TemplateArea gridRowGap="m" id="tba" pb="15vw">
+          <TemplateArea gridRowGap="m" id="tba" pb="2xl-5xl">
             <div className="grid-col grid-col:4@m">
               <Hr animate={false} className="mb:ml" />
               <Text className="mb" size="l" tag="h2">

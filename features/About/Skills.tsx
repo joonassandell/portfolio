@@ -20,7 +20,7 @@ export const AboutSkills = () => {
       className="Template-skills"
       grid={false}
       id="skills"
-      pt="10vw"
+      pt="2xl-5xl"
       ref={ref}
       wrap={false}
     >

@@ -2,14 +2,6 @@
 @use 'stylesheets/mixins' as *;
 
 /* =======================================
- * Padding
- * ======================================= */
-
-.p\:0 {
-  padding: 0;
-}
-
-/* =======================================
  * Padding top
  * ======================================= */
 
@@ -28,12 +20,6 @@
 .pt\:2xl {
   padding-top: rem($space-2xl);
 
-  @include mq(m) {
-    &\@m {
-      padding-top: rem($space-2xl);
-    }
-  }
-
   @include mq(l) {
     &\@l {
       padding-top: rem($space-2xl);
@@ -49,22 +35,6 @@
       padding-top: rem($space-5xl);
     }
   }
-}
-
-.pt\:5vw {
-  padding-top: 5vw;
-}
-
-.pt\:10vw {
-  padding-top: 10vw;
-}
-
-.pt\:15vw {
-  padding-top: 15vw;
-}
-
-.pt\:20vw {
-  padding-top: 20vw;
 }
 
 /* =======================================
@@ -99,18 +69,6 @@
   }
 }
 
-.pb\:5vw {
-  padding-bottom: 5vw;
-}
-
-.pb\:10vw {
-  padding-bottom: 10vw;
-}
-
-.pb\:15vw {
-  padding-bottom: 15vw;
-}
-
 /* =======================================
  * Padding left
  * ======================================= */
@@ -119,7 +77,7 @@
   padding-left: 0;
 
   @include mq($until: l) {
-    &\@until\:l {
+    &\@max\:l {
       padding-left: 0;
     }
   }

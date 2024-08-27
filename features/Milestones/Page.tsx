@@ -38,7 +38,7 @@ export const MilestonesPage = () => {
         </TemplateArea>
         <TemplateArea
           aria-hidden
-          className="pt:2xl@m"
+          className="pt:2xl@l"
           grid={false}
           pt="l"
           wrap={false}
@@ -62,7 +62,7 @@ export const MilestonesPage = () => {
           </Text>
           <MilestonesTableHighlight />
         </TemplateArea>
-        <TemplateArea grid={false} pb="10vw">
+        <TemplateArea grid={false} pb="2xl-5xl">
           <DelayedRender delay={getMilliSeconds(TRANS_TEMPLATE.duration + 0.3)}>
             <Text className="ml:s ml@l mb" size="l" tag="h2">
               All milestones

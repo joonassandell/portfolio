@@ -85,7 +85,7 @@ export const ApproachPage = () => {
             </span>
           </Heading>
         </TemplateArea>
-        <TemplateArea gridRowGap={false} pb="10vw" pt="l">
+        <TemplateArea gridRowGap={false} pb="2xl-5xl" pt="l">
           <div className="grid-col grid-col:6@m grid-col:4@l">
             <Text animate tag="p">
               In my approach to design, I generally prioritise adherence to UI

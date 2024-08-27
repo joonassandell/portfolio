@@ -43,7 +43,7 @@ export const MediasignalHero = ({
       {...props}
     >
       {({ noTransition, transitionInitial, transitionPre }) => (
-        <div className="wrap grid -gap:l pl:0@until:l">
+        <div className="wrap grid -gap:l pl:0@max:l">
           <HeroContent
             className="grid-col grid-col:3"
             heading={title}

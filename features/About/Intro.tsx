@@ -71,20 +71,16 @@ export const AboutIntro = () => {
   };
 
   return (
-    <TemplateArea className="Template-intro" grid={false} id="intro" pt="15vw">
-      <m.div
-        className="grid pb:5vw"
-        ref={textRef}
-        style={{ y: mqS ? textY : 0 }}
-      >
+    <TemplateArea className="Template-intro" grid={false} pt={false}>
+      <m.div className="grid" ref={textRef} style={{ y: mqS ? textY : 0 }}>
         <div className="grid-col -start:2@m -start:3@l">
           <Heading className="mb:m" size="h3" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
-          <Heading className="mb:l" size="h6" tag="h2">
+          <Heading className="mb:ml" size="h6" tag="h2">
             <TextReveal text={mqS ? lead.desktop : lead.mobile} />
           </Heading>
-          <Text animate className="mb:m">
+          <Text animate>
             <Button href={SITEMAP.resume.url} icon={<ArrowRight />}>
               View resume
             </Button>
@@ -118,7 +114,7 @@ export const AboutIntro = () => {
           />
         </m.div>
       </div>
-      <div className="grid -gap:0">
+      <div className="grid -gap:0 pt:2xl">
         <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
           <Figure
             alt="Joonas Sandell profile picture"
