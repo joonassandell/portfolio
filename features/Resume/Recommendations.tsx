@@ -6,7 +6,7 @@ import profileJoni from '@/public/images/joni.jpg';
 import profileJussi from '@/public/images/jussi.jpg';
 import profileSami from '@/public/images/sami.png';
 
-export const Recommendations = () => (
+export const ResumeRecommendations = () => (
   <TemplateSection
     className="Template-recommendations"
     gridGap="m"
