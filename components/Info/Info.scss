@@ -2,6 +2,10 @@
 @use 'stylesheets/mixins' as *;
 
 .Info {
+  .grid-col {
+    transform-origin: top left;
+  }
+
   @include mq($until: ml) {
     margin-top: rem($space * -4);
   }

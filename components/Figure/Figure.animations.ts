@@ -1,7 +1,6 @@
 import {
   EASE_TERTIARY,
   TRANS_TERTIARY,
-  TRANS_TERTIARY_FAST,
   TRANS_TERTIARY_FASTEST,
 } from '@/lib/config';
 import { type Variants } from 'framer-motion';
@@ -28,7 +27,7 @@ export const moveVariants: Variants = {
   animate: {
     opacity: 1,
     skewY: 0,
-    transition: TRANS_TERTIARY_FAST,
+    transition: TRANS_TERTIARY,
     y: 0,
   },
   initial: {

@@ -3,7 +3,14 @@
 
 .Heading {
   color: var(--heading);
+  transform-origin: top left;
+}
 
+/* =======================================
+ * Modifiers
+ * ======================================= */
+
+.Heading {
   &.-maxWidth {
     max-width: rem($space * 34);
   }
