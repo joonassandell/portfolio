@@ -9,8 +9,6 @@ export interface TemplateProps extends PropsWithChildren {
   variant?: 'unstyled' | 'default';
 }
 
-export interface TemplateMainProps extends PropsWithChildren {}
-
 export interface TemplateAreaProps extends ComponentPropsWithRef<'div'> {
   grid?: boolean;
   gridGap?: 'm' | 'l' | 'xl' | false;

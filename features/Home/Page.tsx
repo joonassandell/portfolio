@@ -10,7 +10,7 @@ import { MoreWorkHero } from '@/features/Work/MoreWork';
 import { OrasHero } from '@/features/Work/Oras';
 import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
-import { Template, TemplateMain } from '@/components/Template';
+import { Template } from '@/components/Template';
 import { useLenis } from '@studio-freight/react-lenis';
 import { useScrollTo } from '@/lib/useScrollTo';
 import { useState } from 'react';
@@ -75,56 +75,54 @@ export const HomePage = () => {
       id={id}
       variant="unstyled"
     >
-      <TemplateMain>
-        <m.div
-          animate={animation ? 'animate' : ''}
-          className="Template-about"
-          variants={FADE_OUT_VARIANTS}
-        >
-          <div className="wrap">
-            <div className="Template-about-mobile" hidden>
-              <Link href={SITEMAP.about.url} orientation="vertical">
-                About me
-              </Link>
-            </div>
-            <div className="Template-about-desktop">
-              <Heading size="h1">
-                I'm a designer, creative developer and sometimes even a music
-                producer from Helsinki, Finland. Read more{' '}
-                <Link href={SITEMAP.about.url}>about me</Link> or just keep
-                scrolling for selected works.
-              </Heading>
-            </div>
+      <m.div
+        animate={animation ? 'animate' : ''}
+        className="Template-about"
+        variants={FADE_OUT_VARIANTS}
+      >
+        <div className="wrap">
+          <div className="Template-about-mobile" hidden>
+            <Link href={SITEMAP.about.url} orientation="vertical">
+              About me
+            </Link>
           </div>
-        </m.div>
-        <div className="Template-heros">
-          <BiocodeHero
-            onClick={handleClick}
-            transition="pre"
-            transitionStart={currentHero === 'biocode' && animation}
-          />
-          <OrasHero
-            onClick={handleClick}
-            transition="pre"
-            transitionStart={currentHero === 'oras' && animation}
-          />
-          <MediasignalHero
-            onClick={handleClick}
-            transition="pre"
-            transitionStart={currentHero === 'mediasignal' && animation}
-          />
-          <SandboxHero
-            onClick={handleClick}
-            transition="pre"
-            transitionStart={currentHero === 'sandbox' && animation}
-          />
-          <MoreWorkHero
-            onClick={handleClick}
-            transition="pre"
-            transitionStart={currentHero === 'moreWork' && animation}
-          />
+          <div className="Template-about-desktop">
+            <Heading size="h1">
+              I'm a designer, creative developer and sometimes even a music
+              producer from Helsinki, Finland. Read more{' '}
+              <Link href={SITEMAP.about.url}>about me</Link> or just keep
+              scrolling for selected works.
+            </Heading>
+          </div>
         </div>
-      </TemplateMain>
+      </m.div>
+      <div className="Template-heros">
+        <BiocodeHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'biocode' && animation}
+        />
+        <OrasHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'oras' && animation}
+        />
+        <MediasignalHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'mediasignal' && animation}
+        />
+        <SandboxHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'sandbox' && animation}
+        />
+        <MoreWorkHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'moreWork' && animation}
+        />
+      </div>
     </Template>
   );
 };

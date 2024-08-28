@@ -54,7 +54,7 @@ export const Template = ({
     >
       <AnimatePresence>
         <div className="Template-inner">
-          {children}
+          <div className="Template-main">{children}</div>
           <Footer {...footerProps} />
         </div>
       </AnimatePresence>
