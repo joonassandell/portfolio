@@ -7,7 +7,7 @@ import {
 } from './';
 import { Head } from '@/components/Head';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain } from '@/components/Template';
+import { Template } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const AboutPage = () => {
@@ -17,13 +17,11 @@ export const AboutPage = () => {
   return (
     <Template id={id}>
       <Head description={meta.description} title={meta.title} />
-      <TemplateMain>
-        <AboutTop />
-        <AboutIntro />
-        <AboutSkills />
-        <AboutClients />
-        <AboutMilestones />
-      </TemplateMain>
+      <AboutTop />
+      <AboutIntro />
+      <AboutSkills />
+      <AboutClients />
+      <AboutMilestones />
     </Template>
   );
 };
