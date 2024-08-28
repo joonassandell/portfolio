@@ -100,7 +100,7 @@ export const Hero = ({
                     y: '60%',
                   }
                 }
-                text={[heading as string]}
+                text={[heading]}
                 {...(noTransition && { initial: 'animate' })}
               />
             </m.div>

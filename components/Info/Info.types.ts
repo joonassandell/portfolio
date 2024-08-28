@@ -5,11 +5,11 @@ export interface InfoProps {
     href?: string;
     name: string;
   };
-  heading: string | ReactNode;
+  heading: ReactNode;
   role: string[];
   smallPrint?: string;
   tech?: string[];
-  text: string | ReactNode;
+  text: ReactNode;
   type: string[];
   year: string | number;
 }
