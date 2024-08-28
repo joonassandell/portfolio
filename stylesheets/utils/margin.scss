@@ -11,12 +11,6 @@
 
 .mt\:s {
   margin-top: rem($space-s);
-
-  @include mq(s) {
-    &\@s {
-      margin-top: rem($space-s);
-    }
-  }
 }
 
 .mt\:m {

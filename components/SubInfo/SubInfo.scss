@@ -2,6 +2,10 @@
 @use 'stylesheets/mixins' as *;
 
 .SubInfo {
+  .grid-col {
+    transform-origin: top left;
+  }
+
   @include mq($until: l) {
     order: -1;
   }

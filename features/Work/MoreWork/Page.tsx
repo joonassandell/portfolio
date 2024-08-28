@@ -170,7 +170,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             {...getImage('joonassandell-hankkija-views', images)}
           />
         </div>
-        <div className="grid-col grid-col:10@s grid-col:4@m">
+        <div className="grid-col grid-col:4@m">
           <Text animate>
             <p>
               I had the honor to design and develop Hankkija’s new international
