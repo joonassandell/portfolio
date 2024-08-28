@@ -40,7 +40,11 @@
 .Figure-figure-main {
   background-clip: padding-box;
   position: relative;
-  transform-origin: top center;
+  transform-origin: top left;
+
+  .Figure.-transition\:clip & {
+    transform-origin: bottom center;
+  }
 }
 
 .Figure-placeholder,

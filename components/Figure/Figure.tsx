@@ -58,6 +58,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       '-border:radius': borderRadius,
       '-inline': inline,
       '-mask': mask,
+      '-transition:clip': transition === 'clip',
     });
     id = id ?? src?.split('/')?.pop()?.split('.')[0];
     const createdRef = useRef(null);
