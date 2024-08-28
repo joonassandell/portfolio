@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { parentVariant, type TextRevealProps, textVariant } from './';
+import { PARENT_VARIANT, TEXT_VARIANT, type TextRevealProps } from './';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
 import c from 'clsx';
@@ -21,7 +21,7 @@ export const TextReveal = ({
       custom={custom}
       initial="initial"
       ref={ref}
-      variants={parentVariant}
+      variants={PARENT_VARIANT}
       {...props}
     >
       {text.map((text, index) => {
@@ -30,7 +30,7 @@ export const TextReveal = ({
             <m.span
               className="TextReveal-text-inner"
               custom={custom}
-              variants={textVariant}
+              variants={TEXT_VARIANT}
             >
               {text}
             </m.span>

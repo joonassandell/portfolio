@@ -10,7 +10,7 @@ import { type Variants } from 'framer-motion';
  * 1. From top to bottom
  * 2. From bottom to top
  */
-export const clipVariants: Variants = {
+export const CLIP_VARIANTS: Variants = {
   animate: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // [1.]
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', // [2.]
@@ -22,9 +22,9 @@ export const clipVariants: Variants = {
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // [2.]
     scale: 1.07,
   },
-};
+} as const;
 
-export const moveVariants: Variants = {
+export const MOVE_VARIANTS: Variants = {
   animate: {
     opacity: 1,
     skewY: 0,
@@ -42,13 +42,13 @@ export const moveVariants: Variants = {
     skewY: 5,
     y: '5rem',
   },
-};
+} as const;
 
-export const placeholderVariants: Variants = {
+export const PLACEHOLDER_VARIANTS: Variants = {
   exit: { opacity: 0, transition: TRANS_TERTIARY_FASTEST },
-};
+} as const;
 
-export const placeholderGlareVariants: Variants = {
+export const PLACEHOLDER_GLARE_VARIANTS: Variants = {
   animate: {
     backgroundPosition: ['200% 0%', '-10% 0%'],
     transition: {
@@ -58,14 +58,14 @@ export const placeholderGlareVariants: Variants = {
       repeatDelay: 0.2,
     },
   },
-};
+} as const;
 
-export const glareVariants: Variants = {
+export const GLARE_VARIANTS: Variants = {
   animate: {
-    ...placeholderGlareVariants.animate,
+    ...PLACEHOLDER_GLARE_VARIANTS.animate,
     transition: {
       ...TRANS_TERTIARY,
       duration: TRANS_TERTIARY.duration + 0.3,
     },
   },
-};
+} as const;

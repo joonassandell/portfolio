@@ -1,10 +1,10 @@
 import {
-  figureBgVariants,
+  FIGURE_BG_VARIANTS,
   Hero,
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { figureInnerVariants } from './Hero.animations';
+import { FIGURE_INNER_VARIANTS } from './config';
 import { m } from 'framer-motion';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';
@@ -58,7 +58,7 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
                     initial: 'initial',
                   })}
                   {...(noTransition && { initial: 'animate' })}
-                  variants={figureInnerVariants}
+                  variants={FIGURE_INNER_VARIANTS}
                 >
                   <Image
                     alt="Box of projects"
@@ -72,7 +72,7 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
               </m.figure>
               <m.div
                 className="Hero-figure-bg Hero-figure-bg--animate"
-                variants={figureBgVariants}
+                variants={FIGURE_BG_VARIANTS}
               />
             </div>
             <HeroContent

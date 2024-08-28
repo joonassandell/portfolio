@@ -6,5 +6,5 @@ export * from './TableFooter';
 export * from './TableHead';
 export * from './TableHeader';
 export * from './TableRow';
-export * from './Table.animations';
+export * from './Table.config';
 export type * from './Table.types';

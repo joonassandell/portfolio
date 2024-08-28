@@ -1,11 +1,11 @@
 import { debounce } from 'es-toolkit';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import {
-  overlayVariants,
+  OVERLAY_VARIANTS,
+  STAMP_TRANSITION,
+  STAMP_VARIANTS,
   type StampProps,
-  stampTransition,
-  stampVariants,
-  svgVariants,
+  SVG_VARIANTS,
 } from './';
 import { useEffect, useRef } from 'react';
 import { useInView } from '@/lib/useInView';
@@ -110,21 +110,21 @@ export const Stamp = ({
           href={href}
           onClick={onClick}
           tabIndex={-1}
-          transition={stampTransition}
-          variants={stampVariants}
+          transition={STAMP_TRANSITION}
+          variants={STAMP_VARIANTS}
           whileHover="hover"
           whileTap="tap"
         >
           <m.div
             animate={inView ? 'animate' : ''}
             className="Stamp-svg"
-            variants={svgVariants}
+            variants={SVG_VARIANTS}
           >
             <StampSvg />
           </m.div>
         </m.a>
         {transitionStart && overlay && (
-          <m.div className="Stamp-overlay" variants={overlayVariants} />
+          <m.div className="Stamp-overlay" variants={OVERLAY_VARIANTS} />
         )}
       </m.div>
     </div>

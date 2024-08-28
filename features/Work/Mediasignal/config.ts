@@ -1,7 +1,7 @@
 import { TRANS_PRIMARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const figureInnerVariants: Variants = {
+export const FIGURE_INNER_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     transition: {
       ...TRANS_PRIMARY,
@@ -14,4 +14,4 @@ export const figureInnerVariants: Variants = {
     x: '0rem',
     y: '0rem',
   },
-};
+} as const;

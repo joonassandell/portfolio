@@ -1,6 +1,6 @@
 import { ArrowRight } from '@/components/Icon';
 import { Heading } from '@/components/Heading';
-import { headingVariants as headingVars, type HeroProps } from './';
+import { HEADING_VARIANTS as headingVars, type HeroProps } from './';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
 import { Stamp } from '@/components/Stamp';

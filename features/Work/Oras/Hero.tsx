@@ -1,6 +1,6 @@
-import { dropVariants, dropVariants2, dropVariants3 } from './Hero.animations';
+import { DROP_VARIANTS, DROP_VARIANTS_2, DROP_VARIANTS_3 } from './config';
 import {
-  figureBgVariants,
+  FIGURE_BG_VARIANTS,
   Hero,
   HeroContent,
   type HeroProps,
@@ -78,7 +78,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                 </m.figure>
                 <m.div
                   className="Hero-figure-bg Hero-figure-bg--animate"
-                  variants={figureBgVariants}
+                  variants={FIGURE_BG_VARIANTS}
                 />
                 {transitionStartOrDefault && (
                   <m.div
@@ -89,7 +89,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                     })}
                     {...(noTransition && { initial: 'animate' })}
                     custom={{ delay: transitionInitial ? dropDelay : 0 }}
-                    variants={dropVariants}
+                    variants={DROP_VARIANTS}
                   >
                     <Image
                       alt="Oras drop"
@@ -121,7 +121,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
               })}
               {...(noTransition && { initial: 'animate' })}
               custom={{ delay: transitionInitial ? dropDelay : 0 }}
-              variants={dropVariants2}
+              variants={DROP_VARIANTS_2}
             >
               <Image
                 alt="Oras drop"
@@ -141,7 +141,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             })}
             {...(noTransition && { initial: 'animate' })}
             custom={{ delay: transitionInitial ? dropDelay : 0 }}
-            variants={dropVariants3}
+            variants={DROP_VARIANTS_3}
           >
             <m.div data-lock-ios style={{ y: dropY }}>
               <Image

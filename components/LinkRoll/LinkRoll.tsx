@@ -1,9 +1,9 @@
 import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import {
-  characterInVariants,
-  characterOutVariants,
+  CHARACTER_IN_VARIANTS,
+  CHARACTER_OUT_VARIANTS,
+  LINK_VARIANTS,
   type LinkRollProps,
-  linkVariants,
 } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
@@ -73,7 +73,7 @@ export const LinkRoll = ({
         target={target ?? externalTarget}
         {...props}
       >
-        <m.span className="LinkRoll-text" variants={linkVariants}>
+        <m.span className="LinkRoll-text" variants={LINK_VARIANTS}>
           {characters.map((char, i) => {
             isEmptyString(char) ? (char = '\u00A0') : false;
 
@@ -81,7 +81,7 @@ export const LinkRoll = ({
               <m.span
                 className="LinkRoll-char"
                 key={i}
-                variants={characterOutVariants}
+                variants={CHARACTER_OUT_VARIANTS}
               >
                 {char}
               </m.span>
@@ -96,7 +96,7 @@ export const LinkRoll = ({
               exit="out"
               hidden
               initial="out"
-              variants={linkVariants}
+              variants={LINK_VARIANTS}
             >
               {characters.map((char, i) => {
                 const empty = isEmptyString(char);
@@ -106,7 +106,7 @@ export const LinkRoll = ({
                   <m.span
                     className={c('LinkRoll-char', { '-empty': empty })}
                     key={i}
-                    variants={characterInVariants}
+                    variants={CHARACTER_IN_VARIANTS}
                   >
                     {char}
                   </m.span>

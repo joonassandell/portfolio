@@ -1,7 +1,7 @@
 import { TRANS_TERTIARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const dropVariants: Variants = {
+export const DROP_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
@@ -14,9 +14,9 @@ export const dropVariants: Variants = {
     opacity: 0,
     y: -24,
   },
-};
+} as const;
 
-export const dropVariants2: Variants = {
+export const DROP_VARIANTS_2: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
@@ -29,9 +29,9 @@ export const dropVariants2: Variants = {
     opacity: 0,
     y: -48,
   },
-};
+} as const;
 
-export const dropVariants3: Variants = {
+export const DROP_VARIANTS_3: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     transition: {
@@ -44,4 +44,4 @@ export const dropVariants3: Variants = {
     opacity: 0,
     y: -80,
   },
-};
+} as const;

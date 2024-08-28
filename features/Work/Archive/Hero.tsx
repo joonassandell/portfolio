@@ -1,5 +1,5 @@
-import { figureBgVariants, Hero, type HeroProps } from '@/components/Hero';
-import { figureInnerVariants } from '@/features/Work/Mediasignal/Hero.animations';
+import { FIGURE_BG_VARIANTS, Hero, type HeroProps } from '@/components/Hero';
+import { FIGURE_INNER_VARIANTS } from '@/features/Work/Mediasignal/config';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
@@ -35,7 +35,7 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
                 })}
                 {...(noTransition && { initial: 'animate' })}
                 custom={{ delay: 0.1 }}
-                variants={figureInnerVariants}
+                variants={FIGURE_INNER_VARIANTS}
               >
                 <Image
                   alt="Vapriikki home page sketch in iPad"
@@ -49,7 +49,7 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
             </m.figure>
             <m.div
               className="Hero-figure-bg Hero-figure-bg--animate"
-              variants={figureBgVariants}
+              variants={FIGURE_BG_VARIANTS}
             />
           </div>
         </div>

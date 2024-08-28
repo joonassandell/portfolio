@@ -1,16 +1,15 @@
 import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'framer-motion';
 
-export const parentVariant: Variants = {
+export const PARENT_VARIANT = {
   animate: ({ delay = 0 } = {}) => ({
     transition: {
       delayChildren: delay,
       staggerChildren: 0.1,
     },
   }),
-};
+} as const;
 
-export const textVariant: Variants = {
+export const TEXT_VARIANT = {
   animate: ({ transition = TRANS_PRIMARY } = {}) => ({
     opacity: 1,
     skewX: 0,
@@ -22,4 +21,4 @@ export const textVariant: Variants = {
     skewX: -50,
     y,
   }),
-};
+} as const;

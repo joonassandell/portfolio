@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import { rowVariant } from './';
+import { ROW_VARIANT } from './';
 import { type TableCaptionProps } from './';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
@@ -28,7 +28,7 @@ export const TableCaption = ({
         animate: inView && 'animate',
         initial: 'initial',
         ref,
-        variants: rowVariant,
+        variants: ROW_VARIANT,
       })}
       className={classes}
       {...props}
