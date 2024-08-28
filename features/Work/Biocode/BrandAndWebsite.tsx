@@ -11,7 +11,7 @@ import { Text } from '@/components/Text';
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <>
-    <TemplateArea gridGap="xl" pt="2xl-5xl">
+    <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:10@l -start:2@l">
         <Figure
           alt="Biocode homepage and isometric Biocode application"
@@ -50,7 +50,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         efficient carbon footprint calculator
       </Text>
     </TemplateArea>
-    <TemplateArea gridRowGap="m">
+    <TemplateArea>
       <div className="grid-col grid -gap:row:0">
         <div className="grid-col">
           <Hr animate className="mb:2xl" />
@@ -61,7 +61,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           </Heading>
         </div>
         <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Text animate color="mute" tag="p">
+          <Text animate className="mb:0" color="mute" tag="p">
             During the positioning project, we discovered that Biocode's brand
             and website were not effectively communicating its USPs and the{' '}
             <em>real value</em> it provides to users. This misalignment created
@@ -77,7 +77,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           </Heading>
         </div>
         <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Text animate color="mute" tag="p">
+          <Text animate className="mb:0" color="mute" tag="p">
             We needed to shift Biocode's positioning from a service-oriented
             brand to a product-centric SaaS model and ensure that the website
             conveyed the value Biocode offers to its users. The main challenge
@@ -102,11 +102,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           </Text>
         </div>
       </div>
-      <div className="grid-col hidden@s">
-        <Hr animate className="mb:0 mt:ml" />
-      </div>
     </TemplateArea>
-    <TemplateArea gridGap="xl" pt="2xl-5xl">
+    <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:10@m grid-col:7@l">
         <Figure
           alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
@@ -119,7 +116,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Essential features we needed
         </Heading>
-        <Text animate className="mb:2xl mb:l@l" color="mute">
+        <Text animate className="mb:xl" color="mute">
           <ul>
             <li>Key app features showcasing main USPs</li>
             <li>Strategically placed CTAs for user sign-up</li>
@@ -184,7 +181,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         on presenting Biocode as a clear and compelling software solution.
       </Text>
     </TemplateArea>
-    <TemplateArea gridGap="xl" pt={false}>
+    <TemplateArea pt={false}>
       <div className="grid-col grid-col:8@l">
         <Figure
           alt="Biocode homepage animation"
@@ -205,7 +202,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea gridGap="xl">
+    <TemplateArea pt="grid-gap-row-l">
       <div className="grid-col grid-col:6 -start:4 grid-col:4@m -start:3@m grid-col:3@l -start:3@l">
         <Figure
           alt="Mobile view of Biocode's homepage"
@@ -215,7 +212,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           {...getImage('joonassandell-biocode-website-mobile', images)}
         />
       </div>
-      <div className="grid-col grid-col:6@m grid-col:5@l -align:end">
+      <div className="grid-col grid-col:6@m grid-col:4@l -align:end">
         <Heading animate size="h5" tag="h3">
           International and distinctive
         </Heading>
@@ -228,12 +225,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea
-      className="pt:2xl pt:5xl@l"
-      gridGap="xl"
-      gridRowGap="m"
-      pt={false}
-    >
+    <TemplateArea className="pt:2xl pt:5xl@l" gridRowGap="m" pt={false}>
       <div className="grid-col grid-col:6@m grid-col:4@l">
         <Heading animate size="h5" tag="h3">
           Unified visual identity
@@ -299,7 +291,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate className="mt:m" size="h5" tag="h3">
           Emphasizing core strengths
         </Heading>
-        <Text animate color="mute" tag="p">
+        <Text animate className="mb:m" color="mute" tag="p">
           We really wanted to highlight the core advantages, so we designed
           sections that showcase them using visually appealing{' '}
           <q>bento grids</q> and other elements.
@@ -307,10 +299,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
       <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -align:end">
         <div className="visible@m">
-          <Heading animate size="h5" tag="h3">
+          <Heading animate className="mt:xs" size="h5" tag="h3">
             Emphasizing core strengths
           </Heading>
-          <Text animate className="mb:l" color="mute" tag="p">
+          <Text animate className="mb:xl" color="mute" tag="p">
             We really wanted to highlight the core advantages, so we designed
             sections that showcase them using visually appealing{' '}
             <q>bento grids</q> and other elements.
@@ -365,7 +357,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Figure
           alt="Biocode feature page assessments"
           border
-          className="mb:l"
           quality={100}
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage(
@@ -376,7 +367,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate className="mt:xl" size="h5" tag="h3">
           In-depth features
         </Heading>
-        <Text animate color="mute" tag="p">
+        <Text animate className="mb:m mb:s@m" color="mute" tag="p">
           Among emphasizing the core USPs we also planned detailed sections of
           individual features of the software to gain a deeper insight into the
           specific tools and capabilities.
@@ -404,7 +395,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           {...getImage('joonassandell-biocode-website-about', images)}
         />
       </div>
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l -align:center">
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l">
         <Heading animate size="h5" tag="h3">
           Transparent and trustworthy expertise
         </Heading>

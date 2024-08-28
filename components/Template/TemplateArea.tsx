@@ -9,7 +9,7 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
       className,
       grid = true,
       gridGap = 'l',
-      gridRowGap = 'xl',
+      gridRowGap = 'l',
       pb,
       pt = '2xl',
       wrap = true,
@@ -21,17 +21,14 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
     const classes = c('Template-area', className, {
       wrap,
       grid,
-      '-gap:xl': grid && gridGap === 'xl',
       '-gap:l': grid && gridGap === 'l',
       '-gap:0': grid && gridGap === false,
-      '-gap:row:xl':
-        grid &&
-        (gridRowGap === 'xl' || (gridGap === 'xl' && gridRowGap != 'm')),
       '-gap:row:l': grid && gridRowGap === 'l',
       '-gap:row:0': grid && gridRowGap === false,
       pt: pt === 'base',
       'pt:m': pt === 'm',
       'pt:l': pt === 'l',
+      'pt:grid-gap-row-l': pt === 'grid-gap-row-l',
       'pt:2xl': pt === '2xl' || pt === '2xl-5xl',
       'pt:5xl@l': pt === '2xl-5xl',
       'pb:2xl': pb === '2xl' || pb === '2xl-5xl',

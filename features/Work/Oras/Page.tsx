@@ -85,7 +85,7 @@ export const OrasPage = ({ images }: PageProps) => {
             className="Template-videoBathroom"
             scroll
             scrollReverse
-            scrollSpeed="slow"
+            scrollSpeed="slowest"
             src="/oras/joonassandell-oras-bathroom.mp4"
             transition="clip"
           />
@@ -100,7 +100,7 @@ export const OrasPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea className="bg:gradient-0-100-0" pt="2xl-5xl">
+      <TemplateArea className="bg:gradient-0-100-0 pt:5xl@m" pt="2xl-5xl">
         <div className="grid-col grid-col:9@m">
           <Figure
             alt="Oras products overview"
@@ -181,8 +181,8 @@ export const OrasPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea grid={false} pt="2xl-5xl" wrap={false}>
-        <div className="grid -gap:l -gap:row:xl pb:2xl">
+      <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl" wrap={false}>
+        <div className="grid -gap:l -gap:row:l">
           <div className="grid-col grid-col:10 grid-col:4@m -align:end">
             <Figure
               alt="Oras strategy 1"
@@ -195,12 +195,12 @@ export const OrasPage = ({ images }: PageProps) => {
             <Figure
               alt="Oras strategy 2"
               border
-              sizes="50vw"
+              sizes={`${MQ.m} 60vw, 80vw`}
               {...getImage('joonassandell-oras-strategy-6', images)}
             />
           </div>
         </div>
-        <div className="grid -gap:l -gap:row:xl pb:2xl wrap@m">
+        <div className="grid -gap:l -gap:row:l pt:grid-gap-row-l wrap@m">
           <div className="grid-col grid-col:10 -start:3 grid-col:7@m -start:1@m">
             <Figure
               alt="Oras strategy 3"
@@ -219,8 +219,8 @@ export const OrasPage = ({ images }: PageProps) => {
             />
           </div>
         </div>
-        <div className="grid -gap:l -gap:row:xl pb:2xl">
-          <div className="grid -gap:row:xl grid-col grid-col:10 grid-col:5@m">
+        <div className="grid -gap:l -gap:row:l pt:grid-gap-row-l">
+          <div className="grid -gap:row:l grid-col grid-col:10 grid-col:5@m">
             <div className="grid-col">
               <Figure
                 alt="Oras strategy 5"
@@ -232,7 +232,7 @@ export const OrasPage = ({ images }: PageProps) => {
             <div className="grid-col grid-col:9 -start:3 grid-col:8@m -start:5@m">
               <Figure
                 alt="Oras strategy 6"
-                sizes={`${MQ.m} 33vw, 50vw`}
+                sizes={`${MQ.m} 25vw, 50vw`}
                 {...getImage('joonassandell-oras-strategy-7', images)}
               />
             </div>
@@ -242,13 +242,13 @@ export const OrasPage = ({ images }: PageProps) => {
               alt="Oras strategy 7"
               border
               quality={90}
-              sizes={`${MQ.m} 50vw, 80vw`}
+              sizes={`${MQ.m} 60vw, 80vw`}
               {...getImage('joonassandell-oras-strategy-4', images)}
             />
           </div>
         </div>
       </TemplateArea>
-      <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl">
+      <TemplateArea grid={false} pt="2xl-5xl">
         <div className="grid -gap:l pb:2xl">
           <div className="grid-col grid-col:5 grid-col:4@s grid-col:3@m">
             <Figure

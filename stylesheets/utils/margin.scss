@@ -9,6 +9,10 @@
   margin-top: auto;
 }
 
+.mt\:xs {
+  margin-top: rem($space-xs);
+}
+
 .mt\:s {
   margin-top: rem($space-s);
 }
@@ -51,6 +55,12 @@
 
 .mb\:s {
   margin-bottom: rem($space-s);
+
+  @include mq(m) {
+    &\@m {
+      margin-bottom: rem($space-s);
+    }
+  }
 }
 
 .mb {

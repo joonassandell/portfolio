@@ -30,11 +30,21 @@
 .pt\:5xl {
   padding-top: rem($space-5xl);
 
+  @include mq(m) {
+    &\@m {
+      padding-top: rem($space-5xl);
+    }
+  }
+
   @include mq(l) {
     &\@l {
       padding-top: rem($space-5xl);
     }
   }
+}
+
+.pt\:grid-gap-row-l {
+  padding-top: var(--grid-gap-row-l);
 }
 
 /* =======================================
