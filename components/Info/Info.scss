@@ -2,6 +2,9 @@
 @use 'stylesheets/mixins' as *;
 
 .Info {
+  position: relative;
+  z-index: 2;
+
   .grid-col {
     transform-origin: top left;
   }
