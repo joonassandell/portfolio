@@ -25,8 +25,6 @@ export const Info = ({
   const mqL = useMedia(MQ.l, false);
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
-  const textRef = useRef(null);
-  const textInView = useInView(textRef);
   const { ref, value: y } = useParallax({
     offset: 'start-80',
     speed: 'slow',
@@ -140,26 +138,26 @@ export const Info = ({
           </m.div>
         </div>
       </m.div>
-      <m.div
-        animate={textInView && 'animate'}
-        className="grid-col grid-col:9@m grid-col:7@l"
-        custom={{ delay: mqL ? 0.4 : 0 }}
-        initial="initial"
-        ref={textRef}
-        variants={TEXT_VARIANTS}
-      >
-        <Heading className="mb:ml" size="h4" tag="h2">
+      <div className="grid-col grid-col:9@m grid-col:7@l">
+        <Heading
+          animate
+          className="mb:ml"
+          custom={{ delay: mqL ? 0.4 : 0 }}
+          size="h4"
+          tag="h2"
+        >
           {heading}
         </Heading>
         <div className="grid">
           <Text
             animate
-            className="Info-text grid-col grid-col:8@s grid-col:6@m"
+            className="Info-text grid-col grid-col:8@s grid-col:7@l"
+            custom={{ delay: mqL ? 0.4 : 0 }}
           >
             {text}
           </Text>
         </div>
-      </m.div>
+      </div>
     </section>
   );
 };
