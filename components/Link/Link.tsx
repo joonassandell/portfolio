@@ -2,11 +2,11 @@ import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
 import {
-  inVariant,
-  inVariantX,
+  IN_VARIANT,
+  IN_VARIANT_X,
   type LinkProps,
-  outVariant,
-  outVariantX,
+  OUT_VARIANT,
+  OUT_VARIANT_X,
 } from './';
 import { isBoolean } from '@/lib/utils';
 import { useApp } from '@/components/App';
@@ -77,7 +77,7 @@ export const Link = ({
       >
         <m.span
           className={c('Link-text', { 'text:truncate': truncate })}
-          variants={orientation === 'vertical' ? outVariantX : outVariant}
+          variants={orientation === 'vertical' ? OUT_VARIANT_X : OUT_VARIANT}
         >
           {children}
         </m.span>
@@ -89,7 +89,7 @@ export const Link = ({
               exit="out"
               hidden
               initial="initial"
-              variants={orientation === 'vertical' ? inVariantX : inVariant}
+              variants={orientation === 'vertical' ? IN_VARIANT_X : IN_VARIANT}
             >
               {children}
             </m.span>

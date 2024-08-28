@@ -1,7 +1,7 @@
 import { TRANS_TERTIARY_FAST } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const rowVariant: Variants = {
+export const ROW_VARIANT: Variants = {
   animate: {
     opacity: 1,
     transition: TRANS_TERTIARY_FAST,
@@ -11,4 +11,4 @@ export const rowVariant: Variants = {
     opacity: 0,
     y: '3rem',
   },
-};
+} as const;

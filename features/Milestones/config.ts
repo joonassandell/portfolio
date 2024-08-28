@@ -1,4 +1,4 @@
-import { type Category } from './';
+import { type Category } from '.';
 
 export const CATEGORY_COLOR: {
   [key in Category]: string;
@@ -9,7 +9,7 @@ export const CATEGORY_COLOR: {
   featured: 'var(--slate-400)',
   'music-release': 'var(--slate-300)',
   project: 'var(--accent-1)',
-};
+} as const;
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const CATEGORY_NAME: {
@@ -21,7 +21,7 @@ export const CATEGORY_NAME: {
   achievement: 'Achievement',
   featured: 'Featured',
   'music-release': 'Music release',
-};
+} as const;
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const CATEGORY_NAME_SHORT: {
@@ -33,4 +33,4 @@ export const CATEGORY_NAME_SHORT: {
   achievement: 'Achievement',
   featured: 'Featured',
   'music-release': 'Music',
-};
+} as const;

@@ -1,6 +1,6 @@
 import { AnimatePresence, m } from 'framer-motion';
 import { Heading } from '@/components/Heading';
-import { type SplashProps, splashVariants, textVariants } from './';
+import { SPLASH_VARIANTS, type SplashProps, TEXT_VARIANTS } from './';
 
 export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
   return (
@@ -12,14 +12,14 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
           exit="exit"
           initial="initial"
           onAnimationComplete={onAnimationComplete}
-          variants={splashVariants}
+          variants={SPLASH_VARIANTS}
         >
           <div className="Splash-main">
             <Heading className="Splash-row mb:2xs" size="h6" tag="div">
               <m.div
                 className="Splash-text"
                 exit="exit"
-                variants={textVariants}
+                variants={TEXT_VARIANTS}
               >
                 Portfolio of
               </m.div>
@@ -28,7 +28,7 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
               <m.div
                 className="Splash-text"
                 exit="exit"
-                variants={textVariants}
+                variants={TEXT_VARIANTS}
               >
                 Joonas Sandell
               </m.div>

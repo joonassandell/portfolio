@@ -1,7 +1,7 @@
 import { TRANS_PRIMARY, TRANS_PRIMARY_FAST, TRANS_TAP } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const stampVariants: Variants = {
+export const STAMP_VARIANTS: Variants = {
   hover: {
     scale: 1.1,
   },
@@ -9,11 +9,11 @@ export const stampVariants: Variants = {
     scale: 1.05,
     transition: TRANS_TAP,
   },
-};
+} as const;
 
-export const stampTransition = TRANS_PRIMARY_FAST;
+export const STAMP_TRANSITION = TRANS_PRIMARY_FAST;
 
-export const svgVariants: Variants = {
+export const SVG_VARIANTS: Variants = {
   animate: {
     rotate: 360,
     transition: {
@@ -22,11 +22,11 @@ export const svgVariants: Variants = {
       repeat: Infinity,
     },
   },
-};
+} as const;
 
-export const overlayVariants: Variants = {
+export const OVERLAY_VARIANTS: Variants = {
   animate: {
     scale: [0, 13],
     transition: TRANS_PRIMARY,
   },
-};
+} as const;

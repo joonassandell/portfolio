@@ -1,3 +1,3 @@
 export * from './LinkRoll';
-export * from './LinkRoll.animations';
+export * from './LinkRoll.config';
 export type * from './LinkRoll.types';

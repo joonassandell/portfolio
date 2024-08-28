@@ -1,6 +1,6 @@
 import { m } from 'framer-motion';
 import { type MouseEvent } from 'react';
-import { rowVariant, type TableRowProps } from './';
+import { ROW_VARIANT, type TableRowProps } from './';
 import { useApp } from '@/components/App';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
@@ -58,7 +58,7 @@ export const TableRow = ({
         animate: inView && 'animate',
         initial: 'initial',
         ref,
-        variants: rowVariant,
+        variants: ROW_VARIANT,
       })}
       {...props}
     >

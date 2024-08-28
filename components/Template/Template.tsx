@@ -2,10 +2,10 @@ import { AnimatePresence, m, useIsPresent } from 'framer-motion';
 import { camelCase } from 'es-toolkit';
 import { Footer } from '@/components/Footer';
 import {
-  overlayVariants,
+  OVERLAY_VARIANTS,
   type TemplateProps,
-  variantsWithoutTransition,
-  variantsWithTransition,
+  VARIANTS_WITH_TRANSITION,
+  VARIANTS_WITHOUT_TRANSITION,
 } from './';
 import { useApp } from '@/components/App';
 import { useEffect, useRef, useState } from 'react';
@@ -49,8 +49,8 @@ export const Template = ({
       exit="exit"
       initial="initial"
       ref={ref}
-      {...(!templateTransition && { variants: variantsWithoutTransition })}
-      {...(templateTransition && { variants: variantsWithTransition })}
+      {...(templateTransition && { variants: VARIANTS_WITH_TRANSITION })}
+      {...(!templateTransition && { variants: VARIANTS_WITHOUT_TRANSITION })}
     >
       <AnimatePresence>
         <div className="Template-inner">
@@ -63,7 +63,7 @@ export const Template = ({
           animate="animate"
           className="Template-overlay"
           initial="initial"
-          variants={overlayVariants}
+          variants={OVERLAY_VARIANTS}
         />
       )}
     </m.div>

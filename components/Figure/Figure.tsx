@@ -1,11 +1,11 @@
 import { AnimatePresence, m } from 'framer-motion';
 import {
-  clipVariants,
+  CLIP_VARIANTS,
   type FigureProps,
-  glareVariants,
-  moveVariants,
-  placeholderGlareVariants,
-  placeholderVariants,
+  GLARE_VARIANTS,
+  MOVE_VARIANTS,
+  PLACEHOLDER_GLARE_VARIANTS,
+  PLACEHOLDER_VARIANTS,
 } from './';
 import { forwardRef, type RefObject, useRef, useState } from 'react';
 import { isString } from '@/lib/utils';
@@ -63,7 +63,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     id = id ?? src?.split('/')?.pop()?.split('.')[0];
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef;
-    const figureVariants = transition === 'move' ? moveVariants : clipVariants;
+    const figureVariants =
+      transition === 'move' ? MOVE_VARIANTS : CLIP_VARIANTS;
     const inView = useInView(ref, inViewOffset);
     const [imgLoaded, setImgLoaded] = useState(false);
     const [glareEnd, setGlareEnd] = useState(false);
@@ -124,7 +125,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
               <m.div
                 className="Figure-glare"
                 onAnimationComplete={() => setGlareEnd(true)}
-                variants={glareVariants}
+                variants={GLARE_VARIANTS}
               />
             )}
             {!isVideo && placeholder && (
@@ -133,12 +134,12 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                   <m.div
                     className="Figure-placeholder"
                     exit="exit"
-                    variants={placeholderVariants}
+                    variants={PLACEHOLDER_VARIANTS}
                   >
                     <m.div
                       animate={inView ? 'animate' : false}
                       className="Figure-placeholder-glare"
-                      variants={placeholderGlareVariants}
+                      variants={PLACEHOLDER_GLARE_VARIANTS}
                     />
                   </m.div>
                 )}

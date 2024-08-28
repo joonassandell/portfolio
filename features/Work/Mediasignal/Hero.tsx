@@ -1,10 +1,10 @@
 import {
-  figureBgVariants,
+  FIGURE_BG_VARIANTS,
   Hero,
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { figureInnerVariants } from './Hero.animations';
+import { FIGURE_INNER_VARIANTS } from './config';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
@@ -65,7 +65,7 @@ export const MediasignalHero = ({
                 })}
                 {...(noTransition && { initial: 'animate' })}
                 custom={{ delay: transitionInitial ? 0.1 : 0 }}
-                variants={figureInnerVariants}
+                variants={FIGURE_INNER_VARIANTS}
               >
                 <Image
                   alt="Mediasignal homepage sketch in iPad"
@@ -79,7 +79,7 @@ export const MediasignalHero = ({
             </m.figure>
             <m.div
               className="Hero-figure-bg Hero-figure-bg--animate"
-              variants={figureBgVariants}
+              variants={FIGURE_BG_VARIANTS}
             />
           </div>
         </div>

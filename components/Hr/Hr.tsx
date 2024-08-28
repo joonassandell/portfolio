@@ -1,4 +1,4 @@
-import { type HrProps, hrVariants } from './';
+import { HR_VARIANTS, type HrProps } from './';
 import { m } from 'framer-motion';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
@@ -16,7 +16,7 @@ export const Hr = ({ animate = true, className, ...props }: HrProps) => {
         animate: inView ? 'animate' : '',
         initial: 'initial',
         ref,
-        variants: hrVariants,
+        variants: HR_VARIANTS,
       })}
       {...props}
     />

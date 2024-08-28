@@ -1,4 +1,4 @@
-import { type BezierDefinition } from 'framer-motion';
+import { type BezierDefinition, type Variants } from 'framer-motion';
 
 /* =======================================
  * Animations
@@ -100,14 +100,14 @@ export const SLOW_NETWORK_DELAY = 1000;
  * Variants
  * ======================================= */
 
-export const FADE_OUT_VARIANTS = {
+export const FADE_OUT_VARIANTS: Variants = {
   animate: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
   },
 } as const;
 
-export const TEXT_VARIANTS = {
+export const TEXT_VARIANTS: Variants = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     skewY: 0,

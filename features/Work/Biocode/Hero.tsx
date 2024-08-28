@@ -1,5 +1,5 @@
 import { Heading } from '@/components/Heading';
-import { headingVariants, maskVariants } from './Hero.animations';
+import { HEADING_VARIANTS, MASK_VARIANTS } from './config';
 import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
@@ -32,7 +32,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
     <Hero
       className="Hero--biocode"
       heading={`${title} — ${new Date().getFullYear()}`}
-      headingVariants={headingVariants}
+      headingVariants={HEADING_VARIANTS}
       href={url}
       id={id}
       innerRef={ref}
@@ -76,7 +76,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           <m.div
             className="Hero-globe wrap grid -gap:l"
             custom={{ enableInitial: transitionPre }}
-            variants={maskVariants}
+            variants={MASK_VARIANTS}
           >
             <div className={figureClasses}>
               <m.figure
@@ -136,7 +136,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           <m.div
             className="Hero-bg"
             custom={{ enableInitial: transitionPre }}
-            variants={maskVariants}
+            variants={MASK_VARIANTS}
           />
         </>
       )}

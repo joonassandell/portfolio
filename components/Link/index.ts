@@ -1,3 +1,3 @@
 export * from './Link';
-export * from './Link.animations';
+export * from './Link.config';
 export type * from './Link.types';
