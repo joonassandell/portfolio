@@ -5,4 +5,5 @@
   color: var(--Subtitle-text, var(--text-900));
   margin-bottom: rem($space-m);
   text-transform: uppercase;
+  transform-origin: top left;
 }
