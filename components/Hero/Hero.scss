@@ -1,10 +1,6 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
-/**
- * 1. Keep the following couple of elements on top of the potential scaled
- *    hero background
- */
 .Hero {
   --Stamp-center-x: 0px;
   --Stamp-center-y: 0px;
@@ -16,15 +12,6 @@
     var(--Hero-max-height)
   );
   position: relative;
-
-  // [1.]
-  &:not(.-transition\:pre) {
-    + *,
-    + * + * {
-      position: relative;
-      z-index: 2;
-    }
-  }
 
   &.-transition\:pre {
     background-color: var(--tone-50);
