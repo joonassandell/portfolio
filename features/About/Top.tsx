@@ -15,7 +15,7 @@ export const AboutTop = () => {
         <Heading
           aria-hidden
           className="white-space:nowrap mb:0"
-          size="display"
+          size="xl"
           style={{ x }}
           tag="div"
         >

@@ -32,7 +32,7 @@ export const ContactPage = () => {
       <TemplateArea grid={false}>
         <Heading
           className="white-space:nowrap mb:0"
-          size="display"
+          size="xl"
           style={{ x }}
           tag="h1"
         >

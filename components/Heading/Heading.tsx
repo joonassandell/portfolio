@@ -10,20 +10,22 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
     { animate, children, className, maxWidth, size = 'h2', tag, ...props },
     forwardedRef,
   ) => {
-    const display = size === 'display';
+    const xl = size === 'xl';
+    const l = size === 'l';
     const classes = c(
       'Heading',
       {
-        [`${size}`]: size && tag && size != tag && !display,
+        [`${size}`]: size && tag && size != tag && !xl && !l,
         '-maxWidth': maxWidth,
-        'Heading--display': display,
+        'Heading--l': l,
+        'Heading--xl': xl,
       },
       className,
     );
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLHeadingElement>) ?? createdRef;
     const inView = useInView(ref);
-    const Tag = tag ? m[tag] : display ? m.h2 : m[size];
+    const Tag = tag ? m[tag] : xl || l ? m.h2 : m[size];
 
     return (
       <Tag

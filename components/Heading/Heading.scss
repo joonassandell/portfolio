@@ -16,7 +16,7 @@
   }
 }
 
-.Heading--display {
+.Heading--xl {
   @include fontSize(20px, 20px, 999px, 20vw);
   font-weight: var(--font-weight-100);
   letter-spacing: -0.065em;
@@ -30,4 +30,8 @@
   @include mq($until: '2xs') {
     @include fontSize(92px, 92px);
   }
+}
+
+.Heading--l {
+  @include fontSize($font-size, $font-size, 112px, 10vw);
 }

@@ -37,7 +37,7 @@ export const UiLabPage = () => {
         <TemplateArea gridRowGap={false}>
           <div className="grid-col">
             <div className="Template-headingArea">
-              <Heading className="Template-heading" size="display">
+              <Heading className="Template-heading" size="xl">
                 UI Lab
               </Heading>
               <div className="Template-legos">
