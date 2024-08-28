@@ -27,13 +27,13 @@ export const ResumeContent = () => (
     <Text color="mute" tag="p">
       UI/UX Designer, Front-end Developer ✳︎ CV
     </Text>
-    <Text className="mb:m" maxWidth size="l">
+    <Text className="mb:m" size="l">
       <p className="hidden@m">
         A designer and creative developer with a keen eye for good design. With
         more than a decade of design engineering experience, I have the skills
         to build hiqh-quality web experiences.
       </p>
-      <p className="visible@m text-wrap:balance@s">
+      <p className="visible@m">
         A designer and creative developer with a keen eye for good design and
         attention to detail. With more than a decade of design engineering
         experience, I have the skills to build hiqh-quality web experiences and
@@ -73,7 +73,7 @@ export const ResumeContent = () => (
         <Text color="mute" tag="p">
           Nov 2020 – Present
         </Text>
-        <Text maxWidth>
+        <Text>
           <ul className="pl">
             <li>
               Built the <Link href={SITEMAP.biocode.url}>software</Link>{' '}
@@ -149,7 +149,7 @@ export const ResumeContent = () => (
         <Text color="mute" tag="p">
           Sep 2014 – Nov 2020
         </Text>
-        <Text maxWidth>
+        <Text>
           <ul className="pl">
             <li>
               Developed and designed applications for clients such as{' '}
@@ -237,7 +237,7 @@ export const ResumeContent = () => (
         <Text color="mute" tag="p">
           Apr 2007 – Sep 2014
         </Text>
-        <Text maxWidth>
+        <Text>
           <ul className="pl">
             <li>
               Built and curated valuable <em>Exhibition Guide</em> mobile app to
@@ -263,7 +263,7 @@ export const ResumeContent = () => (
     <Heading size="h4" tag="h2">
       About me 👋
     </Heading>
-    <Text maxWidth>
+    <Text>
       <p>
         I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
         <Link href={LINK.soundcloud.url}>music producer</Link>. I enjoy

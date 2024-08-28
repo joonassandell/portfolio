@@ -41,7 +41,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         animate
         className="text:center ml:auto mr:auto mb:0"
         color="mute"
-        maxWidth
         size="l"
         tag="p"
       >
@@ -56,13 +55,13 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <div className="grid-col">
           <Hr animate className="mb:2xl" />
         </div>
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:6@l">
+        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate size="h5" tag="h3">
             Problems
           </Heading>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:6@l">
-          <Text animate color="mute" maxWidth tag="p">
+        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
+          <Text animate color="mute" tag="p">
             During the positioning project, we discovered that Biocode's brand
             and website were not effectively communicating its USPs and the{' '}
             <em>real value</em> it provides to users. This misalignment created
@@ -72,13 +71,13 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </div>
       </div>
       <div className="grid-col grid -gap:row:0">
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:6@l">
+        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate maxWidth size="h5" tag="h3">
             Challenges
           </Heading>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:6@l">
-          <Text animate color="mute" maxWidth tag="p">
+        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
+          <Text animate color="mute" tag="p">
             We needed to shift Biocode's positioning from a service-oriented
             brand to a product-centric SaaS model and ensure that the website
             conveyed the value Biocode offers to its users. The main challenge
@@ -88,13 +87,13 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </div>
       </div>
       <div className="grid-col grid -gap:row:0">
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:6@l">
+        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate size="h5" tag="h3">
             Solutions
           </Heading>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:6@l">
-          <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
+          <Text animate className="mb:0" color="mute" tag="p">
             We addressed these challenges by showcasing Biocode’s strengths,
             like ease of use and credibility. The new design highlights the
             problems Biocode solves, with clear messaging and a user-friendly
@@ -142,7 +141,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           How to engage our users?
         </Heading>
-        <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           We built Biocode's{' '}
           <Link href="https://report.biocode.io">reporting service</Link> to
           empower users to share emissions data, attract eco-conscious
@@ -177,7 +176,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         animate
         className="text:center ml:auto mr:auto mb:0"
         color="mute"
-        maxWidth
         size="l"
         tag="p"
       >
@@ -199,7 +197,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Powerful first impression
         </Heading>
-        <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           The homepage was strategically redesigned to make a strong first
           impression. We wanted to convey that anyone can easily calculate
           emissions, regardless of expertise, making the tool accessible to
@@ -221,7 +219,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           International and distinctive
         </Heading>
-        <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           The website was initially designed in dark mode for a modern look,
           then adapted to light mode for broader accessibility. We aimed for a
           professional "software-like" feel and limited food imagery to keep the
@@ -240,7 +238,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Unified visual identity
         </Heading>
-        <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           We were missing a logomark and an icon, which is a crucial piece of
           any fully-fledged software product. We created a new logomark which we
           also integrated as part of the wordmark to ensure recognition.
@@ -301,7 +299,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate className="mt:m" size="h5" tag="h3">
           Emphasizing core strengths
         </Heading>
-        <Text animate color="mute" maxWidth tag="p">
+        <Text animate color="mute" tag="p">
           We really wanted to highlight the core advantages, so we designed
           sections that showcase them using visually appealing{' '}
           <q>bento grids</q> and other elements.
@@ -378,7 +376,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate className="mt:xl" size="h5" tag="h3">
           In-depth features
         </Heading>
-        <Text animate color="mute" maxWidth tag="p">
+        <Text animate color="mute" tag="p">
           Among emphasizing the core USPs we also planned detailed sections of
           individual features of the software to gain a deeper insight into the
           specific tools and capabilities.
@@ -406,11 +404,11 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           {...getImage('joonassandell-biocode-website-about', images)}
         />
       </div>
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l">
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l -align:center">
         <Heading animate size="h5" tag="h3">
           Transparent and trustworthy expertise
         </Heading>
-        <Text animate className="mb:0" color="mute" maxWidth tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           We also aimed to showcase the transparency, expertise, and dedication
           of our team. Our staff is committed to delivering accurate carbon
           calculations and clear, reliable results.

@@ -26,7 +26,6 @@
     border-radius: var(--border-radius);
     margin: rem($space-l) 0 rem($space-2xl) 0;
     padding: rem($space-ml) rem($space-m);
-    text-wrap: balance;
 
     @include mq(m) {
       border: 0;
