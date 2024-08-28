@@ -1,4 +1,5 @@
 import { clamp, kebabCase } from 'es-toolkit';
+import { Heading } from '@/components/Heading';
 import { LinkRoll } from '@/components/LinkRoll';
 import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { mapRange } from '@/lib/utils';
@@ -86,9 +87,11 @@ export const NextProject = ({ id }: NextProjectProps) => {
   return (
     <section className="NextProject" ref={ref}>
       <div className="NextProject-inner wrap" ref={innerRef}>
-        <LinkRoll className="NextProject-link" href={url}>
-          Next project
-        </LinkRoll>
+        <Heading className="mb:0" size="l" tag="div">
+          <LinkRoll className="NextProject-link" href={url}>
+            Next project
+          </LinkRoll>
+        </Heading>
         <m.figure
           animate={
             initial && {
@@ -96,7 +99,6 @@ export const NextProject = ({ id }: NextProjectProps) => {
               transition: TRANS_PRIMARY_FAST,
             }
           }
-          aria-hidden="true"
           className="NextProject-figure"
           initial={{ opacity: 0 }}
           onClick={() => {

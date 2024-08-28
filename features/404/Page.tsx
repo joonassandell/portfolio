@@ -20,7 +20,7 @@ export const Page404 = () => {
         pb="2xl-5xl"
         pt="2xl-5xl"
       >
-        <Heading className="mb:s" size="display" tag="h1">
+        <Heading className="mb:s" size="xl" tag="h1">
           404
         </Heading>
         <Text

@@ -88,7 +88,7 @@ export const Hero = ({
           <Heading
             className="Hero-heading-inner"
             onClick={onClick}
-            size="display"
+            size="xl"
             tag={transitionPre ? 'h2' : 'h1'}
             variants={headingVariants}
           >
