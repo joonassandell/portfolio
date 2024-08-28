@@ -118,9 +118,9 @@ export const AboutIntro = () => {
         <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
           <Figure
             alt="Joonas Sandell profile picture"
+            animate={false}
             borderRadius="var(--border-radius-pill)"
             className="Template-profile"
-            inViewOffset={-1}
             scroll="mask"
             scrollMaxClientHeight={mqS ? 800 : 480}
             sizes={`${MQ.s} 25vw, 70vw`}

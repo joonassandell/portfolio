@@ -26,7 +26,7 @@ export const Info = ({
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef);
   const { ref, value: y } = useParallax({
-    offset: 'start-80',
+    offset: 'start-center',
     speed: 'slow',
   });
 

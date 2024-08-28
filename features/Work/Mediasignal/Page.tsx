@@ -92,6 +92,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
           <div className="grid-col">
             <Figure
               alt="Mediasignal business card"
+              animate={false}
               scroll="mask"
               {...getImage('joonassandell-mediasignal-business-card', images)}
             />

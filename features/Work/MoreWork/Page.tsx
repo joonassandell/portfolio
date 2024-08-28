@@ -289,6 +289,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           <div className="grid-col grid-col:6">
             <Figure
               alt="Academic bookstore brand imagery of woman reading"
+              animate={false}
               scroll="mask"
               scrollSpeed="slowest"
               sizes="50vw"
@@ -299,6 +300,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           <div className="grid-col grid-col:6 -align:end">
             <Figure
               alt="Academic bookstore brand imagery of man reading"
+              animate={false}
               scroll="mask"
               sizes="50vw"
               transition="clip"

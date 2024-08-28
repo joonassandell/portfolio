@@ -53,8 +53,8 @@ export const OrasPage = ({ images }: PageProps) => {
           <div className="grid-col grid-col:5 -start:8 grid-col:4@l -start:8@l -align:end">
             <Figure
               alt="Oras man showering"
+              animate={false}
               className="Template-figure-2"
-              inViewOffset={-1}
               priority
               scroll="mask"
               sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
@@ -158,6 +158,7 @@ export const OrasPage = ({ images }: PageProps) => {
         <TemplateArea grid={false} pt="2xl-5xl" wrap={false}>
           <Figure
             alt="Oras sense faucet"
+            animate={false}
             borderRadius={false}
             scroll="mask"
             {...getImage('joonassandell-oras-hero-sense', images)}
@@ -174,6 +175,7 @@ export const OrasPage = ({ images }: PageProps) => {
           <div className="grid-col grid-col:6 -start:7 grid-col:4@m -start:9@m -align:center">
             <Figure
               alt="Oras man showering"
+              animate={false}
               scroll="mask"
               sizes={`${MQ.m} 50vw, 33vw`}
               {...getImage('joonassandell-oras-man', images)}
