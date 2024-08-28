@@ -10,7 +10,7 @@ export const Text = ({
   children,
   className,
   color,
-  maxWidth,
+  maxWidth = true,
   size,
   tag,
   truncate,
@@ -19,13 +19,13 @@ export const Text = ({
   const classes = c(
     'Text',
     {
-      '-maxWidth': maxWidth,
       '-size:l': size === 'l',
       '-size:m': size === 'm',
       '-size:s': size === 's',
       '-size:xs': size === 'xs',
       'color:mute': color === 'mute',
       'color:mute:blend': color === 'mute:blend',
+      'max-w-unset': !maxWidth,
       'text:truncate': truncate,
     },
     className,

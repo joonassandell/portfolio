@@ -7,7 +7,7 @@ import { Text } from '@/components/Text';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
 export const ResumeAside = () => (
-  <aside className="Template-aside grid-col grid-col:3@m">
+  <aside className="Template-aside grid-col grid-col:3@m text-wrap:balance">
     <Figure
       alt="Joonas Sandell profile picture"
       animate={false}

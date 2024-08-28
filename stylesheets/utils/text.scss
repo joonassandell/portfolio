@@ -17,12 +17,6 @@
 
 .text-wrap\:balance {
   text-wrap: balance;
-
-  @include mq(s) {
-    &\@s {
-      text-wrap: balance;
-    }
-  }
 }
 
 .text\:center {

@@ -78,7 +78,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
             </Text>
           </div>
         </div>
-        <Text className="Footer-bottom" size="s">
+        <Text className="Footer-bottom" maxWidth={false} size="s">
           <p className="Footer-bottom-updated mb:0">
             © {new Date().getFullYear()} {CONTENT.person.name}
             <span className="color:mute:blend visible@s">
