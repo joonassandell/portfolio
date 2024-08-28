@@ -1,14 +1,14 @@
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const HEADING_VARIANTS: Variants = {
+export const HEADING_VARIANTS: Readonly<Variants> = {
   animate: {
     transition: TRANS_PRIMARY,
     y: '-150%',
   },
-} as const;
+};
 
-export const FIGURE_BG_VARIANTS: Variants = {
+export const FIGURE_BG_VARIANTS: Readonly<Variants> = {
   animate: {
     background: [
       'linear-gradient(to bottom, hsl(var(--Hero-figure-bg-hsl) / 0.06), hsl(var(--Hero-figure-bg-hsl) / 0.06))',
@@ -20,4 +20,4 @@ export const FIGURE_BG_VARIANTS: Variants = {
       delay: 0.15,
     },
   },
-} as const;
+};

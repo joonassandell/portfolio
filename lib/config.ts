@@ -100,14 +100,14 @@ export const SLOW_NETWORK_DELAY = 1000;
  * Variants
  * ======================================= */
 
-export const FADE_OUT_VARIANTS: Variants = {
+export const FADE_OUT_VARIANTS: Readonly<Variants> = {
   animate: {
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
   },
-} as const;
+};
 
-export const TEXT_VARIANTS: Variants = {
+export const TEXT_VARIANTS: Readonly<Variants> = {
   animate: ({ delay = 0 } = {}) => ({
     opacity: 1,
     skewY: 0,
@@ -126,7 +126,7 @@ export const TEXT_VARIANTS: Variants = {
     skewY: 5,
     y: '5rem',
   },
-} as const;
+};
 
 /* =======================================
  * Media queries
