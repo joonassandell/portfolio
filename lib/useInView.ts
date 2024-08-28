@@ -3,29 +3,30 @@ import { type MutableRefObject } from 'react';
 
 export const useInView = (
   ref: MutableRefObject<HTMLElement | null>,
-  threshold = 0,
+  amount = 0,
   once = true,
 ) => {
-  const negativeValue = Math.sign(threshold) < 0;
-  if (negativeValue) threshold = 0;
+  const negativeValue = Math.sign(amount) < 0;
+  if (negativeValue) amount = 0;
 
   const inView = framerUseInView(ref, {
-    amount: threshold,
+    amount,
     once,
   });
 
   if (negativeValue) return true;
+
   return inView;
 };
 
 export const useInViewVideo = (
   ref: MutableRefObject<HTMLVideoElement | null>,
-  threshold = 0,
+  amount = 0,
 ) => {
   const video = ref.current;
 
   const inView = framerUseInView(ref, {
-    amount: threshold,
+    amount,
   });
 
   if (video && inView) {

@@ -118,7 +118,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridGap="l" gridRowGap="m" pt="2xl-5xl" wrap={false}>
+        <TemplateArea gridRowGap="m" pt="2xl-5xl" wrap={false}>
           <div className="grid-col grid-col:6 grid-col:4@m">
             <Figure
               alt="Mediasignal brand book: Logomark"

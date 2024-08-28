@@ -5,9 +5,9 @@ export interface SubInfoProps {
     href?: string;
     name: string;
   };
-  heading: string;
+  heading: ReactNode;
   role: string[];
-  text: string | ReactNode;
+  text: ReactNode;
   type: string[];
   year: string | number;
 }
