@@ -20,7 +20,7 @@ export const ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN: AnimationProps = {
     opacity: 0,
   },
   transition: TRANS_SECONDARY_FASTEST,
-} as const;
+};
 
 export const ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN: AnimationProps = {
   exit: {
@@ -28,7 +28,7 @@ export const ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN: AnimationProps = {
     y: '1rem',
   },
   transition: TRANS_SECONDARY_FASTEST,
-} as const;
+};
 
 export const ENTER_EXIT_BTN_TEXT: AnimationProps = {
   animate: {
@@ -44,7 +44,7 @@ export const ENTER_EXIT_BTN_TEXT: AnimationProps = {
     y: '2rem',
   },
   transition: TRANS_PRIMARY_FAST,
-} as const;
+};
 
 export const ENTER_EXIT_BTN_ARROW: AnimationProps = {
   animate: {
@@ -60,9 +60,9 @@ export const ENTER_EXIT_BTN_ARROW: AnimationProps = {
     y: '2rem',
   },
   transition: { ...TRANS_PRIMARY_FAST, delay: 0.1 },
-} as const;
+};
 
-export const MAIN_ITEM_VARIANT: Variants = {
+export const MAIN_ITEM_VARIANT: Readonly<Variants> = {
   closed: {
     transition: {
       delayChildren: 0,
@@ -75,9 +75,9 @@ export const MAIN_ITEM_VARIANT: Variants = {
       staggerChildren: 0.03,
     },
   },
-} as const;
+};
 
-export const MAIN_ITEM_IN_VARIANT: Variants = {
+export const MAIN_ITEM_IN_VARIANT: Readonly<Variants> = {
   closed: {
     transition: TRANS_SECONDARY_FAST,
     y: '3rem',
@@ -89,9 +89,9 @@ export const MAIN_ITEM_IN_VARIANT: Variants = {
     transition: TRANS_PRIMARY_FAST,
     y: 0,
   },
-} as const;
+};
 
-export const MAIN_ITEM_OUT_VARIANT: Variants = {
+export const MAIN_ITEM_OUT_VARIANT: Readonly<Variants> = {
   closed: {
     transition: TRANS_PRIMARY_FAST,
     y: 0,
@@ -100,7 +100,7 @@ export const MAIN_ITEM_OUT_VARIANT: Variants = {
     transition: TRANS_SECONDARY_FAST,
     y: '-3rem',
   },
-} as const;
+};
 
 /* =======================================
  * Mask
@@ -110,16 +110,16 @@ export const MASK_OPEN_TRANSITION = TRANS_PRIMARY;
 
 export const MASK_CLOSE_TRANSITION = TRANS_PRIMARY;
 
-export const MASK_NAV_VARIANT: Variants = {
+export const MASK_NAV_VARIANT: Readonly<Variants> = {
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
   open: {
     transition: { delayChildren: 0.1, staggerChildren: 0.05 },
   },
-} as const;
+};
 
-export const MASK_ITEM_VARIANT: Variants = {
+export const MASK_ITEM_VARIANT: Readonly<Variants> = {
   closed: ({ y = '11rem' } = {}) => ({
     opacity: 0,
     transition: TRANS_PRIMARY_FAST,
@@ -135,9 +135,9 @@ export const MASK_ITEM_VARIANT: Variants = {
     transition: TRANS_PRIMARY_FAST,
     y: 0,
   },
-} as const;
+};
 
-export const MASK_ITEM_MARQUEE_VARIANT: Variants = {
+export const MASK_ITEM_MARQUEE_VARIANT: Readonly<Variants> = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -160,9 +160,9 @@ export const MASK_ITEM_MARQUEE_VARIANT: Variants = {
       y: '102%',
     };
   },
-} as const;
+};
 
-export const MASK_ITEM_MARQUEE_INNER_VARIANT: Variants = {
+export const MASK_ITEM_MARQUEE_INNER_VARIANT: Readonly<Variants> = {
   in: (pos: 'top' | 'bottom') => {
     if (pos === 'top') {
       return {
@@ -185,6 +185,6 @@ export const MASK_ITEM_MARQUEE_INNER_VARIANT: Variants = {
       y: '-102%',
     };
   },
-} as const;
+};
 
 export const MASK_ITEM_MARQUEE_TRANSITION = TRANS_PRIMARY_FASTEST;

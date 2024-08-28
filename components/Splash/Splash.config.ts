@@ -1,7 +1,7 @@
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const SPLASH_VARIANTS: Variants = {
+export const SPLASH_VARIANTS: Readonly<Variants> = {
   exit: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
     transition: {
@@ -12,9 +12,9 @@ export const SPLASH_VARIANTS: Variants = {
   initial: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
   },
-} as const;
+};
 
-export const TEXT_VARIANTS: Variants = {
+export const TEXT_VARIANTS: Readonly<Variants> = {
   exit: {
     transition: {
       ...TRANS_PRIMARY,
@@ -22,4 +22,4 @@ export const TEXT_VARIANTS: Variants = {
     },
     y: '-100%',
   },
-} as const;
+};

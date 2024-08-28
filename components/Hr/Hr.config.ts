@@ -1,7 +1,7 @@
 import { TRANS_PRIMARY } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const HR_VARIANTS: Variants = {
+export const HR_VARIANTS: Readonly<Variants> = {
   animate: {
     scaleX: 1,
     transition: TRANS_PRIMARY,
@@ -9,4 +9,4 @@ export const HR_VARIANTS: Variants = {
   initial: {
     scaleX: 0,
   },
-} as const;
+};

@@ -20,7 +20,7 @@ export interface HeroProps {
     | ReactNode;
   className?: string;
   heading?: string;
-  headingVariants?: Variants;
+  headingVariants?: Readonly<Variants>;
   href?: URL['href'];
   id?: SitemapWithoutArrayKeys;
   innerRef?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>;

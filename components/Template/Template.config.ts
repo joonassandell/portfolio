@@ -1,7 +1,7 @@
 import { TRANS_TEMPLATE } from '@/lib/config';
 import { type Variants } from 'framer-motion';
 
-export const VARIANTS_WITH_TRANSITION: Variants = {
+export const VARIANTS_WITH_TRANSITION: Readonly<Variants> = {
   animate: {
     transition: TRANS_TEMPLATE,
     y: 0,
@@ -15,7 +15,7 @@ export const VARIANTS_WITH_TRANSITION: Variants = {
   },
 };
 
-export const VARIANTS_WITHOUT_TRANSITION: Variants = {
+export const VARIANTS_WITHOUT_TRANSITION: Readonly<Variants> = {
   animate: {
     transition: {
       duration: 0,
@@ -35,7 +35,7 @@ export const VARIANTS_WITHOUT_TRANSITION: Variants = {
   },
 };
 
-export const OVERLAY_VARIANTS: Variants = {
+export const OVERLAY_VARIANTS: Readonly<Variants> = {
   animate: {
     backgroundColor: 'var(--Template-overlay)',
     transition: TRANS_TEMPLATE,

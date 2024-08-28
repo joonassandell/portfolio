@@ -10,7 +10,7 @@ import { type Variants } from 'framer-motion';
  * 1. From top to bottom
  * 2. From bottom to top
  */
-export const CLIP_VARIANTS: Variants = {
+export const CLIP_VARIANTS: Readonly<Variants> = {
   animate: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // [1.]
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', // [2.]
@@ -22,9 +22,9 @@ export const CLIP_VARIANTS: Variants = {
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // [2.]
     scale: 1.07,
   },
-} as const;
+};
 
-export const MOVE_VARIANTS: Variants = {
+export const MOVE_VARIANTS: Readonly<Variants> = {
   animate: {
     opacity: 1,
     skewY: 0,
@@ -42,13 +42,13 @@ export const MOVE_VARIANTS: Variants = {
     skewY: 5,
     y: '5rem',
   },
-} as const;
+};
 
-export const PLACEHOLDER_VARIANTS: Variants = {
+export const PLACEHOLDER_VARIANTS: Readonly<Variants> = {
   exit: { opacity: 0, transition: TRANS_TERTIARY_FASTEST },
-} as const;
+};
 
-export const PLACEHOLDER_GLARE_VARIANTS: Variants = {
+export const PLACEHOLDER_GLARE_VARIANTS: Readonly<Variants> = {
   animate: {
     backgroundPosition: ['200% 0%', '-10% 0%'],
     transition: {
@@ -58,9 +58,9 @@ export const PLACEHOLDER_GLARE_VARIANTS: Variants = {
       repeatDelay: 0.2,
     },
   },
-} as const;
+};
 
-export const GLARE_VARIANTS: Variants = {
+export const GLARE_VARIANTS: Readonly<Variants> = {
   animate: {
     ...PLACEHOLDER_GLARE_VARIANTS.animate,
     transition: {
@@ -68,4 +68,4 @@ export const GLARE_VARIANTS: Variants = {
       duration: TRANS_TERTIARY.duration + 0.3,
     },
   },
-} as const;
+};
