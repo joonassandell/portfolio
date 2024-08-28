@@ -53,7 +53,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea gridGap="xl" pt="2xl-5xl" wrap={false}>
+      <TemplateArea pt="2xl-5xl" wrap={false}>
         <div className="grid-col grid-col:11 grid-col:5@m  -align:end">
           <Figure
             alt="VR Company solutions page"
@@ -79,7 +79,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea gridGap="xl" pt="2xl-5xl" wrap={false}>
+      <TemplateArea pt="2xl-5xl" wrap={false}>
         <div className="grid-col grid-col:11 grid-col:6@m -align:end">
           <Figure
             alt="Art school home page"
@@ -120,7 +120,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea gridGap="xl" pt="2xl-5xl">
+      <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:7@m">
           <Figure
             alt="Biocode early mobile home page"
@@ -137,7 +137,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea gridGap="xl" pt="2xl">
+      <TemplateArea pt="2xl">
         <div className="grid-col grid-col:7@m">
           <Figure
             alt="CV of Joonas Sandell"
@@ -170,7 +170,7 @@ export const SandboxPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea pb="2xl-5xl" pt="2xl">
+      <TemplateArea pb="2xl" pt="2xl">
         <div className="grid-col grid-col:9@m">
           <Figure
             alt="404 concept animation"

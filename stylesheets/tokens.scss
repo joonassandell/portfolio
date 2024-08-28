@@ -143,10 +143,9 @@
   --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
 
   // Grid
-  --grid-gap-scale: 5vw;
   --grid-gap-m: #{rem($space-m)};
-  --grid-gap-l: #{rem($space-xl)};
-  --grid-gap-xl: #{rem($space-2xl)};
+  --grid-gap-l: #{rem($space-m)};
+  --grid-gap-row-l: #{rem($space-xl)};
 
   /* =======================================
    * Generic tokens
@@ -173,6 +172,8 @@
    * ======================================= */
 
   @include mq(m) {
+    --grid-gap-l: #{rem($space-l)};
+
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});
   }
@@ -180,6 +181,16 @@
   @include mq(l) {
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-xl)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-xl)});
+  }
+
+  @include mq(xl) {
+    --grid-gap-l: #{rem($space-2xl)};
+    --grid-gap-row-l: #{rem($space-2xl)};
+  }
+
+  @include mq('2xl') {
+    --grid-gap-l: #{rem($space-2xl)};
+    --grid-gap-row-l: #{rem($space-2xl)};
   }
 
   @include mq('3xl') {
