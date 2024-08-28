@@ -38,11 +38,11 @@ export const SubInfo = ({
         }}
       >
         {heading && (
-          <m.div className="grid-col" variants={TEXT_VARIANTS}>
-            <Heading className="mb:0" size="h4">
+          <div className="grid-col">
+            <Heading className="mb:0" size="h4" variants={TEXT_VARIANTS}>
               {heading}
             </Heading>
-          </m.div>
+          </div>
         )}
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
@@ -90,12 +90,12 @@ export const SubInfo = ({
             ))}
           </Text>
         </m.div>
-        <m.div
-          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:8@l -start:1@l mt:s@s"
+        <Text
+          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l mt:s"
           variants={TEXT_VARIANTS}
         >
-          <Text>{text}</Text>
-        </m.div>
+          {text}
+        </Text>
       </m.div>
     </div>
   );
