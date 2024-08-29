@@ -36,27 +36,29 @@ export const OrasPage = ({ images }: PageProps) => {
         type={['Web service', 'Commission']}
         year={year}
       />
-      <TemplateArea gridGap="m" pt={false} wrap={false}>
-        <div className="grid-col grid-col:6 grid-col:4@l">
+      <TemplateArea gridGap="m" pt="2xl" wrap={false}>
+        <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l">
           <Figure
             alt="Oras woman showering"
-            className="Template-figure-1"
+            className="mt:-6xl@l"
             inViewOffset={-1}
             priority
             scroll="mask"
-            sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
+            scrollImageSpeed="slow"
+            sizes={`${MQ.l} 33vw, ${MQ.m} 40vw, 50vw`}
             transition="clip"
             {...getImage('joonassandell-oras-thumbnail', images)}
           />
         </div>
-        <div className="grid-col grid-col:5 -start:8 grid-col:4@l -start:8@l -align:end">
+        <div className="grid-col grid-col:5 -start:8 grid-col:4@m -start:8@m">
           <Figure
             alt="Oras man showering"
             animate={false}
-            className="Template-figure-2"
+            className="mt:6xl mt:-2xl@m mt:2xl@l"
             priority
             scroll="mask"
-            sizes={`${MQ.l} 33vw, ${MQ.s} 50vw, 33vw`}
+            scrollImageSpeed="slow"
+            sizes={`${MQ.m} 33vw, 40vw`}
             transition="clip"
             {...getImage('joonassandell-oras-man-square', images)}
           />

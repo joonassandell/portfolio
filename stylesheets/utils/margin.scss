@@ -29,6 +29,38 @@
   margin-top: rem($space-xl);
 }
 
+.mt\:-2xl {
+  @include mq(m) {
+    &\@m {
+      margin-top: rem($space-2xl * -1);
+    }
+  }
+}
+
+.mt\:2xl {
+  margin-top: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      margin-top: rem($space-2xl);
+    }
+  }
+}
+
+.mt\:-6xl {
+  margin-top: rem($space-6xl * -1);
+
+  @include mq(l) {
+    &\@l {
+      margin-top: rem($space-6xl * -1);
+    }
+  }
+}
+
+.mt\:6xl {
+  margin-top: rem($space-6xl);
+}
+
 /* =======================================
  * Margin right
  * ======================================= */
