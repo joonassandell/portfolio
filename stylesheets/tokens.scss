@@ -172,6 +172,7 @@
    * ======================================= */
 
   @include mq(m) {
+    --grid-gap-m: #{rem($space-ml)};
     --grid-gap-l: #{rem($space-l)};
 
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
