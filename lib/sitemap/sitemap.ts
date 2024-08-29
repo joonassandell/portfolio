@@ -1,4 +1,3 @@
-import { APP_URL } from '../config';
 import about from '@/features/About/sitemap';
 import approach from '@/features/Approach/sitemap';
 import archive from '@/features/Work/Archive/sitemap';
@@ -112,40 +111,4 @@ export const LINK = {
   soundcloud,
   source,
   twitter,
-} as const;
-
-/* =======================================
- * Content
- * ======================================= */
-
-export const CONTENT = {
-  header: {
-    defaultNavTitle: 'Selected works',
-  },
-  meta: {
-    appName: 'Joonas Sandell',
-    description:
-      'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
-    favIcon: '/static/favicon.svg?v=2',
-    favIconIco: '/static/favicon.ico?v=2',
-    ogImage: `${APP_URL}/static/og.jpg`,
-    title: 'Joonas Sandell — Designer & Developer',
-    titlePrefix: 'Joonas Sandell',
-    touchIcon: '/static/apple-touch-icon.png?v=2',
-  },
-  person: {
-    email: 'me@joonassandell.com',
-    location: 'Helsinki, Finland',
-    name: 'Joonas Sandell',
-    nickname: 'joonassandell',
-    thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
-    title: {
-      combined: 'UI/UX designer and Front-end developer',
-      design: 'UI/UX designer',
-      developer: 'Front-end developer',
-      simple: 'Designer & Developer',
-    },
-    twitter: '@joonassandell',
-    url: 'https://joonassandell.com',
-  },
 } as const;

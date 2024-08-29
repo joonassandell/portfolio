@@ -1,8 +1,8 @@
-import { BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
-import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
+import { APP, BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
 import { type FooterProps } from './';
 import { formatDate } from '@/lib/utils';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
@@ -67,20 +67,20 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
           <div className="Footer-nameCol grid-col grid-col:4@m">
             <Text className="mb:2xs mb@m" tag="p">
               <LinkRoll href={SITEMAP.home.url} underline="active">
-                {CONTENT.person.name}
+                {APP.person.name}
               </LinkRoll>
             </Text>
             <Text className="mb:m" color="mute:blend" size="s" tag="p">
-              {CONTENT.person.title.design}
+              {APP.person.title.design}
               <span className="hidden@m">, </span>
               <br className="visible@m" />
-              {CONTENT.person.title.developer}
+              {APP.person.title.developer}
             </Text>
           </div>
         </div>
         <Text className="Footer-bottom" maxWidth={false} size="s">
           <p className="Footer-bottom-updated mb:0">
-            © {new Date().getFullYear()} {CONTENT.person.name}
+            © {new Date().getFullYear()} {APP.person.name}
             <span className="color:mute:blend visible@s">
               {' '}
               ✳︎ Last updated:{' '}

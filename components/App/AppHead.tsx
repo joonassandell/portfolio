@@ -1,6 +1,5 @@
-import { APP_URL, GOOGLE_ANALYTICS, PRODUCTION_LIVE } from '@/lib/config';
+import { APP, APP_URL, GOOGLE_ANALYTICS, PRODUCTION_LIVE } from '@/lib/config';
 import { type AppHeadProps } from './';
-import { CONTENT } from '@/lib/sitemap';
 import { Partytown } from '@builder.io/partytown/react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -16,7 +15,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
     ogImage,
     title,
     touchIcon,
-  } = CONTENT.meta;
+  } = APP.meta;
   const {
     email,
     name,
@@ -24,7 +23,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
     title: { combined },
     twitter,
     url,
-  } = CONTENT.person;
+  } = APP.person;
 
   return (
     <>

@@ -1,9 +1,10 @@
+import { APP } from '@/lib/config';
 import { ArrowRight, Check, Copy } from '@/components/Icon';
 import { Button } from '@/components/Button';
-import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Template, TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
@@ -21,7 +22,7 @@ export const ContactPage = () => {
   const { value: x } = useParallax({ offset: 'start-start' });
 
   const handleCopy = () => {
-    copyToClipboard(CONTENT.person.email);
+    copyToClipboard(APP.person.email);
     setIcon(<Check />);
     setTimeout(() => setIcon(<Copy />), 2000);
   };
