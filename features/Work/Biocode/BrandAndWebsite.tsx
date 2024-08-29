@@ -63,7 +63,14 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
           <Text animate className="mb:0" color="mute" tag="p">
             During the positioning project, we discovered that Biocode's brand
-            and website were not effectively communicating its USPs and the{' '}
+            and{' '}
+            <Link
+              href="/_next/image?url=%2Fsandbox%2Fjoonassandell-biocode-home.jpg&w=1080&q=100"
+              target="_blank"
+            >
+              old website
+            </Link>{' '}
+            were not effectively communicating its USPs and the{' '}
             <em>real value</em> it provides to users. This misalignment created
             confusion among potential customers, leading to lower engagement and
             a lack of clarity.
@@ -225,18 +232,18 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea className="pt:2xl pt:5xl@l" gridRowGap="m" pt={false}>
+    <TemplateArea gridRowGap="m" pt="2xl-5xl">
       <div className="grid-col grid-col:6@m grid-col:4@l">
         <Heading animate size="h5" tag="h3">
           Unified visual identity
         </Heading>
-        <Text animate className="mb:0" color="mute" tag="p">
+        <Text animate className="mb:xs" color="mute" tag="p">
           We were missing a logomark and an icon, which is a crucial piece of
           any fully-fledged software product. We created a new logomark which we
           also integrated as part of the wordmark to ensure recognition.
         </Text>
       </div>
-      <div className="grid-col grid-col:8@l grid -gap:l">
+      <div className="grid-col grid-col:8@l grid">
         <div className="grid-col grid-col:4@s visible@s">
           <Figure
             alt="Biocode monotone logomark"
