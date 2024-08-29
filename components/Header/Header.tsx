@@ -1,7 +1,6 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
-import { BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
+import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
-import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { debounce } from 'es-toolkit';
 import {
   ENTER_EXIT_BTN_ARROW,
@@ -21,6 +20,7 @@ import {
 } from './';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -38,7 +38,7 @@ import FocusTrap from 'focus-trap-react';
 const { header } = SITEMAP;
 
 export const Header = ({
-  navTitle = CONTENT.header.defaultNavTitle,
+  navTitle = APP.header.defaultNavTitle,
 }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
@@ -50,7 +50,7 @@ export const Header = ({
   const [animating, setAnimating] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
-  const isDefaultNavTitle = CONTENT.header.defaultNavTitle === navTitle;
+  const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle;
 
   const [maskOpen, setMaskOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');

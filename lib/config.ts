@@ -1,6 +1,63 @@
 import { type BezierDefinition, type Variants } from 'framer-motion';
 
 /* =======================================
+ * Environment variables
+ * ======================================= */
+
+export const DISABLE_LOADING =
+  process.env.NEXT_PUBLIC_DISABLE_LOADING === 'true';
+export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+export const DEVELOPMENT = process.env.NODE_ENV === 'development';
+export const PRODUCTION = process.env.NODE_ENV === 'production';
+export const PRODUCTION_LIVE =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
+export const PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
+export const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE as string;
+export const GIT_COMMIT_SHA = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
+export const UI_LAB_URL = process.env.NEXT_PUBLIC_UI_LAB_URL as string;
+export const APP_URL =
+  process.env.NEXT_PUBLIC_APP_URL ??
+  (PREVIEW
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`);
+
+/* =======================================
+ * App
+ * ======================================= */
+
+export const APP = {
+  header: {
+    defaultNavTitle: 'Selected works',
+  },
+  meta: {
+    appName: 'Joonas Sandell',
+    description:
+      'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
+    favIcon: '/static/favicon.svg?v=2',
+    favIconIco: '/static/favicon.ico?v=2',
+    ogImage: `${APP_URL}/static/og.jpg`,
+    title: 'Joonas Sandell — Designer & Developer',
+    titlePrefix: 'Joonas Sandell',
+    touchIcon: '/static/apple-touch-icon.png?v=2',
+  },
+  person: {
+    email: 'me@joonassandell.com',
+    location: 'Helsinki, Finland',
+    name: 'Joonas Sandell',
+    nickname: 'joonassandell',
+    thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
+    title: {
+      combined: 'UI/UX designer and Front-end developer',
+      design: 'UI/UX designer',
+      developer: 'Front-end developer',
+      simple: 'Designer & Developer',
+    },
+    twitter: '@joonassandell',
+    url: 'https://joonassandell.com',
+  },
+} as const;
+
+/* =======================================
  * Animations
  * =======================================
  *
@@ -149,24 +206,3 @@ export const MQ = {
   '6xl': '(min-width: 2560px)',
   '7xl': '(min-width: 3840px)',
 } as const;
-
-/* =======================================
- * Environment variables
- * ======================================= */
-
-export const DISABLE_LOADING =
-  process.env.NEXT_PUBLIC_DISABLE_LOADING === 'true';
-export const GOOGLE_ANALYTICS = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
-export const DEVELOPMENT = process.env.NODE_ENV === 'development';
-export const PRODUCTION = process.env.NODE_ENV === 'production';
-export const PRODUCTION_LIVE =
-  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
-export const PREVIEW = process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview';
-export const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE as string;
-export const GIT_COMMIT_SHA = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
-export const UI_LAB_URL = process.env.NEXT_PUBLIC_UI_LAB_URL as string;
-export const APP_URL =
-  process.env.NEXT_PUBLIC_APP_URL ??
-  (PREVIEW
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`);
