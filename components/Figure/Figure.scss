@@ -1,4 +1,6 @@
 .Figure {
+  width: var(--Figure-width, fit-content);
+
   &.-bg {
     .Figure-figure-main {
       background: var(--Figure-bg, var(--bg-200));
@@ -31,10 +33,10 @@
     display: inline-block;
     line-height: 1;
   }
-}
 
-.Figure-figure {
-  width: fit-content;
+  &.-video {
+    --Figure-width: auto;
+  }
 }
 
 .Figure-figure-main {
@@ -79,10 +81,4 @@
 
 .Figure-glare {
   z-index: 2;
-}
-
-.Figure-video {
-  display: block;
-  height: 100%;
-  width: 100%;
 }

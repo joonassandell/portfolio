@@ -85,6 +85,11 @@ img::-moz-selection {
   vertical-align: middle;
 }
 
+:where(video) {
+  height: auto;
+  width: 100%;
+}
+
 :where(button) {
   all: unset;
   box-sizing: border-box;
