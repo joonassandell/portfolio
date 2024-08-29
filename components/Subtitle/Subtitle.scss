@@ -4,6 +4,7 @@
 .Subtitle {
   color: var(--Subtitle-text, var(--text-900));
   margin-bottom: rem($space-m);
+  max-width: var(--text-max-width);
   text-transform: uppercase;
   transform-origin: top left;
 }

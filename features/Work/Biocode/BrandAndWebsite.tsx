@@ -25,21 +25,17 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea grid={false} id="brand" pt="2xl-5xl">
-      <Subtitle animate className="text:center ml:auto mr:auto">
+      <Subtitle animate center>
         New brand & website
       </Subtitle>
-      <Heading
-        animate
-        className="text:center ml:auto mr:auto"
-        maxWidth
-        size="h1"
-        tag="h2"
-      >
+      <Heading animate center size="h1" tag="h2">
         Understanding the positioning of Biocode
       </Heading>
       <Text
         animate
-        className="text:center ml:auto mr:auto mb:0"
+        balance
+        center
+        className="mb:0"
         color="mute"
         size="l"
         tag="p"
@@ -165,27 +161,24 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl">
-      <Subtitle animate className="text:center ml:auto mr:auto">
+      <Subtitle animate center>
         New brand & website
       </Subtitle>
-      <Heading
-        animate
-        className="text:center ml:auto mr:auto"
-        maxWidth
-        size="h2"
-      >
+      <Heading animate center size="h2">
         Shifting the focus to a product-centric design
       </Heading>
       <Text
         animate
-        className="text:center ml:auto mr:auto mb:0"
+        balance
+        center
+        className="mb:0"
         color="mute"
         size="l"
         tag="p"
       >
         The transformation required a major UX and aesthetic overhaul to reflect
         modern SaaS efficiency. Guided by the positioning, the redesign focused
-        on presenting Biocode as a clear and compelling software solution.
+        on presenting Biocode as a clear and compelling software solution
       </Text>
     </TemplateArea>
     <TemplateArea pt={false}>

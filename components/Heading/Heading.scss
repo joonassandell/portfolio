@@ -12,7 +12,7 @@
 
 .Heading {
   &.-maxWidth {
-    max-width: 30ch;
+    max-width: var(--heading-max-width);
   }
 }
 
