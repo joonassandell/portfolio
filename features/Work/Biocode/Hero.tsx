@@ -21,6 +21,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
   } = SITEMAP.biocode;
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
+  const mqS = useMedia(MQ.s, false);
   const mqM = useMedia(MQ.m, false);
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
@@ -111,16 +112,14 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           </div>
           {transitionStartOrDefault && (
             <div className="Hero-textReveal wrap">
-              <Heading className="Hero-textReveal-mobile mb:0">
+              <Heading className="mb:0" size={mqS ? 'h1' : 'h3'} tag="h2">
                 <TextReveal
-                  hidden
-                  text={['We have to', 'reverse global', 'heating']}
-                  {...(noTransition && { initial: 'animate' })}
-                />
-              </Heading>
-              <Heading className="Hero-textReveal-desktop mb:0">
-                <TextReveal
-                  text={['We have to reverse', 'global heating']}
+                  custom={{ delay: 0.15 }}
+                  text={
+                    mqM
+                      ? ['We have to reverse', 'global heating']
+                      : ['We have', 'to reverse', 'global heating']
+                  }
                   {...(noTransition && { initial: 'animate' })}
                 />
               </Heading>
