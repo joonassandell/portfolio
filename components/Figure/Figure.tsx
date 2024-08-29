@@ -52,6 +52,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const mask = scroll === 'mask';
     const negativeStartPosition =
       scrollStartPosition === 'negative' && scrollOffset != 'start-start';
+    const video = src && src.indexOf('mp4') > -1;
     const classes = c(className, 'Figure', {
       '-bg': background,
       '-border': border,
@@ -59,6 +60,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       '-inline': inline,
       '-mask': mask,
       '-transition:clip': transition === 'clip',
+      '-video': video,
     });
     id = id ?? src?.split('/')?.pop()?.split('.')[0];
     const createdRef = useRef(null);
@@ -68,7 +70,6 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const inView = useInView(ref, inViewOffset);
     const [imgLoaded, setImgLoaded] = useState(false);
     const [glareEnd, setGlareEnd] = useState(false);
-    const isVideo = src && src.indexOf('mp4') > -1;
     const refVideo = useRef(null);
     useInViewVideo(refVideo, inViewOffset);
 
@@ -128,7 +129,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 variants={GLARE_VARIANTS}
               />
             )}
-            {!isVideo && placeholder && (
+            {!video && placeholder && (
               <AnimatePresence>
                 {!imgLoaded && (
                   <m.div
@@ -145,7 +146,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 )}
               </AnimatePresence>
             )}
-            {!isVideo && (
+            {!video && (
               <NextImage
                 alt={alt}
                 className="Figure-img"
@@ -161,18 +162,12 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 width={width}
               />
             )}
-            {isVideo && (
-              <video
-                className="Figure-video"
-                loop
-                muted
-                playsInline
-                ref={refVideo}
-              >
+            {video && (
+              <video loop muted playsInline ref={refVideo}>
                 <source src={src} />
               </video>
             )}
-            {isVideo && <figcaption className="hideVisually">{alt}</figcaption>}
+            {video && <figcaption className="hideVisually">{alt}</figcaption>}
           </m.div>
         </m.figure>
       </m.div>
