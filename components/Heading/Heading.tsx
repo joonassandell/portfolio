@@ -7,7 +7,16 @@ import c from 'clsx';
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   (
-    { animate, children, className, maxWidth, size = 'h2', tag, ...props },
+    {
+      animate,
+      center,
+      children,
+      className,
+      maxWidth,
+      size = 'h2',
+      tag,
+      ...props
+    },
     forwardedRef,
   ) => {
     const xl = size === 'xl';
@@ -16,9 +25,10 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
       'Heading',
       {
         [`${size}`]: size && tag && size != tag && !xl && !l,
-        '-maxWidth': maxWidth,
+        '-maxWidth': maxWidth ?? center,
         'Heading--l': l,
         'Heading--xl': xl,
+        'text:center ml:auto mr:auto': center,
       },
       className,
     );

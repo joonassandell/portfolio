@@ -95,10 +95,12 @@
   --text-900-blend: hsl(var(--white-hsl) / 0.6);
   --text-900: var(--gray-600);
   --text-950: var(--gray-900);
+  --text-max-width: 56ch;
 
   // Heading
   --heading: inherit;
   --heading-font-weight: var(--font-weight-400);
+  --heading-max-width: 30ch;
 
   // Link
   --link: var(--text-950);

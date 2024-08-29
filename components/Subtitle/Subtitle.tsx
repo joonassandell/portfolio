@@ -7,11 +7,20 @@ import c from 'clsx';
 
 export const Subtitle = ({
   animate,
+  center,
   children,
   className,
+  maxWidth = true,
   ...props
 }: SubtitleProps) => {
-  const classes = c('Subtitle', className);
+  const classes = c(
+    'Subtitle',
+    {
+      'max-w-unset': !maxWidth,
+      'text:center ml:auto mr:auto': center,
+    },
+    className,
+  );
   const ref = useRef(null);
   const inView = useInView(ref);
 

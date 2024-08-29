@@ -3,7 +3,7 @@
 
 .Text {
   letter-spacing: normal;
-  max-width: 56ch;
+  max-width: var(--text-max-width);
   transform-origin: top left;
 
   &.-size\:xs {

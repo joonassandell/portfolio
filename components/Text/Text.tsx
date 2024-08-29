@@ -7,6 +7,8 @@ import c from 'clsx';
 
 export const Text = ({
   animate,
+  balance,
+  center,
   children,
   className,
   color,
@@ -26,6 +28,8 @@ export const Text = ({
       'color:mute': color === 'mute',
       'color:mute:blend': color === 'mute:blend',
       'max-w-unset': !maxWidth,
+      'text-wrap:balance': balance,
+      'text:center ml:auto mr:auto': center,
       'text:truncate': truncate,
     },
     className,

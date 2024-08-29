@@ -151,6 +151,7 @@ export const Info = ({
         <div className="grid">
           <Text
             animate
+            balance
             className="Info-text grid-col grid-col:8@s grid-col:7@l"
             custom={{ delay: mqL ? 0.4 : 0 }}
           >
