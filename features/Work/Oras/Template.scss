@@ -1,21 +1,4 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
-.Template--oras {
-  .Template-figure-1.Figure {
-    margin: rem($space-m) 0 rem($space-2xl) 0;
-
-    @include mq(l) {
-      margin-top: rem($space * -6);
-    }
-  }
-
-  .Template-figure-2.Figure {
-    margin-bottom: rem($space);
-
-    @include mq(m) {
-      margin-bottom: 0;
-      margin-top: rem($space * 12);
-    }
-  }
-}
+.Template--oras {}
