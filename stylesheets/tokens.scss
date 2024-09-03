@@ -146,6 +146,7 @@
   --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
 
   // Grid
+  --grid-gap-s: #{rem($space)};
   --grid-gap-m: #{rem($space-m)};
   --grid-gap-l: #{rem($space-m)};
   --grid-gap-row-l: #{rem($space-xl)};
@@ -175,6 +176,7 @@
    * ======================================= */
 
   @include mq(m) {
+    --grid-gap-s: #{rem($space-m)};
     --grid-gap-m: #{rem($space-ml)};
     --grid-gap-l: #{rem($space-l)};
 
@@ -190,11 +192,6 @@
   }
 
   @include mq(xl) {
-    --grid-gap-l: #{rem($space-2xl)};
-    --grid-gap-row-l: #{rem($space-2xl)};
-  }
-
-  @include mq('2xl') {
     --grid-gap-l: #{rem($space-2xl)};
     --grid-gap-row-l: #{rem($space-2xl)};
   }

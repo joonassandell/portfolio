@@ -12,20 +12,24 @@
  * ======================================= */
 
 .grid {
-  &.-gap\:l {
-    --grid-gap: var(--grid-gap-l);
-  }
-
   &.-gap\:0 {
     gap: 0;
   }
 
-  &.-gap\:row\:l {
-    row-gap: var(--grid-gap-row-l);
+  &.-gap\:s {
+    --grid-gap: var(--grid-gap-s);
+  }
+
+  &.-gap\:l {
+    --grid-gap: var(--grid-gap-l);
   }
 
   &.-gap\:row\:0 {
     row-gap: 0;
+  }
+
+  &.-gap\:row\:l {
+    row-gap: var(--grid-gap-row-l);
   }
 
   &.-gap\:column\:0 {
