@@ -10,21 +10,8 @@ import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
-  <>
-    <TemplateArea pt="2xl-5xl">
-      <div className="grid-col grid-col:10@l -start:2@l">
-        <Figure
-          alt="Biocode homepage and isometric Biocode application"
-          border
-          glare
-          priority
-          quality={90}
-          sizes={`${MQ.l} 80vw, 100vw`}
-          {...getImage('joonassandell-biocode-website-home-hero', images)}
-        />
-      </div>
-    </TemplateArea>
-    <TemplateArea grid={false} id="brand" pt="2xl-5xl">
+  <section id="brand">
+    <TemplateArea grid={false} pt="2xl-5xl">
       <Subtitle animate center>
         New brand & website
       </Subtitle>
@@ -160,7 +147,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl">
+    <TemplateArea grid={false} pt="2xl-5xl">
       <Subtitle animate center>
         New brand & website
       </Subtitle>
@@ -181,7 +168,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         on presenting Biocode as a clear and compelling software solution
       </Text>
     </TemplateArea>
-    <TemplateArea pt={false}>
+    <TemplateArea>
       <div className="grid-col grid-col:8@l">
         <Figure
           alt="Biocode homepage animation"
@@ -192,10 +179,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
       <div className="grid-col grid-col:6@m grid-col:4@l -align:end">
         <Heading animate size="h5" tag="h3">
-          Powerful first impression
+          Strong first impression
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
-          The homepage was strategically redesigned to make a strong first
+          The homepage was strategically redesigned to make a powerful first
           impression. We wanted to convey that anyone can easily calculate
           emissions, regardless of expertise, making the tool accessible to
           eveyone.
@@ -218,10 +205,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
           The website was initially designed in dark mode for a modern look,
-          then adapted to light mode for broader accessibility. We aimed for a
-          professional "software-like" feel and limited food imagery to keep the
-          brand versatile, reflecting the software's broad emission calculation
-          capabilities.
+          then adapted to light mode for broader accessibility. We aimed for
+          global professional "software-like" feel and limited food imagery to
+          keep the brand versatile, reflecting the software's broad emission
+          calculation capabilities.
         </Text>
       </div>
     </TemplateArea>
@@ -232,8 +219,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Heading>
         <Text animate className="mb:xs" color="mute" tag="p">
           We were missing a logomark and an icon, which is a crucial piece of
-          any fully-fledged software product. We created a new logomark which we
-          also integrated as part of the wordmark to ensure recognition.
+          any fully-fledged software product. We created a new logomark which
+          was also integrated as part of the wordmark to ensure recognition.
         </Text>
       </div>
       <div className="grid-col grid-col:8@l grid">
@@ -406,5 +393,5 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-  </>
+  </section>
 );

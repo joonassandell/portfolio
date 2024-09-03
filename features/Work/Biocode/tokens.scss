@@ -1,10 +1,19 @@
 :root {
   --biocode-bg-50: #00081f;
-  --biocode-bg-100: #000a29;
-  --biocode-bg-200: #001141;
-  --biocode-border: hsl(230 30% 40% / 0.25);
-  --biocode-primary: #3a59f9;
+  --biocode-bg-100: #000b29;
+  --biocode-bg-200: #000e33;
+  --biocode-bg-300: #001242;
+
+  --biocode-border-50: hsl(230 60% 14%);
+  --biocode-border-100: hsl(230 60% 18%);
+  --biocode-border-200: hsl(230 60% 20%);
+  --biocode-border-300: hsl(230 60% 22%);
+  --biocode-border-400: hsl(230 60% 24%);
+  --biocode-border: var(--biocode-border-50);
+
+  --biocode-primary: #3959f9;
   --biocode-primary-text: #3377ff;
+
   --biocode-heading: var(--text-50);
   --biocode-text-900: #a3abc2;
   --biocode-text-950: var(--text-50);

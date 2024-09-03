@@ -2,6 +2,8 @@
 
 .Template--biocode {
   --Template-bg: var(--biocode-bg-50);
+  --Footer-bg: var(--biocode-bg-200);
+  --NextProject-bg: var(--biocode-bg-200);
   --Figure-placeholder-bg: var(--biocode-bg-100);
   --Figure-glare-opacity: 0.05;
   --Info-text: var(--text-900);
@@ -12,4 +14,19 @@
   --link: var(--biocode-text-950);
   --text-900: var(--biocode-text-900);
   --text-950: var(--biocode-text-950);
+
+  .Template-ds {
+    --Template-area-bg: var(--biocode-bg-200);
+    --Figure-placeholder-bg: var(--biocode-bg-300);
+
+    --border-100: var(--biocode-border-100);
+  }
+
+  .Template-ds-heading {
+    --Template-area-bg: linear-gradient(
+      to bottom,
+      var(--biocode-bg-50),
+      var(--biocode-bg-200)
+    );
+  }
 }

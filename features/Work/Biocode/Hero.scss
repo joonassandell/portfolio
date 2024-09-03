@@ -98,7 +98,7 @@
   .Hero-bg {
     background: radial-gradient(
       70% rem($space * 22) at 70% 0,
-      var(--biocode-bg-200),
+      var(--biocode-bg-300),
       var(--biocode-bg-50)
     );
     z-index: 2;
@@ -109,7 +109,7 @@
       background: linear-gradient(180deg, var(--biocode-bg-50), transparent 15%),
         radial-gradient(
           70% rem($space * 22) at 70% 0,
-          var(--biocode-bg-200),
+          var(--biocode-bg-300),
           var(--biocode-bg-50)
         );
     }
