@@ -34,7 +34,6 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             alt="Biocode design system button component"
             border
             borderStyle="dashed"
-            quality={100}
             sizes={`${MQ.s} 33vw, 100vw`}
             {...getImage('joonassandell-biocode-design-system-button', images)}
           />
@@ -128,6 +127,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             alt="Biocode design system donut component"
             border
             borderStyle="dashed"
+            quality={100}
             sizes={`${MQ.s} 33vw, 25vw`}
             {...getImage('joonassandell-biocode-design-system-donut', images)}
           />
@@ -178,26 +178,30 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea gridGap="m" gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+    <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
       <div className="grid-col grid-col:4@l grid -gap:column:0">
         <div className="grid-col">
           <Heading animate size="h5" tag="h3">
             Flexible components
           </Heading>
-          <Text animate className="mb:ml" color="mute" tag="p">
-            Both our Figma and code libraries are highly flexible, allowing us
-            to create a wide variety of component combinations beyond just data
-            visualization. Our data display components, such as charts, and data
-            tables, are designed to effectively present emissions results in an
-            easy-to-understand format.
+          <Text animate className="mb:0" color="mute" tag="p">
+            Both our Figma and{' '}
+            <Link href="https://github.com/joonassandell/bds">
+              code libraries
+            </Link>{' '}
+            are highly flexible, allowing us to create a wide variety of
+            component combinations. Our data display components, such as charts,
+            and data tables, are designed to effectively present emissions
+            results in an easy-to-understand format.
           </Text>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:12@l grid -gap:s">
+        <div className="grid-col grid-col:8@s grid-col:12@l grid -gap:s -align:end">
           <div className="grid-col grid-col:8">
             <Figure
               alt="Biocode design system radial chart"
               border
               borderStyle="dashed"
+              quality={100}
               sizes={`${MQ.l} 20vw, ${MQ.s} 40vw, 60vw`}
               {...getImage(
                 'joonassandell-biocode-design-system-radial',
@@ -211,6 +215,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
                 alt="Biocode design system donut chart"
                 border
                 borderStyle="dashed"
+                quality={100}
                 sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
                 {...getImage(
                   'joonassandell-biocode-design-system-donut-small-1',
@@ -223,6 +228,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
                 alt="Biocode design system donut chart"
                 border
                 borderStyle="dashed"
+                quality={100}
                 sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
                 {...getImage(
                   'joonassandell-biocode-design-system-donut-small-2',
@@ -242,6 +248,53 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           sizes={`${MQ.l} 60vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-table', images)}
         />
+      </div>
+    </TemplateArea>
+    <TemplateArea gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+      <div className="grid-col grid-col:8@l grid">
+        <div className="grid-col grid-col:4">
+          <Figure
+            alt="Biocode for producers mark"
+            border
+            borderRadius="var(--border-radius-l)"
+            borderStyle="dashed"
+            sizes={`${MQ.l} 25vw, 33vw`}
+            {...getImage('joonassandell-biocode-producer-mark', images)}
+          />
+        </div>
+        <div className="grid-col grid-col:4">
+          <Figure
+            alt="Biocode for products mark"
+            border
+            borderRadius="var(--border-radius-l)"
+            borderStyle="dashed"
+            inViewOffset={0.3}
+            sizes={`${MQ.l} 25vw, 33vw`}
+            {...getImage('joonassandell-biocode-product-mark', images)}
+          />
+        </div>
+        <div className="grid-col grid-col:4">
+          <Figure
+            alt="Biocode for reporting mark"
+            border
+            borderRadius="var(--border-radius-l)"
+            borderStyle="dashed"
+            inViewOffset={0.6}
+            sizes={`${MQ.l} 25vw, 33vw`}
+            {...getImage('joonassandell-biocode-report-mark', images)}
+          />
+        </div>
+      </div>
+      <div className="grid-col grid-col:8@m -start:5@m grid-col:4@l -start:9@l">
+        <Heading animate size="h5" tag="h3">
+          Distinguishing key areas with symbols
+        </Heading>
+        <Text animate className="mb:xs" color="mute" tag="p">
+          To help users easily identify the distinct sections of Biocode, our
+          design system includes specific symbols for each area: Biocode for
+          producers, Biocode for food businesses, and the reporting service,
+          along with other essential iconography.
+        </Text>
       </div>
     </TemplateArea>
   </section>
