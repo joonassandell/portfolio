@@ -22,6 +22,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       background,
       border,
       borderRadius = true,
+      borderStyle,
       className,
       glare,
       height,
@@ -56,6 +57,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const classes = c(className, 'Figure', {
       '-bg': background,
       '-border': border,
+      '-border:dashed': borderStyle === 'dashed',
       '-border:radius': borderRadius,
       '-inline': inline,
       '-mask': mask,

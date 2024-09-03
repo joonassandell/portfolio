@@ -64,6 +64,7 @@
   --border-width-s: 0.5px;
   --border-width-m: 1px;
   --border-width-l: 2px;
+  --border-width-dashed: 1.5px;
   --border-width-negative: -1px;
   --border-width: var(--border-width-m);
 
@@ -182,6 +183,8 @@
   }
 
   @include mq(l) {
+    --border-width-dashed: 2.5px;
+
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-xl)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-xl)});
   }
