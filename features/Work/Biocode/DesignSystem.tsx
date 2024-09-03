@@ -22,12 +22,12 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <em>
           <Link href="https://github.com/joonassandell/bds">GitHub</Link>
         </em>{' '}
-        and designed with <em>Figma</em>, serves as a comprehensive components
-        library used across our entire ecosystem ensuring a consistent look and
-        standardized approach in maintaining uniformity throughout our products.
+        and designed with <em>Figma</em>, serves as a comprehensive library used
+        across our entire ecosystem ensuring a consistent look and standardized
+        approach in maintaining uniformity throughout our products.
       </Text>
     </TemplateArea>
-    <TemplateArea gridGap="s" gridRowGap="s" pb="2xl-5xl" pt="2xl">
+    <TemplateArea gridGap="s" gridRowGap="s" pt="2xl">
       <div className="grid-col grid-col:9@s grid -gap:s align-items:start">
         <div className="grid-col grid-col:5@s -align:end">
           <Figure
@@ -175,6 +175,72 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           quality={100}
           sizes={`${MQ.s} 50vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-cards', images)}
+        />
+      </div>
+    </TemplateArea>
+    <TemplateArea gridGap="m" gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+      <div className="grid-col grid-col:4@l grid -gap:column:0">
+        <div className="grid-col">
+          <Heading animate size="h5" tag="h3">
+            Flexible components
+          </Heading>
+          <Text animate className="mb:ml" color="mute" tag="p">
+            Both our Figma and code libraries are highly flexible, allowing us
+            to create a wide variety of component combinations beyond just data
+            visualization. Our data display components, such as charts, and data
+            tables, are designed to effectively present emissions results in an
+            easy-to-understand format.
+          </Text>
+        </div>
+        <div className="grid-col grid-col:8@s grid-col:12@l grid -gap:s">
+          <div className="grid-col grid-col:8">
+            <Figure
+              alt="Biocode design system radial chart"
+              border
+              borderStyle="dashed"
+              sizes={`${MQ.l} 20vw, ${MQ.s} 40vw, 60vw`}
+              {...getImage(
+                'joonassandell-biocode-design-system-radial',
+                images,
+              )}
+            />
+          </div>
+          <div className="grid-col grid-col:4 grid -gap:column:0 -gap:s">
+            <div className="grid-col">
+              <Figure
+                alt="Biocode design system donut chart"
+                border
+                borderStyle="dashed"
+                sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
+                {...getImage(
+                  'joonassandell-biocode-design-system-donut-small-1',
+                  images,
+                )}
+              />
+            </div>
+            <div className="grid-col">
+              <Figure
+                alt="Biocode design system donut chart"
+                border
+                borderStyle="dashed"
+                sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
+                {...getImage(
+                  'joonassandell-biocode-design-system-donut-small-2',
+                  images,
+                )}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="grid-col grid-col:8@l -align:end">
+        <Figure
+          alt="Biocode design system table"
+          border
+          borderStyle="dashed"
+          quality={100}
+          sizes={`${MQ.l} 60vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-table', images)}
         />
       </div>
     </TemplateArea>
