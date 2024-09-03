@@ -1,10 +1,13 @@
-import { BiocodeBrandAndWebsite, BiocodeHero } from './';
+import { BiocodeBrandAndWebsite, BiocodeDesignSystem, BiocodeHero } from './';
+import { Figure } from '@/components/Figure';
+import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
+import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template } from '@/components/Template';
+import { Template, TemplateArea } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const BiocodePage = ({ images }: PageProps) => {
@@ -31,14 +34,29 @@ export const BiocodePage = ({ images }: PageProps) => {
         text={
           <p>
             I’m currently working for Biocode as a Lead Product Designer and
-            Front-end Developer. I’m responsible for crafting our design system,
-            building our website and developing our software.
+            Front-end Developer. I’m crafting our design system, building our
+            website, developing our software and enhancing the overall direction
+            of our product.
           </p>
         }
         type={['Web app', 'Web service', 'Commission']}
         year="2020–"
       />
+      <TemplateArea pt="2xl-5xl">
+        <div className="grid-col grid-col:10@l -start:2@l">
+          <Figure
+            alt="Biocode homepage with isometric Biocode application"
+            border
+            glare
+            priority
+            quality={90}
+            sizes={`${MQ.l} 80vw, 100vw`}
+            {...getImage('joonassandell-biocode-website-home-hero', images)}
+          />
+        </div>
+      </TemplateArea>
       <BiocodeBrandAndWebsite images={images} />
+      <BiocodeDesignSystem images={images} />
       <NextProject id={nextProjectId} />
     </Template>
   );

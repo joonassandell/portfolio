@@ -7,7 +7,7 @@ const sitemap: SitemapItemWork<'biocode'> = {
   meta: {
     description:
       'I’m currently working for Biocode as lead product designer and front-end developer. I’m responsible for crafting our design system and making sure our application’s code stays manageable.',
-    themeColor: '#00081F',
+    themeColor: '#00081f',
     title: 'Biocode',
   },
   title: 'Biocode',
