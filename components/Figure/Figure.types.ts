@@ -21,6 +21,7 @@ export interface FigureProps
   background?: string | boolean;
   border?: string | boolean;
   borderRadius?: string | boolean;
+  borderStyle?: 'solid' | 'dashed';
   glare?: boolean;
   id?: string;
   inViewOffset?: number;

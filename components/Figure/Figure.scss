@@ -14,6 +14,13 @@
     }
   }
 
+  &.-border\:dashed {
+    .Figure-figure-main {
+      border: var(--Figure-border-width, var(--border-width-dashed)) dashed
+        var(--Figure-border, var(--border-100));
+    }
+  }
+
   &.-border\:radius {
     &,
     .Figure-figure-main,
