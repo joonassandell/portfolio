@@ -243,9 +243,8 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <Figure
           alt="Biocode design system table"
           border
-          borderStyle="dashed"
-          quality={100}
-          sizes={`${MQ.l} 60vw, 100vw`}
+          quality={90}
+          sizes={`${MQ.l} 90vw, 100vw`} // Intentional for better quality
           {...getImage('joonassandell-biocode-design-system-table', images)}
         />
       </div>
@@ -302,12 +301,11 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <Figure
           alt="Biocode design system colors"
           border
-          borderStyle="dashed"
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-colors', images)}
         />
         <Heading animate className="mt:xl" size="h5" tag="h3">
-          Reflecting brand identity with typography and colors
+          Reflecting brand identity with typography and color tokens
         </Heading>
         <Text animate className="mb:m mb:s@m" color="mute" tag="p">
           Complementary colors, green and yellow, were selected to reflect the
@@ -328,7 +326,6 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <Figure
           alt="Biocode design system color tokens"
           border
-          borderStyle="dashed"
           sizes={`${MQ.l} 60vw, 100vw`}
           {...getImage(
             'joonassandell-biocode-design-system-color-tokens',
@@ -343,12 +340,17 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           Space Grotesk, features a custom stylistic set that balances
           credibility with subtle sense of creativity.
         </Text>
-        <Text animate className="mb:0" color="mute" tag="p">
+        <Text animate color="mute" tag="p">
           The brand's dark/light theme and selected imagery, such as the globe,
           subtly reference the global challenge of climate change. Each
           component, from typography to color choice, was designed to convey a
           sense of reliability while maintaining slightly playful and modern
           aesthetic.
+        </Text>
+        <Text animate className="mb:0" color="mute" tag="small">
+          Note that this case study showcases dark themed elements only for
+          simplicity. Biocode's design system consists tokens for light theme as
+          well.
         </Text>
       </div>
     </TemplateArea>
