@@ -22,7 +22,6 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
       wrap,
       grid,
       '-gap:l': grid && gridGap === 'l',
-      '-gap:s': grid && gridGap === 's',
       '-gap:0': grid && gridGap === false,
       '-gap:row:l': grid && gridRowGap === 'l',
       '-gap:row:0': grid && gridRowGap === false,
