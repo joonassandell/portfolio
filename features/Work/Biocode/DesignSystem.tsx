@@ -250,7 +250,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         />
       </div>
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+    <TemplateArea gridRowGap="m" pt="2xl-5xl">
       <div className="grid-col grid-col:8@l grid">
         <div className="grid-col grid-col:4">
           <Figure
@@ -293,7 +293,62 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           To help users easily identify the distinct sections of Biocode, our
           design system includes specific symbols for each area: Biocode for
           producers, Biocode for food businesses, and the reporting service,
-          along with other essential iconography.
+          along with essential iconography.
+        </Text>
+      </div>
+    </TemplateArea>
+    <TemplateArea gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l">
+        <Figure
+          alt="Biocode design system colors"
+          border
+          borderStyle="dashed"
+          sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-colors', images)}
+        />
+        <Heading animate className="mt:xl" size="h5" tag="h3">
+          Reflecting brand identity with typography and colors
+        </Heading>
+        <Text animate className="mb:m mb:s@m" color="mute" tag="p">
+          Complementary colors, green and yellow, were selected to reflect the
+          connection to nature, reinforcing the environmental focus of our
+          brand. To ensure our data displays are both clear and accessible, we
+          chose accent colors specifically for this purpose.
+        </Text>
+      </div>
+      <div className="grid-col grid-col:10@m grid-col:8@l">
+        <Figure
+          alt="Biocode design system typeface: Space Grotesk"
+          quality={100}
+          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-typeface', images)}
+        />
+      </div>
+      <div className="grid-col grid-col:8@l">
+        <Figure
+          alt="Biocode design system color tokens"
+          border
+          borderStyle="dashed"
+          sizes={`${MQ.l} 60vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-design-system-color-tokens',
+            images,
+          )}
+        />
+      </div>
+      <div className="grid-col grid-col:4@l">
+        <Text animate color="mute" tag="p">
+          The primary color, a clear blue, symbolizes the sky and our commitment
+          to preserving the climate in its natural state. Our main typeface,
+          Space Grotesk, features a custom stylistic set that balances
+          credibility with subtle sense of creativity.
+        </Text>
+        <Text animate className="mb:0" color="mute" tag="p">
+          The brand's dark/light theme and selected imagery, such as the globe,
+          subtly reference the global challenge of climate change. Each
+          component, from typography to color choice, was designed to convey a
+          sense of reliability while maintaining slightly playful and modern
+          aesthetic.
         </Text>
       </div>
     </TemplateArea>
