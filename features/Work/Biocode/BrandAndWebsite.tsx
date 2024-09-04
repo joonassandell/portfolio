@@ -279,9 +279,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           Emphasizing core strengths
         </Heading>
         <Text animate className="mb:m" color="mute" tag="p">
-          We really wanted to highlight the core advantages, so we designed
+          We really wanted to highlight the core advantages by designing
           sections that showcase them using visually appealing{' '}
-          <q>bento grids</q> and other elements.
+          <q>bento grids</q> and other flashy elements.
         </Text>
       </div>
       <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -align:end">
@@ -290,9 +290,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
             Emphasizing core strengths
           </Heading>
           <Text animate className="mb:xl" color="mute" tag="p">
-            We really wanted to highlight the core advantages, so we designed
+            We really wanted to highlight the core advantages by designing
             sections that showcase them using visually appealing{' '}
-            <q>bento grids</q> and other elements.
+            <q>bento grids</q> and other flashy elements.
           </Text>
         </div>
         <Figure
