@@ -27,8 +27,8 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         approach in maintaining uniformity throughout our products.
       </Text>
     </TemplateArea>
-    <TemplateArea gridGap="s" gridRowGap="s" pt="2xl">
-      <div className="grid-col grid-col:9@s grid -gap:s align-items:start">
+    <TemplateArea gridGap="m" gridRowGap="m" pt="2xl">
+      <div className="grid-col grid-col:9@s grid align-items:start">
         <div className="grid-col grid-col:5@s -align:end">
           <Figure
             alt="Biocode design system button component"
@@ -48,7 +48,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             {...getImage('joonassandell-biocode-design-system-alert', images)}
           />
         </div>
-        <div className="grid-col grid-col:8@s grid -gap:s">
+        <div className="grid-col grid-col:8@s grid">
           <div className="grid-col grid-col:8@s">
             <Figure
               alt="Biocode design system tabs component"
@@ -96,7 +96,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             />
           </div>
         </div>
-        <div className="grid-col grid-col:4 grid -gap:s -gap:column:0 visible@s">
+        <div className="grid-col grid-col:4 grid -gap:column:0 visible@s">
           <div className="grid-col">
             <Figure
               alt="Biocode design system menu component"
@@ -121,7 +121,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           </div>
         </div>
       </div>
-      <div className="grid-col grid-col:4 grid-col:3@s grid -gap:s -gap:column:0 -align:end">
+      <div className="grid-col grid-col:4 grid-col:3@s grid -gap:column:0 -align:end">
         <div className="grid-col">
           <Figure
             alt="Biocode design system donut component"
@@ -143,7 +143,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           />
         </div>
       </div>
-      <div className="grid-col grid-col:8 grid-col:5@s -start:2@s grid -gap:s">
+      <div className="grid-col grid-col:8 grid-col:5@s -start:2@s grid -gap:column:0">
         <div className="grid-col">
           <Figure
             alt="Biocode design system dialog component"
@@ -195,7 +195,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             results in an easy-to-understand format.
           </Text>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:12@l grid -gap:s -align:end">
+        <div className="grid-col grid-col:8@s grid-col:12@l grid -align:end">
           <div className="grid-col grid-col:8">
             <Figure
               alt="Biocode design system radial chart"
@@ -209,7 +209,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
               )}
             />
           </div>
-          <div className="grid-col grid-col:4 grid -gap:column:0 -gap:s">
+          <div className="grid-col grid-col:4 grid -gap:column:0">
             <div className="grid-col">
               <Figure
                 alt="Biocode design system donut chart"
