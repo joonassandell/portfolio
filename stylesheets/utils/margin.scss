@@ -9,24 +9,16 @@
   margin-top: auto;
 }
 
-.mt\:xs {
-  margin-top: rem($space-xs);
-}
-
-.mt\:s {
-  margin-top: rem($space-s);
-}
-
-.mt\:m {
-  margin-top: rem($space-m);
+.mt {
+  margin-top: rem($space);
 }
 
 .mt\:ml {
   margin-top: rem($space-ml);
 }
 
-.mt\:xl {
-  margin-top: rem($space-xl);
+.mt\:l {
+  margin-top: rem($space-l);
 }
 
 .mt\:-2xl {
@@ -75,6 +67,12 @@
 
 .mb\:0 {
   margin-bottom: 0;
+
+  @include mq(m) {
+    &\@m {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .mb\:2xs {
@@ -87,12 +85,6 @@
 
 .mb\:s {
   margin-bottom: rem($space-s);
-
-  @include mq(m) {
-    &\@m {
-      margin-bottom: rem($space-s);
-    }
-  }
 }
 
 .mb {
@@ -131,10 +123,6 @@
       margin-bottom: rem($space-xl);
     }
   }
-}
-
-.mb\:2xl {
-  margin-bottom: rem($space-2xl);
 }
 
 /* =======================================
