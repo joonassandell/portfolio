@@ -64,12 +64,10 @@ export const UiLabPage = () => {
               <span className="Template-highlightColor">01</span> Dynamic Pay
               Button
             </Text>
-            <Text className="mb:xs" color="mute">
-              <p>
-                A dynamic button that expands to a <q>wallet</q> for quickly
-                purchasing and choosing payment methods. Try dragging the credit
-                cards to switch between the active one.
-              </p>
+            <Text className="mb:xs" color="mute" tag="p">
+              A dynamic button that expands to a <q>wallet</q> for quickly
+              purchasing and choosing payment methods. Try dragging the credit
+              cards to switch between the active one.
             </Text>
           </div>
           <div className="grid-col grid-col:8@m grid-col:7@l -end">

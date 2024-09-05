@@ -27,7 +27,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         approach in maintaining uniformity throughout our products.
       </Text>
     </TemplateArea>
-    <TemplateArea gridGap="m" gridRowGap="m" pt="xl-2xl">
+    <TemplateArea gridGap="m" gridRowGap="m" pt="l-2xl">
       <div className="grid-col grid-col:9@s grid align-items:start">
         <div className="grid-col grid-col:5@s -align:end">
           <Figure
@@ -336,8 +336,8 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       <div className="grid-col grid-col:4@l">
         <Text animate color="mute" tag="p">
           The primary color, a clear blue, symbolizes the sky and our commitment
-          to preserving the climate in its natural state. Our main typeface,
-          Space Grotesk, features a custom stylistic set that balances
+          to preserving the climate in its natural state. Our main typeface,{' '}
+          <em>Space Grotesk</em>, features a custom stylistic set that balances
           credibility with subtle sense of creativity.
         </Text>
         <Text animate color="mute" tag="p">

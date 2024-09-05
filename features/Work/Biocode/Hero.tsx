@@ -117,8 +117,8 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
                   custom={{ delay: 0.15 }}
                   text={
                     mqM
-                      ? ['We have to reverse', 'global heating']
-                      : ['We have', 'to reverse', 'global heating']
+                      ? ['We have to reverse ', 'global heating']
+                      : ['We have ', 'to reverse ', 'global heating']
                   }
                   {...(noTransition && { initial: 'animate' })}
                 />

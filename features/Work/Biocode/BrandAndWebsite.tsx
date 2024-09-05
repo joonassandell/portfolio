@@ -33,9 +33,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         efficient carbon footprint calculator
       </Text>
     </TemplateArea>
-    <TemplateArea pt="xl-2xl">
+    <TemplateArea pt="l-2xl">
       <div className="grid-col grid -gap:row:0">
-        <Hr animate className="grid-col mb:xl mb:2xl@l" />
+        <Hr animate className="grid-col mb:l mb:2xl@l" />
         <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate size="h5" tag="h3">
             Problems
@@ -166,7 +166,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         on presenting Biocode as a clear and compelling software solution
       </Text>
     </TemplateArea>
-    <TemplateArea pt="xl-2xl">
+    <TemplateArea pt="l-2xl">
       <div className="grid-col grid-col:8@l">
         <Figure
           alt="Biocode homepage animation"
