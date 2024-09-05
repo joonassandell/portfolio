@@ -100,8 +100,6 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
           rel="preload"
           type="font/woff2"
         />
-        {/* Google */}
-        <meta content={thumbnail} name="thumbnail" />
         {/* Essential */}
         <meta
           content="width=device-width, initial-scale=1, viewport-fit=cover"

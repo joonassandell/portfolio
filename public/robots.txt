@@ -2,3 +2,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://joonassandell.com/sitemap.xml
+
+User-agent: Googlebot-Image
+Disallow: /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjoonassandell-oras-hero*
+Disallow: /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjoonassandell-oras-drop*
+Disallow: /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjoonassandell-biocode-hero*
