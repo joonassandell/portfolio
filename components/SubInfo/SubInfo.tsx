@@ -91,7 +91,7 @@ export const SubInfo = ({
           </Text>
         </m.div>
         <Text
-          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l mt:s"
+          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l mt"
           variants={TEXT_VARIANTS}
         >
           {text}

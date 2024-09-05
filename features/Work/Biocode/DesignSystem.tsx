@@ -27,7 +27,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         approach in maintaining uniformity throughout our products.
       </Text>
     </TemplateArea>
-    <TemplateArea gridGap="m" gridRowGap="m" pt="2xl">
+    <TemplateArea gridGap="m" gridRowGap="m" pt="xl-2xl">
       <div className="grid-col grid-col:9@s grid align-items:start">
         <div className="grid-col grid-col:5@s -align:end">
           <Figure
@@ -179,7 +179,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
-      <div className="grid-col grid-col:4@l grid -gap:column:0">
+      <div className="grid-col grid-col:5@l grid-col:4@xl grid -gap:column:0">
         <div className="grid-col">
           <Heading animate size="h5" tag="h3">
             Flexible components
@@ -195,7 +195,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             results in an easy-to-understand format.
           </Text>
         </div>
-        <div className="grid-col grid-col:8@s grid-col:12@l grid -align:end">
+        <div className="grid-col grid-col:7@s grid-col:12@l grid -align:end">
           <div className="grid-col grid-col:8">
             <Figure
               alt="Biocode design system radial chart"
@@ -239,12 +239,12 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           </div>
         </div>
       </div>
-      <div className="grid-col grid-col:8@l -align:end">
+      <div className="grid-col grid-col:10@s grid-col:7@l grid-col:8@xl -end -align:end">
         <Figure
           alt="Biocode design system table"
           border
           quality={90}
-          sizes={`${MQ.l} 90vw, 100vw`} // Intentional for better quality
+          sizes={`${MQ.s} 90vw, 100vw`} // Intentional for better quality
           {...getImage('joonassandell-biocode-design-system-table', images)}
         />
       </div>
@@ -304,10 +304,10 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-colors', images)}
         />
-        <Heading animate className="mt:xl" size="h5" tag="h3">
+        <Heading animate className="mt:l" size="h5" tag="h3">
           Reflecting brand identity with typography and color tokens
         </Heading>
-        <Text animate className="mb:m mb:s@m" color="mute" tag="p">
+        <Text animate className="mb mb:0@m" color="mute" tag="p">
           Complementary colors, green and yellow, were selected to reflect the
           connection to nature, reinforcing the environmental focus of our
           brand. To ensure our data displays are both clear and accessible, we

@@ -33,10 +33,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         efficient carbon footprint calculator
       </Text>
     </TemplateArea>
-    <TemplateArea>
+    <TemplateArea pt="xl-2xl">
       <div className="grid-col grid -gap:row:0">
         <div className="grid-col">
-          <Hr animate className="mb:2xl" />
+          <Hr animate className="mb:xl" />
         </div>
         <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate size="h5" tag="h3">
@@ -106,7 +106,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Essential features we needed
         </Heading>
-        <Text animate className="mb:xl" color="mute">
+        <Text animate className="mb:l" color="mute">
           <ul>
             <li>Key app features showcasing main USPs</li>
             <li>Strategically placed CTAs for user sign-up</li>
@@ -168,7 +168,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         on presenting Biocode as a clear and compelling software solution
       </Text>
     </TemplateArea>
-    <TemplateArea>
+    <TemplateArea pt="xl-2xl">
       <div className="grid-col grid-col:8@l">
         <Figure
           alt="Biocode homepage animation"
@@ -217,7 +217,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Unified visual identity
         </Heading>
-        <Text animate className="mb:xs" color="mute" tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           We were missing a logomark and an icon, which is a crucial piece of
           any fully-fledged software product. We created a new logomark which
           was also integrated as part of the wordmark to ensure recognition.
@@ -275,10 +275,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         />
       </div>
       <div className="grid-col hidden@m">
-        <Heading animate className="mt:m" size="h5" tag="h3">
+        <Heading animate className="mt" size="h5" tag="h3">
           Emphasizing core strengths
         </Heading>
-        <Text animate className="mb:m" color="mute" tag="p">
+        <Text animate className="mb" color="mute" tag="p">
           We really wanted to highlight the core advantages by designing
           sections that showcase them using visually appealing{' '}
           <q>bento grids</q> and other flashy elements.
@@ -286,10 +286,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
       <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -align:end">
         <div className="visible@m">
-          <Heading animate className="mt:xs" size="h5" tag="h3">
+          <Heading animate size="h5" tag="h3">
             Emphasizing core strengths
           </Heading>
-          <Text animate className="mb:xl" color="mute" tag="p">
+          <Text animate className="mb:l" color="mute" tag="p">
             We really wanted to highlight the core advantages by designing
             sections that showcase them using visually appealing{' '}
             <q>bento grids</q> and other flashy elements.
@@ -351,10 +351,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
             images,
           )}
         />
-        <Heading animate className="mt:xl" size="h5" tag="h3">
+        <Heading animate className="mt:l" size="h5" tag="h3">
           In-depth features
         </Heading>
-        <Text animate className="mb:m mb:s@m" color="mute" tag="p">
+        <Text animate className="mb mb:0@m" color="mute" tag="p">
           Among emphasizing the core USPs we also planned detailed sections of
           individual features of the software to gain a deeper insight into the
           specific tools and capabilities.
@@ -378,7 +378,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Figure
           alt="About us page of Biocode homepage"
           border
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-website-about', images)}
         />
       </div>
@@ -392,6 +392,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           calculations and clear, reliable results.
         </Text>
       </div>
+      <Hr className="grid-col hidden@l mb:0" />
     </TemplateArea>
   </section>
 );
