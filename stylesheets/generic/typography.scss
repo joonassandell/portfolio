@@ -23,6 +23,7 @@
 
 :where(small) {
   @include text(xs);
+  display: block;
 }
 
 :where(hr) {
