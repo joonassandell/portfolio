@@ -3,6 +3,11 @@ import { type Optional } from '@/types';
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
+    date: '2024-08-30',
+    event: 'Released Mode Apart – Cradle [Amulanga]',
+    url: 'https://soundcloud.com/amulangamusic/mode-apart-cradle',
+  },
+  {
     date: '2023-02-24',
     event: 'Released Mode Apart – Time [Univack]',
     url: 'https://soundcloud.com/univackrecords/mode-apart-gulf-of-bothnia-extended-mix-univack',
