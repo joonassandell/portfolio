@@ -103,6 +103,12 @@
 
 .mb\:ml {
   margin-bottom: rem($space-ml);
+
+  @include mq(m) {
+    &\@m {
+      margin-bottom: rem($space-ml);
+    }
+  }
 }
 
 .mb\:l {
@@ -121,6 +127,16 @@
   @include mq(s) {
     &\@s {
       margin-bottom: rem($space-xl);
+    }
+  }
+}
+
+.mb\:2xl {
+  margin-bottom: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      margin-bottom: rem($space-2xl);
     }
   }
 }

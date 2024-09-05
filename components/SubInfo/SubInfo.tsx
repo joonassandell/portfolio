@@ -23,7 +23,7 @@ export const SubInfo = ({
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">
-      <Hr className="SubInfo-ruler mb:ml mb:xl@s" />
+      <Hr className="SubInfo-ruler mb:ml" />
       <m.div
         animate={gridInView && 'animate'}
         className="grid"
@@ -51,7 +51,7 @@ export const SubInfo = ({
           <Text className="mb:2xs" color="mute" size="s" tag="p">
             Client & Year
           </Text>
-          <Text size="s" tag="p">
+          <Text className="mb:0" size="s" tag="p">
             <ConditionalWrapper
               condition={Boolean(href)}
               wrapper={children => (
@@ -91,7 +91,7 @@ export const SubInfo = ({
           </Text>
         </m.div>
         <Text
-          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l mt"
+          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l"
           variants={TEXT_VARIANTS}
         >
           {text}

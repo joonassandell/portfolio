@@ -26,7 +26,7 @@ export const AboutClients = () => (
       {...lineBall}
     />
     <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m -start:7@m">
-      <Hr className="mb:l" />
+      <Hr className="mb:ml" />
       <Heading size="h3">
         <TextReveal text={['Clients']} />
       </Heading>

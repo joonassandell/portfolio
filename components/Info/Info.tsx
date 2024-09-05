@@ -33,7 +33,7 @@ export const Info = ({
   return (
     <section className="Info wrap grid -gap:row:l" ref={ref}>
       <m.div className="grid-col" style={{ y }}>
-        <Hr className="mb:0 mb@m" />
+        <Hr className="mb:xs mb:ml@m" />
       </m.div>
       <m.div
         animate={gridInView && 'animate'}

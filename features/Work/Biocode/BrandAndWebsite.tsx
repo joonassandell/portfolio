@@ -35,9 +35,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
     </TemplateArea>
     <TemplateArea pt="xl-2xl">
       <div className="grid-col grid -gap:row:0">
-        <div className="grid-col">
-          <Hr animate className="mb:xl" />
-        </div>
+        <Hr animate className="grid-col mb:xl mb:2xl@l" />
         <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
           <Heading animate size="h5" tag="h3">
             Problems
