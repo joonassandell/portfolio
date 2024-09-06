@@ -80,7 +80,7 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
               heading={title}
               href={url}
               onClick={onClick}
-              role={['Various web service and application concepts']}
+              role={['Product design', 'UI/UX design', 'Concept']}
               transitionPre={transitionPre}
             />
           </div>

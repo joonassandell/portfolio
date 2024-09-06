@@ -22,7 +22,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
       <Info
         client={{ href: 'https://mediasignal.fi/en', name: title }}
         heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
-        role={['UI/UX/Brand design', 'Web development', 'Concept strategy']}
+        role={['UI/UX/Brand design', 'Concept strategy', 'Web development']}
         smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
         tech={['WP, GSAP', 'Vanilla stack']}
         text={
@@ -34,7 +34,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             crafting, business card design and website renewal.
           </p>
         }
-        type={['Web service', 'Branding', 'Commission']}
+        type={['Website', 'Branding']}
         year={year}
       />
       <TemplateArea pt="2xl-5xl">

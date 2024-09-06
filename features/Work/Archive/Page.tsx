@@ -20,9 +20,9 @@ export const ArchivePage = ({ images }: PageProps) => {
       <Head description={meta.description} title={meta.title} />
       <ArchiveHero />
       <Info
-        client={{ name: 'Various' }}
+        client={{ name: 'Various clients' }}
         heading="You really must like my stuff since you are already in the archive page. This collection contains mainly thumbnail images of my past work."
-        role={['UI/UX/Brand designs', 'Web development']}
+        role={['UI/UX design', 'Web development']}
         smallPrint="Some projects are made together with people from various sources."
         text={
           <>
@@ -36,7 +36,7 @@ export const ArchivePage = ({ images }: PageProps) => {
             </p>
           </>
         }
-        type={['Web services', 'Web applications', 'Commissions']}
+        type={['Website', 'Web service']}
         year={year}
       />
       <TemplateArea

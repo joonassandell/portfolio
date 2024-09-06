@@ -24,9 +24,14 @@ export const MoreWorkPage = ({ images }: PageProps) => {
       <Head description={meta.description} title={meta.title} />
       <MoreWorkHero />
       <Info
-        client={{ name: 'Various' }}
+        client={{ name: 'Various clients' }}
         heading="So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients."
-        role={['UI/UX/Brand designs', 'Web development', 'Concept strategies']}
+        role={[
+          'Product design',
+          'UI/UX/Brand design',
+          'Software development',
+          'Web development',
+        ]}
         smallPrint="Some projects may present initial designs and prototypes."
         text={
           <p>
@@ -35,7 +40,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
             deliver you some more.
           </p>
         }
-        type={['Web services', 'Web applications', 'Commissions']}
+        type={['Website, Web service', 'SaaS, Branding']}
         year={year}
       />
       <TemplateArea gridRowGap="l" id="hw-company" pt="2xl-5xl">
@@ -50,7 +55,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               and equipment for outdoor activities.
             </p>
           }
-          type={['Web service', 'E-commerce', 'Commission']}
+          type={['Website', 'E-commerce']}
           year={2018}
         />
         <div className="grid-col grid-col:9@m -end grid-col:6@l">
@@ -98,7 +103,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ href: 'https://omoroi.fi', name: 'Omoroi' }}
           heading="Omoroi 👨🏻‍💻"
-          role={['UI/UX design', 'Web development']}
+          role={['UI/UX/Brand design', 'Web development']}
           text={
             <p>
               Omoroi is your friend in software development and automation and
@@ -108,7 +113,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               "version control" inspired aesthetics.
             </p>
           }
-          type={['Web service']}
+          type={['Website', 'Branding']}
           year={2020}
         />
         <div className="grid-col grid-col:6@m -start:1@m">
@@ -130,7 +135,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Hankkija' }}
           heading="Hankkija 🍃"
-          role={['UI/UX design', 'Web development']}
+          role={['UI/UX/Brand design', 'Web development']}
           text={
             <p>
               Hankkija Finnish Feed Innovations have their roots in the long
@@ -138,7 +143,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               industry.
             </p>
           }
-          type={['Web service', 'Commission']}
+          type={['Website', 'Branding']}
           year={2020}
         />
         <div className="grid-col grid-col:7@m grid-col:6@l">
@@ -191,7 +196,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Luke' }}
           heading="Hukka 🥒"
-          role={['UI/UX design', 'App development']}
+          role={['Product design', 'Software development']}
           text={
             <p>
               Natural Resources Institute Finland (Luke) is a research
@@ -199,7 +204,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               renewable natural resources.
             </p>
           }
-          type={['Web application', 'Commission']}
+          type={['SaaS', 'Branding']}
           year={2019}
         />
         <div className="grid-col grid-col:4@m grid-col:4@l">
@@ -229,7 +234,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Bonnier Books' }}
           heading="Academic Bookstore 📚"
-          role={['UI/UX design', 'Web development', 'App development']}
+          role={['UI/UX design', 'Product design', 'Web development']}
           text={
             <p>
               The Academic Bookstore’s ambition is to be a quality bookstore in
@@ -237,7 +242,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               to reading and life-long learning.
             </p>
           }
-          type={['Web service', 'E-commerce', 'Commission']}
+          type={['Website', 'E-commerce', 'SaaS']}
           year={2016}
         />
         <div className="grid-col grid-col:8@m grid-col:6@l -end -align:center">
@@ -306,7 +311,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Mediasignal' }}
           heading="Rubik 📦"
-          role={['Product design', 'App development']}
+          role={['Product design', 'Software development']}
           text={
             <>
               <p>
@@ -320,7 +325,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               </Text>
             </>
           }
-          type={['Web application', 'Commission']}
+          type={['SaaS']}
           year={2017}
         />
         <div className="grid-col grid-col:11 grid-col:9@m grid-col:6@l">
@@ -357,7 +362,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               are over 11k students, and the number of employees is around 260.
             </p>
           }
-          type={['Web service', 'Commission']}
+          type={['Website', 'Web service']}
           year={2017}
         />
         <div className="grid-col grid-col:4@m grid-col:4@l">
@@ -386,7 +391,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Finnpark' }}
           heading="Parking Guidance App 🛞"
-          role={['Product design', 'App development']}
+          role={['Product design', 'Software development']}
           text={
             <p>
               Finnpark designs and produces smart parking services that make
@@ -395,7 +400,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               drivers to navigate easily to the wanted destination.
             </p>
           }
-          type={['Web application', 'Commission']}
+          type={['SaaS']}
           year={2015}
         />
         <div className="grid-col grid-col:11 grid-col:8@m -start:5@m grid-col:6@l -start:7@l">
@@ -456,7 +461,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               </Link>
             </>
           }
-          type={['Web services', 'Web applications', 'Commissions']}
+          type={['Website', 'Web service']}
           year={SITEMAP.archive.year}
         />
       </TemplateArea>

@@ -81,7 +81,7 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
             heading={title}
             href={url}
             onClick={onClick}
-            role={['Web services', 'Web applications']}
+            role={['Product design', 'UI/UX/Brand design', 'Web development']}
             transitionPre={transitionPre}
           />
         </div>

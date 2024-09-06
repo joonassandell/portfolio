@@ -22,9 +22,9 @@ export const SandboxPage = ({ images }: PageProps) => {
       <Head description={meta.description} title={meta.title} />
       <SandboxHero />
       <Info
-        client={{ name: 'Various & Myself' }}
+        client={{ name: 'Various clients' }}
         heading="Welcome to the playground. Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
-        role={['UI/UX design', 'Visual design']}
+        role={['Product design', 'UI/UX design', 'Web development']}
         text={
           <p>
             I rarely do design without purpose because otherwise it’s just eye
@@ -33,7 +33,7 @@ export const SandboxPage = ({ images }: PageProps) => {
             some samples I’ve given a bit wilder touch afterwards.
           </p>
         }
-        type={['Web services', 'Applications', 'Concepts']}
+        type={['Website, Web service', 'SaaS, Concept']}
         year={year}
       />
       <TemplateArea gridRowGap="l" pt="2xl-5xl">
