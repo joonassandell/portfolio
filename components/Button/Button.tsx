@@ -26,7 +26,7 @@ export const Button = ({
     '-size:s': size === 's',
     '-size:square': size === 'square',
     '-size:square:s': size === 'square:s',
-    'Button--default--negative': variant === 'negative',
+    'Button--default--dark': variant === 'dark',
   });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);
   const { setTransition } = useApp();

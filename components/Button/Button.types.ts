@@ -10,7 +10,7 @@ export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   radius?: 'm' | 'full';
   size?: 's' | 'm' | 'square:s' | 'square';
   templateTransition?: boolean;
-  variant?: 'default' | 'negative';
+  variant?: 'default' | 'dark';
 }
 
 export type ButtonProps = ButtonBaseProps &

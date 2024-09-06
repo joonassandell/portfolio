@@ -5,7 +5,7 @@ export const Badge = ({ beacon, children, className, variant }: BadgeProps) => {
   const classes = c(
     'Badge',
     {
-      'Badge--negative': variant === 'negative',
+      'Badge--dark': variant === 'dark',
     },
     className,
   );

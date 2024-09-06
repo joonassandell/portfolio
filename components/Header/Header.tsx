@@ -401,7 +401,7 @@ export const Header = ({
         </m.div>
         <m.div
           animate={maskAnim}
-          className="Header-mask scrollbar -color:negative"
+          className="Header-mask scrollbar -dark"
           data-lenis-prevent
           ref={maskRef}
         >
