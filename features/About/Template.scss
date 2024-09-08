@@ -37,9 +37,8 @@
   .Template-profile {
     max-width: rem($space * 18);
 
-    img {
+    .Figure-img {
       height: clamp(rem($space * 20), 50vw, rem($space * 30));
-      object-fit: cover;
     }
   }
 

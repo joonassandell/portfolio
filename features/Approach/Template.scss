@@ -63,18 +63,17 @@
   }
 
   .Template-profileMobile {
+    --Figure-width: #{clamp(rem($space * 6), 25vw, rem($space * 12))};
     float: left;
-    margin: rem($space-xs) rem($space) 0 0;
-    width: clamp(rem($space * 6), 25vw, rem($space * 12));
+    margin: rem($space-xs) rem($space-s) 0 0;
   }
 
   .Template-profile {
     max-width: 65%;
     rotate: 15deg;
 
-    img {
-      min-height: rem($space * 20);
-      object-fit: cover;
+    .Figure-img {
+      height: rem($space * 20);
     }
   }
 }

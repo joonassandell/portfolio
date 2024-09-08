@@ -24,6 +24,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       borderRadius = true,
       borderStyle,
       className,
+      fill,
       glare,
       height,
       id,
@@ -35,12 +36,15 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       quality,
       scroll,
       scrollImageSpeed = 'fast',
+      scrollImageStartPosition,
+      scrollImageStartPositionMultiplier,
       scrollMaxClientHeight,
       scrollOffset,
       scrollReverse,
       scrollSpeed,
       scrollSpeedMultiplier,
       scrollStartPosition = 'negative',
+      scrollStartPositionMultiplier,
       sizes = '100vw',
       src,
       transition = 'move',
@@ -58,9 +62,9 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       '-bg': background,
       '-border': border,
       '-border:dashed': borderStyle === 'dashed',
-      '-border:radius': borderRadius,
+      '-border:radius:0': !borderRadius,
+      '-fill:l': fill === 'large',
       '-inline': inline,
-      '-mask': mask,
       '-transition:clip': transition === 'clip',
       '-video': video,
     });
@@ -83,6 +87,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       speed: scrollSpeed,
       speedMultiplier: scrollSpeedMultiplier,
       startPosition: negativeStartPosition ? scrollStartPosition : 0,
+      startPositionMultiplier: scrollStartPositionMultiplier,
     });
 
     const { value: maskY } = useParallax({
@@ -92,7 +97,10 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       reverse: true,
       speed: scrollImageSpeed,
       speedMultiplier: scrollSpeedMultiplier,
-      startPosition: negativeStartPosition ? scrollStartPosition : 0,
+      startPosition:
+        scrollImageStartPosition ??
+        (negativeStartPosition ? scrollStartPosition : 0),
+      startPositionMultiplier: scrollImageStartPositionMultiplier,
     });
 
     // Stop caching images in development, uncomment if you keep testing new images
@@ -115,15 +123,15 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           ...props.style,
         }}
       >
-        <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
-          <m.div
-            className="Figure-figure-main"
-            {...(animate && {
-              animate: inView ? 'animate' : '',
-              initial: 'initial',
-              variants: figureVariants,
-            })}
-          >
+        <m.div
+          className="Figure-main"
+          {...(animate && {
+            animate: inView ? 'animate' : '',
+            initial: 'initial',
+            variants: figureVariants,
+          })}
+        >
+          <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
             {glare && !glareEnd && (
               <m.div
                 className="Figure-glare"
@@ -162,16 +170,24 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 src={src}
                 unoptimized={unoptimized}
                 width={width}
+                // Fix possible leaking image under the placeholder
+                {...(!imgLoaded && { style: { opacity: 0 } })}
               />
             )}
             {video && (
-              <video loop muted playsInline ref={refVideo}>
+              <video
+                className="Figure-video"
+                loop
+                muted
+                playsInline
+                ref={refVideo}
+              >
                 <source src={src} />
               </video>
             )}
             {video && <figcaption className="hideVisually">{alt}</figcaption>}
-          </m.div>
-        </m.figure>
+          </m.figure>
+        </m.div>
       </m.div>
     );
   },

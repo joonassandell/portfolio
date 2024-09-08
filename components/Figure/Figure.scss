@@ -1,59 +1,27 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
 .Figure {
   width: var(--Figure-width, fit-content);
 
-  &.-bg {
-    .Figure-figure-main {
-      background: var(--Figure-bg, var(--bg-200));
-    }
-  }
-
-  &.-border {
-    .Figure-figure-main {
-      border: var(--Figure-border-width, var(--border-width-s)) solid
-        var(--Figure-border, var(--border-100));
-    }
-  }
-
-  &.-border\:dashed {
-    .Figure-figure-main {
-      border: var(--Figure-border-width, var(--border-width-dashed)) dashed
-        var(--Figure-border, var(--border-100));
-    }
-  }
-
-  &.-border\:radius {
-    &,
-    .Figure-figure-main,
-    img,
-    video,
-    .Figure-placeholder,
-    .Figure-glare {
-      border-radius: var(--Figure-border-radius, var(--border-radius));
-    }
-  }
-
-  &.-mask {
-    overflow: hidden;
-  }
-
-  &.-inline {
-    display: inline-block;
-    line-height: 1;
-  }
-
-  &.-video {
-    --Figure-width: auto;
+  * {
+    border-radius: var(--Figure-border-radius, var(--border-radius));
   }
 }
 
-.Figure-figure-main {
+.Figure-main {
   background-clip: padding-box;
+  overflow: hidden;
   position: relative;
   transform-origin: top left;
 
   .Figure.-transition\:clip & {
     transform-origin: bottom center;
   }
+}
+
+.Figure-img {
+  object-fit: cover;
 }
 
 .Figure-placeholder,
@@ -88,4 +56,71 @@
 
 .Figure-glare {
   z-index: 2;
+}
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Figure {
+  &.-bg {
+    .Figure-main {
+      background: var(--Figure-bg, var(--bg-200));
+    }
+  }
+
+  &.-border {
+    .Figure-main {
+      border: var(--Figure-border-width, var(--border-width-s)) solid
+        var(--Figure-border, var(--border-100));
+    }
+  }
+
+  &.-border\:dashed {
+    .Figure-main {
+      border: var(--Figure-border-width, var(--border-width-dashed)) dashed
+        var(--Figure-border, var(--border-100));
+    }
+  }
+
+  &.-border\:radius\:0 {
+    --Figure-border-radius: 0;
+  }
+
+  &.-inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &.-video {
+    --Figure-width: auto;
+  }
+
+  &.-fill\:l {
+    height: rem($space * 18);
+
+    .Figure-img {
+      height: rem($space * 28);
+    }
+
+    .Figure-main {
+      height: 100%;
+    }
+
+    @include mq(s) {
+      height: rem($space * 28);
+
+      .Figure-img {
+        height: rem($space * 40);
+      }
+    }
+
+    @include mq(l) {
+      height: rem($space * 40);
+
+      .Figure-img {
+        height: rem($space * 52);
+      }
+    }
+  }
 }
