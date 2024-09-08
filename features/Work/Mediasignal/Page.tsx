@@ -89,6 +89,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
           <Figure
             alt="Mediasignal business card"
             animate={false}
+            borderRadius="var(--border-radius-l)"
             scroll="mask"
             {...getImage('joonassandell-mediasignal-business-card', images)}
           />

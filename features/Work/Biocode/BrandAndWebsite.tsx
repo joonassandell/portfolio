@@ -163,7 +163,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       >
         The transformation required a major UX and aesthetic overhaul to reflect
         modern SaaS efficiency. Guided by the positioning, the redesign focused
-        on presenting Biocode as a clear and compelling software solution
+        on presenting Biocode as a clear and compelling software solution.
       </Text>
     </TemplateArea>
     <TemplateArea pt="l-2xl">
@@ -226,7 +226,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           <Figure
             alt="Biocode monotone logomark"
             border
-            borderRadius="var(--border-radius-l)"
             sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
             {...getImage('joonassandell-biocode-logomark-monotone', images)}
           />
@@ -235,7 +234,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           <Figure
             alt="Biocode logomark"
             border
-            borderRadius="var(--border-radius-l)"
             inViewOffset={0.3}
             sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
             {...getImage('joonassandell-biocode-logomark', images)}
@@ -245,7 +243,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           <Figure
             alt="Biocode application icon"
             border
-            borderRadius="var(--border-radius-l)"
             inViewOffset={0.6}
             sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
             {...getImage('joonassandell-biocode-icon', images)}
@@ -255,7 +252,6 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           <Figure
             alt="Biocode wordmark"
             border
-            borderRadius="var(--border-radius-l)"
             sizes={`${MQ.l} 40vw, ${MQ.s} 60vw, 100vw`}
             {...getImage('joonassandell-biocode-wordmark', images)}
           />

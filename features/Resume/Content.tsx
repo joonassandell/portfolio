@@ -2,8 +2,9 @@ import { ArrowRight, Check, Download } from '@/components/Icon';
 import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
-import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
+import { MQ } from '@/lib/config';
 import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
 import { Text } from '@/components/Text';
 import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
@@ -18,7 +19,7 @@ export const ResumeContent = () => (
       borderRadius="var(--border-radius-pill)"
       className="Template-profileMobile mb:m hidden@m"
       priority
-      sizes="33vw"
+      sizes="25vw"
       {...profile}
     />
     <Heading className="mb:2xs" size="h2" tag="h1">

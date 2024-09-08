@@ -222,7 +222,7 @@ export const OrasPage = ({ images }: PageProps) => {
           </div>
         </div>
         <div className="grid -gap:l -gap:row:l pt:grid-gap-row-l">
-          <div className="grid -gap:row:l grid-col grid-col:10 grid-col:5@m">
+          <div className="grid-col grid-col:10 grid-col:5@m grid -gap:row:l -gap:column:0">
             <div className="grid-col">
               <Figure
                 alt="Oras strategy 5"

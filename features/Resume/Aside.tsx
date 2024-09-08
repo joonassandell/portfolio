@@ -15,7 +15,7 @@ export const ResumeAside = () => (
       borderRadius="var(--border-radius-pill)"
       className="Template-profile mb:l visible@m"
       priority
-      sizes="20vw"
+      sizes="15vw"
       {...profile}
     />
     <Heading className="mb:s hidden@m" size="h6" tag="h4">

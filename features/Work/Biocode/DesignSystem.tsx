@@ -12,7 +12,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
     <TemplateArea className="Template-ds-heading" grid={false} pt="2xl-5xl">
       <Subtitle animate center>
-        Design System
+        Design system
       </Subtitle>
       <Heading animate center size="h1" tag="h2">
         Biocode Design System
@@ -24,7 +24,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         </em>{' '}
         and designed with <em>Figma</em>, serves as a comprehensive library used
         across our entire ecosystem ensuring a consistent look and standardized
-        approach in maintaining uniformity throughout our products.
+        approach in maintaining uniformity throughout our products
       </Text>
     </TemplateArea>
     <TemplateArea gridGap="m" gridRowGap="m" pt="l-2xl">
@@ -255,7 +255,6 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           <Figure
             alt="Biocode for producers mark"
             border
-            borderRadius="var(--border-radius-l)"
             borderStyle="dashed"
             sizes={`${MQ.l} 25vw, 33vw`}
             {...getImage('joonassandell-biocode-producer-mark', images)}
@@ -265,7 +264,6 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           <Figure
             alt="Biocode for products mark"
             border
-            borderRadius="var(--border-radius-l)"
             borderStyle="dashed"
             inViewOffset={0.3}
             sizes={`${MQ.l} 25vw, 33vw`}
@@ -276,7 +274,6 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           <Figure
             alt="Biocode for reporting mark"
             border
-            borderRadius="var(--border-radius-l)"
             borderStyle="dashed"
             inViewOffset={0.6}
             sizes={`${MQ.l} 25vw, 33vw`}
@@ -296,7 +293,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+    <TemplateArea gridRowGap="m" pt="2xl-5xl">
       <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l">
         <Figure
           alt="Biocode design system colors"
