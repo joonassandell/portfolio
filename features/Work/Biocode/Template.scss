@@ -2,15 +2,15 @@
 
 .Template--biocode {
   --Template-bg: var(--biocode-bg-50);
-  --Footer-bg: var(--biocode-bg-100);
-  --NextProject-bg: var(--biocode-bg-100);
+  --Footer-bg: var(--biocode-light-bg-100);
+  --NextProject-bg: var(--biocode-light-bg-100);
   --Figure-placeholder-bg: var(--biocode-bg-100);
   --Figure-glare-opacity: 0.05;
   --Info-text: var(--text-900);
   --Subtitle-text: var(--biocode-primary-text);
 
-  --border-100: var(--biocode-border);
-  --border-950: var(--biocode-border);
+  --border-100: var(--biocode-border-50);
+  --border-950: var(--biocode-border-50);
   --link: var(--biocode-text-950);
   --text-900: var(--biocode-text-900);
   --text-950: var(--biocode-text-950);
@@ -28,5 +28,23 @@
       var(--biocode-bg-50),
       var(--biocode-bg-100)
     );
+  }
+
+  .Template-software {
+    --Template-area-bg: var(--biocode-light-bg-100);
+    --Figure-placeholder-bg: var(--biocode-light-bg-300);
+    --Figure-glare-opacity: 0.5;
+    --Subtitle-text: var(--biocode-light-primary-text);
+
+    --border-100: var(--biocode-light-border-100);
+    --border-950: var(--biocode-light-border-100);
+
+    --heading: var(--biocode-light-heading);
+    --text-900: var(--biocode-light-text-900);
+    --text-950: var(--biocode-light-text-950);
+  }
+
+  .Template-software-hero {
+    --Template-area-bg: var(--biocode-bg-100);
   }
 }

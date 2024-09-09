@@ -1,4 +1,9 @@
-import { BiocodeBrandAndWebsite, BiocodeDesignSystem, BiocodeHero } from './';
+import {
+  BiocodeBrandAndWebsite,
+  BiocodeDesignSystem,
+  BiocodeHero,
+  BiocodeSoftware,
+} from './';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
@@ -28,7 +33,7 @@ export const BiocodePage = ({ images }: PageProps) => {
             clearly communicating environmental values to end customers.
           </>
         }
-        role={['Product design', 'App development', 'Web development']}
+        role={['Product design', 'Software development', 'Web development']}
         smallPrint="Building together with awesome co-workers from Biocode."
         tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
         text={
@@ -39,7 +44,7 @@ export const BiocodePage = ({ images }: PageProps) => {
             of our product.
           </p>
         }
-        type={['Web app', 'Web service', 'Commission']}
+        type={['SaaS', 'Website', 'Branding']}
         year="2020–"
       />
       <TemplateArea pt="2xl-5xl">
@@ -57,6 +62,7 @@ export const BiocodePage = ({ images }: PageProps) => {
       </TemplateArea>
       <BiocodeBrandAndWebsite images={images} />
       <BiocodeDesignSystem images={images} />
+      <BiocodeSoftware images={images} />
       <NextProject id={nextProjectId} />
     </Template>
   );
