@@ -7,8 +7,9 @@ import {
 } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
-import { isBoolean, isEmptyString } from '@/lib/utils';
+import { isBoolean, isBrowser, isEmptyString } from '@/lib/utils';
 import { useApp } from '@/components/App';
+import { useScrollTo } from '@/lib/useScrollTo';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 import NextLink from 'next/link';
@@ -24,7 +25,7 @@ export const LinkRoll = ({
   underline,
   ...props
 }: LinkRollProps) => {
-  const { setTransition } = useApp();
+  const { html, setTransition } = useApp();
   const { active, external, externalTarget } = useUrlState(href);
   const [hover, setHover] = useState(false);
   const characters = children?.split('');
@@ -36,8 +37,15 @@ export const LinkRoll = ({
     'has-underline': underline,
   });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
+  const hasHash = href.startsWith('#');
+  const hash = hasHash && isBrowser && html.querySelector(href);
   const shouldNavigate =
-    Boolean(href) && !external && target != '_blank' && target != '_new';
+    Boolean(href) &&
+    !external &&
+    target != '_blank' &&
+    target != '_new' &&
+    !hasHash;
+  const scrollTo = useScrollTo();
 
   return (
     <ConditionalWrapper
@@ -65,6 +73,7 @@ export const LinkRoll = ({
             !active &&
             templateTransition &&
             setTransition('template');
+          hasHash && scrollTo(hash as HTMLElement);
           onClick && onClick(e);
         }}
         onFocus={() => setHover(true)}
