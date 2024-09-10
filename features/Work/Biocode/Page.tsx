@@ -8,6 +8,7 @@ import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Head } from '@/components/Head';
 import { Info } from '@/components/Info';
+import { Link } from '@/components/Link';
 import { MQ } from '@/lib/config';
 import { NextProject } from '@/components/NextProject';
 import { type PageProps } from '@/types';
@@ -39,9 +40,19 @@ export const BiocodePage = ({ images }: PageProps) => {
         text={
           <p>
             I’m currently working for Biocode as a Lead Product Designer and
-            Front-end Developer. I’m crafting our design system, building our
-            website, developing our software and enhancing the overall direction
-            of our product.
+            Front-end Developer. I’m crafting our{' '}
+            <Link href="#design-system" underline={false}>
+              design system
+            </Link>
+            , building our{' '}
+            <Link href="#brand-and-website" underline={false}>
+              brand and website
+            </Link>
+            , developing our{' '}
+            <Link href="#design-system" underline={false}>
+              software
+            </Link>{' '}
+            and enhancing the overall direction of our product.
           </p>
         }
         type={['SaaS', 'Website', 'Branding']}

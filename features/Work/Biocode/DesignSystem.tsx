@@ -11,7 +11,7 @@ import { Text } from '@/components/Text';
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
     <TemplateArea className="Template-ds-heading" grid={false} pt="2xl-5xl">
-      <Subtitle animate center>
+      <Subtitle animate center className="mb">
         Design system
       </Subtitle>
       <Heading animate center size="h1" tag="h2">
@@ -331,7 +331,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         />
       </div>
       <div className="grid-col grid-col:4@l">
-        <Text animate color="mute" tag="p">
+        <Text animate className="mt mt:0@m" color="mute" tag="p">
           The primary color, a clear blue, symbolizes the sky and our commitment
           to preserving the climate in its natural state. Our main typeface,{' '}
           <em>Space Grotesk</em>, features a custom stylistic set that balances

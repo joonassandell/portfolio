@@ -9,6 +9,16 @@
   margin-top: auto;
 }
 
+.mt\:0 {
+  margin-top: 0;
+
+  @include mq(m) {
+    &\@m {
+      margin-top: 0;
+    }
+  }
+}
+
 .mt {
   margin-top: rem($space);
 }
