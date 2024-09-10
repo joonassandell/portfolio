@@ -1,8 +1,8 @@
-import { m } from 'framer-motion';
+import { type ElementType, useRef } from 'react';
+import { type HTMLMotionProps, m } from 'framer-motion';
 import { type SubtitleProps } from './';
 import { TEXT_VARIANTS } from '@/lib/config';
 import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
 import c from 'clsx';
 
 export const Subtitle = ({
@@ -11,6 +11,7 @@ export const Subtitle = ({
   children,
   className,
   maxWidth = true,
+  tag,
   ...props
 }: SubtitleProps) => {
   const classes = c(
@@ -23,9 +24,12 @@ export const Subtitle = ({
   );
   const ref = useRef(null);
   const inView = useInView(ref);
+  const Tag = tag
+    ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>)
+    : m.div;
 
   return (
-    <m.div
+    <Tag
       className={classes}
       {...(animate && {
         animate: inView ? 'animate' : '',
@@ -36,6 +40,6 @@ export const Subtitle = ({
       {...props}
     >
       {children}
-    </m.div>
+    </Tag>
   );
 };
