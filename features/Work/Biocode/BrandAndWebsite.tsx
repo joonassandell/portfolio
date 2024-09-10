@@ -12,7 +12,7 @@ import { Text } from '@/components/Text';
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <section id="brand-and-website">
     <TemplateArea grid={false} pt="2xl-5xl">
-      <Subtitle animate center className="mb">
+      <Subtitle animate center>
         New brand & website
       </Subtitle>
       <Heading animate center size="h1" tag="h2">
@@ -146,7 +146,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea grid={false} pt="2xl-5xl">
-      <Subtitle animate center className="mb">
+      <Subtitle animate center>
         New brand & website
       </Subtitle>
       <Heading animate center size="h2">

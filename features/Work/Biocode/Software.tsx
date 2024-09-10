@@ -1,13 +1,17 @@
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
+import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
 import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
+import { useParallax } from '@/lib/useParallax';
 
 export const BiocodeSoftware = ({ images }: PageProps) => {
+  const { ref, value: y } = useParallax({ speed: 'slow' });
+
   return (
     <section className="Template-software">
       <TemplateArea
@@ -28,7 +32,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         />
       </TemplateArea>
       <TemplateArea grid={false} id="software" pt="2xl-5xl">
-        <Subtitle animate center className="mb">
+        <Subtitle animate center>
           The Software
         </Subtitle>
         <Heading animate center size="h1" tag="h2">
@@ -42,13 +46,14 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           clarity.
         </Text>
       </TemplateArea>
-      <TemplateArea grid={false} pt="2xl-5xl">
+      <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
         <Figure
           alt="Biocode software collection"
           animate={false}
           background="var(--biocode-light-bg-300)"
           border
           borderRadius="var(--border-radius-l)"
+          className="grid-col"
           fill="large"
           scroll="mask"
           scrollImageSpeed="medium"
@@ -58,8 +63,42 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           scrollStartPosition={0}
           {...getImage('joonassandell-biocode-software-collection', images)}
         />
+        <m.div className="grid-col grid" ref={ref} style={{ y }}>
+          <div className="grid-col grid-col:6@s grid-col:3@l">
+            <Text animate className="mb:0" tag="p">
+              <Subtitle tag="span">Real-time results</Subtitle>{' '}
+              <Text className="mb:0" color="mute" tag="span">
+                Fast and comprehensive emission breakdown in seconds
+              </Text>
+            </Text>
+          </div>
+          <div className="grid-col grid-col:6@s grid-col:3@l">
+            <Text animate className="mb:0" tag="p">
+              <Subtitle tag="span">GHG Protocol</Subtitle>{' '}
+              <Text className="mb:0" color="mute" tag="span">
+                Scope 1–3 emissions including location/market-based emissions
+              </Text>
+            </Text>
+          </div>
+          <div className="grid-col grid-col:6@s grid-col:3@l">
+            <Text animate className="mb:0" tag="p">
+              <Subtitle tag="span">Emission factor database</Subtitle>{' '}
+              <Text className="mb:0" color="mute" tag="span">
+                Large ready-to-use emission factors at your fingertips
+              </Text>
+            </Text>
+          </div>
+          <div className="grid-col grid-col:6@s grid-col:3@l">
+            <Text animate className="mb:0" tag="p">
+              <Subtitle tag="span">Various features</Subtitle>{' '}
+              <Text className="mb:0" color="mute" tag="span">
+                Sharing emissions data, suggestions and tips, customization…
+              </Text>
+            </Text>
+          </div>
+        </m.div>
       </TemplateArea>
-      <TemplateArea gridRowGap="m" pt="l">
+      <TemplateArea gridRowGap="m" pt="l-2xl">
         <div className="grid-col grid-col:4@l -start:1@l">
           <Heading animate size="h5" tag="h3">
             Continuous UX research to match user needs
@@ -103,7 +142,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             approach, selecting the best components and solutions for each use
             case to optimize clarity and accessibility, for example:
           </Text>
-          <Text animate color="mute">
+          <Text animate className="mb:0" color="mute" tag="p">
             <ul>
               <li>
                 Notice the subtle differences in spacings; currently spacings

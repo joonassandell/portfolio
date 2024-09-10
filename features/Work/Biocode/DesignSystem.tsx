@@ -11,7 +11,7 @@ import { Text } from '@/components/Text';
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
     <TemplateArea className="Template-ds-heading" grid={false} pt="2xl-5xl">
-      <Subtitle animate center className="mb">
+      <Subtitle animate center>
         Design system
       </Subtitle>
       <Heading animate center size="h1" tag="h2">
