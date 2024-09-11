@@ -49,7 +49,7 @@ export const BiocodePage = ({ images }: PageProps) => {
               brand and website
             </Link>
             , developing our{' '}
-            <Link href="#design-system" underline={false}>
+            <Link href="#software" underline={false}>
               software
             </Link>{' '}
             and enhancing the overall direction of our product.

@@ -282,7 +282,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         </div>
       </div>
       <div className="grid-col grid-col:8@m -start:5@m grid-col:4@l -start:9@l">
-        <Heading animate size="h5" tag="h3">
+        <Heading animate maxWidth size="h5" tag="h3">
           Distinguishing key areas with symbols
         </Heading>
         <Text animate className="mb:xs" color="mute" tag="p">
@@ -301,7 +301,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-colors', images)}
         />
-        <Heading animate className="mt:l" size="h5" tag="h3">
+        <Heading animate className="mt:l" maxWidth size="h5" tag="h3">
           Reflecting brand identity with typography and color tokens
         </Heading>
         <Text animate className="mb mb:0@m" color="mute" tag="p">
