@@ -5,7 +5,7 @@
   @include text(m);
   align-items: center;
   background: var(--Button-bg, var(--bg-50));
-  border: var(--border-width) solid transparent;
+  border: var(--border-width) solid var(--Button-border, transparent);
   border-radius: var(--Button-radius, var(--border-radius-pill));
   box-shadow: var(--Button-shadow, var(--shadow));
   color: var(--Button-text, var(--text-950));
