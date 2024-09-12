@@ -1,7 +1,7 @@
 import { forwardRef, type RefObject, useRef } from 'react';
 import { type HeadingProps } from './';
 import { m } from 'framer-motion';
-import { TEXT_VARIANTS } from '@/lib/config';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { useInView } from '@/lib/useInView';
 import c from 'clsx';
 
@@ -44,7 +44,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
         {...(animate && {
           animate: inView ? 'animate' : '',
           initial: 'initial',
-          variants: TEXT_VARIANTS,
+          variants: MOVE_IN_VARIANTS,
         })}
         {...props}
       >

@@ -94,8 +94,6 @@
   }
 
   .Template-badges {
-    display: flex;
-    gap: rem($space-s);
     padding: 0 var(--wrap-space-right) rem($space-xs) var(--wrap-space-left);
   }
 }

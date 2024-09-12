@@ -1,7 +1,7 @@
 import { type ElementType, useRef } from 'react';
 import { type HTMLMotionProps, m } from 'framer-motion';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type SubtitleProps } from './';
-import { TEXT_VARIANTS } from '@/lib/config';
 import { useInView } from '@/lib/useInView';
 import c from 'clsx';
 
@@ -35,7 +35,7 @@ export const Subtitle = ({
         animate: inView ? 'animate' : '',
         initial: 'initial',
         ref,
-        variants: TEXT_VARIANTS,
+        variants: MOVE_IN_VARIANTS,
       })}
       {...props}
     >

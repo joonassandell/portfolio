@@ -3,12 +3,12 @@ import {
   CLIP_VARIANTS,
   type FigureProps,
   GLARE_VARIANTS,
-  MOVE_VARIANTS,
   PLACEHOLDER_GLARE_VARIANTS,
   PLACEHOLDER_VARIANTS,
 } from './';
 import { forwardRef, type RefObject, useRef, useState } from 'react';
 import { isString } from '@/lib/utils';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { default as NextImage } from 'next/image';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useParallax } from '@/lib/useParallax';
@@ -72,7 +72,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef;
     const figureVariants =
-      transition === 'move' ? MOVE_VARIANTS : CLIP_VARIANTS;
+      transition === 'move' ? MOVE_IN_VARIANTS : CLIP_VARIANTS;
     const inView = useInView(ref, inViewOffset);
     const [imgLoaded, setImgLoaded] = useState(false);
     const [glareEnd, setGlareEnd] = useState(false);
@@ -129,6 +129,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
             animate: inView ? 'animate' : '',
             initial: 'initial',
             variants: figureVariants,
+            ...(transition === 'move' && { custom: { skewYdelay: 0.1 } }),
           })}
         >
           <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>

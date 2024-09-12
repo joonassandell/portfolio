@@ -45,7 +45,7 @@ export const MilestonesPage = () => {
         <MilestonesLine />
       </TemplateArea>
       <TemplateArea aria-hidden className="pr:0 pl:0" grid={false} pt="base">
-        <div className="Template-badges scrollbar">
+        <div className="Template-badges flex gap:s scrollbar">
           {objectEntries(CATEGORY_NAME_SHORT).map(([category, name]) => {
             return (
               <Badge beacon={CATEGORY_COLOR[category]} key={category}>

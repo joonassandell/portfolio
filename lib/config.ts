@@ -164,8 +164,8 @@ export const FADE_OUT_VARIANTS: Readonly<Variants> = {
   },
 };
 
-export const TEXT_VARIANTS: Readonly<Variants> = {
-  animate: ({ delay = 0 } = {}) => ({
+export const MOVE_IN_VARIANTS: Readonly<Variants> = {
+  animate: ({ delay = 0, skewYdelay = 0 } = {}) => ({
     opacity: 1,
     skewY: 0,
     transition: {
@@ -174,6 +174,10 @@ export const TEXT_VARIANTS: Readonly<Variants> = {
       opacity: {
         ...TRANS_TERTIARY,
         ...(delay && { delay }),
+      },
+      skewY: {
+        ...TRANS_TERTIARY,
+        ...((delay || skewYdelay) && { delay: skewYdelay ?? delay }),
       },
     },
     y: 0,

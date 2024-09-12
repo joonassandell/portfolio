@@ -5,7 +5,7 @@ import { Hr } from '@/components/Hr';
 import { type InfoProps } from './';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
-import { MQ, TEXT_VARIANTS } from '@/lib/config';
+import { MOVE_IN_VARIANTS, MQ } from '@/lib/config';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';
 import { useMedia } from 'react-use';
@@ -54,7 +54,7 @@ export const Info = ({
           <div className="grid">
             <m.div
               className="grid -gap:column:0 -gap:row:l grid-col grid-col:6 grid-col:9@m grid-col:5@l"
-              variants={TEXT_VARIANTS}
+              variants={MOVE_IN_VARIANTS}
             >
               <div className="grid-col grid-col:4@m grid-col:12@l">
                 <Text className="mb:2xs" color="mute" size="s" tag="p">
@@ -106,7 +106,7 @@ export const Info = ({
             </m.div>
             <m.div
               className="grid -gap:column:0 grid-col grid-col:6 grid-col:4@s grid-col:3@m grid-col:5@l"
-              variants={TEXT_VARIANTS}
+              variants={MOVE_IN_VARIANTS}
             >
               <div className="grid-col">
                 <Text className="mb:2xs" color="mute" size="s">
@@ -168,7 +168,7 @@ export const Info = ({
           custom={{ delay: mqL ? 0.4 : 0 }}
           initial="initial"
           ref={tocRef}
-          variants={TEXT_VARIANTS}
+          variants={MOVE_IN_VARIANTS}
         >
           <div className="grid-col -start:7@l flex gap">
             <div className="Info-toc flex gap">

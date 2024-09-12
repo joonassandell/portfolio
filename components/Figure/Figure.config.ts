@@ -1,7 +1,6 @@
 import {
   EASE_TERTIARY,
   TRANS_TERTIARY,
-  TRANS_TERTIARY_FAST,
   TRANS_TERTIARY_FASTEST,
 } from '@/lib/config';
 import { type Variants } from 'framer-motion';
@@ -21,26 +20,6 @@ export const CLIP_VARIANTS: Readonly<Variants> = {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)', // [1.]
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // [2.]
     scale: 1.07,
-  },
-};
-
-export const MOVE_VARIANTS: Readonly<Variants> = {
-  animate: {
-    opacity: 1,
-    skewY: 0,
-    transition: {
-      ...TRANS_TERTIARY_FAST,
-      skewY: {
-        ...TRANS_TERTIARY,
-        delay: 0.1,
-      },
-    },
-    y: 0,
-  },
-  initial: {
-    opacity: 0,
-    skewY: 5,
-    y: '5rem',
   },
 };
 

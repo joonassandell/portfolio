@@ -1,6 +1,6 @@
 import { type ElementType, useRef } from 'react';
 import { type HTMLMotionProps, m } from 'framer-motion';
-import { TEXT_VARIANTS } from '@/lib/config';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type TextProps } from './';
 import { useInView } from '@/lib/useInView';
 import c from 'clsx';
@@ -47,7 +47,7 @@ export const Text = ({
         animate: inView ? 'animate' : '',
         initial: 'initial',
         ref,
-        variants: TEXT_VARIANTS,
+        variants: MOVE_IN_VARIANTS,
       })}
       {...props}
     >
