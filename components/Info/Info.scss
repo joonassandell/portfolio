@@ -14,3 +14,12 @@
 .Info-text {
   color: var(--Info-text, currentColor);
 }
+
+.Info-toc {
+  padding: var(--border-width-m) var(--wrap-space-right) var(--border-width-m)
+    var(--wrap-space-left);
+
+  @include mq(l) {
+    padding-left: 0;
+  }
+}
