@@ -40,13 +40,13 @@ export const BiocodePage = ({ images }: PageProps) => {
         text={
           <p>
             I’m currently working for Biocode as a Lead Product Designer and
-            Front-end Developer. I’m crafting our{' '}
-            <Link href="#design-system" underline={false}>
-              design system
-            </Link>
-            , building our{' '}
+            Front-end Developer. I’m building our{' '}
             <Link href="#brand-and-website" underline={false}>
               brand and website
+            </Link>
+            , crafting our{' '}
+            <Link href="#design-system" underline={false}>
+              design system
             </Link>
             , developing our{' '}
             <Link href="#software" underline={false}>
@@ -55,6 +55,20 @@ export const BiocodePage = ({ images }: PageProps) => {
             and enhancing the overall direction of our product.
           </p>
         }
+        toc={[
+          {
+            href: '#brand-and-website',
+            text: 'Brand & Website',
+          },
+          {
+            href: '#design-system',
+            text: 'Design System',
+          },
+          {
+            href: '#software',
+            text: 'Software',
+          },
+        ]}
         type={['SaaS', 'Website', 'Branding']}
         year="2020–"
       />

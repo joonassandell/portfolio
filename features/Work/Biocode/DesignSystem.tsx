@@ -124,12 +124,12 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       <div className="grid-col grid-col:4 grid-col:3@s grid -gap:column:0 -align:end">
         <div className="grid-col">
           <Figure
-            alt="Biocode design system donut component"
+            alt="Biocode design system radial chart component"
             border
             borderStyle="dashed"
             quality={100}
-            sizes={`${MQ.s} 33vw, 25vw`}
-            {...getImage('joonassandell-biocode-design-system-donut', images)}
+            sizes={`${MQ.s} 25vw, 33vw`}
+            {...getImage('joonassandell-biocode-design-system-radial', images)}
           />
         </div>
         <div className="grid-col visible@s">
@@ -198,21 +198,18 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <div className="grid-col grid-col:7@s grid-col:12@l grid -align:end">
           <div className="grid-col grid-col:8">
             <Figure
-              alt="Biocode design system radial chart"
+              alt="Biocode design system donut chart component"
               border
               borderStyle="dashed"
               quality={100}
               sizes={`${MQ.l} 20vw, ${MQ.s} 40vw, 60vw`}
-              {...getImage(
-                'joonassandell-biocode-design-system-radial',
-                images,
-              )}
+              {...getImage('joonassandell-biocode-design-system-donut', images)}
             />
           </div>
           <div className="grid-col grid-col:4 grid -gap:column:0">
             <div className="grid-col">
               <Figure
-                alt="Biocode design system donut chart"
+                alt="Biocode design system donut chart component"
                 border
                 borderStyle="dashed"
                 quality={100}
@@ -225,7 +222,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
             </div>
             <div className="grid-col">
               <Figure
-                alt="Biocode design system donut chart"
+                alt="Biocode design system donut chart component"
                 border
                 borderStyle="dashed"
                 quality={100}

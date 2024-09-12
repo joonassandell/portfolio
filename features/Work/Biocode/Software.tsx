@@ -91,14 +91,14 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             <Text animate className="mb:0" tag="p">
               <Subtitle tag="span">Essentials</Subtitle>{' '}
               <Text className="mb:0" color="mute" tag="span">
-                Sharing emissions data, suggestions, helpful tips, scenarios,
+                Emission sharing, suggestions, tips, scenarios, comparison,
                 customization…
               </Text>
             </Text>
           </div>
         </m.div>
       </TemplateArea>
-      <TemplateArea gridRowGap="m" pt="l-2xl">
+      <TemplateArea pt="l-2xl">
         <div className="grid-col grid-col:4@l">
           <Heading animate maxWidth size="h5" tag="h3">
             Continuous UX research to match user needs
@@ -158,7 +158,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           </Text>
         </div>
       </TemplateArea>
-      <TemplateArea gridRowGap="m" pt="2xl-5xl">
+      <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:8@m grid-col:7@l grid">
           <Figure
             alt="Calculation example card"
@@ -183,14 +183,13 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
               Designing emissions calculation for clarity and instant insights
             </Heading>
             <Text animate className="mb:0" color="mute" tag="p">
-              Our goal is to provide a comfortable user experience with clear
-              navigation and data structure, while the platform manages
-              complexity in the background. With real-time updates to emission
-              values and detailed breakdowns for each LCA stage, users can feel
-              encouraged by the progress they’ve made, even after entering just
-              a single input. Main action buttons, and other elements are placed
-              for easy discovery, while onboarding includes example calculations
-              to help users getting started with the software.
+              Our goal is to make the user comfortable with clear navigation and
+              data structure. With real-time updates to emission values and
+              detailed breakdowns for each LCA stage, users can feel encouraged
+              by the progress they’ve made, even after entering just a single
+              input. Main actions, and other elements are placed for easy
+              discovery, while onboarding includes example calculations to help
+              users getting started with the software.
             </Text>
           </div>
           <Figure
@@ -206,12 +205,12 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         </div>
         <div className="grid-col grid-col:8@m -start:3@m grid-col:5@l -start:1@l grid -gap:row:l">
           <Text animate className="mb:0 grid-col" color="mute" tag="p">
-            We ensured that users can easily move between views, always knowing
-            where they are in the process. We investigated that organizing the
-            data from stage to yearly-based views was clearly the best method to
-            understand the calculation structure. This structure also creates a
-            low-level stage- and result-based comparison possibility for
-            calculations of different years.
+            We wanted to make sure that users can easily move between views,
+            always knowing where they are in the process. We investigated that
+            organizing the data from stage to yearly-based views was clearly the
+            best method to understand the calculation structure. This structure
+            also creates a low-level stage- and result-based comparison
+            possibility for calculations of different years.
           </Text>
           <Figure
             alt="Product LCA stage navigation"
@@ -235,36 +234,51 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             )}
           />
         </div>
-        <div className="grid-col grid-col:10@m">
+        <div className="grid-col">
           <Figure
             alt="Product production LCA stage page"
             border
-            sizes={`${MQ.m} 70vw, 100vw`}
             {...getImage(
               'joonassandell-biocode-software-product-production',
               images,
             )}
           />
         </div>
-        <div className="grid-col grid-col:10@m -end">
+        <div className="grid-col grid-col:8@l -en">
           <Figure
             alt="Scope 2 LCA stage page"
             border
-            sizes={`${MQ.m} 70vw, 100vw`}
+            sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
             {...getImage(
               'joonassandell-biocode-software-company-scope-2',
               images,
             )}
           />
         </div>
+        <div className="grid-col grid-col:4@l">
+          <Text animate className="mb:0" color="mute" tag="p">
+            A key focus for us is making carbon footprint calculations as
+            seamless as possible. To support this, we’ve integrated help
+            buttons, tips, and other useful elements throughout the platform.
+            For instance, each emission factor in Biocode includes detailed
+            information on how it was formed, helping users better understand
+            the data behind their calculations.
+          </Text>
+        </div>
       </TemplateArea>
-      <TemplateArea gridRowGap="m" pb="2xl-5xl" pt="2xl-5xl">
+      <TemplateArea pb="2xl-5xl" pt="2xl-5xl">
         <div className="grid-col grid-col:4@l">
           <Heading animate size="h5" tag="h3">
-            Results
+            In-depth carbon footprint insights
           </Heading>
           <Text animate className="mb:0" color="mute" tag="p">
-            Write about the results.
+            The results section presents a detailed view of emissions, broken
+            down by various life cycle stages, including <em>cradle-to-gate</em>{' '}
+            and <em>cradle-to-cradle</em>. Illustrations distinguish between
+            different LCA stages, making it easy to interpret the data. Users
+            can also view their product's yearly progress analysis, use the
+            comparison feature to track improvements, and explore emissions
+            details by category or specific emissions.
           </Text>
         </div>
         <div className="grid-col grid-col:10@m grid-col:8@l">

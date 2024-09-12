@@ -1,3 +1,4 @@
+@use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
 .Template--biocode {
@@ -8,6 +9,14 @@
   --Figure-glare-opacity: 0.05;
   --Info-text: var(--text-900);
   --Subtitle-text: var(--biocode-primary-text);
+
+  --Button-bg: var(--biocode-bg-200);
+  --Button-text: var(--biocode-text-950);
+  --Button-shadow: none;
+  --Button-border: var(--biocode-border-50);
+  --Button-hover-bg: var(--biocode-bg-200);
+  --Button-hover-border: var(--biocode-border-200);
+  --Button-hover-text: var(--biocode-primary-text);
 
   --border-100: var(--biocode-border-50);
   --border-950: var(--biocode-border-50);
