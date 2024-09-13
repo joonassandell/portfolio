@@ -119,7 +119,7 @@ export const AboutIntro = () => {
           <Figure
             alt="Joonas Sandell profile picture"
             animate={false}
-            borderRadius="var(--border-radius-pill)"
+            borderRadius="var(--border-radius-full)"
             className="Template-profile"
             scroll="mask"
             scrollMaxClientHeight={mqS ? 800 : 480}

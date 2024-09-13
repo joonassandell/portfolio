@@ -20,7 +20,7 @@ export const Avatar = ({
           {...image}
           alt={image.alt}
           animate={false}
-          borderRadius="var(--border-radius-pill)"
+          borderRadius="var(--border-radius-full)"
           className="Avatar-figure"
           sizes={`${MQ['2xl']} 5rem, 3rem`}
         />

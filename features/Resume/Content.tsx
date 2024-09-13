@@ -15,7 +15,7 @@ export const ResumeContent = () => (
     <Figure
       alt="Joonas Sandell profile picture"
       animate={false}
-      borderRadius="var(--border-radius-pill)"
+      borderRadius="var(--border-radius-full)"
       className="Template-profileMobile mb:m hidden@m"
       priority
       sizes="25vw"
@@ -60,7 +60,7 @@ export const ResumeContent = () => (
           <Figure
             alt="Biocode logomark"
             animate={false}
-            borderRadius="var(--border-radius-pill)"
+            borderRadius="var(--border-radius-full)"
             className="Template-stepper-image"
             inline
             sizes="3rem"
@@ -136,7 +136,7 @@ export const ResumeContent = () => (
           <Figure
             alt="Mediasignal logomark"
             animate={false}
-            borderRadius="var(--border-radius-pill)"
+            borderRadius="var(--border-radius-full)"
             className="Template-stepper-image"
             inline
             sizes="3rem"

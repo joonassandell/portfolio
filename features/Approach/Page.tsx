@@ -136,7 +136,7 @@ export const ApproachPage = () => {
         <div className="Template-profile grid-col grid-col:4@l visible@l">
           <Figure
             alt="Joonas Sandell profile picture"
-            borderRadius="var(--border-radius-pill)"
+            borderRadius="var(--border-radius-full)"
             inViewOffset={-1}
             scroll="mask"
             scrollMaxClientHeight={560}

@@ -12,7 +12,7 @@ export const ResumeAside = () => (
     <Figure
       alt="Joonas Sandell profile picture"
       animate={false}
-      borderRadius="var(--border-radius-pill)"
+      borderRadius="var(--border-radius-full)"
       className="Template-profile mb:l visible@m"
       priority
       sizes="15vw"
