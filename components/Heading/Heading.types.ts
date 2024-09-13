@@ -2,6 +2,9 @@ import { type HTMLMotionProps } from 'framer-motion';
 import { type TagGeneric, type TagHeading } from '@/types';
 
 export interface HeadingProps extends HTMLMotionProps<TagHeading | TagGeneric> {
-  size?: TagHeading | 'display';
+  animate?: boolean;
+  center?: boolean;
+  maxWidth?: boolean;
+  size?: TagHeading | 'xl' | 'l';
   tag?: TagHeading | TagGeneric;
 }

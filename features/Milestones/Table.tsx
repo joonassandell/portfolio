@@ -17,6 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/Table';
+import { Text } from '@/components/Text';
 
 export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
   return (
@@ -36,16 +37,22 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
           <Fragment key={year}>
             <TableRow background="var(--bg-100)">
               <TableCell colSpan={3}>
-                <Badge variant="negative">{year}</Badge>
+                <Badge variant="dark">{year}</Badge>
               </TableCell>
             </TableRow>
             {MILESTONES_GROUPED[year].map(m => (
               <TableRow href={m.url} key={m.event}>
                 <TableCell>
-                  {m.url ? <Link href={m.url}>{m.event}</Link> : m.event}
-                  <div className="color:mute hidden@m">
-                    {m.categoryName} {' ✳︎ '} {formatDate(m.date)}
-                  </div>
+                  {m.url ? (
+                    <Link className="mb:2xs" href={m.url}>
+                      {m.event}
+                    </Link>
+                  ) : (
+                    m.event
+                  )}
+                  <Text className="mb:0 hidden@m" color="mute" size="s" tag="p">
+                    {m.categoryName} ✳︎ {formatDate(m.date)}
+                  </Text>
                 </TableCell>
                 <TableCell className="visible@m white-space:nowrap">
                   <Badge beacon={CATEGORY_COLOR[m.category]}>

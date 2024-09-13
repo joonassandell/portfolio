@@ -12,13 +12,6 @@
 }
 
 .SubInfo-ruler {
-  margin-bottom: rem($space-ml);
-  transform-origin: top left;
-
-  @include mq(s) {
-    margin-bottom: rem($space-xl);
-  }
-
   @include mq(l) {
     max-width: 25%;
   }

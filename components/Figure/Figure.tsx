@@ -1,14 +1,14 @@
 import { AnimatePresence, m } from 'framer-motion';
 import {
-  clipVariants,
+  CLIP_VARIANTS,
   type FigureProps,
-  glareVariants,
-  moveVariants,
-  placeholderGlareVariants,
-  placeholderVariants,
+  GLARE_VARIANTS,
+  PLACEHOLDER_GLARE_VARIANTS,
+  PLACEHOLDER_VARIANTS,
 } from './';
 import { forwardRef, type RefObject, useRef, useState } from 'react';
 import { isString } from '@/lib/utils';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { default as NextImage } from 'next/image';
 import { useInView, useInViewVideo } from '@/lib/useInView';
 import { useParallax } from '@/lib/useParallax';
@@ -22,7 +22,9 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       background,
       border,
       borderRadius = true,
+      borderStyle,
       className,
+      fill,
       glare,
       height,
       id,
@@ -34,12 +36,15 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       quality,
       scroll,
       scrollImageSpeed = 'fast',
+      scrollImageStartPosition,
+      scrollImageStartPositionMultiplier,
       scrollMaxClientHeight,
       scrollOffset,
       scrollReverse,
       scrollSpeed,
       scrollSpeedMultiplier,
       scrollStartPosition = 'negative',
+      scrollStartPositionMultiplier,
       sizes = '100vw',
       src,
       transition = 'move',
@@ -52,21 +57,25 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const mask = scroll === 'mask';
     const negativeStartPosition =
       scrollStartPosition === 'negative' && scrollOffset != 'start-start';
+    const video = src && src.indexOf('mp4') > -1;
     const classes = c(className, 'Figure', {
       '-bg': background,
       '-border': border,
-      '-border:radius': borderRadius,
+      '-border:dashed': borderStyle === 'dashed',
+      '-border:radius:0': !borderRadius,
+      '-fill:l': fill === 'large',
       '-inline': inline,
-      '-mask': mask,
+      '-transition:clip': transition === 'clip',
+      '-video': video,
     });
     id = id ?? src?.split('/')?.pop()?.split('.')[0];
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef;
-    const figureVariants = transition === 'move' ? moveVariants : clipVariants;
+    const figureVariants =
+      transition === 'move' ? MOVE_IN_VARIANTS : CLIP_VARIANTS;
     const inView = useInView(ref, inViewOffset);
     const [imgLoaded, setImgLoaded] = useState(false);
     const [glareEnd, setGlareEnd] = useState(false);
-    const isVideo = src && src.indexOf('mp4') > -1;
     const refVideo = useRef(null);
     useInViewVideo(refVideo, inViewOffset);
 
@@ -78,6 +87,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       speed: scrollSpeed,
       speedMultiplier: scrollSpeedMultiplier,
       startPosition: negativeStartPosition ? scrollStartPosition : 0,
+      startPositionMultiplier: scrollStartPositionMultiplier,
     });
 
     const { value: maskY } = useParallax({
@@ -87,7 +97,10 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       reverse: true,
       speed: scrollImageSpeed,
       speedMultiplier: scrollSpeedMultiplier,
-      startPosition: negativeStartPosition ? scrollStartPosition : 0,
+      startPosition:
+        scrollImageStartPosition ??
+        (negativeStartPosition ? scrollStartPosition : 0),
+      startPositionMultiplier: scrollImageStartPositionMultiplier,
     });
 
     // Stop caching images in development, uncomment if you keep testing new images
@@ -110,44 +123,45 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           ...props.style,
         }}
       >
-        <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
-          <m.div
-            className="Figure-figure-main"
-            {...(animate && {
-              animate: inView ? 'animate' : '',
-              initial: 'initial',
-              variants: figureVariants,
-            })}
-          >
+        <m.div
+          className="Figure-main"
+          {...(animate && {
+            animate: inView ? 'animate' : '',
+            initial: 'initial',
+            variants: figureVariants,
+            ...(transition === 'move' && { custom: { skewYdelay: 0.1 } }),
+          })}
+        >
+          <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
             {glare && !glareEnd && (
               <m.div
                 className="Figure-glare"
                 onAnimationComplete={() => setGlareEnd(true)}
-                variants={glareVariants}
+                variants={GLARE_VARIANTS}
               />
             )}
-            {!isVideo && placeholder && (
+            {!video && placeholder && (
               <AnimatePresence>
                 {!imgLoaded && (
                   <m.div
                     className="Figure-placeholder"
                     exit="exit"
-                    variants={placeholderVariants}
+                    variants={PLACEHOLDER_VARIANTS}
                   >
                     <m.div
                       animate={inView ? 'animate' : false}
                       className="Figure-placeholder-glare"
-                      variants={placeholderGlareVariants}
+                      variants={PLACEHOLDER_GLARE_VARIANTS}
                     />
                   </m.div>
                 )}
               </AnimatePresence>
             )}
-            {!isVideo && (
+            {!video && (
               <NextImage
                 alt={alt}
                 className="Figure-img"
-                draggable="false"
+                draggable={false}
                 height={height}
                 loading={loading}
                 onLoad={() => setImgLoaded(true)}
@@ -157,9 +171,11 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 src={src}
                 unoptimized={unoptimized}
                 width={width}
+                // Fix possible leaking image under the placeholder
+                {...(!imgLoaded && { style: { opacity: 0 } })}
               />
             )}
-            {isVideo && (
+            {video && (
               <video
                 className="Figure-video"
                 loop
@@ -170,9 +186,9 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
                 <source src={src} />
               </video>
             )}
-            {isVideo && <figcaption className="hideVisually">{alt}</figcaption>}
-          </m.div>
-        </m.figure>
+            {video && <figcaption className="hideVisually">{alt}</figcaption>}
+          </m.figure>
+        </m.div>
       </m.div>
     );
   },

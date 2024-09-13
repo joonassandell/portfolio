@@ -2,19 +2,13 @@ import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { MQ } from '@/lib/config';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import lineBall from '@/public/images/line-ball.png';
 
 export const AboutClients = () => (
-  <TemplateSection
-    className="Template-clients"
-    gridGap="m"
-    gridRowGap="m"
-    id="clients"
-    pt="10vw"
-  >
+  <TemplateArea className="Template-clients" id="clients" pt="2xl-5xl">
     <Figure
       alt="Line ball"
       aria-hidden="true"
@@ -26,9 +20,9 @@ export const AboutClients = () => (
       {...lineBall}
     />
     <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m -start:7@m">
-      <Hr className="mb:l" />
+      <Hr className="mb:ml" />
       <Heading size="h3">
-        <TextReveal text={['My clients']} />
+        <TextReveal text={['Clients']} />
       </Heading>
       {/* prettier-ignore */}
       <Text animate>
@@ -74,5 +68,5 @@ export const AboutClients = () => (
         VR Group
       </Text>
     </div>
-  </TemplateSection>
+  </TemplateArea>
 );

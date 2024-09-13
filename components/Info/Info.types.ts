@@ -1,3 +1,4 @@
+import { type ButtonProps } from '@/components/Button';
 import { type ReactNode } from 'react';
 
 export interface InfoProps {
@@ -5,11 +6,12 @@ export interface InfoProps {
     href?: string;
     name: string;
   };
-  heading: string;
+  heading: ReactNode;
   role: string[];
   smallPrint?: string;
   tech?: string[];
-  text: string | ReactNode;
+  text: ReactNode;
+  toc?: (Pick<ButtonProps, 'href'> & { text: string })[];
   type: string[];
   year: string | number;
 }

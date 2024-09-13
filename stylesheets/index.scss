@@ -47,16 +47,17 @@
   @include use('components/Link');
   @include use('components/LinkRoll');
   @include use('components/NextProject');
+  @include use('components/Quote');
   @include use('components/SomeIcons');
   @include use('components/Splash');
   @include use('components/Stamp');
   @include use('components/Stepper');
   @include use('components/SubInfo');
+  @include use('components/Subtitle');
   @include use('components/Table');
   @include use('components/Template');
   @include use('components/Text');
   @include use('components/TextReveal');
-  @include use('components/Quote');
 }
 
 @include use('features/404');

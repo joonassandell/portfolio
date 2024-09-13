@@ -5,18 +5,66 @@
  * Margin top
  * ======================================= */
 
-.mt\:s {
-  margin-top: rem($space-s);
+.mt\:0 {
+  margin-top: 0;
 
-  @include mq(s) {
-    &\@s {
-      margin-top: rem($space-s);
+  @include mq(m) {
+    &\@m {
+      margin-top: 0;
     }
   }
 }
 
-.mt\:xl {
-  margin-top: rem($space-xl);
+.mt\:xs {
+  margin-top: rem($space-xs);
+}
+
+.mt\:ml {
+  margin-top: rem($space-ml);
+}
+
+.mt\:-2xl {
+  @include mq(m) {
+    &\@m {
+      margin-top: rem($space-2xl * -1);
+    }
+  }
+}
+
+.mt\:2xl {
+  margin-top: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      margin-top: rem($space-2xl);
+    }
+  }
+}
+
+.mt\:-6xl {
+  margin-top: rem($space-6xl * -1);
+
+  @include mq(l) {
+    &\@l {
+      margin-top: rem($space-6xl * -1);
+    }
+  }
+}
+
+.mt\:6xl {
+  margin-top: rem($space-6xl);
+}
+
+.mt\:auto {
+  margin-top: auto;
+}
+
+/* =======================================
+ * Margin right
+ * ======================================= */
+
+.mr\:auto {
+  margin-right: auto;
 }
 
 /* =======================================
@@ -26,8 +74,8 @@
 .mb\:0 {
   margin-bottom: 0;
 
-  @include mq($until: l) {
-    &\@until\:l {
+  @include mq(m) {
+    &\@m {
       margin-bottom: 0;
     }
   }
@@ -61,14 +109,42 @@
 
 .mb\:ml {
   margin-bottom: rem($space-ml);
+
+  @include mq(m) {
+    &\@m {
+      margin-bottom: rem($space-ml);
+    }
+  }
 }
 
 .mb\:l {
   margin-bottom: rem($space-l);
+
+  @include mq(l) {
+    &\@l {
+      margin-bottom: rem($space-l);
+    }
+  }
 }
 
 .mb\:xl {
   margin-bottom: rem($space-xl);
+
+  @include mq(s) {
+    &\@s {
+      margin-bottom: rem($space-xl);
+    }
+  }
+}
+
+.mb\:2xl {
+  margin-bottom: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      margin-bottom: rem($space-2xl);
+    }
+  }
 }
 
 /* =======================================
@@ -87,4 +163,8 @@
       margin-left: rem($space);
     }
   }
+}
+
+.ml\:auto {
+  margin-left: auto;
 }

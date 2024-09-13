@@ -1,5 +1,5 @@
 import { Heading } from '@/components/Heading';
-import { headingVariants, maskVariants } from './Hero.animations';
+import { HEADING_VARIANTS, MASK_VARIANTS } from './config';
 import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
@@ -21,7 +21,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
   } = SITEMAP.biocode;
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
-  const mqM = useMedia(MQ.m, false);
+  const mqS = useMedia(MQ.s, false);
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
@@ -32,7 +32,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
     <Hero
       className="Hero--biocode"
       heading={`${title} — ${new Date().getFullYear()}`}
-      headingVariants={headingVariants}
+      headingVariants={HEADING_VARIANTS}
       href={url}
       id={id}
       innerRef={ref}
@@ -57,7 +57,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
                     alt="Light globe"
                     draggable="false"
                     priority
-                    quality={mqM ? 80 : 60}
+                    quality={80}
                     sizes={`${MQ.l} 33vw, 50vw`}
                     src={heroImagePre}
                   />
@@ -76,7 +76,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           <m.div
             className="Hero-globe wrap grid -gap:l"
             custom={{ enableInitial: transitionPre }}
-            variants={maskVariants}
+            variants={MASK_VARIANTS}
           >
             <div className={figureClasses}>
               <m.figure
@@ -111,16 +111,19 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           </div>
           {transitionStartOrDefault && (
             <div className="Hero-textReveal wrap">
-              <Heading className="Hero-textReveal-mobile mb:0">
+              <Heading className="mb:0 hidden@s" size="h3" tag="h2">
                 <TextReveal
-                  hidden
-                  text={['We have to', 'reverse global', 'heating']}
+                  animate={!mqS}
+                  custom={{ delay: 0.15 }}
+                  text={['We have ', 'to reverse ', 'global heating']}
                   {...(noTransition && { initial: 'animate' })}
                 />
               </Heading>
-              <Heading className="Hero-textReveal-desktop mb:0">
+              <Heading className="mb:0 visible@s" size="h1" tag="h2">
                 <TextReveal
-                  text={['We have to reverse', 'global heating']}
+                  animate={mqS}
+                  custom={{ delay: 0.15 }}
+                  text={['We have to reverse ', 'global heating']}
                   {...(noTransition && { initial: 'animate' })}
                 />
               </Heading>
@@ -136,7 +139,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           <m.div
             className="Hero-bg"
             custom={{ enableInitial: transitionPre }}
-            variants={maskVariants}
+            variants={MASK_VARIANTS}
           />
         </>
       )}

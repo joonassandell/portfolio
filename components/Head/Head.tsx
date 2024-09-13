@@ -1,5 +1,4 @@
-import { APP_URL } from '@/lib/config';
-import { CONTENT } from '@/lib/sitemap';
+import { APP, APP_URL } from '@/lib/config';
 import { type HeadProps } from './';
 import { default as NextHead } from 'next/head';
 
@@ -11,7 +10,7 @@ export const Head = ({
   zoom = true,
 }: HeadProps) => {
   const pageTitle = title
-    ? `${CONTENT.meta.titlePrefix}${title ? ' — ' + title : ''}`
+    ? `${APP.meta.titlePrefix}${title ? ' — ' + title : ''}`
     : '';
 
   return (

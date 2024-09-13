@@ -1,26 +1,26 @@
 import { AnimatePresence, m, useAnimation } from 'framer-motion';
-import { BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
+import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
-import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
 import { debounce } from 'es-toolkit';
 import {
-  enterExitBtnArrow,
-  enterExitBtnArrowIfNavOpen,
-  enterExitBtnText,
-  enterExitBtnTextIfNavOpen,
+  ENTER_EXIT_BTN_ARROW,
+  ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN,
+  ENTER_EXIT_BTN_TEXT,
+  ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN,
   HeaderMaskNavItem,
   HeaderNavItem,
   type HeaderProps,
-  mainItemInVariant,
-  mainItemOutVariant,
-  mainItemVariant,
-  maskCloseTransition,
-  maskItemVariant,
-  maskNavVariant,
-  maskOpenTransition,
+  MAIN_ITEM_IN_VARIANT,
+  MAIN_ITEM_OUT_VARIANT,
+  MAIN_ITEM_VARIANT,
+  MASK_CLOSE_TRANSITION,
+  MASK_ITEM_VARIANT,
+  MASK_NAV_VARIANT,
+  MASK_OPEN_TRANSITION,
 } from './';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -38,7 +38,7 @@ import FocusTrap from 'focus-trap-react';
 const { header } = SITEMAP;
 
 export const Header = ({
-  navTitle = CONTENT.header.defaultNavTitle,
+  navTitle = APP.header.defaultNavTitle,
 }: HeaderProps) => {
   const router = useRouter();
   const { asPath, events, push } = router;
@@ -50,7 +50,7 @@ export const Header = ({
   const [animating, setAnimating] = useState(false);
   const [openReveal, setOpenReveal] = useState(false);
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
-  const isDefaultNavTitle = CONTENT.header.defaultNavTitle === navTitle;
+  const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle;
 
   const [maskOpen, setMaskOpen] = useState(false);
   const [mask, setMask] = useState('closedReset');
@@ -64,11 +64,11 @@ export const Header = ({
   const [hover, setHover] = useState<'start' | 'end' | false>(false);
   const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
   const [enterExit, setEnterExit] = useState<{
-    btnArrow: typeof enterExitBtnArrow;
-    btnText: typeof enterExitBtnText;
+    btnArrow: typeof ENTER_EXIT_BTN_ARROW;
+    btnText: typeof ENTER_EXIT_BTN_TEXT;
   }>({
-    btnArrow: enterExitBtnArrow,
-    btnText: enterExitBtnText,
+    btnArrow: ENTER_EXIT_BTN_ARROW,
+    btnText: ENTER_EXIT_BTN_TEXT,
   });
 
   const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
@@ -161,16 +161,16 @@ export const Header = ({
 
     const changeStart = () => {
       setEnterExit({
-        btnArrow: enterExitBtnArrowIfNavOpen,
-        btnText: enterExitBtnTextIfNavOpen,
+        btnArrow: ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN,
+        btnText: ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN,
       });
     };
 
     const changeComplete = () => {
       toggleOpen();
       setEnterExit({
-        btnArrow: enterExitBtnArrow,
-        btnText: enterExitBtnText,
+        btnArrow: ENTER_EXIT_BTN_ARROW,
+        btnText: ENTER_EXIT_BTN_TEXT,
       });
     };
 
@@ -220,7 +220,7 @@ export const Header = ({
         setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5);
         await maskAnim.start({
           clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          transition: maskOpenTransition,
+          transition: MASK_OPEN_TRANSITION,
         });
         setMask('openReset');
       }
@@ -228,7 +228,7 @@ export const Header = ({
       if (mask === 'closed') {
         await maskAnim.start({
           clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
-          transition: maskCloseTransition,
+          transition: MASK_CLOSE_TRANSITION,
         });
         setMask('closedReset');
       }
@@ -280,11 +280,11 @@ export const Header = ({
               setAnimating(false);
             }
           }}
-          variants={mainItemVariant}
+          variants={MAIN_ITEM_VARIANT}
         >
           <div className="Header-wrap wrap">
             <div className="Header-logo">
-              <m.div variants={mainItemOutVariant}>
+              <m.div variants={MAIN_ITEM_OUT_VARIANT}>
                 <LinkRoll
                   href="/"
                   onClick={handleLinkClick}
@@ -296,7 +296,7 @@ export const Header = ({
               {openReveal && (
                 <m.div
                   className="Header-logo-reveal"
-                  variants={mainItemInVariant}
+                  variants={MAIN_ITEM_IN_VARIANT}
                 >
                   <LinkRoll
                     href="/"
@@ -311,12 +311,12 @@ export const Header = ({
             <div className="Header-separator">
               <m.div
                 className="Header-separator-line"
-                variants={mainItemOutVariant}
+                variants={MAIN_ITEM_OUT_VARIANT}
               />
               {openReveal && (
                 <m.div
                   className="Header-separator-line Header-separator-line--reveal"
-                  variants={mainItemInVariant}
+                  variants={MAIN_ITEM_IN_VARIANT}
                 />
               )}
             </div>
@@ -339,11 +339,11 @@ export const Header = ({
               ref={btnRef}
             >
               <div className="Header-button-textMobile" hidden>
-                <m.div variants={mainItemOutVariant}>Menu</m.div>
+                <m.div variants={MAIN_ITEM_OUT_VARIANT}>Menu</m.div>
                 {openReveal && (
                   <m.div
                     className="Header-button-textMobile-reveal"
-                    variants={mainItemInVariant}
+                    variants={MAIN_ITEM_IN_VARIANT}
                   >
                     Menu
                   </m.div>
@@ -357,12 +357,14 @@ export const Header = ({
                     {...enterExit.btnText}
                     {...(open && { hidden: true })}
                   >
-                    <m.div variants={mainItemOutVariant}>{navTitle}</m.div>
+                    <m.div variants={MAIN_ITEM_OUT_VARIANT}>{navTitle}</m.div>
                   </m.div>
                 </AnimatePresence>
                 {openReveal && (
                   <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <m.div variants={mainItemInVariant}>{navRevealTitle}</m.div>
+                    <m.div variants={MAIN_ITEM_IN_VARIANT}>
+                      {navRevealTitle}
+                    </m.div>
                   </div>
                 )}
               </div>
@@ -399,7 +401,7 @@ export const Header = ({
         </m.div>
         <m.div
           animate={maskAnim}
-          className="Header-mask scrollbar -color:negative"
+          className="Header-mask scrollbar -dark"
           data-lenis-prevent
           ref={maskRef}
         >
@@ -409,7 +411,7 @@ export const Header = ({
                 animate={open ? 'open' : 'closed'}
                 className="Header-mask-nav"
                 initial="initial"
-                variants={maskNavVariant}
+                variants={MASK_NAV_VARIANT}
               >
                 <ul>
                   {header.navMask.map(item => {
@@ -431,7 +433,7 @@ export const Header = ({
                           className="Header-mask-nav-secondary-item wrap hidden@m"
                           custom={{ y: '3rem' }}
                           key={item.id}
-                          variants={maskItemVariant}
+                          variants={MASK_ITEM_VARIANT}
                         >
                           <LinkRoll
                             className="Header-mask-nav-secondary-link h6 mb:0"
@@ -450,7 +452,7 @@ export const Header = ({
               <m.footer
                 animate={!open ? 'closed' : ''}
                 className="Header-footer wrap"
-                variants={maskItemVariant}
+                variants={MASK_ITEM_VARIANT}
               >
                 <Text className="Header-footer-nav visible@m" tag="ul">
                   {header.navMaskFooter.map(item => {

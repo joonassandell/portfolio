@@ -31,7 +31,7 @@
 .Stepper-step {
   background: var(--bg-200);
   border: var(--border-width) solid var(--border-200);
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-full);
   box-shadow: 0 0 0 rem($space-xs) var(--bg-50);
   display: grid;
   height: rem($space-m);
@@ -59,7 +59,7 @@
 .Stepper-step--beacon {
   &:before {
     background: var(--bg-950);
-    border-radius: var(--border-radius-pill);
+    border-radius: var(--border-radius-full);
     height: rem($space-xs);
     width: rem($space-xs);
   }

@@ -6,7 +6,7 @@ import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
-import { TemplateSection } from '@/components/Template';
+import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 import { useInView } from '@/lib/useInView';
@@ -71,25 +71,16 @@ export const AboutIntro = () => {
   };
 
   return (
-    <TemplateSection
-      className="Template-intro"
-      grid={false}
-      id="intro"
-      pt="15vw"
-    >
-      <m.div
-        className="grid pb:5vw"
-        ref={textRef}
-        style={{ y: mqS ? textY : 0 }}
-      >
+    <TemplateArea className="Template-intro" grid={false} pt={false}>
+      <m.div className="grid" ref={textRef} style={{ y: mqS ? textY : 0 }}>
         <div className="grid-col -start:2@m -start:3@l">
           <Heading className="mb:m" size="h3" tag="h1">
             <TextReveal text={mqS ? heading.desktop : heading.mobile} />
           </Heading>
-          <Heading className="mb:l" size="h6" tag="h2">
+          <Heading className="mb:ml" size="h6" tag="h2">
             <TextReveal text={mqS ? lead.desktop : lead.mobile} />
           </Heading>
-          <Text animate className="mb:m">
+          <Text animate>
             <Button href={SITEMAP.resume.url} icon={<ArrowRight />}>
               View resume
             </Button>
@@ -123,13 +114,13 @@ export const AboutIntro = () => {
           />
         </m.div>
       </div>
-      <div className="grid -gap:0">
+      <div className="grid -gap:0 pt:2xl">
         <div className="Template-profileCol grid-col grid-col:8 grid-col:4@s">
           <Figure
             alt="Joonas Sandell profile picture"
-            borderRadius="var(--border-radius-pill)"
+            animate={false}
+            borderRadius="var(--border-radius-full)"
             className="Template-profile"
-            inViewOffset={-1}
             scroll="mask"
             scrollMaxClientHeight={mqS ? 800 : 480}
             sizes={`${MQ.s} 25vw, 70vw`}
@@ -138,8 +129,8 @@ export const AboutIntro = () => {
         </div>
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
           <Text animate tag="p">
-            I’m Joonas — UI/UX designer, front-end developer and sometimes even
-            a <Link href={LINK.soundcloud.url}>music producer</Link>. I have a
+            I’m Joonas — UI/UX designer, Front-end Developer and sometimes even
+            a <Link href={LINK.soundcloud.url}>Music Producer</Link>. I have a
             strong and great visual taste, broad understanding of front-end web
             technologies and a genuine passion for all aspects of product and
             visual design, including web services, touch platforms and branding.
@@ -152,9 +143,9 @@ export const AboutIntro = () => {
             , <em>Sass</em> and other modern tools.
           </Text>
           <Text animate tag="p">
-            With a background that spans both UI design and coding, I thrive at
-            the intersection of aesthetics and functionality, blending the best
-            of both worlds to deliver great user experiences.
+            With a background that spans both design and coding, I thrive at the
+            intersection of aesthetics and functionality, blending the best of
+            both worlds to deliver great user experiences.
           </Text>
           <Text animate className="mb:l">
             <Button href="/approach" icon={<ArrowRight />}>
@@ -163,6 +154,6 @@ export const AboutIntro = () => {
           </Text>
         </div>
       </div>
-    </TemplateSection>
+    </TemplateArea>
   );
 };

@@ -2,14 +2,15 @@ import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
 import {
-  inVariant,
-  inVariantX,
+  IN_VARIANT,
+  IN_VARIANT_X,
   type LinkProps,
-  outVariant,
-  outVariantX,
+  OUT_VARIANT,
+  OUT_VARIANT_X,
 } from './';
-import { isBoolean } from '@/lib/utils';
+import { isBoolean, isBrowser } from '@/lib/utils';
 import { useApp } from '@/components/App';
+import { useScrollTo } from '@/lib/useScrollTo';
 import { useUrlState } from '@/lib/useUrlState';
 import c from 'clsx';
 import NextLink from 'next/link';
@@ -28,7 +29,7 @@ export const Link = ({
   underline = true,
   ...props
 }: LinkProps) => {
-  const { setTransition } = useApp();
+  const { html, setTransition } = useApp();
   const { active, external, externalTarget } = useUrlState(href);
   const [hover, setHover] = useState(false);
   const underlineActive = underline === 'active';
@@ -39,8 +40,15 @@ export const Link = ({
     '-vertical': orientation === 'vertical',
   });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
+  const hasHash = href.startsWith('#');
+  const hash = hasHash && isBrowser && html.querySelector(href);
   const shouldNavigate =
-    Boolean(href) && !external && target != '_blank' && target != '_new';
+    Boolean(href) &&
+    !external &&
+    target != '_blank' &&
+    target != '_new' &&
+    !hasHash;
+  const scrollTo = useScrollTo();
 
   return (
     <ConditionalWrapper
@@ -67,6 +75,7 @@ export const Link = ({
             !active &&
             templateTransition &&
             setTransition('template');
+          hasHash && scrollTo(hash as HTMLElement);
           onClick && onClick(e);
         }}
         onFocus={() => setHover(true)}
@@ -77,7 +86,7 @@ export const Link = ({
       >
         <m.span
           className={c('Link-text', { 'text:truncate': truncate })}
-          variants={orientation === 'vertical' ? outVariantX : outVariant}
+          variants={orientation === 'vertical' ? OUT_VARIANT_X : OUT_VARIANT}
         >
           {children}
         </m.span>
@@ -89,7 +98,7 @@ export const Link = ({
               exit="out"
               hidden
               initial="initial"
-              variants={orientation === 'vertical' ? inVariantX : inVariant}
+              variants={orientation === 'vertical' ? IN_VARIANT_X : IN_VARIANT}
             >
               {children}
             </m.span>

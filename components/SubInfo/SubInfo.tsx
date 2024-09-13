@@ -3,9 +3,9 @@ import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type SubInfoProps } from './';
 import { Text } from '@/components/Text';
-import { TEXT_VARIANTS } from '@/lib/config';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
 
@@ -23,7 +23,7 @@ export const SubInfo = ({
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">
-      <Hr className="SubInfo-ruler" />
+      <Hr className="SubInfo-ruler mb:ml" />
       <m.div
         animate={gridInView && 'animate'}
         className="grid"
@@ -38,20 +38,20 @@ export const SubInfo = ({
         }}
       >
         {heading && (
-          <m.div className="grid-col" variants={TEXT_VARIANTS}>
-            <Heading className="mb:0" size="h4">
+          <div className="grid-col">
+            <Heading className="mb:0" size="h4" variants={MOVE_IN_VARIANTS}>
               {heading}
             </Heading>
-          </m.div>
+          </div>
         )}
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS}
+          variants={MOVE_IN_VARIANTS}
         >
           <Text className="mb:2xs" color="mute" size="s" tag="p">
             Client & Year
           </Text>
-          <Text size="s" tag="p">
+          <Text className="mb:0" size="s" tag="p">
             <ConditionalWrapper
               condition={Boolean(href)}
               wrapper={children => (
@@ -66,7 +66,7 @@ export const SubInfo = ({
         </m.div>
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS}
+          variants={MOVE_IN_VARIANTS}
         >
           <Text className="mb:2xs" color="mute" size="s" tag="p">
             Role
@@ -79,7 +79,7 @@ export const SubInfo = ({
         </m.div>
         <m.div
           className="grid-col grid-col:6 grid-col:4@s"
-          variants={TEXT_VARIANTS}
+          variants={MOVE_IN_VARIANTS}
         >
           <Text className="mb:2xs" color="mute" size="s" tag="p">
             Project type
@@ -90,12 +90,12 @@ export const SubInfo = ({
             ))}
           </Text>
         </m.div>
-        <m.div
-          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:8@l -start:1@l mt:s@s"
-          variants={TEXT_VARIANTS}
+        <Text
+          className="SubInfo-text grid-col grid-col:8@s -start:5@s grid-col:6@m grid-col:9@l -start:1@l"
+          variants={MOVE_IN_VARIANTS}
         >
-          <Text>{text}</Text>
-        </m.div>
+          {text}
+        </Text>
       </m.div>
     </div>
   );

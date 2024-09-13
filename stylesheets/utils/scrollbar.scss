@@ -9,8 +9,8 @@
   scrollbar-color: var(--scrollbar-thumb) transparent;
   scrollbar-width: thin;
 
-  &.-color\:negative {
-    --scrollbar-thumb: var(--scrollbar-thumb-negative);
+  &.-dark {
+    --scrollbar-thumb: var(--scrollbar-thumb-dark);
   }
 }
 
@@ -22,5 +22,5 @@
 
 .scrollbar::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-full);
 }

@@ -9,14 +9,19 @@ export interface TemplateProps extends PropsWithChildren {
   variant?: 'unstyled' | 'default';
 }
 
-export interface TemplateMainProps extends PropsWithChildren {}
-
-export interface TemplateSectionProps extends ComponentPropsWithRef<'section'> {
+export interface TemplateAreaProps extends ComponentPropsWithRef<'div'> {
   grid?: boolean;
-  gridGap?: 'm' | 'l' | 'xl' | false;
-  gridRowGap?: 'm' | 'l' | 'xl' | false;
-  pb?: '5vw' | '10vw' | '15vw' | false;
-  pt?: 'base' | 'm' | 'l' | '2xl' | '5vw' | '10vw' | '15vw' | '20vw' | false;
-  theme?: 'dark' | 'light';
+  gridGap?: 'm' | 'l' | false;
+  gridRowGap?: 'm' | 'l' | false;
+  pb?: '2xl' | '2xl-5xl' | false;
+  pt?:
+    | 'base'
+    | 'm'
+    | 'l'
+    | 'l-2xl'
+    | '2xl'
+    | '2xl-5xl'
+    | 'grid-gap-row-l'
+    | false;
   wrap?: boolean;
 }

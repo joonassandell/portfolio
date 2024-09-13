@@ -2,18 +2,16 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--uiLab {
-  .Template-main {
-    --Template-box-bg: #fafafa;
-    --Template-box-border: var(--border-100);
+  --Template-box-bg: #fafafa;
+  --Template-box-border: var(--border-100);
 
-    --Button-color: var(--text-800);
-    --Button-hover-bg: var(--bg-50);
-    --Button-hover-border: transparent;
-    --Button-hover-shadow: var(--shadow-hover);
-    --Button-hover-color: var(--text-950);
-  }
+  --Button-text: var(--text-900);
+  --Button-hover-bg: var(--bg-50);
+  --Button-hover-border: transparent;
+  --Button-hover-shadow: var(--shadow-hover);
+  --Button-hover-text: var(--text-950);
 
-  .Template-section {
+  .Template-area {
     position: relative;
   }
 
@@ -109,7 +107,7 @@
   .Template-box {
     background: var(--Template-box-bg);
     border: var(--border-width) solid var(--Template-box-border);
-    border-radius: var(--border-radius-l);
+    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -176,27 +174,25 @@
   }
 
   .dark & {
-    --selection-bg: var(--bg-50);
-    --selection: var(--text-950);
     --Template-bg: hsl(240deg 10% 4%);
+    --Template-text: var(--text-50);
     --Footer-border: var(--border-900);
 
-    .Template-main {
-      --Template-color: var(--text-50);
-      --Template-box-bg: hsl(240deg 5% 4%);
-      --Template-box-border: hsl(var(--white-hsl) / 0.04);
+    --Template-box-bg: hsl(240deg 5% 4%);
+    --Template-box-border: hsl(var(--white-hsl) / 0.04);
 
-      --Button-bg: hsl(240deg 8% 7%);
-      --Button-color: var(--text-100);
-      --Button-shadow: var(--shadow-dark);
-      --Button-hover-bg: var(--Button-bg);
-      --Button-hover-shadow: var(--shadow-dark-hover);
-      --Button-hover-color: var(--text-50);
+    --Button-bg: hsl(240deg 8% 7%);
+    --Button-text: var(--text-100);
+    --Button-shadow: var(--shadow-dark);
+    --Button-hover-bg: var(--Button-bg);
+    --Button-hover-shadow: var(--shadow-dark-hover);
+    --Button-hover-text: var(--text-50);
 
-      --text-800: var(--text-100);
-      --border-950: var(--border-900);
-      --link: var(--text-50);
-    }
+    --selection-bg: var(--bg-50);
+    --selection: var(--text-950);
+    --text-900: var(--text-100);
+    --border-950: var(--border-900);
+    --link: var(--text-50);
 
     .Template-heading {
       background-image: linear-gradient(

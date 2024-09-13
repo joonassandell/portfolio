@@ -12,7 +12,7 @@ const sitemap: SitemapItemWork<'sandbox'> = {
   },
   title: 'Sandbox',
   url: '/sandbox',
-  year: `2010–${new Date().getFullYear()}`,
+  year: `2010–2022`,
 };
 
 export default sitemap;

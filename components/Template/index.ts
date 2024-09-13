@@ -1,5 +1,4 @@
 export * from './Template';
-export * from './TemplateMain';
-export * from './TemplateSection';
-export * from './Template.animations';
+export * from './TemplateArea';
+export * from './Template.config';
 export type * from './Template.types';

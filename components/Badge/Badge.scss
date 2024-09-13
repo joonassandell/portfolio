@@ -6,7 +6,7 @@
   align-items: center;
   background: var(--bg-50);
   border: var(--border-width) solid var(--border-950);
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-full);
   color: var(--text-950);
   display: inline-flex;
   flex-shrink: 0;
@@ -21,7 +21,7 @@
 
 .Badge-beacon {
   background: var(--Badge-beacon, var(--primary));
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-full);
   height: rem($space-xs);
   position: relative;
   top: rem($space-4xs * -0.5);
@@ -33,7 +33,7 @@
  * Variants
  * ======================================= */
 
-.Badge--negative {
+.Badge--dark {
   background: var(--bg-950);
   color: var(--text-50);
 }

@@ -1,7 +1,7 @@
-import { Aside, Content, Recommendations } from './';
 import { Head } from '@/components/Head';
+import { ResumeAside, ResumeContent, ResumeRecommendations } from './';
 import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateMain, TemplateSection } from '@/components/Template';
+import { Template, TemplateArea } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const ResumePage = () => {
@@ -11,13 +11,11 @@ export const ResumePage = () => {
   return (
     <Template footerProps={{ fullWidth: true }} id={id} variant="unstyled">
       <Head description={meta.description} title={meta.title} />
-      <TemplateMain>
-        <TemplateSection gridGap="m" gridRowGap="m" pt={false}>
-          <Content />
-          <Aside />
-        </TemplateSection>
-        <Recommendations />
-      </TemplateMain>
+      <TemplateArea gridGap="m" pt={false}>
+        <ResumeContent />
+        <ResumeAside />
+      </TemplateArea>
+      <ResumeRecommendations />
     </Template>
   );
 };

@@ -23,7 +23,6 @@
 
 .Template-overlay {
   inset: 0;
-  isolation: isolate;
   position: absolute;
 }
 
@@ -33,11 +32,11 @@
 
 .Template-main {
   background-color: var(--Template-bg, var(--bg-50));
-  color: var(--Template-color, var(--text-950));
+  color: var(--Template-text, var(--text-950));
 }
 
-.Template-section {
-  background-color: var(--Template-section-bg);
+.Template-area {
+  background: var(--Template-area-bg);
 }
 
 /* =======================================

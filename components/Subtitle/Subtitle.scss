@@ -1,0 +1,10 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Subtitle {
+  color: var(--Subtitle-text, var(--text-900));
+  margin-bottom: rem($space);
+  max-width: var(--text-max-width);
+  text-transform: uppercase;
+  transform-origin: top left;
+}

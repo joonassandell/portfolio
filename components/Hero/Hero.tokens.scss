@@ -2,8 +2,8 @@
 @use 'stylesheets/mixins' as *;
 
 /**
- * 1. This is used as the reference for the parallax scrolling elements
- * 2. If these are changed, remember to change them in Hero.animations.ts aswell
+ * 1. This is used as a reference for the parallax scrolling elements
+ * 2. If these are changed, remember to change them in Hero.config.ts aswell
  */
 :root {
   --Hero-bg: var(--bg-50);

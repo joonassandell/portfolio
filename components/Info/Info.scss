@@ -12,10 +12,14 @@
 }
 
 .Info-text {
-  color: var(--text-900);
-  margin-bottom: rem($space-xl);
+  color: var(--Info-text, currentColor);
+}
+
+.Info-toc {
+  padding: var(--border-width-m) var(--wrap-space-right) var(--border-width-m)
+    var(--wrap-space-left);
 
   @include mq(l) {
-    margin-bottom: 0;
+    padding-left: 0;
   }
 }

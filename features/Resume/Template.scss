@@ -24,9 +24,8 @@
   .Template-aside {
     border: var(--border-width) solid var(--border-950);
     border-radius: var(--border-radius);
-    margin: rem($space-l) 0 rem($space-2xl) 0;
+    margin: rem($space-ml) 0 rem($space-2xl) 0;
     padding: rem($space-ml) rem($space-m);
-    text-wrap: balance;
 
     @include mq(m) {
       border: 0;
@@ -48,21 +47,21 @@
   }
 
   .Template-stepper-image {
+    --Figure-width: #{rem($space-m)};
     position: relative;
     top: -$space-4xs;
-    width: rem($space-m);
 
     @include mq(l) {
-      width: rem(28px); // Todo: Add/convert new size variables
+      --Figure-width: #{rem(28px)}; // Todo: Add/convert new size variables
     }
   }
 
   .Template-profileMobile {
-    img {
-      height: rem($space * 8);
-      object-fit: cover;
+    --Figure-height: #{rem($space * 8)};
+    --Figure-width: #{rem($space * 8)};
+
+    .Figure-img {
       object-position: 0 20%;
-      width: rem($space * 8);
     }
   }
 

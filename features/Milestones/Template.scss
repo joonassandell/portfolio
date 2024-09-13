@@ -41,7 +41,7 @@
     }
 
     svg {
-      fill: var(--text-800);
+      fill: var(--text-900);
       height: var(--Line-height);
       overflow: visible;
 
@@ -78,7 +78,7 @@
 
   .Template-line-tooltip {
     background-color: var(--bg-50);
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     color: var(--text-950);
     padding: rem($space-2xs) rem($space-xs) rem($space-3xs) rem($space-xs);
@@ -94,8 +94,6 @@
   }
 
   .Template-badges {
-    display: flex;
-    gap: rem($space-s);
     padding: 0 var(--wrap-space-right) rem($space-xs) var(--wrap-space-left);
   }
 }

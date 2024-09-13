@@ -1,5 +1,5 @@
 import {
-  figureBgVariants,
+  FIGURE_BG_VARIANTS,
   Hero,
   HeroContent,
   type HeroProps,
@@ -73,7 +73,7 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
             </m.figure>
             <m.div
               className="Hero-figure-bg Hero-figure-bg--animate"
-              variants={figureBgVariants}
+              variants={FIGURE_BG_VARIANTS}
             />
           </div>
           <HeroContent
@@ -81,7 +81,7 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
             heading={title}
             href={url}
             onClick={onClick}
-            role={['Web services', 'Web applications']}
+            role={['Product design', 'UI/UX/Brand design', 'Web development']}
             transitionPre={transitionPre}
           />
         </div>

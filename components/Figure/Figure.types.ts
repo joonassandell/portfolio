@@ -21,6 +21,8 @@ export interface FigureProps
   background?: string | boolean;
   border?: string | boolean;
   borderRadius?: string | boolean;
+  borderStyle?: 'solid' | 'dashed';
+  fill?: 'large';
   glare?: boolean;
   id?: string;
   inViewOffset?: number;
@@ -28,12 +30,15 @@ export interface FigureProps
   placeholder?: boolean;
   scroll?: boolean | 'mask';
   scrollImageSpeed?: UseParallaxOptions['speed'];
+  scrollImageStartPosition?: UseParallaxOptions['startPosition'];
+  scrollImageStartPositionMultiplier?: UseParallaxOptions['startPositionMultiplier'];
   scrollMaxClientHeight?: UseParallaxOptions['maxClientHeight'];
   scrollOffset?: UseParallaxOptions['offset'];
   scrollReverse?: UseParallaxOptions['reverse'];
   scrollSpeed?: UseParallaxOptions['speed'];
   scrollSpeedMultiplier?: UseParallaxOptions['speedMultiplier'];
   scrollStartPosition?: UseParallaxOptions['startPosition'];
+  scrollStartPositionMultiplier?: UseParallaxOptions['startPositionMultiplier'];
   src: string;
   style?: HTMLMotionProps<'div'>['style'];
   transition?: 'move' | 'clip';

@@ -27,6 +27,10 @@
   justify-content: center;
 }
 
+.align-items\:start {
+  align-items: start;
+}
+
 .align-items\:center {
   align-items: center;
 }
@@ -63,4 +67,12 @@
 
 .transform-none {
   transform: none !important;
+}
+
+.border-0 {
+  border: 0;
+}
+
+.max-w-unset {
+  max-width: unset;
 }

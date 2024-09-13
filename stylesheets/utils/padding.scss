@@ -2,14 +2,6 @@
 @use 'stylesheets/mixins' as *;
 
 /* =======================================
- * Padding
- * ======================================= */
-
-.p\:0 {
-  padding: 0;
-}
-
-/* =======================================
  * Padding top
  * ======================================= */
 
@@ -28,27 +20,31 @@
 .pt\:2xl {
   padding-top: rem($space-2xl);
 
-  @include mq(m) {
-    &\@m {
+  @include mq(l) {
+    &\@l {
       padding-top: rem($space-2xl);
     }
   }
 }
 
-.pt\:5vw {
-  padding-top: 5vw;
+.pt\:5xl {
+  padding-top: rem($space-5xl);
+
+  @include mq(m) {
+    &\@m {
+      padding-top: rem($space-5xl);
+    }
+  }
+
+  @include mq(l) {
+    &\@l {
+      padding-top: rem($space-5xl);
+    }
+  }
 }
 
-.pt\:10vw {
-  padding-top: 10vw;
-}
-
-.pt\:15vw {
-  padding-top: 15vw;
-}
-
-.pt\:20vw {
-  padding-top: 20vw;
+.pt\:grid-gap-row-l {
+  padding-top: var(--grid-gap-row-l);
 }
 
 /* =======================================
@@ -63,20 +59,24 @@
  * Padding bottom
  * ======================================= */
 
-.pb\:5vw {
-  padding-bottom: 5vw;
-}
-
-.pb\:10vw {
-  padding-bottom: 10vw;
-}
-
-.pb\:15vw {
-  padding-bottom: 15vw;
-}
-
 .pb\:2xl {
   padding-bottom: rem($space-2xl);
+
+  @include mq(l) {
+    &\@l {
+      padding-bottom: rem($space-2xl);
+    }
+  }
+}
+
+.pb\:5xl {
+  padding-bottom: rem($space-5xl);
+
+  @include mq(l) {
+    &\@l {
+      padding-bottom: rem($space-5xl);
+    }
+  }
 }
 
 /* =======================================
@@ -87,7 +87,7 @@
   padding-left: 0;
 
   @include mq($until: l) {
-    &\@until\:l {
+    &\@max\:l {
       padding-left: 0;
     }
   }

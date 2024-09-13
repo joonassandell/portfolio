@@ -1,20 +1,15 @@
 @use 'stylesheets/config' as *;
 @use 'stylesheets/mixins' as *;
 
-/**
- * 1. Fix possible background leaking related to scroll transform glitches
- */
 .NextProject {
-  --link: var(--text-50);
   background-color: var(--NextProject-bg, var(--Template-bg, var(--bg-50)));
-  margin: -1px 0; // [1.]
   padding-top: rem($space-3xl);
 }
 
 .NextProject-link {
-  @include fontSize(16px, 16px, 112px, 10vw);
+  --link: var(--text-50);
+  --link-hover-opacity: 1;
   mix-blend-mode: difference;
-  opacity: 1;
   padding-bottom: rem($space-4xs);
   z-index: 1;
 }
@@ -26,7 +21,7 @@
 }
 
 .NextProject-figure {
-  border-radius: var(--border-radius-pill);
+  border-radius: var(--border-radius-full);
   cursor: pointer;
   inset: 0 auto auto 0;
   overflow: hidden;

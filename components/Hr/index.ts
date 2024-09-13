@@ -1,3 +1,3 @@
 export * from './Hr';
-export * from './Hr.animations';
+export * from './Hr.config';
 export type * from './Hr.types';

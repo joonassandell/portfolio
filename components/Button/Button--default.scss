@@ -5,10 +5,10 @@
   @include text(m);
   align-items: center;
   background: var(--Button-bg, var(--bg-50));
-  border: var(--border-width) solid transparent;
-  border-radius: var(--Button-radius, var(--border-radius-pill));
+  border: var(--border-width) solid var(--Button-border, transparent);
+  border-radius: var(--Button-radius, var(--border-radius-full));
   box-shadow: var(--Button-shadow, var(--shadow));
-  color: var(--Button-color, var(--text-950));
+  color: var(--Button-text, var(--text-950));
   gap: rem($space-xs);
   justify-content: space-between;
   min-height: rem($space-xl);
@@ -24,7 +24,7 @@
     background: var(--Button-hover-bg, transparent);
     border-color: var(--Button-hover-border, var(--border-950));
     box-shadow: var(--Button-hover-shadow, unset);
-    color: var(--Button-hover-color, var(--text-950));
+    color: var(--Button-hover-text, var(--text-950));
   }
 
   &:active {
@@ -96,11 +96,11 @@
   }
 }
 
-.Button--default--negative {
+.Button--default--dark {
   --Button-bg: var(--bg-950);
-  --Button-color: var(--text-50);
-  --Button-shadow: unset;
+  --Button-text: var(--text-50);
+  --Button-shadow: none;
   --Button-hover-bg: var(--bg-800);
   --Button-hover-border: var(--bg-800);
-  --Button-hover-color: var(--text-50);
+  --Button-hover-text: var(--text-50);
 }

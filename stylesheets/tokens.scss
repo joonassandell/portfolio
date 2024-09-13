@@ -64,13 +64,14 @@
   --border-width-s: 0.5px;
   --border-width-m: 1px;
   --border-width-l: 2px;
+  --border-width-dashed: 1.5px;
   --border-width-negative: -1px;
   --border-width: var(--border-width-m);
 
-  --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 16px;
-  --border-radius-pill: 999px;
+  --border-radius-full: 999px;
+  --border-radius-app: 4px 4px var(--border-radius-m) var(--border-radius-m);
   --border-radius: var(--border-radius-m);
 
   // Accent
@@ -92,14 +93,15 @@
   // Text
   --text-50: var(--white);
   --text-100: var(--gray-400);
-  --text-800-blend: hsl(var(--white-hsl) / 0.6);
-  --text-800: var(--gray-600);
-  --text-900: var(--gray-900);
+  --text-900-blend: hsl(var(--white-hsl) / 0.6);
+  --text-900: var(--gray-600);
   --text-950: var(--gray-900);
+  --text-max-width: 56ch;
 
   // Heading
   --heading: inherit;
   --heading-font-weight: var(--font-weight-400);
+  --heading-max-width: 30ch;
 
   // Link
   --link: var(--text-950);
@@ -121,7 +123,7 @@
 
   // Scrollbar
   --scrollbar-thumb: hsl(var(--black-hsl) / 0.15);
-  --scrollbar-thumb-negative: hsl(var(--white-hsl) / 0.15);
+  --scrollbar-thumb-dark: hsl(var(--white-hsl) / 0.15);
 
   // Selection
   --selection-bg: var(--bg-950);
@@ -144,10 +146,9 @@
   --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
 
   // Grid
-  --grid-gap-scale: 5vw;
   --grid-gap-m: #{rem($space-m)};
-  --grid-gap-l: #{rem($space-xl)};
-  --grid-gap-xl: #{rem($space-2xl)};
+  --grid-gap-l: #{rem($space-m)};
+  --grid-gap-row-l: #{rem($space-ml)};
 
   /* =======================================
    * Generic tokens
@@ -174,12 +175,29 @@
    * ======================================= */
 
   @include mq(m) {
+    --grid-gap-m: #{rem($space-ml)};
+    --grid-gap-l: #{rem($space-l)};
+    --grid-gap-row-l: #{rem($space-l)};
+
+    --border-radius-app: var(--border-radius-m);
+
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});
   }
 
   @include mq(l) {
-    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-2xl)});
+    --border-width-dashed: 2.5px;
+
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-xl)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-xl)});
+  }
+
+  @include mq(xl) {
+    --grid-gap-l: #{rem($space-2xl)};
+    --grid-gap-row-l: #{rem($space-2xl)};
+  }
+
+  @include mq('3xl') {
+    --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-2xl)});
   }
 }

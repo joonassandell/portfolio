@@ -4,7 +4,7 @@
 .Table {
   background: var(--bg-50);
   border: var(--border-width) solid var(--border-100);
-  border-radius: var(--border-radius-s);
+  border-radius: var(--border-radius);
   caption-side: bottom;
   min-width: 100%;
   overflow: hidden;
@@ -16,7 +16,7 @@
 
 .Table-head {
   background: var(--bg-200);
-  color: var(--text-800);
+  color: var(--text-900);
   font-weight: var(--font-weight-400);
   text-align: left;
 }
@@ -72,7 +72,7 @@
 }
 
 .Table-caption {
-  color: var(--text-800);
+  color: var(--text-900);
   text-align: left;
 
   .is-safari & {

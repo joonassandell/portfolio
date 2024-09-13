@@ -1,20 +1,21 @@
-import { CONTENT, LINK, SITEMAP } from '@/lib/sitemap';
+import { APP } from '@/lib/config';
 import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { stripUrl } from '@/lib/utils';
 import { Text } from '@/components/Text';
 import profile from '@/public/images/joonassandell-profile-2.jpg';
 
-export const Aside = () => (
-  <aside className="Template-aside grid-col grid-col:3@m">
+export const ResumeAside = () => (
+  <aside className="Template-aside grid-col grid-col:3@m text-wrap:balance">
     <Figure
       alt="Joonas Sandell profile picture"
       animate={false}
-      borderRadius="var(--border-radius-pill)"
+      borderRadius="var(--border-radius-full)"
       className="Template-profile mb:l visible@m"
       priority
-      sizes="20vw"
+      sizes="15vw"
       {...profile}
     />
     <Heading className="mb:s hidden@m" size="h6" tag="h4">
@@ -23,11 +24,11 @@ export const Aside = () => (
     <Text className="mb:m" size="s" tag="ul">
       <li>
         E-mail:{' '}
-        <Link href={`mailto:${CONTENT.person.email}`} target="_self" truncate>
-          {CONTENT.person.email}
+        <Link href={`mailto:${APP.person.email}`} target="_self" truncate>
+          {APP.person.email}
         </Link>
       </li>
-      <li>Location: {CONTENT.person.location}</li>
+      <li>Location: {APP.person.location}</li>
       <li>
         <Link href={SITEMAP.contact.url} truncate>
           Send me a message
@@ -74,7 +75,7 @@ export const Aside = () => (
       </Text>
       <p>
         React, Next.js, Bundlers, Git, AWS, Databases, GraphQL, Storybook,
-        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer motion,
+        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer Motion,
         ChatGPT, Redux, Zustand
       </p>
     </Text>

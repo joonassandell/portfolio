@@ -1,12 +1,12 @@
 import {
-  bgHoverVariants,
-  bgVariants,
+  BG_HOVER_VARIANTS,
+  BG_VARIANTS,
+  BUTTON_VARIANTS,
   type ButtonEnterProps,
-  buttonVariants,
-  pathInVariants,
-  pathOutVariants,
-  pointerInVariants,
-  pointerOutVariants,
+  PATH_IN_VARIANTS,
+  PATH_OUT_VARIANTS,
+  POINTER_IN_VARIANTS,
+  POINTER_OUT_VARIANTS,
 } from './';
 import { type ButtonEvent, type LinkEvent } from '@/types';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
@@ -61,7 +61,7 @@ export const ButtonEnter = ({
           setHover(true);
         }}
         onMouseLeave={() => setHover(false)}
-        variants={buttonVariants}
+        variants={BUTTON_VARIANTS}
         whileTap="tap"
         {...props}
       >
@@ -78,7 +78,7 @@ export const ButtonEnter = ({
             <m.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
-              variants={pathInVariants}
+              variants={PATH_IN_VARIANTS}
             />
           </svg>
           <svg
@@ -88,28 +88,28 @@ export const ButtonEnter = ({
             <m.path
               className="Button-arrow-path"
               d="M1 0V28C1 30.7614 3.23858 33 6 33H37"
-              variants={pathOutVariants}
+              variants={PATH_OUT_VARIANTS}
             />
           </svg>
           <m.div
             className="Button-arrow-pointer"
-            variants={pointerInVariants}
+            variants={POINTER_IN_VARIANTS}
           />
           <m.div
             className="Button-arrow-pointer Button-arrow-pointer--out"
-            variants={pointerOutVariants}
+            variants={POINTER_OUT_VARIANTS}
           />
         </m.div>
         <div className="hideVisually">{children}</div>
         <m.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg"
-          variants={bgVariants}
+          variants={BG_VARIANTS}
         />
         <m.span
           animate={hover ? 'in' : 'out'}
           className="Button-bg-hover"
-          variants={bgHoverVariants}
+          variants={BG_HOVER_VARIANTS}
         />
       </Tag>
     </ConditionalWrapper>

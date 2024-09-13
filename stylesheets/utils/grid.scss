@@ -12,44 +12,20 @@
  * ======================================= */
 
 .grid {
-  &.-gap\:l {
-    --grid-gap: clamp(
-      var(--grid-gap-m),
-      var(--grid-gap-scale),
-      var(--grid-gap-l)
-    );
-
-    @include mq(l) {
-      --grid-gap: var(--grid-gap-l);
-    }
-  }
-
-  &.-gap\:xl {
-    --grid-gap: clamp(
-      var(--grid-gap-m),
-      var(--grid-gap-scale),
-      var(--grid-gap-xl)
-    );
-
-    @include mq(l) {
-      --grid-gap: var(--grid-gap-xl);
-    }
-  }
-
   &.-gap\:0 {
     gap: 0;
   }
 
-  &.-gap\:row\:xl {
-    row-gap: var(--grid-gap-xl);
-  }
-
-  &.-gap\:row\:l {
-    row-gap: var(--grid-gap-l);
+  &.-gap\:l {
+    --grid-gap: var(--grid-gap-l);
   }
 
   &.-gap\:row\:0 {
     row-gap: 0;
+  }
+
+  &.-gap\:row\:l {
+    row-gap: var(--grid-gap-row-l);
   }
 
   &.-gap\:column\:0 {

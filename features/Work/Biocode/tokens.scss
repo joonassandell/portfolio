@@ -1,19 +1,34 @@
 :root {
   --biocode-bg-50: #00081f;
-  --biocode-bg-100: #000a29;
-  --biocode-bg-200: #001141;
-  --biocode-border: hsl(230 30% 40% / 0.25);
-  --biocode-primary: #3a59f9;
-  --biocode-primary-text: #3377ff;
-  --biocode-heading: var(--text-50);
-  --biocode-text-800: #858fad;
-  --biocode-text-900: #a3abc2;
-  --biocode-text-950: var(--text-50);
-}
+  --biocode-bg-100: #010b2a; // Matches better with image compressions. Original: #000b29
+  --biocode-bg-200: #000e33;
+  --biocode-bg-300: #001242;
 
-.theme\:light {
-  --biocode-bg-50: var(--bg-50);
-  --biocode-bg-100: #fbfbfc;
-  --biocode-bg-200: #f7f7f8;
-  --biocode-border: #d9dade;
+  --biocode-border-50: hsl(230 60% 14%);
+  --biocode-border-100: hsl(230 60% 18%);
+  --biocode-border-200: hsl(230 60% 20%);
+  --biocode-border-300: hsl(230 60% 22%);
+  --biocode-border-400: hsl(230 60% 24%);
+
+  --biocode-primary: #3959f9;
+  --biocode-primary-text: #3377ff;
+
+  --biocode-heading: var(--biocode-text-950);
+  --biocode-text-900: #949eb8;
+  --biocode-text-950: #e0e3eb;
+
+  --biocode-light-bg-50: var(--bg-50);
+  --biocode-light-bg-100: #f8f9fc;
+  --biocode-light-bg-200: #f4f6fa;
+  --biocode-light-bg-300: #edf0f7;
+
+  --biocode-light-border-50: #e2e7f3;
+  --biocode-light-border-100: #dbe1f0;
+  --biocode-light-border-200: #d4dbed;
+  --biocode-light-border-300: #cdd5ea;
+
+  --biocode-light-primary-text: var(--biocode-primary);
+
+  --biocode-light-text-900: #263b73;
+  --biocode-light-text-950: #001242;
 }

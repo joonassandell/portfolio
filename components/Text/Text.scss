@@ -3,6 +3,7 @@
 
 .Text {
   letter-spacing: normal;
+  max-width: var(--text-max-width);
   transform-origin: top left;
 
   &.-size\:xs {
@@ -19,14 +20,6 @@
 
   &.-size\:l {
     @include text(l);
-
-    &.-maxWidth {
-      max-width: rem($space * 40);
-    }
-  }
-
-  &.-maxWidth {
-    max-width: rem($space * 34);
   }
 
   > *:last-child {

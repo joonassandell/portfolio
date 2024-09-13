@@ -24,6 +24,7 @@ export interface UseParallaxOptions {
   speed?: 'slowest' | 'slow' | 'medium' | 'fast' | 'fastest' | number;
   speedMultiplier?: number;
   startPosition?: 0 | 'negative';
+  startPositionMultiplier?: number;
 }
 
 export const useParallax = ({
@@ -36,6 +37,7 @@ export const useParallax = ({
   speed = 'medium',
   speedMultiplier = 1,
   startPosition = 0,
+  startPositionMultiplier = 1,
 }: UseParallaxOptions = {}) => {
   const [mounted, setMounted] = useState(false);
   const {
@@ -62,19 +64,19 @@ export const useParallax = ({
 
   switch (speed) {
     case 'slowest':
-      speed = SCROLL_SPEED.SLOWEST;
+      speed = SCROLL_SPEED.slowest;
       break;
     case 'slow':
-      speed = SCROLL_SPEED.SLOW;
+      speed = SCROLL_SPEED.slow;
       break;
     case 'medium':
-      speed = SCROLL_SPEED.MEDIUM;
+      speed = SCROLL_SPEED.medium;
       break;
     case 'fast':
-      speed = SCROLL_SPEED.FAST;
+      speed = SCROLL_SPEED.fast;
       break;
     case 'fastest':
-      speed = SCROLL_SPEED.FASTEST;
+      speed = SCROLL_SPEED.fastest;
       break;
   }
 
@@ -110,7 +112,10 @@ export const useParallax = ({
   const transformValue = useTransform(
     hasTouch ? spring : scrollYProgress,
     [0, 1],
-    [scrollStartPos, scrollHeight * scrollSpeed * endPositionMultiplier],
+    [
+      scrollStartPos * startPositionMultiplier,
+      scrollHeight * scrollSpeed * endPositionMultiplier,
+    ],
   );
 
   return {

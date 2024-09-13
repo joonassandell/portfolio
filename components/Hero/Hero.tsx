@@ -1,6 +1,6 @@
 import { ArrowRight } from '@/components/Icon';
 import { Heading } from '@/components/Heading';
-import { headingVariants as headingVars, type HeroProps } from './';
+import { HEADING_VARIANTS as headingVars, type HeroProps } from './';
 import { Link } from '@/components/Link';
 import { m } from 'framer-motion';
 import { Stamp } from '@/components/Stamp';
@@ -88,7 +88,7 @@ export const Hero = ({
           <Heading
             className="Hero-heading-inner"
             onClick={onClick}
-            size="display"
+            size="xl"
             tag={transitionPre ? 'h2' : 'h1'}
             variants={headingVariants}
           >
@@ -100,7 +100,7 @@ export const Hero = ({
                     y: '60%',
                   }
                 }
-                text={[heading as string]}
+                text={[heading]}
                 {...(noTransition && { initial: 'animate' })}
               />
             </m.div>

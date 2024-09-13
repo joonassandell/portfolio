@@ -54,7 +54,7 @@
 
   &.-transition\:pre {
     .Hero-bg {
-      height: 100vh;
+      height: 100lvh;
     }
   }
 
@@ -91,14 +91,14 @@
   &.is-transition,
   &:not(.Hero.-transition\:pre) {
     .Hero-figure-icon {
-      border-color: var(--biocode-border);
+      border-color: var(--biocode-border-50);
     }
   }
 
   .Hero-bg {
     background: radial-gradient(
       70% rem($space * 22) at 70% 0,
-      var(--biocode-bg-200),
+      var(--biocode-bg-300),
       var(--biocode-bg-50)
     );
     z-index: 2;
@@ -109,54 +109,29 @@
       background: linear-gradient(180deg, var(--biocode-bg-50), transparent 15%),
         radial-gradient(
           70% rem($space * 22) at 70% 0,
-          var(--biocode-bg-200),
+          var(--biocode-bg-300),
           var(--biocode-bg-50)
         );
     }
   }
 
   .Hero-textReveal {
+    --heading: var(--biocode-text-950);
     align-items: center;
     display: flex;
     padding-top: 35vw;
     position: absolute;
     z-index: 5;
 
-    .TextReveal {
-      @include fontSize(16px, 18px, 52px, 3.5vw);
-      font-weight: var(--font-weight-100);
-    }
-
-    @include mq(l) {
-      padding-top: rem($space * 28);
-    }
-  }
-
-  .Hero-textReveal-mobile {
-    --heading: var(--biocode-text-950);
-    font-weight: var(--font-weight-100);
-
-    @include mq(m) {
-      display: none;
-    }
-  }
-
-  .Hero-textReveal-desktop {
-    --heading: var(--biocode-text-900);
-    text-align: right;
-
     .TextReveal-text {
-      &:nth-child(2) {
+      &:last-child {
         color: var(--biocode-primary-text);
       }
     }
 
-    @include mq($until: m) {
-      display: none;
-    }
-
     @include mq(l) {
-      padding-left: rem($space * 8);
+      padding-left: rem($space * 12);
+      padding-top: rem($space * 28);
     }
   }
 
