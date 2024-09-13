@@ -297,6 +297,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         <Figure
           alt="Analytics of product results page"
           border
+          borderRadius="var(--border-radius-app)"
           className="grid-col grid-col:10@m grid-col:8@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
           {...getImage(
@@ -307,6 +308,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         <Figure
           alt="Product results page with breakdown of lca stages"
           border
+          borderRadius="var(--border-radius-app)"
           className="grid-col grid-col:10@m"
           sizes={`${MQ.m} 70vw, 100vw`}
           {...getImage(

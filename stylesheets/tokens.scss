@@ -71,6 +71,7 @@
   --border-radius-m: 8px;
   --border-radius-l: 16px;
   --border-radius-pill: 999px;
+  --border-radius-app: 4px 4px var(--border-radius-m) var(--border-radius-m);
   --border-radius: var(--border-radius-m);
 
   // Accent
@@ -177,6 +178,8 @@
     --grid-gap-m: #{rem($space-ml)};
     --grid-gap-l: #{rem($space-l)};
     --grid-gap-row-l: #{rem($space-l)};
+
+    --border-radius-app: var(--border-radius-m);
 
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});

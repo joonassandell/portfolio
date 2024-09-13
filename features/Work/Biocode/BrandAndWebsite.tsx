@@ -188,6 +188,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       <Figure
         alt="Biocode homepage animation"
         border
+        borderRadius="var(--border-radius-app)"
         className="grid-col grid-col:8@l"
         glare
         src="/biocode/joonassandell-biocode-website-home.mp4"
@@ -278,6 +279,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       <Figure
         alt="Biocode feature page hero cards"
         border
+        borderRadius="var(--border-radius-app)"
         className="grid-col grid-col:10@m grid-col:8@l"
         quality={100}
         sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
@@ -382,6 +384,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       <Figure
         alt="About us page of Biocode homepage"
         border
+        borderRadius="var(--border-radius-app)"
         className="grid-col grid-col:10@m -start:3@m grid-col:7@l -start:1@l"
         sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
         {...getImage('joonassandell-biocode-website-about', images)}

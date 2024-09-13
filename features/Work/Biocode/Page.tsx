@@ -77,6 +77,7 @@ export const BiocodePage = ({ images }: PageProps) => {
           <Figure
             alt="Biocode homepage with isometric Biocode application"
             border
+            borderRadius="var(--border-radius-app)"
             glare
             priority
             quality={90}
