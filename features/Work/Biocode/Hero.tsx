@@ -58,7 +58,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
                     alt="Light globe"
                     draggable="false"
                     priority
-                    quality={mqM ? 80 : 60}
+                    quality={80}
                     sizes={`${MQ.l} 33vw, 50vw`}
                     src={heroImagePre}
                   />

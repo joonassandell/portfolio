@@ -198,8 +198,8 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
               detailed breakdowns for each LCA stage, users can feel encouraged
               by the progress they’ve made, even after entering just a single
               input. Main actions, and other elements are placed for easy
-              discovery, while onboarding includes example calculations to help
-              users getting started with the software.
+              discovery, while onboarding includes example calculations and
+              instructions to help users getting started with the software.
             </Text>
           </div>
           <Figure
@@ -242,6 +242,12 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             'joonassandell-biocode-software-product-raw-materials',
             images,
           )}
+        />
+        <Figure
+          alt="Welcome instructions after sign up"
+          border
+          className="grid-col"
+          {...getImage('joonassandell-biocode-software-signup-welcome', images)}
         />
         <Figure
           alt="Product production LCA stage page"
