@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import c from 'clsx';
 
 export const TextReveal = ({
+  animate = true,
   className,
   custom,
   text,
@@ -16,7 +17,7 @@ export const TextReveal = ({
 
   return (
     <m.span
-      animate={inView && 'animate'}
+      animate={inView && animate && 'animate'}
       className={classes}
       custom={custom}
       initial="initial"

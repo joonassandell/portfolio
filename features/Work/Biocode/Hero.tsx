@@ -22,7 +22,6 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
   const mqS = useMedia(MQ.s, false);
-  const mqM = useMedia(MQ.m, false);
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
@@ -112,14 +111,19 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
           </div>
           {transitionStartOrDefault && (
             <div className="Hero-textReveal wrap">
-              <Heading className="mb:0" size={mqS ? 'h1' : 'h3'} tag="h2">
+              <Heading className="mb:0 hidden@s" size="h3" tag="h2">
                 <TextReveal
+                  animate={!mqS}
                   custom={{ delay: 0.15 }}
-                  text={
-                    mqM
-                      ? ['We have to reverse ', 'global heating']
-                      : ['We have ', 'to reverse ', 'global heating']
-                  }
+                  text={['We have ', 'to reverse ', 'global heating']}
+                  {...(noTransition && { initial: 'animate' })}
+                />
+              </Heading>
+              <Heading className="mb:0 visible@s" size="h1" tag="h2">
+                <TextReveal
+                  animate={mqS}
+                  custom={{ delay: 0.15 }}
+                  text={['We have to reverse ', 'global heating']}
                   {...(noTransition && { initial: 'animate' })}
                 />
               </Heading>
