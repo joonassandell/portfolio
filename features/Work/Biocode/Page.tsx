@@ -23,7 +23,7 @@ export const BiocodePage = ({ images }: PageProps) => {
 
   return (
     <Template id={id} variant="unstyled">
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <BiocodeHero />
       <Info
         client={{ href: 'https://biocode.io', name: title }}
