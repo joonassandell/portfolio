@@ -57,10 +57,10 @@
   }
 
   .Template-profileMobile {
+    --Figure-height: #{rem($space * 8)};
     --Figure-width: #{rem($space * 8)};
 
     .Figure-img {
-      height: rem($space * 8);
       object-position: 0 20%;
     }
   }

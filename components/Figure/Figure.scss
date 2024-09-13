@@ -2,6 +2,7 @@
 @use 'stylesheets/mixins' as *;
 
 .Figure {
+  height: var(--Figure-height, auto);
   width: var(--Figure-width, fit-content);
 
   * {
@@ -21,6 +22,7 @@
 }
 
 .Figure-img {
+  height: var(--Figure-height, auto);
   object-fit: cover;
 }
 

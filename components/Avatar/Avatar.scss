@@ -8,7 +8,7 @@
 }
 
 .Avatar-figure {
+  --Figure-height: #{rem($space-xl)};
+  --Figure-width: #{rem($space-xl)};
   flex-shrink: 0;
-  height: rem($space-xl);
-  width: rem($space-xl);
 }
