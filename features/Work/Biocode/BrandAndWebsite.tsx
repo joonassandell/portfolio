@@ -220,8 +220,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Text animate className="mb:0" color="mute" tag="p">
           The website was initially designed in dark mode for a modern look,
           then adapted to light mode for broader accessibility. We aimed for
-          global professional "software-like" feel and limited food imagery to
-          keep the brand versatile, reflecting the software's broad emission
+          global professional <q>software-like</q> feel and limited food imagery
+          to keep the brand versatile, reflecting the software's broad emission
           calculation capabilities.
         </Text>
       </div>
@@ -232,8 +232,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           Unified visual identity
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
-          We were missing a logomark and an icon, which is a crucial piece of
-          any fully-fledged software product. We created a new logomark which
+          Biocode was missing a logomark and an icon, which is a crucial piece
+          of any fully-fledged software product. We created a new logomark which
           was also integrated as part of the wordmark to ensure recognition.
         </Text>
       </div>
@@ -390,10 +390,14 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Heading animate size="h5" tag="h3">
           Transparent and trustworthy expertise
         </Heading>
-        <Text animate className="mb:0" color="mute" tag="p">
-          We also aimed to showcase the transparency, expertise, and dedication
-          of our team. Our staff is committed to delivering accurate carbon
+        <Text animate color="mute" tag="p">
+          We aimed to showcase the transparency, expertise, and dedication of
+          our team. Our staff is committed to delivering accurate carbon
           calculations and clear, reliable results.
+        </Text>
+        <Text animate className="mb:0" color="mute" tag="p">
+          Additionally we arranged a photoshoot to create unique visuals that
+          are also used in our various marketing materials.
         </Text>
       </div>
       <Hr className="grid-col hidden@l mb:0" />

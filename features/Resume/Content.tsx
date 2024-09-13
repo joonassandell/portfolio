@@ -265,8 +265,8 @@ export const ResumeContent = () => (
     </Heading>
     <Text>
       <p>
-        I’m Joonas — UI/UX designer, front-end developer and sometimes even a{' '}
-        <Link href={LINK.soundcloud.url}>music producer</Link>. I enjoy
+        I’m Joonas — UI/UX designer, Front-end Developer and sometimes even a{' '}
+        <Link href={LINK.soundcloud.url}>Music Producer</Link>. I enjoy
         connecting with new people online and dedicating some of my free time to
         various projects. <Link href={SITEMAP.contact.url}>Contact me</Link> or
         learn more about me from below.

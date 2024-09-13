@@ -111,13 +111,17 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           <Heading animate maxWidth size="h5" tag="h3">
             Continuous UX research to match user needs
           </Heading>
-          <Text animate className="mb:0" color="mute" tag="p">
+          <Text animate color="mute" tag="p">
             Our UX processes begin with planning user interviews, in
             collaboration with the marketing team, to better understand user
             needs and improve both the UX and UI of the software. As one part of
             this effort, we are currently designing new UI and unifying the
             interfaces of the producer and product sections, with a focus on
             consistency across the platform.
+          </Text>
+          <Text animate className="mb:0" color="mute" tag="small">
+            Note that some of the features presented in this case study are
+            still work in progress.
           </Text>
         </div>
         <Figure

@@ -249,9 +249,9 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
           To help users easily identify the distinct sections of Biocode, our
-          design system includes specific symbols for each area: Biocode for
-          producers, Biocode for food businesses, and the reporting service,
-          along with essential iconography.
+          design system includes specific symbols for each area: for producers,
+          for food businesses, and the reporting service, along with essential
+          iconography.
         </Text>
       </div>
     </TemplateArea>
@@ -271,8 +271,8 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           <Text animate className="mb:0" color="mute" tag="p">
             Complementary colors, green and yellow, were selected to reflect the
             connection to nature, reinforcing the environmental focus of our
-            brand. To ensure our data displays are both clear and accessible, we
-            chose accent colors specifically for this purpose.
+            brand. To make our data displays both clear and accessible, we chose
+            accent colors specifically for this purpose.
           </Text>
         </div>
       </div>
