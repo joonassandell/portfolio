@@ -24,7 +24,7 @@
   .Template-aside {
     border: var(--border-width) solid var(--border-950);
     border-radius: var(--border-radius);
-    margin: rem($space-l) 0 rem($space-2xl) 0;
+    margin: rem($space-ml) 0 rem($space-2xl) 0;
     padding: rem($space-ml) rem($space-m);
 
     @include mq(m) {

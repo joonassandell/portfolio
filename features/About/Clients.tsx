@@ -8,13 +8,7 @@ import { TextReveal } from '@/components/TextReveal';
 import lineBall from '@/public/images/line-ball.png';
 
 export const AboutClients = () => (
-  <TemplateArea
-    className="Template-clients"
-    gridGap="m"
-    gridRowGap="m"
-    id="clients"
-    pt="2xl-5xl"
-  >
+  <TemplateArea className="Template-clients" id="clients" pt="2xl-5xl">
     <Figure
       alt="Line ball"
       aria-hidden="true"

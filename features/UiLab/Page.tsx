@@ -57,14 +57,14 @@ export const UiLabPage = () => {
             </Heading>
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="m" id="dynamic-pay-button">
+        <TemplateArea id="dynamic-pay-button">
           <div className="grid-col grid-col:4@m">
             <Hr animate={false} className="mb:ml" />
             <Text className="mb" size="l" tag="h2">
               <span className="Template-highlightColor">01</span> Dynamic Pay
               Button
             </Text>
-            <Text className="mb:xs" color="mute" tag="p">
+            <Text className="mb:0" color="mute" tag="p">
               A dynamic button that expands to a <q>wallet</q> for quickly
               purchasing and choosing payment methods. Try dragging the credit
               cards to switch between the active one.
@@ -78,13 +78,13 @@ export const UiLabPage = () => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea gridRowGap="m" id="tba" pb="2xl-5xl">
+        <TemplateArea id="tba" pb="2xl-5xl">
           <div className="grid-col grid-col:4@m">
             <Hr animate={false} className="mb:ml" />
             <Text className="mb" size="l" tag="h2">
               <span className="Template-highlightColor">02</span> TBA
             </Text>
-            <Text className="mb:xs" color="mute">
+            <Text className="mb:0" color="mute">
               <p>
                 Nothing here yet but I'm planning on something new. Various
                 ideas:

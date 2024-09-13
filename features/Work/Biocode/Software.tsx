@@ -63,39 +63,47 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           {...getImage('joonassandell-biocode-software-collection', images)}
         />
         <m.div className="grid-col grid" ref={ref} style={{ y }}>
-          <div className="grid-col grid-col:6@s grid-col:3@l">
-            <Text animate className="mb:0" tag="p">
-              <Subtitle tag="span">Real-time results</Subtitle>{' '}
-              <Text className="mb:0" color="mute" tag="span">
-                Fast and comprehensive emission breakdown in seconds
-              </Text>
+          <Text
+            animate
+            className="grid-col grid-col:6@s grid-col:3@l mb:0"
+            tag="p"
+          >
+            <Subtitle tag="span">Real-time results</Subtitle>{' '}
+            <Text className="mb:0" color="mute" tag="span">
+              Fast and comprehensive emission breakdown in seconds
             </Text>
-          </div>
-          <div className="grid-col grid-col:6@s grid-col:3@l">
-            <Text animate className="mb:0" tag="p">
-              <Subtitle tag="span">GHG Protocol</Subtitle>{' '}
-              <Text className="mb:0" color="mute" tag="span">
-                Scope 1–3 emissions including location/market-based emissions
-              </Text>
+          </Text>
+          <Text
+            animate
+            className="grid-col grid-col:6@s grid-col:3@l mb:0"
+            tag="p"
+          >
+            <Subtitle tag="span">GHG Protocol</Subtitle>{' '}
+            <Text className="mb:0" color="mute" tag="span">
+              Scope 1–3 emissions including location/market-based emissions
             </Text>
-          </div>
-          <div className="grid-col grid-col:6@s grid-col:3@l">
-            <Text animate className="mb:0" tag="p">
-              <Subtitle tag="span">Emission factor database</Subtitle>{' '}
-              <Text className="mb:0" color="mute" tag="span">
-                Large ready-to-use emission database at your fingertips
-              </Text>
+          </Text>
+          <Text
+            animate
+            className="grid-col grid-col:6@s grid-col:3@l mb:0"
+            tag="p"
+          >
+            <Subtitle tag="span">Emission factor database</Subtitle>{' '}
+            <Text className="mb:0" color="mute" tag="span">
+              Large ready-to-use emission database at your fingertips
             </Text>
-          </div>
-          <div className="grid-col grid-col:6@s grid-col:3@l">
-            <Text animate className="mb:0" tag="p">
-              <Subtitle tag="span">Essentials</Subtitle>{' '}
-              <Text className="mb:0" color="mute" tag="span">
-                Emission sharing, suggestions, tips, scenarios, comparison,
-                customization…
-              </Text>
+          </Text>
+          <Text
+            animate
+            className="grid-col grid-col:6@s grid-col:3@l mb:0"
+            tag="p"
+          >
+            <Subtitle tag="span">Essentials</Subtitle>{' '}
+            <Text className="mb:0" color="mute" tag="span">
+              Emission sharing, suggestions, tips, scenarios, comparison,
+              customization…
             </Text>
-          </div>
+          </Text>
         </m.div>
       </TemplateArea>
       <TemplateArea pt="l-2xl">
@@ -112,25 +120,23 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             consistency across the platform.
           </Text>
         </div>
-        <div className="grid-col grid-col:10@m grid-col:8@l">
-          <Figure
-            alt="Biocode for food brands overview"
-            border
-            sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-            {...getImage('joonassandell-biocode-software-overview', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:10@m -start:3@m grid-col:8@l -start:1@l">
-          <Figure
-            alt="Biocode for producers overview"
-            border
-            sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-            {...getImage(
-              'joonassandell-biocode-software-for-producers-overview',
-              images,
-            )}
-          />
-        </div>
+        <Figure
+          alt="Biocode for food brands overview"
+          border
+          className="grid-col grid-col:10@m grid-col:8@l"
+          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage('joonassandell-biocode-software-overview', images)}
+        />
+        <Figure
+          alt="Biocode for producers overview"
+          border
+          className="grid-col grid-col:10@m -start:3@m grid-col:8@l -start:1@l"
+          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-software-for-producers-overview',
+            images,
+          )}
+        />
         <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:9@l">
           <Text animate color="mute" tag="p">
             The UI unification process involves converting design elements like
@@ -203,8 +209,8 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             )}
           />
         </div>
-        <div className="grid-col grid-col:8@m -start:3@m grid-col:5@l -start:1@l grid -gap:row:l">
-          <Text animate className="mb:0 grid-col" color="mute" tag="p">
+        <div className="grid-col grid-col:8@m -start:3@m grid-col:5@l -start:1@l grid -gap:row:l -gap:column:0">
+          <Text animate className="grid-col mb:0" color="mute" tag="p">
             We wanted to make sure that users can easily move between views,
             always knowing where they are in the process. We investigated that
             organizing the data from stage to yearly-based views was clearly the
@@ -223,38 +229,35 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             )}
           />
         </div>
-        <div className="grid-col grid-col:7@l -align:end">
-          <Figure
-            alt="Product raw materials LCA stage page"
-            border
-            sizes={`${MQ.l} 60vw, 100vw`}
-            {...getImage(
-              'joonassandell-biocode-software-product-raw-materials',
-              images,
-            )}
-          />
-        </div>
-        <div className="grid-col">
-          <Figure
-            alt="Product production LCA stage page"
-            border
-            {...getImage(
-              'joonassandell-biocode-software-product-production',
-              images,
-            )}
-          />
-        </div>
-        <div className="grid-col grid-col:8@l -en">
-          <Figure
-            alt="Scope 2 LCA stage page"
-            border
-            sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-            {...getImage(
-              'joonassandell-biocode-software-company-scope-2',
-              images,
-            )}
-          />
-        </div>
+        <Figure
+          alt="Product raw materials LCA stage page"
+          border
+          className="grid-col grid-col:7@l -align:end"
+          sizes={`${MQ.l} 60vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-software-product-raw-materials',
+            images,
+          )}
+        />
+        <Figure
+          alt="Product production LCA stage page"
+          border
+          className="grid-col"
+          {...getImage(
+            'joonassandell-biocode-software-product-production',
+            images,
+          )}
+        />
+        <Figure
+          alt="Scope 2 LCA stage page"
+          border
+          className="grid-col grid-col:8@l"
+          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-software-company-scope-2',
+            images,
+          )}
+        />
         <div className="grid-col grid-col:4@l">
           <Text animate className="mb:0" color="mute" tag="p">
             A key focus for us is making carbon footprint calculations as
@@ -281,28 +284,26 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             details by category or specific emissions.
           </Text>
         </div>
-        <div className="grid-col grid-col:10@m grid-col:8@l">
-          <Figure
-            alt="Analytics of product results page"
-            border
-            sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-            {...getImage(
-              'joonassandell-biocode-software-product-results-analytics',
-              images,
-            )}
-          />
-        </div>
-        <div className="grid-col grid-col:10@m -en">
-          <Figure
-            alt="Product results page with breakdown of lca stages"
-            border
-            sizes={`${MQ.m} 70vw, 100vw`}
-            {...getImage(
-              'joonassandell-biocode-software-product-results',
-              images,
-            )}
-          />
-        </div>
+        <Figure
+          alt="Analytics of product results page"
+          border
+          className="grid-col grid-col:10@m grid-col:8@l"
+          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-software-product-results-analytics',
+            images,
+          )}
+        />
+        <Figure
+          alt="Product results page with breakdown of lca stages"
+          border
+          className="grid-col grid-col:10@m"
+          sizes={`${MQ.m} 70vw, 100vw`}
+          {...getImage(
+            'joonassandell-biocode-software-product-results',
+            images,
+          )}
+        />
       </TemplateArea>
     </section>
   );

@@ -147,7 +147,7 @@
   // Grid
   --grid-gap-m: #{rem($space-m)};
   --grid-gap-l: #{rem($space-m)};
-  --grid-gap-row-l: #{rem($space-l)};
+  --grid-gap-row-l: #{rem($space-ml)};
 
   /* =======================================
    * Generic tokens
@@ -176,6 +176,7 @@
   @include mq(m) {
     --grid-gap-m: #{rem($space-ml)};
     --grid-gap-l: #{rem($space-l)};
+    --grid-gap-row-l: #{rem($space-l)};
 
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});

@@ -8,24 +8,16 @@ import { Text } from '@/components/Text';
 import { TextReveal } from '@/components/TextReveal';
 
 export const AboutMilestones = () => (
-  <TemplateArea
-    className="Template-milestones"
-    gridGap="m"
-    gridRowGap="m"
-    pb="2xl-5xl"
-    pt="2xl-5xl"
-  >
+  <TemplateArea className="Template-milestones" pb="2xl-5xl" pt="2xl-5xl">
     <div className="grid-col grid-col:8@s grid-col:6@m">
       <Hr className="mb:ml" />
       <Heading size="h3">
         <TextReveal text={["I'm enthusiastic ", 'about creating things']} />
       </Heading>
-      <Text animate className="mb:m">
-        <p>
-          I enjoy dedicating some of my free time to various projects, crafting
-          sketches, tweaking code, enhancing my personal website with new
-          features, and producing music. See featured milestones below.
-        </p>
+      <Text animate className="mb:0" tag="p">
+        I enjoy dedicating some of my free time to various projects, crafting
+        sketches, tweaking code, enhancing my personal website with new
+        features, and producing music. See featured milestones below.
       </Text>
     </div>
     <div className="grid-col">

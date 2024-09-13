@@ -29,157 +29,129 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
     </TemplateArea>
     <TemplateArea gridGap="m" gridRowGap="m" pt="l-2xl">
       <div className="grid-col grid-col:9@s grid align-items:start">
-        <div className="grid-col grid-col:5@s -align:end">
-          <Figure
-            alt="Biocode design system button component"
-            border
-            borderStyle="dashed"
-            sizes={`${MQ.s} 33vw, 100vw`}
-            {...getImage('joonassandell-biocode-design-system-button', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:7 visible@s">
-          <Figure
-            alt="Biocode design system alert component"
-            border
-            borderStyle="dashed"
-            quality={100}
-            sizes={`${MQ.s} 50vw, 100vw`}
-            {...getImage('joonassandell-biocode-design-system-alert', images)}
-          />
-        </div>
+        <Figure
+          alt="Biocode design system button component"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:5@s -align:end"
+          sizes={`${MQ.s} 33vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-button', images)}
+        />
+        <Figure
+          alt="Biocode design system alert component"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:7 visible@s"
+          quality={100}
+          sizes={`${MQ.s} 50vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-alert', images)}
+        />
         <div className="grid-col grid-col:8@s grid">
-          <div className="grid-col grid-col:8@s">
-            <Figure
-              alt="Biocode design system tabs component"
-              border
-              borderStyle="dashed"
-              quality={100}
-              sizes={`${MQ.s} 33vw, 100vw`}
-              {...getImage('joonassandell-biocode-design-system-tabs', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:4 -align:end visible@s">
-            <Figure
-              alt="Biocode design system beacon component"
-              border
-              borderStyle="dashed"
-              sizes="15vw"
-              {...getImage(
-                'joonassandell-biocode-design-system-beacon',
-                images,
-              )}
-            />
-          </div>
-          <div className="grid-col grid-col:6">
-            <Figure
-              alt="Biocode design system avatar component"
-              border
-              borderStyle="dashed"
-              sizes={`${MQ.s} 25vw, 50vw`}
-              {...getImage(
-                'joonassandell-biocode-design-system-avatar',
-                images,
-              )}
-            />
-          </div>
-          <div className="grid-col grid-col:6 -align:end">
-            <Figure
-              alt="Biocode design system switch component"
-              border
-              borderStyle="dashed"
-              sizes={`${MQ.s} 25vw, 50vw`}
-              {...getImage(
-                'joonassandell-biocode-design-system-switch',
-                images,
-              )}
-            />
-          </div>
+          <Figure
+            alt="Biocode design system tabs component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:8@s"
+            quality={100}
+            sizes={`${MQ.s} 33vw, 100vw`}
+            {...getImage('joonassandell-biocode-design-system-tabs', images)}
+          />
+          <Figure
+            alt="Biocode design system beacon component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:4 -align:end visible@s"
+            sizes="15vw"
+            {...getImage('joonassandell-biocode-design-system-beacon', images)}
+          />
+          <Figure
+            alt="Biocode design system avatar component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:6"
+            sizes={`${MQ.s} 25vw, 50vw`}
+            {...getImage('joonassandell-biocode-design-system-avatar', images)}
+          />
+          <Figure
+            alt="Biocode design system switch component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:6 -align:end"
+            sizes={`${MQ.s} 25vw, 50vw`}
+            {...getImage('joonassandell-biocode-design-system-switch', images)}
+          />
         </div>
         <div className="grid-col grid-col:4 grid -gap:column:0 visible@s">
-          <div className="grid-col">
-            <Figure
-              alt="Biocode design system menu component"
-              border
-              borderStyle="dashed"
-              quality={100}
-              sizes="25vw"
-              {...getImage('joonassandell-biocode-design-system-menu', images)}
-            />
-          </div>
-          <div className="grid-col grid-col:6 -end visible@s">
-            <Figure
-              alt="Biocode design system beacon component"
-              border
-              borderStyle="dashed"
-              sizes="15vw"
-              {...getImage(
-                'joonassandell-biocode-design-system-spinner',
-                images,
-              )}
-            />
-          </div>
+          <Figure
+            alt="Biocode design system menu component"
+            border
+            borderStyle="dashed"
+            className="grid-col"
+            quality={100}
+            sizes="25vw"
+            {...getImage('joonassandell-biocode-design-system-menu', images)}
+          />
+          <Figure
+            alt="Biocode design system beacon component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:6 -end visible@s"
+            sizes="15vw"
+            {...getImage('joonassandell-biocode-design-system-spinner', images)}
+          />
         </div>
       </div>
       <div className="grid-col grid-col:4 grid-col:3@s grid -gap:column:0 -align:end">
-        <div className="grid-col">
-          <Figure
-            alt="Biocode design system radial chart component"
-            border
-            borderStyle="dashed"
-            quality={100}
-            sizes={`${MQ.s} 25vw, 33vw`}
-            {...getImage('joonassandell-biocode-design-system-radial', images)}
-          />
-        </div>
-        <div className="grid-col visible@s">
-          <Figure
-            alt="Biocode design system popover component"
-            border
-            borderStyle="dashed"
-            quality={100}
-            sizes="25vw"
-            {...getImage('joonassandell-biocode-design-system-popover', images)}
-          />
-        </div>
-      </div>
-      <div className="grid-col grid-col:8 grid-col:5@s -start:2@s grid -gap:column:0">
-        <div className="grid-col">
-          <Figure
-            alt="Biocode design system dialog component"
-            border
-            borderStyle="dashed"
-            quality={100}
-            sizes={`${MQ.s} 40vw, 100vw`}
-            {...getImage('joonassandell-biocode-design-system-dialog', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:9 -end -align:end visible@s">
-          <Figure
-            alt="Biocode design system progress component"
-            border
-            borderStyle="dashed"
-            sizes="25vw"
-            {...getImage(
-              'joonassandell-biocode-design-system-progress',
-              images,
-            )}
-          />
-        </div>
-      </div>
-      <div className="grid-col grid-col:6@s">
         <Figure
-          alt="Biocode design system cards component"
+          alt="Biocode design system radial chart component"
           border
           borderStyle="dashed"
+          className="grid-col"
           quality={100}
-          sizes={`${MQ.s} 50vw, 100vw`}
-          {...getImage('joonassandell-biocode-design-system-cards', images)}
+          sizes={`${MQ.s} 25vw, 33vw`}
+          {...getImage('joonassandell-biocode-design-system-radial', images)}
+        />
+        <Figure
+          alt="Biocode design system popover component"
+          border
+          borderStyle="dashed"
+          className="grid-col visible@s"
+          quality={100}
+          sizes="25vw"
+          {...getImage('joonassandell-biocode-design-system-popover', images)}
         />
       </div>
+      <div className="grid-col grid-col:8 grid-col:5@s -start:2@s grid -gap:column:0">
+        <Figure
+          alt="Biocode design system dialog component"
+          border
+          borderStyle="dashed"
+          className="grid-col"
+          quality={100}
+          sizes={`${MQ.s} 40vw, 100vw`}
+          {...getImage('joonassandell-biocode-design-system-dialog', images)}
+        />
+        <Figure
+          alt="Biocode design system progress component"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:9 -end -align:end visible@s"
+          sizes="25vw"
+          {...getImage('joonassandell-biocode-design-system-progress', images)}
+        />
+      </div>
+      <Figure
+        alt="Biocode design system cards component"
+        border
+        borderStyle="dashed"
+        className="grid-col grid-col:6@s"
+        quality={100}
+        sizes={`${MQ.s} 50vw, 100vw`}
+        {...getImage('joonassandell-biocode-design-system-cards', images)}
+      />
     </TemplateArea>
-    <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
-      <div className="grid-col grid-col:5@l grid-col:4@xl grid -gap:column:0">
+    <TemplateArea gridRowGap="m" pt="2xl-5xl">
+      <div className="grid-col grid-col:5@l grid-col:4@xl grid -gap:row:l -gap:column:0">
         <div className="grid-col">
           <Heading animate size="h5" tag="h3">
             Flexible components
@@ -196,93 +168,86 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           </Text>
         </div>
         <div className="grid-col grid-col:7@s grid-col:12@l grid -align:end">
-          <div className="grid-col grid-col:8">
+          <Figure
+            alt="Biocode design system donut chart component"
+            border
+            borderStyle="dashed"
+            className="grid-col grid-col:8"
+            quality={100}
+            sizes={`${MQ.l} 20vw, ${MQ.s} 40vw, 60vw`}
+            {...getImage('joonassandell-biocode-design-system-donut', images)}
+          />
+          <div className="grid-col grid-col:4 grid -gap:column:0">
             <Figure
               alt="Biocode design system donut chart component"
               border
               borderStyle="dashed"
+              className="grid-col"
               quality={100}
-              sizes={`${MQ.l} 20vw, ${MQ.s} 40vw, 60vw`}
-              {...getImage('joonassandell-biocode-design-system-donut', images)}
+              sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
+              {...getImage(
+                'joonassandell-biocode-design-system-donut-small-1',
+                images,
+              )}
+            />
+            <Figure
+              alt="Biocode design system donut chart component"
+              border
+              borderStyle="dashed"
+              className="grid-col"
+              quality={100}
+              sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
+              {...getImage(
+                'joonassandell-biocode-design-system-donut-small-2',
+                images,
+              )}
             />
           </div>
-          <div className="grid-col grid-col:4 grid -gap:column:0">
-            <div className="grid-col">
-              <Figure
-                alt="Biocode design system donut chart component"
-                border
-                borderStyle="dashed"
-                quality={100}
-                sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
-                {...getImage(
-                  'joonassandell-biocode-design-system-donut-small-1',
-                  images,
-                )}
-              />
-            </div>
-            <div className="grid-col">
-              <Figure
-                alt="Biocode design system donut chart component"
-                border
-                borderStyle="dashed"
-                quality={100}
-                sizes={`${MQ.l} 10vw, ${MQ.s} 20vw, 33vw`}
-                {...getImage(
-                  'joonassandell-biocode-design-system-donut-small-2',
-                  images,
-                )}
-              />
-            </div>
-          </div>
         </div>
       </div>
-      <div className="grid-col grid-col:10@s grid-col:7@l grid-col:8@xl -end -align:end">
-        <Figure
-          alt="Biocode design system table"
-          border
-          quality={90}
-          sizes={`${MQ.s} 90vw, 100vw`} // Intentional for better quality
-          {...getImage('joonassandell-biocode-design-system-table', images)}
-        />
-      </div>
+      <Figure
+        alt="Biocode design system table"
+        border
+        className="grid-col grid-col:10@s grid-col:7@l grid-col:8@xl -end -align:end"
+        quality={90}
+        sizes={`${MQ.s} 90vw, 100vw`} // Intentional for better quality
+        {...getImage('joonassandell-biocode-design-system-table', images)}
+      />
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pt="2xl-5xl">
+    <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:8@l grid">
-        <div className="grid-col grid-col:4">
-          <Figure
-            alt="Biocode for producers mark"
-            border
-            borderStyle="dashed"
-            sizes={`${MQ.l} 25vw, 33vw`}
-            {...getImage('joonassandell-biocode-producer-mark', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:4">
-          <Figure
-            alt="Biocode for products mark"
-            border
-            borderStyle="dashed"
-            inViewOffset={0.3}
-            sizes={`${MQ.l} 25vw, 33vw`}
-            {...getImage('joonassandell-biocode-product-mark', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:4">
-          <Figure
-            alt="Biocode for reporting mark"
-            border
-            borderStyle="dashed"
-            inViewOffset={0.6}
-            sizes={`${MQ.l} 25vw, 33vw`}
-            {...getImage('joonassandell-biocode-report-mark', images)}
-          />
-        </div>
+        <Figure
+          alt="Biocode for producers mark"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:4"
+          sizes={`${MQ.l} 25vw, 33vw`}
+          {...getImage('joonassandell-biocode-producer-mark', images)}
+        />
+        <Figure
+          alt="Biocode for products mark"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:4"
+          inViewOffset={0.3}
+          sizes={`${MQ.l} 25vw, 33vw`}
+          {...getImage('joonassandell-biocode-product-mark', images)}
+        />
+        <Figure
+          alt="Biocode for reporting mark"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:4"
+          inViewOffset={0.6}
+          sizes={`${MQ.l} 25vw, 33vw`}
+          {...getImage('joonassandell-biocode-report-mark', images)}
+        />
       </div>
       <div className="grid-col grid-col:8@m -start:5@m grid-col:4@l -start:9@l">
         <Heading animate maxWidth size="h5" tag="h3">
           Distinguishing key areas with symbols
         </Heading>
-        <Text animate className="mb:xs" color="mute" tag="p">
+        <Text animate className="mb:0" color="mute" tag="p">
           To help users easily identify the distinct sections of Biocode, our
           design system includes specific symbols for each area: Biocode for
           producers, Biocode for food businesses, and the reporting service,
@@ -290,45 +255,46 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pt="2xl-5xl">
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l">
+    <TemplateArea className="align-items:start" pt="2xl-5xl">
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l grid">
         <Figure
           alt="Biocode design system colors"
           border
+          className="grid-col"
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-design-system-colors', images)}
         />
-        <Heading animate className="mt:l" maxWidth size="h5" tag="h3">
-          Reflecting brand identity with typography and color tokens
-        </Heading>
-        <Text animate className="mb mb:0@m" color="mute" tag="p">
-          Complementary colors, green and yellow, were selected to reflect the
-          connection to nature, reinforcing the environmental focus of our
-          brand. To ensure our data displays are both clear and accessible, we
-          chose accent colors specifically for this purpose.
-        </Text>
+        <div className="grid-col">
+          <Heading animate className="mt:xs" maxWidth size="h5" tag="h3">
+            Reflecting brand identity with typography and color tokens
+          </Heading>
+          <Text animate className="mb:0" color="mute" tag="p">
+            Complementary colors, green and yellow, were selected to reflect the
+            connection to nature, reinforcing the environmental focus of our
+            brand. To ensure our data displays are both clear and accessible, we
+            chose accent colors specifically for this purpose.
+          </Text>
+        </div>
       </div>
-      <div className="grid-col grid-col:10@m grid-col:8@l">
-        <Figure
-          alt="Biocode design system typeface: Space Grotesk"
-          quality={100}
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-design-system-typeface', images)}
-        />
-      </div>
-      <div className="grid-col grid-col:8@l">
-        <Figure
-          alt="Biocode design system color tokens"
-          border
-          sizes={`${MQ.l} 60vw, 100vw`}
-          {...getImage(
-            'joonassandell-biocode-design-system-color-tokens',
-            images,
-          )}
-        />
-      </div>
+      <Figure
+        alt="Biocode design system typeface: Space Grotesk"
+        className="grid-col grid-col:10@m grid-col:8@l"
+        quality={100}
+        sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-design-system-typeface', images)}
+      />
+      <Figure
+        alt="Biocode design system color tokens"
+        border
+        className="grid-col grid-col:8@l"
+        sizes={`${MQ.l} 60vw, 100vw`}
+        {...getImage(
+          'joonassandell-biocode-design-system-color-tokens',
+          images,
+        )}
+      />
       <div className="grid-col grid-col:4@l">
-        <Text animate className="mt mt:0@m" color="mute" tag="p">
+        <Text animate color="mute" tag="p">
           The primary color, a clear blue, symbolizes the sky and our commitment
           to preserving the climate in its natural state. Our main typeface,{' '}
           <em>Space Grotesk</em>, features a custom stylistic set that balances

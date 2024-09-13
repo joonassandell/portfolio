@@ -36,87 +36,106 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
     <TemplateArea pt="l-2xl">
       <div className="grid-col grid -gap:row:0">
         <Hr animate className="grid-col mb:l mb:2xl@l" />
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
-          <Heading animate size="h5" tag="h3">
-            Problems
-          </Heading>
-        </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Text animate className="mb:0" color="mute" tag="p">
-            During the positioning project, we discovered that Biocode's brand
-            and{' '}
-            <Link
-              href="/_next/image?url=%2Fsandbox%2Fjoonassandell-biocode-home.jpg&w=1080&q=100"
-              target="_blank"
-            >
-              old website
-            </Link>{' '}
-            were not effectively communicating its USPs and the{' '}
-            <em>real value</em> it provides to users. This misalignment created
-            confusion among potential customers, leading to lower engagement and
-            a lack of clarity.
-          </Text>
-        </div>
+        <Heading
+          animate
+          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
+          size="h5"
+          tag="h3"
+        >
+          Problems
+        </Heading>
+        <Text
+          animate
+          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
+          color="mute"
+          tag="p"
+        >
+          During the positioning project, we discovered that Biocode's brand and{' '}
+          <Link
+            href="/_next/image?url=%2Fsandbox%2Fjoonassandell-biocode-home.jpg&w=1080&q=100"
+            target="_blank"
+          >
+            old website
+          </Link>{' '}
+          were not effectively communicating its USPs and the{' '}
+          <em>real value</em> it provides to users. This misalignment created
+          confusion among potential customers, leading to lower engagement and a
+          lack of clarity.
+        </Text>
       </div>
       <div className="grid-col grid -gap:row:0">
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
-          <Heading animate maxWidth size="h5" tag="h3">
-            Challenges
-          </Heading>
-        </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Text animate className="mb:0" color="mute" tag="p">
-            We needed to shift Biocode's positioning from a service-oriented
-            brand to a product-centric SaaS model and ensure that the website
-            conveyed the value Biocode offers to its users. The main challenge
-            was translating this into a brand design that highlighted Biocode's
-            key advantages and set it apart from competitors.
-          </Text>
-        </div>
+        <Heading
+          animate
+          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
+          maxWidth
+          size="h5"
+          tag="h3"
+        >
+          Challenges
+        </Heading>
+        <Text
+          animate
+          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
+          color="mute"
+          tag="p"
+        >
+          We needed to shift Biocode's positioning from a service-oriented brand
+          to a product-centric SaaS model and ensure that the website conveyed
+          the value Biocode offers to its users. The main challenge was
+          translating this into a brand design that highlighted Biocode's key
+          advantages and set it apart from competitors.
+        </Text>
       </div>
       <div className="grid-col grid -gap:row:0">
-        <div className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l">
-          <Heading animate size="h5" tag="h3">
-            Solutions
-          </Heading>
-        </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Text animate className="mb:0" color="mute" tag="p">
-            We addressed these challenges by showcasing Biocode’s strengths,
-            like ease of use and credibility. The new design highlights the
-            problems Biocode solves, with clear messaging and a user-friendly
-            interface that guides potential customers through the product's
-            benefits.
-          </Text>
-        </div>
+        <Heading
+          animate
+          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
+          size="h5"
+          tag="h3"
+        >
+          Solutions
+        </Heading>
+        <Text
+          animate
+          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
+          color="mute"
+          tag="p"
+        >
+          We addressed these challenges by showcasing Biocode’s strengths, like
+          ease of use and credibility. The new design highlights the problems
+          Biocode solves, with clear messaging and a user-friendly interface
+          that guides potential customers through the product's benefits.
+        </Text>
       </div>
     </TemplateArea>
     <TemplateArea pt="2xl-5xl">
-      <div className="grid-col grid-col:10@m grid-col:7@l">
-        <Figure
-          alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
-          border
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-website-home-whoitsfor', images)}
-        />
-      </div>
-      <div className="grid-col grid-col:10@m grid-col:5@l -end -align:end">
-        <Heading animate size="h5" tag="h3">
-          Essential features we needed
-        </Heading>
-        <Text animate className="mb:l" color="mute">
-          <ul>
-            <li>Key app features showcasing main USPs</li>
-            <li>Strategically placed CTAs for user sign-up</li>
-            <li>Feedback quotes from satisfied clients</li>
-            <li>Logical navigation and content structure</li>
-            <li>Emphasis on software trustworthiness</li>
-            <li>Targeted sections addressing user needs</li>
-          </ul>
-        </Text>
+      <Figure
+        alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
+        border
+        className="grid-col grid-col:10@m grid-col:7@l"
+        sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-website-home-whoitsfor', images)}
+      />
+      <div className="grid-col grid-col:10@m grid-col:5@l -end -align:end grid">
+        <div className="grid-col">
+          <Heading animate size="h5" tag="h3">
+            Essential features we needed
+          </Heading>
+          <Text animate className="mb:xs" color="mute">
+            <ul>
+              <li>Key app features showcasing main USPs</li>
+              <li>Strategically placed CTAs for user sign-up</li>
+              <li>Feedback quotes from satisfied clients</li>
+              <li>Logical navigation and content structure</li>
+              <li>Emphasis on software trustworthiness</li>
+              <li>Targeted sections addressing user needs</li>
+            </ul>
+          </Text>
+        </div>
         <Figure
           alt="Four main Biocode features and quote of Biocode's customer"
           border
+          className="grid-col"
           quality={100}
           sizes={`${MQ.l} 40vw, ${MQ.m} 70vw, 100vw`}
           {...getImage('joonassandell-biocode-website-home-calculate', images)}
@@ -135,15 +154,14 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           businesses to adopt our platform.
         </Text>
       </div>
-      <div className="grid-col grid-col:10@m grid-col:8@l">
-        <Figure
-          alt="Call to action to discover Biocode reporting service"
-          border
-          quality={100}
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-website-home-reporting', images)}
-        />
-      </div>
+      <Figure
+        alt="Call to action to discover Biocode reporting service"
+        border
+        className="grid-col grid-col:10@m grid-col:8@l"
+        quality={100}
+        sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-website-home-reporting', images)}
+      />
     </TemplateArea>
     <TemplateArea grid={false} pt="2xl-5xl">
       <Subtitle animate center>
@@ -167,14 +185,13 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </Text>
     </TemplateArea>
     <TemplateArea pt="l-2xl">
-      <div className="grid-col grid-col:8@l">
-        <Figure
-          alt="Biocode homepage animation"
-          border
-          glare
-          src="/biocode/joonassandell-biocode-website-home.mp4"
-        />
-      </div>
+      <Figure
+        alt="Biocode homepage animation"
+        border
+        className="grid-col grid-col:8@l"
+        glare
+        src="/biocode/joonassandell-biocode-website-home.mp4"
+      />
       <div className="grid-col grid-col:6@m grid-col:4@l -align:end">
         <Heading animate size="h5" tag="h3">
           Strong first impression
@@ -188,15 +205,14 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea pt="grid-gap-row-l">
-      <div className="grid-col grid-col:6 -start:4 grid-col:4@m -start:3@m grid-col:3@l -start:3@l">
-        <Figure
-          alt="Mobile view of Biocode's homepage"
-          borderRadius="1.5rem"
-          quality={100}
-          sizes={`${MQ.m} 25vw, 50vw`}
-          {...getImage('joonassandell-biocode-website-mobile', images)}
-        />
-      </div>
+      <Figure
+        alt="Mobile view of Biocode's homepage"
+        borderRadius="1.5rem"
+        className="grid-col grid-col:6 -start:4 grid-col:4@m -start:3@m grid-col:3@l -start:3@l mt:xs mb:xs mb:0@m mt:0@m"
+        quality={100}
+        sizes={`${MQ.m} 25vw, 50vw`}
+        {...getImage('joonassandell-biocode-website-mobile', images)}
+      />
       <div className="grid-col grid-col:6@m grid-col:4@l -align:end">
         <Heading animate size="h5" tag="h3">
           International and distinctive
@@ -210,7 +226,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
     </TemplateArea>
-    <TemplateArea gridRowGap="m" pt="2xl-5xl">
+    <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:6@m grid-col:4@l">
         <Heading animate size="h5" tag="h3">
           Unified visual identity
@@ -222,68 +238,67 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Text>
       </div>
       <div className="grid-col grid-col:8@l grid">
-        <div className="grid-col grid-col:4@s visible@s">
-          <Figure
-            alt="Biocode monotone logomark"
-            border
-            sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
-            {...getImage('joonassandell-biocode-logomark-monotone', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:6 grid-col:4@s">
-          <Figure
-            alt="Biocode logomark"
-            border
-            inViewOffset={0.3}
-            sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
-            {...getImage('joonassandell-biocode-logomark', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:6 grid-col:4@s">
-          <Figure
-            alt="Biocode application icon"
-            border
-            inViewOffset={0.6}
-            sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
-            {...getImage('joonassandell-biocode-icon', images)}
-          />
-        </div>
-        <div className="grid-col grid-col:8@s -start:5@s">
-          <Figure
-            alt="Biocode wordmark"
-            border
-            sizes={`${MQ.l} 40vw, ${MQ.s} 60vw, 100vw`}
-            {...getImage('joonassandell-biocode-wordmark', images)}
-          />
-        </div>
-      </div>
-    </TemplateArea>
-    <TemplateArea gridRowGap="m" pt="2xl-5xl">
-      <div className="grid-col grid-col:10@m grid-col:8@l">
         <Figure
-          alt="Biocode feature page hero cards"
+          alt="Biocode monotone logomark"
           border
-          quality={100}
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-website-features-hero', images)}
+          borderStyle="dashed"
+          className="grid-col grid-col:4@s visible@s"
+          sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
+          {...getImage('joonassandell-biocode-logomark-monotone', images)}
+        />
+        <Figure
+          alt="Biocode logomark"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:6 grid-col:4@s"
+          inViewOffset={0.3}
+          sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
+          {...getImage('joonassandell-biocode-logomark', images)}
+        />
+        <Figure
+          alt="Biocode application icon"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:6 grid-col:4@s"
+          inViewOffset={0.6}
+          sizes={`${MQ.l} 20vw, ${MQ.s} 33vw, 50vw`}
+          {...getImage('joonassandell-biocode-icon', images)}
+        />
+        <Figure
+          alt="Biocode wordmark"
+          border
+          borderStyle="dashed"
+          className="grid-col grid-col:8@s -start:5@s"
+          sizes={`${MQ.l} 40vw, ${MQ.s} 60vw, 100vw`}
+          {...getImage('joonassandell-biocode-wordmark', images)}
         />
       </div>
+    </TemplateArea>
+    <TemplateArea className="align-items:start" gridRowGap="m" pt="2xl-5xl">
+      <Figure
+        alt="Biocode feature page hero cards"
+        border
+        className="grid-col grid-col:10@m grid-col:8@l"
+        quality={100}
+        sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-website-features-hero', images)}
+      />
       <div className="grid-col hidden@m">
-        <Heading animate className="mt" size="h5" tag="h3">
+        <Heading animate className="mt:xs" size="h5" tag="h3">
           Emphasizing core strengths
         </Heading>
-        <Text animate className="mb" color="mute" tag="p">
+        <Text animate className="mb:xs" color="mute" tag="p">
           We really wanted to highlight the core advantages by designing
           sections that showcase them using visually appealing{' '}
           <q>bento grids</q> and other flashy elements.
         </Text>
       </div>
-      <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -align:end">
-        <div className="visible@m">
+      <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -align:end grid -gap:column:0">
+        <div className="grid-col visible@m">
           <Heading animate size="h5" tag="h3">
             Emphasizing core strengths
           </Heading>
-          <Text animate className="mb:l" color="mute" tag="p">
+          <Text animate className="mb:xs" color="mute" tag="p">
             We really wanted to highlight the core advantages by designing
             sections that showcase them using visually appealing{' '}
             <q>bento grids</q> and other flashy elements.
@@ -292,6 +307,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Figure
           alt="Example of Biocode's easy to use card"
           border
+          className="grid-col"
           glare
           quality={100}
           sizes={`${MQ.l} 33vw, 50vw`}
@@ -301,43 +317,40 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           )}
         />
       </div>
-      <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l flex">
-        <Figure
-          alt="Example of Biocode's agile card"
-          border
-          className="mt:auto"
-          glare
-          quality={100}
-          sizes={`${MQ.l} 33vw, 50vw`}
-          {...getImage('joonassandell-biocode-website-card-agile', images)}
-        />
-      </div>
-      <div className="grid-col grid-col:6 grid-col:5@m -start:3@m grid-col:4@l -start:5@l">
-        <Figure
-          alt="Example of Biocode's insightful card"
-          border
-          glare
-          inViewOffset={0.3}
-          quality={100}
-          sizes={`${MQ.l} 33vw, 50vw`}
-          {...getImage('joonassandell-biocode-website-card-insightful', images)}
-        />
-      </div>
-      <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -end">
-        <Figure
-          alt="Example of Biocode's credible card"
-          border
-          glare
-          inViewOffset={0.6}
-          quality={100}
-          sizes={`${MQ.l} 33vw, 50vw`}
-          {...getImage('joonassandell-biocode-website-card-credible', images)}
-        />
-      </div>
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l">
+      <Figure
+        alt="Example of Biocode's agile card"
+        border
+        className="grid-col grid-col:6 grid-col:5@m grid-col:4@l flex mt:auto"
+        glare
+        quality={100}
+        sizes={`${MQ.l} 33vw, 50vw`}
+        {...getImage('joonassandell-biocode-website-card-agile', images)}
+      />
+      <Figure
+        alt="Example of Biocode's insightful card"
+        border
+        className="grid-col grid-col:6 grid-col:5@m -start:3@m grid-col:4@l -start:5@l"
+        glare
+        inViewOffset={0.3}
+        quality={100}
+        sizes={`${MQ.l} 33vw, 50vw`}
+        {...getImage('joonassandell-biocode-website-card-insightful', images)}
+      />
+      <Figure
+        alt="Example of Biocode's credible card"
+        border
+        className="grid-col grid-col:6 grid-col:5@m grid-col:4@l -end"
+        glare
+        inViewOffset={0.6}
+        quality={100}
+        sizes={`${MQ.l} 33vw, 50vw`}
+        {...getImage('joonassandell-biocode-website-card-credible', images)}
+      />
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l grid -gap:column:0">
         <Figure
           alt="Biocode feature page assessments"
           border
+          className="grid-col"
           quality={100}
           sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
           {...getImage(
@@ -345,37 +358,34 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
             images,
           )}
         />
-        <Heading animate className="mt:l" size="h5" tag="h3">
-          In-depth features
-        </Heading>
-        <Text animate className="mb mb:0@m" color="mute" tag="p">
-          Among emphasizing the core USPs we also planned detailed sections of
-          individual features of the software to gain a deeper insight into the
-          specific tools and capabilities.
-        </Text>
+        <div className="grid-col">
+          <Heading animate className="mt:xs" size="h5" tag="h3">
+            In-depth features
+          </Heading>
+          <Text animate className="mb:xs mb:0@m" color="mute" tag="p">
+            Among emphasizing the core USPs we also planned detailed sections of
+            individual features of the software to gain a deeper insight into
+            the specific tools and capabilities.
+          </Text>
+        </div>
       </div>
-      <div className="grid-col grid-col:10@m grid-col:8@l">
-        <Figure
-          alt="Biocode feature page results"
-          border
-          quality={90}
-          sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage(
-            'joonassandell-biocode-website-features-results',
-            images,
-          )}
-        />
-      </div>
+      <Figure
+        alt="Biocode feature page results"
+        border
+        className="grid-col grid-col:10@m grid-col:8@l"
+        quality={90}
+        sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-website-features-results', images)}
+      />
     </TemplateArea>
     <TemplateArea pt="2xl-5xl">
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:7@l -start:1@l">
-        <Figure
-          alt="About us page of Biocode homepage"
-          border
-          sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-website-about', images)}
-        />
-      </div>
+      <Figure
+        alt="About us page of Biocode homepage"
+        border
+        className="grid-col grid-col:10@m -start:3@m grid-col:7@l -start:1@l"
+        sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
+        {...getImage('joonassandell-biocode-website-about', images)}
+      />
       <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l">
         <Heading animate size="h5" tag="h3">
           Transparent and trustworthy expertise

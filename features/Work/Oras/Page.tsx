@@ -36,7 +36,7 @@ export const OrasPage = ({ images }: PageProps) => {
         type={['Website', 'Web service']}
         year={year}
       />
-      <TemplateArea gridGap="m" pt="2xl" wrap={false}>
+      <TemplateArea gridGap={false} pt="2xl" wrap={false}>
         <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l">
           <Figure
             alt="Oras woman showering"

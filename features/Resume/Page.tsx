@@ -11,7 +11,7 @@ export const ResumePage = () => {
   return (
     <Template footerProps={{ fullWidth: true }} id={id} variant="unstyled">
       <Head description={meta.description} title={meta.title} />
-      <TemplateArea gridGap="m" gridRowGap="m" pt={false}>
+      <TemplateArea gridGap="m" pt={false}>
         <ResumeContent />
         <ResumeAside />
       </TemplateArea>
