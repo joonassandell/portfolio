@@ -11,6 +11,7 @@ const sitemap: SitemapItemWork<'biocode'> = {
     themeColor: '#00081f',
     title: 'Biocode',
   },
+  new: true,
   title: 'Biocode',
   url: '/biocode',
   year: new Date().getFullYear(),

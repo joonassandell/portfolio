@@ -18,6 +18,7 @@ export interface SitemapItem<Id = WithId> {
 
 export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   color: string;
+  new?: boolean;
   year: string | number;
 }
 

@@ -6,6 +6,11 @@
   --focus-visible-fg: var(--focus-visible-fg-blend);
   --link: var(--text-50);
 
+  --Badge-bg: var(--bg-950);
+  --Badge-beacon: var(--primary-blend);
+  --Badge-border: var(--border-50);
+  --Badge-text: var(--text-50);
+
   background: var(--Footer-bg, var(--Template-bg, var(--bg-50)));
   color: var(--text-50);
   user-select: none;
@@ -28,7 +33,7 @@
   padding-bottom: rem($space-l);
   padding-top: rem($space-l);
 
-  @include mq(m) {
+  @include mq(l) {
     padding-bottom: rem($space-xl);
     padding-top: rem($space-2xl);
   }
@@ -37,7 +42,7 @@
 .Footer-nameCol {
   order: -1;
 
-  @include mq(m) {
+  @include mq(l) {
     order: unset;
     text-align: right;
   }

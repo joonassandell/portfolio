@@ -1,10 +1,10 @@
 import { APP, BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
+import { Badge } from '../Badge';
 import { type FooterProps } from './';
 import { formatDate } from '@/lib/utils';
-import { Link } from '@/components/Link';
 import { LINK, SITEMAP } from '@/lib/sitemap';
+import { Link } from '@/components/Link';
 import { LinkRoll } from '@/components/LinkRoll';
-import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
 import c from 'clsx';
 
@@ -12,10 +12,10 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
   <footer className={c('Footer wrap', { '-width:full': fullWidth })}>
     <div className={c('Footer-inner', { 'border-0': !border })}>
       <div className="Footer-main">
-        <div className="grid">
-          <div className="grid-col grid-col:8@m">
-            <div className="grid -gap:row:l">
-              <div className="grid-col grid-col:5 grid-col:4@s">
+        <div className="grid -gap:column:0">
+          <div className="grid-col grid-col:9@l">
+            <div className="grid">
+              <div className="grid-col grid-col:6 grid-col:3@m">
                 <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                   Me
                 </Text>
@@ -31,7 +31,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                   })}
                 </Text>
               </div>
-              <div className="grid-col grid-col:5 grid-col:4@s">
+              <div className="grid-col grid-col:6 grid-col:3@m">
                 <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                   Projects
                 </Text>
@@ -47,12 +47,33 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                   })}
                 </Text>
               </div>
-              <div className="grid-col grid-col:4@s">
+              <div className="grid-col grid-col:6 grid-col:3@m">
+                <Text className="mb:xs mb@m" color="mute:blend" tag="p">
+                  Selected Works
+                </Text>
+                <Text tag="ul">
+                  {SITEMAP.work.map(item => {
+                    return (
+                      <li
+                        className={c({
+                          'flex gap:xs align-items:center': item.new,
+                        })}
+                        key={item.id}
+                      >
+                        <LinkRoll href={item.url} underline="active">
+                          {item.title}
+                        </LinkRoll>
+                        {item.new && <Badge beacon>New</Badge>}
+                      </li>
+                    );
+                  })}
+                </Text>
+              </div>
+              <div className="grid-col grid-col:6 grid-col:3@m">
                 <Text className="mb:xs mb@m" color="mute:blend" tag="p">
                   Socials
                 </Text>
-                <SomeIcons className="hidden@s" />
-                <Text className="visible@s" tag="ul">
+                <Text tag="ul">
                   {LINK.social.map(item => {
                     return (
                       <li key={item.title}>
@@ -64,16 +85,16 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
               </div>
             </div>
           </div>
-          <div className="Footer-nameCol grid-col grid-col:4@m">
-            <Text className="mb:2xs mb@m" tag="p">
+          <div className="Footer-nameCol grid-col grid-col:3@l">
+            <Text className="mb:2xs mb@l" tag="p">
               <LinkRoll href={SITEMAP.home.url} underline="active">
                 {APP.person.name}
               </LinkRoll>
             </Text>
-            <Text className="mb:m" color="mute:blend" size="s" tag="p">
+            <Text className="mb" color="mute:blend" size="s" tag="p">
               {APP.person.title.design}
-              <span className="hidden@m">, </span>
-              <br className="visible@m" />
+              <span className="hidden@l">, </span>
+              <br className="visible@l" />
               {APP.person.title.developer}
             </Text>
           </div>

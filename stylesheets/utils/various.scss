@@ -59,6 +59,10 @@
   &\:s {
     gap: rem($space-s);
   }
+
+  &\:xs {
+    gap: rem($space-xs);
+  }
 }
 
 .hyphens\:auto {

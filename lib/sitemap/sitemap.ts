@@ -17,9 +17,9 @@ import uiLab from '@/features/UiLab/sitemap';
  * ======================================= */
 
 const me = [about, resume, approach, contact];
-const projects = [home, uiLab, milestones];
-const work = [biocode, oras, mediasignal, sandbox, moreWork, archive];
-const all = [...me, ...projects, ...work];
+const projects = [uiLab, milestones, home];
+const work = [biocode, oras, mediasignal, sandbox, moreWork];
+const all = [...me, ...projects, ...work, archive];
 
 const header = {
   nav: [about, uiLab, milestones, contact],

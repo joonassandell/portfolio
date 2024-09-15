@@ -4,10 +4,10 @@
 .Badge {
   @include text(s);
   align-items: center;
-  background: var(--bg-50);
-  border: var(--border-width) solid var(--border-950);
+  background: var(--Badge-bg, var(--bg-50));
+  border: var(--border-width) solid var(--Badge-border, var(--border-950));
   border-radius: var(--border-radius-full);
-  color: var(--text-950);
+  color: var(--Badge-text, var(--text-950));
   display: inline-flex;
   flex-shrink: 0;
   gap: rem($space-2xs);
@@ -34,6 +34,6 @@
  * ======================================= */
 
 .Badge--dark {
-  background: var(--bg-950);
-  color: var(--text-50);
+  --Badge-bg: var(--bg-950);
+  --Badge-text: var(--text-50);
 }
