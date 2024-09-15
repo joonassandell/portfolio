@@ -27,12 +27,12 @@ export const APP_URL =
 
 export const APP = {
   header: {
-    defaultNavTitle: 'Selected works',
+    defaultNavTitle: 'Selected Works',
   },
   meta: {
     appName: 'Joonas Sandell',
     description:
-      'Portfolio of Joonas Sandell, UI/UX designer and creative front-end developer based in Helsinki, Finland.',
+      'Portfolio of Joonas Sandell, UI/UX Designer and creative Front-end Developer based in Helsinki, Finland.',
     favIcon: '/static/favicon.svg?v=2',
     favIconIco: '/static/favicon.ico?v=2',
     ogImage: `${APP_URL}/static/og.jpg`,
@@ -47,9 +47,9 @@ export const APP = {
     nickname: 'joonassandell',
     thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
     title: {
-      combined: 'UI/UX designer and Front-end developer',
-      design: 'UI/UX designer',
-      developer: 'Front-end developer',
+      combined: 'UI/UX Designer and Front-end Developer',
+      design: 'UI/UX Designer',
+      developer: 'Front-end Developer',
       simple: 'Designer & Developer',
     },
     twitter: '@joonassandell',

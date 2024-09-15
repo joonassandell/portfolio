@@ -39,11 +39,10 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           Simplifying the carbon footprint calculating
         </Heading>
         <Text animate center className="mb:0" color="mute" size="l" tag="p">
-          Biocode’s software is designed to make calculations straightforward
-          and accessible for food businesses and producers. While the process
-          may seem complex, our platform simplifies each step, allowing users to
-          easily track and reduce their environmental impact with confidence and
-          clarity.
+          Biocode is designed to make calculations straightforward and
+          accessible. While the process may seem complex, our platform
+          simplifies each step, allowing users to easily track and reduce their
+          environmental impact with confidence and clarity.
         </Text>
       </TemplateArea>
       <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
