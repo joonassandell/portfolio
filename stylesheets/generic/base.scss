@@ -61,7 +61,7 @@ body {
 
 ::selection {
   background: var(--selection-bg);
-  color: var(--selection);
+  color: var(--selection-fg);
 }
 
 img::selection {

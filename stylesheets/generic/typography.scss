@@ -9,8 +9,11 @@
 }
 
 :where(a) {
-  color: var(--link);
   text-decoration: none;
+}
+
+:where(a):not(:focus-visible) {
+  color: var(--link);
 }
 
 :where(p) {

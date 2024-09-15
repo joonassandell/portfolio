@@ -5,10 +5,11 @@
   --Template-bg: var(--biocode-bg-50);
   --Footer-bg: var(--biocode-light-bg-100);
   --NextProject-bg: var(--biocode-light-bg-100);
+  --Info-text: var(--biocode-text-900);
+  --Subtitle-text: var(--biocode-primary-text);
+
   --Figure-placeholder-bg: var(--biocode-bg-100);
   --Figure-glare-opacity: 0.05;
-  --Info-text: var(--text-900);
-  --Subtitle-text: var(--biocode-primary-text);
 
   --Button-bg: var(--biocode-bg-100);
   --Button-text: var(--biocode-text-950);
@@ -20,9 +21,14 @@
 
   --border-100: var(--biocode-border-50);
   --border-950: var(--biocode-border-50);
+
   --link: var(--biocode-text-950);
+
   --text-900: var(--biocode-text-900);
   --text-950: var(--biocode-text-950);
+
+  --selection-bg: var(--biocode-primary);
+  --focus-visible-bg: var(--biocode-primary);
 
   .Template-ds {
     --Template-area-bg: var(--biocode-bg-100);

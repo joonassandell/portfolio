@@ -2,20 +2,23 @@
 @use 'stylesheets/mixins' as *;
 
 /**
- * 1. For the mask scrolling and everything else to work below Header
- * 2. Fix for Windows font rendering. This is needed because there's
- *    mix-blend mode which adds odd text rendering in Windows.
- * 3. Note that the :root.is-transition class disables the pointer-events
+ * 1. Note that the :root.is-transition class disables the pointer-events
  *    especially for the main nav link hovers. This is here to ensure the
  *    events are disabled because the root class is removed before the mask is
  *    animated away.
+ * 2. Fix for Windows font rendering. This is needed because there's
+ *    mix-blend mode which adds odd text rendering in Windows.
  */
 .Header {
-  --selection-bg: var(--bg-50);
-  --selection: var(--text-950);
-  --focus-visible-bg: var(--bg-50);
-  --focus-visible-fg: var(--text-950);
+  --focus-visible-bg: var(--focus-visible-bg-blend);
+  --focus-visible-fg: var(--focus-visible-fg-blend);
   --link: var(--text-50);
+  user-select: none;
+
+  // [1.]
+  &.is-animating {
+    pointer-events: none;
+  }
 }
 
 .Header-main {
@@ -25,7 +28,6 @@
   inset: 0 0 auto 0;
   min-width: var(--root-min-width);
   mix-blend-mode: difference;
-  pointer-events: none; // [1.]
   position: fixed;
   width: 100vw;
   z-index: var(--z-index-900);
@@ -33,18 +35,6 @@
   // [2.]
   .is-windows & {
     font-weight: var(--font-weight-100);
-  }
-}
-
-.Header-logo,
-.Header-button,
-.Header-nav {
-  :root:not(.is-transition) & {
-    pointer-events: all;
-  }
-
-  .Header.is-animating & {
-    pointer-events: none;
   }
 }
 
@@ -232,11 +222,6 @@
     display: flex;
   }
 
-  // [3.]
-  .Header.is-animating & {
-    pointer-events: none;
-  }
-
   .Header.is-animating:not(.has-scrollbar) & {
     --scrollbar-overflow: hidden;
   }
@@ -268,7 +253,6 @@
   overflow: hidden;
   position: relative;
   transition: border-radius var(--trans-primary-fastest);
-  user-select: none;
   z-index: 1;
 
   @include mq(m) {

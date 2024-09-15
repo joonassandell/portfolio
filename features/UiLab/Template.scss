@@ -176,6 +176,7 @@
   .dark & {
     --Template-bg: hsl(240deg 10% 4%);
     --Template-text: var(--text-50);
+
     --Footer-border: var(--border-900);
 
     --Template-box-bg: hsl(240deg 5% 4%);
@@ -189,7 +190,8 @@
     --Button-hover-text: var(--text-50);
 
     --selection-bg: var(--bg-50);
-    --selection: var(--text-950);
+    --selection-fg: var(--text-950);
+
     --text-900: var(--text-100);
     --border-950: var(--border-900);
     --link: var(--text-50);

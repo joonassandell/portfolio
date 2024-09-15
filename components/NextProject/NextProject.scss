@@ -2,6 +2,8 @@
 @use 'stylesheets/mixins' as *;
 
 .NextProject {
+  --focus-visible-bg: var(--focus-visible-bg-blend);
+  --focus-visible-fg: var(--focus-visible-fg-blend);
   background-color: var(--NextProject-bg, var(--Template-bg, var(--bg-50)));
   padding-top: rem($space-3xl);
 }
