@@ -1,9 +1,91 @@
-@use 'stylesheets/config' as *;
+@use 'sass:map';
+@use 'stylesheets/config' as c;
 @use 'stylesheets/mixins' as *;
 
+$xs2: map.get(c.$breakpoints, '2xs');
+$s: map.get(c.$breakpoints, 's');
+$ml: map.get(c.$breakpoints, 'ml');
+
 .Quote {
-  background: var(--bg-50);
-  border: var(--border-width) solid var(--border-950);
+  container-type: inline-size;
+}
+
+.Quote-inner {
+  background: var(--Quote-bg, var(--bg-50));
+  border: var(--border-width) solid var(--Quote-border, var(--border-950));
   border-radius: var(--border-radius);
-  padding: rem($space-m);
+  color: var(--Quote-text, var(--text-950));
+  padding: rem(c.$space-m);
+
+  @container (width >= #{$xs2}) {
+    padding: rem(c.$space-ml);
+  }
+
+  @container (width >= #{$s}) {
+    display: flex;
+    gap: rem(c.$space-m);
+  }
+}
+
+.Quote-content {
+  display: flex;
+  flex-direction: column;
+  gap: rem(c.$space-m);
+}
+
+.Quote-mark {
+  @include fontSize(c.$h1-font-size-min, c.$h1-font-size-min, 80px, 10vw);
+  color: var(--Quote-mark, var(--text-950));
+  margin: rem(c.$space-2xs * -1) 0 rem(c.$space-ml * -1);
+
+  pointer-events: none;
+  user-select: none;
+
+  @container (width >= #{$s}) {
+    max-height: rem(c.$space-m);
+  }
+}
+
+.Quote-text {
+  @container (width >= #{$s}) {
+    @include text(l);
+  }
+}
+
+/* =======================================
+ * Variants
+ * ======================================= */
+
+.Quote {
+  &.-size\:l {
+    @container (width >= #{$ml}) {
+      .Quote-inner {
+        border-radius: var(--border-radius-l);
+        gap: rem(c.$space-ml);
+        padding: rem(c.$space-xl);
+      }
+
+      .Quote-mark {
+        @include fontSize(
+          c.$h1-font-size-min,
+          c.$h1-font-size-min,
+          112px,
+          10vw
+        );
+        margin-top: rem(c.$space-xs * -1);
+      }
+
+      .Quote-content {
+        gap: rem(c.$space-ml);
+      }
+
+      .Quote-text {
+        @include fontSize(
+          c.$h4-font-size-min,
+          c.$h4-line-height,
+          c.$h4-font-size-max
+        );
+      }
+    }
+  }
 }

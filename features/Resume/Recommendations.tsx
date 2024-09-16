@@ -21,7 +21,7 @@ export const ResumeRecommendations = () => (
     <div className="Template-recommendations-content grid -gap:row:l grid-col grid-col:9@m">
       <Quote
         cite="https://www.linkedin.com/in/joonassandell/details/recommendations"
-        className="grid-col grid-col:11@m grid-col:9@xl"
+        className="grid-col grid-col:10@xl"
       >
         <QuoteText>
           <p>
@@ -45,7 +45,7 @@ export const ResumeRecommendations = () => (
       </Quote>
       <Quote
         cite="https://www.linkedin.com/in/joonassandell/details/recommendations"
-        className="grid-col grid-col:11@m grid-col:9@xl"
+        className="grid-col grid-col:10@xl"
       >
         <QuoteText>
           <p>
@@ -59,7 +59,7 @@ export const ResumeRecommendations = () => (
             individual. He is a skilled discussionist with clients, and also
             good and attentive listener. He has a great ability to combine
             different implementation models and build business services from
-            them to meet clients' needs.
+            them to meet clients’ needs.
           </p>
           <p>
             I would warmly recommend Joonas when looking for a versatile and
@@ -80,12 +80,12 @@ export const ResumeRecommendations = () => (
       </Quote>
       <Quote
         cite="https://www.linkedin.com/in/joonassandell/details/recommendations"
-        className="grid-col grid-col:11@m grid-col:9@xl"
+        className="grid-col grid-col:10@xl"
       >
         <QuoteText>
           <p>
             Having worked with Joonas as a colleague and then as a customer, I
-            can really recommend his web design and development work. Omoroi's
+            can really recommend his web design and development work. Omoroi’s
             website, designed and developed by Joonas, helped our company to
             stand out and tell our story in a unique way.
           </p>

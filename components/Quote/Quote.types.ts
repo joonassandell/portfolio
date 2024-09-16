@@ -1,6 +1,8 @@
 import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
 
-export interface QuoteProps extends ComponentPropsWithoutRef<'blockquote'> {}
+export interface QuoteProps extends ComponentPropsWithoutRef<'blockquote'> {
+  size?: 'm' | 'l';
+}
 
 export interface QuoteTextProps extends PropsWithChildren {
   className?: string;
