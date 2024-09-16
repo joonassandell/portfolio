@@ -10,7 +10,7 @@ export const ResumePage = () => {
 
   return (
     <Template footerProps={{ fullWidth: true }} id={id} variant="unstyled">
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <TemplateArea gridGap="m" pt={false}>
         <ResumeContent />
         <ResumeAside />

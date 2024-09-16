@@ -1,4 +1,5 @@
 import { type BadgeProps } from './';
+import { isString } from '@/lib/utils';
 import c from 'clsx';
 
 export const Badge = ({ beacon, children, className, variant }: BadgeProps) => {
@@ -16,7 +17,9 @@ export const Badge = ({ beacon, children, className, variant }: BadgeProps) => {
         <div
           className="Badge-beacon"
           style={{
-            ['--Badge-beacon' as string]: beacon,
+            ['--Badge-beacon' as PropertyKey]: isString(beacon)
+              ? beacon
+              : undefined,
           }}
         />
       )}

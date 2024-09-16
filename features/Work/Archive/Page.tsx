@@ -17,7 +17,7 @@ export const ArchivePage = ({ images }: PageProps) => {
 
   return (
     <Template className="Template--moreWork" id={id} variant="unstyled">
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <ArchiveHero />
       <Info
         client={{ name: 'Various clients' }}

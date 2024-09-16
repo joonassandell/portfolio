@@ -9,11 +9,12 @@ import { useSetThemeColor } from '@/components/App';
 import sitemap from './sitemap';
 
 export const Page404 = () => {
+  const { id, meta, title } = sitemap;
   useSetThemeColor();
 
   return (
-    <Template id={sitemap.id}>
-      <Head title={sitemap.meta.title} />
+    <Template id={id}>
+      <Head {...meta} />
       <TemplateArea
         className="flex flex-direction:column align-items:center justify-content:center"
         grid={false}
@@ -27,7 +28,7 @@ export const Page404 = () => {
           className="flex flex-wrap:wrap flex-direction:column align-items:center"
           size="l"
         >
-          <p>{sitemap.title}</p>
+          <p>{title}</p>
           <Button href={SITEMAP.home.url} icon={<ArrowRight />}>
             Go to homepage
           </Button>

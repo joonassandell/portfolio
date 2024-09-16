@@ -19,11 +19,11 @@ export const SandboxPage = ({ images }: PageProps) => {
 
   return (
     <Template id={id} variant="unstyled">
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <SandboxHero />
       <Info
         client={{ name: 'Various clients' }}
-        heading="Welcome to the playground. Sandbox is a collection of various concepts I've crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
+        heading="Welcome to the playground. Sandbox is a collection of various concepts I’ve crafted in my spare time. Although these are sketches, majority of the them are based on real projects."
         role={['Product design', 'UI/UX design', 'Web development']}
         text={
           <p>

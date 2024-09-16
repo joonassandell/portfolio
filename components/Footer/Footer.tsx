@@ -13,76 +13,74 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
     <div className={c('Footer-inner', { 'border-0': !border })}>
       <div className="Footer-main">
         <div className="grid -gap:column:0">
-          <div className="grid-col grid-col:9@l">
-            <div className="grid">
-              <div className="grid-col grid-col:6 grid-col:3@m">
-                <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                  Me
-                </Text>
-                <Text tag="ul">
-                  {SITEMAP.me.map(item => {
-                    return (
-                      <li key={item.id}>
-                        <LinkRoll href={item.url} underline="active">
-                          {item.title}
-                        </LinkRoll>
-                      </li>
-                    );
-                  })}
-                </Text>
-              </div>
-              <div className="grid-col grid-col:6 grid-col:3@m">
-                <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                  Projects
-                </Text>
-                <Text tag="ul">
-                  {SITEMAP.projects.map(item => {
-                    return (
-                      <li key={item.id}>
-                        <LinkRoll href={item.url} underline="active">
-                          {item.title}
-                        </LinkRoll>
-                      </li>
-                    );
-                  })}
-                </Text>
-              </div>
-              <div className="grid-col grid-col:6 grid-col:3@m">
-                <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                  Selected Works
-                </Text>
-                <Text tag="ul">
-                  {SITEMAP.work.map(item => {
-                    return (
-                      <li
-                        className={c({
-                          'flex gap:xs align-items:center': item.new,
-                        })}
-                        key={item.id}
-                      >
-                        <LinkRoll href={item.url} underline="active">
-                          {item.title}
-                        </LinkRoll>
-                        {item.new && <Badge beacon>New</Badge>}
-                      </li>
-                    );
-                  })}
-                </Text>
-              </div>
-              <div className="grid-col grid-col:6 grid-col:3@m">
-                <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                  Socials
-                </Text>
-                <Text tag="ul">
-                  {LINK.social.map(item => {
-                    return (
-                      <li key={item.title}>
-                        <LinkRoll href={item.url}>{item.title}</LinkRoll>
-                      </li>
-                    );
-                  })}
-                </Text>
-              </div>
+          <div className="grid-col grid-col:9@l grid">
+            <div className="grid-col grid-col:6 grid-col:3@m">
+              <Text className="mb:xs mb@m" color="mute:blend" tag="p">
+                Me
+              </Text>
+              <Text tag="ul">
+                {SITEMAP.me.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <LinkRoll href={item.url} underline="active">
+                        {item.title}
+                      </LinkRoll>
+                    </li>
+                  );
+                })}
+              </Text>
+            </div>
+            <div className="grid-col grid-col:6 grid-col:3@m">
+              <Text className="mb:xs mb@m" color="mute:blend" tag="p">
+                Projects
+              </Text>
+              <Text tag="ul">
+                {SITEMAP.projects.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <LinkRoll href={item.url} underline="active">
+                        {item.title}
+                      </LinkRoll>
+                    </li>
+                  );
+                })}
+              </Text>
+            </div>
+            <div className="grid-col grid-col:6 grid-col:3@m">
+              <Text className="mb:xs mb@m" color="mute:blend" tag="p">
+                Selected Works
+              </Text>
+              <Text tag="ul">
+                {SITEMAP.work.map(item => {
+                  return (
+                    <li
+                      className={c({
+                        'flex gap:xs align-items:center': item.new,
+                      })}
+                      key={item.id}
+                    >
+                      <LinkRoll href={item.url} underline="active">
+                        {item.title}
+                      </LinkRoll>
+                      {item.new && <Badge beacon>New</Badge>}
+                    </li>
+                  );
+                })}
+              </Text>
+            </div>
+            <div className="grid-col grid-col:6 grid-col:3@m">
+              <Text className="mb:xs mb@m" color="mute:blend" tag="p">
+                Socials
+              </Text>
+              <Text tag="ul">
+                {LINK.social.map(item => {
+                  return (
+                    <li key={item.title}>
+                      <LinkRoll href={item.url}>{item.title}</LinkRoll>
+                    </li>
+                  );
+                })}
+              </Text>
             </div>
           </div>
           <div className="Footer-nameCol grid-col grid-col:3@l">

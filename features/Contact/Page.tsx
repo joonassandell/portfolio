@@ -29,7 +29,7 @@ export const ContactPage = () => {
 
   return (
     <Template id={id}>
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <TemplateArea grid={false}>
         <Heading
           className="white-space:nowrap mb:0"

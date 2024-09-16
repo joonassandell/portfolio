@@ -22,7 +22,7 @@ export const MilestonesPage = () => {
 
   return (
     <Template id={id}>
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <TemplateArea>
         <div className="grid-col grid-col:9@m grid-col:6@l">
           <Heading size="h1">Milestones</Heading>

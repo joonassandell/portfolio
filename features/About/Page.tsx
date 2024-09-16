@@ -16,7 +16,7 @@ export const AboutPage = () => {
 
   return (
     <Template id={id}>
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <AboutTop />
       <AboutIntro />
       <AboutSkills />

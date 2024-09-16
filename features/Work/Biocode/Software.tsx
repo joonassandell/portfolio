@@ -119,8 +119,8 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             consistency across the platform.
           </Text>
           <Text animate className="mb:0" color="mute" tag="small">
-            Note that some of the features presented in this case study are
-            still work in progress.
+            Note that some of the features presented in this case study are work
+            in progress.
           </Text>
         </div>
         <Figure

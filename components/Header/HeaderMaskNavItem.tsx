@@ -70,7 +70,7 @@ export const HeaderMaskNavItem = ({
     <m.li
       className={classes}
       ref={ref}
-      style={{ ['--Header-mask-nav-marquee-iris' as string]: color }}
+      style={{ ['--Header-mask-nav-marquee-iris' as PropertyKey]: color }}
       variants={MASK_ITEM_VARIANT}
     >
       <Link

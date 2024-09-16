@@ -52,7 +52,7 @@ export const TableRow = ({
       onClick={handleOnClick}
       ref={ref}
       style={{
-        ['--Table-row-bg' as string]: background,
+        ['--Table-row-bg' as PropertyKey]: background,
       }}
       {...(animate && {
         animate: inView && 'animate',

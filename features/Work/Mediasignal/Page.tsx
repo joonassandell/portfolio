@@ -17,7 +17,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
 
   return (
     <Template id={id} variant="unstyled">
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <MediasignalHero />
       <Info
         client={{ href: 'https://mediasignal.fi/en', name: title }}

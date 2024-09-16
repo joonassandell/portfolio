@@ -16,12 +16,7 @@ export const UiLabPage = () => {
 
   return (
     <Template id={id}>
-      <Head
-        description={meta.description}
-        ogImage={meta.ogImage}
-        title={meta.title}
-        zoom={false}
-      />
+      <Head {...meta} zoom={false} />
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"

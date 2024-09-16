@@ -112,11 +112,13 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
         id={id}
         ref={ref}
         style={{
-          ['--Figure-bg' as string]: isString(background)
+          ['--Figure-bg' as PropertyKey]: isString(background)
             ? background
             : undefined,
-          ['--Figure-border' as string]: isString(border) ? border : undefined,
-          ['--Figure-border-radius' as string]: isString(borderRadius)
+          ['--Figure-border' as PropertyKey]: isString(border)
+            ? border
+            : undefined,
+          ['--Figure-border-radius' as PropertyKey]: isString(borderRadius)
             ? borderRadius
             : undefined,
           y: scroll ? y : 0,

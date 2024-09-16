@@ -23,7 +23,7 @@ export const ApproachPage = () => {
 
   return (
     <Template id={id}>
-      <Head description={meta.description} title={meta.title} />
+      <Head {...meta} />
       <TemplateArea className="Template-top" grid={false} ref={ref}>
         <Heading className="Template-heading visible@l" size="h2" tag="h1">
           <Text className="Template-heading-subtitle" size="m" tag="span">
