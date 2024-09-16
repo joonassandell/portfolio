@@ -7,7 +7,7 @@
 }
 
 /* =======================================
- * Modifiers
+ * Variants
  * ======================================= */
 
 .Heading {
@@ -17,7 +17,12 @@
 }
 
 .Heading--xl {
-  @include fontSize(20px, 20px, 999px, 20vw);
+  @include fontSize(
+    $h-xl-font-size-min,
+    $h-xl-line-height,
+    $h-xl-font-size-max,
+    $h-xl-font-size-scale
+  );
   font-weight: var(--font-weight-100);
   letter-spacing: -0.065em;
   margin-left: rem(-$space-xs);
@@ -26,12 +31,13 @@
   @include mq(m) {
     margin-left: rem(-$space-m);
   }
-
-  @include mq($until: '2xs') {
-    @include fontSize(92px, 92px);
-  }
 }
 
 .Heading--l {
-  @include fontSize($font-size, $font-size, 112px, 10vw);
+  @include fontSize(
+    $h-l-font-size-min,
+    $h-l-line-height,
+    $h-l-font-size-max,
+    $h-l-font-size-scale
+  );
 }
