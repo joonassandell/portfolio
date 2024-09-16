@@ -6,19 +6,18 @@ export const StepperStep = ({
   className,
   icon,
   ...props
-}: StepperStepProps) => {
-  const classes = c(
-    'Stepper-step',
-    {
-      'Stepper-step--beacon': beacon,
-      'Stepper-step--icon': icon,
-    },
-    className,
-  );
-
-  return (
-    <div className={classes} {...props}>
-      {icon}
-    </div>
-  );
-};
+}: StepperStepProps) => (
+  <div
+    className={c(
+      'Stepper-step',
+      {
+        'Stepper-step--beacon': beacon,
+        'Stepper-step--icon': icon,
+      },
+      className,
+    )}
+    {...props}
+  >
+    {icon}
+  </div>
+);

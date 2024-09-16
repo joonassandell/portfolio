@@ -23,13 +23,6 @@ export const Button = ({
   variant = 'default',
   ...props
 }: ButtonProps) => {
-  const classes = c(className, 'Button Button--default', {
-    '-radius:m': radius === 'm',
-    '-size:s': size === 's',
-    '-size:square': size === 'square',
-    '-size:square:s': size === 'square:s',
-    'Button--default--dark': variant === 'dark',
-  });
   const { active, external, externalTarget } = useUrlState(href as URL['href']);
   const { html, setTransition } = useApp();
   const Tag = href ? 'a' : 'button';
@@ -58,7 +51,13 @@ export const Button = ({
       )}
     >
       <Tag
-        className={classes}
+        className={c(className, 'Button Button--default', {
+          '-radius:m': radius === 'm',
+          '-size:s': size === 's',
+          '-size:square': size === 'square',
+          '-size:square:s': size === 'square:s',
+          'Button--default--dark': variant === 'dark',
+        })}
         href={href}
         onClick={(e: ButtonEvent & LinkEvent) => {
           e.stopPropagation();

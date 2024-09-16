@@ -38,7 +38,7 @@ export const AboutTop = () => {
           />
           <Figure
             alt="Line cube"
-            aria-hidden="true"
+            aria-hidden
             borderRadius={false}
             className="Template-cube"
             placeholder={false}

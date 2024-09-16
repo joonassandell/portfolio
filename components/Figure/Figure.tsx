@@ -58,16 +58,6 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const negativeStartPosition =
       scrollStartPosition === 'negative' && scrollOffset != 'start-start';
     const video = src && src.indexOf('mp4') > -1;
-    const classes = c(className, 'Figure', {
-      '-bg': background,
-      '-border': border,
-      '-border:dashed': borderStyle === 'dashed',
-      '-border:radius:0': !borderRadius,
-      '-fill:l': fill === 'large',
-      '-inline': inline,
-      '-transition:clip': transition === 'clip',
-      '-video': video,
-    });
     id = id ?? src?.split('/')?.pop()?.split('.')[0];
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef;
@@ -108,7 +98,20 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
 
     return (
       <m.div
-        className={classes}
+        className={c(
+          'Figure',
+          {
+            '-bg': background,
+            '-border': border,
+            '-border:dashed': borderStyle === 'dashed',
+            '-border:radius:0': !borderRadius,
+            '-fill:l': fill === 'large',
+            '-inline': inline,
+            '-transition:clip': transition === 'clip',
+            '-video': video,
+          },
+          className,
+        )}
         id={id}
         ref={ref}
         style={{

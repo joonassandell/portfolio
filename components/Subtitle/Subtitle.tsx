@@ -14,14 +14,6 @@ export const Subtitle = ({
   tag,
   ...props
 }: SubtitleProps) => {
-  const classes = c(
-    'Subtitle',
-    {
-      'max-w-unset': !maxWidth,
-      'text:center ml:auto mr:auto': center,
-    },
-    className,
-  );
   const ref = useRef(null);
   const inView = useInView(ref);
   const Tag = tag
@@ -30,7 +22,14 @@ export const Subtitle = ({
 
   return (
     <Tag
-      className={classes}
+      className={c(
+        'Subtitle',
+        {
+          'max-w-unset': !maxWidth,
+          'text:center ml:auto mr:auto': center,
+        },
+        className,
+      )}
       {...(animate && {
         animate: inView ? 'animate' : '',
         initial: 'initial',

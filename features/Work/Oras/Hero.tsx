@@ -93,7 +93,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                   >
                     <Image
                       alt="Oras drop"
-                      aria-hidden="true"
+                      aria-hidden
                       draggable="false"
                       quality={90}
                       sizes="10vw"
@@ -125,7 +125,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             >
               <Image
                 alt="Oras drop"
-                aria-hidden="true"
+                aria-hidden
                 draggable="false"
                 quality={90}
                 sizes="10vw"
@@ -146,7 +146,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             <m.div data-lock-ios style={{ y: dropY }}>
               <Image
                 alt="Oras drop"
-                aria-hidden="true"
+                aria-hidden
                 draggable="false"
                 priority={!transitionPre}
                 quality={90}

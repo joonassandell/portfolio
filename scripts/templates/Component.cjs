@@ -3,10 +3,8 @@ module.exports = componentName => ({
 import c from 'clsx';
 
 export const ${componentName} = ({ children, className, ...props }: ${componentName}Props) => {
-  const classes = c('${componentName}', className);
-
   return (
-    <div className={classes} {...props}>
+    <div className={c('${componentName}', className)} {...props}>
       {children}
     </div>
   );

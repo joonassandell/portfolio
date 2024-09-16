@@ -33,12 +33,6 @@ export const Link = ({
   const { active, external, externalTarget } = useUrlState(href);
   const [hover, setHover] = useState(false);
   const underlineActive = underline === 'active';
-  const classes = c(className, 'Link', {
-    '-underline':
-      (isBoolean(underline) && underline && !underlineActive) ||
-      (underlineActive && active),
-    '-vertical': orientation === 'vertical',
-  });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
   const hasHash = href.startsWith('#');
   const hash = hasHash && isBrowser && html.querySelector(href);
@@ -66,7 +60,16 @@ export const Link = ({
     >
       <Tag
         animate={hover ? 'in' : 'out'}
-        className={classes}
+        className={c(
+          'Link',
+          {
+            '-underline':
+              (isBoolean(underline) && underline && !underlineActive) ||
+              (underlineActive && active),
+            '-vertical': orientation === 'vertical',
+          },
+          className,
+        )}
         href={href}
         onBlur={() => setHover(false)}
         onClick={e => {

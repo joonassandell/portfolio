@@ -21,17 +21,6 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   ) => {
     const xl = size === 'xl';
     const l = size === 'l';
-    const classes = c(
-      'Heading',
-      {
-        [`${size}`]: size && tag && size != tag && !xl && !l,
-        '-maxWidth': maxWidth ?? center,
-        'Heading--l': l,
-        'Heading--xl': xl,
-        'text:center ml:auto mr:auto': center,
-      },
-      className,
-    );
     const createdRef = useRef(null);
     const ref = (forwardedRef as RefObject<HTMLHeadingElement>) ?? createdRef;
     const inView = useInView(ref);
@@ -39,7 +28,17 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
 
     return (
       <Tag
-        className={classes}
+        className={c(
+          'Heading',
+          {
+            [`${size}`]: size && tag && size != tag && !xl && !l,
+            '-maxWidth': maxWidth ?? center,
+            'Heading--l': l,
+            'Heading--xl': xl,
+            'text:center ml:auto mr:auto': center,
+          },
+          className,
+        )}
         ref={ref}
         {...(animate && {
           animate: inView ? 'animate' : '',

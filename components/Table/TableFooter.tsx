@@ -5,12 +5,8 @@ export const TableFooter = ({
   children,
   className,
   ...props
-}: TableFooterProps) => {
-  const classes = c('Table-footer', className);
-
-  return (
-    <tfoot className={classes} {...props}>
-      {children}
-    </tfoot>
-  );
-};
+}: TableFooterProps) => (
+  <tfoot className={c('Table-footer', className)} {...props}>
+    {children}
+  </tfoot>
+);

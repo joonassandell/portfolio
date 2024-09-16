@@ -33,14 +33,6 @@ export const Hero = ({
     useApp();
   const templateTransition = appTransition === 'template';
   const { push } = useRouter();
-  const classes = c(
-    'Hero',
-    {
-      '-transition:pre': transitionPre,
-      'is-transition': transitionStart,
-    },
-    className,
-  );
   const { value: x } = useParallax({
     offset: transitionPre ? 'start-end' : 'start-start',
     ref: innerRef,
@@ -72,7 +64,14 @@ export const Hero = ({
   return (
     <m.section
       animate={transitionStart && 'animate'}
-      className={classes}
+      className={c(
+        'Hero',
+        {
+          '-transition:pre': transitionPre,
+          'is-transition': transitionStart,
+        },
+        className,
+      )}
       data-id={id}
       data-theme-color={themeColor}
       initial="initial"

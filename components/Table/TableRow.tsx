@@ -17,7 +17,6 @@ export const TableRow = ({
   onClick,
   ...props
 }: TableRowProps) => {
-  const classes = c('Table-row', className);
   const ref = useRef(null);
   const inView = useInView(ref);
   const { setTransition } = useApp();
@@ -46,7 +45,7 @@ export const TableRow = ({
 
   return (
     <m.tr
-      className={classes}
+      className={c('Table-row', className)}
       data-href={href}
       onAuxClick={handleOnClick}
       onClick={handleOnClick}

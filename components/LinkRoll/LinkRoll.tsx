@@ -30,12 +30,6 @@ export const LinkRoll = ({
   const [hover, setHover] = useState(false);
   const characters = children?.split('');
   const underlineActive = underline === 'active';
-  const classes = c(className, 'LinkRoll', {
-    '-underline':
-      (isBoolean(underline) && underline && !underlineActive) ||
-      (underlineActive && active),
-    'has-underline': underline,
-  });
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
   const hasHash = href.startsWith('#');
   const hash = hasHash && isBrowser && html.querySelector(href);
@@ -63,7 +57,16 @@ export const LinkRoll = ({
     >
       <Tag
         animate={hover ? 'in' : 'out'}
-        className={classes}
+        className={c(
+          'LinkRoll',
+          {
+            '-underline':
+              (isBoolean(underline) && underline && !underlineActive) ||
+              (underlineActive && active),
+            'has-underline': underline,
+          },
+          className,
+        )}
         href={href}
         initial="out"
         onBlur={() => setHover(false)}

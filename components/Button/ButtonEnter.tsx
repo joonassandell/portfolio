@@ -24,7 +24,6 @@ export const ButtonEnter = ({
   templateTransition = false,
   ...props
 }: ButtonEnterProps) => {
-  const classes = c('Button Button--enter', className);
   const { setTransition } = useApp();
   const [hover, setHover] = useState(false);
   const [arrowHover, setArrowHover] = useState(false);
@@ -40,7 +39,7 @@ export const ButtonEnter = ({
       )}
     >
       <Tag
-        className={classes}
+        className={c('Button Button--enter', className)}
         onBlur={() => {
           if (hover) {
             setHover(false);

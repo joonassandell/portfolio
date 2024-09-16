@@ -5,12 +5,8 @@ export const TableBody = ({
   children,
   className,
   ...props
-}: TableBodyProps) => {
-  const classes = c('Table-body', className);
-
-  return (
-    <tbody className={classes} {...props}>
-      {children}
-    </tbody>
-  );
-};
+}: TableBodyProps) => (
+  <tbody className={c('Table-body', className)} {...props}>
+    {children}
+  </tbody>
+);

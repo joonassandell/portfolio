@@ -5,12 +5,8 @@ export const TableHead = ({
   children,
   className,
   ...props
-}: TableHeadProps) => {
-  const classes = c('Table-head', className);
-
-  return (
-    <th className={classes} {...props}>
-      {children}
-    </th>
-  );
-};
+}: TableHeadProps) => (
+  <th className={c('Table-head', className)} {...props}>
+    {children}
+  </th>
+);

@@ -22,7 +22,6 @@ export const ButtonArrow = ({
   const bg = useAnimation();
   const arrow = useAnimation();
   const arrowIn = useAnimation();
-  const classes = c('Button Button--arrow', className);
 
   useEffect(() => {
     (async () => {
@@ -114,7 +113,7 @@ export const ButtonArrow = ({
   }, [arrowIn, bg]);
 
   return (
-    <div className={classes}>
+    <div className={c('Button Button--arrow', className)}>
       <m.span animate={arrowIn} className="Button-icon Button-icon--in" hidden>
         <ArrowDown />
       </m.span>

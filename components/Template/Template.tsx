@@ -25,12 +25,6 @@ export const Template = ({
   const templateTransition = transition === 'template';
   const displayOverlay = animState === 'animExit' && templateTransition;
   const isPresent = useIsPresent();
-  const classes = c('Template', `Template--${camelCase(id)}`, className, {
-    'Template--default': variant === 'default',
-    'is-transition:template:enter': templateTransition,
-    'is-transition:template:exit':
-      templateTransition && animState === 'animExit',
-  });
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,7 +39,17 @@ export const Template = ({
   return (
     <m.div
       animate="animate"
-      className={classes}
+      className={c(
+        'Template',
+        `Template--${camelCase(id)}`,
+        {
+          'Template--default': variant === 'default',
+          'is-transition:template:enter': templateTransition,
+          'is-transition:template:exit':
+            templateTransition && animState === 'animExit',
+        },
+        className,
+      )}
       exit="exit"
       initial="initial"
       ref={ref}

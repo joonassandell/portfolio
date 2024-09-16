@@ -7,7 +7,7 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
     <AnimatePresence>
       {loading && (
         <m.div
-          aria-hidden="true"
+          aria-hidden
           className="Splash"
           exit="exit"
           initial="initial"

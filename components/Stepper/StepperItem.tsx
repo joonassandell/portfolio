@@ -5,12 +5,8 @@ export const StepperItem = ({
   children,
   className,
   ...props
-}: StepperItemProps) => {
-  const classes = c('Stepper-item', className);
-
-  return (
-    <div className={classes} {...props}>
-      {children}
-    </div>
-  );
-};
+}: StepperItemProps) => (
+  <div className={c('Stepper-item', className)} {...props}>
+    {children}
+  </div>
+);

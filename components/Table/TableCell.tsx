@@ -5,12 +5,8 @@ export const TableCell = ({
   children,
   className,
   ...props
-}: TableCellProps) => {
-  const classes = c('Table-cell', className);
-
-  return (
-    <td className={classes} {...props}>
-      {children}
-    </td>
-  );
-};
+}: TableCellProps) => (
+  <td className={c('Table-cell', className)} {...props}>
+    {children}
+  </td>
+);

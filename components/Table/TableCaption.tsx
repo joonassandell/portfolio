@@ -12,13 +12,6 @@ export const TableCaption = ({
   hideVisually,
   ...props
 }: TableCaptionProps) => {
-  const classes = c(
-    'Table-caption',
-    {
-      hideVisually,
-    },
-    className,
-  );
   const ref = useRef(null);
   const inView = useInView(ref);
 
@@ -30,7 +23,13 @@ export const TableCaption = ({
         ref,
         variants: ROW_VARIANT,
       })}
-      className={classes}
+      className={c(
+        'Table-caption',
+        {
+          hideVisually,
+        },
+        className,
+      )}
       {...props}
     >
       {children}

@@ -11,14 +11,13 @@ export const TextReveal = ({
   text,
   ...props
 }: TextRevealProps) => {
-  const classes = c('TextReveal', className);
   const ref = useRef(null);
   const inView = useInView(ref);
 
   return (
     <m.span
       animate={inView && animate && 'animate'}
-      className={classes}
+      className={c('TextReveal', className)}
       custom={custom}
       initial="initial"
       ref={ref}

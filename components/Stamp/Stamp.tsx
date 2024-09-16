@@ -22,7 +22,6 @@ export const Stamp = ({
   parentRef,
   transitionStart,
 }: StampProps) => {
-  const classes = c('Stamp', className);
   const [ref, { height, width }] = useMeasure<HTMLDivElement>();
   const innerRef = useRef<HTMLDivElement>(null);
   const inView = useInView(innerRef, 0, false);
@@ -96,7 +95,7 @@ export const Stamp = ({
   }, []);
 
   return (
-    <div aria-hidden="true" className={classes} ref={ref}>
+    <div aria-hidden className={c('Stamp', className)} ref={ref}>
       <m.div
         className="Stamp-inner"
         ref={innerRef}

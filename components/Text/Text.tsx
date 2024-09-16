@@ -18,22 +18,6 @@ export const Text = ({
   truncate,
   ...props
 }: TextProps) => {
-  const classes = c(
-    'Text',
-    {
-      '-size:l': size === 'l',
-      '-size:m': size === 'm',
-      '-size:s': size === 's',
-      '-size:xs': size === 'xs',
-      'color:mute': color === 'mute',
-      'color:mute:blend': color === 'mute:blend',
-      'max-w-unset': !maxWidth,
-      'text-wrap:balance': balance,
-      'text:center ml:auto mr:auto': center,
-      'text:truncate': truncate,
-    },
-    className,
-  );
   const ref = useRef(null);
   const inView = useInView(ref);
   const Tag = tag
@@ -42,7 +26,22 @@ export const Text = ({
 
   return (
     <Tag
-      className={classes}
+      className={c(
+        'Text',
+        {
+          '-size:l': size === 'l',
+          '-size:m': size === 'm',
+          '-size:s': size === 's',
+          '-size:xs': size === 'xs',
+          'color:mute': color === 'mute',
+          'color:mute:blend': color === 'mute:blend',
+          'max-w-unset': !maxWidth,
+          'text-wrap:balance': balance,
+          'text:center ml:auto mr:auto': center,
+          'text:truncate': truncate,
+        },
+        className,
+      )}
       {...(animate && {
         animate: inView ? 'animate' : '',
         initial: 'initial',

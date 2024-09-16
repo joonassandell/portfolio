@@ -22,9 +22,6 @@ export const HeaderMaskNavItem = ({
   year,
 }: HeaderMaskNavItemProps) => {
   const { active } = useUrlState(href);
-  const classes = c('Header-mask-nav-item', {
-    'is-active': active,
-  });
   const [hover, setHover] = useState<'in' | 'out' | false>(false);
   const [closestEdge, setClosestEdge] = useState('top');
   const [reveal, setReveal] = useState(false);
@@ -68,7 +65,9 @@ export const HeaderMaskNavItem = ({
 
   return (
     <m.li
-      className={classes}
+      className={c('Header-mask-nav-item', {
+        'is-active': active,
+      })}
       ref={ref}
       style={{ ['--Header-mask-nav-marquee-iris' as PropertyKey]: color }}
       variants={MASK_ITEM_VARIANT}
@@ -98,7 +97,7 @@ export const HeaderMaskNavItem = ({
       </Link>
       <m.div
         animate={hover}
-        aria-hidden="true"
+        aria-hidden
         className="Header-mask-nav-marquee"
         custom={closestEdge}
         initial="out"

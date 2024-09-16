@@ -14,15 +14,14 @@ export const HeroContent = ({
   transitionPre,
 }: HeroContentProps) => {
   if (!transitionPre) return null;
-  const classes = c('Hero-content visible@l', className);
 
   return (
-    <div className={classes}>
+    <div className={c('Hero-content visible@l', className)}>
       {/**
        * Hero heading is aligned before this heading and used as the main
        * heading which is why this is aria-hidden
        */}
-      <Heading aria-hidden="true" className="mb:xs" size="h5" tag="div">
+      <Heading aria-hidden className="mb:xs" size="h5" tag="div">
         {heading}
       </Heading>
       <Text className="mb:m" size="s" tag="p">

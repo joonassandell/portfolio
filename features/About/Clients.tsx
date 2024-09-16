@@ -11,7 +11,7 @@ export const AboutClients = () => (
   <TemplateArea className="Template-clients" id="clients" pt="2xl-5xl">
     <Figure
       alt="Line ball"
-      aria-hidden="true"
+      aria-hidden
       borderRadius={false}
       className="Template-ball"
       placeholder={false}
