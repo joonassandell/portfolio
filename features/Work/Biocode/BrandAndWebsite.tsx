@@ -116,6 +116,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
         border
         className="grid-col grid-col:10@m grid-col:7@l"
+        quality={100}
         sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
         {...getImage('joonassandell-biocode-website-home-whoitsfor', images)}
       />
@@ -389,7 +390,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         border
         borderRadius="var(--border-radius-app)"
         className="grid-col grid-col:10@m -start:3@m grid-col:7@l -start:1@l"
-        sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
+        quality={100}
+        sizes={`${MQ.m} 70vw, 100vw`}
         {...getImage('joonassandell-biocode-website-about', images)}
       />
       <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l grid -gap:row:l">

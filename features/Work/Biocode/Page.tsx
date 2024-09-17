@@ -75,12 +75,12 @@ export const BiocodePage = ({ images }: PageProps) => {
       <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:10@l -start:2@l">
           <Figure
-            alt="Biocode homepage with isometric Biocode application"
+            alt="Biocode homepage with isometric Biocode software"
             border
             borderRadius="var(--border-radius-app)"
             glare
             priority
-            quality={90}
+            quality={100}
             sizes={`${MQ.l} 80vw, 100vw`}
             {...getImage('joonassandell-biocode-website-home-hero', images)}
           />

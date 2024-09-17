@@ -9,10 +9,13 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: ANALYZE === 'true',
 });
 
+console.log('UTC string', new Date().toUTCString());
+console.log('Date now', new Date.now());
+
 /** @type {import('next').NextConfig} */
 const config = {
   env: {
-    NEXT_PUBLIC_BUILD_DATE: new Date().toUTCString(),
+    NEXT_PUBLIC_BUILD_DATE: new Date().now(),
   },
   eslint: {
     dirs: ['components', 'features', 'lib', 'pages', 'types'],
