@@ -30,7 +30,7 @@ export interface UseParallaxOptions {
 export const useParallax = ({
   endPositionMultiplier = 1,
   height = 'viewport',
-  maxClientHeight,
+  maxClientHeight = 1200,
   offset = 'start-end',
   ref,
   reverse = false,
