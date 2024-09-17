@@ -2,9 +2,9 @@ import { Avatar } from '@/components/Avatar';
 import { Heading } from '@/components/Heading';
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
 import { TemplateArea } from '@/components/Template';
-import profileJoni from '@/public/images/joni.jpg';
-import profileJussi from '@/public/images/jussi.jpg';
-import profileSami from '@/public/images/sami.png';
+import profileJoni from '@/public/images/joni-rajanen.jpg';
+import profileJussi from '@/public/images/jussi-salovaara.jpg';
+import profileSami from '@/public/images/sami-hakimsan.png';
 
 export const ResumeRecommendations = () => (
   <TemplateArea
@@ -35,7 +35,7 @@ export const ResumeRecommendations = () => (
         <QuoteFooter>
           <Avatar
             image={{
-              alt: 'Joni Rajanen profile picture',
+              alt: 'Joni Rajanen’s profile picture',
               ...profileJoni,
             }}
             name="Joni Rajanen"
@@ -70,7 +70,7 @@ export const ResumeRecommendations = () => (
         <QuoteFooter>
           <Avatar
             image={{
-              alt: 'Sami Hakimsan profile picture',
+              alt: 'Sami Hakimsan’s profile picture',
               ...profileSami,
             }}
             name="Sami Hakimsan"
@@ -93,7 +93,7 @@ export const ResumeRecommendations = () => (
         <QuoteFooter>
           <Avatar
             image={{
-              alt: 'Jussi Salovaara profile picture',
+              alt: 'Jussi Salovaara’s profile picture',
               ...profileJussi,
             }}
             name="Jussi Salovaara"

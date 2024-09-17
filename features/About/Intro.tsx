@@ -14,7 +14,7 @@ import { useMedia } from 'react-use';
 import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import lineCube from '@/public/images/line-cube.png';
-import profile from '@/public/images/joonassandell-profile-2.jpg';
+import profile from '@/public/images/joonassandell-2.jpg';
 
 export const AboutIntro = () => {
   const mqS = useMedia(MQ.s, false);

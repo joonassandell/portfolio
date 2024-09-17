@@ -12,7 +12,7 @@ import { useParallax } from '@/lib/useParallax';
 import { useRef } from 'react';
 import { useSetThemeColor } from '@/components/App';
 import lineCube from '@/public/images/line-cube.png';
-import profile from '@/public/images/joonassandell-profile-4.jpg';
+import profile from '@/public/images/joonassandell-4.jpg';
 
 export const ApproachPage = () => {
   const { id, meta } = SITEMAP.approach;
