@@ -16,6 +16,9 @@ $ml: map.get(c.$breakpoints, 'ml');
   border: var(--border-width) solid var(--Quote-border, var(--border-950));
   border-radius: var(--border-radius);
   color: var(--Quote-text, var(--text-950));
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding: rem(c.$space-m);
 
   @container (width >= #{$xs2}) {
@@ -23,15 +26,9 @@ $ml: map.get(c.$breakpoints, 'ml');
   }
 
   @container (width >= #{$s}) {
-    display: flex;
+    flex-direction: row;
     gap: rem(c.$space-m);
   }
-}
-
-.Quote-content {
-  display: flex;
-  flex-direction: column;
-  gap: rem(c.$space-m);
 }
 
 .Quote-mark {
@@ -45,6 +42,14 @@ $ml: map.get(c.$breakpoints, 'ml');
   @container (width >= #{$s}) {
     max-height: rem(c.$space-m);
   }
+}
+
+.Quote-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: rem(c.$space-m);
+  justify-content: space-between;
 }
 
 .Quote-text {

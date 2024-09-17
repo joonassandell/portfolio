@@ -25,7 +25,7 @@ export const Avatar = ({
     {(name ?? text) && (
       <div className="Avatar-meta">
         {name && (
-          <Text className="Avatar-name mb:0" tag="p">
+          <Text className="Avatar-name mb:0" tag="p" truncate>
             {name}
           </Text>
         )}
