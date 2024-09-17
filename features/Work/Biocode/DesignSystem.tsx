@@ -9,7 +9,7 @@ import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
 import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
-import profileLinda from '@/public/biocode/linda-forss.jpg';
+import profileAnnu from '@/public/biocode/annu-kuure.jpg';
 
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
@@ -221,21 +221,19 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       <Quote animate size="l">
         <QuoteText>
           <p>
-            Using Biocode has given us a lot of ‘ah-ha!’ experiences. It has
-            been insightful to use the calculator and see how different raw
-            materials affect the end result. We have learned that rapeseed oil,
-            for example, can increase the carbon footprint of products quite a
-            lot.
+            Biocode has dramatically increased our understanding of our products
+            and their emissions. For example, our own knowledge of the carbon
+            footprint of our oatmeal is now crystal clear.
           </p>
         </QuoteText>
         <QuoteFooter>
           <Avatar
             image={{
-              alt: 'Linda Forss’ profile picture',
-              ...profileLinda,
+              alt: 'Annu Kuure’s profile picture',
+              ...profileAnnu,
             }}
-            name="Linda Forss"
-            text="Procurement Manager, Anton&Anton"
+            name="Annu Kuure"
+            text="CEO, Kinnusen Mylly"
           />
         </QuoteFooter>
       </Quote>

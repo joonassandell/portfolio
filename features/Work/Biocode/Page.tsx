@@ -39,8 +39,8 @@ export const BiocodePage = ({ images }: PageProps) => {
         tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
         text={
           <p>
-            I’m currently working for Biocode as a Lead Product Designer and
-            Front-end Developer. I’m building our{' '}
+            I’m working for Biocode as a Lead Product Designer and Front-end
+            Developer. I’m building our{' '}
             <Link href="#brand-and-website" underline={false}>
               brand and website
             </Link>

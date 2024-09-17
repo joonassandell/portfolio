@@ -10,8 +10,8 @@ import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useParallax } from '@/lib/useParallax';
-import profileAnnu from '@/public/biocode/annu-kuure.jpg';
 import profileHeidi from '@/public/biocode/heidi-kumpulainen.jpg';
+import profileLinda from '@/public/biocode/linda-forss.jpg';
 import profileNick from '@/public/biocode/nick-wols.jpg';
 import profileSari from '@/public/biocode/sari-torpstrom.jpg';
 
@@ -174,45 +174,27 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         </div>
       </TemplateArea>
       <TemplateArea gridGap="m" pt="l-2xl">
-        <Quote animate className="grid-col grid-col:4@m">
+        <Quote animate className="grid-col grid-col:4 visible@l">
           <QuoteText>
             <p>
-              The calculator is incredibly illustrative. When I enter or change
-              values, I can see the effect on the result immediately and
-              concretely.
+              Trying to calculate my carbon footprint felt like attempting
+              advanced calculus with an abacus. Thank goodness for Biocode,
+              swooping in like a digital superhero to save the day with their
+              user-friendly interface and renewable brainpower!
             </p>
           </QuoteText>
           <QuoteFooter>
             <Avatar
               image={{
-                alt: 'Heidi Kumpulainen’s profile picture',
-                ...profileHeidi,
+                alt: 'Nick Wols’ profile picture',
+                ...profileNick,
               }}
-              name="Heidi Kumpulainen"
-              text="QA & Farmer Relations Expert, Pakkasmarja"
+              name="Nick Wols"
+              text="Director of Accounting, Euronet"
             />
           </QuoteFooter>
         </Quote>
-        <Quote animate className="grid-col grid-col:4@m">
-          <QuoteText>
-            <p>
-              Biocode has dramatically increased our understanding of our
-              products and their emissions. For example, our own knowledge of
-              the carbon footprint of our oatmeal is now crystal clear.
-            </p>
-          </QuoteText>
-          <QuoteFooter>
-            <Avatar
-              image={{
-                alt: 'Annu Kuure’s profile picture',
-                ...profileAnnu,
-              }}
-              name="Annu Kuure"
-              text="CEO, Kinnusen Mylly"
-            />
-          </QuoteFooter>
-        </Quote>
-        <Quote animate className="grid-col grid-col:4@m">
+        <Quote animate className="grid-col grid-col:6@m grid-col:4@l">
           <QuoteText>
             <p>
               Before we bought Biocode, I thought that carbon footprinting
@@ -229,6 +211,25 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
               }}
               name="Sari Torpström"
               text="QA Expert, Pakkasmarja"
+            />
+          </QuoteFooter>
+        </Quote>
+        <Quote animate className="grid-col grid-col:6@m grid-col:4@l">
+          <QuoteText>
+            <p>
+              The calculator is incredibly illustrative. When I enter or change
+              values, I can see the effect on the result immediately and
+              concretely.
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Heidi Kumpulainen’s profile picture',
+                ...profileHeidi,
+              }}
+              name="Heidi Kumpulainen"
+              text="QA & Farmer Relations Expert, Pakkasmarja"
             />
           </QuoteFooter>
         </Quote>
@@ -348,20 +349,21 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         <Quote animate size="l">
           <QuoteText>
             <p>
-              Trying to calculate my carbon footprint felt like attempting
-              advanced calculus with an abacus. Thank goodness for Biocode,
-              swooping in like a digital superhero to save the day with their
-              user-friendly interface and renewable brainpower!
+              Using Biocode has given us a lot of ‘ah-ha!’ experiences. It has
+              been insightful to use the calculator and see how different raw
+              materials affect the end result. We have learned that rapeseed
+              oil, for example, can increase the carbon footprint of products
+              quite a lot.
             </p>
           </QuoteText>
           <QuoteFooter>
             <Avatar
               image={{
-                alt: 'Nick Wols’ profile picture',
-                ...profileNick,
+                alt: 'Linda Forss’ profile picture',
+                ...profileLinda,
               }}
-              name="Nick Wols"
-              text="Director of Accounting, Euronet"
+              name="Linda Forss"
+              text="Procurement Manager, Anton&Anton"
             />
           </QuoteFooter>
         </Quote>
