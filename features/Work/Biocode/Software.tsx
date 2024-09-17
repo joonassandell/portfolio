@@ -366,7 +366,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           </QuoteFooter>
         </Quote>
       </TemplateArea>
-      <TemplateArea pt="l-2xl">
+      <TemplateArea pb="2xl-5xl" pt="l-2xl">
         <div className="grid-col grid-col:4@l">
           <Heading animate size="h5" tag="h3">
             In-depth carbon footprint insights
