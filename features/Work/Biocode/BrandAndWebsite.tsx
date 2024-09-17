@@ -1,3 +1,4 @@
+import { Avatar } from '@/components/Avatar';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
@@ -5,9 +6,11 @@ import { Hr } from '@/components/Hr';
 import { Link } from '@/components/Link';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
 import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
+import profileAnnu from '@/public/biocode/annu-kuure.jpg';
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <section id="brand-and-website">
@@ -389,21 +392,41 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         sizes={`${MQ.l} 50vw, ${MQ.m} 70vw, 100vw`}
         {...getImage('joonassandell-biocode-website-about', images)}
       />
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l">
-        <Heading animate size="h5" tag="h3">
-          Transparent and trustworthy expertise
-        </Heading>
-        <Text animate color="mute" tag="p">
-          We aimed to showcase the transparency, expertise, and dedication of
-          our team. Our staff is committed to delivering accurate carbon
-          calculations and clear, reliable results.
-        </Text>
-        <Text animate className="mb:0" color="mute" tag="p">
-          Additionally we arranged a photoshoot to create unique visuals that
-          are also used in our various marketing materials.
-        </Text>
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:8@l grid -gap:row:l">
+        <div className="grid-col">
+          <Heading animate size="h5" tag="h3">
+            Transparent and trustworthy expertise
+          </Heading>
+          <Text animate color="mute" tag="p">
+            We aimed to showcase the transparency, expertise, and dedication of
+            our team. Our staff is committed to delivering accurate carbon
+            calculations and clear, reliable results.
+          </Text>
+          <Text animate className="mb:0" color="mute" tag="p">
+            Additionally we arranged a photoshoot to create unique visuals that
+            are also used in our various marketing materials.
+          </Text>
+        </div>
+        <Quote animate className="grid-col -align:end">
+          <QuoteText>
+            <p>
+              It wasn't easy to trust a carbon footprinting service provider,
+              but Biocode has solid connections with universities and research
+              institutes, which convinced us. Biocode is more unubiased.
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Annu Kuure’s profile picture',
+                ...profileAnnu,
+              }}
+              name="Annu Kuure"
+              text="CEO, Kinnusen Mylly"
+            />
+          </QuoteFooter>
+        </Quote>
       </div>
-      <Hr className="grid-col hidden@l mb:0" />
     </TemplateArea>
   </section>
 );

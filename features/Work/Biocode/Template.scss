@@ -19,8 +19,7 @@
   --Button-hover-border: var(--biocode-border-200);
   --Button-hover-text: var(--biocode-primary-text);
 
-  --Quote-bg: var(--biocode-bg-200);
-  --Quote-border: var(--biocode-border-100);
+  --Quote-bg: var(--biocode-bg-100);
 
   --border-100: var(--biocode-border-50);
   --border-950: var(--biocode-border-50);
@@ -33,8 +32,10 @@
   .Template-ds {
     --Template-area-bg: var(--biocode-bg-100);
     --Figure-placeholder-bg: var(--biocode-bg-200);
+    --Quote-bg: var(--biocode-bg-200);
 
     --border-100: var(--biocode-border-100);
+    --border-950: var(--biocode-border-100);
   }
 
   .Template-ds-heading {
