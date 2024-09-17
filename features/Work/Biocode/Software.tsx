@@ -10,7 +10,10 @@ import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useParallax } from '@/lib/useParallax';
-import profileNick from '@/public/images/nick.jpg';
+import profileAnnu from '@/public/biocode/annu-kuure.jpg';
+import profileHeidi from '@/public/biocode/heidi-kumpulainen.jpg';
+import profileNick from '@/public/biocode/nick-wols.jpg';
+import profileSari from '@/public/biocode/sari-torpstrom.jpg';
 
 export const BiocodeSoftware = ({ images }: PageProps) => {
   const { ref, value: y } = useParallax({ speed: 'slow' });
@@ -170,7 +173,67 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           </Text>
         </div>
       </TemplateArea>
-      <TemplateArea pt="2xl-5xl">
+      <TemplateArea gridGap="m" pt="l-2xl">
+        <Quote animate className="grid-col grid-col:4@m">
+          <QuoteText>
+            <p>
+              The calculator is incredibly illustrative. When I enter or change
+              values, I can see the effect on the result immediately and
+              concretely.
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Heidi Kumpulainen’s profile picture',
+                ...profileHeidi,
+              }}
+              name="Heidi Kumpulainen"
+              text="QA & Farmer Relations Expert, Pakkasmarja"
+            />
+          </QuoteFooter>
+        </Quote>
+        <Quote animate className="grid-col grid-col:4@m">
+          <QuoteText>
+            <p>
+              Biocode has dramatically increased our understanding of our
+              products and their emissions. For example, our own knowledge of
+              the carbon footprint of our oatmeal is now crystal clear.
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Annu Kuure’s profile picture',
+                ...profileAnnu,
+              }}
+              name="Annu Kuure"
+              text="CEO, Kinnusen Mylly"
+            />
+          </QuoteFooter>
+        </Quote>
+        <Quote animate className="grid-col grid-col:4@m">
+          <QuoteText>
+            <p>
+              Before we bought Biocode, I thought that carbon footprinting
+              calculation would be really confusing, we couldn't do it, and we
+              wouldn't know how to do it. But luckily you don't have to be a
+              carbon footprinting expert to use Biocode.
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Sari Torpström’s profile picture',
+                ...profileSari,
+              }}
+              name="Sari Torpström"
+              text="QA Expert, Pakkasmarja"
+            />
+          </QuoteFooter>
+        </Quote>
+      </TemplateArea>
+      <TemplateArea pt="l-2xl">
         <div className="grid-col grid-col:8@m grid-col:7@l grid">
           <Figure
             alt="Calculation example card"
@@ -294,7 +357,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           <QuoteFooter>
             <Avatar
               image={{
-                alt: 'Nick Wols profile picture',
+                alt: 'Nick Wols’ profile picture',
                 ...profileNick,
               }}
               name="Nick Wols"
@@ -341,28 +404,6 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           )}
         />
       </TemplateArea>
-      {/* <TemplateArea grid={false} pb="2xl-5xl">
-        <Quote size="l">
-          <QuoteText>
-            <p>
-              Trying to calculate my carbon footprint felt like attempting
-              advanced calculus with an abacus. Thank goodness for Biocode,
-              swooping in like a digital superhero to save the day with their
-              user-friendly interface and renewable brainpower!
-            </p>
-          </QuoteText>
-          <QuoteFooter>
-            <Avatar
-              image={{
-                alt: 'Nick Wols profile picture',
-                ...profileNick,
-              }}
-              name="Nick Wols"
-              text="Director of Accounting, Euronet"
-            />
-          </QuoteFooter>
-        </Quote>
-      </TemplateArea> */}
     </section>
   );
 };

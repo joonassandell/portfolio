@@ -1,12 +1,15 @@
+import { Avatar } from '@/components/Avatar';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
 import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
+import profileLinda from '@/public/biocode/linda-forss.jpg';
 
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
@@ -213,6 +216,29 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         sizes={`${MQ.s} 90vw, 100vw`} // Intentional for better quality
         {...getImage('joonassandell-biocode-design-system-table', images)}
       />
+    </TemplateArea>
+    <TemplateArea grid={false} pt="l-2xl">
+      <Quote animate size="l">
+        <QuoteText>
+          <p>
+            Using Biocode has given us a lot of ‘ah-ha!’ experiences. It has
+            been insightful to use the calculator and see how different raw
+            materials affect the end result. We have learned that rapeseed oil,
+            for example, can increase the carbon footprint of products quite a
+            lot.
+          </p>
+        </QuoteText>
+        <QuoteFooter>
+          <Avatar
+            image={{
+              alt: 'Linda Forss’ profile picture',
+              ...profileLinda,
+            }}
+            name="Linda Forss"
+            text="Procurement Manager, Anton&Anton"
+          />
+        </QuoteFooter>
+      </Quote>
     </TemplateArea>
     <TemplateArea pt="2xl-5xl">
       <div className="grid-col grid-col:8@l grid">
