@@ -21,12 +21,9 @@
 
   --border-100: var(--biocode-border-50);
   --border-950: var(--biocode-border-50);
-
   --link: var(--biocode-text-950);
-
   --text-900: var(--biocode-text-900);
   --text-950: var(--biocode-text-950);
-
   --selection-bg: var(--biocode-primary);
   --focus-visible-bg: var(--biocode-primary);
 
@@ -47,13 +44,16 @@
 
   .Template-software {
     --Template-area-bg: var(--biocode-light-bg-100);
+    --Subtitle-text: var(--biocode-light-primary-text);
+
     --Figure-placeholder-bg: var(--biocode-light-bg-300);
     --Figure-glare-opacity: 0.5;
-    --Subtitle-text: var(--biocode-light-primary-text);
+
+    --Quote-bg: var(--biocode-light-bg-300);
+    --Quote-border: transparent;
 
     --border-100: var(--biocode-light-border-100);
     --border-950: var(--biocode-light-border-100);
-
     --text-900: var(--biocode-light-text-900);
     --text-950: var(--biocode-light-text-950);
 

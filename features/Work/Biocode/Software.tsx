@@ -1,13 +1,16 @@
+import { Avatar } from '@/components/Avatar';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
 import { m } from 'framer-motion';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
 import { Subtitle } from '@/components/Subtitle';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';
 import { useParallax } from '@/lib/useParallax';
+import profileNick from '@/public/images/nick.jpg';
 
 export const BiocodeSoftware = ({ images }: PageProps) => {
   const { ref, value: y } = useParallax({ speed: 'slow' });
@@ -278,7 +281,29 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           </Text>
         </div>
       </TemplateArea>
-      <TemplateArea pb="2xl-5xl" pt="2xl-5xl">
+      <TemplateArea grid={false} pt="l-2xl">
+        <Quote animate size="l">
+          <QuoteText>
+            <p>
+              Trying to calculate my carbon footprint felt like attempting
+              advanced calculus with an abacus. Thank goodness for Biocode,
+              swooping in like a digital superhero to save the day with their
+              user-friendly interface and renewable brainpower!
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Nick Wols profile picture',
+                ...profileNick,
+              }}
+              name="Nick Wols"
+              text="Director of Accounting, Euronet"
+            />
+          </QuoteFooter>
+        </Quote>
+      </TemplateArea>
+      <TemplateArea pt="l-2xl">
         <div className="grid-col grid-col:4@l">
           <Heading animate size="h5" tag="h3">
             In-depth carbon footprint insights
@@ -316,6 +341,28 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           )}
         />
       </TemplateArea>
+      {/* <TemplateArea grid={false} pb="2xl-5xl">
+        <Quote size="l">
+          <QuoteText>
+            <p>
+              Trying to calculate my carbon footprint felt like attempting
+              advanced calculus with an abacus. Thank goodness for Biocode,
+              swooping in like a digital superhero to save the day with their
+              user-friendly interface and renewable brainpower!
+            </p>
+          </QuoteText>
+          <QuoteFooter>
+            <Avatar
+              image={{
+                alt: 'Nick Wols profile picture',
+                ...profileNick,
+              }}
+              name="Nick Wols"
+              text="Director of Accounting, Euronet"
+            />
+          </QuoteFooter>
+        </Quote>
+      </TemplateArea> */}
     </section>
   );
 };
