@@ -1,6 +1,13 @@
-import { type ComponentPropsWithoutRef, type PropsWithChildren } from 'react';
+import {
+  type ComponentPropsWithoutRef,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react';
+import { type HTMLMotionProps } from 'framer-motion';
 
-export interface QuoteProps extends ComponentPropsWithoutRef<'blockquote'> {
+export interface QuoteProps extends HTMLMotionProps<'blockquote'> {
+  animate?: boolean;
+  children: ReactNode;
   size?: 'm' | 'l';
 }
 

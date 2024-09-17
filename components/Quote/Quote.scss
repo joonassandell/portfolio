@@ -8,6 +8,7 @@ $ml: map.get(c.$breakpoints, 'ml');
 
 .Quote {
   container-type: inline-size;
+  transform-origin: top left;
 }
 
 .Quote-inner {

@@ -1,9 +1,22 @@
+import { m } from 'framer-motion';
+import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type QuoteProps } from './';
+import { useInView } from '@/lib/useInView';
+import { useRef } from 'react';
 import c from 'clsx';
 
-export const Quote = ({ children, className, size, ...props }: QuoteProps) => {
+export const Quote = ({
+  animate,
+  children,
+  className,
+  size,
+  ...props
+}: QuoteProps) => {
+  const ref = useRef(null);
+  const inView = useInView(ref);
+
   return (
-    <blockquote
+    <m.blockquote
       className={c(
         'Quote',
         {
@@ -11,12 +24,18 @@ export const Quote = ({ children, className, size, ...props }: QuoteProps) => {
         },
         className,
       )}
+      {...(animate && {
+        animate: inView ? 'animate' : '',
+        initial: 'initial',
+        ref,
+        variants: MOVE_IN_VARIANTS,
+      })}
       {...props}
     >
       <div className="Quote-inner">
         <div className="Quote-mark">”</div>
         <div className="Quote-content">{children}</div>
       </div>
-    </blockquote>
+    </m.blockquote>
   );
 };
