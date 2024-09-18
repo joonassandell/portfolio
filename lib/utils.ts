@@ -64,10 +64,11 @@ export const formatDate = (inputDate: string): string => {
   const options: Intl.DateTimeFormatOptions = {
     day: '2-digit',
     month: 'short',
+    timeZone: 'UTC',
     year: 'numeric',
   };
 
-  return date.toLocaleDateString('en-US', options);
+  return new Intl.DateTimeFormat('en-US', options).format(date);
 };
 
 export const getMilliSeconds = (number: number) => number * 1000;
