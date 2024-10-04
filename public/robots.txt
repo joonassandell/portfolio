@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /Joonas-Sandell-CV.pdf
 
 Sitemap: https://joonassandell.com/sitemap.xml
 
