@@ -13,7 +13,7 @@ $ml: map.get(c.$breakpoints, 'ml');
 
 .Quote-inner {
   background: var(--Quote-bg, var(--bg-50));
-  border: var(--border-width-s) solid var(--Quote-border, var(--border-950));
+  border: var(--border-width) solid var(--Quote-border, var(--border-950));
   border-radius: var(--border-radius);
   color: var(--Quote-text, var(--text-950));
   display: flex;
