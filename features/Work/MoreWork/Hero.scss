@@ -7,15 +7,27 @@
   --Stamp-iris: var(--more-work-primary);
 
   .Hero-figure-figure {
-    --width: 45vw;
+    --width: 50vw;
     inset: rem(-$space) -35vw 0 auto;
     position: absolute;
     width: clamp(rem($space * 11), var(--width), rem($space * 22));
     z-index: 3;
+
+    @include mq(s) {
+      --width: 40vw;
+    }
+
+    @include mq(l) {
+      --width: 33vw;
+    }
   }
 
   .Hero-figure-figure--bottom {
-    inset: auto rem(-$space-m) rem($space-3xl + $space) auto;
+    inset: auto rem(-$space-m) rem($space-3xl) auto;
+  }
+
+  .Hero-figure-bg {
+    height: 75%;
   }
 
   .Hero-stamp {

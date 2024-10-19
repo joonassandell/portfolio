@@ -83,10 +83,10 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           tag="p"
         >
           We needed to shift Biocode's positioning from a service-oriented brand
-          to a product-centric SaaS model and ensure that the website conveyed
-          the value Biocode offers to its users. The main challenge was
-          translating this into a brand design that highlighted Biocode's key
-          advantages and set it apart from competitors.
+          to a product-centric SaaS model and make sure that the website
+          communicated the value Biocode offers to its users. The main challenge
+          was translating this into a brand design that highlighted Biocode's
+          key advantages and set it apart from competitors.
         </Text>
       </div>
       <div className="grid-col grid -gap:row:0">
@@ -106,8 +106,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         >
           We addressed these challenges by showcasing Biocode’s strengths, like
           ease of use and credibility. The new design highlights the problems
-          Biocode solves, with clear messaging and a user-friendly interface
-          that guides potential customers through the product's benefits.
+          Biocode solves, with clear messaging and interface that guides
+          potential customers through the product's benefits.
         </Text>
       </div>
     </TemplateArea>
@@ -147,7 +147,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
       </div>
       <div className="grid-col grid-col:6@m grid-col:4@l">
         <Heading animate size="h5" tag="h3">
-          How to engage our users?
+          Engaging our users
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
           We built Biocode's{' '}
@@ -183,7 +183,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         size="l"
         tag="p"
       >
-        The transformation required a major UX and aesthetic overhaul to reflect
+        The transformation required a major UX and aesthetic revamp to reflect
         modern SaaS efficiency. Guided by the positioning, the redesign focused
         on presenting Biocode as a clear and compelling software solution.
       </Text>
@@ -203,9 +203,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
           The homepage was strategically redesigned to make a powerful first
-          impression. We wanted to convey that anyone can easily calculate
+          impression. We wanted to communicate that anyone can easily calculate
           emissions, regardless of expertise, making the tool accessible to
-          eveyone.
+          everyone.
         </Text>
       </div>
     </TemplateArea>
@@ -239,7 +239,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Text animate className="mb:0" color="mute" tag="p">
           Biocode was missing a logomark and an icon, which is a crucial piece
           of any fully-fledged software product. We created a new logomark which
-          was also integrated as part of the wordmark to ensure recognition.
+          was also integrated as part of the wordmark for better recognition.
         </Text>
       </div>
       <div className="grid-col grid-col:8@l grid">
@@ -402,11 +402,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           <Text animate color="mute" tag="p">
             We aimed to showcase the transparency, expertise, and dedication of
             our team. Our staff is committed to delivering accurate carbon
-            calculations and clear, reliable results.
-          </Text>
-          <Text animate className="mb:0" color="mute" tag="p">
-            Additionally we arranged a photoshoot to create unique visuals that
-            are also used in our various marketing materials.
+            calculations and clear, reliable results. Additionally we arranged a
+            photoshoot to create unique visuals that are also used in our
+            various marketing materials.
           </Text>
         </div>
         <Quote animate className="grid-col -align:end">

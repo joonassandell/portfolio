@@ -13,13 +13,13 @@
     width: clamp(rem($space * 24), var(--width), rem($space * 52));
     z-index: 3;
 
-    @include mq(m) {
-      --width: 80vw;
+    @include mq(l) {
+      --width: 70vw;
+      inset: rem($space * 3) 0 0 rem($space * -5);
     }
 
-    @include mq(l) {
+    @include mq(xl) {
       --width: 64vw;
-      inset: rem($space * 3) 0 0 rem($space * -5);
     }
   }
 

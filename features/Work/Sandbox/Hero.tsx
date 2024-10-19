@@ -42,10 +42,10 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
           <div className="grid -gap:l">
             <div
               className="
-                  Hero-figure grid-col
-                  grid-col:7 -start:6
-                  grid-col:4@l -start:6@l
-                "
+                Hero-figure grid-col
+                grid-col:7 -start:6
+                grid-col:4@l -start:6@l
+              "
             >
               <m.figure
                 className="Hero-figure-figure"

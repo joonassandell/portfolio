@@ -88,8 +88,8 @@ export const HomePage = () => {
           </div>
           <div className="Template-about-desktop">
             <Heading size="h1">
-              I'm a designer, creative developer and sometimes even a music
-              producer from Helsinki, Finland. Read more{' '}
+              I’m a designer, creative developer and sometimes even a music
+              producer from Helsinki, Finland. Learn more{' '}
               <Link href={SITEMAP.about.url}>about me</Link> or just keep
               scrolling for selected works.
             </Heading>
@@ -112,15 +112,15 @@ export const HomePage = () => {
           transition="pre"
           transitionStart={currentHero === 'mediasignal' && animation}
         />
-        <SandboxHero
-          onClick={handleClick}
-          transition="pre"
-          transitionStart={currentHero === 'sandbox' && animation}
-        />
         <MoreWorkHero
           onClick={handleClick}
           transition="pre"
           transitionStart={currentHero === 'moreWork' && animation}
+        />
+        <SandboxHero
+          onClick={handleClick}
+          transition="pre"
+          transitionStart={currentHero === 'sandbox' && animation}
         />
       </div>
     </Template>

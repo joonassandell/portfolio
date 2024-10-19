@@ -27,7 +27,7 @@ export const APP_URL =
 
 export const APP = {
   header: {
-    defaultNavTitle: 'Selected Works',
+    defaultNavTitle: 'Work',
   },
   meta: {
     appName: 'Joonas Sandell',

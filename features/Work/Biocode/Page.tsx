@@ -17,7 +17,7 @@ import { Template, TemplateArea } from '@/components/Template';
 import { useSetThemeColor } from '@/components/App';
 
 export const BiocodePage = ({ images }: PageProps) => {
-  const { id, meta, title } = SITEMAP.biocode;
+  const { id, meta, title, year } = SITEMAP.biocode;
   const { id: nextProjectId } = SITEMAP.oras;
   useSetThemeColor(meta.themeColor);
 
@@ -70,7 +70,7 @@ export const BiocodePage = ({ images }: PageProps) => {
           },
         ]}
         type={['SaaS', 'Website', 'Branding']}
-        year="2020 – Present"
+        year={`2020 – ${year}`}
       />
       <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:10@l -start:2@l">

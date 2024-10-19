@@ -48,7 +48,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
             </div>
             <div className="grid-col grid-col:6 grid-col:3@m">
               <Text className="mb:xs mb@m" color="mute:blend" tag="p">
-                Selected Works
+                Case Studies
               </Text>
               <Text tag="ul">
                 {SITEMAP.work.map(item => {
@@ -85,9 +85,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
           </div>
           <div className="Footer-nameCol grid-col grid-col:3@l">
             <Text className="mb:2xs mb@l" tag="p">
-              <LinkRoll href={SITEMAP.home.url} underline="active">
-                {APP.person.name}
-              </LinkRoll>
+              {APP.person.name}
             </Text>
             <Text className="mb" color="mute:blend" size="s" tag="p">
               {APP.person.title.design}

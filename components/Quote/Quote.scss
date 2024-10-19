@@ -35,7 +35,6 @@ $ml: map.get(c.$breakpoints, 'ml');
   @include fontSize(c.$h1-font-size-min, c.$h1-font-size-min, 80px, 10vw);
   color: var(--Quote-mark, var(--text-950));
   margin: rem(c.$space-2xs * -1) 0 rem(c.$space-ml * -1);
-
   pointer-events: none;
   user-select: none;
 

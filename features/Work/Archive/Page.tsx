@@ -25,16 +25,12 @@ export const ArchivePage = ({ images }: PageProps) => {
         role={['UI/UX design', 'Web development']}
         smallPrint="Some projects are made together with people from various sources."
         text={
-          <>
-            <p>
-              Featuring clients such as Fair Trade, Avecra, Jatke, City of
-              Tampere and Vapriikki.
-            </p>
-            <p>
-              I’ll be updating this page every now and then since I’m not yet
-              done crawling all the archived folders in my NAS. 📀
-            </p>
-          </>
+          <p>
+            Featuring clients such as <em>Fair Trade</em>, <em>Avecra</em>,{' '}
+            <em>Jatke</em>, <em>City of Tampere</em> and <em>Vapriikki</em>.
+            I’ll be updating this page every now and then since I’m not yet done
+            crawling all the archived folders in my NAS. 📀
+          </p>
         }
         type={['Website', 'Web service']}
         year={year}

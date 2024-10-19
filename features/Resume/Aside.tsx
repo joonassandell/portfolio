@@ -71,7 +71,7 @@ export const ResumeAside = () => (
     </Text>
     <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
-        Essential tech
+        Relevant tech
       </Text>
       <p>
         React, Next.js, Bundlers, Git, AWS, Databases, GraphQL, Storybook,

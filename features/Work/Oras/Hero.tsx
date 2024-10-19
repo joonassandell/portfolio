@@ -56,11 +56,11 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
             <div className="grid -gap:l">
               <div
                 className="
-                    Hero-figure grid-col
-                    grid-col:7 -start:6
-                    grid-col:6@s -start:7@s
-                    grid-col:4@l -start:6@l
-                  "
+                  Hero-figure grid-col
+                  grid-col:7 -start:6
+                  grid-col:6@s -start:7@s
+                  grid-col:4@l -start:6@l
+                "
               >
                 <m.figure
                   className="Hero-figure-figure"

@@ -35,7 +35,7 @@ export const AboutClients = () => (
         Dahl,
         Ekovilla,
         Enervent,
-        Fair trade,
+        Fair Trade,
         Finefoods,
         Finnpark,
         Hailia,

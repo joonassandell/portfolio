@@ -13,7 +13,7 @@ import { useSetThemeColor } from '@/components/App';
 
 export const SandboxPage = ({ images }: PageProps) => {
   const { id, meta, year } = SITEMAP.sandbox;
-  const { id: nextProjectId } = SITEMAP.moreWork;
+  const { id: nextProjectId } = SITEMAP.biocode;
   useSetThemeColor(meta.themeColor);
   const mqM = useMedia(MQ.m, false);
 
