@@ -48,7 +48,7 @@ export const UiLabPage = () => {
                 <em>User interface laboratory</em>
               </Link>{' '}
               is a showcase of various UI component experiments and interactive
-              design concepts.
+              design concepts
             </Heading>
           </div>
         </TemplateArea>

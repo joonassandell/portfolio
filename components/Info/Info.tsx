@@ -35,7 +35,7 @@ export const Info = ({
   });
 
   return (
-    <section className="Info" ref={ref}>
+    <div className="Info" ref={ref}>
       <div className="grid -gap:row:l wrap">
         <Hr className="grid-col mb:xs mb:ml@m" style={{ y }} />
         <m.div
@@ -180,6 +180,6 @@ export const Info = ({
           </div>
         </m.div>
       )}
-    </section>
+    </div>
   );
 };

@@ -26,8 +26,8 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
           <Link href="https://github.com/joonassandell/bds">GitHub</Link>
         </em>{' '}
         and designed with <em>Figma</em>, serves as a comprehensive library used
-        across our entire ecosystem ensuring a consistent look and standardized
-        approach in maintaining uniformity throughout our products
+        across our entire ecosystem, providing a consistent look and
+        standardized approach in maintaining coherence throughout our products
       </Text>
     </TemplateArea>
     <TemplateArea gridGap="m" gridRowGap="m" pt="l-2xl">

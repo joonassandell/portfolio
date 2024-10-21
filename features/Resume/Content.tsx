@@ -71,12 +71,13 @@ export const ResumeContent = () => (
           </Link>
         </Heading>
         <Text color="mute" tag="p">
-          Nov 2020 – Present
+          Nov 2020 – Now
         </Text>
         <Text>
           <ul className="pl">
             <li>
-              Built the <Link href={SITEMAP.biocode.url}>software</Link>{' '}
+              Built the{' '}
+              <Link href={`${SITEMAP.biocode.url}/#software`}>software</Link>{' '}
               front-end together with the team including various features such
               as real time carbon footprint calculation
             </li>
@@ -99,7 +100,7 @@ export const ResumeContent = () => (
             <li>
               Authored, designed and developed{' '}
               <em>
-                <Link href="https://github.com/joonassandell/bds">
+                <Link href={`${SITEMAP.biocode.url}/#design-system`}>
                   Biocode Design System
                 </Link>{' '}
               </em>
@@ -179,7 +180,7 @@ export const ResumeContent = () => (
               <em>
                 <Link href={SITEMAP.oras.url}>Oras</Link>
               </em>
-              , <em>Fair trade</em>, <em>Kia</em>, <em>Caverion</em>,{' '}
+              , <em>Fair Trade</em>, <em>Kia</em>, <em>Caverion</em>,{' '}
               <em>
                 <Link href={`${SITEMAP.moreWork.url}/#takk`}>TAKK</Link>
               </em>{' '}
@@ -221,7 +222,7 @@ export const ResumeContent = () => (
             </li>
             <li>
               Led and aided groups of developers and communicated with the
-              customers about project progress’
+              customers occasionally utilizing agile <em>Scrum</em> sprints
             </li>
           </ul>
           <Button href={SITEMAP.mediasignal.url} icon={<ArrowRight />}>
@@ -265,11 +266,10 @@ export const ResumeContent = () => (
     </Heading>
     <Text>
       <p>
-        I’m Joonas — UI/UX designer, Front-end Developer and sometimes even a{' '}
-        <Link href={LINK.soundcloud.url}>Music Producer</Link>. I enjoy
+        I enjoy crafting interfaces, design systems, and products while
         connecting with new people online and dedicating some of my free time to
         various projects. <Link href={SITEMAP.contact.url}>Contact me</Link> or
-        learn more about me from below.
+        learn more about me from the links below.
       </p>
       <p className="flex flex-wrap:wrap gap:s">
         <Button href={SITEMAP.about.url} size="s">

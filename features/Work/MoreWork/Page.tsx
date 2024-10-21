@@ -16,7 +16,7 @@ import { useSetThemeColor } from '@/components/App';
 
 export const MoreWorkPage = ({ images }: PageProps) => {
   const { id, meta, year } = SITEMAP.moreWork;
-  const { id: nextProjectId } = SITEMAP.biocode;
+  const { id: nextProjectId } = SITEMAP.sandbox;
   useSetThemeColor(meta.themeColor);
 
   return (
@@ -25,7 +25,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
       <MoreWorkHero />
       <Info
         client={{ name: 'Various clients' }}
-        heading="So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients."
+        heading="This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients."
         role={[
           'Product design',
           'UI/UX/Brand design',
@@ -35,9 +35,10 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         smallPrint="Some projects may present initial designs and prototypes."
         text={
           <p>
-            I assume you have already noticed my keen focus on creating polished
-            interfaces and meaningful experiences. So, I thought I might as well
-            deliver you some more.
+            Featuring projects crafted for clients such as{' '}
+            <em>Bonnier Books</em>, <em>Omoroi</em>, <em>HW-Company</em>,{' '}
+            <em>Hankkija</em>, <em>Finnpark</em>, <em>TAKK</em>,{' '}
+            <em>Mediasignal</em> and <em>Luke</em>.
           </p>
         }
         type={['Website, Web service', 'SaaS, Branding']}
@@ -101,7 +102,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           />
         </div>
         <SubInfo
-          client={{ href: 'https://omoroi.fi', name: 'Omoroi' }}
+          client={{ name: 'Omoroi' }}
           heading="Omoroi 👨🏻‍💻"
           role={['UI/UX/Brand design', 'Web development']}
           text={
@@ -110,7 +111,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               they love developing software and everything that comes with it.
               Omoroi wanted me to design and develop them a website that
               reflected their company brand, so I delivered one with some
-              "version control" inspired aesthetics.
+              <q>version control</q> inspired aesthetics.
             </p>
           }
           type={['Website', 'Branding']}
@@ -275,7 +276,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               webpage which then developed to an e-commerce store.
             </p>
             <p>
-              We also developed a web application called "Lukupassi" to
+              We also developed a web application called <q>Lukupassi</q> to
               encourage people to read more.
             </p>
             <Text color="mute" size="xs" tag="small">
@@ -357,7 +358,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX design', 'Web development']}
           text={
             <p>
-              Tampere Adult Education Centre, TAKK, is a multisectoral
+              Tampere Adult Education Centre, <em>TAKK</em>, is a multisectoral
               vocational educator and working life developer. Annually, there
               are over 11k students, and the number of employees is around 260.
             </p>
@@ -449,8 +450,9 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               <p>
                 Want to see even more? Then checkout the{' '}
                 <Link href={SITEMAP.archive.url}>archive</Link> featuring
-                clients such as Fair Trade, Avecra, City of Tampere and
-                Vapriikki.
+                clients such as <em>Fair Trade</em>, <em>Avecra</em>,{' '}
+                <em>City of Tampere</em> and
+                <em>Vapriikki</em>.
               </p>
               <Link
                 href={SITEMAP.archive.url}

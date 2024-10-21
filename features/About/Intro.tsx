@@ -129,11 +129,12 @@ export const AboutIntro = () => {
         </div>
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
           <Text animate tag="p">
-            I’m Joonas — UI/UX designer, Front-end Developer and sometimes even
+            I’m Joonas — UI/UX Designer, Front-end Developer and sometimes even
             a <Link href={LINK.soundcloud.url}>Music Producer</Link>. I have a
             strong and great visual taste, broad understanding of front-end web
             technologies and a genuine passion for all aspects of product and
-            visual design, including web services, touch platforms and branding.
+            visual design, including web services, design systems, touch
+            platforms and branding.
           </Text>
           <Text animate tag="p">
             I get excited about finding unique and elegant solutions for complex
@@ -144,7 +145,7 @@ export const AboutIntro = () => {
           </Text>
           <Text animate tag="p">
             With a background that spans both design and coding, I thrive at the
-            intersection of aesthetics and functionality, blending the best of
+            space between aesthetics and functionality, blending the best of
             both worlds to deliver great user experiences.
           </Text>
           <Text animate className="mb:l">

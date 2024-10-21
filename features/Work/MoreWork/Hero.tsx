@@ -44,7 +44,7 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
     >
       {({ transitionPre }) => (
         <div className="wrap grid -gap:l pl:0">
-          <div className="Hero-figure grid-col grid-col:6 grid-col:6@l">
+          <div className="Hero-figure grid-col grid-col:6">
             <m.figure
               className="Hero-figure-figure"
               data-lock-ios

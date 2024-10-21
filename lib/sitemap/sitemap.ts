@@ -17,14 +17,14 @@ import uiLab from '@/features/UiLab/sitemap';
  * ======================================= */
 
 const me = [about, resume, approach, contact];
-const projects = [uiLab, milestones, home];
-const work = [biocode, oras, mediasignal, sandbox, moreWork];
+const projects = [home, uiLab, milestones, sandbox];
+const work = [biocode, oras, mediasignal, moreWork];
 const all = [...me, ...projects, ...work, archive];
 
 const header = {
   nav: [about, uiLab, milestones, contact],
-  navMask: [biocode, oras, mediasignal, sandbox, moreWork],
-  navMaskFooter: [...me, ...projects],
+  navMask: [biocode, oras, mediasignal, moreWork, sandbox],
+  navMaskFooter: [home, about, uiLab, milestones, resume, approach, contact],
   navMaskMobile: [about, uiLab, milestones, resume, approach, contact],
 };
 

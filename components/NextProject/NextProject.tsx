@@ -17,7 +17,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
   const { push } = useRouter();
   const { title, url } = SITEMAP[id];
   const src = `/${kebabCase(id)}/joonassandell-${kebabCase(id)}-thumbnail.jpg`;
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [innerRef, { height, width }] = useMeasure<HTMLDivElement>();
   const [figureRef, { height: figureHeight, width: figureWidth }] =
     useMeasure<HTMLDivElement>();
@@ -85,7 +85,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
   }, [height, width, figureWidthHalf, figureHeightHalf, mqS]);
 
   return (
-    <section className="NextProject" ref={ref}>
+    <div className="NextProject" ref={ref}>
       <div className="NextProject-inner wrap" ref={innerRef}>
         <Heading className="mb:0" size="l" tag="div">
           <LinkRoll className="NextProject-link" href={url}>
@@ -123,6 +123,6 @@ export const NextProject = ({ id }: NextProjectProps) => {
           />
         </m.figure>
       </div>
-    </section>
+    </div>
   );
 };

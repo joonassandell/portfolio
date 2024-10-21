@@ -3,6 +3,7 @@ import { Button } from '@/components/Button';
 import { Figure } from '@/components/Figure';
 import { Head } from '@/components/Head';
 import { Heading } from '@/components/Heading';
+import { Hr } from '@/components/Hr';
 import { m } from 'framer-motion';
 import { SITEMAP } from '@/lib/sitemap';
 import { Template, TemplateArea } from '@/components/Template';
@@ -87,25 +88,24 @@ export const ApproachPage = () => {
       <TemplateArea gridRowGap={false} pb="2xl-5xl" pt="l">
         <div className="grid-col grid-col:6@m grid-col:4@l">
           <Text animate tag="p">
-            In my approach to design, I generally prioritise adherence to UI
-            conventions while infusing subtle, unique elements that enhance user
-            engagement. I firmly believe that good design should be intuitive
-            and seamless, striving for invisibility while ensuring that every
-            interaction feels polished and refined.
+            In my approach to design, I generally focus on following UI
+            conventions while blending in subtle, unique elements that enhance
+            user engagement. I believe that good design should be intuitive and
+            aim for invisibility, with every interaction feeling polished.
           </Text>
           <Text animate tag="p">
             <q>Good design is invisible</q> like some say and I believe that’s a
-            good mindset to have when building a successful product.
+            good mindset to have when building successful products.
           </Text>
           <Text animate tag="p">
             In designing interfaces and end-to-end websites, I consider a
             multitude of factors, including accessibility, UX principles, target
             group, value for end users, consistency, conversion rate and
-            business logic. While I recognise the importance of aesthetics, I
-            firmly believe that data-driven content reigns supreme,
-            collaborating closely with copywriters and marketing team to ensure
-            that messaging is concise and impactful without compromising visual
-            appeal.
+            business logic. While I recognize the importance of aesthetics, I
+            believe that data-driven content takes priority, collaborating
+            closely with copywriters and the marketing professionals to make
+            sure that messaging is concise and impactful without compromising
+            visual appeal.
           </Text>
         </div>
         <div className="grid-col grid-col:6@m grid-col:4@l">
@@ -113,17 +113,18 @@ export const ApproachPage = () => {
             When it comes to coding, I adhere to best practices, writing clean,
             maintainable code with meaningful variable names and thorough
             documentation. I prioritise simplicity over complexity, actively
-            seeking to streamline solutions and avoid shortcuts or hacks
-            whenever possible.
+            seeking to optimize solutions and avoid shortcuts or hacks whenever
+            possible.
           </Text>
           <Text animate tag="p">
             I’m both systematic and adaptive in my approach, valuing
             organization and adherence to project guidelines while remaining
-            flexible enough to accommodate evolving requirements. For me, the DX
-            is paramount, and I am dedicated to fostering an environment where
-            everyone can contribute effectively to building exceptional
-            products.
+            flexible enough to accommodate evolving requirements. For me, the
+            developer experience is important, and I am dedicated to promoting
+            an environment where everyone can contribute effectively to building
+            exceptional products.
           </Text>
+          <Hr />
           <Text animate>
             <p>
               To put it simply, for me, it’s both how it works and how it looks.

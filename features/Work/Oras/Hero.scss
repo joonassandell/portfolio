@@ -16,8 +16,7 @@
     z-index: 3;
 
     @include mq(s) {
-      --width: 50vw;
-      inset: rem($space * 6) 0 0 rem($space * -3.5);
+      top: rem($space * 6);
     }
 
     @include mq(l) {
@@ -49,7 +48,7 @@
   }
 
   .Hero-drop--2 {
-    inset: 18% auto auto 15vw;
+    inset: 18% auto auto 15%;
     max-width: 12.5%;
 
     @include mq(m) {
@@ -59,7 +58,7 @@
   }
 
   .Hero-drop--3 {
-    inset: auto 0 25% 30vw;
+    inset: auto 0 25% 30%;
     max-width: 10%;
 
     @include mq(m) {

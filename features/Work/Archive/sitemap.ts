@@ -10,9 +10,9 @@ const sitemap: SitemapItemWork<'archive'> = {
     themeColor: '#CCCFC9',
     title: 'Archive',
   },
-  title: 'Work archive',
+  title: 'Work Archive',
   url: '/archive',
-  year: '2010–2016',
+  year: '2010 – 2016',
 };
 
 export default sitemap;

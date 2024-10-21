@@ -62,7 +62,7 @@ export const Hero = ({
   };
 
   return (
-    <m.section
+    <m.div
       animate={transitionStart && 'animate'}
       className={c(
         'Hero',
@@ -107,7 +107,7 @@ export const Hero = ({
         </div>
         {typeof children === 'function' ? children(passedProps) : children}
         {transitionPre && (
-          <div className="Hero-link wrap grid -place:end">
+          <div className="Hero-link wrap grid -place:end hidden@l">
             <div className="grid-col">
               <Link
                 href={href as URL['href']}
@@ -133,6 +133,6 @@ export const Hero = ({
           />
         )}
       </div>
-    </m.section>
+    </m.div>
   );
 };
