@@ -28,16 +28,16 @@ export const ResumeContent = () => (
       UI/UX Designer, Front-end Developer ✳︎ CV
     </Text>
     <Text className="mb:m" size="l">
-      <p className="hidden@m">
+      <p className="hidden@s">
         A designer and creative developer with a keen eye for good design. With
-        more than a decade of design engineering experience, I have the skills
-        to build hiqh-quality web experiences.
+        more than 15 years of design engineering experience, I have the skills
+        to build high-quality websites and products.
       </p>
-      <p className="visible@m">
+      <p className="visible@s">
         A designer and creative developer with a keen eye for good design and
-        attention to detail. With more than a decade of design engineering
-        experience, I have the skills to build hiqh-quality web experiences and
-        assist clients in addressing practical business challenges.
+        attention to detail. With more than 15 years of design engineering
+        experience, I have the skills to build high-quality websites and
+        products and assist clients in addressing practical business challenges.
       </p>
     </Text>
     <Button

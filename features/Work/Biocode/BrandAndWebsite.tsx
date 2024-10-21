@@ -16,7 +16,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <section id="brand-and-website">
     <TemplateArea grid={false} pt="2xl-5xl">
       <Subtitle animate center>
-        New brand & website
+        Brand & Website
       </Subtitle>
       <Heading animate center size="h1" tag="h2">
         Understanding the positioning of Biocode
@@ -169,7 +169,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
     </TemplateArea>
     <TemplateArea grid={false} pt="2xl-5xl">
       <Subtitle animate center>
-        New brand & website
+        Brand & Website
       </Subtitle>
       <Heading animate center size="h2">
         Shifting the focus to a product-centric design

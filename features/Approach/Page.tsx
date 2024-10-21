@@ -103,18 +103,21 @@ export const ApproachPage = () => {
             group, value for end users, consistency, conversion rate and
             business logic. While I recognize the importance of aesthetics, I
             believe that data-driven content takes priority, collaborating
-            closely with copywriters and the marketing professionals to make
-            sure that messaging is concise and impactful without compromising
-            visual appeal.
+            closely with copywriters and marketing professionals to make sure
+            that messaging is concise and impactful without compromising visual
+            appeal.
           </Text>
         </div>
         <div className="grid-col grid-col:6@m grid-col:4@l">
-          <Text animate tag="p">
-            When it comes to coding, I adhere to best practices, writing clean,
-            maintainable code with meaningful variable names and thorough
-            documentation. I prioritise simplicity over complexity, actively
-            seeking to optimize solutions and avoid shortcuts or hacks whenever
-            possible.
+          <Text animate className="mb:m">
+            <Hr className="hidden@m" />
+            <p>
+              When it comes to coding, I adhere to best practices, writing
+              clean, maintainable code with meaningful variable names and
+              thorough documentation. I prioritise simplicity over complexity,
+              actively seeking to optimize solutions and avoid shortcuts or
+              hacks whenever possible.
+            </p>
           </Text>
           <Text animate tag="p">
             I’m both systematic and adaptive in my approach, valuing
@@ -124,12 +127,12 @@ export const ApproachPage = () => {
             an environment where everyone can contribute effectively to building
             exceptional products.
           </Text>
-          <Hr />
           <Text animate>
+            <Hr />
             <p>
               To put it simply, for me, it’s both how it works and how it looks.
             </p>
-            <Button href="/about" icon={<ArrowRight />}>
+            <Button href={SITEMAP.about.url} icon={<ArrowRight />}>
               About me
             </Button>
           </Text>

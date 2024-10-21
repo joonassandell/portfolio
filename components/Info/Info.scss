@@ -16,7 +16,7 @@
 }
 
 .Info-toc {
-  padding: var(--border-width-m) var(--wrap-space-right) var(--border-width-m)
+  padding: rem($space-ml) var(--wrap-space-right) rem($space-xs)
     var(--wrap-space-left);
 
   @include mq(l) {

@@ -25,7 +25,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
       <MoreWorkHero />
       <Info
         client={{ name: 'Various clients' }}
-        heading="This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients."
+        heading="This collection brings together a range of designs, primarily focused on websites and applications that I have crafted for a diverse set of clients."
         role={[
           'Product design',
           'UI/UX/Brand design',
@@ -35,12 +35,63 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         smallPrint="Some projects may present initial designs and prototypes."
         text={
           <p>
-            Featuring projects crafted for clients such as{' '}
-            <em>Bonnier Books</em>, <em>Omoroi</em>, <em>HW-Company</em>,{' '}
-            <em>Hankkija</em>, <em>Finnpark</em>, <em>TAKK</em>,{' '}
-            <em>Mediasignal</em> and <em>Luke</em>.
+            Featuring projects built for clients such as{' '}
+            <em>
+              <Link href="#academic-bookstore">Bonnier Books</Link>
+            </em>
+            ,{' '}
+            <em>
+              <Link href="#finnpark">Finnpark</Link>
+            </em>
+            ,{' '}
+            <em>
+              <Link href="#takk">TAKK</Link>
+            </em>{' '}
+            and{' '}
+            <em>
+              <Link href="#hukka">Luke</Link>
+            </em>
+            .
           </p>
         }
+        toc={[
+          {
+            href: '#hw-company',
+            text: 'HW-Company',
+          },
+          {
+            href: '#omoroi',
+            text: 'Omoroi',
+          },
+          {
+            href: '#hankkija',
+            text: 'Hankkija',
+          },
+          {
+            href: '#hukka',
+            text: 'Hukka',
+          },
+          {
+            href: '#academic-bookstore',
+            text: 'Academic Bookstore',
+          },
+          {
+            href: '#rubik',
+            text: 'Rubik',
+          },
+          {
+            href: '#takk',
+            text: 'TAKK',
+          },
+          {
+            href: '#finnpark',
+            text: 'Finnpark',
+          },
+          {
+            href: '#archive',
+            text: 'Archive',
+          },
+        ]}
         type={['Website, Web service', 'SaaS, Branding']}
         year={year}
       />

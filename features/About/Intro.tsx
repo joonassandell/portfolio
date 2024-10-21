@@ -50,23 +50,24 @@ export const AboutIntro = () => {
 
   const lead = {
     desktop: [
-      'With more than a decade of design engineering ',
+      'With more than 15 years of design engineering ',
       <>
         <Link href={SITEMAP.resume.url}>experience</Link>, I have the skills to
-        build hiqh-quality{' '}
+        build high-quality{' '}
       </>,
-      'web experiences and assist clients in addressing ',
-      'practical business challenges.',
+      'websites and products and assist clients in ',
+      'addressing practical business challenges.',
     ],
     mobile: [
-      'With more than a decade of ',
+      'With more than 15 years of ',
       <>
         design engineering <Link href={SITEMAP.resume.url}>experience</Link>,{' '}
       </>,
       'I have the skills to build ',
-      'hiqh-quality web experiences ',
-      'and assist clients in addressing ',
-      'practical business challenges.',
+      'high-quality websites and ',
+      'products and assist clients in ',
+      'addressing practical ',
+      'business challenges.',
     ],
   };
 
@@ -140,13 +141,13 @@ export const AboutIntro = () => {
             I get excited about finding unique and elegant solutions for complex
             user issues, and I love designing by code in the browser but I work
             a lot with <em>Figma</em> and other design tools as well. Usually I
-            prefer writing applications with <em>TypeScript</em>, <em>React</em>
-            , <em>Sass</em> and other modern tools.
+            write applications with <em>TypeScript</em>, <em>React</em>,{' '}
+            <em>Sass</em> and other modern tools.
           </Text>
           <Text animate tag="p">
-            With a background that spans both design and coding, I thrive at the
-            space between aesthetics and functionality, blending the best of
-            both worlds to deliver great user experiences.
+            With a background in both design and code, I thrive in the space
+            between aesthetics and functionality, blending the best of both
+            worlds to deliver great user experiences.
           </Text>
           <Text animate className="mb:l">
             <Button href="/approach" icon={<ArrowRight />}>

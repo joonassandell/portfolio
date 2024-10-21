@@ -58,7 +58,7 @@ export const BiocodePage = ({ images }: PageProps) => {
         toc={[
           {
             href: '#brand-and-website',
-            text: 'Brand and Website',
+            text: 'Brand & Website',
           },
           {
             href: '#design-system',

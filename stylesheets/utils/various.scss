@@ -35,6 +35,10 @@
   align-items: center;
 }
 
+.place-content\:space-between {
+  place-content: space-between;
+}
+
 .flex-direction\:column {
   flex-direction: column;
 }
