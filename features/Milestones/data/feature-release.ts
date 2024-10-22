@@ -22,9 +22,9 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
    * ======================================= */
 
   {
-    date: '2024-09-21',
+    date: '2024-09-22',
     event: 'Rewrote the Biocode case study',
-    url: 'https://x.com/joonassandell/status/1848431558807482599',
+    url: 'https://x.com/joonassandell/status/1848620149613433220',
   },
   {
     categoryName: 'Feature WIP',
