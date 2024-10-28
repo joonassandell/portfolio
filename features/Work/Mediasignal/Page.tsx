@@ -12,7 +12,7 @@ import { useSetThemeColor } from '@/components/App';
 
 export const MediasignalPage = ({ images }: PageProps) => {
   const { id, meta, title, year } = SITEMAP.mediasignal;
-  const { id: nextProjectId } = SITEMAP.sandbox;
+  const { id: nextProjectId } = SITEMAP.moreWork;
   useSetThemeColor(meta.themeColor);
 
   return (
@@ -24,7 +24,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
         heading="Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch."
         role={['UI/UX/Brand design', 'Concept strategy', 'Web development']}
         smallPrint="Made together with professionals from Porkka & Kuutsa and Mediasignal."
-        tech={['WP, GSAP', 'Vanilla stack']}
+        tech={['HTML, CSS, JS', 'WP, GSAP, Barba.js']}
         text={
           <p>
             I worked for Mediasignal over half a decade and was involved in

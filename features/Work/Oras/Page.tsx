@@ -24,7 +24,7 @@ export const OrasPage = ({ images }: PageProps) => {
         heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
         role={['UI/UX design', 'Concept strategy', 'Web development']}
         smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
-        tech={['TYPO3, Vanilla stack']}
+        tech={['HTML, CSS, JS, TYPO3']}
         text={
           <p>
             After several iterations the Oras brand was modernised entirely in

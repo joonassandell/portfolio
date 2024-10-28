@@ -161,7 +161,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
               Omoroi is your friend in software development and automation and
               they love developing software and everything that comes with it.
               Omoroi wanted me to design and develop them a website that
-              reflected their company brand, so I delivered one with some
+              reflected their company brand, so I delivered one with some{' '}
               <q>version control</q> inspired aesthetics.
             </p>
           }
