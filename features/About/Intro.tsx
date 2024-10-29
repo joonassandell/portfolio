@@ -35,13 +35,13 @@ export const AboutIntro = () => {
 
   const heading = {
     desktop: [
-      'I’m a creative developer and designer ',
+      'I’m a designer and creative developer ',
       'with a keen eye for good design ',
       'and attention to detail',
     ],
     mobile: [
-      'I’m a creative developer ',
-      'and designer with ',
+      'I’m a designer and ',
+      'creative developer with ',
       'a keen eye for good ',
       'design and attention ',
       'to detail',
