@@ -3,7 +3,7 @@ import { type Optional } from '@/types';
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
-    date: '2023-09-05',
+    date: '2024-09-05',
     event: 'Featured in Lost Miracle Radio Show 73 by Sébastien Léger',
     url: 'https://soundcloud.com/sebastienleger/lost-miracle-radio-073',
   },
