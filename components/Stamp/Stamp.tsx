@@ -95,7 +95,7 @@ export const Stamp = ({
   }, []);
 
   return (
-    <div aria-hidden className={c('Stamp', className)} ref={ref}>
+    <div className={c('Stamp', className)} ref={ref}>
       <m.div
         className="Stamp-inner"
         ref={innerRef}
