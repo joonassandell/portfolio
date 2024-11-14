@@ -23,12 +23,10 @@ export const ResumeAside = () => (
     </Heading>
     <Text className="mb:m" size="s" tag="ul">
       <li>
-        E-mail:{' '}
         <Link href={`mailto:${APP.person.email}`} target="_self" truncate>
           {APP.person.email}
         </Link>
       </li>
-      <li>Location: {APP.person.location}</li>
       <li>
         <Link href={SITEMAP.contact.url} truncate>
           Send me a message
@@ -46,20 +44,26 @@ export const ResumeAside = () => (
           {stripUrl(LINK.github.url)}
         </Link>
       </li>
-      <li>
-        <Link href={LINK.dribbble.url} truncate>
-          {stripUrl(LINK.dribbble.url)}
-        </Link>
-      </li>
-      <li>
-        <Link href={LINK.twitter.url} truncate>
-          {stripUrl(LINK.twitter.url)}
-        </Link>
-      </li>
     </Text>
     <Heading className="mb:s" size="h6" tag="h4">
       Skills
     </Heading>
+    <Text className="mb" size="s">
+      <Text className="mb:2xs" color="mute" tag="p">
+        Design
+      </Text>
+      <p>
+        UI/UX design, Design systems, Design thinking, Figma expert,
+        User-centered design, Information architecture, Prototyping and
+        wireframing, Visual and responsive design
+      </p>
+    </Text>
+    <Text className="mb" size="s">
+      <Text className="mb:2xs" color="mute" tag="p">
+        Development
+      </Text>
+      <p>Sofware development, Web development, Animations</p>
+    </Text>
     <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
         Languages
@@ -71,29 +75,19 @@ export const ResumeAside = () => (
     </Text>
     <Text className="mb" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
-        Relevant tech
+        Relevant technologies
       </Text>
       <p>
-        React, Next.js, Bundlers, Git, AWS, Databases, GraphQL, Storybook,
-        WordPress, Firebase, Tailwind CSS, Apache, Unix, GSAP, Framer Motion,
-        ChatGPT, Redux, Zustand
+        React, Next.js, Tailwind CSS, GSAP, Motion, Git, Storybook, Supabase,
+        Firebase, Databases, GraphQL, WordPress, Bundlers, AWS, Apache, Unix,
+        Redux, Zustand
       </p>
-    </Text>
-    <Text className="mb" size="s">
-      <Text className="mb:2xs" color="mute" tag="p">
-        Design tools
-      </Text>
-      <p>Figma, Sketch, Adobe CC</p>
     </Text>
     <Text className="mb:l" size="s">
       <Text className="mb:2xs" color="mute" tag="p">
-        Competencies
+        Design applications
       </Text>
-      <p>
-        UI/UX design, Product design, Website design & development, Software
-        design & development, Responsive design, Design systems & patterns,
-        Animations
-      </p>
+      <p>Figma, Sketch, Adobe CC</p>
     </Text>
     <Heading className="mb:s" size="h6" tag="h4">
       Selected projects

@@ -47,7 +47,7 @@ export const ResumeContent = () => (
       target="_blank"
       variant="dark"
     >
-      Download resume
+      Download CV
     </Button>
     <Heading className="mb:m" size="h4" tag="h2">
       Experience
@@ -76,10 +76,8 @@ export const ResumeContent = () => (
         <Text>
           <ul className="pl">
             <li>
-              Built the{' '}
-              <Link href={`${SITEMAP.biocode.url}/#software`}>software</Link>{' '}
-              front-end together with the team including various features such
-              as real time carbon footprint calculation
+              Played an active role in enhancing overall direction of the
+              product
             </li>
             <li>
               Designed the application and its features including prototypes and
@@ -87,18 +85,11 @@ export const ResumeContent = () => (
               ease-of-use
             </li>
             <li>
-              Played an active role in enhancing overall direction of the
-              product and suggesting user-centric features based on analytics
+              Conducted user research and usability testing to validate designs
+              and make data-driven decisions
             </li>
             <li>
-              Developed and designed{' '}
-              <Link href={SITEMAP.biocode.url}>Biocode</Link>’s end-to-end{' '}
-              <Link href="https://biocode.io">website</Link> including
-              dark/light modes, CMS and <em>Hubspot</em> integration among many
-              other features
-            </li>
-            <li>
-              Authored, designed and developed{' '}
+              Built and maintained{' '}
               <em>
                 <Link href={`${SITEMAP.biocode.url}/#design-system`}>
                   Biocode Design System
@@ -106,6 +97,18 @@ export const ResumeContent = () => (
               </em>
               including brand assets such as logomarks, icons and product
               packaging stamps
+            </li>
+            <li>
+              Built the{' '}
+              <Link href={`${SITEMAP.biocode.url}/#software`}>software</Link>{' '}
+              front-end together with the team including various features such
+              as real time carbon footprint calculation
+            </li>
+            <li>
+              Developed and designed{' '}
+              <Link href={SITEMAP.biocode.url}>Biocode</Link>’s end-to-end{' '}
+              <Link href="https://biocode.io">website</Link> including features
+              such as dark/light modes, CMS and <em>Hubspot</em> integration
             </li>
             <li>
               Designed and developed headless{' '}
@@ -116,10 +119,6 @@ export const ResumeContent = () => (
               </em>{' '}
               Next.js web service to market the impact of Biocode for the public
               audience
-            </li>
-            <li>
-              Contributed and planned interviews with the marketing team for
-              users in order to improve the UX and UI of the application
             </li>
             <li>
               Aided other engineers to ensure quality UI/UX and implementation
@@ -153,34 +152,31 @@ export const ResumeContent = () => (
         <Text>
           <ul className="pl">
             <li>
-              Developed and designed applications for clients such as{' '}
+              Arranged workshops and planned interviews to ensure products meet
+              user needs and business objectives
+            </li>
+            <li>
+              Developed and designed hundreds of applications and websites for
+              clients such as{' '}
+              <em>
+                <Link href={SITEMAP.oras.url}>Oras</Link>
+              </em>
+              ,{' '}
               <em>
                 <Link href={`${SITEMAP.moreWork.url}/#academic-bookstore`}>
                   Bonnier Books
                 </Link>
               </em>
-              , <em>Finefoods</em>,{' '}
-              <em>
-                <Link href={`${SITEMAP.moreWork.url}/#hukka`}>Luke</Link>
-              </em>
-              , <em>Kesla</em>, <em>Dahl</em> and{' '}
+              ,{' '}
               <em>
                 <Link href={`${SITEMAP.moreWork.url}/#finnpark`}>Finnpark</Link>
               </em>
-            </li>
-            <li>
-              Designed and developed websites, e-commerce stores and web
-              services for clients such as{' '}
+              , <em>Kia</em>, <em>Fair Trade</em>, <em>Kesla</em>,{' '}
+              <em>Caverion</em>,{' '}
               <em>
-                <Link href={`${SITEMAP.moreWork.url}/#academic-bookstore`}>
-                  Academic Bookstore
-                </Link>
+                <Link href={`${SITEMAP.moreWork.url}/#hukka`}>Luke</Link>
               </em>
               ,{' '}
-              <em>
-                <Link href={SITEMAP.oras.url}>Oras</Link>
-              </em>
-              , <em>Fair Trade</em>, <em>Kia</em>, <em>Caverion</em>,{' '}
               <em>
                 <Link href={`${SITEMAP.moreWork.url}/#takk`}>TAKK</Link>
               </em>{' '}
@@ -188,10 +184,6 @@ export const ResumeContent = () => (
               <em>
                 <Link href={`${SITEMAP.moreWork.url}/#hankkija`}>Hankkija</Link>
               </em>
-            </li>
-            <li>
-              Arranged workshops and planned UX interviews to get valuable
-              feedback from clients and end-users to build successful products
             </li>
             <li>
               Refreshed{' '}
@@ -202,26 +194,22 @@ export const ResumeContent = () => (
               design and website renewal
             </li>
             <li>
-              Developed and designed internal products such as{' '}
-              <em>
-                <Link href={`${SITEMAP.moreWork.url}/#rubik`}>Rubik</Link>
-              </em>{' '}
-              (PIM), <em>Avainia</em> and <em>ImageBank</em> that were sold to
-              variety of customers
-            </li>
-            <li>
-              Crafted and documented{' '}
+              Developed and designed internal{' '}
               <Link href="https://github.com/joonassandell/rebirth">
                 internal tools
               </Link>{' '}
-              to quickly kick-start projects
+              and products such as{' '}
+              <em>
+                <Link href={`${SITEMAP.moreWork.url}/#rubik`}>Rubik</Link>
+              </em>{' '}
+              that were sold to variety of customers
             </li>
             <li>
               Managed to acquire new clients based on past experience, outside
               connections and word-to-mouth reputation
             </li>
             <li>
-              Led and aided groups of developers and communicated with the
+              Led and aided cross-functional teams and communicated with the
               customers occasionally utilizing agile <em>Scrum</em> sprints
             </li>
           </ul>
@@ -245,17 +233,18 @@ export const ResumeContent = () => (
               help visitors gain an enjoyable and insightful museum experiences
             </li>
             <li>
-              Built <em>Museum Guide</em> screen which featured maps, restaurant
-              menus and other museum information integrated to the website CMS
+              Built <em>Museum Guide</em> screen which featured inteactive maps
+              and other features integrated to the website CMS
             </li>
             <li>
               Built <em>Twitter Social Wall</em> screen to engage museum
               visitors sharing their museum experiences
             </li>
             <li>
-              Developed and designed websites and posters for{' '}
-              <em>Museum Centre Vapriikki</em>, <em>Moominvalley</em>,{' '}
-              <em>Tampere Music Festivals</em> and other city sectors
+              Designed and developed user interfaces, wireframes, graphic
+              assets, and prototypes for <em>Museum Centre Vapriikki</em>,{' '}
+              <em>Moominvalley</em>, <em>Tampere Music Festivals</em> and other
+              city sectors
             </li>
           </ul>
         </Text>
