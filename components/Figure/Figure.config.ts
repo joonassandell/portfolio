@@ -3,7 +3,7 @@ import {
   TRANS_TERTIARY,
   TRANS_TERTIARY_FASTEST,
 } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 /**
  * 1. From top to bottom

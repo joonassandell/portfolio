@@ -1,7 +1,7 @@
 import { type BoxProps } from './';
 import { Button } from '@/components/Button';
 import { Github, Moon, Sun } from '@/components/Icon';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { TRANS_PRIMARY_FASTEST, UI_LAB_URL } from '@/lib/config';
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';

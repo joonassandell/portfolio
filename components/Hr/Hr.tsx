@@ -1,5 +1,5 @@
 import { HR_VARIANTS, type HrProps } from './';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';
 import c from 'clsx';

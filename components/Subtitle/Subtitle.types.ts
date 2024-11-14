@@ -1,4 +1,4 @@
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 import { type TagGeneric, type TagText } from '@/types';
 
 export interface SubtitleProps extends HTMLMotionProps<'div'> {

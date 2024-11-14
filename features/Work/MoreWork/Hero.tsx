@@ -4,7 +4,7 @@ import {
   HeroContent,
   type HeroProps,
 } from '@/components/Hero';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';
 import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';

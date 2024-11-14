@@ -1,4 +1,4 @@
-import { AnimatePresence, m, useAnimation } from 'framer-motion';
+import { AnimatePresence, m, useAnimation } from 'motion/react';
 import { ArrowDown, ArrowUp } from '../Icon';
 import { type ButtonArrowProps } from './';
 import {

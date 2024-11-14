@@ -1,4 +1,4 @@
-import { type AnimationProps, type Variants } from 'framer-motion';
+import { type AnimationProps, type Variants } from 'motion/react';
 import {
   TRANS_PRIMARY,
   TRANS_PRIMARY_FAST,

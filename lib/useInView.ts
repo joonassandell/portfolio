@@ -1,4 +1,4 @@
-import { useInView as framerUseInView } from 'framer-motion';
+import { useInView as framerUseInView } from 'motion/react';
 import { type MutableRefObject } from 'react';
 
 export const useInView = (

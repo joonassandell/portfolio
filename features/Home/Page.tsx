@@ -4,7 +4,7 @@ import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MediasignalHero } from '@/features/Work/Mediasignal';
 import { MoreWorkHero } from '@/features/Work/MoreWork';
 import { OrasHero } from '@/features/Work/Oras';

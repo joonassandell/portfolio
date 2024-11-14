@@ -1,5 +1,5 @@
 import { TRANS_TERTIARY_FAST } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const ROW_VARIANT: Readonly<Variants> = {
   animate: {

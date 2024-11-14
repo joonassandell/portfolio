@@ -3,7 +3,7 @@ import {
   TRANS_PRIMARY_FASTEST,
   TRANS_TAP,
 } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const BUTTON_VARIANTS: Readonly<Variants> = {
   tap: {

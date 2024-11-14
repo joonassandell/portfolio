@@ -1,4 +1,4 @@
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 import { type RefObject } from 'react';
 
 export interface StampProps {

@@ -1,4 +1,4 @@
-import { animate, m } from 'framer-motion';
+import { animate, m } from 'motion/react';
 import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react';
 import { getClosestEdge } from '@/lib/utils';
 import {

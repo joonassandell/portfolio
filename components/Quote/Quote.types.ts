@@ -3,7 +3,7 @@ import {
   type PropsWithChildren,
   type ReactNode,
 } from 'react';
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 
 export interface QuoteProps extends HTMLMotionProps<'blockquote'> {
   animate?: boolean;

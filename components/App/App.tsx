@@ -1,4 +1,4 @@
-import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
+import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
 import {
   APP_URL,
   DISABLE_LOADING,

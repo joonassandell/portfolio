@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { type MouseEvent } from 'react';
 import { ROW_VARIANT, type TableRowProps } from './';
 import { useApp } from '@/components/App';

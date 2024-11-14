@@ -1,4 +1,4 @@
-import { AnimatePresence, m, useIsPresent } from 'framer-motion';
+import { AnimatePresence, m, useIsPresent } from 'motion/react';
 import { camelCase } from 'es-toolkit';
 import { Footer } from '@/components/Footer';
 import {

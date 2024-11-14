@@ -1,4 +1,4 @@
-import { MotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
+import { MotionValue, useScroll, useSpring, useTransform } from 'motion/react';
 import { type MutableRefObject, useEffect, useRef, useState } from 'react';
 import { SCROLL_SPEED } from '@/lib/config';
 import { useApp } from '@/components/App';

@@ -2,7 +2,7 @@ import { Avatar } from '@/components/Avatar';
 import { Figure } from '@/components/Figure';
 import { getImage } from '@/lib/utils';
 import { Heading } from '@/components/Heading';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MQ } from '@/lib/config';
 import { type PageProps } from '@/types';
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';

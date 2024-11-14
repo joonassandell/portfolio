@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, m } from 'motion/react';
 import { type ButtonEvent, type LinkEvent } from '@/types';
 import { type ButtonProps } from './';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';

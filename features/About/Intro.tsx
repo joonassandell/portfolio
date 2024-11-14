@@ -4,7 +4,7 @@ import { Figure } from '@/components/Figure';
 import { Heading } from '@/components/Heading';
 import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MQ } from '@/lib/config';
 import { TemplateArea } from '@/components/Template';
 import { Text } from '@/components/Text';

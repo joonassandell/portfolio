@@ -6,7 +6,7 @@ import {
   type ReactNode,
 } from 'react';
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export interface HeroProps {
   children?:

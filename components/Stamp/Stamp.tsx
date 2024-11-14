@@ -1,5 +1,5 @@
 import { debounce } from 'es-toolkit';
-import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'motion/react';
 import {
   OVERLAY_VARIANTS,
   STAMP_TRANSITION,

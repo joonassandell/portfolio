@@ -2,7 +2,7 @@ import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { Link } from '@/components/Link';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type SubInfoProps } from './';
 import { Text } from '@/components/Text';

@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type QuoteProps } from './';
 import { useInView } from '@/lib/useInView';

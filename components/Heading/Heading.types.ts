@@ -1,4 +1,4 @@
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 import { type TagGeneric, type TagHeading } from '@/types';
 
 export interface HeadingProps extends HTMLMotionProps<TagHeading | TagGeneric> {

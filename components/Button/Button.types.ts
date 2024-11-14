@@ -3,7 +3,7 @@ import {
   type JSX,
   type PropsWithChildren,
 } from 'react';
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 
 export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   icon?: JSX.Element;

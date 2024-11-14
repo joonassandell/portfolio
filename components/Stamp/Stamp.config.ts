@@ -1,5 +1,5 @@
 import { TRANS_PRIMARY, TRANS_PRIMARY_FAST, TRANS_TAP } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const STAMP_VARIANTS: Readonly<Variants> = {
   hover: {

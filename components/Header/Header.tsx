@@ -1,4 +1,4 @@
-import { AnimatePresence, m, useAnimation } from 'framer-motion';
+import { AnimatePresence, m, useAnimation } from 'motion/react';
 import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
 import { ButtonArrow } from '@/components/Button';
 import { debounce } from 'es-toolkit';

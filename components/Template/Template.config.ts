@@ -1,5 +1,5 @@
 import { TRANS_TEMPLATE } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const VARIANTS_WITH_TRANSITION: Readonly<Variants> = {
   animate: {
