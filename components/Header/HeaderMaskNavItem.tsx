@@ -31,6 +31,7 @@ export const HeaderMaskNavItem = ({
   const ref = useRef<HTMLLIElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const isFocus = document.activeElement === linkRef.current;
   const {
     detect: { hasTouch },
   } = useApp();
@@ -88,10 +89,12 @@ export const HeaderMaskNavItem = ({
         }}
         onFocus={() => setHover('in')}
         onMouseEnter={e => {
+          if (isFocus) return;
           findClosestEdge(e);
           setHover('in');
         }}
         onMouseLeave={e => {
+          if (isFocus) return;
           findClosestEdge(e);
           setHover('out');
         }}
