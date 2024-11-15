@@ -16,6 +16,7 @@ export interface HeaderNavItemProps {
 
 export interface HeaderMaskNavItemProps {
   color: string;
+  focus?: boolean;
   href: URL['href'];
   onClick: ComponentPropsWithoutRef<'a'>['onClick'];
   title: string;

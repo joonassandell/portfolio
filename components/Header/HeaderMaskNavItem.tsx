@@ -16,6 +16,7 @@ import Link from 'next/link';
 
 export const HeaderMaskNavItem = ({
   color,
+  focus,
   href,
   onClick,
   title,
@@ -28,6 +29,7 @@ export const HeaderMaskNavItem = ({
   const [revealTimeout, setRevealTimeout] =
     useState<ReturnType<typeof setTimeout>>();
   const ref = useRef<HTMLLIElement>(null);
+  const linkRef = useRef<HTMLAnchorElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const {
     detect: { hasTouch },
@@ -63,6 +65,10 @@ export const HeaderMaskNavItem = ({
     });
   }, [reveal]);
 
+  useEffect(() => {
+    if (focus) linkRef?.current?.focus();
+  }, [focus]);
+
   return (
     <m.li
       className={c('Header-mask-nav-item', {
@@ -89,6 +95,7 @@ export const HeaderMaskNavItem = ({
           findClosestEdge(e);
           setHover('out');
         }}
+        ref={linkRef}
       >
         <span className="Header-mask-nav-link-inner">
           <span className="Header-mask-nav-link-text">{title}</span>

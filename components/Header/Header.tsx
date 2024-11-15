@@ -60,7 +60,7 @@ export const Header = ({
     isBrowser && hasScrollbar(html.querySelector('.Header-mask'));
 
   const btnRef = useRef<HTMLButtonElement | null>(null);
-  const [btnFocus, setBtnFocus] = useState(false);
+  const [btnFocusVisible, setBtnFocusVisible] = useState(false);
   const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
   const [enterExit, setEnterExit] = useState<{
     btnArrow: typeof ENTER_EXIT_BTN_ARROW;
@@ -98,7 +98,7 @@ export const Header = ({
     setOpen(!open);
     if (!open) html.classList.add('is-headerOpen');
     if (!open) setOpenReveal(true);
-    if (open && btnFocus) btnRef?.current?.blur();
+    if (open && btnFocusVisible) setBtnFocusVisible(false);
     !open ? lockScroll(true) : lockScroll(false);
 
     !open ? setAnimating('open') : setAnimating('close');
@@ -251,10 +251,7 @@ export const Header = ({
   }, [mask, animating]);
 
   return (
-    <FocusTrap
-      active={open}
-      focusTrapOptions={{ initialFocus: false, returnFocusOnDeactivate: false }}
-    >
+    <FocusTrap active={open} focusTrapOptions={{ initialFocus: false }}>
       <header
         className={c('Header', {
           'has-scrollbar': maskHasScrollbar,
@@ -262,7 +259,6 @@ export const Header = ({
           'is-animating:close': animating === 'close',
           'is-open': maskOpen,
         })}
-        onMouseDown={() => btnFocus && setBtnFocus(false)}
       >
         <m.div
           animate={open ? 'open' : 'closed'}
@@ -272,10 +268,13 @@ export const Header = ({
             if (!open) {
               html.classList.remove('is-headerOpen');
               setOpenReveal(false);
-              setTimeout(() => {
-                if (btnFocus) btnRef?.current?.focus();
-                setAnimating(false);
-              }, 700);
+
+              /**
+               * Delay the closing after the animation so the arrow button's
+               * hover transitions doesn't conflict with the arrow button's
+               * closing animations
+               */
+              setTimeout(() => setAnimating(false), 700);
             } else {
               setAnimating(false);
             }
@@ -323,7 +322,7 @@ export const Header = ({
             <button
               className="Header-button"
               onClick={() => toggleOpen()}
-              onFocus={() => setBtnFocus(true)}
+              onKeyDown={() => setBtnFocusVisible(true)}
               ref={btnRef}
             >
               <div className="Header-button-textMobile" hidden>
@@ -408,10 +407,11 @@ export const Header = ({
                 variants={MASK_NAV_VARIANT}
               >
                 <ul>
-                  {header.navMask.map(item => {
+                  {header.navMask.map((item, i) => {
                     return (
                       <HeaderMaskNavItem
                         color={item.color}
+                        focus={btnFocusVisible && i === 0}
                         href={item.url}
                         key={item.id}
                         onClick={handleLinkClick}
