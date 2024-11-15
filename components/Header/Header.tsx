@@ -1,6 +1,6 @@
 import { AnimatePresence, m, useAnimation } from 'motion/react';
 import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
-import { ButtonArrow } from '@/components/Button';
+import { ArrowDown, ArrowUp } from '@/components/Icon';
 import { debounce } from 'es-toolkit';
 import {
   ENTER_EXIT_BTN_ARROW,
@@ -19,8 +19,8 @@ import {
   MASK_OPEN_TRANSITION,
 } from './';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
-import { Link } from '@/components/Link';
 import { LINK, SITEMAP } from '@/lib/sitemap';
+import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
 import { SomeIcons } from '@/components/SomeIcons';
@@ -47,7 +47,7 @@ export const Header = ({
   const mqM = useMedia(MQ.m, true);
 
   const [open, setOpen] = useState(false);
-  const [animating, setAnimating] = useState(false);
+  const [animating, setAnimating] = useState<'open' | 'close' | false>(false);
   const [openReveal, setOpenReveal] = useState(false);
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
   const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle;
@@ -61,7 +61,6 @@ export const Header = ({
 
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const [btnFocus, setBtnFocus] = useState(false);
-  const [hover, setHover] = useState<'start' | 'end' | false>(false);
   const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
   const [enterExit, setEnterExit] = useState<{
     btnArrow: typeof ENTER_EXIT_BTN_ARROW;
@@ -102,7 +101,7 @@ export const Header = ({
     if (open && btnFocus) btnRef?.current?.blur();
     !open ? lockScroll(true) : lockScroll(false);
 
-    setAnimating(true);
+    !open ? setAnimating('open') : setAnimating('close');
     setNavRevealTitle(navTitle);
 
     if (mask === 'closed' || mask === 'closedReset') setMask('open');
@@ -260,6 +259,7 @@ export const Header = ({
         className={c('Header', {
           'has-scrollbar': maskHasScrollbar,
           'is-animating': animating,
+          'is-animating:close': animating === 'close',
           'is-open': maskOpen,
         })}
         onMouseDown={() => btnFocus && setBtnFocus(false)}
@@ -320,22 +320,10 @@ export const Header = ({
                 />
               )}
             </div>
-            <m.button
+            <button
               className="Header-button"
-              onBlur={() => {
-                setHover('end');
-                setTimeout(() => setHover(false), 100);
-              }}
               onClick={() => toggleOpen()}
-              onFocus={() => {
-                setHover('start');
-                setBtnFocus(true);
-              }}
-              onHoverEnd={() => {
-                setHover('end');
-                setTimeout(() => setHover(false), 100);
-              }}
-              onHoverStart={() => setHover('start')}
+              onFocus={() => setBtnFocus(true)}
               ref={btnRef}
             >
               <div className="Header-button-textMobile" hidden>
@@ -370,19 +358,25 @@ export const Header = ({
               </div>
               <AnimatePresence initial={false} mode="wait">
                 <m.div
-                  className="Header-button-arrow"
+                  aria-hidden
+                  className="Header-button-arrow Button"
                   key={mqM && !isDefaultNavTitle ? asPath : undefined}
                   ref={btnArrow}
                   {...(mqM && { ...enterExit.btnArrow })}
                 >
-                  <ButtonArrow
-                    active={open}
-                    hoverEnd={hover === 'end'}
-                    hoverStart={hover === 'start'}
-                  />
+                  <span className="Header-button-bg" />
+                  <span className="Header-button-icon--default Button-icon">
+                    <ArrowDown />
+                  </span>
+                  <span className="Header-button-icon--reveal Button-icon">
+                    <ArrowDown />
+                  </span>
+                  <span className="Header-button-icon--close Button-icon">
+                    <ArrowUp />
+                  </span>
                 </m.div>
               </AnimatePresence>
-            </m.button>
+            </button>
             <ul className="Header-nav">
               {header.nav.map(item => {
                 return (

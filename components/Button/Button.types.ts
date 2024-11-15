@@ -17,13 +17,6 @@ export type ButtonProps = ButtonBaseProps &
   ComponentPropsWithoutRef<'a'> &
   ComponentPropsWithoutRef<'button'>;
 
-export interface ButtonArrowProps {
-  active?: boolean;
-  className?: string;
-  hoverEnd?: boolean;
-  hoverStart?: boolean;
-}
-
 export interface ButtonEnterBaseProps extends PropsWithChildren {
   templateTransition?: boolean;
 }
