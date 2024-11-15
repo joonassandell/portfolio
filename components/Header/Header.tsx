@@ -273,7 +273,7 @@ export const Header = ({
                * hover transitions doesn't conflict with the arrow button's
                * closing animations
                */
-              setTimeout(() => setAnimating(false), 650);
+              setTimeout(() => setAnimating(false), 700);
             } else {
               setAnimating(false);
             }
