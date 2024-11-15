@@ -261,12 +261,12 @@
 
   .Header-button-icon--default {
     animation: HeaderButtonIconIn var(--trans-primary) both;
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
   }
 
   .Header-button-icon--close {
     animation: HeaderButtonIconCloseOut var(--trans-primary) both;
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
   }
 }
 
