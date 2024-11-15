@@ -10,7 +10,7 @@ import {
 } from './';
 import { type ButtonEvent, type LinkEvent } from '@/types';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { useApp } from '@/components/App';
 import { useState } from 'react';
 import c from 'clsx';

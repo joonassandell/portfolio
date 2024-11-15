@@ -4,14 +4,14 @@ import { FADE_OUT_VARIANTS } from '@/lib/config';
 import { Heading } from '@/components/Heading';
 import { Link } from '@/components/Link';
 import { type LinkEvent } from '@/types';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MediasignalHero } from '@/features/Work/Mediasignal';
 import { MoreWorkHero } from '@/features/Work/MoreWork';
 import { OrasHero } from '@/features/Work/Oras';
 import { SandboxHero } from '@/features/Work/Sandbox';
 import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
 import { Template } from '@/components/Template';
-import { useLenis } from '@studio-freight/react-lenis';
+import { useLenis } from 'lenis/react';
 import { useScrollTo } from '@/lib/useScrollTo';
 import { useState } from 'react';
 import c from 'clsx';
@@ -45,7 +45,7 @@ export const HomePage = () => {
 
     const el = e.currentTarget.closest('[data-id]') as HTMLElement;
 
-    const needsExtraSpace = lenis?.limit < el?.offsetTop;
+    const needsExtraSpace = lenis && lenis?.limit < el?.offsetTop;
     if (needsExtraSpace) {
       setExtraSpace(true);
       lenis?.resize();

@@ -1,4 +1,4 @@
-import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
+import { AnimatePresence, type HTMLMotionProps, m } from 'motion/react';
 import { ConditionalWrapper } from '@/components/ConditionalWrapper';
 import { type ElementType, useState } from 'react';
 import {

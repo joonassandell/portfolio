@@ -2,7 +2,7 @@ import { ArrowRight } from '@/components/Icon';
 import { Heading } from '@/components/Heading';
 import { HEADING_VARIANTS as headingVars, type HeroProps } from './';
 import { Link } from '@/components/Link';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { Stamp } from '@/components/Stamp';
 import { TextReveal } from '@/components/TextReveal';
 import { TRANS_TERTIARY_FAST } from '@/lib/config';

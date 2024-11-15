@@ -1,5 +1,5 @@
 import { debounce } from 'es-toolkit';
-import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'motion/react';
 import {
   OVERLAY_VARIANTS,
   STAMP_TRANSITION,
@@ -95,7 +95,7 @@ export const Stamp = ({
   }, []);
 
   return (
-    <div aria-hidden className={c('Stamp', className)} ref={ref}>
+    <div className={c('Stamp', className)} ref={ref}>
       <m.div
         className="Stamp-inner"
         ref={innerRef}

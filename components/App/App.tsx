@@ -1,4 +1,4 @@
-import { AnimatePresence, domAnimation, LazyMotion } from 'framer-motion';
+import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
 import {
   APP_URL,
   DISABLE_LOADING,
@@ -21,7 +21,7 @@ import {
 } from 'react';
 import { Header } from '@/components/Header';
 import { isBrowser, scrollbarWidth } from '@/lib/utils';
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
+import { ReactLenis, useLenis } from 'lenis/react';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -288,7 +288,7 @@ export const App = ({
           setTransitionInitial,
         }}
       >
-        <ReactLenis root>
+        <ReactLenis options={{ autoRaf: true }} root>
           <div className="App">
             <Header navTitle={navTitle} />
             <main>

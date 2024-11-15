@@ -1,4 +1,4 @@
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 import { type ReactNode } from 'react';
 import { type TagAction, type TagGeneric } from '@/types';
 

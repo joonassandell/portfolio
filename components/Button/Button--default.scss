@@ -33,10 +33,6 @@
 
   .Button-icon {
     margin-right: rem($space-3xs * -1);
-
-    @at-root .is-ios & {
-      will-change: transform;
-    }
   }
 
   .Button-text {

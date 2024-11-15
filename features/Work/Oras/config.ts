@@ -1,5 +1,5 @@
 import { TRANS_TERTIARY } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const DROP_VARIANTS: Readonly<Variants> = {
   animate: ({ delay = 0 } = {}) => ({

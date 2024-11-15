@@ -4,7 +4,7 @@ import {
   MAIN_ITEM_OUT_VARIANT,
 } from './';
 import { LinkRoll } from '@/components/LinkRoll';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 
 export const HeaderNavItem = ({
   href,

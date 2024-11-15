@@ -1,5 +1,5 @@
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const HEADING_VARIANTS: Readonly<Variants> = {
   animate: {

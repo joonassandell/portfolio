@@ -1,5 +1,5 @@
 import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const FIGURE_INNER_VARIANTS: Readonly<Variants> = {
   animate: {

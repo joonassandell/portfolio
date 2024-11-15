@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { ROW_VARIANT } from './';
 import { type TableCaptionProps } from './';
 import { useInView } from '@/lib/useInView';

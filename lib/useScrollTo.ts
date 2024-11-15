@@ -1,6 +1,6 @@
 import { SCROLL_TO_DURATION, SCROLL_TO_EASE } from '@/lib/config';
-import { useLenis } from '@studio-freight/react-lenis';
-import type Lenis from '@studio-freight/lenis';
+import { useLenis } from 'lenis/react';
+import type Lenis from 'lenis';
 
 type LenisScrollToElement = Parameters<Lenis['scrollTo']>[0];
 type LenisScrollToOptions = Parameters<Lenis['scrollTo']>[1];

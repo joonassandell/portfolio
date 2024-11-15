@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, m } from 'motion/react';
 import { Heading } from '@/components/Heading';
 import { SPLASH_VARIANTS, type SplashProps, TEXT_VARIANTS } from './';
 

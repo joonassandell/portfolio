@@ -5,7 +5,7 @@ import {
   type HeroProps,
 } from '@/components/Hero';
 import { FIGURE_INNER_VARIANTS } from './config';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';
 import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';

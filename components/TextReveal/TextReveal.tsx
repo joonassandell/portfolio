@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { PARENT_VARIANT, TEXT_VARIANT, type TextRevealProps } from './';
 import { useInView } from '@/lib/useInView';
 import { useRef } from 'react';

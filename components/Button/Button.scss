@@ -15,4 +15,8 @@
   display: inline-flex;
   justify-content: center;
   pointer-events: none;
+
+  @at-root .is-ios & {
+    will-change: transform;
+  }
 }

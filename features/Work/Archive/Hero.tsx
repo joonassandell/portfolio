@@ -1,6 +1,6 @@
 import { FIGURE_BG_VARIANTS, Hero, type HeroProps } from '@/components/Hero';
 import { FIGURE_INNER_VARIANTS } from '@/features/Work/Mediasignal/config';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MQ } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { useParallax } from '@/lib/useParallax';

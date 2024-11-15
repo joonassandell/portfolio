@@ -3,7 +3,7 @@ import {
   type JSX,
   type PropsWithChildren,
 } from 'react';
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 
 export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
   icon?: JSX.Element;
@@ -16,13 +16,6 @@ export interface ButtonBaseProps extends ComponentPropsWithoutRef<'a'> {
 export type ButtonProps = ButtonBaseProps &
   ComponentPropsWithoutRef<'a'> &
   ComponentPropsWithoutRef<'button'>;
-
-export interface ButtonArrowProps {
-  active?: boolean;
-  className?: string;
-  hoverEnd?: boolean;
-  hoverStart?: boolean;
-}
 
 export interface ButtonEnterBaseProps extends PropsWithChildren {
   templateTransition?: boolean;

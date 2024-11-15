@@ -1,5 +1,5 @@
 import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
-import { type Variants } from 'framer-motion';
+import { type Variants } from 'motion/react';
 
 export const SPLASH_VARIANTS: Readonly<Variants> = {
   exit: {

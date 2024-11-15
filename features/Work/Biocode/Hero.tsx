@@ -1,7 +1,7 @@
 import { Heading } from '@/components/Heading';
 import { HEADING_VARIANTS, MASK_VARIANTS } from './config';
 import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MQ } from '@/lib/config';
 import { SITEMAP } from '@/lib/sitemap';
 import { TextReveal } from '@/components/TextReveal';

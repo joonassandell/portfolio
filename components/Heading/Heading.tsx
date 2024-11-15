@@ -1,6 +1,6 @@
 import { forwardRef, type RefObject, useRef } from 'react';
 import { type HeadingProps } from './';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { useInView } from '@/lib/useInView';
 import c from 'clsx';

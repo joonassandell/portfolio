@@ -1,4 +1,4 @@
-import { AnimatePresence, type HTMLMotionProps, m } from 'framer-motion';
+import { AnimatePresence, type HTMLMotionProps, m } from 'motion/react';
 import {
   CHARACTER_IN_VARIANTS,
   CHARACTER_OUT_VARIANTS,

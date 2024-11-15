@@ -1,7 +1,7 @@
 import { clamp, kebabCase } from 'es-toolkit';
 import { Heading } from '@/components/Heading';
 import { LinkRoll } from '@/components/LinkRoll';
-import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { mapRange } from '@/lib/utils';
 import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config';
 import { type NextProjectProps } from './';

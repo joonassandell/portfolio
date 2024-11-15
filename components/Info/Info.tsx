@@ -4,7 +4,7 @@ import { Heading } from '@/components/Heading';
 import { Hr } from '@/components/Hr';
 import { type InfoProps } from './';
 import { Link } from '@/components/Link';
-import { m } from 'framer-motion';
+import { m } from 'motion/react';
 import { MOVE_IN_VARIANTS, MQ } from '@/lib/config';
 import { Text } from '@/components/Text';
 import { useInView } from '@/lib/useInView';

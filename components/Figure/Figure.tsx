@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, m } from 'motion/react';
 import {
   CLIP_VARIANTS,
   type FigureProps,

@@ -1,4 +1,4 @@
-import { type HTMLMotionProps } from 'framer-motion';
+import { type HTMLMotionProps } from 'motion/react';
 import { type ImageProps } from 'next/image';
 import { type UseParallaxOptions } from '@/lib/useParallax';
 

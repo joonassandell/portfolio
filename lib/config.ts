@@ -1,4 +1,4 @@
-import { type BezierDefinition, type Variants } from 'framer-motion';
+import { type BezierDefinition, type Variants } from 'motion/react';
 
 /* =======================================
  * Environment variables

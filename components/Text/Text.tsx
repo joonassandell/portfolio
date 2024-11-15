@@ -1,5 +1,5 @@
 import { type ElementType, useRef } from 'react';
-import { type HTMLMotionProps, m } from 'framer-motion';
+import { type HTMLMotionProps, m } from 'motion/react';
 import { MOVE_IN_VARIANTS } from '@/lib/config';
 import { type TextProps } from './';
 import { useInView } from '@/lib/useInView';

@@ -1,4 +1,4 @@
-import { type AnimationLifecycles } from 'framer-motion';
+import { type AnimationLifecycles } from 'motion/react';
 
 export interface SplashProps {
   loading: boolean;
