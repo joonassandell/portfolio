@@ -15,14 +15,14 @@ import {
  * Note that these enter/exit animations rely heavily on the mask animation, so
  * if you add too much delay things may not work well. Keep these in sync.
  */
-export const ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN: AnimationProps = {
+export const BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN: AnimationProps = {
   exit: {
     opacity: 0,
   },
   transition: TRANS_SECONDARY_FASTEST,
 };
 
-export const ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN: AnimationProps = {
+export const BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN: AnimationProps = {
   exit: {
     opacity: 0,
     y: '1rem',
@@ -30,7 +30,7 @@ export const ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN: AnimationProps = {
   transition: TRANS_SECONDARY_FASTEST,
 };
 
-export const ENTER_EXIT_BTN_TEXT: AnimationProps = {
+export const BTN_ENTER_EXIT_TEXT: AnimationProps = {
   animate: {
     opacity: 1,
     y: 0,
@@ -46,7 +46,7 @@ export const ENTER_EXIT_BTN_TEXT: AnimationProps = {
   transition: TRANS_PRIMARY_FAST,
 };
 
-export const ENTER_EXIT_BTN_ARROW: AnimationProps = {
+export const BTN_ENTER_EXIT_ARROW: AnimationProps = {
   animate: {
     opacity: 1,
     y: 0,

@@ -1,12 +1,11 @@
-import { AnimatePresence, m, useAnimation } from 'motion/react';
 import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
-import { ArrowDown, ArrowUp } from '@/components/Icon';
-import { debounce } from 'es-toolkit';
 import {
-  ENTER_EXIT_BTN_ARROW,
-  ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN,
-  ENTER_EXIT_BTN_TEXT,
-  ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN,
+  BTN_ENTER_EXIT_ARROW,
+  BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
+  BTN_ENTER_EXIT_TEXT,
+  BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN,
+  HeaderButton,
+  type HeaderButtonProps,
   HeaderMaskNavItem,
   HeaderNavItem,
   type HeaderProps,
@@ -18,11 +17,13 @@ import {
   MASK_NAV_VARIANT,
   MASK_OPEN_TRANSITION,
 } from './';
+import { debounce } from 'es-toolkit';
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
-import { LINK, SITEMAP } from '@/lib/sitemap';
 import { Link } from '@/components/Link';
+import { LINK, SITEMAP } from '@/lib/sitemap';
 import { type LinkEvent } from '@/types';
 import { LinkRoll } from '@/components/LinkRoll';
+import { m, useAnimation } from 'motion/react';
 import { SomeIcons } from '@/components/SomeIcons';
 import { Text } from '@/components/Text';
 import { urlState } from '@/lib/useUrlState';
@@ -41,7 +42,7 @@ export const Header = ({
   navTitle = APP.header.defaultNavTitle,
 }: HeaderProps) => {
   const router = useRouter();
-  const { asPath, events, push } = router;
+  const { events, push } = router;
   const { html, lockScroll, setTransition, setTransitionInitial } = useApp();
   const scrollTo = useScrollTo();
   const mqM = useMedia(MQ.m, true);
@@ -59,32 +60,30 @@ export const Header = ({
   const maskHasScrollbar =
     isBrowser && hasScrollbar(html.querySelector('.Header-mask'));
 
-  const btnRef = useRef<HTMLButtonElement | null>(null);
   const [btnFocusVisible, setBtnFocusVisible] = useState(false);
-  const [arrowPos, setArrowPos] = useState({ x: 0, y: 0 });
-  const [enterExit, setEnterExit] = useState<{
-    btnArrow: typeof ENTER_EXIT_BTN_ARROW;
-    btnText: typeof ENTER_EXIT_BTN_TEXT;
-  }>({
-    btnArrow: ENTER_EXIT_BTN_ARROW,
-    btnText: ENTER_EXIT_BTN_TEXT,
+  const [btnArrowPos, setBtnArrowPos] = useState({ x: 0, y: 0 });
+  const [btnEnterExit, setBtnEnterExit] = useState<
+    HeaderButtonProps['enterExit']
+  >({
+    arrow: BTN_ENTER_EXIT_ARROW,
+    text: BTN_ENTER_EXIT_TEXT,
   });
 
-  const setArrowPosFromRef = (ref: HTMLDivElement | null) => {
+  const setBtnArrowPosFromRef = (ref: HTMLDivElement | null) => {
     if (!ref) return;
     const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = ref;
-    setArrowPos({
+    setBtnArrowPos({
       x: offsetLeft + offsetWidth / 2,
       y: offsetTop + offsetHeight / 2,
     });
   };
 
   const btnArrow = useCallbackRef(null, ref => {
-    if (ref) setArrowPosFromRef(ref);
+    if (ref) setBtnArrowPosFromRef(ref);
   });
 
   useEffect(() => {
-    const resize = debounce(() => setArrowPosFromRef(btnArrow.current), 100);
+    const resize = debounce(() => setBtnArrowPosFromRef(btnArrow.current), 100);
     resize();
     window.addEventListener('resize', resize);
     return () => window.removeEventListener('resize', resize);
@@ -159,17 +158,17 @@ export const Header = ({
     if (!open) return;
 
     const changeStart = () => {
-      setEnterExit({
-        btnArrow: ENTER_EXIT_BTN_ARROW_IF_NAV_OPEN,
-        btnText: ENTER_EXIT_BTN_TEXT_IF_NAV_OPEN,
+      setBtnEnterExit({
+        arrow: BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
+        text: BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN,
       });
     };
 
     const changeComplete = () => {
       toggleOpen();
-      setEnterExit({
-        btnArrow: ENTER_EXIT_BTN_ARROW,
-        btnText: ENTER_EXIT_BTN_TEXT,
+      setBtnEnterExit({
+        arrow: BTN_ENTER_EXIT_ARROW,
+        text: BTN_ENTER_EXIT_TEXT,
       });
     };
 
@@ -218,7 +217,7 @@ export const Header = ({
         // Timeout because of display property (none/flex) change
         setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5);
         await maskAnim.start({
-          clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
           transition: MASK_OPEN_TRANSITION,
         });
         setMask('openReset');
@@ -226,7 +225,7 @@ export const Header = ({
 
       if (mask === 'closed') {
         await maskAnim.start({
-          clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
           transition: MASK_CLOSE_TRANSITION,
         });
         setMask('closedReset');
@@ -234,17 +233,17 @@ export const Header = ({
 
       if (mask === 'openReset') {
         maskAnim.set({
-          clipPath: `circle(150% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         });
       }
 
       if (mask === 'closedReset') {
         maskAnim.set({
-          clipPath: `circle(0% at ${arrowPos.x}px ${arrowPos.y}px)`,
+          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         });
       }
     })();
-  }, [mask, arrowPos.x, arrowPos.y, maskAnim]);
+  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim]);
 
   useEffect(() => {
     if (mask === 'closedReset' && !animating) setMaskOpen(false);
@@ -274,7 +273,7 @@ export const Header = ({
                * hover transitions doesn't conflict with the arrow button's
                * closing animations
                */
-              setTimeout(() => setAnimating(false), 600);
+              setTimeout(() => setAnimating(false), 650);
             } else {
               setAnimating(false);
             }
@@ -319,63 +318,18 @@ export const Header = ({
                 />
               )}
             </div>
-            <button
-              className="Header-button"
-              onClick={() => toggleOpen()}
-              onKeyDown={() => setBtnFocusVisible(true)}
-              ref={btnRef}
-            >
-              <div className="Header-button-textMobile" hidden>
-                <m.div variants={MAIN_ITEM_OUT_VARIANT}>Menu</m.div>
-                {openReveal && (
-                  <m.div
-                    className="Header-button-textMobile-reveal"
-                    variants={MAIN_ITEM_IN_VARIANT}
-                  >
-                    Menu
-                  </m.div>
-                )}
-              </div>
-              <div className="Header-button-text">
-                <AnimatePresence initial={false} mode="wait">
-                  <m.div
-                    className="Header-button-text-item"
-                    key={!isDefaultNavTitle ? asPath : undefined}
-                    {...enterExit.btnText}
-                    {...(open && { hidden: true })}
-                  >
-                    <m.div variants={MAIN_ITEM_OUT_VARIANT}>{navTitle}</m.div>
-                  </m.div>
-                </AnimatePresence>
-                {openReveal && (
-                  <div className="Header-button-text-item Header-button-text-item--reveal">
-                    <m.div variants={MAIN_ITEM_IN_VARIANT}>
-                      {navRevealTitle}
-                    </m.div>
-                  </div>
-                )}
-              </div>
-              <AnimatePresence initial={false} mode="wait">
-                <m.div
-                  aria-hidden
-                  className="Header-button-arrow Button"
-                  key={mqM && !isDefaultNavTitle ? asPath : undefined}
-                  ref={btnArrow}
-                  {...(mqM && { ...enterExit.btnArrow })}
-                >
-                  <span className="Header-button-bg" />
-                  <span className="Header-button-icon--default Button-icon">
-                    <ArrowDown />
-                  </span>
-                  <span className="Header-button-icon--reveal Button-icon">
-                    <ArrowDown />
-                  </span>
-                  <span className="Header-button-icon--close Button-icon">
-                    <ArrowUp />
-                  </span>
-                </m.div>
-              </AnimatePresence>
-            </button>
+            <HeaderButton
+              arrow={btnArrow}
+              enterExit={btnEnterExit}
+              isDefaultNavTitle={isDefaultNavTitle}
+              mqM={mqM}
+              navRevealTitle={navRevealTitle}
+              navTitle={navTitle}
+              open={open}
+              openReveal={openReveal}
+              setFocusVisible={setBtnFocusVisible}
+              toggleOpen={toggleOpen}
+            />
             <ul className="Header-nav">
               {header.nav.map(item => {
                 return (
