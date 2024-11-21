@@ -223,7 +223,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <div className="grid-col grid-col:10 -start:3 grid-col:6@m">
           <Figure
             alt="Hankkija subpages"
-            sizes={`${MQ.m} 33vw, 80vw`}
+            sizes={`${MQ.m} 40vw, 80vw`}
             {...getImage('joonassandell-hankkija-views', images)}
           />
         </div>

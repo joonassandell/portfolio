@@ -430,6 +430,7 @@
 }
 
 .Header-mask-nav-link {
+  --focus-visible-bg: transparent;
   align-items: center;
   color: var(--text-50);
   display: flex;

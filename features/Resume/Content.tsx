@@ -95,8 +95,8 @@ export const ResumeContent = () => (
                   Biocode Design System
                 </Link>{' '}
               </em>
-              including brand assets such as logomarks, icons and product
-              packaging stamps
+              including brand assets such as logomarks and icons to ensure
+              consistency across products
             </li>
             <li>
               Built the{' '}
@@ -194,7 +194,7 @@ export const ResumeContent = () => (
               design and website renewal
             </li>
             <li>
-              Developed and designed internal{' '}
+              Developed and designed{' '}
               <Link href="https://github.com/joonassandell/rebirth">
                 internal tools
               </Link>{' '}
