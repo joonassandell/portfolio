@@ -250,7 +250,20 @@ export const Header = ({
   }, [mask, animating]);
 
   return (
-    <FocusTrap active={open} focusTrapOptions={{ initialFocus: false }}>
+    <FocusTrap
+      active={open}
+      focusTrapOptions={{
+        initialFocus: false,
+        setReturnFocus: nodeFocusedBeforeActivation => {
+          const focusedEl = document.activeElement;
+          const parent = focusedEl?.parentElement;
+
+          return parent?.classList.contains('Header-nav-item-reveal')
+            ? false
+            : nodeFocusedBeforeActivation;
+        },
+      }}
+    >
       <header
         className={c('Header', {
           'has-scrollbar': maskHasScrollbar,
