@@ -60,6 +60,7 @@ export const Header = ({
   const maskHasScrollbar =
     isBrowser && hasScrollbar(html.querySelector('.Header-mask'));
 
+  const btnRef = useRef<HTMLButtonElement | null>(null);
   const [btnFocusVisible, setBtnFocusVisible] = useState(false);
   const [btnArrowPos, setBtnArrowPos] = useState({ x: 0, y: 0 });
   const [btnEnterExit, setBtnEnterExit] = useState<
@@ -93,11 +94,12 @@ export const Header = ({
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
    * states are handled after the animation finishes.
    */
-  const toggleOpen = () => {
+  const toggleOpen = ({ btnFocus = true } = {}) => {
     setOpen(!open);
     if (!open) html.classList.add('is-headerOpen');
     if (!open) setOpenReveal(true);
     if (open && btnFocusVisible) setBtnFocusVisible(false);
+    if (open && btnFocus) btnRef.current?.focus();
     !open ? lockScroll(true) : lockScroll(false);
 
     !open ? setAnimating('open') : setAnimating('close');
@@ -165,7 +167,7 @@ export const Header = ({
     };
 
     const changeComplete = () => {
-      toggleOpen();
+      toggleOpen({ btnFocus: false });
       setBtnEnterExit({
         arrow: BTN_ENTER_EXIT_ARROW,
         text: BTN_ENTER_EXIT_TEXT,
@@ -252,17 +254,7 @@ export const Header = ({
   return (
     <FocusTrap
       active={open}
-      focusTrapOptions={{
-        initialFocus: false,
-        setReturnFocus: nodeFocusedBeforeActivation => {
-          const focusedEl = document.activeElement;
-          const parent = focusedEl?.parentElement;
-
-          return parent?.classList.contains('Header-nav-item-reveal')
-            ? false
-            : nodeFocusedBeforeActivation;
-        },
-      }}
+      focusTrapOptions={{ initialFocus: false, returnFocusOnDeactivate: false }}
     >
       <header
         className={c('Header', {
@@ -340,6 +332,7 @@ export const Header = ({
               navTitle={navTitle}
               open={open}
               openReveal={openReveal}
+              ref={btnRef}
               setFocusVisible={setBtnFocusVisible}
               toggleOpen={toggleOpen}
             />
