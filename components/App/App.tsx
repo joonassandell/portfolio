@@ -20,8 +20,9 @@ import {
   useState,
 } from 'react';
 import { Header } from '@/components/Header';
-import { isBrowser, scrollbarWidth } from '@/lib/utils';
+import { isBrowser, resetFocusToBody, scrollbarWidth } from '@/lib/utils';
 import { ReactLenis, useLenis } from 'lenis/react';
+import { SkipNav } from '@/components/SkipNav';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
@@ -258,6 +259,7 @@ export const App = ({
   useEffect(() => {
     if (!animationComplete) return;
     lenis?.isStopped && lenis.start();
+    resetFocusToBody();
 
     const url = new URL(asPath, APP_URL);
     const el = html.querySelector(url.hash || '#null') as HTMLElement;
@@ -290,8 +292,9 @@ export const App = ({
       >
         <ReactLenis options={{ autoRaf: true }} root>
           <div className="App">
+            <SkipNav href="#skip-nav">Skip to content</SkipNav>
             <Header navTitle={navTitle} />
-            <main>
+            <main id="skip-nav">
               <AnimatePresence
                 initial={false}
                 onExitComplete={() => setAnimationComplete(asPath)}

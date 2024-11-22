@@ -83,9 +83,6 @@ export const hasScrollbar = (el: HTMLElement | null) => {
   return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
 };
 
-/**
- * Get scrollbar width
- */
 export const scrollbarWidth = (() => {
   if (!isBrowser) return;
   const scrollDiv = document.createElement('div');
@@ -99,3 +96,9 @@ export const scrollbarWidth = (() => {
   document.documentElement.removeChild(scrollDiv);
   return scrollBarWidth;
 })();
+
+export const resetFocusToBody = () => {
+  document.body.tabIndex = -1;
+  document.body.focus();
+  document.body.removeAttribute('tabindex');
+};
