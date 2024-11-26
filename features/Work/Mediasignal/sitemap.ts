@@ -6,7 +6,7 @@ const sitemap: SitemapItemWork<'mediasignal'> = {
   imagesPath: './public/mediasignal/*.{jpg,png}',
   meta: {
     description:
-      "Mediasignal is building digital services and customer experiences according to their customer’s vision. The company is renewing digital business' and strengthening brands with a creative touch.",
+      'Mediasignal is a digital agency where I worked over half a decade and was involved in hundreds of successful projects. Additionally, I was also responsible for refreshing Mediasignal’s brand twice.',
     ogImage: '/mediasignal/og.jpg',
     themeColor: '#C8D9E1',
     title: 'Mediasignal',

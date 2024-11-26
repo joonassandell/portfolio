@@ -28,10 +28,10 @@ export const MediasignalPage = ({ images }: PageProps) => {
         text={
           <p>
             I worked for Mediasignal over half a decade and was involved in
-            hundreds of projects. Additionally, I was also responsible for
-            refreshing Mediasignal’s brand twice, from which the latter is the
-            project you’re viewing. This included logomark design, brand book
-            crafting, business card design and website renewal.
+            hundreds of successful projects. Additionally, I was also
+            responsible for refreshing Mediasignal’s brand twice, from which the
+            latter is the project you’re viewing. This included logomark design,
+            brand book crafting, business card design and website renewal.
           </p>
         }
         type={['Website', 'Branding']}

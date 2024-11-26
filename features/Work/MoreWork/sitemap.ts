@@ -6,7 +6,7 @@ const sitemap: SitemapItemWork<'moreWork'> = {
   imagesPath: './public/more-work/*.{jpg,png}',
   meta: {
     description:
-      'So you wanted to see more, nice! This collection brings together a range of designs, primarily focused on websites and applications that I’ve crafted for a diverse set of clients.',
+      'This collection brings together a range of designs, primarily focused on websites and applications that I have crafted for a diverse set of clients.',
     ogImage: '/more-work/og.jpg',
     themeColor: '#CCCFC9',
     title: 'More Work',

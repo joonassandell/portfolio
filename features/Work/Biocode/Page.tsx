@@ -35,16 +35,16 @@ export const BiocodePage = ({ images }: PageProps) => {
           </>
         }
         role={['Product design', 'Software development', 'Web development']}
-        smallPrint="Building together with awesome co-workers from Biocode."
+        smallPrint="Built together with awesome co-workers from Biocode."
         tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
         text={
           <p>
-            I’m working for Biocode as a Lead Product Designer and Front-end
-            Developer. I’m building our{' '}
+            I worked for Biocode as a Senior Product Designer and Front-end
+            Developer. I was crafting our{' '}
             <Link href="#brand-and-website" underline={false}>
               brand and website
             </Link>
-            , crafting our{' '}
+            , maintaining our{' '}
             <Link href="#design-system" underline={false}>
               design system
             </Link>

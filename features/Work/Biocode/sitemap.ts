@@ -6,7 +6,7 @@ const sitemap: SitemapItemWork<'biocode'> = {
   imagesPath: './public/biocode/*.{jpg,png}',
   meta: {
     description:
-      'Biocode is the carbon footprint calculator for food brands and producers. It’s an easy tool for calculating emissions and clearly communicating environmental values to end customers.',
+      'Carbon footprint calculator that makes sense. I was crafting our brand and website, maintaining our design system, developing our software and enhancing the overall direction of our product.',
     ogImage: '/biocode/og.jpg',
     themeColor: '#00081f',
     title: 'Biocode',

@@ -21,7 +21,7 @@ export const OrasPage = ({ images }: PageProps) => {
       <OrasHero />
       <Info
         client={{ name: title }}
-        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service solution for Europe’s leading faucet manufacturer."
+        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service for Europe’s leading faucet manufacturer."
         role={['UI/UX design', 'Concept strategy', 'Web development']}
         smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
         tech={['HTML, CSS, JS, TYPO3']}

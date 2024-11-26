@@ -3,9 +3,14 @@ import { type Optional } from '@/types';
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
-    date: '2020-11-16',
-    event: 'Joined Biocode as Lead product designer and Front-end developer',
+    date: '2025-01-01',
+    event: 'Joined Freepress as Senior Product Designer',
     highlight: true,
+    url: 'https://freepress.ai',
+  },
+  {
+    date: '2020-11-16',
+    event: 'Joined Biocode as Senior product designer and Front-end developer',
     url: 'https://biocode.io/about',
   },
   {

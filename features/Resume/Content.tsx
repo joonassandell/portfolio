@@ -56,7 +56,24 @@ export const ResumeContent = () => (
       <StepperItem>
         <StepperStep beacon />
         <Heading className="mb:2xs" size="h6" tag="h3">
-          Lead Product Designer, Front-end Developer —{' '}
+          Senior Product Designer —{' '}
+          <Link href={SITEMAP.biocode.url} underline={false}>
+            Freepress
+          </Link>
+        </Heading>
+        <Text color="mute" tag="p">
+          Jan 2025 – Now
+        </Text>
+        <Text>
+          <ul className="pl">
+            <li>Enhancing the overall direction of the product</li>
+          </ul>
+        </Text>
+      </StepperItem>
+      <StepperItem>
+        <StepperStep icon={<Check />} />
+        <Heading className="mb:2xs" size="h6" tag="h3">
+          Senior Product Designer, Front-end Developer —{' '}
           <Figure
             alt="Biocode logomark"
             animate={false}
@@ -71,12 +88,12 @@ export const ResumeContent = () => (
           </Link>
         </Heading>
         <Text color="mute" tag="p">
-          Nov 2020 – Now
+          Nov 2020 – Dec 2024
         </Text>
         <Text>
           <ul className="pl">
             <li>
-              Played an active role in enhancing overall direction of the
+              Played an active role in enhancing the overall direction of the
               product
             </li>
             <li>
@@ -190,8 +207,7 @@ export const ResumeContent = () => (
               <Link href={SITEMAP.mediasignal.url}>
                 Mediasignal’s brand twice
               </Link>{' '}
-              including logomark design, brand book crafting, business card
-              design and website renewal
+              including logomark, brand book, business cards and website renewal
             </li>
             <li>
               Developed and designed{' '}
@@ -229,8 +245,14 @@ export const ResumeContent = () => (
         <Text>
           <ul className="pl">
             <li>
-              Built and curated valuable <em>Exhibition Guide</em> mobile app to
-              help visitors gain an enjoyable and insightful museum experiences
+              Designed and developed user interfaces, wireframes, graphic
+              assets, and prototypes for <em>Museum Centre Vapriikki</em>,{' '}
+              <em>Moominvalley</em>, <em>Tampere Music Festivals</em> and other
+              city sectors
+            </li>
+            <li>
+              Built and curated <em>Exhibition Guide</em> mobile app to help
+              visitors gain an enjoyable and insightful museum experiences
             </li>
             <li>
               Built <em>Museum Guide</em> screen which featured inteactive maps
@@ -239,12 +261,6 @@ export const ResumeContent = () => (
             <li>
               Built <em>Twitter Social Wall</em> screen to engage museum
               visitors sharing their museum experiences
-            </li>
-            <li>
-              Designed and developed user interfaces, wireframes, graphic
-              assets, and prototypes for <em>Museum Centre Vapriikki</em>,{' '}
-              <em>Moominvalley</em>, <em>Tampere Music Festivals</em> and other
-              city sectors
             </li>
           </ul>
         </Text>
