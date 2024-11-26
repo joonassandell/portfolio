@@ -70,7 +70,7 @@ export const BiocodePage = ({ images }: PageProps) => {
           },
         ]}
         type={['SaaS', 'Website', 'Branding']}
-        year={`2020 – ${year}`}
+        year={year}
       />
       <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:10@l -start:2@l">

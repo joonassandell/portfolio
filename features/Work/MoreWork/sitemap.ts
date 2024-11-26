@@ -13,7 +13,7 @@ const sitemap: SitemapItemWork<'moreWork'> = {
   },
   title: 'More Work',
   url: '/more-work',
-  year: '2010 – 2020',
+  year: '2015 – 2020',
 };
 
 export default sitemap;

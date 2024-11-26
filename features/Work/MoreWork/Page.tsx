@@ -502,8 +502,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
                 Want to see even more? Then checkout the{' '}
                 <Link href={SITEMAP.archive.url}>archive</Link> featuring
                 clients such as <em>Fair Trade</em>, <em>Avecra</em>,{' '}
-                <em>City of Tampere</em> and
-                <em>Vapriikki</em>.
+                <em>City of Tampere</em> and <em>Vapriikki</em>.
               </p>
               <Link
                 href={SITEMAP.archive.url}

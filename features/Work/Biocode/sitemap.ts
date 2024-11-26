@@ -14,7 +14,7 @@ const sitemap: SitemapItemWork<'biocode'> = {
   new: true,
   title: 'Biocode',
   url: '/biocode',
-  year: new Date().getFullYear(),
+  year: 2024,
 };
 
 export default sitemap;

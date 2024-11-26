@@ -18,6 +18,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
     meta: { themeColor },
     title,
     url,
+    year,
   } = SITEMAP.biocode;
   const figureClasses =
     'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
@@ -31,7 +32,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
   return (
     <Hero
       className="Hero--biocode"
-      heading={`${title} — ${new Date().getFullYear()}`}
+      heading={`${title} — ${year}`}
       headingVariants={HEADING_VARIANTS}
       href={url}
       id={id}
