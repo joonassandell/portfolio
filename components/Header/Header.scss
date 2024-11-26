@@ -24,11 +24,10 @@
   align-items: flex-end;
   display: flex;
   height: var(--Header-height);
-  inset: 0 0 auto 0;
+  inset: 0 var(--scrollbar-width-lock, 0) auto 0;
   min-width: var(--root-min-width);
   mix-blend-mode: difference;
   position: fixed;
-  width: 100vw;
   z-index: var(--z-index-900);
 
   // [2.]
@@ -368,7 +367,6 @@
   inset: 0;
   min-width: var(--root-min-width);
   position: fixed;
-  width: 100vw;
   z-index: var(--z-index-800);
 
   .Header.is-open & {
@@ -570,12 +568,14 @@
 }
 
 .Header-footer-right {
+  margin-right: var(--scrollbar-width-lock);
+
   @include mq(m) {
     align-items: flex-end;
     display: flex;
     flex-direction: column;
     gap: rem($space-m);
-    margin: 0 0 rem($space-5xs) auto;
+    margin-bottom: rem($space-5xs);
     margin-left: auto;
     text-align: right;
   }

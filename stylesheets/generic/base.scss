@@ -28,7 +28,7 @@
 
   &.is-loading,
   &.is-lock {
-    overflow: hidden;
+    overflow-y: clip;
   }
 }
 

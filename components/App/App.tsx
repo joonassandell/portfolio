@@ -103,9 +103,11 @@ export const App = ({
       if (enable) {
         lenis.stop();
         html.classList.add('is-lock');
+        html.style.setProperty('--scrollbar-width-lock', `${scrollbarWidth}px`);
       } else {
         lenis.start();
         html.classList.remove('is-lock');
+        html.style.removeProperty('--scrollbar-width-lock');
       }
     },
     [lenis, html],
@@ -158,8 +160,6 @@ export const App = ({
         },
       }));
     })();
-
-    html.style.setProperty('--sw', `${scrollbarWidth}px`);
 
     setAppState(prevState => ({
       ...prevState,

@@ -6,8 +6,9 @@
   --Template-overlay-initial: var(--black-transparent);
   min-height: 100svh;
   overflow: hidden;
+  padding-right: var(--scrollbar-width-lock);
   position: relative;
-  width: 100vw;
+  width: 100%;
 
   &:last-child:not(:only-child).is-transition\:template\:enter {
     position: fixed;
