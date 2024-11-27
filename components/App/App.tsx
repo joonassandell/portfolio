@@ -172,6 +172,7 @@ export const App = ({
       loading: false,
     }));
 
+    // Handle manually because of template transitions
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual';
     }
@@ -187,6 +188,9 @@ export const App = ({
     }
   }, [loadingEnd, lockScroll, lenis, html]);
 
+  /**
+   * Handle transition logic
+   */
   useEffect(() => {
     if (transition) html.classList.add('is-transition');
 
@@ -194,9 +198,7 @@ export const App = ({
       lockTemplate();
     }
 
-    /**
-     * Set initial transitions ready for animations (e.g. for Hero)
-     */
+    // Set initial transitions ready for animations (e.g. for Hero)
     if (transition === 'template') setTransitionInitial(true);
 
     if (!transition) {
@@ -257,17 +259,21 @@ export const App = ({
         return false;
       }
 
-      if (transition === 'template') {
-        setPopStateTimeout(
-          setTimeout(() => {
-            setTransition('template');
-            push(url, as, { scroll: false });
-          }, 800),
-        );
-        return false;
+      if (newPathname != currentPathname) {
+        if (transition === 'template') {
+          setPopStateTimeout(
+            setTimeout(() => {
+              setTransition('template');
+              push(url, as, { scroll: false });
+            }, 800),
+          );
+          return false;
+        } else {
+          setTransition('template');
+          return true;
+        }
       } else {
-        setTransition('template');
-        return true;
+        return false;
       }
     });
 
