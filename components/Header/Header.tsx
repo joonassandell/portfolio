@@ -96,7 +96,6 @@ export const Header = ({
    */
   const toggleOpen = ({ btnFocus = true } = {}) => {
     setOpen(!open);
-    if (!open) html.classList.add('is-headerOpen');
     if (!open) setOpenReveal(true);
     if (open && btnFocusVisible) setBtnFocusVisible(false);
     if (open && btnFocus) btnRef.current?.focus();
@@ -270,7 +269,6 @@ export const Header = ({
           initial="initial"
           onAnimationComplete={() => {
             if (!open) {
-              html.classList.remove('is-headerOpen');
               setOpenReveal(false);
 
               /**
