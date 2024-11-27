@@ -18,10 +18,7 @@
   scroll-behavior: smooth;
   scroll-padding-top: var(--Header-height);
   -webkit-tap-highlight-color: transparent;
-  -webkit-text-size-adjust: 100%;
   text-wrap: pretty;
-  touch-action: pan-y;
-  -webkit-touch-callout: none;
 
   &.is-transition {
     pointer-events: none;
