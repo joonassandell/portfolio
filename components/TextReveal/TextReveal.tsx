@@ -1,8 +1,8 @@
-import { m } from 'motion/react';
-import { PARENT_VARIANT, TEXT_VARIANT, type TextRevealProps } from './';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
-import c from 'clsx';
+import { m } from 'motion/react'
+import { PARENT_VARIANT, TEXT_VARIANT, type TextRevealProps } from './'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
+import c from 'clsx'
 
 export const TextReveal = ({
   animate = true,
@@ -11,8 +11,8 @@ export const TextReveal = ({
   text,
   ...props
 }: TextRevealProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
+  const ref = useRef(null)
+  const inView = useInView(ref)
 
   return (
     <m.span
@@ -35,8 +35,8 @@ export const TextReveal = ({
               {text}
             </m.span>
           </span>
-        );
+        )
       })}
     </m.span>
-  );
-};
+  )
+}

@@ -1,13 +1,13 @@
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { Heading } from '@/components/Heading';
-import { Hr } from '@/components/Hr';
-import { Link } from '@/components/Link';
-import { m } from 'motion/react';
-import { MOVE_IN_VARIANTS } from '@/lib/config';
-import { type SubInfoProps } from './';
-import { Text } from '@/components/Text';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
+import { ConditionalWrapper } from '@/components/ConditionalWrapper'
+import { Heading } from '@/components/Heading'
+import { Hr } from '@/components/Hr'
+import { Link } from '@/components/Link'
+import { m } from 'motion/react'
+import { MOVE_IN_VARIANTS } from '@/lib/config'
+import { type SubInfoProps } from './'
+import { Text } from '@/components/Text'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
 
 export const SubInfo = ({
   client,
@@ -17,9 +17,9 @@ export const SubInfo = ({
   type = [],
   year,
 }: SubInfoProps) => {
-  const { href, name } = client || {};
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef);
+  const { href, name } = client || {}
+  const gridRef = useRef(null)
+  const gridInView = useInView(gridRef)
 
   return (
     <div className="SubInfo grid-col grid-col:6@l">
@@ -98,5 +98,5 @@ export const SubInfo = ({
         </Text>
       </m.div>
     </div>
-  );
-};
+  )
+}

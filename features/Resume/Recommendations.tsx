@@ -1,10 +1,10 @@
-import { Avatar } from '@/components/Avatar';
-import { Heading } from '@/components/Heading';
-import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
-import { TemplateArea } from '@/components/Template';
-import profileJoni from '@/public/images/joni-rajanen.jpg';
-import profileJussi from '@/public/images/jussi-salovaara.jpg';
-import profileSami from '@/public/images/sami-hakimsan.png';
+import { Avatar } from '@/components/Avatar'
+import { Heading } from '@/components/Heading'
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
+import { TemplateArea } from '@/components/Template'
+import profileJoni from '@/public/images/joni-rajanen.jpg'
+import profileJussi from '@/public/images/jussi-salovaara.jpg'
+import profileSami from '@/public/images/sami-hakimsan.png'
 
 export const ResumeRecommendations = () => (
   <TemplateArea
@@ -103,4 +103,4 @@ export const ResumeRecommendations = () => (
       </Quote>
     </div>
   </TemplateArea>
-);
+)

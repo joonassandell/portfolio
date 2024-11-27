@@ -1,26 +1,26 @@
-import { ArrowRight } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Figure } from '@/components/Figure';
-import { Head } from '@/components/Head';
-import { Heading } from '@/components/Heading';
-import { Hr } from '@/components/Hr';
-import { m } from 'motion/react';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { useInView } from '@/lib/useInView';
-import { useParallax } from '@/lib/useParallax';
-import { useRef } from 'react';
-import { useSetThemeColor } from '@/components/App';
-import lineCube from '@/public/images/line-cube.png';
-import profile from '@/public/images/joonassandell-4.jpg';
+import { ArrowRight } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Figure } from '@/components/Figure'
+import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
+import { Hr } from '@/components/Hr'
+import { m } from 'motion/react'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { useInView } from '@/lib/useInView'
+import { useParallax } from '@/lib/useParallax'
+import { useRef } from 'react'
+import { useSetThemeColor } from '@/components/App'
+import lineCube from '@/public/images/line-cube.png'
+import profile from '@/public/images/joonassandell-4.jpg'
 
 export const ApproachPage = () => {
-  const { id, meta } = SITEMAP.approach;
-  useSetThemeColor(meta.themeColor);
-  const lineCubeAnim = useRef(null);
-  const lineCubeInView = useInView(lineCubeAnim, 0, false);
-  const { ref, value: y } = useParallax({ offset: 'start-start' });
+  const { id, meta } = SITEMAP.approach
+  useSetThemeColor(meta.themeColor)
+  const lineCubeAnim = useRef(null)
+  const lineCubeInView = useInView(lineCubeAnim, 0, false)
+  const { ref, value: y } = useParallax({ offset: 'start-start' })
 
   return (
     <Template id={id}>
@@ -150,5 +150,5 @@ export const ApproachPage = () => {
         </div>
       </TemplateArea>
     </Template>
-  );
-};
+  )
+}

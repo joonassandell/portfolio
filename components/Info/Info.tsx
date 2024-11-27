@@ -1,16 +1,16 @@
-import { Button } from '@/components//Button';
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { Heading } from '@/components/Heading';
-import { Hr } from '@/components/Hr';
-import { type InfoProps } from './';
-import { Link } from '@/components/Link';
-import { m } from 'motion/react';
-import { MOVE_IN_VARIANTS, MQ } from '@/lib/config';
-import { Text } from '@/components/Text';
-import { useInView } from '@/lib/useInView';
-import { useMedia } from 'react-use';
-import { useParallax } from '@/lib/useParallax';
-import { useRef } from 'react';
+import { Button } from '@/components//Button'
+import { ConditionalWrapper } from '@/components/ConditionalWrapper'
+import { Heading } from '@/components/Heading'
+import { Hr } from '@/components/Hr'
+import { type InfoProps } from './'
+import { Link } from '@/components/Link'
+import { m } from 'motion/react'
+import { MOVE_IN_VARIANTS, MQ } from '@/lib/config'
+import { Text } from '@/components/Text'
+import { useInView } from '@/lib/useInView'
+import { useMedia } from 'react-use'
+import { useParallax } from '@/lib/useParallax'
+import { useRef } from 'react'
 
 export const Info = ({
   client,
@@ -23,16 +23,16 @@ export const Info = ({
   type = [],
   year,
 }: InfoProps) => {
-  const { href, name } = client || {};
-  const mqL = useMedia(MQ.l, false);
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef);
-  const tocRef = useRef(null);
-  const tocInView = useInView(tocRef);
+  const { href, name } = client || {}
+  const mqL = useMedia(MQ.l, false)
+  const gridRef = useRef(null)
+  const gridInView = useInView(gridRef)
+  const tocRef = useRef(null)
+  const tocInView = useInView(tocRef)
   const { ref, value: y } = useParallax({
     offset: 'start-center',
     speed: 'slow',
-  });
+  })
 
   return (
     <div className="Info" ref={ref}>
@@ -174,5 +174,5 @@ export const Info = ({
         </m.div>
       )}
     </div>
-  );
-};
+  )
+}

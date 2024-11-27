@@ -1,2 +1,2 @@
-export * from './sitemap';
-export * from './types';
+export * from './sitemap'
+export * from './types'

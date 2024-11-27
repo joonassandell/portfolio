@@ -1,14 +1,14 @@
-import { AnimatePresence, m } from 'motion/react';
-import { type ButtonEvent, type LinkEvent } from '@/types';
-import { type ButtonProps } from './';
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { isBrowser } from '@/lib/utils';
-import { default as NextLink } from 'next/link';
-import { TRANS_PRIMARY_FASTEST } from '@/lib/config';
-import { useApp } from '@/components/App';
-import { useScrollTo } from '@/lib/useScrollTo';
-import { useUrlState } from '@/lib/useUrlState';
-import c from 'clsx';
+import { AnimatePresence, m } from 'motion/react'
+import { type ButtonEvent, type LinkEvent } from '@/types'
+import { type ButtonProps } from './'
+import { ConditionalWrapper } from '@/components/ConditionalWrapper'
+import { isBrowser } from '@/lib/utils'
+import { default as NextLink } from 'next/link'
+import { TRANS_PRIMARY_FASTEST } from '@/lib/config'
+import { useApp } from '@/components/App'
+import { useScrollTo } from '@/lib/useScrollTo'
+import { useUrlState } from '@/lib/useUrlState'
+import c from 'clsx'
 
 export const Button = ({
   children,
@@ -23,18 +23,18 @@ export const Button = ({
   variant = 'default',
   ...props
 }: ButtonProps) => {
-  const { active, external, externalTarget } = useUrlState(href as URL['href']);
-  const { html, setTransition } = useApp();
-  const Tag = href ? 'a' : 'button';
-  const hasHash = href?.startsWith('#');
-  const hash = hasHash && isBrowser && html.querySelector(href as URL['href']);
+  const { active, external, externalTarget } = useUrlState(href as URL['href'])
+  const { html, setTransition } = useApp()
+  const Tag = href ? 'a' : 'button'
+  const hasHash = href?.startsWith('#')
+  const hash = hasHash && isBrowser && html.querySelector(href as URL['href'])
   const shouldNavigate =
     Boolean(href) &&
     !external &&
     target != '_blank' &&
     target != '_new' &&
-    !hasHash;
-  const scrollTo = useScrollTo();
+    !hasHash
+  const scrollTo = useScrollTo()
 
   return (
     <ConditionalWrapper
@@ -60,13 +60,13 @@ export const Button = ({
         })}
         href={href}
         onClick={(e: ButtonEvent & LinkEvent) => {
-          e.stopPropagation();
+          e.stopPropagation()
           shouldNavigate &&
             !active &&
             templateTransition &&
-            setTransition('template');
-          hasHash && scrollTo(hash as HTMLElement);
-          onClick && onClick(e);
+            setTransition('template')
+          hasHash && scrollTo(hash as HTMLElement)
+          onClick && onClick(e)
         }}
         target={target ?? externalTarget}
         {...props}
@@ -94,5 +94,5 @@ export const Button = ({
         )}
       </Tag>
     </ConditionalWrapper>
-  );
-};
+  )
+}

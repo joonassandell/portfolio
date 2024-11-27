@@ -1,5 +1,5 @@
-import { type Category, CATEGORY_NAME, type Milestone } from '../';
-import { type Optional } from '@/types';
+import { type Category, CATEGORY_NAME, type Milestone } from '../'
+import { type Optional } from '@/types'
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
@@ -68,10 +68,10 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Featured in Group Therapy 325 by Above & Beyond and Kristian Nairn',
     url: 'https://soundcloud.com/aboveandbeyond/group-therapy-325-with-above',
   },
-];
+]
 
 export const FEATURED: Milestone[] = data.map(m => ({
   ...m,
   category: 'featured' as Category,
   categoryName: m?.categoryName ?? CATEGORY_NAME.featured,
-}));
+}))

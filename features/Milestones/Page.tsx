@@ -1,24 +1,24 @@
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/Badge'
 import {
   CATEGORY_COLOR,
   CATEGORY_NAME_SHORT,
   MilestonesLine,
   MilestonesTable,
   MilestonesTableHighlight,
-} from './';
-import { DelayedRender } from '@/components/DelayedRender';
-import { getMilliSeconds, objectEntries } from '@/lib/utils';
-import { Head } from '@/components/Head';
-import { Heading } from '@/components/Heading';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { TRANS_TEMPLATE } from '@/lib/config';
-import { useSetThemeColor } from '@/components/App';
+} from './'
+import { DelayedRender } from '@/components/DelayedRender'
+import { getMilliSeconds, objectEntries } from '@/lib/utils'
+import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { TRANS_TEMPLATE } from '@/lib/config'
+import { useSetThemeColor } from '@/components/App'
 
 export const MilestonesPage = () => {
-  const { id, meta } = SITEMAP.milestones;
-  useSetThemeColor();
+  const { id, meta } = SITEMAP.milestones
+  useSetThemeColor()
 
   return (
     <Template id={id}>
@@ -51,7 +51,7 @@ export const MilestonesPage = () => {
               <Badge beacon={CATEGORY_COLOR[category]} key={category}>
                 {name}
               </Badge>
-            );
+            )
           })}
         </div>
       </TemplateArea>
@@ -70,5 +70,5 @@ export const MilestonesPage = () => {
         </DelayedRender>
       </TemplateArea>
     </Template>
-  );
-};
+  )
+}

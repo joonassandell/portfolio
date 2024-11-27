@@ -1,4 +1,4 @@
-import { type CartesianMarkerProps } from '@nivo/core';
+import { type CartesianMarkerProps } from '@nivo/core'
 import {
   CATEGORY_COLOR,
   MILESTONES_PER_YEAR,
@@ -6,9 +6,9 @@ import {
   MILESTONES_YEARS,
   type PointSymbolProps,
   type PointTooltipProps,
-} from './';
-import { formatDate } from '@/lib/utils';
-import { type LineSvgProps } from '@nivo/line';
+} from './'
+import { formatDate } from '@/lib/utils'
+import { type LineSvgProps } from '@nivo/line'
 import {
   type ReactNode,
   type RefObject,
@@ -16,39 +16,39 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react';
-import { Text } from '@/components/Text';
-import { useApp } from '@/components/App';
-import dynamic from 'next/dynamic';
+} from 'react'
+import { Text } from '@/components/Text'
+import { useApp } from '@/components/App'
+import dynamic from 'next/dynamic'
 
 const ResponsiveLine = dynamic(
   () => import('@nivo/line').then(m => m.ResponsiveLine),
   { ssr: false },
-);
+)
 
 export const MilestonesLine = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const refInner = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
+  const refInner = useRef<HTMLDivElement>(null)
   const {
     detect: { isSafariDesktop },
-  } = useApp();
-  const years = MILESTONES_YEARS.map(y => new Date(y));
-  const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR));
+  } = useApp()
+  const years = MILESTONES_YEARS.map(y => new Date(y))
+  const largestValue = Math.max(...Object.values(MILESTONES_PER_YEAR))
   const largestToEvenValue =
-    largestValue % 2 === 0 ? largestValue : largestValue + 1;
+    largestValue % 2 === 0 ? largestValue : largestValue + 1
 
   const convertData = MILESTONES_SORTED.map(m => {
-    const date = new Date(m.date);
+    const date = new Date(m.date)
 
     return {
       ...m,
       x: date,
       y: MILESTONES_PER_YEAR[date.getFullYear()],
-    };
-  });
+    }
+  })
 
-  const latestDate = new Date(convertData[0].x);
-  latestDate.setMonth(latestDate.getMonth() + 3);
+  const latestDate = new Date(convertData[0].x)
+  latestDate.setMonth(latestDate.getMonth() + 3)
 
   const lineData = [
     {
@@ -66,7 +66,7 @@ export const MilestonesLine = () => {
       ],
       id: 'milestones',
     },
-  ];
+  ]
 
   // This causes few hydration errors
   const markers = MILESTONES_SORTED.filter(m => m.category === 'career').map(
@@ -79,16 +79,16 @@ export const MilestonesLine = () => {
           strokeWidth: 1,
         },
         value: new Date(m.date),
-      };
-      return obj;
+      }
+      return obj
     },
-  );
+  )
 
   useEffect(() => {
-    if (!isSafariDesktop || !ref.current) return;
-    ref.current.style.direction = 'ltr';
-    ref.current.scrollLeft = ref.current.scrollWidth;
-  }, [isSafariDesktop]);
+    if (!isSafariDesktop || !ref.current) return
+    ref.current.style.direction = 'ltr'
+    ref.current.scrollLeft = ref.current.scrollWidth
+  }, [isSafariDesktop])
 
   /**
    * Default or unwanted props which cause hydration errors if not defined
@@ -128,7 +128,7 @@ export const MilestonesLine = () => {
     pointLabel: 'yFormatted',
     role: 'img',
     sliceTooltip: () => <></>,
-  };
+  }
 
   return (
     <div className="Template-line scrollbar" ref={ref}>
@@ -189,7 +189,7 @@ export const MilestonesLine = () => {
           tooltip={({ point }: PointTooltipProps) => {
             const {
               data: { event, xFormatted },
-            } = point;
+            } = point
 
             return (
               <Tooltip container={refInner} point={point}>
@@ -198,7 +198,7 @@ export const MilestonesLine = () => {
                   {xFormatted}
                 </Text>
               </Tooltip>
-            );
+            )
           }}
           useMesh
           xFormat={v => formatDate(v as string)}
@@ -213,8 +213,8 @@ export const MilestonesLine = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const PointSymbol = ({
   borderColor,
@@ -222,8 +222,8 @@ const PointSymbol = ({
   datum,
   size,
 }: PointSymbolProps) => {
-  if (datum.hidden) return;
-  size = datum.major ? size * 1.25 : size;
+  if (datum.hidden) return
+  size = datum.major ? size * 1.25 : size
 
   return (
     <g>
@@ -236,65 +236,65 @@ const PointSymbol = ({
       />
       <circle fill={CATEGORY_COLOR[datum.category]} r={`${size / 2}rem`} />
     </g>
-  );
-};
+  )
+}
 
 /**
  * Makes the tooltip somewhat respect the boundaries of the Line
  * @link https://github.com/plouc/nivo/issues/580#issuecomment-1974983707
  */
 function Tooltip(props: {
-  children: ReactNode;
-  container: RefObject<HTMLDivElement>;
-  point: { x: number; y: number };
+  children: ReactNode
+  container: RefObject<HTMLDivElement>
+  point: { x: number; y: number }
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
   const [containerSize, setContainerSize] = useState<{
-    height: number;
-    width: number;
-  }>({ height: 0, width: 0 });
+    height: number
+    width: number
+  }>({ height: 0, width: 0 })
   const [tooltipSize, setTooltipSize] = useState<{
-    height: number;
-    width: number;
-  }>({ height: 0, width: 0 });
+    height: number
+    width: number
+  }>({ height: 0, width: 0 })
 
   useEffect(() => {
-    const container = props.container.current;
+    const container = props.container.current
     if (container) {
-      const { height, width } = container.getBoundingClientRect();
-      setContainerSize({ height, width });
+      const { height, width } = container.getBoundingClientRect()
+      setContainerSize({ height, width })
     }
-  }, [setContainerSize, props.container]);
+  }, [setContainerSize, props.container])
 
   useEffect(() => {
-    const tooltip = ref.current;
+    const tooltip = ref.current
     if (tooltip) {
-      const { height, width } = tooltip.getBoundingClientRect();
-      setTooltipSize({ height, width });
+      const { height, width } = tooltip.getBoundingClientRect()
+      setTooltipSize({ height, width })
     }
-  }, [setTooltipSize, props.point.x]);
+  }, [setTooltipSize, props.point.x])
 
   const offsetHorizontal = useMemo(() => {
     if (props.point.x < tooltipSize.width) {
-      return tooltipSize.width / 5;
+      return tooltipSize.width / 5
     }
 
-    const rightEdge = containerSize.width - props.point.x - 16;
+    const rightEdge = containerSize.width - props.point.x - 16
 
     if (rightEdge < tooltipSize.width) {
-      return -(tooltipSize.width / 5);
+      return -(tooltipSize.width / 5)
     }
 
-    return 0;
-  }, [tooltipSize.width, props.point.x, containerSize.width]);
+    return 0
+  }, [tooltipSize.width, props.point.x, containerSize.width])
 
   const offsetVertical = useMemo(() => {
     if (props.point.y < containerSize.height / 3) {
-      return tooltipSize.height + 48;
+      return tooltipSize.height + 48
     }
 
-    return 12;
-  }, [tooltipSize.height, props.point.y, containerSize.height]);
+    return 12
+  }, [tooltipSize.height, props.point.y, containerSize.height])
 
   return (
     <div
@@ -306,5 +306,5 @@ function Tooltip(props: {
     >
       <div className="Template-line-tooltip-inner">{props.children}</div>
     </div>
-  );
+  )
 }

@@ -1,39 +1,39 @@
-import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
+import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react'
 import {
   APP_URL,
   DISABLE_LOADING,
   EASE_CSS,
   PRODUCTION,
   SLOW_NETWORK_DELAY,
-} from '@/lib/config';
+} from '@/lib/config'
 import {
   type AppContextProps,
   AppHead,
   type AppHeadProps,
   type AppProps,
-} from './';
+} from './'
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useState,
-} from 'react';
-import { Header } from '@/components/Header';
+} from 'react'
+import { Header } from '@/components/Header'
 import {
   isBrowser,
   resetFocusToBody,
   scrollbarWidth,
   scrollIntoView,
-} from '@/lib/utils';
-import { ReactLenis, useLenis } from 'lenis/react';
-import { SkipNav } from '@/components/SkipNav';
-import { Splash } from '@/components/Splash';
-import { useRouter } from 'next/router';
-import { useScrollTo } from '@/lib/useScrollTo';
-import NProgress from 'nprogress';
+} from '@/lib/utils'
+import { ReactLenis, useLenis } from 'lenis/react'
+import { SkipNav } from '@/components/SkipNav'
+import { Splash } from '@/components/Splash'
+import { useRouter } from 'next/router'
+import { useScrollTo } from '@/lib/useScrollTo'
+import NProgress from 'nprogress'
 
-const AppContext = createContext<AppContextProps | undefined>(undefined);
+const AppContext = createContext<AppContextProps | undefined>(undefined)
 
 export const App = ({
   Component,
@@ -58,13 +58,13 @@ export const App = ({
     templateRef: null,
     transition: false,
     transitionInitial: false,
-  });
-  const { html, loading, loadingEnd, templateRef, transition } = appState;
-  const { asPath, beforePopState, events, pathname, push } = useRouter();
+  })
+  const { html, loading, loadingEnd, templateRef, transition } = appState
+  const { asPath, beforePopState, events, pathname, push } = useRouter()
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
-  >();
-  const lenis = useLenis();
+  >()
+  const lenis = useLenis()
 
   /* =======================================
    * App state functions
@@ -74,8 +74,8 @@ export const App = ({
     setAppState(prevState => ({
       ...prevState,
       transition: value,
-    }));
-  };
+    }))
+  }
 
   const setTransitionInitial = (
     value: AppContextProps['transitionInitial'],
@@ -83,47 +83,47 @@ export const App = ({
     setAppState(prevState => ({
       ...prevState,
       transitionInitial: value,
-    }));
-  };
+    }))
+  }
 
   const setLoadingEnd = (value: AppContextProps['loadingEnd']) => {
     setAppState(prevState => ({
       ...prevState,
       loadingEnd: value,
-    }));
-  };
+    }))
+  }
 
   const setTemplateRef = (value: AppContextProps['templateRef']) => {
     setAppState(prevState => ({
       ...prevState,
       templateRef: value,
-    }));
-  };
+    }))
+  }
 
-  const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>();
+  const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>()
 
   const lockScroll = useCallback(
     (enable = false) => {
-      if (!lenis) return;
+      if (!lenis) return
 
       if (enable) {
-        lenis.stop();
-        html.classList.add('is-lock');
-        html.style.setProperty('--scrollbar-width-lock', `${scrollbarWidth}px`);
+        lenis.stop()
+        html.classList.add('is-lock')
+        html.style.setProperty('--scrollbar-width-lock', `${scrollbarWidth}px`)
       } else {
-        lenis.start();
-        html.classList.remove('is-lock');
-        html.style.removeProperty('--scrollbar-width-lock');
+        lenis.start()
+        html.classList.remove('is-lock')
+        html.style.removeProperty('--scrollbar-width-lock')
       }
     },
     [lenis, html],
-  );
+  )
 
   const lockTemplate = useCallback(() => {
-    if (!templateRef?.current) return;
-    templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`;
-    templateRef.current.style.position = 'fixed';
-  }, [templateRef]);
+    if (!templateRef?.current) return
+    templateRef.current.style.inset = `-${window.scrollY}px 0 0 0`
+    templateRef.current.style.position = 'fixed'
+  }, [templateRef])
 
   /* =======================================
    * Setup
@@ -133,10 +133,10 @@ export const App = ({
     if (PRODUCTION) {
       console.info(
         'Made by me with Next.js, TypeScript, Framer Motion and tears. 🥲',
-      );
+      )
     }
 
-    (async () => {
+    ;(async () => {
       const {
         hasThemeColor,
         hasTouch,
@@ -145,13 +145,13 @@ export const App = ({
         isSafariDesktop,
         isSafariIphone,
         isWindows,
-      } = await import('@/lib/detect');
-      if (isWindows) html.classList.add('is-windows');
-      if (hasThemeColor) html.classList.add('has-themeColor');
-      if (isIos) html.classList.add('is-ios');
-      if (isSafari) html.classList.add('is-safari');
-      if (isSafariIphone) html.classList.add('is-safari:iphone');
-      if (isSafariDesktop) html.classList.add('is-safari:desktop');
+      } = await import('@/lib/detect')
+      if (isWindows) html.classList.add('is-windows')
+      if (hasThemeColor) html.classList.add('has-themeColor')
+      if (isIos) html.classList.add('is-ios')
+      if (isSafari) html.classList.add('is-safari')
+      if (isSafariIphone) html.classList.add('is-safari:iphone')
+      if (isSafariDesktop) html.classList.add('is-safari:desktop')
 
       setAppState(prevState => ({
         ...prevState,
@@ -164,130 +164,130 @@ export const App = ({
           isSafariIphone,
           isWindows,
         },
-      }));
-    })();
+      }))
+    })()
 
     setAppState(prevState => ({
       ...prevState,
       loading: false,
-    }));
+    }))
 
     // Handle manually because of template transitions
     if (history.scrollRestoration) {
-      history.scrollRestoration = 'manual';
+      history.scrollRestoration = 'manual'
     }
-  }, [html]);
+  }, [html])
 
   useEffect(() => {
-    if (!lenis) return;
+    if (!lenis) return
     if (loadingEnd) {
-      lockScroll(false);
-      html.classList.remove('is-loading');
+      lockScroll(false)
+      html.classList.remove('is-loading')
     } else {
-      lockScroll(true);
+      lockScroll(true)
     }
-  }, [loadingEnd, lockScroll, lenis, html]);
+  }, [loadingEnd, lockScroll, lenis, html])
 
   /**
    * Handle transition logic
    */
   useEffect(() => {
-    if (transition) html.classList.add('is-transition');
+    if (transition) html.classList.add('is-transition')
 
     if (transition === 'instant' || transition === 'template') {
-      lockTemplate();
+      lockTemplate()
     }
 
     // Set initial transitions ready for animations (e.g. for Hero)
-    if (transition === 'template') setTransitionInitial(true);
+    if (transition === 'template') setTransitionInitial(true)
 
     if (!transition) {
-      html.classList.remove('is-transition');
+      html.classList.remove('is-transition')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [transition, html]);
+  }, [transition, html])
 
   /**
    * Add loader with nprogress for slow networks
    */
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: ReturnType<typeof setTimeout>
 
     NProgress.configure({
       easing: EASE_CSS,
       showSpinner: false,
-    });
+    })
 
     const changeStart = () => {
-      timeout = setTimeout(() => NProgress.start(), SLOW_NETWORK_DELAY);
-    };
+      timeout = setTimeout(() => NProgress.start(), SLOW_NETWORK_DELAY)
+    }
 
     const changeComplete = () => {
-      clearTimeout(timeout);
-      if (NProgress.status) NProgress.done();
-    };
+      clearTimeout(timeout)
+      if (NProgress.status) NProgress.done()
+    }
 
-    events.on('routeChangeStart', changeStart);
-    events.on('routeChangeError', changeComplete);
-    events.on('routeChangeComplete', changeComplete);
+    events.on('routeChangeStart', changeStart)
+    events.on('routeChangeError', changeComplete)
+    events.on('routeChangeComplete', changeComplete)
 
     return () => {
-      clearTimeout(timeout);
-      events.off('routeChangeStart', changeStart);
-      events.off('routeChangeError', changeComplete);
-      events.off('routeChangeComplete', changeComplete);
-    };
-  }, [events]);
+      clearTimeout(timeout)
+      events.off('routeChangeStart', changeStart)
+      events.off('routeChangeError', changeComplete)
+      events.off('routeChangeComplete', changeComplete)
+    }
+  }, [events])
 
   /**
    * Set template transition by default when navigating back/forward and apply
    * some delay between the transitions. Also handle hash links.
    */
   const [popStateTimeout, setPopStateTimeout] =
-    useState<ReturnType<typeof setTimeout>>();
-  const scrollTo = useScrollTo();
+    useState<ReturnType<typeof setTimeout>>()
+  const scrollTo = useScrollTo()
 
   useEffect(() => {
     beforePopState(({ as, options, url }) => {
-      options.scroll = false;
-      const { hash, pathname: newPathname } = new URL(as, APP_URL);
-      const currentPathname = pathname;
+      options.scroll = false
+      const { hash, pathname: newPathname } = new URL(as, APP_URL)
+      const currentPathname = pathname
 
       if (hash && newPathname === currentPathname) {
-        const el = document.querySelector(hash) as HTMLElement;
-        el && scrollTo(el);
-        return false;
+        const el = document.querySelector(hash) as HTMLElement
+        el && scrollTo(el)
+        return false
       }
 
       if (newPathname != currentPathname) {
         if (transition === 'template') {
-          popStateTimeout && clearTimeout(popStateTimeout);
+          popStateTimeout && clearTimeout(popStateTimeout)
           setPopStateTimeout(
             setTimeout(() => {
-              setTransition('template');
-              push(url, as, { scroll: false });
+              setTransition('template')
+              push(url, as, { scroll: false })
             }, 800),
-          );
-          return false;
+          )
+          return false
         } else {
-          setTransition('template');
-          return true;
+          setTransition('template')
+          return true
         }
       } else {
-        return false;
+        return false
       }
-    });
-  }, [transition, beforePopState, push, popStateTimeout, scrollTo, pathname]);
+    })
+  }, [transition, beforePopState, push, popStateTimeout, scrollTo, pathname])
 
   useEffect(() => {
-    if (!animationComplete) return;
-    lenis?.isStopped && lenis.start();
-    resetFocusToBody();
-    scrollIntoView(asPath);
-    if (transition) setTransition(false);
+    if (!animationComplete) return
+    lenis?.isStopped && lenis.start()
+    resetFocusToBody()
+    scrollIntoView(asPath)
+    if (transition) setTransition(false)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animationComplete]);
+  }, [animationComplete])
 
   return (
     <LazyMotion features={domAnimation} strict>
@@ -325,21 +325,21 @@ export const App = ({
         </ReactLenis>
       </AppContext.Provider>
     </LazyMotion>
-  );
-};
+  )
+}
 
 export const useApp = () => {
-  const context = useContext(AppContext);
-  if (context) return context;
-  throw new Error('useApp must be used within App');
-};
+  const context = useContext(AppContext)
+  if (context) return context
+  throw new Error('useApp must be used within App')
+}
 
 export const useSetThemeColor = (
   themeColor: AppHeadProps['themeColor'] = '#fefefe',
 ) => {
-  const { setThemeColor } = useApp();
+  const { setThemeColor } = useApp()
 
   useEffect(() => {
-    if (themeColor) setThemeColor(themeColor);
-  }, [setThemeColor, themeColor]);
-};
+    if (themeColor) setThemeColor(themeColor)
+  }, [setThemeColor, themeColor])
+}

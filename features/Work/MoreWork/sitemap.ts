@@ -1,4 +1,4 @@
-import { type SitemapItemWork } from '@/lib/sitemap';
+import { type SitemapItemWork } from '@/lib/sitemap'
 
 const sitemap: SitemapItemWork<'moreWork'> = {
   color: 'var(--more-work-primary)',
@@ -14,6 +14,6 @@ const sitemap: SitemapItemWork<'moreWork'> = {
   title: 'More Work',
   url: '/more-work',
   year: '2015 – 2020',
-};
+}
 
-export default sitemap;
+export default sitemap

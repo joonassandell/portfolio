@@ -1,6 +1,6 @@
-import { forwardRef } from 'react';
-import { type TemplateAreaProps } from './';
-import c from 'clsx';
+import { forwardRef } from 'react'
+import { type TemplateAreaProps } from './'
+import c from 'clsx'
 
 export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
   (
@@ -46,6 +46,6 @@ export const TemplateArea = forwardRef<HTMLDivElement, TemplateAreaProps>(
       {children}
     </div>
   ),
-);
+)
 
-TemplateArea.displayName = 'TemplateArea';
+TemplateArea.displayName = 'TemplateArea'

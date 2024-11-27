@@ -4,4 +4,4 @@ module.exports = {
     'postcss-combine-duplicated-selectors',
     'postcss-sort-media-queries',
   ],
-};
+}

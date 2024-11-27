@@ -1,37 +1,37 @@
-import { ArrowRight } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Figure } from '@/components/Figure';
-import { Heading } from '@/components/Heading';
-import { LINK, SITEMAP } from '@/lib/sitemap';
-import { Link } from '@/components/Link';
-import { m } from 'motion/react';
-import { MQ } from '@/lib/config';
-import { TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { TextReveal } from '@/components/TextReveal';
-import { useInView } from '@/lib/useInView';
-import { useMedia } from 'react-use';
-import { useParallax } from '@/lib/useParallax';
-import { useRef } from 'react';
-import lineCube from '@/public/images/line-cube.png';
-import profile from '@/public/images/joonassandell-2.jpg';
+import { ArrowRight } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Figure } from '@/components/Figure'
+import { Heading } from '@/components/Heading'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import { Link } from '@/components/Link'
+import { m } from 'motion/react'
+import { MQ } from '@/lib/config'
+import { TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { TextReveal } from '@/components/TextReveal'
+import { useInView } from '@/lib/useInView'
+import { useMedia } from 'react-use'
+import { useParallax } from '@/lib/useParallax'
+import { useRef } from 'react'
+import lineCube from '@/public/images/line-cube.png'
+import profile from '@/public/images/joonassandell-2.jpg'
 
 export const AboutIntro = () => {
-  const mqS = useMedia(MQ.s, false);
-  const lineCubeAnim = useRef(null);
-  const lineCubeInView = useInView(lineCubeAnim, 0, false);
+  const mqS = useMedia(MQ.s, false)
+  const lineCubeAnim = useRef(null)
+  const lineCubeInView = useInView(lineCubeAnim, 0, false)
   const { ref: textRef, value: textY } = useParallax({
     maxClientHeight: 800,
     offset: 'start-80',
     speed: 'fast',
-  });
+  })
   const { ref: lineCubeRef, value: lineCubeY } = useParallax({
     endPositionMultiplier: 1.1,
     height: 'element',
     offset: 'start-80',
     reverse: true,
     speed: 'fastest',
-  });
+  })
 
   const heading = {
     desktop: [
@@ -46,7 +46,7 @@ export const AboutIntro = () => {
       'design and attention ',
       'to detail',
     ],
-  };
+  }
 
   const lead = {
     desktop: [
@@ -69,7 +69,7 @@ export const AboutIntro = () => {
       'addressing practical ',
       'business challenges.',
     ],
-  };
+  }
 
   return (
     <TemplateArea className="Template-intro" grid={false} pt={false}>
@@ -157,5 +157,5 @@ export const AboutIntro = () => {
         </div>
       </div>
     </TemplateArea>
-  );
-};
+  )
+}

@@ -1,11 +1,7 @@
-import { Badge } from '@/components/Badge';
-import {
-  CATEGORY_COLOR,
-  MILESTONES_SORTED,
-  type MilestoneTableProps,
-} from './';
-import { formatDate } from '@/lib/utils';
-import { Link } from '@/components/Link';
+import { Badge } from '@/components/Badge'
+import { CATEGORY_COLOR, MILESTONES_SORTED, type MilestoneTableProps } from './'
+import { formatDate } from '@/lib/utils'
+import { Link } from '@/components/Link'
 import {
   Table,
   TableBody,
@@ -14,8 +10,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/Table';
-import { Text } from '@/components/Text';
+} from '@/components/Table'
+import { Text } from '@/components/Text'
 
 export const MilestonesTableHighlight = ({
   tableCaption,
@@ -59,5 +55,5 @@ export const MilestonesTableHighlight = ({
         ))}
       </TableBody>
     </Table>
-  );
-};
+  )
+}

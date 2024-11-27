@@ -1,13 +1,13 @@
-import path from 'path';
-import bundleAnalyzer from '@next/bundle-analyzer';
-import { fileURLToPath } from 'url';
+import path from 'path'
+import bundleAnalyzer from '@next/bundle-analyzer'
+import { fileURLToPath } from 'url'
 
-const { ANALYZE, VERCEL_ENV, IGNORE_ERRORS } = process.env;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const { ANALYZE, VERCEL_ENV, IGNORE_ERRORS } = process.env
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: ANALYZE === 'true',
-});
+})
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -41,8 +41,8 @@ const config = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
-    });
-    return config;
+    })
+    return config
   },
   async headers() {
     return [
@@ -56,7 +56,7 @@ const config = {
           },
         ],
       },
-    ];
+    ]
   },
   async redirects() {
     return [
@@ -65,8 +65,8 @@ const config = {
         destination: '/Joonas-Sandell-CV.pdf',
         permanent: false,
       },
-    ];
+    ]
   },
-};
+}
 
-export default withBundleAnalyzer(config);
+export default withBundleAnalyzer(config)

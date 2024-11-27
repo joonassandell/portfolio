@@ -1,16 +1,16 @@
-import { ArrowRight } from '@/components/Icon';
-import { Heading } from '@/components/Heading';
-import { HEADING_VARIANTS as headingVars, type HeroProps } from './';
-import { Link } from '@/components/Link';
-import { m } from 'motion/react';
-import { Stamp } from '@/components/Stamp';
-import { TextReveal } from '@/components/TextReveal';
-import { TRANS_TERTIARY_FAST } from '@/lib/config';
-import { useApp } from '@/components/App';
-import { useParallax } from '@/lib/useParallax';
-import { useRef } from 'react';
-import { useRouter } from 'next/router';
-import c from 'clsx';
+import { ArrowRight } from '@/components/Icon'
+import { Heading } from '@/components/Heading'
+import { HEADING_VARIANTS as headingVars, type HeroProps } from './'
+import { Link } from '@/components/Link'
+import { m } from 'motion/react'
+import { Stamp } from '@/components/Stamp'
+import { TextReveal } from '@/components/TextReveal'
+import { TRANS_TERTIARY_FAST } from '@/lib/config'
+import { useApp } from '@/components/App'
+import { useParallax } from '@/lib/useParallax'
+import { useRef } from 'react'
+import { useRouter } from 'next/router'
+import c from 'clsx'
 
 export const Hero = ({
   children,
@@ -27,17 +27,17 @@ export const Hero = ({
   transition,
   transitionStart,
 }: HeroProps) => {
-  const ref = useRef(null);
-  const transitionPre = transition === 'pre';
+  const ref = useRef(null)
+  const transitionPre = transition === 'pre'
   const { transition: appTransition, transitionInitial: appTransitionInitial } =
-    useApp();
-  const templateTransition = appTransition === 'template';
-  const { push } = useRouter();
+    useApp()
+  const templateTransition = appTransition === 'template'
+  const { push } = useRouter()
   const { value: x } = useParallax({
     offset: transitionPre ? 'start-end' : 'start-start',
     ref: innerRef,
     startPosition: transitionPre ? 'negative' : 0,
-  });
+  })
 
   /**
    * Default state: On mount (e.g. after pre transition or at page load)
@@ -45,13 +45,13 @@ export const Hero = ({
    * Initial state: Default state and appState.transitionInitial === true
    */
   // At transition start or at default state
-  const transitionStartOrDefault = transitionStart ?? !transitionPre;
+  const transitionStartOrDefault = transitionStart ?? !transitionPre
 
   // Trigger transition initial only if not in pre transition state
-  const transitionInitial = appTransitionInitial && !transitionPre;
+  const transitionInitial = appTransitionInitial && !transitionPre
 
   // No transitions state (default state when no transitions should happen)
-  const noTransition = !transitionPre && !appTransitionInitial;
+  const noTransition = !transitionPre && !appTransitionInitial
 
   const passedProps = {
     noTransition,
@@ -59,7 +59,7 @@ export const Hero = ({
     transitionInitial,
     transitionPre,
     transitionStartOrDefault,
-  };
+  }
 
   return (
     <m.div
@@ -77,7 +77,7 @@ export const Hero = ({
       initial="initial"
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
-          push(href as URL['href'], undefined, { scroll: false });
+          push(href as URL['href'], undefined, { scroll: false })
         }
       }}
       ref={ref}
@@ -134,5 +134,5 @@ export const Hero = ({
         )}
       </div>
     </m.div>
-  );
-};
+  )
+}

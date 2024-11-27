@@ -1,11 +1,11 @@
-import { getImages } from '@/lib/getImages';
-import { type GetStaticProps } from 'next';
-import { OrasPage } from '@/features/Work/Oras';
-import { type PageProps } from '@/types';
-import sitemap from '@/features/Work/Oras/sitemap';
+import { getImages } from '@/lib/getImages'
+import { type GetStaticProps } from 'next'
+import { OrasPage } from '@/features/Work/Oras'
+import { type PageProps } from '@/types'
+import sitemap from '@/features/Work/Oras/sitemap'
 
 export default function Page({ images }: PageProps) {
-  return <OrasPage images={images} />;
+  return <OrasPage images={images} />
 }
 
 export const getStaticProps = (async () => {
@@ -14,5 +14,5 @@ export const getStaticProps = (async () => {
       images: await getImages(sitemap.imagesPath),
       navTitle: sitemap.title,
     },
-  };
-}) satisfies GetStaticProps<PageProps>;
+  }
+}) satisfies GetStaticProps<PageProps>

@@ -1,15 +1,15 @@
-import { Avatar } from '@/components/Avatar';
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
-import { MQ } from '@/lib/config';
-import { type PageProps } from '@/types';
-import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
-import { Subtitle } from '@/components/Subtitle';
-import { TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import profileAnnu from '@/public/biocode/annu-kuure.jpg';
+import { Avatar } from '@/components/Avatar'
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Heading } from '@/components/Heading'
+import { Link } from '@/components/Link'
+import { MQ } from '@/lib/config'
+import { type PageProps } from '@/types'
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
+import { Subtitle } from '@/components/Subtitle'
+import { TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import profileAnnu from '@/public/biocode/annu-kuure.jpg'
 
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
@@ -339,4 +339,4 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
   </section>
-);
+)

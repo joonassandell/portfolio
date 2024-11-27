@@ -1,5 +1,5 @@
-import { type TableFooterProps } from './';
-import c from 'clsx';
+import { type TableFooterProps } from './'
+import c from 'clsx'
 
 export const TableFooter = ({
   children,
@@ -9,4 +9,4 @@ export const TableFooter = ({
   <tfoot className={c('Table-footer', className)} {...props}>
     {children}
   </tfoot>
-);
+)

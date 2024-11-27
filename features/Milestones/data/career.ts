@@ -1,5 +1,5 @@
-import { type Category, CATEGORY_NAME, type Milestone } from '../';
-import { type Optional } from '@/types';
+import { type Category, CATEGORY_NAME, type Milestone } from '../'
+import { type Optional } from '@/types'
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
@@ -39,10 +39,10 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     date: '2005-06-04',
     event: 'Matriculation Examination',
   },
-];
+]
 
 export const CAREER: Milestone[] = data.map(m => ({
   ...m,
   category: 'career' as Category,
   categoryName: m.categoryName ?? CATEGORY_NAME.career,
-}));
+}))

@@ -1,12 +1,12 @@
-import { HR_VARIANTS, type HrProps } from './';
-import { m } from 'motion/react';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
-import c from 'clsx';
+import { HR_VARIANTS, type HrProps } from './'
+import { m } from 'motion/react'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
+import c from 'clsx'
 
 export const Hr = ({ animate = true, className, ...props }: HrProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
+  const ref = useRef(null)
+  const inView = useInView(ref)
 
   return (
     <m.hr
@@ -19,5 +19,5 @@ export const Hr = ({ animate = true, className, ...props }: HrProps) => {
       })}
       {...props}
     />
-  );
-};
+  )
+}

@@ -1,9 +1,9 @@
-import { m } from 'motion/react';
-import { ROW_VARIANT } from './';
-import { type TableCaptionProps } from './';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
-import c from 'clsx';
+import { m } from 'motion/react'
+import { ROW_VARIANT } from './'
+import { type TableCaptionProps } from './'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
+import c from 'clsx'
 
 export const TableCaption = ({
   animate = true,
@@ -12,8 +12,8 @@ export const TableCaption = ({
   hideVisually,
   ...props
 }: TableCaptionProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
+  const ref = useRef(null)
+  const inView = useInView(ref)
 
   return (
     <m.caption
@@ -34,5 +34,5 @@ export const TableCaption = ({
     >
       {children}
     </m.caption>
-  );
-};
+  )
+}

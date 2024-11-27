@@ -1,23 +1,23 @@
-import { ArrowRight } from '@/components/Icon';
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Head } from '@/components/Head';
-import { Info } from '@/components/Info';
-import { Link } from '@/components/Link';
-import { MoreWorkHero } from './';
-import { MQ } from '@/lib/config';
-import { NextProject } from '@/components/NextProject';
-import { type PageProps } from '@/types';
-import { SITEMAP } from '@/lib/sitemap';
-import { SubInfo } from '@/components/SubInfo';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { useSetThemeColor } from '@/components/App';
+import { ArrowRight } from '@/components/Icon'
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Head } from '@/components/Head'
+import { Info } from '@/components/Info'
+import { Link } from '@/components/Link'
+import { MoreWorkHero } from './'
+import { MQ } from '@/lib/config'
+import { NextProject } from '@/components/NextProject'
+import { type PageProps } from '@/types'
+import { SITEMAP } from '@/lib/sitemap'
+import { SubInfo } from '@/components/SubInfo'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { useSetThemeColor } from '@/components/App'
 
 export const MoreWorkPage = ({ images }: PageProps) => {
-  const { id, meta, year } = SITEMAP.moreWork;
-  const { id: nextProjectId } = SITEMAP.sandbox;
-  useSetThemeColor(meta.themeColor);
+  const { id, meta, year } = SITEMAP.moreWork
+  const { id: nextProjectId } = SITEMAP.sandbox
+  useSetThemeColor(meta.themeColor)
 
   return (
     <Template id={id} variant="unstyled">
@@ -520,5 +520,5 @@ export const MoreWorkPage = ({ images }: PageProps) => {
       </TemplateArea>
       <NextProject id={nextProjectId} />
     </Template>
-  );
-};
+  )
+}

@@ -1,13 +1,13 @@
-import { Figure } from '@/components/Figure';
-import { Heading } from '@/components/Heading';
-import { MQ } from '@/lib/config';
-import { TextReveal } from '@/components/TextReveal';
-import { useParallax } from '@/lib/useParallax';
-import lineCube from '@/public/images/line-cube.png';
-import profile from '@/public/images/joonassandell-1.png';
+import { Figure } from '@/components/Figure'
+import { Heading } from '@/components/Heading'
+import { MQ } from '@/lib/config'
+import { TextReveal } from '@/components/TextReveal'
+import { useParallax } from '@/lib/useParallax'
+import lineCube from '@/public/images/line-cube.png'
+import profile from '@/public/images/joonassandell-1.png'
 
 export const AboutTop = () => {
-  const { ref, value: x } = useParallax({ offset: 'start-start' });
+  const { ref, value: x } = useParallax({ offset: 'start-start' })
 
   return (
     <>
@@ -52,5 +52,5 @@ export const AboutTop = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

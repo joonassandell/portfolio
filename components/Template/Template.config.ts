@@ -1,5 +1,5 @@
-import { TRANS_TEMPLATE } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_TEMPLATE } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const VARIANTS_WITH_TRANSITION: Readonly<Variants> = {
   animate: {
@@ -13,7 +13,7 @@ export const VARIANTS_WITH_TRANSITION: Readonly<Variants> = {
   initial: {
     y: '100svh',
   },
-};
+}
 
 export const VARIANTS_WITHOUT_TRANSITION: Readonly<Variants> = {
   animate: {
@@ -33,7 +33,7 @@ export const VARIANTS_WITHOUT_TRANSITION: Readonly<Variants> = {
   initial: {
     y: 0,
   },
-};
+}
 
 export const OVERLAY_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -43,4 +43,4 @@ export const OVERLAY_VARIANTS: Readonly<Variants> = {
   initial: {
     backgroundColor: 'var(--Template-overlay-initial)',
   },
-};
+}

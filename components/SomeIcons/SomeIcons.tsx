@@ -6,11 +6,11 @@ import {
   ReadDotCv,
   SoundCloud,
   X,
-} from '@/components/Icon';
-import { Link } from '@/components/Link';
-import { LINK } from '@/lib/sitemap';
-import { type SomeIconsProps } from './';
-import c from 'clsx';
+} from '@/components/Icon'
+import { Link } from '@/components/Link'
+import { LINK } from '@/lib/sitemap'
+import { type SomeIconsProps } from './'
+import c from 'clsx'
 
 export const SomeIcons = ({ className, ...props }: SomeIconsProps) => (
   <div className={c('SomeIcons', className)} {...props}>
@@ -31,7 +31,7 @@ export const SomeIcons = ({ className, ...props }: SomeIconsProps) => (
           {title === 'Dribbble' && <Dribbble aria-hidden />}
           <span className="hideVisually">{title}</span>
         </Link>
-      );
+      )
     })}
   </div>
-);
+)

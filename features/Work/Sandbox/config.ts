@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const FIGURE_INNER_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -13,4 +13,4 @@ export const FIGURE_INNER_VARIANTS: Readonly<Variants> = {
     rotate: 0,
     x: '0rem',
   },
-};
+}

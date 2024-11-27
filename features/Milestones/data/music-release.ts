@@ -1,5 +1,5 @@
-import { type Category, type Milestone } from '../';
-import { type Optional } from '@/types';
+import { type Category, type Milestone } from '../'
+import { type Optional } from '@/types'
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
@@ -105,10 +105,10 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Released Jontey – Starbright [Midnight Sun Recordings]',
     url: 'https://www.discogs.com/release/1040999-Various-Midnight-Rollers-EP',
   },
-];
+]
 
 export const MUSIC_RELEASE: Milestone[] = data.map(m => ({
   ...m,
   category: 'music-release' as Category,
   categoryName: m?.categoryName ?? 'Music release',
-}));
+}))

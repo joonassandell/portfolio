@@ -2,8 +2,8 @@ import {
   EASE_TERTIARY,
   TRANS_TERTIARY,
   TRANS_TERTIARY_FASTEST,
-} from '@/lib/config';
-import { type Variants } from 'motion/react';
+} from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 /**
  * 1. From top to bottom
@@ -21,11 +21,11 @@ export const CLIP_VARIANTS: Readonly<Variants> = {
     // clipPath: 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)', // [2.]
     scale: 1.07,
   },
-};
+}
 
 export const PLACEHOLDER_VARIANTS: Readonly<Variants> = {
   exit: { opacity: 0, transition: TRANS_TERTIARY_FASTEST },
-};
+}
 
 export const PLACEHOLDER_GLARE_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -37,7 +37,7 @@ export const PLACEHOLDER_GLARE_VARIANTS: Readonly<Variants> = {
       repeatDelay: 0.2,
     },
   },
-};
+}
 
 export const GLARE_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -47,4 +47,4 @@ export const GLARE_VARIANTS: Readonly<Variants> = {
       duration: TRANS_TERTIARY.duration + 0.3,
     },
   },
-};
+}

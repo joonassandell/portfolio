@@ -1,5 +1,5 @@
-import { TRANS_TERTIARY_FAST } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_TERTIARY_FAST } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const ROW_VARIANT: Readonly<Variants> = {
   animate: {
@@ -11,4 +11,4 @@ export const ROW_VARIANT: Readonly<Variants> = {
     opacity: 0,
     y: '3rem',
   },
-};
+}

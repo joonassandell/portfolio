@@ -1,4 +1,4 @@
-import { type SitemapItem } from '@/lib/sitemap';
+import { type SitemapItem } from '@/lib/sitemap'
 
 const sitemap: SitemapItem<'contact'> = {
   id: 'contact',
@@ -10,6 +10,6 @@ const sitemap: SitemapItem<'contact'> = {
   },
   title: 'Contact',
   url: '/contact',
-};
+}
 
-export default sitemap;
+export default sitemap

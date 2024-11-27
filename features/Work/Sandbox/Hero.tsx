@@ -3,13 +3,13 @@ import {
   Hero,
   HeroContent,
   type HeroProps,
-} from '@/components/Hero';
-import { FIGURE_INNER_VARIANTS } from './config';
-import { m } from 'motion/react';
-import { SITEMAP } from '@/lib/sitemap';
-import { useParallax } from '@/lib/useParallax';
-import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png';
-import Image from 'next/image';
+} from '@/components/Hero'
+import { FIGURE_INNER_VARIANTS } from './config'
+import { m } from 'motion/react'
+import { SITEMAP } from '@/lib/sitemap'
+import { useParallax } from '@/lib/useParallax'
+import heroImage from '@/public/sandbox/hero/joonassandell-sandbox-hero.png'
+import Image from 'next/image'
 
 export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
@@ -18,12 +18,12 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
     title,
     url,
     year,
-  } = SITEMAP.sandbox;
+  } = SITEMAP.sandbox
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
 
   return (
     <Hero
@@ -87,5 +87,5 @@ export const SandboxHero = ({ onClick, transition, ...props }: HeroProps) => {
         </div>
       )}
     </Hero>
-  );
-};
+  )
+}

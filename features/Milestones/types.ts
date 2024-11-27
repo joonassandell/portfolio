@@ -1,10 +1,10 @@
-import { type DateString } from '@/types';
+import { type DateString } from '@/types'
 import {
   type Point as NivoPoint,
   type PointSymbolProps as NivoPointSymbolProps,
   type PointTooltipProps as NivoPointTooltipProps,
-} from '@nivo/line';
-import { type TableCaptionProps } from '@/components/Table';
+} from '@nivo/line'
+import { type TableCaptionProps } from '@/components/Table'
 
 export type Category =
   | 'project'
@@ -12,27 +12,27 @@ export type Category =
   | 'featured'
   | 'feature-release'
   | 'music-release'
-  | 'achievement';
+  | 'achievement'
 
 export interface Milestone {
-  category: Category;
-  categoryName: string;
-  date: DateString;
-  event: string;
-  hidden?: boolean;
-  highlight?: boolean;
-  major?: true;
-  url?: string;
+  category: Category
+  categoryName: string
+  date: DateString
+  event: string
+  hidden?: boolean
+  highlight?: boolean
+  major?: true
+  url?: string
 }
 
 export interface PointSymbolProps extends Omit<NivoPointSymbolProps, 'datum'> {
-  datum: Milestone;
+  datum: Milestone
 }
 
 export interface PointTooltipProps extends NivoPointTooltipProps {
-  point: NivoPoint & { data: NivoPoint['data'] & Partial<Milestone> };
+  point: NivoPoint & { data: NivoPoint['data'] & Partial<Milestone> }
 }
 
 export interface MilestoneTableProps {
-  tableCaption?: TableCaptionProps;
+  tableCaption?: TableCaptionProps
 }

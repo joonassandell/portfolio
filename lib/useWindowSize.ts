@@ -1,15 +1,15 @@
-import { isBrowser } from '@/lib/utils';
-import { useEffect, useState } from 'react';
+import { isBrowser } from '@/lib/utils'
+import { useEffect, useState } from 'react'
 
 export const useWindowSize = (
   initialWidth = Infinity,
   initialHeight = Infinity,
 ) => {
   const [state, setState] = useState<{
-    clientHeight: number;
-    clientWidth: number;
-    height: number;
-    width: number;
+    clientHeight: number
+    clientWidth: number
+    height: number
+    width: number
   }>({
     clientHeight: isBrowser
       ? document.documentElement.clientHeight
@@ -19,10 +19,10 @@ export const useWindowSize = (
       : initialWidth,
     height: isBrowser ? window.innerHeight : initialHeight,
     width: isBrowser ? window.innerWidth : initialWidth,
-  });
+  })
 
   useEffect(() => {
-    if (!isBrowser) return;
+    if (!isBrowser) return
 
     const handler = () => {
       setState({
@@ -30,13 +30,13 @@ export const useWindowSize = (
         clientWidth: document.documentElement.clientWidth,
         height: window.innerHeight,
         width: window.innerWidth,
-      });
-    };
+      })
+    }
 
-    window.addEventListener('resize', handler);
+    window.addEventListener('resize', handler)
 
-    return () => window.removeEventListener('resize', handler);
-  }, []);
+    return () => window.removeEventListener('resize', handler)
+  }, [])
 
-  return state;
-};
+  return state
+}

@@ -1,5 +1,5 @@
-import { type QuoteFooterProps } from './';
-import c from 'clsx';
+import { type QuoteFooterProps } from './'
+import c from 'clsx'
 
 export const QuoteFooter = ({
   children,
@@ -9,4 +9,4 @@ export const QuoteFooter = ({
   <footer className={c('Quote-footer', className)} {...props}>
     {children}
   </footer>
-);
+)

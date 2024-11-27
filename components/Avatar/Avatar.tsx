@@ -1,8 +1,8 @@
-import { type AvatarProps } from './';
-import { Figure } from '@/components/Figure';
-import { MQ } from '@/lib/config';
-import { Text } from '@/components/Text';
-import c from 'clsx';
+import { type AvatarProps } from './'
+import { Figure } from '@/components/Figure'
+import { MQ } from '@/lib/config'
+import { Text } from '@/components/Text'
+import c from 'clsx'
 
 export const Avatar = ({
   className,
@@ -43,4 +43,4 @@ export const Avatar = ({
       </div>
     )}
   </div>
-);
+)

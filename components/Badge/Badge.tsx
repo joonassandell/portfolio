@@ -1,6 +1,6 @@
-import { type BadgeProps } from './';
-import { isString } from '@/lib/utils';
-import c from 'clsx';
+import { type BadgeProps } from './'
+import { isString } from '@/lib/utils'
+import c from 'clsx'
 
 export const Badge = ({ beacon, children, className, variant }: BadgeProps) => (
   <div
@@ -24,4 +24,4 @@ export const Badge = ({ beacon, children, className, variant }: BadgeProps) => (
     )}
     {children}
   </div>
-);
+)

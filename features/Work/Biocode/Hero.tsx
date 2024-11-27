@@ -1,16 +1,16 @@
-import { Heading } from '@/components/Heading';
-import { HEADING_VARIANTS, MASK_VARIANTS } from './config';
-import { Hero, HeroContent, type HeroProps } from '@/components/Hero';
-import { m } from 'motion/react';
-import { MQ } from '@/lib/config';
-import { SITEMAP } from '@/lib/sitemap';
-import { TextReveal } from '@/components/TextReveal';
-import { useMedia } from 'react-use';
-import { useParallax } from '@/lib/useParallax';
-import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png';
-import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp';
-import Image from 'next/image';
-import logoMark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
+import { Heading } from '@/components/Heading'
+import { HEADING_VARIANTS, MASK_VARIANTS } from './config'
+import { Hero, HeroContent, type HeroProps } from '@/components/Hero'
+import { m } from 'motion/react'
+import { MQ } from '@/lib/config'
+import { SITEMAP } from '@/lib/sitemap'
+import { TextReveal } from '@/components/TextReveal'
+import { useMedia } from 'react-use'
+import { useParallax } from '@/lib/useParallax'
+import heroImage from '@/public/biocode/hero/joonassandell-biocode-hero-globe.png'
+import heroImagePre from '@/public/biocode/hero/joonassandell-biocode-hero-globe-pre.webp'
+import Image from 'next/image'
+import logoMark from '@/public/biocode/hero/joonassandell-biocode-logomark.png'
 
 export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
@@ -19,15 +19,15 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
     title,
     url,
     year,
-  } = SITEMAP.biocode;
+  } = SITEMAP.biocode
   const figureClasses =
-    'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl';
-  const mqS = useMedia(MQ.s, false);
+    'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl'
+  const mqS = useMedia(MQ.s, false)
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
 
   return (
     <Hero
@@ -145,5 +145,5 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
         </>
       )}
     </Hero>
-  );
-};
+  )
+}

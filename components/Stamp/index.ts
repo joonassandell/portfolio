@@ -1,3 +1,3 @@
-export * from './Stamp';
-export * from './Stamp.config';
-export type * from './Stamp.types';
+export * from './Stamp'
+export * from './Stamp.config'
+export type * from './Stamp.types'

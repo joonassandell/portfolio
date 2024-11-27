@@ -7,14 +7,14 @@ import {
   PATH_OUT_VARIANTS,
   POINTER_IN_VARIANTS,
   POINTER_OUT_VARIANTS,
-} from './';
-import { type ButtonEvent, type LinkEvent } from '@/types';
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { m } from 'motion/react';
-import { useApp } from '@/components/App';
-import { useState } from 'react';
-import c from 'clsx';
-import Link from 'next/link';
+} from './'
+import { type ButtonEvent, type LinkEvent } from '@/types'
+import { ConditionalWrapper } from '@/components/ConditionalWrapper'
+import { m } from 'motion/react'
+import { useApp } from '@/components/App'
+import { useState } from 'react'
+import c from 'clsx'
+import Link from 'next/link'
 
 export const ButtonEnter = ({
   children,
@@ -24,10 +24,10 @@ export const ButtonEnter = ({
   templateTransition = false,
   ...props
 }: ButtonEnterProps) => {
-  const { setTransition } = useApp();
-  const [hover, setHover] = useState(false);
-  const [arrowHover, setArrowHover] = useState(false);
-  const Tag = href ? m.a : m.button;
+  const { setTransition } = useApp()
+  const [hover, setHover] = useState(false)
+  const [arrowHover, setArrowHover] = useState(false)
+  const Tag = href ? m.a : m.button
 
   return (
     <ConditionalWrapper
@@ -42,22 +42,22 @@ export const ButtonEnter = ({
         className={c('Button Button--enter', className)}
         onBlur={() => {
           if (hover) {
-            setHover(false);
+            setHover(false)
           }
         }}
         onClick={(e: ButtonEvent & LinkEvent) => {
-          templateTransition && setTransition('template');
-          onClick && onClick(e);
+          templateTransition && setTransition('template')
+          onClick && onClick(e)
         }}
         onFocus={() => {
           if (!hover) {
-            setArrowHover(true);
-            setHover(true);
+            setArrowHover(true)
+            setHover(true)
           }
         }}
         onMouseEnter={() => {
-          setArrowHover(true);
-          setHover(true);
+          setArrowHover(true)
+          setHover(true)
         }}
         onMouseLeave={() => setHover(false)}
         variants={BUTTON_VARIANTS}
@@ -112,5 +112,5 @@ export const ButtonEnter = ({
         />
       </Tag>
     </ConditionalWrapper>
-  );
-};
+  )
+}

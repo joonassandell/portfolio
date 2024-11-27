@@ -1,17 +1,17 @@
-import { DROP_VARIANTS, DROP_VARIANTS_2, DROP_VARIANTS_3 } from './config';
+import { DROP_VARIANTS, DROP_VARIANTS_2, DROP_VARIANTS_3 } from './config'
 import {
   FIGURE_BG_VARIANTS,
   Hero,
   HeroContent,
   type HeroProps,
-} from '@/components/Hero';
-import { m } from 'motion/react';
-import { MQ } from '@/lib/config';
-import { SITEMAP } from '@/lib/sitemap';
-import { useParallax } from '@/lib/useParallax';
-import drop from '@/public/oras/hero/joonassandell-oras-drop.png';
-import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png';
-import Image from 'next/image';
+} from '@/components/Hero'
+import { m } from 'motion/react'
+import { MQ } from '@/lib/config'
+import { SITEMAP } from '@/lib/sitemap'
+import { useParallax } from '@/lib/useParallax'
+import drop from '@/public/oras/hero/joonassandell-oras-drop.png'
+import heroImage from '@/public/oras/hero/joonassandell-oras-hero.png'
+import Image from 'next/image'
 
 export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
@@ -20,18 +20,18 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
     title,
     url,
     year,
-  } = SITEMAP.oras;
-  const dropDelay = 0.75;
+  } = SITEMAP.oras
+  const dropDelay = 0.75
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
   const { value: dropY } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     ref,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
 
   return (
     <Hero
@@ -158,5 +158,5 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
         </>
       )}
     </Hero>
-  );
-};
+  )
+}

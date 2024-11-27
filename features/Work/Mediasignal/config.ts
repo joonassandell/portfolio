@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const FIGURE_INNER_VARIANTS: Readonly<Variants> = {
   animate: ({ delay = 0 } = {}) => ({
@@ -14,4 +14,4 @@ export const FIGURE_INNER_VARIANTS: Readonly<Variants> = {
     x: '0rem',
     y: '0rem',
   },
-};
+}

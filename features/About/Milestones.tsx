@@ -1,11 +1,11 @@
-import { ArrowRight } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Heading } from '@/components/Heading';
-import { Hr } from '@/components/Hr';
-import { MilestonesTableHighlight } from '@/features/Milestones';
-import { TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { TextReveal } from '@/components/TextReveal';
+import { ArrowRight } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Heading } from '@/components/Heading'
+import { Hr } from '@/components/Hr'
+import { MilestonesTableHighlight } from '@/features/Milestones'
+import { TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { TextReveal } from '@/components/TextReveal'
 
 export const AboutMilestones = () => (
   <TemplateArea className="Template-milestones" pb="2xl-5xl" pt="2xl-5xl">
@@ -29,4 +29,4 @@ export const AboutMilestones = () => (
       </Button>
     </div>
   </TemplateArea>
-);
+)

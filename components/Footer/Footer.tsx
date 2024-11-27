@@ -1,12 +1,12 @@
-import { APP, BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config';
-import { Badge } from '../Badge';
-import { type FooterProps } from './';
-import { formatDate } from '@/lib/utils';
-import { LINK, SITEMAP } from '@/lib/sitemap';
-import { Link } from '@/components/Link';
-import { LinkRoll } from '@/components/LinkRoll';
-import { Text } from '@/components/Text';
-import c from 'clsx';
+import { APP, BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config'
+import { Badge } from '../Badge'
+import { type FooterProps } from './'
+import { formatDate } from '@/lib/utils'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import { Link } from '@/components/Link'
+import { LinkRoll } from '@/components/LinkRoll'
+import { Text } from '@/components/Text'
+import c from 'clsx'
 
 export const Footer = ({ border = true, fullWidth }: FooterProps) => (
   <footer className={c('Footer wrap', { '-width:full': fullWidth })}>
@@ -26,7 +26,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                         {item.title}
                       </LinkRoll>
                     </li>
-                  );
+                  )
                 })}
               </Text>
             </div>
@@ -42,7 +42,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                         {item.title}
                       </LinkRoll>
                     </li>
-                  );
+                  )
                 })}
               </Text>
             </div>
@@ -64,7 +64,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                       </LinkRoll>
                       {item.new && <Badge beacon>New</Badge>}
                     </li>
-                  );
+                  )
                 })}
               </Text>
             </div>
@@ -78,7 +78,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
                     <li key={item.title}>
                       <LinkRoll href={item.url}>{item.title}</LinkRoll>
                     </li>
-                  );
+                  )
                 })}
               </Text>
             </div>
@@ -117,4 +117,4 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
       </div>
     </div>
   </footer>
-);
+)

@@ -1,9 +1,9 @@
-import { type ElementType, useRef } from 'react';
-import { type HTMLMotionProps, m } from 'motion/react';
-import { MOVE_IN_VARIANTS } from '@/lib/config';
-import { type TextProps } from './';
-import { useInView } from '@/lib/useInView';
-import c from 'clsx';
+import { type ElementType, useRef } from 'react'
+import { type HTMLMotionProps, m } from 'motion/react'
+import { MOVE_IN_VARIANTS } from '@/lib/config'
+import { type TextProps } from './'
+import { useInView } from '@/lib/useInView'
+import c from 'clsx'
 
 export const Text = ({
   animate,
@@ -18,11 +18,9 @@ export const Text = ({
   truncate,
   ...props
 }: TextProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
-  const Tag = tag
-    ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>)
-    : m.div;
+  const ref = useRef(null)
+  const inView = useInView(ref)
+  const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.div
 
   return (
     <Tag
@@ -52,5 +50,5 @@ export const Text = ({
     >
       {children}
     </Tag>
-  );
-};
+  )
+}

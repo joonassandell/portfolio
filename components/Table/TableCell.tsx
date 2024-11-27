@@ -1,5 +1,5 @@
-import { type TableCellProps } from './';
-import c from 'clsx';
+import { type TableCellProps } from './'
+import c from 'clsx'
 
 export const TableCell = ({
   children,
@@ -9,4 +9,4 @@ export const TableCell = ({
   <td className={c('Table-cell', className)} {...props}>
     {children}
   </td>
-);
+)

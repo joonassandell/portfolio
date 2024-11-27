@@ -1,4 +1,4 @@
-import { type SitemapItemWork } from '@/lib/sitemap';
+import { type SitemapItemWork } from '@/lib/sitemap'
 
 const sitemap: SitemapItemWork<'biocode'> = {
   color: 'var(--biocode-primary)',
@@ -15,6 +15,6 @@ const sitemap: SitemapItemWork<'biocode'> = {
   title: 'Biocode',
   url: '/biocode',
   year: 2024,
-};
+}
 
-export default sitemap;
+export default sitemap

@@ -1,22 +1,22 @@
-import { Avatar } from '@/components/Avatar';
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Heading } from '@/components/Heading';
-import { m } from 'motion/react';
-import { MQ } from '@/lib/config';
-import { type PageProps } from '@/types';
-import { Quote, QuoteFooter, QuoteText } from '@/components/Quote';
-import { Subtitle } from '@/components/Subtitle';
-import { TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { useParallax } from '@/lib/useParallax';
-import profileHeidi from '@/public/biocode/heidi-kumpulainen.jpg';
-import profileLinda from '@/public/biocode/linda-forss.jpg';
-import profileNick from '@/public/biocode/nick-wols.jpg';
-import profileSari from '@/public/biocode/sari-torpstrom.jpg';
+import { Avatar } from '@/components/Avatar'
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Heading } from '@/components/Heading'
+import { m } from 'motion/react'
+import { MQ } from '@/lib/config'
+import { type PageProps } from '@/types'
+import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
+import { Subtitle } from '@/components/Subtitle'
+import { TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { useParallax } from '@/lib/useParallax'
+import profileHeidi from '@/public/biocode/heidi-kumpulainen.jpg'
+import profileLinda from '@/public/biocode/linda-forss.jpg'
+import profileNick from '@/public/biocode/nick-wols.jpg'
+import profileSari from '@/public/biocode/sari-torpstrom.jpg'
 
 export const BiocodeSoftware = ({ images }: PageProps) => {
-  const { ref, value: y } = useParallax({ speed: 'slow' });
+  const { ref, value: y } = useParallax({ speed: 'slow' })
 
   return (
     <section className="Template-software">
@@ -407,5 +407,5 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
         />
       </TemplateArea>
     </section>
-  );
-};
+  )
+}

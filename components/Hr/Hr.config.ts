@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const HR_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -9,4 +9,4 @@ export const HR_VARIANTS: Readonly<Variants> = {
   initial: {
     scaleX: 0,
   },
-};
+}

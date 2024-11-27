@@ -1,5 +1,5 @@
-import { type TableBodyProps } from './';
-import c from 'clsx';
+import { type TableBodyProps } from './'
+import c from 'clsx'
 
 export const TableBody = ({
   children,
@@ -9,4 +9,4 @@ export const TableBody = ({
   <tbody className={c('Table-body', className)} {...props}>
     {children}
   </tbody>
-);
+)

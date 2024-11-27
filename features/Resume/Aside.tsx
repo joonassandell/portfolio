@@ -1,11 +1,11 @@
-import { APP } from '@/lib/config';
-import { Figure } from '@/components/Figure';
-import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
-import { stripUrl } from '@/lib/utils';
-import { Text } from '@/components/Text';
-import profile from '@/public/images/joonassandell-2.jpg';
+import { APP } from '@/lib/config'
+import { Figure } from '@/components/Figure'
+import { Heading } from '@/components/Heading'
+import { Link } from '@/components/Link'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import { stripUrl } from '@/lib/utils'
+import { Text } from '@/components/Text'
+import profile from '@/public/images/joonassandell-2.jpg'
 
 export const ResumeAside = () => (
   <aside className="Template-aside grid-col grid-col:3@m text-wrap:balance">
@@ -117,4 +117,4 @@ export const ResumeAside = () => (
       <p>Degree in Audiovisual communications at TAKK</p>
     </Text>
   </aside>
-);
+)

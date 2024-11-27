@@ -1,19 +1,19 @@
-import { ArchiveHero } from './Hero';
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Head } from '@/components/Head';
-import { Info } from '@/components/Info';
-import { MQ } from '@/lib/config';
-import { NextProject } from '@/components/NextProject';
-import { type PageProps } from '@/types';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { useSetThemeColor } from '@/components/App';
+import { ArchiveHero } from './Hero'
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Head } from '@/components/Head'
+import { Info } from '@/components/Info'
+import { MQ } from '@/lib/config'
+import { NextProject } from '@/components/NextProject'
+import { type PageProps } from '@/types'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { useSetThemeColor } from '@/components/App'
 
 export const ArchivePage = ({ images }: PageProps) => {
-  const { id: nextProjectId } = SITEMAP.biocode;
-  const { id, meta, year } = SITEMAP.archive;
-  useSetThemeColor(meta.themeColor);
+  const { id: nextProjectId } = SITEMAP.biocode
+  const { id, meta, year } = SITEMAP.archive
+  useSetThemeColor(meta.themeColor)
 
   return (
     <Template className="Template--moreWork" id={id} variant="unstyled">
@@ -110,5 +110,5 @@ export const ArchivePage = ({ images }: PageProps) => {
       </TemplateArea>
       <NextProject id={nextProjectId} />
     </Template>
-  );
-};
+  )
+}

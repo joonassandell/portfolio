@@ -1,7 +1,7 @@
-import { type Category } from '.';
+import { type Category } from './'
 
 export const CATEGORY_COLOR: {
-  [key in Category]: string;
+  [key in Category]: string
 } = {
   achievement: 'var(--slate-500)',
   career: 'var(--accent-2)',
@@ -9,11 +9,11 @@ export const CATEGORY_COLOR: {
   featured: 'var(--slate-400)',
   'music-release': 'var(--slate-300)',
   project: 'var(--accent-1)',
-} as const;
+} as const
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const CATEGORY_NAME: {
-  [key in Category]: string;
+  [key in Category]: string
 } = {
   career: 'Career update',
   project: 'Project launch',
@@ -21,11 +21,11 @@ export const CATEGORY_NAME: {
   achievement: 'Achievement',
   featured: 'Featured',
   'music-release': 'Music release',
-} as const;
+} as const
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const CATEGORY_NAME_SHORT: {
-  [key in Category]: string;
+  [key in Category]: string
 } = {
   career: 'Career',
   project: 'Launch',
@@ -33,4 +33,4 @@ export const CATEGORY_NAME_SHORT: {
   achievement: 'Achievement',
   featured: 'Featured',
   'music-release': 'Music',
-} as const;
+} as const

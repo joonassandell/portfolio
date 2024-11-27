@@ -1,12 +1,12 @@
-import { AnimatePresence, m } from 'motion/react';
-import { ArrowDown, ArrowUp } from '@/components/Icon';
-import { forwardRef } from 'react';
+import { AnimatePresence, m } from 'motion/react'
+import { ArrowDown, ArrowUp } from '@/components/Icon'
+import { forwardRef } from 'react'
 import {
   type HeaderButtonProps,
   MAIN_ITEM_IN_VARIANT,
   MAIN_ITEM_OUT_VARIANT,
-} from './';
-import { useRouter } from 'next/router';
+} from './'
+import { useRouter } from 'next/router'
 
 export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
   (
@@ -24,8 +24,8 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
     }: HeaderButtonProps,
     forwardedRef,
   ) => {
-    const router = useRouter();
-    const { asPath } = router;
+    const router = useRouter()
+    const { asPath } = router
 
     return (
       <button
@@ -83,8 +83,8 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
           </m.div>
         </AnimatePresence>
       </button>
-    );
+    )
   },
-);
+)
 
-HeaderButton.displayName = 'HeaderButton';
+HeaderButton.displayName = 'HeaderButton'

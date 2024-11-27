@@ -1,19 +1,19 @@
-import { Heading } from '@/components/Heading';
-import { TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { TextReveal } from '@/components/TextReveal';
-import { useParallax } from '@/lib/useParallax';
+import { Heading } from '@/components/Heading'
+import { TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { TextReveal } from '@/components/TextReveal'
+import { useParallax } from '@/lib/useParallax'
 
 export const AboutSkills = () => {
   const { ref, value: x1 } = useParallax({
     speed: 'fastest',
     speedMultiplier: 2,
-  });
+  })
   const { value: x2 } = useParallax({
     ref,
     reverse: true,
     speed: 'fastest',
-  });
+  })
 
   return (
     <TemplateArea
@@ -69,5 +69,5 @@ export const AboutSkills = () => {
         />
       </Heading>
     </TemplateArea>
-  );
-};
+  )
+}

@@ -1,19 +1,19 @@
-import { AnimatePresence, type HTMLMotionProps, m } from 'motion/react';
-import { ConditionalWrapper } from '@/components/ConditionalWrapper';
-import { type ElementType, useState } from 'react';
+import { AnimatePresence, type HTMLMotionProps, m } from 'motion/react'
+import { ConditionalWrapper } from '@/components/ConditionalWrapper'
+import { type ElementType, useState } from 'react'
 import {
   IN_VARIANT,
   IN_VARIANT_X,
   type LinkProps,
   OUT_VARIANT,
   OUT_VARIANT_X,
-} from './';
-import { isBoolean, isBrowser } from '@/lib/utils';
-import { useApp } from '@/components/App';
-import { useScrollTo } from '@/lib/useScrollTo';
-import { useUrlState } from '@/lib/useUrlState';
-import c from 'clsx';
-import NextLink from 'next/link';
+} from './'
+import { isBoolean, isBrowser } from '@/lib/utils'
+import { useApp } from '@/components/App'
+import { useScrollTo } from '@/lib/useScrollTo'
+import { useUrlState } from '@/lib/useUrlState'
+import c from 'clsx'
+import NextLink from 'next/link'
 
 export const Link = ({
   children,
@@ -29,20 +29,20 @@ export const Link = ({
   underline = true,
   ...props
 }: LinkProps) => {
-  const { html, setTransition } = useApp();
-  const { active, external, externalTarget } = useUrlState(href);
-  const [hover, setHover] = useState(false);
-  const underlineActive = underline === 'active';
-  const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a;
-  const hasHash = href.startsWith('#');
-  const hash = hasHash && isBrowser && html.querySelector(href);
+  const { html, setTransition } = useApp()
+  const { active, external, externalTarget } = useUrlState(href)
+  const [hover, setHover] = useState(false)
+  const underlineActive = underline === 'active'
+  const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a
+  const hasHash = href.startsWith('#')
+  const hash = hasHash && isBrowser && html.querySelector(href)
   const shouldNavigate =
     Boolean(href) &&
     !external &&
     target != '_blank' &&
     target != '_new' &&
-    !hasHash;
-  const scrollTo = useScrollTo();
+    !hasHash
+  const scrollTo = useScrollTo()
 
   return (
     <ConditionalWrapper
@@ -73,13 +73,13 @@ export const Link = ({
         href={href}
         onBlur={() => setHover(false)}
         onClick={e => {
-          e.stopPropagation();
+          e.stopPropagation()
           shouldNavigate &&
             !active &&
             templateTransition &&
-            setTransition('template');
-          hasHash && scrollTo(hash as HTMLElement);
-          onClick && onClick(e);
+            setTransition('template')
+          hasHash && scrollTo(hash as HTMLElement)
+          onClick && onClick(e)
         }}
         onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
@@ -110,5 +110,5 @@ export const Link = ({
         {icon && <span className="Link-icon">{icon}</span>}
       </Tag>
     </ConditionalWrapper>
-  );
-};
+  )
+}

@@ -1,16 +1,16 @@
-import { ArrowRight } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Head } from '@/components/Head';
-import { Heading } from '@/components/Heading';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { useSetThemeColor } from '@/components/App';
-import sitemap from './sitemap';
+import { ArrowRight } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { useSetThemeColor } from '@/components/App'
+import sitemap from './sitemap'
 
 export const Page404 = () => {
-  const { id, meta, title } = sitemap;
-  useSetThemeColor();
+  const { id, meta, title } = sitemap
+  useSetThemeColor()
 
   return (
     <Template id={id}>
@@ -35,5 +35,5 @@ export const Page404 = () => {
         </Text>
       </TemplateArea>
     </Template>
-  );
-};
+  )
+}

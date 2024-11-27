@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY_FASTEST } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY_FASTEST } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const LINK_VARIANTS: Readonly<Variants> = {
   in: {
@@ -13,7 +13,7 @@ export const LINK_VARIANTS: Readonly<Variants> = {
       staggerDirection: -1,
     },
   },
-};
+}
 
 export const CHARACTER_OUT_VARIANTS: Readonly<Variants> = {
   in: {
@@ -26,7 +26,7 @@ export const CHARACTER_OUT_VARIANTS: Readonly<Variants> = {
     transition: TRANS_PRIMARY_FASTEST,
     y: 0,
   },
-};
+}
 
 export const CHARACTER_IN_VARIANTS: Readonly<Variants> = {
   in: {
@@ -41,4 +41,4 @@ export const CHARACTER_IN_VARIANTS: Readonly<Variants> = {
     transition: TRANS_PRIMARY_FASTEST,
     y: '90%',
   },
-};
+}

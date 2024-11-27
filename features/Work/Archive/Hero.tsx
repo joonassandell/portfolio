@@ -1,18 +1,18 @@
-import { FIGURE_BG_VARIANTS, Hero, type HeroProps } from '@/components/Hero';
-import { FIGURE_INNER_VARIANTS } from '@/features/Work/Mediasignal/config';
-import { m } from 'motion/react';
-import { MQ } from '@/lib/config';
-import { SITEMAP } from '@/lib/sitemap';
-import { useParallax } from '@/lib/useParallax';
-import heroImage from '@/public/archive/hero/joonassandell-archive-hero.png';
-import Image from 'next/image';
+import { FIGURE_BG_VARIANTS, Hero, type HeroProps } from '@/components/Hero'
+import { FIGURE_INNER_VARIANTS } from '@/features/Work/Mediasignal/config'
+import { m } from 'motion/react'
+import { MQ } from '@/lib/config'
+import { SITEMAP } from '@/lib/sitemap'
+import { useParallax } from '@/lib/useParallax'
+import heroImage from '@/public/archive/hero/joonassandell-archive-hero.png'
+import Image from 'next/image'
 
 export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
-  const { id, title, url, year } = SITEMAP.archive;
+  const { id, title, url, year } = SITEMAP.archive
   const { ref, value: y } = useParallax({
     offset: 'start-start',
     reverse: true,
-  });
+  })
 
   return (
     <Hero
@@ -55,5 +55,5 @@ export const ArchiveHero = ({ onClick, ...props }: HeroProps) => {
         </div>
       )}
     </Hero>
-  );
-};
+  )
+}

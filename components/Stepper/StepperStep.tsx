@@ -1,5 +1,5 @@
-import { type StepperStepProps } from './';
-import c from 'clsx';
+import { type StepperStepProps } from './'
+import c from 'clsx'
 
 export const StepperStep = ({
   beacon,
@@ -20,4 +20,4 @@ export const StepperStep = ({
   >
     {icon}
   </div>
-);
+)

@@ -1,17 +1,17 @@
-import { debounce } from 'es-toolkit';
-import { m, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { debounce } from 'es-toolkit'
+import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
 import {
   OVERLAY_VARIANTS,
   STAMP_TRANSITION,
   STAMP_VARIANTS,
   type StampProps,
   SVG_VARIANTS,
-} from './';
-import { useEffect, useRef } from 'react';
-import { useInView } from '@/lib/useInView';
-import { useMeasure, useMouse } from 'react-use';
-import c from 'clsx';
-import StampSvg from './stamp.svg';
+} from './'
+import { useEffect, useRef } from 'react'
+import { useInView } from '@/lib/useInView'
+import { useMeasure, useMouse } from 'react-use'
+import c from 'clsx'
+import StampSvg from './stamp.svg'
 
 export const Stamp = ({
   addVarsToParent = false,
@@ -22,77 +22,77 @@ export const Stamp = ({
   parentRef,
   transitionStart,
 }: StampProps) => {
-  const [ref, { height, width }] = useMeasure<HTMLDivElement>();
-  const innerRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(innerRef, 0, false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const { elX: mouseX, elY: mouseY } = useMouse(parentRef);
+  const [ref, { height, width }] = useMeasure<HTMLDivElement>()
+  const innerRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(innerRef, 0, false)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  const { elX: mouseX, elY: mouseY } = useMouse(parentRef)
   const springOpts = {
     damping: 100,
     stiffness: 150,
-  };
+  }
   const moveX = useSpring(
     useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
     springOpts,
-  );
+  )
   const moveY = useSpring(
     useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
     springOpts,
-  );
+  )
 
   // Stop animating on mount
-  !mouseX && !mouseY && moveX.set(0);
-  !mouseY && !mouseX && moveY.set(0);
+  !mouseX && !mouseY && moveX.set(0)
+  !mouseY && !mouseX && moveY.set(0)
 
   const setParentAttributes = (moveX = 0, moveY = 0) => {
-    if (!parentRef.current || !innerRef.current) return;
+    if (!parentRef.current || !innerRef.current) return
 
     const {
       offsetHeight: height,
       offsetLeft: x,
       offsetTop: y,
       offsetWidth: width,
-    } = innerRef.current;
-    const posX = `${x + width / 2 + moveX}px`;
-    const posY = `${y + height / 2 + moveY}px`;
+    } = innerRef.current
+    const posX = `${x + width / 2 + moveX}px`
+    const posY = `${y + height / 2 + moveY}px`
 
     parentRef.current.setAttribute(
       'style',
       `--Stamp-center-x: ${posX}; --Stamp-center-y: ${posY};`,
-    );
-  };
+    )
+  }
 
   useEffect(() => {
-    if (!inView || transitionStart) return;
-    x.set(mouseX);
-    y.set(mouseY);
+    if (!inView || transitionStart) return
+    x.set(mouseX)
+    y.set(mouseY)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mouseX, mouseY, inView, transitionStart]);
+  }, [mouseX, mouseY, inView, transitionStart])
 
   useEffect(() => {
-    if (!addVarsToParent) return;
-    if (!inView || transitionStart) return;
-    setParentAttributes(moveX.get(), moveY.get());
+    if (!addVarsToParent) return
+    if (!inView || transitionStart) return
+    setParentAttributes(moveX.get(), moveY.get())
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moveX.get(), moveY.get(), inView, transitionStart]);
+  }, [moveX.get(), moveY.get(), inView, transitionStart])
 
   useEffect(() => {
-    if (!addVarsToParent) return;
+    if (!addVarsToParent) return
     const resize = debounce(
       () => setParentAttributes(moveX.get(), moveY.get()),
       100,
-    );
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
+    )
+    window.addEventListener('resize', resize)
+    return () => window.removeEventListener('resize', resize)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
+  }, [inView])
 
   useEffect(() => {
-    if (!addVarsToParent) return;
-    setParentAttributes();
+    if (!addVarsToParent) return
+    setParentAttributes()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <div className={c('Stamp', className)} ref={ref}>
@@ -127,5 +127,5 @@ export const Stamp = ({
         )}
       </m.div>
     </div>
-  );
-};
+  )
+}

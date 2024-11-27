@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const SPLASH_VARIANTS: Readonly<Variants> = {
   exit: {
@@ -12,7 +12,7 @@ export const SPLASH_VARIANTS: Readonly<Variants> = {
   initial: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
   },
-};
+}
 
 export const TEXT_VARIANTS: Readonly<Variants> = {
   exit: {
@@ -22,4 +22,4 @@ export const TEXT_VARIANTS: Readonly<Variants> = {
     },
     y: '-100%',
   },
-};
+}

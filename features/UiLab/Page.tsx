@@ -1,18 +1,18 @@
-import { Box } from './';
-import { Head } from '@/components/Head';
-import { Heading } from '@/components/Heading';
-import { Hr } from '@/components/Hr';
-import { Link } from '@/components/Link';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { ThemeProvider } from 'next-themes';
-import { useSetThemeColor } from '@/components/App';
-import Lego from './lego.svg';
+import { Box } from './'
+import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
+import { Hr } from '@/components/Hr'
+import { Link } from '@/components/Link'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { ThemeProvider } from 'next-themes'
+import { useSetThemeColor } from '@/components/App'
+import Lego from './lego.svg'
 
 export const UiLabPage = () => {
-  const { id, meta } = SITEMAP.uiLab;
-  useSetThemeColor(meta.themeColor);
+  const { id, meta } = SITEMAP.uiLab
+  useSetThemeColor(meta.themeColor)
 
   return (
     <Template id={id}>
@@ -102,5 +102,5 @@ export const UiLabPage = () => {
         </TemplateArea>
       </ThemeProvider>
     </Template>
-  );
-};
+  )
+}

@@ -1,31 +1,31 @@
-import { APP } from '@/lib/config';
-import { ArrowRight, Check, Copy } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Head } from '@/components/Head';
-import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
-import { SomeIcons } from '@/components/SomeIcons';
-import { Template, TemplateArea } from '@/components/Template';
-import { Text } from '@/components/Text';
-import { TextReveal } from '@/components/TextReveal';
-import { useCopyToClipboard } from 'react-use';
-import { useParallax } from '@/lib/useParallax';
-import { useSetThemeColor } from '@/components/App';
-import { useState } from 'react';
+import { APP } from '@/lib/config'
+import { ArrowRight, Check, Copy } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
+import { Link } from '@/components/Link'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import { SomeIcons } from '@/components/SomeIcons'
+import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { TextReveal } from '@/components/TextReveal'
+import { useCopyToClipboard } from 'react-use'
+import { useParallax } from '@/lib/useParallax'
+import { useSetThemeColor } from '@/components/App'
+import { useState } from 'react'
 
 export const ContactPage = () => {
-  const { id, meta } = SITEMAP.contact;
-  useSetThemeColor(meta.themeColor);
-  const [, copyToClipboard] = useCopyToClipboard();
-  const [icon, setIcon] = useState(<Copy />);
-  const { value: x } = useParallax({ offset: 'start-start' });
+  const { id, meta } = SITEMAP.contact
+  useSetThemeColor(meta.themeColor)
+  const [, copyToClipboard] = useCopyToClipboard()
+  const [icon, setIcon] = useState(<Copy />)
+  const { value: x } = useParallax({ offset: 'start-start' })
 
   const handleCopy = () => {
-    copyToClipboard(APP.person.email);
-    setIcon(<Check />);
-    setTimeout(() => setIcon(<Copy />), 2000);
-  };
+    copyToClipboard(APP.person.email)
+    setIcon(<Check />)
+    setTimeout(() => setIcon(<Copy />), 2000)
+  }
 
   return (
     <Template id={id}>
@@ -74,5 +74,5 @@ export const ContactPage = () => {
         </div>
       </TemplateArea>
     </Template>
-  );
-};
+  )
+}

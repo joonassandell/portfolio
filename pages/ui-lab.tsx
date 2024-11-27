@@ -1,5 +1,5 @@
-import { UiLabPage } from '@/features/UiLab';
+import { UiLabPage } from '@/features/UiLab'
 
 export default function Page() {
-  return <UiLabPage />;
+  return <UiLabPage />
 }

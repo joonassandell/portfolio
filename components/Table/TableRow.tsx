@@ -1,12 +1,12 @@
-import { m } from 'motion/react';
-import { type MouseEvent } from 'react';
-import { ROW_VARIANT, type TableRowProps } from './';
-import { useApp } from '@/components/App';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
-import { useRouter } from 'next/router';
-import { useUrlState } from '@/lib/useUrlState';
-import c from 'clsx';
+import { m } from 'motion/react'
+import { type MouseEvent } from 'react'
+import { ROW_VARIANT, type TableRowProps } from './'
+import { useApp } from '@/components/App'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
+import { useRouter } from 'next/router'
+import { useUrlState } from '@/lib/useUrlState'
+import c from 'clsx'
 
 export const TableRow = ({
   animate = true,
@@ -17,31 +17,31 @@ export const TableRow = ({
   onClick,
   ...props
 }: TableRowProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
-  const { setTransition } = useApp();
-  const { push } = useRouter();
-  const { external, externalTarget } = useUrlState(href as URL['href']);
+  const ref = useRef(null)
+  const inView = useInView(ref)
+  const { setTransition } = useApp()
+  const { push } = useRouter()
+  const { external, externalTarget } = useUrlState(href as URL['href'])
 
   const handleOnClick = (
     e: MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>,
   ) => {
-    onClick && onClick(e);
+    onClick && onClick(e)
 
     if (href) {
       if (e.type === 'auxclick') {
-        if (e.button === 1) window.open(href, externalTarget);
-        return;
+        if (e.button === 1) window.open(href, externalTarget)
+        return
       }
 
       if (external) {
-        window.open(href, externalTarget);
+        window.open(href, externalTarget)
       } else {
-        setTransition('template');
-        push(href, undefined, { scroll: false });
+        setTransition('template')
+        push(href, undefined, { scroll: false })
       }
     }
-  };
+  }
 
   return (
     <m.tr
@@ -63,5 +63,5 @@ export const TableRow = ({
     >
       {children}
     </m.tr>
-  );
-};
+  )
+}

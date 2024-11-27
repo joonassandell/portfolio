@@ -3,23 +3,23 @@ import {
   BiocodeDesignSystem,
   BiocodeHero,
   BiocodeSoftware,
-} from './';
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Head } from '@/components/Head';
-import { Info } from '@/components/Info';
-import { Link } from '@/components/Link';
-import { MQ } from '@/lib/config';
-import { NextProject } from '@/components/NextProject';
-import { type PageProps } from '@/types';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { useSetThemeColor } from '@/components/App';
+} from './'
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Head } from '@/components/Head'
+import { Info } from '@/components/Info'
+import { Link } from '@/components/Link'
+import { MQ } from '@/lib/config'
+import { NextProject } from '@/components/NextProject'
+import { type PageProps } from '@/types'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { useSetThemeColor } from '@/components/App'
 
 export const BiocodePage = ({ images }: PageProps) => {
-  const { id, meta, title, year } = SITEMAP.biocode;
-  const { id: nextProjectId } = SITEMAP.oras;
-  useSetThemeColor(meta.themeColor);
+  const { id, meta, title, year } = SITEMAP.biocode
+  const { id: nextProjectId } = SITEMAP.oras
+  useSetThemeColor(meta.themeColor)
 
   return (
     <Template id={id} variant="unstyled">
@@ -91,5 +91,5 @@ export const BiocodePage = ({ images }: PageProps) => {
       <BiocodeSoftware images={images} />
       <NextProject id={nextProjectId} />
     </Template>
-  );
-};
+  )
+}

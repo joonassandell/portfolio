@@ -1,5 +1,5 @@
-import { ResumePage } from '@/features/Resume';
+import { ResumePage } from '@/features/Resume'
 
 export default function Page() {
-  return <ResumePage />;
+  return <ResumePage />
 }

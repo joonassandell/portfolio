@@ -1,12 +1,12 @@
-import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const HEADING_VARIANTS: Readonly<Variants> = {
   animate: {
     transition: TRANS_PRIMARY,
     y: '-150%',
   },
-};
+}
 
 export const FIGURE_BG_VARIANTS: Readonly<Variants> = {
   animate: {
@@ -20,4 +20,4 @@ export const FIGURE_BG_VARIANTS: Readonly<Variants> = {
       delay: 0.15,
     },
   },
-};
+}

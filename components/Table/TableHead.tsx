@@ -1,5 +1,5 @@
-import { type TableHeadProps } from './';
-import c from 'clsx';
+import { type TableHeadProps } from './'
+import c from 'clsx'
 
 export const TableHead = ({
   children,
@@ -9,4 +9,4 @@ export const TableHead = ({
   <th className={c('Table-head', className)} {...props}>
     {children}
   </th>
-);
+)

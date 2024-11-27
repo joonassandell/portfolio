@@ -1,18 +1,18 @@
-import { animate, m } from 'motion/react';
-import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react';
-import { getClosestEdge } from '@/lib/utils';
+import { animate, m } from 'motion/react'
+import { Fragment, type MouseEvent, useEffect, useRef, useState } from 'react'
+import { getClosestEdge } from '@/lib/utils'
 import {
   type HeaderMaskNavItemProps,
   MASK_ITEM_MARQUEE_INNER_VARIANT,
   MASK_ITEM_MARQUEE_TRANSITION,
   MASK_ITEM_MARQUEE_VARIANT,
   MASK_ITEM_VARIANT,
-} from './';
-import { useApp } from '@/components/App';
-import { useUrlState } from '@/lib/useUrlState';
-import c from 'clsx';
-import EyeSvg from './eye.svg';
-import Link from 'next/link';
+} from './'
+import { useApp } from '@/components/App'
+import { useUrlState } from '@/lib/useUrlState'
+import c from 'clsx'
+import EyeSvg from './eye.svg'
+import Link from 'next/link'
 
 export const HeaderMaskNavItem = ({
   color,
@@ -22,53 +22,53 @@ export const HeaderMaskNavItem = ({
   title,
   year,
 }: HeaderMaskNavItemProps) => {
-  const { active } = useUrlState(href);
-  const [hover, setHover] = useState<'in' | 'out' | false>(false);
-  const [closestEdge, setClosestEdge] = useState('top');
-  const [reveal, setReveal] = useState(false);
+  const { active } = useUrlState(href)
+  const [hover, setHover] = useState<'in' | 'out' | false>(false)
+  const [closestEdge, setClosestEdge] = useState('top')
+  const [reveal, setReveal] = useState(false)
   const [revealTimeout, setRevealTimeout] =
-    useState<ReturnType<typeof setTimeout>>();
-  const ref = useRef<HTMLLIElement>(null);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const isFocus = document.activeElement === linkRef.current;
+    useState<ReturnType<typeof setTimeout>>()
+  const ref = useRef<HTMLLIElement>(null)
+  const linkRef = useRef<HTMLAnchorElement>(null)
+  const marqueeRef = useRef<HTMLDivElement>(null)
+  const isFocus = document.activeElement === linkRef.current
   const {
     detect: { hasTouch },
-  } = useApp();
+  } = useApp()
 
   const findClosestEdge = (e: MouseEvent) => {
-    if (!ref.current) return;
-    const x = e.pageX - ref.current?.offsetLeft;
-    const y = e.pageY - ref.current?.offsetTop;
+    if (!ref.current) return
+    const x = e.pageX - ref.current?.offsetLeft
+    const y = e.pageY - ref.current?.offsetTop
 
     setClosestEdge(
       getClosestEdge(x, y, ref.current.clientWidth, ref.current.clientHeight),
-    );
-  };
+    )
+  }
 
   useEffect(() => {
-    if (!reveal || !marqueeRef.current) return;
-    const { current } = marqueeRef;
-    const width = current.clientWidth;
-    const duration = width / 50 - width / 58;
+    if (!reveal || !marqueeRef.current) return
+    const { current } = marqueeRef
+    const width = current.clientWidth
+    const duration = width / 50 - width / 58
     const controls = animate('-50%', '0%', {
       duration: duration > 0 ? duration : 25,
       ease: 'linear',
       onUpdate(value) {
         if (!current) {
-          controls.stop();
-          return;
+          controls.stop()
+          return
         }
-        current.style.transform = `translateX(${value}) translateZ(0px)`;
+        current.style.transform = `translateX(${value}) translateZ(0px)`
       },
       repeat: Infinity,
       repeatType: 'loop',
-    });
-  }, [reveal]);
+    })
+  }, [reveal])
 
   useEffect(() => {
-    if (focus) linkRef?.current?.focus();
-  }, [focus]);
+    if (focus) linkRef?.current?.focus()
+  }, [focus])
 
   return (
     <m.li
@@ -84,19 +84,19 @@ export const HeaderMaskNavItem = ({
         href={href}
         onBlur={() => setHover('out')}
         onClick={e => {
-          onClick && onClick(e);
-          if (!hasTouch) setHover('out');
+          onClick && onClick(e)
+          if (!hasTouch) setHover('out')
         }}
         onFocus={() => setHover('in')}
         onMouseEnter={e => {
-          if (isFocus) return;
-          findClosestEdge(e);
-          setHover('in');
+          if (isFocus) return
+          findClosestEdge(e)
+          setHover('in')
         }}
         onMouseLeave={e => {
-          if (isFocus) return;
-          findClosestEdge(e);
-          setHover('out');
+          if (isFocus) return
+          findClosestEdge(e)
+          setHover('out')
         }}
         ref={linkRef}
       >
@@ -113,13 +113,13 @@ export const HeaderMaskNavItem = ({
         initial="out"
         onAnimationComplete={() => {
           if (hover === 'out') {
-            setRevealTimeout(setTimeout(() => setReveal(false), 100));
+            setRevealTimeout(setTimeout(() => setReveal(false), 100))
           }
         }}
         onAnimationStart={() => {
           if (hover === 'in') {
-            revealTimeout && clearTimeout(revealTimeout);
-            setReveal(true);
+            revealTimeout && clearTimeout(revealTimeout)
+            setReveal(true)
           }
         }}
         transition={MASK_ITEM_MARQUEE_TRANSITION}
@@ -144,12 +144,12 @@ export const HeaderMaskNavItem = ({
                     <span>{year}</span>
                     <EyeSvg className="Header-mask-nav-marquee-eye" />
                   </Fragment>
-                );
+                )
               })}
             </m.div>
           )}
         </m.div>
       </m.div>
     </m.li>
-  );
-};
+  )
+}

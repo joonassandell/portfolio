@@ -1,5 +1,5 @@
-import { type StepperItemProps } from './';
-import c from 'clsx';
+import { type StepperItemProps } from './'
+import c from 'clsx'
 
 export const StepperItem = ({
   children,
@@ -9,4 +9,4 @@ export const StepperItem = ({
   <div className={c('Stepper-item', className)} {...props}>
     {children}
   </div>
-);
+)

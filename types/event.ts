@@ -1,9 +1,9 @@
-import { type MouseEvent } from 'react';
+import { type MouseEvent } from 'react'
 
 export type LinkEvent = MouseEvent<HTMLAnchorElement> & {
-  target: HTMLLinkElement;
-};
+  target: HTMLLinkElement
+}
 
 export type ButtonEvent = MouseEvent<HTMLButtonElement> & {
-  target: HTMLButtonElement;
-};
+  target: HTMLButtonElement
+}

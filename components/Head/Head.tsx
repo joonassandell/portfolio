@@ -1,6 +1,6 @@
-import { APP, APP_URL } from '@/lib/config';
-import { type HeadProps } from './';
-import { default as NextHead } from 'next/head';
+import { APP, APP_URL } from '@/lib/config'
+import { type HeadProps } from './'
+import { default as NextHead } from 'next/head'
 
 export const Head = ({
   children,
@@ -11,7 +11,7 @@ export const Head = ({
 }: HeadProps) => {
   const pageTitle = title
     ? `${APP.meta.titlePrefix}${title ? ' — ' + title : ''}`
-    : '';
+    : ''
 
   return (
     <NextHead>
@@ -60,5 +60,5 @@ export const Head = ({
       )}
       {children}
     </NextHead>
-  );
-};
+  )
+}

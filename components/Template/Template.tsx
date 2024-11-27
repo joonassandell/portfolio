@@ -1,15 +1,15 @@
-import { AnimatePresence, m, useIsPresent } from 'motion/react';
-import { camelCase } from 'es-toolkit';
-import { Footer } from '@/components/Footer';
+import { AnimatePresence, m, useIsPresent } from 'motion/react'
+import { camelCase } from 'es-toolkit'
+import { Footer } from '@/components/Footer'
 import {
   OVERLAY_VARIANTS,
   type TemplateProps,
   VARIANTS_WITH_TRANSITION,
   VARIANTS_WITHOUT_TRANSITION,
-} from './';
-import { useApp } from '@/components/App';
-import { useEffect, useRef, useState } from 'react';
-import c from 'clsx';
+} from './'
+import { useApp } from '@/components/App'
+import { useEffect, useRef, useState } from 'react'
+import c from 'clsx'
 
 export const Template = ({
   children,
@@ -20,21 +20,21 @@ export const Template = ({
 }: TemplateProps) => {
   const [animState, setAnimState] = useState<'animExit' | 'animStart' | null>(
     null,
-  );
-  const { setTemplateRef, transition } = useApp();
-  const templateTransition = transition === 'template';
-  const displayOverlay = animState === 'animExit' && templateTransition;
-  const isPresent = useIsPresent();
-  const ref = useRef<HTMLDivElement>(null);
+  )
+  const { setTemplateRef, transition } = useApp()
+  const templateTransition = transition === 'template'
+  const displayOverlay = animState === 'animExit' && templateTransition
+  const isPresent = useIsPresent()
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!isPresent) setAnimState('animExit');
+    if (!isPresent) setAnimState('animExit')
     if (isPresent) {
-      setTemplateRef(ref);
-      setAnimState('animStart');
+      setTemplateRef(ref)
+      setAnimState('animStart')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPresent]);
+  }, [isPresent])
 
   return (
     <m.div
@@ -71,5 +71,5 @@ export const Template = ({
         />
       )}
     </m.div>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { type SitemapItemWork } from '@/lib/sitemap';
+import { type SitemapItemWork } from '@/lib/sitemap'
 
 const sitemap: SitemapItemWork<'mediasignal'> = {
   color: 'var(--mediasignal-primary)',
@@ -14,6 +14,6 @@ const sitemap: SitemapItemWork<'mediasignal'> = {
   title: 'Mediasignal',
   url: '/mediasignal',
   year: 2019,
-};
+}
 
-export default sitemap;
+export default sitemap

@@ -1,4 +1,4 @@
 export interface FooterProps {
-  border?: boolean;
-  fullWidth?: boolean;
+  border?: boolean
+  fullWidth?: boolean
 }

@@ -1,5 +1,5 @@
-import { TRANS_PRIMARY } from '@/lib/config';
-import { type Variants } from 'motion/react';
+import { TRANS_PRIMARY } from '@/lib/config'
+import { type Variants } from 'motion/react'
 
 export const PARENT_VARIANT: Readonly<Variants> = {
   animate: ({ delay = 0 } = {}) => ({
@@ -8,7 +8,7 @@ export const PARENT_VARIANT: Readonly<Variants> = {
       staggerChildren: 0.1,
     },
   }),
-};
+}
 
 export const TEXT_VARIANT: Readonly<Variants> = {
   animate: ({ transition = TRANS_PRIMARY } = {}) => ({
@@ -22,4 +22,4 @@ export const TEXT_VARIANT: Readonly<Variants> = {
     skewX: -50,
     y,
   }),
-};
+}

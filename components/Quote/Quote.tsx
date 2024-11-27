@@ -1,9 +1,9 @@
-import { m } from 'motion/react';
-import { MOVE_IN_VARIANTS } from '@/lib/config';
-import { type QuoteProps } from './';
-import { useInView } from '@/lib/useInView';
-import { useRef } from 'react';
-import c from 'clsx';
+import { m } from 'motion/react'
+import { MOVE_IN_VARIANTS } from '@/lib/config'
+import { type QuoteProps } from './'
+import { useInView } from '@/lib/useInView'
+import { useRef } from 'react'
+import c from 'clsx'
 
 export const Quote = ({
   animate,
@@ -12,8 +12,8 @@ export const Quote = ({
   size,
   ...props
 }: QuoteProps) => {
-  const ref = useRef(null);
-  const inView = useInView(ref);
+  const ref = useRef(null)
+  const inView = useInView(ref)
 
   return (
     <m.blockquote
@@ -37,5 +37,5 @@ export const Quote = ({
         <div className="Quote-content">{children}</div>
       </div>
     </m.blockquote>
-  );
-};
+  )
+}

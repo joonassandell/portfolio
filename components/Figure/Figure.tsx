@@ -1,18 +1,18 @@
-import { AnimatePresence, m } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react'
 import {
   CLIP_VARIANTS,
   type FigureProps,
   GLARE_VARIANTS,
   PLACEHOLDER_GLARE_VARIANTS,
   PLACEHOLDER_VARIANTS,
-} from './';
-import { forwardRef, type RefObject, useRef, useState } from 'react';
-import { isString } from '@/lib/utils';
-import { MOVE_IN_VARIANTS } from '@/lib/config';
-import { default as NextImage } from 'next/image';
-import { useInView, useInViewVideo } from '@/lib/useInView';
-import { useParallax } from '@/lib/useParallax';
-import c from 'clsx';
+} from './'
+import { forwardRef, type RefObject, useRef, useState } from 'react'
+import { isString } from '@/lib/utils'
+import { MOVE_IN_VARIANTS } from '@/lib/config'
+import { default as NextImage } from 'next/image'
+import { useInView, useInViewVideo } from '@/lib/useInView'
+import { useParallax } from '@/lib/useParallax'
+import c from 'clsx'
 
 export const Figure = forwardRef<HTMLDivElement, FigureProps>(
   (
@@ -54,20 +54,20 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     },
     forwardedRef,
   ) => {
-    const mask = scroll === 'mask';
+    const mask = scroll === 'mask'
     const negativeStartPosition =
-      scrollStartPosition === 'negative' && scrollOffset != 'start-start';
-    const video = src && src.indexOf('mp4') > -1;
-    id = id ?? src?.split('/')?.pop()?.split('.')[0];
-    const createdRef = useRef(null);
-    const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef;
+      scrollStartPosition === 'negative' && scrollOffset != 'start-start'
+    const video = src && src.indexOf('mp4') > -1
+    id = id ?? src?.split('/')?.pop()?.split('.')[0]
+    const createdRef = useRef(null)
+    const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef
     const figureVariants =
-      transition === 'move' ? MOVE_IN_VARIANTS : CLIP_VARIANTS;
-    const inView = useInView(ref, inViewOffset);
-    const [imgLoaded, setImgLoaded] = useState(false);
-    const [glareEnd, setGlareEnd] = useState(false);
-    const refVideo = useRef(null);
-    useInViewVideo(refVideo, inViewOffset);
+      transition === 'move' ? MOVE_IN_VARIANTS : CLIP_VARIANTS
+    const inView = useInView(ref, inViewOffset)
+    const [imgLoaded, setImgLoaded] = useState(false)
+    const [glareEnd, setGlareEnd] = useState(false)
+    const refVideo = useRef(null)
+    useInViewVideo(refVideo, inViewOffset)
 
     const { value: y } = useParallax({
       maxClientHeight: scrollMaxClientHeight,
@@ -78,7 +78,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       speedMultiplier: scrollSpeedMultiplier,
       startPosition: negativeStartPosition ? scrollStartPosition : 0,
       startPositionMultiplier: scrollStartPositionMultiplier,
-    });
+    })
 
     const { value: maskY } = useParallax({
       maxClientHeight: scrollMaxClientHeight,
@@ -91,10 +91,10 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
         scrollImageStartPosition ??
         (negativeStartPosition ? scrollStartPosition : 0),
       startPositionMultiplier: scrollImageStartPositionMultiplier,
-    });
+    })
 
     // Stop caching images in development, uncomment if you keep testing new images
-    // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`);
+    // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`)
 
     return (
       <m.div
@@ -195,8 +195,8 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           </m.figure>
         </m.div>
       </m.div>
-    );
+    )
   },
-);
+)
 
-Figure.displayName = 'Figure';
+Figure.displayName = 'Figure'

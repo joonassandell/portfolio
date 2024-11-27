@@ -3,13 +3,13 @@ import {
   Hero,
   HeroContent,
   type HeroProps,
-} from '@/components/Hero';
-import { m } from 'motion/react';
-import { SITEMAP } from '@/lib/sitemap';
-import { useParallax } from '@/lib/useParallax';
-import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png';
-import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png';
-import Image from 'next/image';
+} from '@/components/Hero'
+import { m } from 'motion/react'
+import { SITEMAP } from '@/lib/sitemap'
+import { useParallax } from '@/lib/useParallax'
+import heroImage from '@/public/more-work/hero/joonassandell-more-work-hero.png'
+import heroImage2 from '@/public/more-work/hero/joonassandell-more-work-hero-2.png'
+import Image from 'next/image'
 
 export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
   const {
@@ -18,17 +18,17 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
     title,
     url,
     year,
-  } = SITEMAP.moreWork;
+  } = SITEMAP.moreWork
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     reverse: true,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
   const { value: y2 } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
     ref,
     startPosition: transition === 'pre' ? 'negative' : 0,
-  });
+  })
 
   return (
     <Hero
@@ -87,5 +87,5 @@ export const MoreWorkHero = ({ onClick, transition, ...props }: HeroProps) => {
         </div>
       )}
     </Hero>
-  );
-};
+  )
+}

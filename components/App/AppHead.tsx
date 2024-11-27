@@ -1,12 +1,12 @@
-import { APP, APP_URL, GOOGLE_ANALYTICS, PRODUCTION_LIVE } from '@/lib/config';
-import { type AppHeadProps } from './';
-import { Partytown } from '@builder.io/partytown/react';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import Script from 'next/script';
+import { APP, APP_URL, GOOGLE_ANALYTICS, PRODUCTION_LIVE } from '@/lib/config'
+import { type AppHeadProps } from './'
+import { Partytown } from '@builder.io/partytown/react'
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import Script from 'next/script'
 
 export const AppHead = ({ themeColor }: AppHeadProps) => {
-  const { asPath } = useRouter();
+  const { asPath } = useRouter()
   const {
     appName,
     description,
@@ -15,7 +15,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
     ogImage,
     title,
     touchIcon,
-  } = APP.meta;
+  } = APP.meta
   const {
     email,
     name,
@@ -23,7 +23,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
     title: { combined },
     twitter,
     url,
-  } = APP.person;
+  } = APP.person
 
   return (
     <>
@@ -138,5 +138,5 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
         </>
       )}
     </>
-  );
-};
+  )
+}

@@ -1,5 +1,5 @@
-import { DISABLE_LOADING } from '@/lib/config';
-import { Head, Html, Main, NextScript } from 'next/document';
+import { DISABLE_LOADING } from '@/lib/config'
+import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
@@ -10,5 +10,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config';
+import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config'
 import {
   BTN_ENTER_EXIT_ARROW,
   BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
@@ -16,97 +16,97 @@ import {
   MASK_ITEM_VARIANT,
   MASK_NAV_VARIANT,
   MASK_OPEN_TRANSITION,
-} from './';
-import { debounce } from 'es-toolkit';
-import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils';
-import { Link } from '@/components/Link';
-import { LINK, SITEMAP } from '@/lib/sitemap';
-import { type LinkEvent } from '@/types';
-import { LinkRoll } from '@/components/LinkRoll';
-import { m, useAnimation } from 'motion/react';
-import { SomeIcons } from '@/components/SomeIcons';
-import { Text } from '@/components/Text';
-import { urlState } from '@/lib/useUrlState';
-import { useApp } from '@/components/App';
-import { useCallbackRef } from 'use-callback-ref';
-import { useEffect, useRef, useState } from 'react';
-import { useMedia } from 'react-use';
-import { useRouter } from 'next/router';
-import { useScrollTo } from '@/lib/useScrollTo';
-import c from 'clsx';
-import FocusTrap from 'focus-trap-react';
+} from './'
+import { debounce } from 'es-toolkit'
+import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils'
+import { Link } from '@/components/Link'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import { type LinkEvent } from '@/types'
+import { LinkRoll } from '@/components/LinkRoll'
+import { m, useAnimation } from 'motion/react'
+import { SomeIcons } from '@/components/SomeIcons'
+import { Text } from '@/components/Text'
+import { urlState } from '@/lib/useUrlState'
+import { useApp } from '@/components/App'
+import { useCallbackRef } from 'use-callback-ref'
+import { useEffect, useRef, useState } from 'react'
+import { useMedia } from 'react-use'
+import { useRouter } from 'next/router'
+import { useScrollTo } from '@/lib/useScrollTo'
+import c from 'clsx'
+import FocusTrap from 'focus-trap-react'
 
-const { header } = SITEMAP;
+const { header } = SITEMAP
 
 export const Header = ({
   navTitle = APP.header.defaultNavTitle,
 }: HeaderProps) => {
-  const router = useRouter();
-  const { events, push } = router;
-  const { html, lockScroll, setTransition, setTransitionInitial } = useApp();
-  const scrollTo = useScrollTo();
-  const mqM = useMedia(MQ.m, true);
+  const router = useRouter()
+  const { events, push } = router
+  const { html, lockScroll, setTransition, setTransitionInitial } = useApp()
+  const scrollTo = useScrollTo()
+  const mqM = useMedia(MQ.m, true)
 
-  const [open, setOpen] = useState(false);
-  const [animating, setAnimating] = useState<'open' | 'close' | false>(false);
-  const [openReveal, setOpenReveal] = useState(false);
-  const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle);
-  const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle;
+  const [open, setOpen] = useState(false)
+  const [animating, setAnimating] = useState<'open' | 'close' | false>(false)
+  const [openReveal, setOpenReveal] = useState(false)
+  const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle)
+  const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle
 
-  const [maskOpen, setMaskOpen] = useState(false);
-  const [mask, setMask] = useState('closedReset');
-  const maskRef = useRef<HTMLDivElement>(null);
-  const maskAnim = useAnimation();
+  const [maskOpen, setMaskOpen] = useState(false)
+  const [mask, setMask] = useState('closedReset')
+  const maskRef = useRef<HTMLDivElement>(null)
+  const maskAnim = useAnimation()
   const maskHasScrollbar =
-    isBrowser && hasScrollbar(html.querySelector('.Header-mask'));
+    isBrowser && hasScrollbar(html.querySelector('.Header-mask'))
 
-  const btnRef = useRef<HTMLButtonElement | null>(null);
-  const [btnFocusVisible, setBtnFocusVisible] = useState(false);
-  const [btnArrowPos, setBtnArrowPos] = useState({ x: 0, y: 0 });
+  const btnRef = useRef<HTMLButtonElement | null>(null)
+  const [btnFocusVisible, setBtnFocusVisible] = useState(false)
+  const [btnArrowPos, setBtnArrowPos] = useState({ x: 0, y: 0 })
   const [btnEnterExit, setBtnEnterExit] = useState<
     HeaderButtonProps['enterExit']
   >({
     arrow: BTN_ENTER_EXIT_ARROW,
     text: BTN_ENTER_EXIT_TEXT,
-  });
+  })
 
   const setBtnArrowPosFromRef = (ref: HTMLDivElement | null) => {
-    if (!ref) return;
-    const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = ref;
+    if (!ref) return
+    const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = ref
     setBtnArrowPos({
       x: offsetLeft + offsetWidth / 2,
       y: offsetTop + offsetHeight / 2,
-    });
-  };
+    })
+  }
 
   const btnArrow = useCallbackRef(null, ref => {
-    if (ref) setBtnArrowPosFromRef(ref);
-  });
+    if (ref) setBtnArrowPosFromRef(ref)
+  })
 
   useEffect(() => {
-    const resize = debounce(() => setBtnArrowPosFromRef(btnArrow.current), 100);
-    resize();
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, [btnArrow]);
+    const resize = debounce(() => setBtnArrowPosFromRef(btnArrow.current), 100)
+    resize()
+    window.addEventListener('resize', resize)
+    return () => window.removeEventListener('resize', resize)
+  }, [btnArrow])
 
   /**
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
    * states are handled after the animation finishes.
    */
   const toggleOpen = ({ btnFocus = true } = {}) => {
-    setOpen(!open);
-    if (!open) setOpenReveal(true);
-    if (open && btnFocusVisible) setBtnFocusVisible(false);
-    if (open && btnFocus) btnRef.current?.focus();
-    !open ? lockScroll(true) : lockScroll(false);
+    setOpen(!open)
+    if (!open) setOpenReveal(true)
+    if (open && btnFocusVisible) setBtnFocusVisible(false)
+    if (open && btnFocus) btnRef.current?.focus()
+    !open ? lockScroll(true) : lockScroll(false)
 
-    !open ? setAnimating('open') : setAnimating('close');
-    setNavRevealTitle(navTitle);
+    !open ? setAnimating('open') : setAnimating('close')
+    setNavRevealTitle(navTitle)
 
-    if (mask === 'closed' || mask === 'closedReset') setMask('open');
-    if (mask === 'open' || mask === 'openReset') setMask('closed');
-  };
+    if (mask === 'closed' || mask === 'closedReset') setMask('open')
+    if (mask === 'open' || mask === 'openReset') setMask('closed')
+  }
 
   /**
    * Handle all link clicks with a single handler. This could also be done
@@ -115,29 +115,29 @@ export const Header = ({
    * of the header is handled below with router events after routes change.
    */
   const handleLinkClick = (e: LinkEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const {
       active,
       url: { href },
-    } = urlState(e.target.href);
+    } = urlState(e.target.href)
 
     // Only scroll to top if header isn't open and current link is active page
     if (!open && active) {
-      scrollTo(0);
-      return;
+      scrollTo(0)
+      return
     }
 
     // Only close header (without routing) if current link is active page
     if (open && active) {
-      toggleOpen();
-      return;
+      toggleOpen()
+      return
     }
 
     // Set proper page transitions before routing
     if (open) {
-      setTransition('instant');
-      setTransitionInitial(false);
+      setTransition('instant')
+      setTransitionInitial(false)
     }
 
     /**
@@ -145,110 +145,110 @@ export const Header = ({
      * to new page. This prevents laggy transition which happens when url changes.
      * Note that the :root.is-transition class disables the pointer-events (hover).
      */
-    const isMaskNavLink = e.target.classList.contains('Header-mask-nav-link');
+    const isMaskNavLink = e.target.classList.contains('Header-mask-nav-link')
     setTimeout(
       () => push(href, undefined, { scroll: false }),
       isMaskNavLink ? 300 : 0,
-    );
-  };
+    )
+  }
 
   /**
    * Handle closing if routes change
    */
   useEffect(() => {
-    if (!open) return;
+    if (!open) return
 
     const changeStart = () => {
       setBtnEnterExit({
         arrow: BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
         text: BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN,
-      });
-    };
+      })
+    }
 
     const changeComplete = () => {
-      toggleOpen({ btnFocus: false });
+      toggleOpen({ btnFocus: false })
       setBtnEnterExit({
         arrow: BTN_ENTER_EXIT_ARROW,
         text: BTN_ENTER_EXIT_TEXT,
-      });
-    };
+      })
+    }
 
-    events.on('routeChangeStart', changeStart);
-    events.on('routeChangeError', changeComplete);
-    events.on('routeChangeComplete', changeComplete);
+    events.on('routeChangeStart', changeStart)
+    events.on('routeChangeError', changeComplete)
+    events.on('routeChangeComplete', changeComplete)
 
     return () => {
-      events.off('routeChangeStart', changeStart);
-      events.off('routeChangeError', changeComplete);
-      events.off('routeChangeComplete', changeComplete);
-    };
+      events.off('routeChangeStart', changeStart)
+      events.off('routeChangeError', changeComplete)
+      events.off('routeChangeComplete', changeComplete)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, events]);
+  }, [open, events])
 
   /**
    * Handle closing with ESC key
    */
   useEffect(() => {
     if (open && !animating) {
-      const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen();
-      html.addEventListener('keydown', esc);
-      return () => html.removeEventListener('keydown', esc);
+      const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen()
+      html.addEventListener('keydown', esc)
+      return () => html.removeEventListener('keydown', esc)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, animating, html]);
+  }, [open, animating, html])
 
   /**
    * Disable keydowns if mask is animating
    */
   useEffect(() => {
     if (animating) {
-      const keys = (e: KeyboardEvent) => e.preventDefault();
-      html.addEventListener('keydown', keys);
-      return () => html.removeEventListener('keydown', keys);
+      const keys = (e: KeyboardEvent) => e.preventDefault()
+      html.addEventListener('keydown', keys)
+      return () => html.removeEventListener('keydown', keys)
     }
-  }, [animating, html]);
+  }, [animating, html])
 
   /**
    * Mask
    */
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       if (mask === 'open') {
-        setMaskOpen(true);
+        setMaskOpen(true)
         // Timeout because of display property (none/flex) change
-        setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5);
+        setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5)
         await maskAnim.start({
           clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
           transition: MASK_OPEN_TRANSITION,
-        });
-        setMask('openReset');
+        })
+        setMask('openReset')
       }
 
       if (mask === 'closed') {
         await maskAnim.start({
           clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
           transition: MASK_CLOSE_TRANSITION,
-        });
-        setMask('closedReset');
+        })
+        setMask('closedReset')
       }
 
       if (mask === 'openReset') {
         maskAnim.set({
           clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-        });
+        })
       }
 
       if (mask === 'closedReset') {
         maskAnim.set({
           clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-        });
+        })
       }
-    })();
-  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim]);
+    })()
+  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim])
 
   useEffect(() => {
-    if (mask === 'closedReset' && !animating) setMaskOpen(false);
-  }, [mask, animating]);
+    if (mask === 'closedReset' && !animating) setMaskOpen(false)
+  }, [mask, animating])
 
   return (
     <FocusTrap
@@ -269,16 +269,16 @@ export const Header = ({
           initial="initial"
           onAnimationComplete={() => {
             if (!open) {
-              setOpenReveal(false);
+              setOpenReveal(false)
 
               /**
                * Delay the closing after the animation so the arrow button's
                * hover transitions doesn't conflict with the arrow button's
                * closing animations
                */
-              setTimeout(() => setAnimating(false), 700);
+              setTimeout(() => setAnimating(false), 700)
             } else {
-              setAnimating(false);
+              setAnimating(false)
             }
           }}
           variants={MAIN_ITEM_VARIANT}
@@ -345,7 +345,7 @@ export const Header = ({
                     openReveal={openReveal}
                     title={item.title}
                   />
-                );
+                )
               })}
             </ul>
           </div>
@@ -376,7 +376,7 @@ export const Header = ({
                         title={item.title}
                         year={item.year}
                       />
-                    );
+                    )
                   })}
                   {!mqM &&
                     header.navMaskMobile.map(item => {
@@ -397,7 +397,7 @@ export const Header = ({
                             {item.title}
                           </LinkRoll>
                         </m.li>
-                      );
+                      )
                     })}
                 </ul>
               </m.nav>
@@ -419,7 +419,7 @@ export const Header = ({
                           {item.title}
                         </LinkRoll>
                       </li>
-                    );
+                    )
                   })}
                 </Text>
                 <div className="Header-footer-right">
@@ -445,5 +445,5 @@ export const Header = ({
         </m.div>
       </header>
     </FocusTrap>
-  );
-};
+  )
+}

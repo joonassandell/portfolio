@@ -1,5 +1,5 @@
-import { type SitemapWithoutArrayKeys } from '@/lib/sitemap';
+import { type SitemapWithoutArrayKeys } from '@/lib/sitemap'
 
 export interface NextProjectProps {
-  id: SitemapWithoutArrayKeys;
+  id: SitemapWithoutArrayKeys
 }

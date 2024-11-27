@@ -1,3 +1,3 @@
-export * from './Link';
-export * from './Link.config';
-export type * from './Link.types';
+export * from './Link'
+export * from './Link.config'
+export type * from './Link.types'

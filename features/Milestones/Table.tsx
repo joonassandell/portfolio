@@ -1,13 +1,13 @@
-import { Badge } from '@/components/Badge';
+import { Badge } from '@/components/Badge'
 import {
   CATEGORY_COLOR,
   MILESTONES_GROUPED,
   MILESTONES_YEARS,
   type MilestoneTableProps,
-} from './';
-import { formatDate } from '@/lib/utils';
-import { Fragment } from 'react';
-import { Link } from '@/components/Link';
+} from './'
+import { formatDate } from '@/lib/utils'
+import { Fragment } from 'react'
+import { Link } from '@/components/Link'
 import {
   Table,
   TableBody,
@@ -16,8 +16,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/Table';
-import { Text } from '@/components/Text';
+} from '@/components/Table'
+import { Text } from '@/components/Text'
 
 export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
   return (
@@ -68,5 +68,5 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
         ))}
       </TableBody>
     </Table>
-  );
-};
+  )
+}

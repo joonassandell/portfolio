@@ -4,15 +4,15 @@ import {
   AboutMilestones,
   AboutSkills,
   AboutTop,
-} from './';
-import { Head } from '@/components/Head';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template } from '@/components/Template';
-import { useSetThemeColor } from '@/components/App';
+} from './'
+import { Head } from '@/components/Head'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template } from '@/components/Template'
+import { useSetThemeColor } from '@/components/App'
 
 export const AboutPage = () => {
-  const { id, meta } = SITEMAP.about;
-  useSetThemeColor(meta.themeColor);
+  const { id, meta } = SITEMAP.about
+  useSetThemeColor(meta.themeColor)
 
   return (
     <Template id={id}>
@@ -23,5 +23,5 @@ export const AboutPage = () => {
       <AboutClients />
       <AboutMilestones />
     </Template>
-  );
-};
+  )
+}

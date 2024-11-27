@@ -1,5 +1,5 @@
-import { type Milestone } from '..';
-import { type Optional } from '@/types';
+import { type Milestone } from '..'
+import { type Optional } from '@/types'
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
@@ -55,10 +55,10 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     event: 'Reached 140k listens on No Matter on Youtube',
     url: 'https://www.youtube.com/watch?v=zkzLjVa44U0',
   },
-];
+]
 
 export const ACHIEVEMENT: Milestone[] = data.map(e => ({
   ...e,
   category: 'achievement',
   categoryName: e.categoryName ?? 'Achievement',
-}));
+}))

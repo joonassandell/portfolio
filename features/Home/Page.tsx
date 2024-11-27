@@ -1,76 +1,76 @@
-import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App';
-import { BiocodeHero } from '@/features/Work/Biocode';
-import { FADE_OUT_VARIANTS } from '@/lib/config';
-import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
-import { type LinkEvent } from '@/types';
-import { m } from 'motion/react';
-import { MediasignalHero } from '@/features/Work/Mediasignal';
-import { MoreWorkHero } from '@/features/Work/MoreWork';
-import { OrasHero } from '@/features/Work/Oras';
-import { SandboxHero } from '@/features/Work/Sandbox';
-import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap';
-import { Template } from '@/components/Template';
-import { useLenis } from 'lenis/react';
-import { useScrollTo } from '@/lib/useScrollTo';
-import { useState } from 'react';
-import c from 'clsx';
+import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App'
+import { BiocodeHero } from '@/features/Work/Biocode'
+import { FADE_OUT_VARIANTS } from '@/lib/config'
+import { Heading } from '@/components/Heading'
+import { Link } from '@/components/Link'
+import { type LinkEvent } from '@/types'
+import { m } from 'motion/react'
+import { MediasignalHero } from '@/features/Work/Mediasignal'
+import { MoreWorkHero } from '@/features/Work/MoreWork'
+import { OrasHero } from '@/features/Work/Oras'
+import { SandboxHero } from '@/features/Work/Sandbox'
+import { SITEMAP, type SitemapWithoutArrayKeys } from '@/lib/sitemap'
+import { Template } from '@/components/Template'
+import { useLenis } from 'lenis/react'
+import { useScrollTo } from '@/lib/useScrollTo'
+import { useState } from 'react'
+import c from 'clsx'
 
 export const HomePage = () => {
-  const { id, meta } = SITEMAP.home;
-  useSetThemeColor(meta.themeColor);
+  const { id, meta } = SITEMAP.home
+  useSetThemeColor(meta.themeColor)
   const scrollTo = useScrollTo({
     lock: true,
     offset: undefined,
     stopOnComplete: true,
-  });
-  const lenis = useLenis();
+  })
+  const lenis = useLenis()
   const {
     detect: { isIos },
     lockTemplate,
     setThemeColor,
     setTransition,
     setTransitionInitial,
-  } = useApp();
-  const [animation, setAnimation] = useState(false);
-  const [extraSpace, setExtraSpace] = useState(false);
-  const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>();
+  } = useApp()
+  const [animation, setAnimation] = useState(false)
+  const [extraSpace, setExtraSpace] = useState(false)
+  const [currentHero, setCurrentHero] = useState<SitemapWithoutArrayKeys>()
 
   const lockIos = (el: HTMLElement) => {
-    if (!isIos) return;
-    const els = el.querySelectorAll('[data-lock-ios]');
-    els.forEach(el => el.classList.add('transform-none'));
-  };
+    if (!isIos) return
+    const els = el.querySelectorAll('[data-lock-ios]')
+    els.forEach(el => el.classList.add('transform-none'))
+  }
 
   const handleClick = (e: LinkEvent) => {
-    e.preventDefault();
-    setTransition(true);
-    setTransitionInitial(false);
+    e.preventDefault()
+    setTransition(true)
+    setTransitionInitial(false)
 
-    const el = e.currentTarget.closest('[data-id]') as HTMLElement;
+    const el = e.currentTarget.closest('[data-id]') as HTMLElement
 
-    const needsExtraSpace = lenis && lenis?.limit < el?.offsetTop;
+    const needsExtraSpace = lenis && lenis?.limit < el?.offsetTop
     if (needsExtraSpace) {
-      setExtraSpace(true);
-      lenis?.resize();
+      setExtraSpace(true)
+      lenis?.resize()
     }
 
-    setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor']);
-    setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys);
-    setAnimation(true);
+    setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor'])
+    setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys)
+    setAnimation(true)
 
     setTimeout(
       () => {
         scrollTo(el, () => {
           setTimeout(() => {
-            lockIos(el);
-            lockTemplate();
-          }, 0);
-        });
+            lockIos(el)
+            lockTemplate()
+          }, 0)
+        })
       },
       needsExtraSpace ? 350 : 0,
-    );
-  };
+    )
+  }
 
   return (
     <Template
@@ -128,5 +128,5 @@ export const HomePage = () => {
         />
       </div>
     </Template>
-  );
-};
+  )
+}

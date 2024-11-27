@@ -1,5 +1,5 @@
-import { Page404 } from '@/features/404';
+import { Page404 } from '@/features/404'
 
 export default function Page() {
-  return <Page404 />;
+  return <Page404 />
 }

@@ -1,9 +1,9 @@
-import { ButtonEnter } from '@/components/Button';
-import { Fragment } from 'react';
-import { Heading } from '@/components/Heading';
-import { type HeroContentProps } from './';
-import { Text } from '@/components/Text';
-import c from 'clsx';
+import { ButtonEnter } from '@/components/Button'
+import { Fragment } from 'react'
+import { Heading } from '@/components/Heading'
+import { type HeroContentProps } from './'
+import { Text } from '@/components/Text'
+import c from 'clsx'
 
 export const HeroContent = ({
   className,
@@ -13,7 +13,7 @@ export const HeroContent = ({
   role,
   transitionPre,
 }: HeroContentProps) => {
-  if (!transitionPre) return null;
+  if (!transitionPre) return null
 
   return (
     <div className={c('Hero-content visible@l', className)}>
@@ -26,18 +26,18 @@ export const HeroContent = ({
       </Heading>
       <Text className="mb:m" size="s" tag="p">
         {role?.map((r, i, arr) => {
-          const br = arr.length - 1 != i ? <br /> : null;
+          const br = arr.length - 1 != i ? <br /> : null
           return (
             <Fragment key={i}>
               {r}
               {br}
             </Fragment>
-          );
+          )
         })}
       </Text>
       <ButtonEnter href={href} onClick={onClick}>
         View {heading} project
       </ButtonEnter>
     </div>
-  );
-};
+  )
+}

@@ -1,6 +1,6 @@
-import { AnimatePresence, m } from 'motion/react';
-import { Heading } from '@/components/Heading';
-import { SPLASH_VARIANTS, type SplashProps, TEXT_VARIANTS } from './';
+import { AnimatePresence, m } from 'motion/react'
+import { Heading } from '@/components/Heading'
+import { SPLASH_VARIANTS, type SplashProps, TEXT_VARIANTS } from './'
 
 export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
   return (
@@ -38,5 +38,5 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
         </m.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}

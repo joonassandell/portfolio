@@ -1,2 +1,2 @@
-export * from './Subtitle';
-export type * from './Subtitle.types';
+export * from './Subtitle'
+export type * from './Subtitle.types'

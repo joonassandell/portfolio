@@ -1,14 +1,14 @@
-import { ArrowRight, Check, Download } from '@/components/Icon';
-import { Button } from '@/components/Button';
-import { Figure } from '@/components/Figure';
-import { Heading } from '@/components/Heading';
-import { Link } from '@/components/Link';
-import { SITEMAP } from '@/lib/sitemap';
-import { Stepper, StepperItem, StepperStep } from '@/components/Stepper';
-import { Text } from '@/components/Text';
-import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png';
-import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png';
-import profile from '@/public/images/joonassandell-2.jpg';
+import { ArrowRight, Check, Download } from '@/components/Icon'
+import { Button } from '@/components/Button'
+import { Figure } from '@/components/Figure'
+import { Heading } from '@/components/Heading'
+import { Link } from '@/components/Link'
+import { SITEMAP } from '@/lib/sitemap'
+import { Stepper, StepperItem, StepperStep } from '@/components/Stepper'
+import { Text } from '@/components/Text'
+import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png'
+import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png'
+import profile from '@/public/images/joonassandell-2.jpg'
 
 export const ResumeContent = () => (
   <div className="Template-content grid-col grid-col:11@s grid-col:9@m">
@@ -289,4 +289,4 @@ export const ResumeContent = () => (
       </p>
     </Text>
   </div>
-);
+)

@@ -1,5 +1,5 @@
-import { type Category, CATEGORY_NAME, type Milestone } from '../';
-import { type Optional } from '@/types';
+import { type Category, CATEGORY_NAME, type Milestone } from '../'
+import { type Optional } from '@/types'
 
 const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   /* =======================================
@@ -85,10 +85,10 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
     date: '2014-09-16',
     event: 'Shipped enhanced Kanto marketing page',
   },
-];
+]
 
 export const FEATURE_RELEASE: Milestone[] = data.map(m => ({
   ...m,
   category: 'feature-release' as Category,
   categoryName: m.categoryName ?? CATEGORY_NAME['feature-release'],
-}));
+}))

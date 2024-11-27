@@ -1,5 +1,5 @@
-import { ApproachPage } from '@/features/Approach';
+import { ApproachPage } from '@/features/Approach'
 
 export default function Page() {
-  return <ApproachPage />;
+  return <ApproachPage />
 }

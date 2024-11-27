@@ -1,2 +1,2 @@
-export * from './SomeIcons';
-export type * from './SomeIcons.types';
+export * from './SomeIcons'
+export type * from './SomeIcons.types'

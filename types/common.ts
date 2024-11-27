@@ -1,12 +1,12 @@
-import { type HeaderProps } from '@/components/Header';
+import { type HeaderProps } from '@/components/Header'
 
 /* =======================================
  * Page
  * ======================================= */
 
 export interface PageProps {
-  images?: Image[];
-  navTitle?: HeaderProps['navTitle'];
+  images?: Image[]
+  navTitle?: HeaderProps['navTitle']
 }
 
 /* =======================================
@@ -14,7 +14,7 @@ export interface PageProps {
  * ======================================= */
 
 export interface Image {
-  height?: number;
-  src: string;
-  width?: number;
+  height?: number
+  src: string
+  width?: number
 }

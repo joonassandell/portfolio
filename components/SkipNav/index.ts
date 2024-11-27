@@ -1,2 +1,2 @@
-export * from './SkipNav';
-export type * from './SkipNav.types';
+export * from './SkipNav'
+export type * from './SkipNav.types'

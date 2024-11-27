@@ -1,13 +1,13 @@
-import { type HTMLMotionProps } from 'motion/react';
-import { type ReactNode } from 'react';
-import { type TagAction, type TagGeneric } from '@/types';
+import { type HTMLMotionProps } from 'motion/react'
+import { type ReactNode } from 'react'
+import { type TagAction, type TagGeneric } from '@/types'
 
 export interface LinkProps extends HTMLMotionProps<'a'> {
-  href: URL['href'];
-  icon?: ReactNode;
-  orientation?: 'horizontal' | 'vertical';
-  tag?: TagAction | TagGeneric;
-  templateTransition?: boolean;
-  truncate?: boolean;
-  underline?: boolean | 'active';
+  href: URL['href']
+  icon?: ReactNode
+  orientation?: 'horizontal' | 'vertical'
+  tag?: TagAction | TagGeneric
+  templateTransition?: boolean
+  truncate?: boolean
+  underline?: boolean | 'active'
 }

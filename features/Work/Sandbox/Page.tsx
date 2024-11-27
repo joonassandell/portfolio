@@ -1,21 +1,21 @@
-import { Figure } from '@/components/Figure';
-import { getImage } from '@/lib/utils';
-import { Head } from '@/components/Head';
-import { Info } from '@/components/Info';
-import { MQ } from '@/lib/config';
-import { NextProject } from '@/components/NextProject';
-import { type PageProps } from '@/types';
-import { SandboxHero } from './';
-import { SITEMAP } from '@/lib/sitemap';
-import { Template, TemplateArea } from '@/components/Template';
-import { useMedia } from 'react-use';
-import { useSetThemeColor } from '@/components/App';
+import { Figure } from '@/components/Figure'
+import { getImage } from '@/lib/utils'
+import { Head } from '@/components/Head'
+import { Info } from '@/components/Info'
+import { MQ } from '@/lib/config'
+import { NextProject } from '@/components/NextProject'
+import { type PageProps } from '@/types'
+import { SandboxHero } from './'
+import { SITEMAP } from '@/lib/sitemap'
+import { Template, TemplateArea } from '@/components/Template'
+import { useMedia } from 'react-use'
+import { useSetThemeColor } from '@/components/App'
 
 export const SandboxPage = ({ images }: PageProps) => {
-  const { id, meta, year } = SITEMAP.sandbox;
-  const { id: nextProjectId } = SITEMAP.biocode;
-  useSetThemeColor(meta.themeColor);
-  const mqM = useMedia(MQ.m, false);
+  const { id, meta, year } = SITEMAP.sandbox
+  const { id: nextProjectId } = SITEMAP.biocode
+  useSetThemeColor(meta.themeColor)
+  const mqM = useMedia(MQ.m, false)
 
   return (
     <Template id={id} variant="unstyled">
@@ -181,5 +181,5 @@ export const SandboxPage = ({ images }: PageProps) => {
       </TemplateArea>
       <NextProject id={nextProjectId} />
     </Template>
-  );
-};
+  )
+}
