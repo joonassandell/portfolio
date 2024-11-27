@@ -1,3 +1,4 @@
+import { HEADER_HEIGHT } from '@/components/Header';
 import { SCROLL_TO_DURATION, SCROLL_TO_EASE } from '@/lib/config';
 import { useLenis } from 'lenis/react';
 import type Lenis from 'lenis';
@@ -21,6 +22,7 @@ export const useScrollTo = ({
     lenis?.scrollTo(target, {
       duration: SCROLL_TO_DURATION,
       easing: SCROLL_TO_EASE,
+      offset: -HEADER_HEIGHT,
       ...options,
       onComplete: e => {
         stopOnComplete && lenis.stop();

@@ -1,11 +1,20 @@
 import { type AnimationProps, type Variants } from 'motion/react';
 import {
+  FONT_SIZE,
   TRANS_PRIMARY,
   TRANS_PRIMARY_FAST,
   TRANS_PRIMARY_FASTEST,
   TRANS_SECONDARY_FAST,
   TRANS_SECONDARY_FASTEST,
 } from '@/lib/config';
+import { getCSSVarValue } from '@/lib/utils';
+
+/* =======================================
+ * General
+ * ======================================= */
+
+export const HEADER_HEIGHT =
+  parseFloat(getCSSVarValue('--Header-height') ?? '0') * FONT_SIZE;
 
 /* =======================================
  * Logo, button, reveal items

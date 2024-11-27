@@ -152,6 +152,7 @@ export const SCROLL_TO_EASE = (x: number) => 1 - Math.pow(1 - x, 4);
  * ======================================= */
 
 export const SLOW_NETWORK_DELAY = 1000;
+export const FONT_SIZE = 16;
 
 /* =======================================
  * Variants

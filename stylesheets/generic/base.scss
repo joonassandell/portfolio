@@ -15,6 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
   min-width: var(--root-min-width);
   overflow-y: scroll;
+  scroll-padding-top: var(--Header-height);
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   text-wrap: pretty;
