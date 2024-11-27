@@ -1,3 +1,4 @@
+import { APP_URL } from '@/lib/config';
 import { type Entries, type Image } from '@/types';
 
 export const getImage = (image: Image['src'], images?: Image[]) =>
@@ -101,4 +102,16 @@ export const resetFocusToBody = () => {
   document.body.tabIndex = -1;
   document.body.focus();
   document.body.removeAttribute('tabindex');
+};
+
+export const scrollIntoView = (
+  url: ConstructorParameters<typeof URL>[0],
+  options?: ScrollIntoViewOptions,
+) => {
+  const { hash } = new URL(url, APP_URL);
+
+  if (hash) {
+    const el = document.querySelector(hash);
+    el?.scrollIntoView(options);
+  }
 };

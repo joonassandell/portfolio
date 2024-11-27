@@ -1,12 +1,5 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
 import {
-  APP_URL,
-  DISABLE_LOADING,
-  EASE_CSS,
-  PRODUCTION,
-  SLOW_NETWORK_DELAY,
-} from '@/lib/config';
-import {
   type AppContextProps,
   AppHead,
   type AppHeadProps,
@@ -19,8 +12,19 @@ import {
   useEffect,
   useState,
 } from 'react';
+import {
+  DISABLE_LOADING,
+  EASE_CSS,
+  PRODUCTION,
+  SLOW_NETWORK_DELAY,
+} from '@/lib/config';
 import { Header } from '@/components/Header';
-import { isBrowser, resetFocusToBody, scrollbarWidth } from '@/lib/utils';
+import {
+  isBrowser,
+  resetFocusToBody,
+  scrollbarWidth,
+  scrollIntoView,
+} from '@/lib/utils';
 import { ReactLenis, useLenis } from 'lenis/react';
 import { SkipNav } from '@/components/SkipNav';
 import { Splash } from '@/components/Splash';
@@ -260,15 +264,11 @@ export const App = ({
     if (!animationComplete) return;
     lenis?.isStopped && lenis.start();
     resetFocusToBody();
-
-    const url = new URL(asPath, APP_URL);
-    const el = html.querySelector(url.hash || '#null') as HTMLElement;
-
-    if (el) el.scrollIntoView();
+    scrollIntoView(asPath);
     if (transition) setTransition(false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animationComplete, html]);
+  }, [animationComplete]);
 
   return (
     <LazyMotion features={domAnimation} strict>
