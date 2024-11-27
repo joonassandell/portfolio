@@ -19,7 +19,11 @@ import c from 'clsx';
 export const HomePage = () => {
   const { id, meta } = SITEMAP.home;
   useSetThemeColor(meta.themeColor);
-  const scrollTo = useScrollTo({ lock: true, stopOnComplete: true });
+  const scrollTo = useScrollTo({
+    lock: true,
+    offset: undefined,
+    stopOnComplete: true,
+  });
   const lenis = useLenis();
   const {
     detect: { isIos },
