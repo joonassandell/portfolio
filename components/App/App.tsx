@@ -1,5 +1,12 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react';
 import {
+  APP_URL,
+  DISABLE_LOADING,
+  EASE_CSS,
+  PRODUCTION,
+  SLOW_NETWORK_DELAY,
+} from '@/lib/config';
+import {
   type AppContextProps,
   AppHead,
   type AppHeadProps,
@@ -12,12 +19,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import {
-  DISABLE_LOADING,
-  EASE_CSS,
-  PRODUCTION,
-  SLOW_NETWORK_DELAY,
-} from '@/lib/config';
 import { Header } from '@/components/Header';
 import {
   isBrowser,
@@ -29,6 +30,7 @@ import { ReactLenis, useLenis } from 'lenis/react';
 import { SkipNav } from '@/components/SkipNav';
 import { Splash } from '@/components/Splash';
 import { useRouter } from 'next/router';
+import { useScrollTo } from '@/lib/useScrollTo';
 import NProgress from 'nprogress';
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -58,7 +60,7 @@ export const App = ({
     transitionInitial: false,
   });
   const { html, loading, loadingEnd, templateRef, transition } = appState;
-  const { asPath, beforePopState, events, push } = useRouter();
+  const { asPath, beforePopState, events, pathname, push } = useRouter();
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
   >();
@@ -236,13 +238,24 @@ export const App = ({
   }, [events]);
 
   /**
-   * Set template transition by default when navigating back/forward
+   * Set template transition by default when navigating back/forward and handle
+   * hash links
    */
   const [popStateTimeout, setPopStateTimeout] =
     useState<ReturnType<typeof setTimeout>>();
+  const scrollTo = useScrollTo();
+
   useEffect(() => {
     beforePopState(({ as, options, url }) => {
       options.scroll = false;
+      const { hash, pathname: newPathname } = new URL(as, APP_URL);
+      const currentPathname = pathname;
+
+      if (hash && newPathname === currentPathname) {
+        const el = document.querySelector(hash) as HTMLElement;
+        el && scrollTo(el);
+        return false;
+      }
 
       if (transition === 'template') {
         setPopStateTimeout(
@@ -257,8 +270,9 @@ export const App = ({
         return true;
       }
     });
+
     return () => popStateTimeout && clearTimeout(popStateTimeout);
-  }, [transition, beforePopState, push, popStateTimeout]);
+  }, [transition, beforePopState, push, popStateTimeout, scrollTo, pathname]);
 
   useEffect(() => {
     if (!animationComplete) return;
