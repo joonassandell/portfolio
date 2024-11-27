@@ -240,8 +240,8 @@ export const App = ({
   }, [events]);
 
   /**
-   * Set template transition by default when navigating back/forward and handle
-   * hash links
+   * Set template transition by default when navigating back/forward and apply
+   * some delay between the transitions. Also handle hash links.
    */
   const [popStateTimeout, setPopStateTimeout] =
     useState<ReturnType<typeof setTimeout>>();
@@ -261,6 +261,7 @@ export const App = ({
 
       if (newPathname != currentPathname) {
         if (transition === 'template') {
+          popStateTimeout && clearTimeout(popStateTimeout);
           setPopStateTimeout(
             setTimeout(() => {
               setTransition('template');
@@ -276,8 +277,6 @@ export const App = ({
         return false;
       }
     });
-
-    return () => popStateTimeout && clearTimeout(popStateTimeout);
   }, [transition, beforePopState, push, popStateTimeout, scrollTo, pathname]);
 
   useEffect(() => {
