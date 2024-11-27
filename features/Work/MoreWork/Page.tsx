@@ -102,9 +102,9 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX design', 'Web development']}
           text={
             <p>
-              HW-Company Ltd is a wholesale service company that imports and
-              sells internationally known and high-quality accessories, shoes
-              and equipment for outdoor activities.
+              <em>HW-Company</em> is a wholesale service company that imports
+              and sells internationally known and high-quality accessories,
+              shoes and equipment for outdoor activities.
             </p>
           }
           type={['Website', 'E-commerce']}
@@ -158,11 +158,11 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX/Brand design', 'Web development']}
           text={
             <p>
-              Omoroi is your friend in software development and automation and
-              they love developing software and everything that comes with it.
-              Omoroi wanted me to design and develop them a website that
-              reflected their company brand, so I delivered one with some{' '}
-              <q>version control</q> inspired aesthetics.
+              <em>Omoroi</em> is your friend in software development and
+              automation and they love developing software and everything that
+              comes with it. Omoroi wanted me to design and develop them a
+              website that reflected their company brand, so I delivered one
+              with some <q>version control</q> inspired aesthetics.
             </p>
           }
           type={['Website', 'Branding']}
@@ -190,8 +190,8 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX/Brand design', 'Web development']}
           text={
             <p>
-              Hankkija Finnish Feed Innovations have their roots in the long
-              tradition of developing novel solutions in Finnish bioscience
+              <em>Hankkija Finnish Feed Innovations</em> have their roots in the
+              long tradition of developing novel solutions in Finnish bioscience
               industry.
             </p>
           }
@@ -251,9 +251,9 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['Product design', 'Software development']}
           text={
             <p>
-              Natural Resources Institute Finland (Luke) is a research
-              organisation that builds sustainable future and well-being from
-              renewable natural resources.
+              <em>Natural Resources Institute Finland</em> (<em>Luke</em>) is a
+              research organisation that builds sustainable future and
+              well-being from renewable natural resources.
             </p>
           }
           type={['SaaS', 'Branding']}
@@ -263,7 +263,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           <Text animate>
             <p>
               Luke needed an application for their food waste research project,
-              so we build them one with Laravel and React.
+              so we build them one with <em>Laravel</em> and <em>React</em>.
             </p>
             <p>
               In the feedback survey 97% of the users mentioned that the user
@@ -289,9 +289,9 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX design', 'Product design', 'Web development']}
           text={
             <p>
-              The Academic Bookstore’s ambition is to be a quality bookstore in
-              modern time. The Academic Bookstore has a long-standing commitment
-              to reading and life-long learning.
+              <em>The Academic Bookstore</em>’s ambition is to be a quality
+              bookstore in modern time. The Academic Bookstore has a
+              long-standing commitment to reading and life-long learning.
             </p>
           }
           type={['Website', 'E-commerce', 'SaaS']}
@@ -317,10 +317,10 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <div className="grid-col grid-col:4@m">
           <Text animate>
             <p>
-              Bonnier Books signed a deal to acquire the operations of Finnish
-              bookstore chain Academic Bookstore from Stockmann. The client
-              wanted us to create them a new website to reflect this change in
-              operations.
+              <em>Bonnier Books</em> signed a deal to acquire the operations of
+              Finnish bookstore chain Academic Bookstore from <em>Stockmann</em>
+              . The client wanted us to create them a new website to reflect
+              this change in operations.
             </p>
             <p>
               This change required rapid actions, so we quickly crafted initial
@@ -367,8 +367,8 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           text={
             <>
               <p>
-                Rubik is a product information management (PIM) system which
-                helps clients to easily manage, integrate and share their
+                <em>Rubik</em> is a product information management (PIM) system
+                which helps clients to easily manage, integrate and share their
                 product portfolios. I was leading the product design and was
                 partially involved in the front-end development.
               </p>
@@ -409,9 +409,10 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['UI/UX design', 'Web development']}
           text={
             <p>
-              Tampere Adult Education Centre, <em>TAKK</em>, is a multisectoral
-              vocational educator and working life developer. Annually, there
-              are over 11k students, and the number of employees is around 260.
+              <em>Tampere Adult Education Centre</em> (<em>TAKK</em>), is a
+              multisectoral vocational educator and working life developer.
+              Annually, there are over 11k students, and the number of employees
+              is around 260.
             </p>
           }
           type={['Website', 'Web service']}
@@ -446,10 +447,10 @@ export const MoreWorkPage = ({ images }: PageProps) => {
           role={['Product design', 'Software development']}
           text={
             <p>
-              Finnpark designs and produces smart parking services that make
-              movement easier and offer offices for parking and business needs.
-              We built a parking hall guiding service for the client which helps
-              drivers to navigate easily to the wanted destination.
+              <em>Finnpark</em> designs and produces smart parking services that
+              make movement easier and offer offices for parking and business
+              needs. We built a parking hall guiding service for the client
+              which helps drivers to navigate easily to the wanted destination.
             </p>
           }
           type={['SaaS']}

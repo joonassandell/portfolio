@@ -261,10 +261,10 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             <Text animate className="mb:0" color="mute" tag="p">
               Our goal is to make the user comfortable with clear navigation and
               data structure. With real-time updates to emission values and
-              detailed breakdowns for each LCA stage, users can feel encouraged
-              by the progress they’ve made, even after entering just a single
-              input. Main actions, and other elements are placed for easy
-              discovery, while onboarding includes example calculations and
+              detailed breakdowns for each <em>LCA</em> stage, users can feel
+              encouraged by the progress they’ve made, even after entering just
+              a single input. Main actions, and other elements are placed for
+              easy discovery, while onboarding includes example calculations and
               instructions to help users getting started with the software.
             </Text>
           </div>

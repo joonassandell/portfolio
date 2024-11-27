@@ -29,9 +29,9 @@ export const BiocodePage = ({ images }: PageProps) => {
         client={{ href: 'https://biocode.io', name: title }}
         heading={
           <>
-            Biocode is <em>the</em> carbon footprint calculator for food brands
-            and producers. It’s an easy tool for calculating emissions and
-            clearly communicating environmental values to end customers.
+            Biocode is the carbon footprint calculator for food brands and
+            producers. It’s an easy tool for calculating emissions and clearly
+            communicating environmental values to end customers.
           </>
         }
         role={['Product design', 'Software development', 'Web development']}
@@ -39,8 +39,8 @@ export const BiocodePage = ({ images }: PageProps) => {
         tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
         text={
           <p>
-            I worked for Biocode as a Senior Product Designer and Front-end
-            Developer. I was crafting our{' '}
+            I worked for <em>Biocode</em> as a Senior Product Designer and
+            Front-end Developer. I was crafting our{' '}
             <Link href="#brand-and-website" underline={false}>
               brand and website
             </Link>

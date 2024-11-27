@@ -280,7 +280,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       </div>
     </TemplateArea>
     <TemplateArea className="align-items:start" pt="2xl-5xl">
-      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l grid">
+      <div className="grid-col grid-col:10@m -start:3@m grid-col:4@l -start:1@l grid -gap:column:0">
         <Figure
           alt="Biocode design system colors"
           border

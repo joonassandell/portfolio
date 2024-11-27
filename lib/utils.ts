@@ -105,7 +105,7 @@ export const resetFocusToBody = () => {
 };
 
 export const scrollIntoView = (
-  url: ConstructorParameters<typeof URL>[0],
+  url: string | URL,
   options?: ScrollIntoViewOptions,
 ) => {
   const { hash } = new URL(url, APP_URL);
