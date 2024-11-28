@@ -1,5 +1,5 @@
 import { MotionValue, useScroll, useSpring, useTransform } from 'motion/react'
-import { type MutableRefObject, useEffect, useRef, useState } from 'react'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 import { SCROLL_SPEED } from '@/lib/config'
 import { useApp } from '@/components/App'
 import { useWindowSize } from '@/lib/useWindowSize'
@@ -10,7 +10,7 @@ export interface UseParallaxOptions {
   height?: 'element' | 'viewport'
   maxClientHeight?: number
   /**
-   * https://www.framer.com/motion/use-scroll/##scroll-offsets
+   * https://motion.dev/docs/react-use-scroll#scroll-offsets
    */
   offset?:
     | 'start-end'
@@ -19,7 +19,7 @@ export interface UseParallaxOptions {
     | 'start-80'
     | 'end-start'
     | any[]
-  ref?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>
+  ref?: RefObject<HTMLElement | null>
   reverse?: boolean
   speed?: 'slowest' | 'slow' | 'medium' | 'fast' | 'fastest' | number
   speedMultiplier?: number
@@ -27,7 +27,7 @@ export interface UseParallaxOptions {
   startPositionMultiplier?: number
 }
 
-export const useParallax = ({
+export const useParallax = <Ref = HTMLDivElement>({
   endPositionMultiplier = 1,
   height = 'viewport',
   maxClientHeight = 1200,
@@ -87,7 +87,9 @@ export const useParallax = ({
     target: assignedRef,
   })
   const { clientHeight = 0 } = useWindowSize()
-  const { height: elementHeight = 0 } = useResizeObserver({ ref: assignedRef })
+  const { height: elementHeight = 0 } = useResizeObserver({
+    ref: assignedRef as RefObject<HTMLElement>,
+  })
 
   const scrollHeight =
     height === 'element'
@@ -119,7 +121,7 @@ export const useParallax = ({
   )
 
   return {
-    ref: assignedRef,
+    ref: assignedRef as RefObject<Ref>,
     value: mounted ? transformValue : new MotionValue(),
   }
 }

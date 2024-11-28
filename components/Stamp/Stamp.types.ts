@@ -7,6 +7,6 @@ export interface StampProps {
   href?: URL['href']
   onClick: HTMLMotionProps<'a'>['onClick']
   overlay: boolean
-  parentRef: RefObject<Element>
+  parentRef: RefObject<HTMLElement | null>
   transitionStart?: boolean
 }

@@ -7,7 +7,7 @@ import {
   type StampProps,
   SVG_VARIANTS,
 } from './'
-import { useEffect, useRef } from 'react'
+import { type RefObject, useEffect, useRef } from 'react'
 import { useInView } from '@/lib/useInView'
 import { useMeasure, useMouse } from 'react-use'
 import c from 'clsx'
@@ -27,7 +27,9 @@ export const Stamp = ({
   const inView = useInView(innerRef, 0, false)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const { elX: mouseX, elY: mouseY } = useMouse(parentRef)
+  const { elX: mouseX, elY: mouseY } = useMouse(
+    parentRef as RefObject<HTMLElement>,
+  )
   const springOpts = {
     damping: 100,
     stiffness: 150,

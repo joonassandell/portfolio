@@ -1,9 +1,9 @@
 import { type AppHeadProps } from '@/components/App'
 import {
   type MouseEventHandler,
-  type MutableRefObject,
   type PropsWithChildren,
   type ReactNode,
+  type RefObject,
 } from 'react'
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap'
 import { type Variants } from 'motion/react'
@@ -23,7 +23,7 @@ export interface HeroProps {
   headingVariants?: Readonly<Variants>
   href?: URL['href']
   id?: SitemapWithoutArrayKeys
-  innerRef?: MutableRefObject<(HTMLDivElement & HTMLElement) | null>
+  innerRef?: RefObject<HTMLDivElement | null>
   onClick?: MouseEventHandler<HTMLElement>
   stampAddVarsToParent?: boolean
   stampOverlay?: boolean

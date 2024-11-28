@@ -5,9 +5,9 @@ import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { mapRange } from '@/lib/utils'
 import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config'
 import { type NextProjectProps } from './'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 import { SITEMAP } from '@/lib/sitemap'
 import { useApp } from '@/components/App'
-import { useEffect, useRef, useState } from 'react'
 import { useMeasure, useMedia, useMouseHovered } from 'react-use'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
@@ -23,10 +23,13 @@ export const NextProject = ({ id }: NextProjectProps) => {
     useMeasure<HTMLDivElement>()
   const figureWidthHalf = figureWidth / 2
   const figureHeightHalf = figureHeight / 2
-  const { elX: mousePosX, elY: mousePosY } = useMouseHovered(ref, {
-    bound: true,
-    whenHovered: true,
-  })
+  const { elX: mousePosX, elY: mousePosY } = useMouseHovered(
+    ref as RefObject<HTMLDivElement>,
+    {
+      bound: true,
+      whenHovered: true,
+    },
+  )
   const spring = { damping: 120, stiffness: 800 }
   const mqS = useMedia(MQ.s, false)
 

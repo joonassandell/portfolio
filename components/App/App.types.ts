@@ -21,7 +21,7 @@ export interface AppContextProps {
   setThemeColor: Dispatch<SetStateAction<AppHeadProps['themeColor']>>
   setTransition: (value: AppContextProps['transition']) => void
   setTransitionInitial: (value: AppContextProps['transitionInitial']) => void
-  templateRef: RefObject<HTMLDivElement> | null
+  templateRef: RefObject<HTMLDivElement | null> | null
   transition: boolean | 'template' | 'instant'
   transitionInitial: boolean
 }

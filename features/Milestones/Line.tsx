@@ -245,7 +245,7 @@ const PointSymbol = ({
  */
 function Tooltip(props: {
   children: ReactNode
-  container: RefObject<HTMLDivElement>
+  container: RefObject<HTMLDivElement | null>
   point: { x: number; y: number }
 }) {
   const ref = useRef<HTMLDivElement>(null)
