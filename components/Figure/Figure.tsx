@@ -60,7 +60,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     const video = src && src.indexOf('mp4') > -1
     id = id ?? src?.split('/')?.pop()?.split('.')[0]
     const createdRef = useRef(null)
-    const ref = (forwardedRef as RefObject<HTMLDivElement | null>) ?? createdRef
+    const ref = (forwardedRef as RefObject<HTMLDivElement>) ?? createdRef
     const figureVariants =
       transition === 'move' ? MOVE_IN_VARIANTS : CLIP_VARIANTS
     const inView = useInView(ref, inViewOffset)

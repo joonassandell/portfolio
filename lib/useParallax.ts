@@ -19,7 +19,7 @@ export interface UseParallaxOptions {
     | 'start-80'
     | 'end-start'
     | any[]
-  ref?: RefObject<HTMLElement | null>
+  ref?: RefObject<HTMLElement>
   reverse?: boolean
   speed?: 'slowest' | 'slow' | 'medium' | 'fast' | 'fastest' | number
   speedMultiplier?: number
