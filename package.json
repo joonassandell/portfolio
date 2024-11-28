@@ -67,7 +67,7 @@
     "typescript": "^5.7.2"
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
