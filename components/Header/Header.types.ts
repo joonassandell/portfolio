@@ -2,7 +2,6 @@ import { type BTN_ENTER_EXIT_ARROW, type BTN_ENTER_EXIT_TEXT } from './'
 import {
   type ComponentPropsWithoutRef,
   type Dispatch,
-  type MutableRefObject,
   type SetStateAction,
 } from 'react'
 import { type LinkRollProps } from '@/components/LinkRoll'
@@ -30,7 +29,7 @@ export interface HeaderMaskNavItemProps {
 }
 
 export interface HeaderButtonProps {
-  arrow: MutableRefObject<null>
+  arrowRef: (ref: HTMLDivElement | null) => (() => void) | undefined
   enterExit: {
     arrow: typeof BTN_ENTER_EXIT_ARROW
     text: typeof BTN_ENTER_EXIT_TEXT

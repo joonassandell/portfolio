@@ -19,8 +19,8 @@ import {
 } from './'
 import { debounce } from 'es-toolkit'
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils'
-import { Link } from '@/components/Link'
 import { LINK, SITEMAP } from '@/lib/sitemap'
+import { Link } from '@/components/Link'
 import { type LinkEvent } from '@/types'
 import { LinkRoll } from '@/components/LinkRoll'
 import { m, useAnimation } from 'motion/react'
@@ -28,8 +28,7 @@ import { SomeIcons } from '@/components/SomeIcons'
 import { Text } from '@/components/Text'
 import { urlState } from '@/lib/useUrlState'
 import { useApp } from '@/components/App'
-import { useCallbackRef } from 'use-callback-ref'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useMedia } from 'react-use'
 import { useRouter } from 'next/router'
 import { useScrollTo } from '@/lib/useScrollTo'
@@ -70,25 +69,24 @@ export const Header = ({
     text: BTN_ENTER_EXIT_TEXT,
   })
 
-  const setBtnArrowPosFromRef = (ref: HTMLDivElement | null) => {
+  const btnArrowRef = useCallback((ref: HTMLDivElement | null) => {
     if (!ref) return
-    const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = ref
-    setBtnArrowPos({
-      x: offsetLeft + offsetWidth / 2,
-      y: offsetTop + offsetHeight / 2,
-    })
-  }
 
-  const btnArrow = useCallbackRef(null, ref => {
-    if (ref) setBtnArrowPosFromRef(ref)
-  })
+    const setBtnArrowPosFromRef = (arrowRef: typeof ref) => {
+      const { offsetHeight, offsetLeft, offsetTop, offsetWidth } = arrowRef
 
-  useEffect(() => {
-    const resize = debounce(() => setBtnArrowPosFromRef(btnArrow.current), 100)
-    resize()
+      setBtnArrowPos({
+        x: offsetLeft + offsetWidth / 2,
+        y: offsetTop + offsetHeight / 2,
+      })
+    }
+
+    setBtnArrowPosFromRef(ref)
+
+    const resize = debounce(() => setBtnArrowPosFromRef(ref), 100)
     window.addEventListener('resize', resize)
     return () => window.removeEventListener('resize', resize)
-  }, [btnArrow])
+  }, [])
 
   /**
    * Handle open/close states. Note that in onAnimationComplete(s) some of the
@@ -322,7 +320,7 @@ export const Header = ({
               )}
             </div>
             <HeaderButton
-              arrow={btnArrow}
+              arrowRef={btnArrowRef}
               enterExit={btnEnterExit}
               isDefaultNavTitle={isDefaultNavTitle}
               mqM={mqM}

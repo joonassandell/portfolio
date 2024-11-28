@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
   (
     {
-      arrow,
+      arrowRef,
       enterExit,
       isDefaultNavTitle,
       mqM,
@@ -67,7 +67,7 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
             aria-hidden
             className="Header-button-arrow Button"
             key={mqM && !isDefaultNavTitle ? asPath : undefined}
-            ref={arrow}
+            ref={arrowRef}
             {...(mqM && { ...enterExit.arrow })}
           >
             <span className="Header-button-bg" />
