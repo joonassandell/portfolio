@@ -20,10 +20,10 @@
   --gray-200: #e5e5e5;
   --gray-300: #d3d3d3;
   --gray-400: #b7b7b7;
-  --gray-500: #{lighten(#666666, 20)};
+  --gray-500: #999999;
   --gray-600: #666666;
   --gray-700: #4d4d4d;
-  --gray-800: #{darken(#333333, 10)};
+  --gray-800: #1a1a1a;
   --gray-900: #111111;
   --gray-950: var(--black);
 

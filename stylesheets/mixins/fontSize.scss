@@ -36,7 +36,7 @@
   }
 
   @if $lineHeight {
-    @if unit($minFontSize) == 'rem' {
+    @if math.unit($minFontSize) == 'rem' {
       line-height: math.div($lineHeight, px($minFontSize));
     } @else {
       line-height: math.div($lineHeight, $minFontSize);

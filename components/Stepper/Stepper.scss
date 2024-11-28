@@ -35,7 +35,7 @@
   box-shadow: 0 0 0 rem($space-xs) var(--bg-50);
   display: grid;
   height: rem($space-m);
-  inset: rem($space-4xs) auto 0 rem(($space-m + ($space-m / 2)) * -1);
+  inset: rem($space-4xs) auto 0 rem(($space-m + ($space-m * 0.5)) * -1);
   line-height: rem($space-m);
   place-content: center;
   position: absolute;
