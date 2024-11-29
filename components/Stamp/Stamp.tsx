@@ -44,8 +44,8 @@ export const Stamp = ({
   )
 
   // Stop animating on mount
-  !mouseX && !mouseY && moveX.set(0)
-  !mouseY && !mouseX && moveY.set(0)
+  if (!mouseX && !mouseY) moveX.set(0)
+  if (!mouseY && !mouseX) moveY.set(0)
 
   const setParentAttributes = (moveX = 0, moveY = 0) => {
     if (!parentRef.current || !innerRef.current) return

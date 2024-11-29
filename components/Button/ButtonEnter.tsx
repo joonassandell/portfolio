@@ -46,8 +46,8 @@ export const ButtonEnter = ({
           }
         }}
         onClick={(e: ButtonEvent & LinkEvent) => {
-          templateTransition && setTransition('template')
-          onClick && onClick(e)
+          if (templateTransition) setTransition('template')
+          if (onClick) onClick(e)
         }}
         onFocus={() => {
           if (!hover) {

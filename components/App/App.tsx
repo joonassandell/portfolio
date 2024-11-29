@@ -255,13 +255,13 @@ export const App = ({
 
       if (hash && newPathname === currentPathname) {
         const el = document.querySelector(hash) as HTMLElement
-        el && scrollTo(el)
+        if (el) scrollTo(el)
         return false
       }
 
       if (newPathname != currentPathname) {
         if (transition === 'template') {
-          popStateTimeout && clearTimeout(popStateTimeout)
+          if (popStateTimeout) clearTimeout(popStateTimeout)
           setPopStateTimeout(
             setTimeout(() => {
               setTransition('template')
@@ -281,7 +281,7 @@ export const App = ({
 
   useEffect(() => {
     if (!animationComplete) return
-    lenis?.isStopped && lenis.start()
+    if (lenis?.isStopped) lenis.start()
     resetFocusToBody()
     scrollIntoView(asPath)
     if (transition) setTransition(false)

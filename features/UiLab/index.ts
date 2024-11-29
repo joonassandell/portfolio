@@ -1,3 +1,3 @@
 export * from './Page'
 export * from './Box'
-export * from './types'
+export type * from './types'

@@ -84,7 +84,7 @@ export const HeaderMaskNavItem = ({
         href={href}
         onBlur={() => setHover('out')}
         onClick={e => {
-          onClick && onClick(e)
+          if (onClick) onClick(e)
           if (!hasTouch) setHover('out')
         }}
         onFocus={() => setHover('in')}
@@ -118,7 +118,7 @@ export const HeaderMaskNavItem = ({
         }}
         onAnimationStart={() => {
           if (hover === 'in') {
-            revealTimeout && clearTimeout(revealTimeout)
+            if (revealTimeout) clearTimeout(revealTimeout)
             setReveal(true)
           }
         }}

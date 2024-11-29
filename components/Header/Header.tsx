@@ -98,7 +98,6 @@ export const Header = ({
     if (open && btnFocusVisible) setBtnFocusVisible(false)
     if (open && btnFocus) btnRef.current?.focus()
     !open ? lockScroll(true) : lockScroll(false)
-
     !open ? setAnimating('open') : setAnimating('close')
     setNavRevealTitle(navTitle)
 

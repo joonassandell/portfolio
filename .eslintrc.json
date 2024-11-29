@@ -23,6 +23,11 @@
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      { "allowTernary": true }
+    ],
+    "no-unused-expressions": "off",
     "import/newline-after-import": "error",
     "sort-imports-es6-autofix/sort-imports-es6": [
       2,

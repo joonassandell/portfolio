@@ -1,3 +1,3 @@
 import { type ButtonProps } from '@/components/Button'
 
-export interface SkipNavProps extends Pick<ButtonProps, 'children' | 'href'> {}
+export type SkipNavProps = Pick<ButtonProps, 'children' | 'href'>

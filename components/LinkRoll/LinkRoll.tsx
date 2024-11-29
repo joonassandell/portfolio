@@ -72,12 +72,11 @@ export const LinkRoll = ({
         onBlur={() => setHover(false)}
         onClick={e => {
           e.stopPropagation()
-          shouldNavigate &&
-            !active &&
-            templateTransition &&
+          if (shouldNavigate && !active && templateTransition) {
             setTransition('template')
-          hasHash && scrollTo(hash as HTMLElement)
-          onClick && onClick(e)
+          }
+          if (hasHash) scrollTo(hash as HTMLElement)
+          if (onClick) onClick(e)
         }}
         onFocus={() => setHover(true)}
         onMouseEnter={() => setHover(true)}
@@ -87,15 +86,13 @@ export const LinkRoll = ({
       >
         <m.span className="LinkRoll-text" variants={LINK_VARIANTS}>
           {characters.map((char, i) => {
-            isEmptyString(char) ? (char = '\u00A0') : false
-
             return (
               <m.span
                 className="LinkRoll-char"
                 key={i}
                 variants={CHARACTER_OUT_VARIANTS}
               >
-                {char}
+                {isEmptyString(char) ? '\u00A0' : char}
               </m.span>
             )
           })}
@@ -111,16 +108,13 @@ export const LinkRoll = ({
               variants={LINK_VARIANTS}
             >
               {characters.map((char, i) => {
-                const empty = isEmptyString(char)
-                empty ? (char = '\u00A0') : false
-
                 return (
                   <m.span
-                    className={c('LinkRoll-char', { '-empty': empty })}
+                    className="LinkRoll-char"
                     key={i}
                     variants={CHARACTER_IN_VARIANTS}
                   >
-                    {char}
+                    {isEmptyString(char) ? '\u00A0' : char}
                   </m.span>
                 )
               })}

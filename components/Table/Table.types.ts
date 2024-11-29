@@ -1,13 +1,13 @@
 import { type ComponentPropsWithoutRef } from 'react'
 import { type HTMLMotionProps } from 'motion/react'
 
-export interface TableProps extends ComponentPropsWithoutRef<'table'> {}
+export type TableProps = ComponentPropsWithoutRef<'table'>
 
-export interface TableHeaderProps extends ComponentPropsWithoutRef<'thead'> {}
+export type TableHeaderProps = ComponentPropsWithoutRef<'thead'>
 
-export interface TableHeadProps extends ComponentPropsWithoutRef<'th'> {}
+export type TableHeadProps = ComponentPropsWithoutRef<'th'>
 
-export interface TableBodyProps extends ComponentPropsWithoutRef<'tbody'> {}
+export type TableBodyProps = ComponentPropsWithoutRef<'tbody'>
 
 export interface TableRowProps extends HTMLMotionProps<'tr'> {
   animate?: boolean
@@ -15,9 +15,9 @@ export interface TableRowProps extends HTMLMotionProps<'tr'> {
   href?: URL['href']
 }
 
-export interface TableCellProps extends ComponentPropsWithoutRef<'td'> {}
+export type TableCellProps = ComponentPropsWithoutRef<'td'>
 
-export interface TableFooterProps extends ComponentPropsWithoutRef<'tfoot'> {}
+export type TableFooterProps = ComponentPropsWithoutRef<'tfoot'>
 
 export interface TableCaptionProps extends HTMLMotionProps<'caption'> {
   animate?: boolean

@@ -15,4 +15,4 @@ export interface QuoteTextProps extends PropsWithChildren {
   className?: string
 }
 
-export interface QuoteFooterProps extends ComponentPropsWithoutRef<'footer'> {}
+export type QuoteFooterProps = ComponentPropsWithoutRef<'footer'>

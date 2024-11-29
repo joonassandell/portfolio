@@ -1,8 +1,8 @@
 import { type ComponentPropsWithoutRef, type JSX } from 'react'
 
-export interface StepperProps extends ComponentPropsWithoutRef<'div'> {}
+export type StepperProps = ComponentPropsWithoutRef<'div'>
 
-export interface StepperItemProps extends ComponentPropsWithoutRef<'div'> {}
+export type StepperItemProps = ComponentPropsWithoutRef<'div'>
 
 export interface StepperStepProps
   extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {

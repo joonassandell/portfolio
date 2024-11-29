@@ -25,8 +25,8 @@ export const useScrollTo = ({
       offset: -HEADER_HEIGHT,
       ...options,
       onComplete: e => {
-        stopOnComplete && lenis.stop()
-        onComplete && onComplete(e)
+        if (stopOnComplete) lenis.stop()
+        if (onComplete) onComplete(e)
       },
     })
   }

@@ -61,12 +61,11 @@ export const Button = ({
         href={href}
         onClick={(e: ButtonEvent & LinkEvent) => {
           e.stopPropagation()
-          shouldNavigate &&
-            !active &&
-            templateTransition &&
+          if (shouldNavigate && !active && templateTransition) {
             setTransition('template')
-          hasHash && scrollTo(hash as HTMLElement)
-          onClick && onClick(e)
+          }
+          if (hasHash) scrollTo(hash as HTMLElement)
+          if (onClick) onClick(e)
         }}
         target={target ?? externalTarget}
         {...props}

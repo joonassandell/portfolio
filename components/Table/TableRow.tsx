@@ -26,7 +26,7 @@ export const TableRow = ({
   const handleOnClick = (
     e: MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>,
   ) => {
-    onClick && onClick(e)
+    if (onClick) onClick(e)
 
     if (href) {
       if (e.type === 'auxclick') {
