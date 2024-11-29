@@ -1,12 +1,5 @@
 import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react'
 import {
-  APP_URL,
-  DISABLE_LOADING,
-  EASE_CSS,
-  PRODUCTION,
-  SLOW_NETWORK_DELAY,
-} from '@/lib/config'
-import {
   type AppContextProps,
   AppHead,
   type AppHeadProps,
@@ -17,8 +10,15 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react'
+import {
+  DISABLE_LOADING,
+  EASE_CSS,
+  PRODUCTION,
+  SLOW_NETWORK_DELAY,
+} from '@/lib/config'
 import { Header } from '@/components/Header'
 import {
   isBrowser,
@@ -29,6 +29,7 @@ import {
 import { ReactLenis, useLenis } from 'lenis/react'
 import { SkipNav } from '@/components/SkipNav'
 import { Splash } from '@/components/Splash'
+import { urlState } from '@/lib/useUrlState'
 import { useRouter } from 'next/router'
 import { useScrollTo } from '@/lib/useScrollTo'
 import NProgress from 'nprogress'
@@ -51,7 +52,15 @@ export const App = ({
       | 'lockScroll'
     >
   >({
-    detect: {},
+    detect: {
+      hasThemeColor: false,
+      hasTouch: false,
+      isIos: false,
+      isSafari: false,
+      isSafariDesktop: false,
+      isSafariIphone: false,
+      isWindows: false,
+    },
     html: (isBrowser && document.documentElement) as AppContextProps['html'],
     loading: DISABLE_LOADING ? false : true,
     loadingEnd: DISABLE_LOADING ? true : false,
@@ -163,7 +172,7 @@ export const App = ({
           isSafariDesktop,
           isSafariIphone,
           isWindows,
-        },
+        } satisfies AppContextProps['detect'],
       }))
     })()
 
@@ -189,7 +198,7 @@ export const App = ({
   }, [loadingEnd, lockScroll, lenis, html])
 
   /**
-   * Handle transition logic
+   * Handle page transition logic
    */
   useEffect(() => {
     if (transition) html.classList.add('is-transition')
@@ -243,31 +252,30 @@ export const App = ({
    * Set template transition by default when navigating back/forward and apply
    * some delay between the transitions. Also handle hash links.
    */
-  const [popStateTimeout, setPopStateTimeout] =
-    useState<ReturnType<typeof setTimeout>>()
+  const transTimeout = useRef<ReturnType<typeof setTimeout>>()
   const scrollTo = useScrollTo()
 
   useEffect(() => {
     beforePopState(({ as, options, url }) => {
       options.scroll = false
-      const { hash, pathname: newPathname } = new URL(as, APP_URL)
+      const {
+        url: { hash, pathname: newPathname },
+      } = urlState(as)
       const currentPathname = pathname
 
       if (hash && newPathname === currentPathname) {
-        const el = document.querySelector(hash) as HTMLElement
-        if (el) scrollTo(el)
+        scrollTo(hash)
         return false
       }
 
       if (newPathname != currentPathname) {
         if (transition === 'template') {
-          if (popStateTimeout) clearTimeout(popStateTimeout)
-          setPopStateTimeout(
-            setTimeout(() => {
-              setTransition('template')
-              push(url, as, { scroll: false })
-            }, 800),
-          )
+          if (transTimeout.current) clearTimeout(transTimeout.current)
+          transTimeout.current = setTimeout(() => {
+            setTransition('template')
+            push(url, as, { scroll: false })
+          }, 800)
+
           return false
         } else {
           setTransition('template')
@@ -277,17 +285,16 @@ export const App = ({
         return false
       }
     })
-  }, [transition, beforePopState, push, popStateTimeout, scrollTo, pathname])
+  }, [transition, beforePopState, push, scrollTo, pathname])
 
   useEffect(() => {
     if (!animationComplete) return
     if (lenis?.isStopped) lenis.start()
     resetFocusToBody()
     scrollIntoView(asPath)
-    if (transition) setTransition(false)
-
+    setTransition(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animationComplete])
+  }, [animationComplete, lenis])
 
   return (
     <LazyMotion features={domAnimation} strict>

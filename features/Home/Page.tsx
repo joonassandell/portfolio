@@ -47,7 +47,7 @@ export const HomePage = () => {
     setTransition(true)
     setTransitionInitial(false)
 
-    const el = e.currentTarget.closest('[data-id]') as HTMLElement
+    const el = e.currentTarget.closest('[id]') as HTMLElement
 
     const needsExtraSpace = lenis && lenis?.limit < el?.offsetTop
     if (needsExtraSpace) {
@@ -56,7 +56,7 @@ export const HomePage = () => {
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor'])
-    setCurrentHero(el.dataset.id as SitemapWithoutArrayKeys)
+    setCurrentHero(el.id as SitemapWithoutArrayKeys)
     setAnimation(true)
 
     setTimeout(

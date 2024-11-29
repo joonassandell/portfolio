@@ -10,7 +10,13 @@ export interface AppProps extends Omit<NextAppProps, 'router'> {
 
 export interface AppContextProps {
   detect: {
-    [key: string]: boolean
+    hasThemeColor: boolean
+    hasTouch: boolean
+    isIos: boolean
+    isSafari: boolean
+    isSafariDesktop: boolean
+    isSafariIphone: boolean
+    isWindows: boolean
   }
   html: Document['documentElement']
   loading: boolean

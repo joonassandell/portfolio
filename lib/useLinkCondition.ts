@@ -1,5 +1,4 @@
 import { type HTMLAttributeAnchorTarget } from 'react'
-import { isBrowser } from '@/lib/utils'
 import { useScrollTo } from '@/lib/useScrollTo'
 import { useUrlState } from '@/lib/useUrlState'
 
@@ -17,8 +16,7 @@ export const useLinkCondition = (
     !currentPageHash
 
   const scrollTo = useScrollTo()
-  const hash = currentPageHash && isBrowser && document.querySelector(href)
-  const scrollToHash = () => Boolean(hash) && scrollTo(hash as HTMLElement)
+  const scrollToHash = () => currentPageHash && scrollTo(href)
 
   return {
     scrollToHash,

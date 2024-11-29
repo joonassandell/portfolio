@@ -57,7 +57,7 @@ export const Header = ({
   const maskRef = useRef<HTMLDivElement>(null)
   const maskAnim = useAnimation()
   const maskHasScrollbar =
-    isBrowser && hasScrollbar(html.querySelector('.Header-mask'))
+    isBrowser && hasScrollbar(document.querySelector('.Header-mask'))
 
   const btnRef = useRef<HTMLButtonElement | null>(null)
   const [btnFocusVisible, setBtnFocusVisible] = useState(false)

@@ -72,8 +72,8 @@ export const Hero = ({
         },
         className,
       )}
-      data-id={id}
       data-theme-color={themeColor}
+      id={id}
       initial="initial"
       onAnimationComplete={() => {
         if (transitionPre && transitionStart) {
