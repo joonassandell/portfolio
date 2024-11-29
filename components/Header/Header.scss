@@ -15,7 +15,7 @@
   user-select: none;
 
   // [1.]
-  &.is-animating {
+  &.is-animate {
     pointer-events: none;
   }
 }
@@ -252,7 +252,7 @@
   }
 }
 
-.Header.is-animating\:close {
+.Header.is-animate\:close {
   .Header-button-bg {
     animation: HeaderButtonBgOut var(--trans-primary) both;
     animation-delay: 0.6s;
@@ -373,7 +373,7 @@
     display: flex;
   }
 
-  .Header.is-animating:not(.has-scrollbar) & {
+  .Header.is-animate:not(.has-scrollbar) & {
     --scrollbar-overflow: hidden;
   }
 

@@ -188,9 +188,10 @@ export const App = ({
   }, [html])
 
   /**
-   * Fix scrolling correctly to hashlinks onload. Note that the browser scrolls
-   * initially natively and this then scrolls again. Not really sure what causes
-   * the altering scroll gaps on load.
+   * Fix scrolling to hashlinks correctly on load. Note that the browser first
+   * scrolls natively and this scrolls again slightly. Not really sure what
+   * causes the altering scroll gaps on load, somehow related to
+   * `scroll-behavior: smooth`
    */
   useEffect(() => {
     const {

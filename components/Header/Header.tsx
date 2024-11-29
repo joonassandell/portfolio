@@ -1,9 +1,8 @@
 import { APP, BUILD_DATE, GIT_COMMIT_SHA, MQ } from '@/lib/config'
 import {
   BTN_ENTER_EXIT_ARROW,
-  BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
+  BTN_ENTER_EXIT_OPEN,
   BTN_ENTER_EXIT_TEXT,
-  BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN,
   HeaderButton,
   type HeaderButtonProps,
   HeaderMaskNavItem,
@@ -19,8 +18,8 @@ import {
 } from './'
 import { debounce } from 'es-toolkit'
 import { formatDate, hasScrollbar, isBrowser } from '@/lib/utils'
-import { LINK, SITEMAP } from '@/lib/sitemap'
 import { Link } from '@/components/Link'
+import { LINK, SITEMAP } from '@/lib/sitemap'
 import { type LinkEvent } from '@/types'
 import { LinkRoll } from '@/components/LinkRoll'
 import { m, useAnimation } from 'motion/react'
@@ -53,7 +52,7 @@ export const Header = ({
   const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle
 
   const [maskOpen, setMaskOpen] = useState(false)
-  const [mask, setMask] = useState('closedReset')
+  const [mask, setMask] = useState('closeReset')
   const maskRef = useRef<HTMLDivElement>(null)
   const maskAnim = useAnimation()
   const maskHasScrollbar =
@@ -89,8 +88,8 @@ export const Header = ({
   }, [])
 
   /**
-   * Handle open/close states. Note that in onAnimationComplete(s) some of the
-   * states are handled after the animation finishes.
+   * Handle open/close states. Note that in onOpenAnimationComplete some of the
+   * states are handled after the animations finish.
    */
   const toggleOpen = ({ btnFocus = true } = {}) => {
     setOpen(!open)
@@ -101,9 +100,99 @@ export const Header = ({
     !open ? setAnimating('open') : setAnimating('close')
     setNavRevealTitle(navTitle)
 
-    if (mask === 'closed' || mask === 'closedReset') setMask('open')
-    if (mask === 'open' || mask === 'openReset') setMask('closed')
+    if (mask === 'close' || mask === 'closeReset') setMask('open')
+    if (mask === 'open' || mask === 'openReset') setMask('close')
   }
+
+  const onOpenAnimationComplete = () => {
+    if (!open) {
+      setOpenReveal(false)
+
+      /**
+       * Delay the closing after the animation so the arrow button's
+       * hover transitions doesn't conflict with the arrow button's
+       * closing animations
+       */
+      setTimeout(() => setAnimating(false), 700)
+    } else {
+      setAnimating(false)
+    }
+  }
+
+  /**
+   * Mask
+   */
+  useEffect(() => {
+    ;(async () => {
+      if (mask === 'open') {
+        setMaskOpen(true)
+        // Timeout because of display property (none/flex) change
+        setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5)
+        await maskAnim.start({
+          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
+          transition: MASK_OPEN_TRANSITION,
+        })
+        setMask('openReset')
+      }
+
+      if (mask === 'close') {
+        await maskAnim.start({
+          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
+          transition: MASK_CLOSE_TRANSITION,
+        })
+        setMask('closeReset')
+      }
+
+      if (mask === 'openReset') {
+        maskAnim.set({
+          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
+        })
+      }
+
+      if (mask === 'closeReset') {
+        maskAnim.set({
+          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
+        })
+      }
+    })()
+  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim])
+
+  useEffect(() => {
+    if (mask === 'closeReset' && !animating) setMaskOpen(false)
+  }, [mask, animating])
+
+  /**
+   * Handle closing if routes change
+   */
+  useEffect(() => {
+    if (!open) return
+
+    const changeStart = () => {
+      setBtnEnterExit({
+        arrow: BTN_ENTER_EXIT_OPEN,
+        text: BTN_ENTER_EXIT_OPEN,
+      })
+    }
+
+    const changeComplete = () => {
+      setBtnEnterExit({
+        arrow: BTN_ENTER_EXIT_ARROW,
+        text: BTN_ENTER_EXIT_TEXT,
+      })
+      toggleOpen({ btnFocus: false })
+    }
+
+    events.on('routeChangeStart', changeStart)
+    events.on('routeChangeError', changeComplete)
+    events.on('routeChangeComplete', changeComplete)
+
+    return () => {
+      events.off('routeChangeStart', changeStart)
+      events.off('routeChangeError', changeComplete)
+      events.off('routeChangeComplete', changeComplete)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, events])
 
   /**
    * Handle all link clicks with a single handler. This could also be done
@@ -150,39 +239,6 @@ export const Header = ({
   }
 
   /**
-   * Handle closing if routes change
-   */
-  useEffect(() => {
-    if (!open) return
-
-    const changeStart = () => {
-      setBtnEnterExit({
-        arrow: BTN_ENTER_EXIT_ARROW_IF_NAV_OPEN,
-        text: BTN_ENTER_EXIT_TEXT_IF_NAV_OPEN,
-      })
-    }
-
-    const changeComplete = () => {
-      toggleOpen({ btnFocus: false })
-      setBtnEnterExit({
-        arrow: BTN_ENTER_EXIT_ARROW,
-        text: BTN_ENTER_EXIT_TEXT,
-      })
-    }
-
-    events.on('routeChangeStart', changeStart)
-    events.on('routeChangeError', changeComplete)
-    events.on('routeChangeComplete', changeComplete)
-
-    return () => {
-      events.off('routeChangeStart', changeStart)
-      events.off('routeChangeError', changeComplete)
-      events.off('routeChangeComplete', changeComplete)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, events])
-
-  /**
    * Handle closing with ESC key
    */
   useEffect(() => {
@@ -205,48 +261,6 @@ export const Header = ({
     }
   }, [animating, html])
 
-  /**
-   * Mask
-   */
-  useEffect(() => {
-    ;(async () => {
-      if (mask === 'open') {
-        setMaskOpen(true)
-        // Timeout because of display property (none/flex) change
-        setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5)
-        await maskAnim.start({
-          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-          transition: MASK_OPEN_TRANSITION,
-        })
-        setMask('openReset')
-      }
-
-      if (mask === 'closed') {
-        await maskAnim.start({
-          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-          transition: MASK_CLOSE_TRANSITION,
-        })
-        setMask('closedReset')
-      }
-
-      if (mask === 'openReset') {
-        maskAnim.set({
-          clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-        })
-      }
-
-      if (mask === 'closedReset') {
-        maskAnim.set({
-          clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
-        })
-      }
-    })()
-  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim])
-
-  useEffect(() => {
-    if (mask === 'closedReset' && !animating) setMaskOpen(false)
-  }, [mask, animating])
-
   return (
     <FocusTrap
       active={open}
@@ -255,29 +269,16 @@ export const Header = ({
       <header
         className={c('Header', {
           'has-scrollbar': maskHasScrollbar,
-          'is-animating': animating,
-          'is-animating:close': animating === 'close',
+          'is-animate': animating,
+          'is-animate:close': animating === 'close',
           'is-open': maskOpen,
         })}
       >
         <m.div
-          animate={open ? 'open' : 'closed'}
+          animate={open ? 'open' : 'close'}
           className="Header-main"
           initial="initial"
-          onAnimationComplete={() => {
-            if (!open) {
-              setOpenReveal(false)
-
-              /**
-               * Delay the closing after the animation so the arrow button's
-               * hover transitions doesn't conflict with the arrow button's
-               * closing animations
-               */
-              setTimeout(() => setAnimating(false), 700)
-            } else {
-              setAnimating(false)
-            }
-          }}
+          onAnimationComplete={onOpenAnimationComplete}
           variants={MAIN_ITEM_VARIANT}
         >
           <div className="Header-wrap wrap">
@@ -356,7 +357,7 @@ export const Header = ({
           {maskOpen && (
             <>
               <m.nav
-                animate={open ? 'open' : 'closed'}
+                animate={open ? 'open' : 'close'}
                 className="Header-mask-nav"
                 initial="initial"
                 variants={MASK_NAV_VARIANT}
@@ -399,7 +400,7 @@ export const Header = ({
                 </ul>
               </m.nav>
               <m.footer
-                animate={!open ? 'closed' : ''}
+                animate={!open ? 'close' : ''}
                 className="Header-footer wrap"
                 variants={MASK_ITEM_VARIANT}
               >
