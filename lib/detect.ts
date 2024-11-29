@@ -56,7 +56,7 @@ export const isChromeIos = ua.indexOf('CriOS') >= 0
 export const isFirefoxIos = ua.match('FxiOS')
 
 /**
- * iOS Safari (only)
+ * iOS Safari (only the Safari browser including webview)
  */
 export const isSafariIos =
   isIos &&
@@ -67,7 +67,7 @@ export const isSafariIos =
   !isChromeIos
 
 /**
- * iPhone Safari (only)
+ * iPhone Safari (only the iPhone Safari browser including webview)
  */
 export const isSafariIphone =
   isIphone &&
