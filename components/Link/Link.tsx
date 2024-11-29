@@ -8,9 +8,9 @@ import {
   OUT_VARIANT,
   OUT_VARIANT_X,
 } from './'
-import { isBoolean, isBrowser } from '@/lib/utils'
+import { isBoolean } from '@/lib/utils'
 import { useApp } from '@/components/App'
-import { useScrollTo } from '@/lib/useScrollTo'
+import { useLinkCondition } from '@/lib/useLinkCondition'
 import { useUrlState } from '@/lib/useUrlState'
 import c from 'clsx'
 import NextLink from 'next/link'
@@ -29,20 +29,12 @@ export const Link = ({
   underline = true,
   ...props
 }: LinkProps) => {
-  const { html, setTransition } = useApp()
-  const { active, external, externalTarget } = useUrlState(href)
+  const { setTransition } = useApp()
+  const { active, externalTarget } = useUrlState(href)
+  const { scrollToHash, shouldNavigate } = useLinkCondition(href, target)
   const [hover, setHover] = useState(false)
   const underlineActive = underline === 'active'
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a
-  const hasHash = href.startsWith('#')
-  const hash = hasHash && isBrowser && html.querySelector(href)
-  const shouldNavigate =
-    Boolean(href) &&
-    !external &&
-    target != '_blank' &&
-    target != '_new' &&
-    !hasHash
-  const scrollTo = useScrollTo()
 
   return (
     <ConditionalWrapper
@@ -77,7 +69,7 @@ export const Link = ({
           if (shouldNavigate && !active && templateTransition) {
             setTransition('template')
           }
-          if (hasHash) scrollTo(hash as HTMLElement)
+          scrollToHash()
           if (onClick) onClick(e)
         }}
         onFocus={() => setHover(true)}
