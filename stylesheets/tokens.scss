@@ -141,10 +141,6 @@
   --trans-primary-fast: 0.6s var(--ease);
   --trans-primary: 1.3s var(--ease);
 
-  --trans-secondary-fastest: 0.3s var(--ease-secondary);
-  --trans-secondary-fast: 0.6s var(--ease-secondary);
-  --trans-secondary: 1s var(--ease-secondary);
-
   // Wrap
   --wrap-space-left: max(env(safe-area-inset-left), 6.25%);
   --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
@@ -164,8 +160,8 @@
 
   // Typography
   --font-family-sans: 'Px Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
   --font-weight-400: 400;
   --font-weight-100: 100;
 

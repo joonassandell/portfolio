@@ -1,11 +1,11 @@
-import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config'
+import { TRANS_PRIMARY, TRANS_TEMPLATE } from '@/lib/config'
 import { type Variants } from 'motion/react'
 
 export const SPLASH_VARIANTS: Readonly<Variants> = {
   exit: {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)',
     transition: {
-      ...TRANS_SECONDARY,
+      ...TRANS_TEMPLATE,
       delay: 0.85,
     },
   },

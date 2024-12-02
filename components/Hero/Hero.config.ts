@@ -1,4 +1,4 @@
-import { TRANS_PRIMARY, TRANS_SECONDARY } from '@/lib/config'
+import { TRANS_PRIMARY, TRANS_PRIMARY_FAST } from '@/lib/config'
 import { type Variants } from 'motion/react'
 
 export const HEADING_VARIANTS: Readonly<Variants> = {
@@ -16,7 +16,7 @@ export const FIGURE_BG_VARIANTS: Readonly<Variants> = {
     ],
     scaleY: 4,
     transition: {
-      ...TRANS_SECONDARY,
+      ...TRANS_PRIMARY_FAST,
       delay: 0.15,
     },
   },

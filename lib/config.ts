@@ -88,21 +88,6 @@ export const TRANS_PRIMARY_FASTEST = {
   ease: EASE,
 } as const
 
-export const TRANS_SECONDARY = {
-  duration: 1,
-  ease: EASE_SECONDARY,
-} as const
-
-export const TRANS_SECONDARY_FAST = {
-  duration: 0.6,
-  ease: EASE_SECONDARY,
-} as const
-
-export const TRANS_SECONDARY_FASTEST = {
-  duration: 0.3,
-  ease: EASE_SECONDARY,
-} as const
-
 export const TRANS_TERTIARY = {
   duration: 1.3,
   ease: EASE_TERTIARY,
