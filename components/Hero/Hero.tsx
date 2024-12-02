@@ -5,7 +5,7 @@ import { Link } from '@/components/Link'
 import { m } from 'motion/react'
 import { Stamp } from '@/components/Stamp'
 import { TextReveal } from '@/components/TextReveal'
-import { TRANS_TERTIARY_FAST } from '@/lib/config'
+import { TRANS_SECONDARY_FAST } from '@/lib/config'
 import { useApp } from '@/components/App'
 import { useParallax } from '@/lib/useParallax'
 import { useRef } from 'react'
@@ -95,7 +95,7 @@ export const Hero = ({
               <TextReveal
                 custom={
                   transitionPre && {
-                    transition: TRANS_TERTIARY_FAST,
+                    transition: TRANS_SECONDARY_FAST,
                     y: '60%',
                   }
                 }

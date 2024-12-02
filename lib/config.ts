@@ -69,9 +69,7 @@ export const APP = {
 
 export const EASE: BezierDefinition = [0.68, 0, 0.1, 1]
 export const EASE_CSS = 'cubic-bezier(0.68, 0, 0.1, 1)'
-export const EASE_SECONDARY: BezierDefinition = [0.87, 0, 0.13, 1]
-export const EASE_SECONDARY_CSS = 'cubic-bezier(0.87, 0, 0.13, 1)'
-export const EASE_TERTIARY: BezierDefinition = [0.4, 0, 0.28, 1]
+export const EASE_SECONDARY: BezierDefinition = [0.4, 0, 0.28, 1]
 
 export const TRANS_PRIMARY = {
   duration: 1.3,
@@ -88,19 +86,19 @@ export const TRANS_PRIMARY_FASTEST = {
   ease: EASE,
 } as const
 
-export const TRANS_TERTIARY = {
+export const TRANS_SECONDARY = {
   duration: 1.3,
-  ease: EASE_TERTIARY,
+  ease: EASE_SECONDARY,
 } as const
 
-export const TRANS_TERTIARY_FAST = {
+export const TRANS_SECONDARY_FAST = {
   duration: 1,
-  ease: EASE_TERTIARY,
+  ease: EASE_SECONDARY,
 } as const
 
-export const TRANS_TERTIARY_FASTEST = {
+export const TRANS_SECONDARY_FASTEST = {
   duration: 0.3,
-  ease: EASE_TERTIARY,
+  ease: EASE_SECONDARY,
 } as const
 
 export const TRANS_TEMPLATE = {
@@ -155,14 +153,14 @@ export const MOVE_IN_VARIANTS: Readonly<Variants> = {
     opacity: 1,
     skewY: 0,
     transition: {
-      ...TRANS_TERTIARY_FAST,
+      ...TRANS_SECONDARY_FAST,
       ...(delay && { delay }),
       opacity: {
-        ...TRANS_TERTIARY,
+        ...TRANS_SECONDARY,
         ...(delay && { delay }),
       },
       skewY: {
-        ...TRANS_TERTIARY,
+        ...TRANS_SECONDARY,
         ...((delay || skewYdelay) && { delay: skewYdelay ?? delay }),
       },
     },

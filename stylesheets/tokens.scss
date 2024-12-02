@@ -135,7 +135,6 @@
 
   // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);
-  --ease-secondary: cubic-bezier(0.87, 0, 0.13, 1);
 
   --trans-primary-fastest: 0.3s var(--ease);
   --trans-primary-fast: 0.6s var(--ease);
