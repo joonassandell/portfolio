@@ -39,6 +39,7 @@
   }
 
   .Button-icon {
+    --Icon-size: var(--Icon-size-s);
     margin-right: rem($space-3xs * -1);
   }
 }
@@ -57,7 +58,7 @@
   &.-size\:s,
   &.-size\:square\:s {
     .Button-icon {
-      --Icon-size: var(--Icon-size-s);
+      --Icon-size: var(--Icon-size-xs);
     }
   }
 
