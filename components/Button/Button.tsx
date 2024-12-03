@@ -52,7 +52,8 @@ export const Button = ({
             '-size:s': size === 's',
             '-size:square': size === 'square',
             '-size:square:s': size === 'square:s',
-            'Button--default--dark': variant === 'dark',
+            'Button--default--primary': variant === 'primary',
+            'Button--default--secondary': variant === 'secondary',
           },
           className,
         )}
