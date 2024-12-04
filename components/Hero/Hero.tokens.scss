@@ -20,10 +20,6 @@
   }
 
   @include mq(l) {
-    --Hero-min-height: #{rem($space * 42)};
-  }
-
-  @include mq('2xl') {
-    --Hero-min-height: #{rem($space * 44)};
+    --Hero-height: 100svh;
   }
 }

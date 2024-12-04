@@ -132,14 +132,6 @@
   pointer-events: all;
 
   .Stamp-inner {
-    inset: 0 0 0 -10vw;
-
-    @include mq(s) {
-      inset: 0;
-    }
-
-    @include mq(m) {
-      inset: 5vw 0 0 0;
-    }
+    inset: 0;
   }
 }

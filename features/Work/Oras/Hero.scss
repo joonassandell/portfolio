@@ -9,19 +9,15 @@
   }
 
   .Hero-figure-figure {
-    --width: 55vw;
-    inset: rem($space * 4) 0 0 rem($space * -3);
+    --width: 60vw;
+    inset: 20vw 0 0 -10vw;
     position: absolute;
     width: clamp(rem($space * 17), var(--width), rem($space * 32));
     z-index: 3;
 
-    @include mq(s) {
-      top: rem($space * 6);
-    }
-
     @include mq(l) {
       --width: 45vw;
-      left: rem($space * -5);
+      inset: 7vw 0 0 -7vw;
     }
   }
 
@@ -37,7 +33,7 @@
   }
 
   .Hero-drop--1 {
-    inset: rem(-$space-m) auto auto rem($space * -1.5);
+    inset: rem(-$space-m) auto auto rem(-$space-m);
     max-width: rem($space * 3);
     position: absolute;
 
@@ -48,36 +44,34 @@
   }
 
   .Hero-drop--2 {
-    inset: 18% auto auto 15%;
-    max-width: 12.5%;
+    inset: 25vw auto auto 15vw;
+    max-width: rem($space-xl);
 
     @include mq(m) {
-      max-width: rem($space * 7);
-      top: 15%;
+      inset: 12vw auto auto 15vw;
+      max-width: rem($space * 6);
     }
   }
 
   .Hero-drop--3 {
-    inset: auto 0 25% 30%;
-    max-width: 10%;
+    inset: auto 0 35vw 30vw;
+    max-width: rem($space-l);
 
     @include mq(m) {
       max-width: rem($space * 5);
     }
 
     @include mq(l) {
-      bottom: 10%;
+      inset: auto 0 7vw 30vw;
     }
   }
 
   .Hero-stamp {
     .Stamp-inner {
-      @include mq($until: s) {
-        inset: -3vw 0 0 -10vw;
-      }
+      inset: -7vw 0 0 -10vw;
 
       @include mq(l) {
-        inset: 2vw 0 0 -12vw;
+        inset: 0 0 0 -15vw;
       }
     }
   }
