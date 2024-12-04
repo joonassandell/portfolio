@@ -94,17 +94,17 @@
 }
 
 .Button--default--primary {
-  --Button-bg: transparent;
-  --Button-shadow: none;
-  --Button-border: var(--border-950);
-  --Button-hover-bg: var(--tone-50);
-}
-
-.Button--default--secondary {
   --Button-bg: var(--bg-950);
   --Button-text: var(--text-50);
   --Button-shadow: none;
   --Button-hover-bg: var(--bg-800);
   --Button-hover-border: var(--bg-800);
   --Button-hover-text: var(--text-50);
+}
+
+.Button--default--secondary {
+  --Button-bg: transparent;
+  --Button-shadow: none;
+  --Button-border: var(--border-950);
+  --Button-hover-bg: var(--bg-50);
 }

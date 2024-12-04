@@ -45,7 +45,7 @@ export const ResumeContent = () => (
       href="/cv"
       icon={<Download />}
       target="_blank"
-      variant="secondary"
+      variant="primary"
     >
       Download CV
     </Button>
