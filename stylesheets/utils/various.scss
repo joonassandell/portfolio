@@ -31,12 +31,6 @@
 
 .justify-content\:center {
   justify-content: center;
-
-  &\@max\:m {
-    @include mq($until: m) {
-      justify-content: center;
-    }
-  }
 }
 
 .align-items\:start {

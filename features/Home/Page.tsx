@@ -14,8 +14,8 @@ import { useState } from 'react'
 import c from 'clsx'
 
 export const HomePage = () => {
-  const { id, meta } = SITEMAP.home
-  useSetThemeColor(meta.themeColor)
+  const { id } = SITEMAP.home
+  useSetThemeColor()
   const scrollTo = useScrollTo({
     lock: true,
     offset: undefined,
