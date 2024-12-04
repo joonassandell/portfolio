@@ -7,7 +7,7 @@
   .Template-about {
     background: linear-gradient(to bottom, var(--bg-50) 50%, var(--tone-50));
     border-bottom: var(--border-width) solid var(--border-950);
-    padding-bottom: rem($space-2xl);
+    padding-bottom: rem($space-3xl - $space-xs);
     padding-top: calc(var(--Header-height) + #{rem($space-xl)});
 
     @include mq(m) {
@@ -31,6 +31,8 @@
   }
 
   .Template-now {
+    --text-max-width: 40ch;
+
     @include mq($until: m) {
       align-items: flex-start;
       display: flex;
@@ -39,6 +41,6 @@
   }
 
   &.is-extraSpace {
-    padding-bottom: 100vh;
+    padding-bottom: 100lvh;
   }
 }

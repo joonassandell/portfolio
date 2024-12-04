@@ -76,12 +76,12 @@ export const HomeAbout = () => {
           </div>
         </div>
         <div className="Template-now grid-col grid-col:5@m grid-col:4@l grid-col:3@xl">
-          <Badge beacon className="mb">
+          <Badge beacon className="mb@m">
             Now
           </Badge>
-          <Text balance>
-            <p className="mb:0 hidden@m">{now.mobile}</p>
-            <p className="visible@m">{now.desktop}</p>
+          <Text className="hidden@m">{now.mobile}</Text>
+          <Text balance className="visible@m">
+            {now.desktop}
           </Text>
         </div>
       </div>
