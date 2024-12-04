@@ -2,72 +2,49 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--home {
-  --Template-bg: var(--tone-50);
+  --Footer-bg: var(--tone-50);
 
   .Template-about {
-    position: relative;
-    z-index: calc(var(--z-index-900) - 1);
-  }
+    background: linear-gradient(to bottom, var(--bg-50) 60%, var(--tone-50));
+    border-bottom: var(--border-width) solid var(--border-950);
+    padding-bottom: rem($space-2xl);
+    padding-top: calc(var(--Header-height) + #{rem($space-xl)});
 
-  .Template-about-mobile {
-    display: grid;
-    height: clamp(
-      var(--Hero-min-height),
-      var(--Hero-height),
-      var(--Hero-max-height)
-    );
-    margin-left: rem(-4px);
-    padding-bottom: 25vw;
-    place-content: center;
-    pointer-events: none;
-    position: absolute;
-    width: auto;
-
-    > .Link {
-      pointer-events: all;
-    }
-
-    @include mq(s) {
-      display: none;
-    }
-  }
-
-  .Template-about-desktop {
-    display: none;
-
-    > .Heading {
-      @include text(m);
-      pointer-events: all;
-    }
-
-    @include mq(s) {
-      display: block;
-      height: clamp(
-        var(--Hero-min-height),
-        var(--Hero-height),
-        var(--Hero-max-height)
-      );
-      max-width: 20ch;
-      padding-top: 25vw;
-      pointer-events: none;
-      position: absolute;
-      z-index: 98;
+    @include mq($until: m) {
+      align-items: center;
+      text-align: center;
     }
 
     @include mq(m) {
-      max-width: 28ch;
-    }
-
-    @include mq(ml) {
-      max-width: 35ch;
-
-      > .Heading {
-        @include text(l);
-      }
+      min-height: min(rem($space * 52), calc(100svh + var(--border-width)));
+      padding-top: calc(var(--Header-height) + #{rem($space-5xl)});
     }
 
     @include mq(l) {
-      padding-top: rem($space * 15);
+      padding-bottom: rem($space-3xl);
+    }
+  }
+
+  .Template-avatar {
+    --Figure-border-radius: var(--border-radius-full);
+    --size: #{rem($space-5xl)};
+    height: var(--size);
+    width: var(--size);
+
+    @include mq(m) {
+      --Figure-border-radius: var(--border-radius-l);
+      --size: #{rem($space-4xl)};
+      margin-bottom: clamp(rem($space-m), 3svh, rem($space-l));
+    }
+
+    @include mq(xl) {
+      --size: #{rem($space-5xl)};
+    }
+  }
+
+  .Template-heading {
+    @include mq(m) {
+      margin-bottom: clamp(rem($space-m), 3svh, rem($space-l));
     }
   }
 

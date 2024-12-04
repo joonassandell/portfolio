@@ -21,10 +21,22 @@
 
 .justify-content\:end {
   justify-content: end;
+
+  @include mq(m) {
+    &\@m {
+      justify-content: end;
+    }
+  }
 }
 
 .justify-content\:center {
   justify-content: center;
+
+  &\@max\:m {
+    @include mq($until: m) {
+      justify-content: center;
+    }
+  }
 }
 
 .align-items\:start {
