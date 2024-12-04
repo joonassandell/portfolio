@@ -2,7 +2,11 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--404 {
+  .Template-main {
+    display: flex;
+  }
+
   .Template-area {
-    min-height: max(rem($space * 24), 75svh);
+    min-height: rem($space * 30);
   }
 }
