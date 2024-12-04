@@ -16,6 +16,7 @@ export const Button = ({
   icon,
   onClick,
   radius = 'full',
+  scrollTo,
   size = 'm',
   target,
   templateTransition = true,
@@ -25,7 +26,10 @@ export const Button = ({
   const { active, externalTarget } = useUrlState(href as URL['href'])
   const { scrollToHash, shouldNavigate } = useLinkCondition(
     href as URL['href'],
-    target,
+    {
+      scrollToOptions: scrollTo,
+      target,
+    },
   )
   const { setTransition } = useApp()
   const Tag = href ? 'a' : 'button'

@@ -19,6 +19,7 @@ export const LinkRoll = ({
   className,
   href,
   onClick,
+  scrollTo,
   tag,
   target,
   templateTransition = true,
@@ -27,7 +28,10 @@ export const LinkRoll = ({
 }: LinkRollProps) => {
   const { setTransition } = useApp()
   const { active, externalTarget } = useUrlState(href)
-  const { scrollToHash, shouldNavigate } = useLinkCondition(href, target)
+  const { scrollToHash, shouldNavigate } = useLinkCondition(href, {
+    scrollToOptions: scrollTo,
+    target,
+  })
   const [hover, setHover] = useState(false)
   const characters = children?.split('')
   const underlineActive = underline === 'active'

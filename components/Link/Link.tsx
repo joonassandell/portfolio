@@ -22,6 +22,7 @@ export const Link = ({
   icon,
   onClick,
   orientation = 'horizontal',
+  scrollTo,
   tag,
   target,
   templateTransition = true,
@@ -31,7 +32,10 @@ export const Link = ({
 }: LinkProps) => {
   const { setTransition } = useApp()
   const { active, externalTarget } = useUrlState(href)
-  const { scrollToHash, shouldNavigate } = useLinkCondition(href, target)
+  const { scrollToHash, shouldNavigate } = useLinkCondition(href, {
+    scrollToOptions: scrollTo,
+    target,
+  })
   const [hover, setHover] = useState(false)
   const underlineActive = underline === 'active'
   const Tag = tag ? (m[tag] as ElementType<HTMLMotionProps<typeof tag>>) : m.a
