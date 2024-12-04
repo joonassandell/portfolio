@@ -2,13 +2,15 @@ import { Badge } from '@/components/Badge'
 import { Button } from '@/components/Button'
 import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
-import { LINK, SITEMAP } from '@/lib/sitemap'
 import { Link } from '@/components/Link'
+import { LINK, SITEMAP } from '@/lib/sitemap'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
+import { useRouter } from 'next/router'
 import avatar from '@/public/images/joonassandell-avatar.jpg'
 
 export const HomeAbout = () => {
+  const { pathname, replace } = useRouter()
   const heading = 'I design and develop interfaces, products, and beyond.'
   const now = {
     desktop: (
@@ -65,6 +67,10 @@ export const HomeAbout = () => {
           <div className="flex gap flex-wrap:wrap visible@m">
             <Button
               href="#selected-works"
+              onClick={e => {
+                e.preventDefault()
+                replace(pathname, undefined, { shallow: true })
+              }}
               scrollTo={{ offset: 0 }}
               variant="secondary"
             >
