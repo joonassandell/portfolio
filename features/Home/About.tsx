@@ -1,9 +1,10 @@
 import { Badge } from '@/components/Badge'
 import { Button } from '@/components/Button'
+import { type ButtonEvent, type LinkEvent } from '@/types'
 import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
-import { Link } from '@/components/Link'
 import { LINK, SITEMAP } from '@/lib/sitemap'
+import { Link } from '@/components/Link'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
 import { useRouter } from 'next/router'
@@ -11,6 +12,11 @@ import avatar from '@/public/images/joonassandell-avatar.jpg'
 
 export const HomeAbout = () => {
   const { pathname, replace } = useRouter()
+  const handleExcludeHash = (e: LinkEvent & ButtonEvent) => {
+    e.preventDefault()
+    replace(pathname, undefined, { shallow: true })
+  }
+
   const heading = 'I design and develop interfaces, products, and beyond.'
   const now = {
     desktop: (
@@ -33,7 +39,11 @@ export const HomeAbout = () => {
           </Link>
         </em>
         . Learn more <Link href={SITEMAP.about.url}>about me</Link> or explore{' '}
-        <Link href="#selected-works" scrollTo={{ offset: 0 }}>
+        <Link
+          href="#selected-works"
+          onClick={handleExcludeHash}
+          scrollTo={{ offset: 0 }}
+        >
           selected works
         </Link>
         .
@@ -67,10 +77,7 @@ export const HomeAbout = () => {
           <div className="flex gap flex-wrap:wrap visible@m">
             <Button
               href="#selected-works"
-              onClick={e => {
-                e.preventDefault()
-                replace(pathname, undefined, { shallow: true })
-              }}
+              onClick={handleExcludeHash}
               scrollTo={{ offset: 0 }}
               variant="secondary"
             >
