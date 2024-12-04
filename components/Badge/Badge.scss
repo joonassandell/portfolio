@@ -4,7 +4,7 @@
 .Badge {
   @include text(s);
   align-items: center;
-  background: var(--Badge-bg, var(--bg-50));
+  background: var(--Badge-bg, transparent);
   border: var(--border-width) solid var(--Badge-border, var(--border-950));
   border-radius: var(--border-radius-full);
   color: var(--Badge-text, var(--text-950));
