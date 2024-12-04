@@ -6,7 +6,6 @@ import { type TagAction, type TagGeneric } from '@/types'
 export interface LinkProps extends HTMLMotionProps<'a'> {
   href: URL['href']
   icon?: ReactNode
-  orientation?: 'horizontal' | 'vertical'
   scrollTo?: ScrollToOptions
   tag?: TagAction | TagGeneric
   templateTransition?: boolean

@@ -1,13 +1,7 @@
 import { AnimatePresence, type HTMLMotionProps, m } from 'motion/react'
 import { ConditionalWrapper } from '@/components/ConditionalWrapper'
 import { type ElementType, useState } from 'react'
-import {
-  IN_VARIANT,
-  IN_VARIANT_X,
-  type LinkProps,
-  OUT_VARIANT,
-  OUT_VARIANT_X,
-} from './'
+import { IN_VARIANT, type LinkProps, OUT_VARIANT } from './'
 import { isBoolean } from '@/lib/utils'
 import { useApp } from '@/components/App'
 import { useLinkCondition } from '@/lib/useLinkCondition'
@@ -21,7 +15,6 @@ export const Link = ({
   href,
   icon,
   onClick,
-  orientation = 'horizontal',
   scrollTo,
   tag,
   target,
@@ -62,7 +55,6 @@ export const Link = ({
             '-underline':
               (isBoolean(underline) && underline && !underlineActive) ||
               (underlineActive && active),
-            '-vertical': orientation === 'vertical',
           },
           className,
         )}
@@ -84,7 +76,7 @@ export const Link = ({
       >
         <m.span
           className={c('Link-text', { 'text:truncate': truncate })}
-          variants={orientation === 'vertical' ? OUT_VARIANT_X : OUT_VARIANT}
+          variants={OUT_VARIANT}
         >
           {children}
         </m.span>
@@ -96,7 +88,7 @@ export const Link = ({
               exit="out"
               hidden
               initial="initial"
-              variants={orientation === 'vertical' ? IN_VARIANT_X : IN_VARIANT}
+              variants={IN_VARIANT}
             >
               {children}
             </m.span>
