@@ -5,14 +5,6 @@
   --Hero-bg: initial;
   --Stamp-iris: var(--biocode-primary);
 
-  .is-safari\:iphone & {
-    &.-transition\:pre {
-      .Hero-figure-bg {
-        border-radius: var(--border-radius-l) 0 0 0;
-      }
-    }
-  }
-
   .Hero-heading {
     z-index: 3;
   }
@@ -34,21 +26,16 @@
   }
 
   .Hero-figure-globe {
-    inset: 8% 0 auto -27%;
+    inset: 0 0 auto -21vw;
     position: absolute;
-    width: clamp(rem($space * 20), 70vw, rem($space * 36));
+    width: clamp(rem($space * 23), 70vw, rem($space * 38));
 
     @include mq(xs) {
-      inset: 6% 0 auto -20%;
+      inset: 0 0 auto -10vw;
     }
 
-    @include mq(s) {
-      top: 4%;
-    }
-
-    @include mq(xl) {
-      inset: -2% -30% auto 0;
-      width: auto;
+    @include mq(l) {
+      inset: 0 0 auto -1vw;
     }
   }
 
@@ -68,23 +55,23 @@
 
   .Hero-figure-icon {
     border: var(--border-width) solid transparent;
-    border-radius: 50%;
-    inset: auto auto 27% 40%;
+    border-radius: var(--border-radius-full);
+    inset: auto auto 26% 35%;
     padding: rem($space);
     position: absolute;
     transition: border-color var(--trans-primary);
-    width: clamp(rem($space * 6), 17vw, rem($space * 36));
+    width: clamp(rem($space * 6.5), 17vw, rem($space * 36));
 
-    @include mq(xs) {
-      inset: auto auto 23% 50%;
+    @include mq(s) {
+      inset: auto auto 26% 40%;
     }
 
-    @include mq(l) {
+    @include mq(m) {
       inset: auto auto 20% 40%;
     }
 
-    @include mq(xl) {
-      inset: auto auto 20% 60%;
+    @include mq(l) {
+      inset: auto auto 15% 70%;
     }
   }
 
@@ -106,7 +93,11 @@
 
   .has-themeColor & {
     .Hero-bg {
-      background: linear-gradient(180deg, var(--biocode-bg-50), transparent 15%),
+      background: linear-gradient(
+          180deg,
+          var(--biocode-bg-50),
+          transparent 15%
+        ),
         radial-gradient(
           70% rem($space * 22) at 70% 0,
           var(--biocode-bg-300),
@@ -119,7 +110,7 @@
     --heading: var(--biocode-text-950);
     align-items: center;
     display: flex;
-    padding-top: 36%;
+    padding-top: 38%;
     position: absolute;
     z-index: 5;
 
@@ -135,11 +126,13 @@
     }
   }
 
-  .Hero-content {
-    @include mq($until: xl) {
-      align-self: start;
-      place-items: end;
-      text-align: right;
+  .Hero-stamp {
+    .Stamp-inner {
+      inset: 0 0 0 -15vw;
+
+      @include mq(xs) {
+        inset: 0 0 0 -5vw;
+      }
     }
   }
 }
