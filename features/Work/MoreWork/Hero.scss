@@ -8,7 +8,7 @@
 
   .Hero-figure-figure {
     --width: 50vw;
-    inset: rem(-$space) -35vw 0 auto;
+    inset: -5vw -35vw 0 auto;
     position: absolute;
     width: clamp(rem($space * 11), var(--width), rem($space * 22));
     z-index: 3;
@@ -23,7 +23,7 @@
   }
 
   .Hero-figure-figure--bottom {
-    inset: auto rem(-$space-m) rem($space-3xl) auto;
+    inset: auto rem(-$space-m) 10vw auto;
   }
 
   .Hero-figure-bg {
@@ -32,7 +32,7 @@
 
   .Hero-stamp {
     .Stamp-inner {
-      inset: 0 0 0 -3.5vw;
+      inset: 0 0 0 -4vw;
     }
   }
 }

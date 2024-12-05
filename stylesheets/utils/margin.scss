@@ -115,6 +115,12 @@
       margin-bottom: rem($space-ml);
     }
   }
+
+  @include mq(l) {
+    &\@l {
+      margin-bottom: rem($space-ml);
+    }
+  }
 }
 
 .mb\:l {

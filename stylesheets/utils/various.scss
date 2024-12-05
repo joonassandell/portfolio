@@ -21,6 +21,12 @@
 
 .justify-content\:end {
   justify-content: end;
+
+  @include mq(m) {
+    &\@m {
+      justify-content: end;
+    }
+  }
 }
 
 .justify-content\:center {

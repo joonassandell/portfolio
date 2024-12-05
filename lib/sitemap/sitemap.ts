@@ -93,6 +93,11 @@ const readDotCv = {
   url: 'https://read.cv/joonassandell',
 }
 
+const workPlace = {
+  title: 'Freepress',
+  url: 'https://freepress.ai',
+}
+
 export const LINK = {
   dribbble,
   github,
@@ -111,4 +116,5 @@ export const LINK = {
   soundcloud,
   source,
   twitter,
+  workPlace,
 } as const

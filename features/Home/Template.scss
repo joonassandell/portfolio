@@ -2,76 +2,44 @@
 @use 'stylesheets/mixins' as *;
 
 .Template--home {
-  --Template-bg: var(--tone-50);
+  --Footer-bg: var(--tone-50);
 
-  .Template-about {
-    position: relative;
-    z-index: calc(var(--z-index-900) - 1);
-  }
-
-  .Template-about-mobile {
-    display: grid;
-    height: clamp(
-      var(--Hero-min-height),
-      var(--Hero-height),
-      var(--Hero-max-height)
-    );
-    margin-left: rem(-4px);
-    padding-bottom: 25vw;
-    place-content: center;
-    pointer-events: none;
-    position: absolute;
-    width: auto;
-
-    > .Link {
-      pointer-events: all;
-    }
-
-    @include mq(s) {
-      display: none;
-    }
-  }
-
-  .Template-about-desktop {
-    display: none;
-
-    > .Heading {
-      @include text(m);
-      pointer-events: all;
-    }
-
-    @include mq(s) {
-      display: block;
-      height: clamp(
-        var(--Hero-min-height),
-        var(--Hero-height),
-        var(--Hero-max-height)
-      );
-      max-width: 20ch;
-      padding-top: 25vw;
-      pointer-events: none;
-      position: absolute;
-      z-index: 98;
-    }
+  .Template-hero {
+    background: linear-gradient(to bottom, var(--bg-50), var(--tone-50));
+    border-bottom: var(--border-width) solid var(--border-950);
+    padding-bottom: rem($space-3xl - $space-xs);
+    padding-top: calc(var(--Header-height) + #{rem($space-xl)});
 
     @include mq(m) {
-      max-width: 28ch;
-    }
-
-    @include mq(ml) {
-      max-width: 35ch;
-
-      > .Heading {
-        @include text(l);
-      }
+      min-height: min(rem($space * 52), calc(100svh + var(--border-width)));
+      padding-top: calc(var(--Header-height) + #{rem($space-5xl)});
     }
 
     @include mq(l) {
-      padding-top: rem($space * 15);
+      padding-bottom: rem($space-3xl);
+    }
+  }
+
+  .Template-hero-avatar {
+    --size: #{rem($space-4xl)};
+    height: var(--size);
+    width: var(--size);
+
+    @include mq(xl) {
+      --size: #{rem($space-5xl)};
+    }
+  }
+
+  .Template-hero-now {
+    @include mq($until: m) {
+      --text-max-width: 40ch;
+      align-items: flex-start;
+      display: flex;
+      gap: rem($space);
     }
   }
 
   &.is-extraSpace {
-    padding-bottom: 100vh;
+    padding-bottom: 100lvh;
   }
 }

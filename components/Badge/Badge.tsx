@@ -2,12 +2,19 @@ import { type BadgeProps } from './'
 import { isString } from '@/lib/utils'
 import c from 'clsx'
 
-export const Badge = ({ beacon, children, className, variant }: BadgeProps) => (
+export const Badge = ({
+  beacon,
+  beaconAnimate,
+  children,
+  className,
+  variant,
+}: BadgeProps) => (
   <div
     className={c(
       'Badge',
       {
-        'Badge--dark': variant === 'dark',
+        '-animate:beacon': beaconAnimate,
+        'Badge--primary': variant === 'primary',
       },
       className,
     )}

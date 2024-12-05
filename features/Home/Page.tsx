@@ -1,10 +1,7 @@
 import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App'
 import { BiocodeHero } from '@/features/Work/Biocode'
-import { FADE_OUT_VARIANTS } from '@/lib/config'
-import { Heading } from '@/components/Heading'
-import { Link } from '@/components/Link'
+import { HomeHero } from './'
 import { type LinkEvent } from '@/types'
-import { m } from 'motion/react'
 import { MediasignalHero } from '@/features/Work/Mediasignal'
 import { MoreWorkHero } from '@/features/Work/MoreWork'
 import { OrasHero } from '@/features/Work/Oras'
@@ -17,8 +14,8 @@ import { useState } from 'react'
 import c from 'clsx'
 
 export const HomePage = () => {
-  const { id, meta } = SITEMAP.home
-  useSetThemeColor(meta.themeColor)
+  const { id } = SITEMAP.home
+  useSetThemeColor()
   const scrollTo = useScrollTo({
     lock: true,
     offset: undefined,
@@ -79,28 +76,8 @@ export const HomePage = () => {
       id={id}
       variant="unstyled"
     >
-      <m.div
-        animate={animation ? 'animate' : ''}
-        className="Template-about"
-        variants={FADE_OUT_VARIANTS}
-      >
-        <div className="wrap">
-          <div className="Template-about-mobile" hidden>
-            <Link href={SITEMAP.about.url} orientation="vertical">
-              About me
-            </Link>
-          </div>
-          <div className="Template-about-desktop">
-            <Heading size="h1">
-              I’m a designer, creative developer and sometimes even a music
-              producer from Helsinki, Finland. Learn more{' '}
-              <Link href={SITEMAP.about.url}>about me</Link> or just keep
-              scrolling for selected works.
-            </Heading>
-          </div>
-        </div>
-      </m.div>
-      <div className="Template-heros">
+      <HomeHero />
+      <div className="Template-heros" id="selected-works">
         <BiocodeHero
           onClick={handleClick}
           transition="pre"

@@ -13,8 +13,8 @@ import { useInView } from '@/lib/useInView'
 import { useMedia } from 'react-use'
 import { useParallax } from '@/lib/useParallax'
 import { useRef } from 'react'
-import lineCube from '@/public/images/line-cube.png'
-import profile from '@/public/images/joonassandell-2.jpg'
+import lineCube from '@/public/common/decoration/line-cube.png'
+import profile from '@/public/common/joonassandell/joonassandell-portrait-nature.jpg'
 
 export const AboutIntro = () => {
   const mqS = useMedia(MQ.s, false)

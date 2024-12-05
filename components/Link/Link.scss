@@ -53,10 +53,4 @@
       text-underline-offset: rem($space-2xs);
     }
   }
-
-  &.-vertical {
-    padding-left: rem($space-2xs);
-    transform: rotate(-180deg);
-    writing-mode: vertical-rl;
-  }
 }

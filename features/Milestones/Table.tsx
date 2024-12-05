@@ -37,7 +37,7 @@ export const MilestonesTable = ({ tableCaption }: MilestoneTableProps) => {
           <Fragment key={year}>
             <TableRow background="var(--bg-100)">
               <TableCell colSpan={3}>
-                <Badge variant="dark">{year}</Badge>
+                <Badge variant="primary">{year}</Badge>
               </TableCell>
             </TableRow>
             {MILESTONES_GROUPED[year].map(m => (

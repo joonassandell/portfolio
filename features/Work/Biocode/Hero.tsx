@@ -21,7 +21,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
     year,
   } = SITEMAP.biocode
   const figureClasses =
-    'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:7@l -start:6@xl'
+    'Hero-figure grid-col grid-col:7 -start:6 grid-col:6@s -start:7@s grid-col:5@l -start:6@l'
   const mqS = useMedia(MQ.s, false)
   const { ref, value: y } = useParallax({
     offset: transition === 'pre' ? 'start-end' : 'start-start',
@@ -48,6 +48,14 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
         <>
           {transitionPre && (
             <div className="Hero-pre wrap grid -gap:l -gap:row:0">
+              <HeroContent
+                className="grid-col grid-col:3"
+                heading={title}
+                href={url}
+                onClick={onClick}
+                role={['Product design', 'App development', 'Web development']}
+                transitionPre={transitionPre}
+              />
               <div className={figureClasses}>
                 <m.figure
                   className="Hero-figure-globe Hero-figure-globe--pre"
@@ -56,22 +64,14 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
                 >
                   <Image
                     alt="Light globe"
-                    draggable="false"
+                    draggable={false}
                     priority
-                    quality={80}
-                    sizes={`${MQ.l} 33vw, 50vw`}
+                    quality={90}
+                    sizes="50vw"
                     src={heroImagePre}
                   />
                 </m.figure>
               </div>
-              <HeroContent
-                className="grid-col grid-col:3 -start:11 grid-col:2@xl"
-                heading={title}
-                href={url}
-                onClick={onClick}
-                role={['Product design', 'App development', 'Web development']}
-                transitionPre={transitionPre}
-              />
             </div>
           )}
           <m.div
@@ -88,7 +88,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
               >
                 <Image
                   alt="Globe"
-                  draggable="false"
+                  draggable={false}
                   priority={!transitionPre}
                   quality={80}
                   sizes={`${MQ.l} 33vw, 50vw`}
@@ -102,7 +102,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
               <figure className="Hero-figure-icon">
                 <Image
                   alt="Biocode logomark"
-                  draggable="false"
+                  draggable={false}
                   priority
                   sizes="25vw"
                   src={logoMark}

@@ -1,9 +1,9 @@
 import {
   AboutClients,
+  AboutHero,
   AboutIntro,
   AboutMilestones,
   AboutSkills,
-  AboutTop,
 } from './'
 import { Head } from '@/components/Head'
 import { SITEMAP } from '@/lib/sitemap'
@@ -17,7 +17,7 @@ export const AboutPage = () => {
   return (
     <Template id={id}>
       <Head {...meta} />
-      <AboutTop />
+      <AboutHero />
       <AboutIntro />
       <AboutSkills />
       <AboutClients />

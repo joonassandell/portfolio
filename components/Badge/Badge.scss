@@ -4,7 +4,7 @@
 .Badge {
   @include text(s);
   align-items: center;
-  background: var(--Badge-bg, var(--bg-50));
+  background: var(--Badge-bg, transparent);
   border: var(--border-width) solid var(--Badge-border, var(--border-950));
   border-radius: var(--border-radius-full);
   color: var(--Badge-text, var(--text-950));
@@ -33,7 +33,25 @@
  * Variants
  * ======================================= */
 
-.Badge--dark {
+.Badge {
+  &.-animate\:beacon {
+    .Badge-beacon {
+      animation: Badge-beacon-fade 1.3s infinite linear;
+    }
+  }
+}
+
+.Badge--primary {
   --Badge-bg: var(--bg-950);
   --Badge-text: var(--text-50);
+}
+
+@keyframes Badge-beacon-fade {
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

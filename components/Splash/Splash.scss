@@ -41,7 +41,11 @@
   width: $space-l;
 }
 
-.Splash:has(.Splash-text[style*='transform']) {
+/**
+ * Little "hack" to detect when the Splash is animating out. This hides the
+ * loader if it's visible when the animation starts exiting.
+ */
+.Splash[style*='opacity'] {
   .Splash-loader {
     opacity: 0;
   }

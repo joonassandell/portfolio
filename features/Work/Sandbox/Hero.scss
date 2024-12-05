@@ -11,19 +11,19 @@
   }
 
   .Hero-figure-figure {
-    --width: 45vw;
-    inset: rem($space * 7) 0 0 rem($space * -4);
+    --width: 43vw;
+    inset: 30vw 0 0 -21.5vw;
     position: absolute;
-    width: clamp(rem($space * 14), var(--width), rem($space * 32));
+    width: clamp(rem($space * 14), var(--width), rem($space * 28));
     z-index: 3;
 
-    @include mq(m) {
-      --width: 40vw;
+    @include mq(xs) {
+      inset: 15vw 0 0 -21.5vw;
     }
 
     @include mq(l) {
-      --width: 32vw;
-      left: -58%;
+      --width: 35vw;
+      inset: 13vw 0 0 -17.5vw;
     }
   }
 
@@ -33,9 +33,9 @@
 
   .Hero-stamp {
     .Stamp-inner {
-      inset: 0 0 0 -20vw;
+      inset: -30vw 0 0 -25vw;
 
-      @include mq(l) {
+      @include mq(s) {
         inset: 0 0 0 -30vw;
       }
     }

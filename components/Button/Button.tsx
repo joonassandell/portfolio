@@ -16,6 +16,7 @@ export const Button = ({
   icon,
   onClick,
   radius = 'full',
+  scrollTo,
   size = 'm',
   target,
   templateTransition = true,
@@ -25,7 +26,10 @@ export const Button = ({
   const { active, externalTarget } = useUrlState(href as URL['href'])
   const { scrollToHash, shouldNavigate } = useLinkCondition(
     href as URL['href'],
-    target,
+    {
+      scrollToOptions: scrollTo,
+      target,
+    },
   )
   const { setTransition } = useApp()
   const Tag = href ? 'a' : 'button'
@@ -52,7 +56,8 @@ export const Button = ({
             '-size:s': size === 's',
             '-size:square': size === 'square',
             '-size:square:s': size === 'square:s',
-            'Button--default--dark': variant === 'dark',
+            'Button--default--primary': variant === 'primary',
+            'Button--default--secondary': variant === 'secondary',
           },
           className,
         )}

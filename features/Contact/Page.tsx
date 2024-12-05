@@ -55,7 +55,7 @@ export const ContactPage = () => {
                 disabled={icon.type.name != Copy.name}
                 icon={icon}
                 onClick={handleCopy}
-                variant="dark"
+                variant="secondary"
               >
                 Copy e-mail
               </Button>

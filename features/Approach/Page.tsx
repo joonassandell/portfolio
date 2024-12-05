@@ -12,8 +12,8 @@ import { useInView } from '@/lib/useInView'
 import { useParallax } from '@/lib/useParallax'
 import { useRef } from 'react'
 import { useSetThemeColor } from '@/components/App'
-import lineCube from '@/public/images/line-cube.png'
-import profile from '@/public/images/joonassandell-4.jpg'
+import lineCube from '@/public/common/decoration/line-cube.png'
+import profile from '@/public/common/joonassandell/joonassandell-portrait-beer.jpg'
 
 export const ApproachPage = () => {
   const { id, meta } = SITEMAP.approach

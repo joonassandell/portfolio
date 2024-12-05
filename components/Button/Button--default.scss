@@ -11,8 +11,8 @@
   color: var(--Button-text, var(--text-950));
   gap: rem($space-xs);
   justify-content: space-between;
-  min-height: rem($space-xl);
-  padding: rem($space-xs) rem($space-m);
+  min-height: rem($space-l);
+  padding: rem($space-xs) rem(20px); // Todo: Add variable for 20px
   transition:
     background-color var(--trans-primary-fastest),
     color var(--trans-primary-fastest),
@@ -31,15 +31,16 @@
     translate: 0 $space-5xs;
   }
 
-  .Button-icon {
-    margin-right: rem($space-3xs * -1);
-  }
-
   .Button-text {
     @at-root .is-ios & {
       position: relative;
       top: rem($space-5xs * 1);
     }
+  }
+
+  .Button-icon {
+    --Icon-size: var(--Icon-size-s);
+    margin-right: rem($space-3xs * -1);
   }
 }
 
@@ -57,7 +58,7 @@
   &.-size\:s,
   &.-size\:square\:s {
     .Button-icon {
-      --Icon-size: var(--Icon-size-s);
+      --Icon-size: var(--Icon-size-xs);
     }
   }
 
@@ -82,8 +83,8 @@
   }
 
   &.-size\:square {
-    min-height: rem($space-xl);
-    width: rem($space-xl);
+    min-height: rem($space-l);
+    width: rem($space-l);
   }
 
   &.-size\:square\:s {
@@ -92,11 +93,18 @@
   }
 }
 
-.Button--default--dark {
+.Button--default--primary {
   --Button-bg: var(--bg-950);
   --Button-text: var(--text-50);
   --Button-shadow: none;
   --Button-hover-bg: var(--bg-800);
   --Button-hover-border: var(--bg-800);
   --Button-hover-text: var(--text-50);
+}
+
+.Button--default--secondary {
+  --Button-bg: transparent;
+  --Button-shadow: none;
+  --Button-border: var(--border-950);
+  --Button-hover-bg: var(--bg-50);
 }

@@ -5,14 +5,14 @@ import type Lenis from 'lenis'
 
 type LenisScrollToElement = Parameters<Lenis['scrollTo']>[0]
 type LenisScrollToOptions = Parameters<Lenis['scrollTo']>[1]
-type ScrollToOptions = {
+export type ScrollToOptions = LenisScrollToOptions & {
   stopOnComplete?: boolean
 }
 
 export const useScrollTo = ({
   stopOnComplete,
   ...options
-}: LenisScrollToOptions & ScrollToOptions = {}) => {
+}: ScrollToOptions = {}) => {
   const lenis = useLenis()
 
   const scrollTo = (

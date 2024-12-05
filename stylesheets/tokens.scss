@@ -6,14 +6,12 @@
    * Primitive color tokens
    * ======================================= */
 
-  // Generic
   --black-hsl: 0 0% 0%;
   --black: hsl(var(--black-hsl));
   --black-transparent: hsl(var(--black-hsl) / 0);
   --white-hsl: 0 0% 100%;
   --white: hsl(var(--white-hsl));
 
-  // Gray
   --gray-50: #fbfbfb;
   --gray-100: #f7f7f7;
   --gray-100-translucent: hsl(var(--black-hsl) / 0.04);
@@ -27,7 +25,6 @@
   --gray-900: #111111;
   --gray-950: var(--black);
 
-  // Slate
   --slate-50: #f8fafc;
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
@@ -44,7 +41,6 @@
    * Semantic tokens
    * ======================================= */
 
-  // Background
   --bg-50: var(--white);
   --bg-100: var(--gray-50);
   --bg-200: var(--gray-100);
@@ -53,7 +49,6 @@
   --bg-900: var(--gray-900);
   --bg-950: var(--gray-950);
 
-  // Border
   --border-50: var(--white);
   --border-100: var(--gray-200);
   --border-200: var(--gray-300);
@@ -74,7 +69,6 @@
   --border-radius-app: 4px 4px var(--border-radius-m) var(--border-radius-m);
   --border-radius: var(--border-radius-m);
 
-  // Accent
   --accent-1-hsl: 25 100% 50%;
   --accent-1: hsl(var(--accent-1-hsl));
   --accent-1-blend: #0098ff;
@@ -83,39 +77,33 @@
   --accent-4-hsl: 288 100% 50%;
   --accent-4: hsl(var(--accent-4-hsl));
 
-  // Primary
   --primary-hsl: var(--accent-1-hsl);
   --primary: hsl(var(--primary-hsl));
   --primary-blend: var(--accent-1-blend);
 
-  // Tone
   --tone-50: #eeeae5;
   --tone-100: #e4ded6;
 
-  // Text
   --text-50: var(--white);
   --text-100: var(--gray-400);
   --text-900-blend: hsl(var(--white-hsl) / 0.6);
   --text-900: var(--gray-600);
   --text-950: var(--gray-900);
+
   --text-max-width: 56ch;
 
-  // Heading
   --heading: inherit;
   --heading-font-weight: var(--font-weight-400);
   --heading-max-width: 30ch;
 
-  // Link
   --link: var(--text-950);
   --link-hover-opacity: 0.6;
 
-  // Focus
   --focus-visible-bg: var(--bg-950);
   --focus-visible-bg-blend: var(--white);
   --focus-visible-fg: var(--text-50);
   --focus-visible-fg-blend: var(--gray-900);
 
-  // Shadow
   --shadow: 0 0 0 1px hsl(var(--black-hsl) / 0.07),
     0 2px 2px hsl(var(--black-hsl) / 0.1);
   --shadow-hover: 0 0 0 1px hsl(var(--black-hsl) / 0.14),
@@ -125,26 +113,20 @@
   --shadow-dark-hover: 0 0 0 1px hsl(var(--white-hsl) / 0.14),
     0 2px 2px hsl(var(--black-hsl) / 1);
 
-  // Scrollbar
   --scrollbar-thumb: hsl(var(--black-hsl) / 0.15);
   --scrollbar-thumb-dark: hsl(var(--white-hsl) / 0.15);
 
-  // Selection
   --selection-bg: var(--bg-950);
   --selection-fg: var(--text-50);
 
-  // Transitions & Easings
   --ease: cubic-bezier(0.68, 0, 0.1, 1);
-
   --trans-primary-fastest: 0.3s var(--ease);
   --trans-primary-fast: 0.6s var(--ease);
   --trans-primary: 1.3s var(--ease);
 
-  // Wrap
   --wrap-space-left: max(env(safe-area-inset-left), 6.25%);
   --wrap-space-right: max(env(safe-area-inset-right), 6.25%);
 
-  // Grid
   --grid-gap-m: #{rem($space-m)};
   --grid-gap-l: #{rem($space-m)};
   --grid-gap-row-l: #{rem($space-ml)};
@@ -153,18 +135,15 @@
    * Generic tokens
    * ======================================= */
 
-  // Base
   --root-min-width: 320px;
   --slow-network-delay: 1s;
 
-  // Typography
   --font-family-sans: 'Px Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
   --font-weight-400: 400;
   --font-weight-100: 100;
 
-  // Z index
   --z-index-700: 700;
   --z-index-800: 800;
   --z-index-900: 900;
