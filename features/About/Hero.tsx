@@ -6,7 +6,7 @@ import { useParallax } from '@/lib/useParallax'
 import lineCube from '@/public/common/decoration/line-cube.png'
 import profile from '@/public/common/joonassandell/joonassandell-portrait-studio.png'
 
-export const AboutTop = () => {
+export const AboutHero = () => {
   const { ref, value: x } = useParallax({ offset: 'start-start' })
 
   return (
