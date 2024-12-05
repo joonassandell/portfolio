@@ -21,5 +21,6 @@
 
   @include mq(l) {
     --Hero-height: 100svh;
+    --Hero-min-height: #{rem($space * 44)};
   }
 }
