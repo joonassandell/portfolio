@@ -8,7 +8,7 @@ import { Link } from '@/components/Link'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
 import { useRouter } from 'next/router'
-import avatar from '@/public/images/joonassandell-avatar.jpg'
+import avatar from '@/public/common/joonassandell/joonassandell-avatar.jpg'
 
 export const HomeAbout = () => {
   const { pathname, replace } = useRouter()

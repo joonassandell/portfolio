@@ -5,7 +5,7 @@ import { MQ } from '@/lib/config'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
 import { TextReveal } from '@/components/TextReveal'
-import lineBall from '@/public/images/line-ball.png'
+import lineBall from '@/public/common/decoration/line-ball.png'
 
 export const AboutClients = () => (
   <TemplateArea className="Template-clients" id="clients" pt="2xl-5xl">

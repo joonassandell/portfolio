@@ -5,7 +5,7 @@ import { Link } from '@/components/Link'
 import { LINK, SITEMAP } from '@/lib/sitemap'
 import { stripUrl } from '@/lib/utils'
 import { Text } from '@/components/Text'
-import profile from '@/public/images/joonassandell-2.jpg'
+import profile from '@/public/common/joonassandell/joonassandell-portrait-nature.jpg'
 
 export const ResumeAside = () => (
   <aside className="Template-aside grid-col grid-col:3@m text-wrap:balance">

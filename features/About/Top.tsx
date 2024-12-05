@@ -3,8 +3,8 @@ import { Heading } from '@/components/Heading'
 import { MQ } from '@/lib/config'
 import { TextReveal } from '@/components/TextReveal'
 import { useParallax } from '@/lib/useParallax'
-import lineCube from '@/public/images/line-cube.png'
-import profile from '@/public/images/joonassandell-1.png'
+import lineCube from '@/public/common/decoration/line-cube.png'
+import profile from '@/public/common/joonassandell/joonassandell-portrait-studio.png'
 
 export const AboutTop = () => {
   const { ref, value: x } = useParallax({ offset: 'start-start' })

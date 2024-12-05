@@ -45,7 +45,7 @@ export const APP = {
     location: 'Helsinki, Finland',
     name: 'Joonas Sandell',
     nickname: 'joonassandell',
-    thumbnail: `${APP_URL}/images/joonassandell-thumbnail.jpg`,
+    thumbnail: `${APP_URL}/common/joonassandell/joonassandell-thumbnail.jpg`,
     title: {
       combined: 'UI/UX Designer and Front-end Developer',
       design: 'UI/UX Designer',

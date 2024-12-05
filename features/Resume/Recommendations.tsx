@@ -2,9 +2,9 @@ import { Avatar } from '@/components/Avatar'
 import { Heading } from '@/components/Heading'
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
 import { TemplateArea } from '@/components/Template'
-import profileJoni from '@/public/images/joni-rajanen.jpg'
-import profileJussi from '@/public/images/jussi-salovaara.jpg'
-import profileSami from '@/public/images/sami-hakimsan.png'
+import profileJoni from '@/public/common/people/joni-rajanen.jpg'
+import profileJussi from '@/public/common/people/jussi-salovaara.jpg'
+import profileSami from '@/public/common/people/sami-hakimsan.png'
 
 export const ResumeRecommendations = () => (
   <TemplateArea
