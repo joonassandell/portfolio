@@ -89,7 +89,7 @@ export const HomeAbout = () => {
           </div>
         </div>
         <div className="Template-now grid-col grid-col:5@m grid-col:4@l grid-col:3@xl">
-          <Badge beacon className="mb@m">
+          <Badge beacon beaconAnimate className="mb@m">
             Now
           </Badge>
           <Text className="hidden@m">{now.mobile}</Text>

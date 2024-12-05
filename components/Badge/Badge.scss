@@ -33,7 +33,25 @@
  * Variants
  * ======================================= */
 
-.Badge--dark {
+.Badge {
+  &.-animate\:beacon {
+    .Badge-beacon {
+      animation: Badge-beacon-fade 1.3s infinite linear;
+    }
+  }
+}
+
+.Badge--primary {
   --Badge-bg: var(--bg-950);
   --Badge-text: var(--text-50);
+}
+
+@keyframes Badge-beacon-fade {
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
