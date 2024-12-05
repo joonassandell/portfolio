@@ -1,6 +1,6 @@
 import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App'
 import { BiocodeHero } from '@/features/Work/Biocode'
-import { HomeAbout } from './'
+import { HomeHero } from './'
 import { type LinkEvent } from '@/types'
 import { MediasignalHero } from '@/features/Work/Mediasignal'
 import { MoreWorkHero } from '@/features/Work/MoreWork'
@@ -76,7 +76,7 @@ export const HomePage = () => {
       id={id}
       variant="unstyled"
     >
-      <HomeAbout />
+      <HomeHero />
       <div className="Template-heros" id="selected-works">
         <BiocodeHero
           onClick={handleClick}

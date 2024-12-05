@@ -10,7 +10,7 @@ import { Text } from '@/components/Text'
 import { useRouter } from 'next/router'
 import avatar from '@/public/common/joonassandell/joonassandell-avatar.jpg'
 
-export const HomeAbout = () => {
+export const HomeHero = () => {
   const { pathname, replace } = useRouter()
   const handleExcludeHash = (e: LinkEvent & ButtonEvent) => {
     e.preventDefault()
@@ -53,7 +53,7 @@ export const HomeAbout = () => {
 
   return (
     <TemplateArea
-      className="Template-about flex flex-direction:column justify-content:end@m"
+      className="Template-hero flex flex-direction:column justify-content:end@m"
       grid={false}
       pt={false}
     >
@@ -61,7 +61,7 @@ export const HomeAbout = () => {
         alt="Joonas Sandell avatar picture"
         animate={false}
         borderRadius="var(--border-radius-l)"
-        className="Template-avatar mb:m mb:ml@m"
+        className="Template-hero-avatar mb:m mb:ml@m"
         priority
         sizes="15vw"
         {...avatar}
@@ -88,7 +88,7 @@ export const HomeAbout = () => {
             </Button>
           </div>
         </div>
-        <div className="Template-now grid-col grid-col:5@m grid-col:4@l grid-col:3@xl">
+        <div className="Template-hero-now grid-col grid-col:5@m grid-col:4@l grid-col:3@xl">
           <Badge beacon beaconAnimate className="mb@m">
             Now
           </Badge>

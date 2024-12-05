@@ -4,7 +4,7 @@
 .Template--home {
   --Footer-bg: var(--tone-50);
 
-  .Template-about {
+  .Template-hero {
     background: linear-gradient(to bottom, var(--bg-50), var(--tone-50));
     border-bottom: var(--border-width) solid var(--border-950);
     padding-bottom: rem($space-3xl - $space-xs);
@@ -20,7 +20,7 @@
     }
   }
 
-  .Template-avatar {
+  .Template-hero-avatar {
     --size: #{rem($space-4xl)};
     height: var(--size);
     width: var(--size);
@@ -30,7 +30,7 @@
     }
   }
 
-  .Template-now {
+  .Template-hero-now {
     --text-max-width: 40ch;
 
     @include mq($until: m) {
