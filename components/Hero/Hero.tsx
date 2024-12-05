@@ -124,6 +124,7 @@ export const Hero = ({
         {transitionPre && (
           <Stamp
             addVarsToParent={stampAddVarsToParent}
+            aria-label={`View ${heading} project`}
             className="Hero-stamp"
             href={href}
             onClick={onClick}

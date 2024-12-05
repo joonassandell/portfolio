@@ -21,6 +21,7 @@ export const Stamp = ({
   overlay = true,
   parentRef,
   transitionStart,
+  ...props
 }: StampProps) => {
   const [ref, { height, width }] = useMeasure<HTMLDivElement>()
   const innerRef = useRef<HTMLDivElement>(null)
@@ -107,6 +108,7 @@ export const Stamp = ({
         }}
       >
         <m.a
+          aria-label={props['aria-label']}
           className="Stamp-stamp"
           href={href}
           onClick={onClick}
