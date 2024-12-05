@@ -1,6 +1,6 @@
 import { AnimatePresence, m } from 'motion/react'
 import { Heading } from '@/components/Heading'
-import { SPLASH_VARIANTS, type SplashProps, TEXT_VARIANTS } from './'
+import { SPLASH_VARIANTS, type SplashProps } from './'
 
 export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
   return (
@@ -16,22 +16,10 @@ export const Splash = ({ loading, onAnimationComplete }: SplashProps) => {
         >
           <div className="Splash-main">
             <Heading className="Splash-row mb:2xs" size="h6" tag="div">
-              <m.div
-                className="Splash-text"
-                exit="exit"
-                variants={TEXT_VARIANTS}
-              >
-                Portfolio of
-              </m.div>
+              <div className="Splash-text">Portfolio of</div>
             </Heading>
             <Heading className="Splash-row mb:m" size="h3" tag="div">
-              <m.div
-                className="Splash-text"
-                exit="exit"
-                variants={TEXT_VARIANTS}
-              >
-                Joonas Sandell
-              </m.div>
+              <div className="Splash-text">Joonas Sandell</div>
             </Heading>
             <div className="Splash-loader" />
           </div>
