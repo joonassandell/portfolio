@@ -69,7 +69,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                 >
                   <Image
                     alt="Oras faucet"
-                    draggable="false"
+                    draggable={false}
                     priority={!transitionPre}
                     quality={60}
                     sizes={`${MQ.ml} 33vw, 50vw`}
@@ -94,7 +94,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
                     <Image
                       alt="Oras drop"
                       aria-hidden
-                      draggable="false"
+                      draggable={false}
                       quality={90}
                       sizes="10vw"
                       src={drop}
@@ -126,7 +126,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
               <Image
                 alt="Oras drop"
                 aria-hidden
-                draggable="false"
+                draggable={false}
                 quality={90}
                 sizes="10vw"
                 src={drop}
@@ -147,7 +147,7 @@ export const OrasHero = ({ onClick, transition, ...props }: HeroProps) => {
               <Image
                 alt="Oras drop"
                 aria-hidden
-                draggable="false"
+                draggable={false}
                 priority={!transitionPre}
                 quality={90}
                 sizes="10vw"

@@ -117,7 +117,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
         >
           <Image
             alt={`Next Project: ${title}`}
-            draggable="false"
+            draggable={false}
             height={1920}
             priority
             sizes={`${MQ.l} 33vw, 50vw`}

@@ -64,7 +64,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
                 >
                   <Image
                     alt="Light globe"
-                    draggable="false"
+                    draggable={false}
                     priority
                     quality={90}
                     sizes="50vw"
@@ -88,7 +88,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
               >
                 <Image
                   alt="Globe"
-                  draggable="false"
+                  draggable={false}
                   priority={!transitionPre}
                   quality={80}
                   sizes={`${MQ.l} 33vw, 50vw`}
@@ -102,7 +102,7 @@ export const BiocodeHero = ({ onClick, transition, ...props }: HeroProps) => {
               <figure className="Hero-figure-icon">
                 <Image
                   alt="Biocode logomark"
-                  draggable="false"
+                  draggable={false}
                   priority
                   sizes="25vw"
                   src={logoMark}

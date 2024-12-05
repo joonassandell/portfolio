@@ -69,7 +69,7 @@ export const MediasignalHero = ({
               >
                 <Image
                   alt="Mediasignal homepage sketch in iPad"
-                  draggable="false"
+                  draggable={false}
                   priority={!transitionPre}
                   quality={85}
                   sizes={`${MQ.l} 60vw, 90vw`}
