@@ -65,15 +65,3 @@
     display: none;
   }
 }
-
-@include mq(xl) {
-  .hidden\@xl {
-    display: none;
-  }
-}
-
-@include mq($until: xl) {
-  .visible\@xl {
-    display: none;
-  }
-}

@@ -17,40 +17,6 @@ export const HomeHero = () => {
     replace(pathname, undefined, { shallow: true })
   }
 
-  const heading = 'I design and develop interfaces, products, and beyond.'
-  const now = {
-    desktop: (
-      <>
-        Crafting new AI-driven experiences at{' '}
-        <em>
-          <Link href={LINK.workPlace.url} underline={false}>
-            {LINK.workPlace.title}
-          </Link>
-        </em>{' '}
-        and building various side projects.
-      </>
-    ),
-    mobile: (
-      <>
-        Crafting new AI-driven experiences at{' '}
-        <em>
-          <Link href={LINK.workPlace.url} underline={false}>
-            {LINK.workPlace.title}
-          </Link>
-        </em>
-        . Learn more <Link href={SITEMAP.about.url}>about me</Link> or explore{' '}
-        <Link
-          href="#selected-works"
-          onClick={handleExcludeHash}
-          scrollTo={{ offset: 0 }}
-        >
-          selected works
-        </Link>
-        .
-      </>
-    ),
-  }
-
   return (
     <TemplateArea
       className="Template-hero flex flex-direction:column justify-content:end@m"
@@ -61,18 +27,18 @@ export const HomeHero = () => {
         alt="Joonas Sandell avatar picture"
         animate={false}
         borderRadius="var(--border-radius-l)"
-        className="Template-hero-avatar mb:m mb:ml@m"
+        className="Template-hero-avatar mb:m mb:ml@l"
         priority
         sizes="15vw"
         {...avatar}
       />
-      <div className="grid-col grid -gap:0 align-items:start">
+      <div className="grid-col grid -gap -gap:row:0 align-items:start">
         <div className="grid-col grid-col:7@m grid-col:8@l grid-col:9@xl">
-          <Heading className="mb:ml@m visible@xl" size="h1">
-            {heading}
+          <Heading className="mb:ml visible@l" size="h1">
+            I design and develop interfaces, products, and beyond.
           </Heading>
-          <Heading className="mb:ml@m hidden@xl" size="h2" tag="div">
-            {heading}
+          <Heading className="hidden@l" size="h2" tag="div">
+            I design and develop interfaces, products, and beyond.
           </Heading>
           <div className="flex gap flex-wrap:wrap visible@m">
             <Button
@@ -92,9 +58,32 @@ export const HomeHero = () => {
           <Badge beacon beaconAnimate className="mb@m">
             Now
           </Badge>
-          <Text className="hidden@m">{now.mobile}</Text>
-          <Text balance className="visible@m">
-            {now.desktop}
+          <Text className="mb:0 hidden@m" tag="p">
+            Crafting new AI-driven experiences at{' '}
+            <em>
+              <Link href={LINK.workPlace.url} underline={false}>
+                {LINK.workPlace.title}
+              </Link>
+            </em>
+            . Learn more <Link href={SITEMAP.about.url}>about me</Link> or
+            explore{' '}
+            <Link
+              href="#selected-works"
+              onClick={handleExcludeHash}
+              scrollTo={{ offset: 0 }}
+            >
+              selected works
+            </Link>
+            .
+          </Text>
+          <Text balance className="visible@m" tag="p">
+            Crafting new AI-driven experiences at{' '}
+            <em>
+              <Link href={LINK.workPlace.url} underline={false}>
+                {LINK.workPlace.title}
+              </Link>
+            </em>{' '}
+            and building various side projects.
           </Text>
         </div>
       </div>

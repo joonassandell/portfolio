@@ -31,9 +31,8 @@
   }
 
   .Template-hero-now {
-    --text-max-width: 40ch;
-
     @include mq($until: m) {
+      --text-max-width: 40ch;
       align-items: flex-start;
       display: flex;
       gap: rem($space);
