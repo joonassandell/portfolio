@@ -5,7 +5,7 @@
   --Footer-bg: var(--tone-50);
 
   .Template-hero {
-    background: linear-gradient(to bottom, var(--bg-50), var(--tone-50));
+    background: linear-gradient(to bottom, var(--bg-50) 50%, var(--tone-50));
     border-bottom: var(--border-width) solid var(--border-950);
     padding-bottom: rem($space-3xl - $space-xs);
     padding-top: calc(var(--Header-height) + #{rem($space-xl)});
