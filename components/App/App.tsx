@@ -49,7 +49,7 @@ export const App = ({
       | 'setThemeColor'
       | 'setTemplateRef'
       | 'lockTemplate'
-      | 'lockScroll'
+      | 'lockRootScroll'
     >
   >({
     detect: {
@@ -61,14 +61,14 @@ export const App = ({
       isSafariIphone: false,
       isWindows: false,
     },
-    html: (isBrowser && document.documentElement) as AppContextProps['html'],
     loading: DISABLE_LOADING ? false : true,
     loadingEnd: DISABLE_LOADING ? true : false,
+    root: (isBrowser && document.documentElement) as AppContextProps['root'],
     templateRef: null,
     transition: false,
     transitionInitial: false,
   })
-  const { html, loading, loadingEnd, templateRef, transition } = appState
+  const { loading, loadingEnd, root, templateRef, transition } = appState
   const { asPath, beforePopState, events, pathname, push } = useRouter()
   const [animationComplete, setAnimationComplete] = useState<
     string | undefined
@@ -111,21 +111,22 @@ export const App = ({
 
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>()
 
-  const lockScroll = useCallback(
-    (enable = false) => {
-      if (!lenis) return
-
+  const lockRootScroll = useCallback(
+    (enable = false, { handleLenis = true } = {}) => {
       if (enable) {
-        lenis.stop()
-        html.classList.add('is-lock')
-        html.style.setProperty('--scrollbar-width-lock', `${scrollbarWidth}px`)
+        if (handleLenis) lenis?.stop()
+        root.classList.add('is-lock')
+        root.style.setProperty(
+          '--root-scrollbar-width-lock',
+          `${scrollbarWidth}px`,
+        )
       } else {
-        lenis.start()
-        html.classList.remove('is-lock')
-        html.style.removeProperty('--scrollbar-width-lock')
+        if (handleLenis) lenis?.start()
+        root.classList.remove('is-lock')
+        root.style.removeProperty('--root-scrollbar-width-lock')
       }
     },
-    [lenis, html],
+    [lenis, root],
   )
 
   const lockTemplate = useCallback(() => {
@@ -155,12 +156,12 @@ export const App = ({
         isSafariIphone,
         isWindows,
       } = await import('@/lib/detect')
-      if (isWindows) html.classList.add('is-windows')
-      if (hasThemeColor) html.classList.add('has-themeColor')
-      if (isIos) html.classList.add('is-ios')
-      if (isSafari) html.classList.add('is-safari')
-      if (isSafariIphone) html.classList.add('is-safari:iphone')
-      if (isSafariDesktop) html.classList.add('is-safari:desktop')
+      if (isWindows) root.classList.add('is-windows')
+      if (hasThemeColor) root.classList.add('has-themeColor')
+      if (isIos) root.classList.add('is-ios')
+      if (isSafari) root.classList.add('is-safari')
+      if (isSafariIphone) root.classList.add('is-safari:iphone')
+      if (isSafariDesktop) root.classList.add('is-safari:desktop')
 
       setAppState(prevState => ({
         ...prevState,
@@ -185,40 +186,34 @@ export const App = ({
     if (history.scrollRestoration) {
       history.scrollRestoration = 'manual'
     }
-  }, [html])
+  }, [root])
 
   /**
-   * Fix scrolling to hashlinks correctly on load. Note that the browser first
-   * scrolls natively and this scrolls again slightly. Not really sure what
-   * causes the altering scroll gaps on load, somehow related to
-   * `scroll-behavior: smooth`
+   * Handle loading. Notes about the root scroll handling on load:
+   *
+   * - During load, scrolling is disabled with pre applied `:root.is-loading`
+   *   class and lenis is enabled but with disabled wheel events
+   * - During load, if there's `#hash` in the url, browser will natively scroll
+   *   to its target but scrolling is still disabled
+   * - After loading ends, obviously scrolling is enabled and lenis' wheel
+   *   events are enabled in <ReactLenis />
+   * - Although the `lockRootScroll` adds the `:root.is-lock` class, it has no
+   *   specific effect during load
    */
   useEffect(() => {
-    const {
-      url: { hash },
-    } = urlState(asPath)
-    if (hash) setTimeout(() => scrollIntoView(hash), 150)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  /**
-   * Handle loading operations
-   */
-  useEffect(() => {
-    if (!lenis) return
     if (loadingEnd) {
-      lockScroll(false)
-      html.classList.remove('is-loading')
+      lockRootScroll(false, { handleLenis: false })
+      root.classList.remove('is-loading')
     } else {
-      lockScroll(true)
+      lockRootScroll(true, { handleLenis: false })
     }
-  }, [loadingEnd, lockScroll, lenis, html])
+  }, [loadingEnd, lockRootScroll, root])
 
   /**
    * Handle page transition logic
    */
   useEffect(() => {
-    if (transition) html.classList.add('is-transition')
+    if (transition) root.classList.add('is-transition')
 
     if (transition === 'instant' || transition === 'template') {
       lockTemplate()
@@ -227,11 +222,10 @@ export const App = ({
     // Set initial transitions ready for animations (e.g. for Hero)
     if (transition === 'template') setTransitionInitial(true)
 
-    if (!transition) {
-      html.classList.remove('is-transition')
-    }
+    if (!transition) root.classList.remove('is-transition')
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [transition, html])
+  }, [transition, root])
 
   /**
    * Add loader with nprogress for slow networks
@@ -325,7 +319,7 @@ export const App = ({
       <AppContext.Provider
         value={{
           ...appState,
-          lockScroll,
+          lockRootScroll,
           lockTemplate,
           setTemplateRef,
           setThemeColor,
@@ -333,7 +327,7 @@ export const App = ({
           setTransitionInitial,
         }}
       >
-        <ReactLenis options={{ autoRaf: true }} root>
+        <ReactLenis options={{ autoRaf: true, smoothWheel: loadingEnd }} root>
           <div className="App">
             <SkipNav href="#skip-nav">Skip to content</SkipNav>
             <Header navTitle={navTitle} />

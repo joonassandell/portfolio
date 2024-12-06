@@ -24,7 +24,7 @@
   align-items: flex-end;
   display: flex;
   height: var(--Header-height);
-  inset: 0 var(--scrollbar-width-lock, 0) auto 0;
+  inset: 0 var(--root-scrollbar-width-lock, 0) auto 0;
   min-width: var(--root-min-width);
   mix-blend-mode: difference;
   position: fixed;
@@ -568,7 +568,7 @@
 }
 
 .Header-footer-right {
-  margin-right: var(--scrollbar-width-lock);
+  margin-right: var(--root-scrollbar-width-lock);
 
   @include mq(m) {
     align-items: flex-end;

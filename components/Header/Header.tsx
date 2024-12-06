@@ -41,7 +41,7 @@ export const Header = ({
 }: HeaderProps) => {
   const router = useRouter()
   const { events, push } = router
-  const { html, lockScroll, setTransition, setTransitionInitial } = useApp()
+  const { lockRootScroll, root, setTransition, setTransitionInitial } = useApp()
   const scrollTo = useScrollTo()
   const mqM = useMedia(MQ.m, true)
 
@@ -96,7 +96,7 @@ export const Header = ({
     if (!open) setOpenReveal(true)
     if (open && btnFocusVisible) setBtnFocusVisible(false)
     if (open && btnFocus) btnRef.current?.focus()
-    !open ? lockScroll(true) : lockScroll(false)
+    !open ? lockRootScroll(true) : lockRootScroll(false)
     !open ? setAnimating('open') : setAnimating('close')
     setNavRevealTitle(navTitle)
 
@@ -244,11 +244,11 @@ export const Header = ({
   useEffect(() => {
     if (open && !animating) {
       const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen()
-      html.addEventListener('keydown', esc)
-      return () => html.removeEventListener('keydown', esc)
+      root.addEventListener('keydown', esc)
+      return () => root.removeEventListener('keydown', esc)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, animating, html])
+  }, [open, animating, root])
 
   /**
    * Disable keydowns if mask is animating
@@ -256,10 +256,10 @@ export const Header = ({
   useEffect(() => {
     if (animating) {
       const keys = (e: KeyboardEvent) => e.preventDefault()
-      html.addEventListener('keydown', keys)
-      return () => html.removeEventListener('keydown', keys)
+      root.addEventListener('keydown', keys)
+      return () => root.removeEventListener('keydown', keys)
     }
-  }, [animating, html])
+  }, [animating, root])
 
   return (
     <FocusTrap
@@ -380,7 +380,7 @@ export const Header = ({
                     header.navMaskMobile.map(item => {
                       return (
                         <m.li
-                          className="Header-mask-nav-secondary-item wrap hidden@m"
+                          className="Header-mask-nav-secondary-item wrap"
                           custom={{ y: '3rem' }}
                           key={item.id}
                           variants={MASK_ITEM_VARIANT}

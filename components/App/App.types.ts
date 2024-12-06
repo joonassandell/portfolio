@@ -18,11 +18,11 @@ export interface AppContextProps {
     isSafariIphone: boolean
     isWindows: boolean
   }
-  html: Document['documentElement']
   loading: boolean
   loadingEnd: boolean
-  lockScroll: (enable?: boolean) => void
+  lockRootScroll: (enable?: boolean) => void
   lockTemplate: () => void
+  root: Document['documentElement']
   setTemplateRef: (value: AppContextProps['templateRef']) => void
   setThemeColor: Dispatch<SetStateAction<AppHeadProps['themeColor']>>
   setTransition: (value: AppContextProps['transition']) => void
