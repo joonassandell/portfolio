@@ -210,6 +210,23 @@ export const App = ({
   }, [loadingEnd, lockRootScroll, root])
 
   /**
+   * Fix scrolling to hashlinks correctly on load. Note that the browser first
+   * scrolls natively and this scrolls again slightly. Not really sure what
+   * causes the altering scroll gaps on load, probably related to
+   * `scroll-behavior: smooth` and some loading of the app.
+   */
+  useEffect(() => {
+    const {
+      url: { hash },
+    } = urlState(asPath)
+    if (hash) {
+      console.log(hash)
+      setTimeout(() => scrollIntoView(hash, { behavior: 'instant' }), 150)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  /**
    * Handle page transition logic
    */
   useEffect(() => {
