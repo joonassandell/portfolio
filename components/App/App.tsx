@@ -220,7 +220,6 @@ export const App = ({
       url: { hash },
     } = urlState(asPath)
     if (hash) {
-      console.log(hash)
       setTimeout(() => scrollIntoView(hash, { behavior: 'instant' }), 150)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
