@@ -3,12 +3,12 @@ import { Button } from '@/components/Button'
 import { type ButtonEvent, type LinkEvent } from '@/types'
 import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
-import { Link } from '@/components/Link'
 import { LINK, SITEMAP } from '@/lib/sitemap'
+import { Link } from '@/components/Link'
 import { m } from 'motion/react'
+import { MQ, TRANS_DRAG, TRANS_TAP } from '@/lib/config'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
-import { TRANS_DRAG, TRANS_TAP } from '@/lib/config'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import c from 'clsx'
@@ -42,7 +42,7 @@ export const HomeHero = () => {
           className="Template-hero-pfp-figure"
           priority
           quality={90}
-          sizes="7rem"
+          sizes={`${MQ['xl']} 10vw, 6rem`}
           {...pfp}
         />
         <m.div
