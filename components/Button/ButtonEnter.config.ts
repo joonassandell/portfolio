@@ -1,14 +1,14 @@
 import {
   TRANS_PRIMARY_FAST,
   TRANS_PRIMARY_FASTEST,
-  TRANS_TAP,
+  TRANS_TAP_FAST,
 } from '@/lib/config'
 import { type Variants } from 'motion/react'
 
 export const BUTTON_VARIANTS: Readonly<Variants> = {
   tap: {
     top: 2,
-    transition: TRANS_TAP,
+    transition: TRANS_TAP_FAST,
   },
 }
 

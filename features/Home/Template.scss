@@ -10,6 +10,10 @@
     padding-bottom: rem($space-3xl - $space-xs);
     padding-top: calc(var(--Header-height) + #{rem($space-6xl)});
 
+    &.is-drag\:pfp {
+      cursor: grabbing;
+    }
+
     @include mq(m) {
       min-height: min(rem($space * 52), calc(100svh + var(--border-width)));
     }
@@ -19,13 +23,43 @@
     }
   }
 
-  .Template-hero-avatar {
+  .Template-hero-pfp {
     --size: #{rem($space-4xl)};
+    border-radius: var(--border-radius-l);
+    cursor: grab;
+    display: grid;
     height: var(--size);
+    outline: var(--border-width-dashed) dashed var(--border-200);
+    outline-offset: rem($space-2xs);
     width: var(--size);
+
+    > * {
+      grid-area: 1/1;
+    }
 
     @include mq(xl) {
       --size: #{rem($space-5xl)};
+    }
+  }
+
+  .Template-hero-pfp-figure {
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+      transform var(--trans-primary-fastest),
+      opacity 0.2s var(--ease);
+  }
+
+  .Template-hero.is-drag\:pfp .Template-hero-pfp-figure {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .Template-hero-pfp-svg {
+    z-index: 1;
+
+    svg {
+      border-radius: var(--border-radius-l);
     }
   }
 

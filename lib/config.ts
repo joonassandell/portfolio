@@ -106,8 +106,23 @@ export const TRANS_TEMPLATE = {
   ease: [0.76, 0, 0.18, 1],
 } as const
 
+/**
+ * @link https://github.com/motiondivision/motion/blob/main/packages/framer-motion/src/animation/utils/default-transitions.ts
+ */
 export const TRANS_TAP = {
+  damping: 22,
+  restSpeed: 10,
+  stiffness: 500,
+  type: 'spring',
+} as const
+
+export const TRANS_TAP_FAST = {
   duration: 0.1,
+} as const
+
+export const TRANS_DRAG = {
+  bounceDamping: 22,
+  bounceStiffness: 400,
 } as const
 
 /* =======================================

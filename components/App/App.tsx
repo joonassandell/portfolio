@@ -1,4 +1,4 @@
-import { AnimatePresence, domAnimation, LazyMotion } from 'motion/react'
+import { AnimatePresence, domMax, LazyMotion } from 'motion/react'
 import {
   type AppContextProps,
   AppHead,
@@ -324,7 +324,7 @@ export const App = ({
   }, [animationComplete, lenis])
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={domMax} strict>
       <AppHead themeColor={loadingEnd ? themeColor : undefined} />
       {!DISABLE_LOADING && (
         <Splash
