@@ -124,7 +124,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           ['--Figure-border-radius' as PropertyKey]: isString(borderRadius)
             ? borderRadius
             : undefined,
-          y: scroll ? y : 0,
+          ...(scroll && { y }),
           ...props.style,
         }}
       >
