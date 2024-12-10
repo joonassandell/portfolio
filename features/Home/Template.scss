@@ -24,13 +24,14 @@
   }
 
   .Template-hero-pfp {
-    --size: #{rem($space-4xl)};
+    --border-radius: calc(var(--border-radius-l) - #{rem($space-2xs)});
+    --size: #{rem($space-5xl)};
+
+    border: var(--border-width-dashed) dashed var(--border-200);
     border-radius: var(--border-radius-l);
-    cursor: grab;
     display: grid;
     height: var(--size);
-    outline: var(--border-width-dashed) dashed var(--border-200);
-    outline-offset: rem($space-2xs);
+    padding: rem($space-2xs);
     width: var(--size);
 
     > * {
@@ -38,7 +39,7 @@
     }
 
     @include mq(xl) {
-      --size: #{rem($space-5xl)};
+      --size: #{rem($space-6xl)};
     }
   }
 
@@ -56,10 +57,11 @@
   }
 
   .Template-hero-pfp-svg {
+    cursor: grab;
     z-index: 1;
 
     svg {
-      border-radius: var(--border-radius-l);
+      border-radius: var(--border-radius);
     }
   }
 

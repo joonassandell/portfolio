@@ -38,11 +38,10 @@ export const HomeHero = () => {
         <Figure
           alt="Joonas Sandell profile picture"
           animate={false}
-          borderRadius="var(--border-radius-l)"
           className="Template-hero-pfp-figure"
           priority
           quality={90}
-          sizes={`${MQ['xl']} 10vw, 6rem`}
+          sizes={`${MQ['xl']} 10vw, 7rem`}
           {...pfp}
         />
         <m.div
