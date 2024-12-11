@@ -1,7 +1,6 @@
 import {
   BG_HOVER_VARIANTS,
   BG_VARIANTS,
-  BUTTON_VARIANTS,
   type ButtonEnterProps,
   PATH_IN_VARIANTS,
   PATH_OUT_VARIANTS,
@@ -60,8 +59,6 @@ export const ButtonEnter = ({
           setHover(true)
         }}
         onMouseLeave={() => setHover(false)}
-        variants={BUTTON_VARIANTS}
-        whileTap="tap"
         {...props}
       >
         <m.div

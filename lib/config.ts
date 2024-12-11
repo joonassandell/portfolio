@@ -133,10 +133,6 @@ export const TRANS_TAP = {
   type: 'spring',
 } as const
 
-export const TRANS_TAP_FAST = {
-  duration: 0.1,
-} as const
-
 export const TRANS_DRAG = {
   bounceDamping: 30,
   bounceStiffness: 450,

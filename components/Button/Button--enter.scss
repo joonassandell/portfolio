@@ -9,6 +9,10 @@
     background-color: unset;
   }
 
+  &:active {
+    translate: 0 $space-4xs;
+  }
+
   .Button-arrow {
     align-items: flex-start;
     display: flex;
