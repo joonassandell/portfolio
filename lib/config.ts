@@ -108,7 +108,7 @@ export const TRANS_TEMPLATE = {
 
 export const TRANS_SPRING = {
   fast: {
-    damping: 30,
+    damping: 28,
     stiffness: 450,
     type: 'spring',
   },
@@ -128,7 +128,7 @@ export const TRANS_SPRING = {
  * @link https://github.com/motiondivision/motion/blob/main/packages/framer-motion/src/animation/utils/default-transitions.ts
  */
 export const TRANS_TAP = {
-  damping: 22,
+  damping: 20,
   stiffness: 450,
   type: 'spring',
 } as const
