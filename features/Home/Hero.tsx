@@ -3,10 +3,16 @@ import { Button } from '@/components/Button'
 import { type ButtonEvent, type LinkEvent } from '@/types'
 import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
-import { LINK, SITEMAP } from '@/lib/sitemap'
 import { Link } from '@/components/Link'
-import { m, useDragControls } from 'motion/react'
-import { MQ, TRANS_DRAG, TRANS_TAP } from '@/lib/config'
+import { LINK, SITEMAP } from '@/lib/sitemap'
+import {
+  m,
+  useDragControls,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from 'motion/react'
+import { MQ, TRANS_DRAG, TRANS_SPRING, TRANS_TAP } from '@/lib/config'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
 import { useApp } from '@/components/App'
@@ -29,7 +35,16 @@ export const HomeHero = () => {
   const [pfpActive, setPfpActive] = useState(false)
   const [pfpHover, setPfpHover] = useState(false)
   const [pfpPress, setPfpPress] = useState(false)
+
   const dragControls = useDragControls()
+  const dragX = useMotionValue(0)
+  const dragY = useMotionValue(0)
+  const dragDistance = useTransform(
+    [dragX, dragY],
+    ([x, y]: number[]) => Math.sqrt(x * x + y * y), // Distance from the center
+  )
+  const figureScaleTrans = useTransform(dragDistance, [-40, 0, 40], [1, 0.5, 1])
+  const figureScale = useSpring(figureScaleTrans, TRANS_SPRING.fast)
 
   return (
     <TemplateArea
@@ -50,11 +65,8 @@ export const HomeHero = () => {
         }}
       >
         <m.div
-          animate={{
-            opacity: pfpDrag ? 1 : 0,
-            scale: pfpDrag ? 1 : 0.7,
-          }}
           className="Template-hero-pfp-figure"
+          style={{ opacity: figureScale, scale: figureScale }}
           transition={TRANS_TAP}
         >
           <Figure
@@ -82,7 +94,13 @@ export const HomeHero = () => {
           dragElastic={0.3}
           dragSnapToOrigin
           dragTransition={TRANS_DRAG}
+          onDrag={(_, info) => {
+            dragX.set(info.offset.x)
+            dragY.set(info.offset.y)
+          }}
           onDragEnd={() => {
+            dragX.set(0)
+            dragY.set(0)
             setPfpDrag(false)
             if (!pfpHover) setPfpActive(false)
           }}

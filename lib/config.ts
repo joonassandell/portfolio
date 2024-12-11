@@ -106,13 +106,30 @@ export const TRANS_TEMPLATE = {
   ease: [0.76, 0, 0.18, 1],
 } as const
 
+export const TRANS_SPRING = {
+  fast: {
+    damping: 30,
+    stiffness: 450,
+    type: 'spring',
+  },
+  medium: {
+    damping: 20,
+    stiffness: 200,
+    type: 'spring',
+  },
+  slow: {
+    damping: 15,
+    stiffness: 100,
+    type: 'spring',
+  },
+} as const
+
 /**
  * @link https://github.com/motiondivision/motion/blob/main/packages/framer-motion/src/animation/utils/default-transitions.ts
  */
 export const TRANS_TAP = {
   damping: 22,
-  restSpeed: 10,
-  stiffness: 500,
+  stiffness: 450,
   type: 'spring',
 } as const
 
@@ -121,8 +138,8 @@ export const TRANS_TAP_FAST = {
 } as const
 
 export const TRANS_DRAG = {
-  bounceDamping: 22,
-  bounceStiffness: 400,
+  bounceDamping: 30,
+  bounceStiffness: 450,
 } as const
 
 /* =======================================
