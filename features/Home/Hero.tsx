@@ -49,20 +49,28 @@ export const HomeHero = () => {
           cursor: pfpPress || pfpDrag ? 'grabbing' : 'grab',
         }}
       >
-        <Figure
-          alt="Joonas Sandell profile picture"
-          animate={false}
+        <m.div
+          animate={{
+            opacity: pfpDrag ? 1 : 0,
+            scale: pfpDrag ? 1 : 0.7,
+          }}
           className="Template-hero-pfp-figure"
-          priority
-          quality={90}
-          sizes={`${MQ['xl']} 10vw, 7rem`}
-          {...pfp}
-        />
+          transition={TRANS_TAP}
+        >
+          <Figure
+            alt="Joonas Sandell profile picture"
+            animate={false}
+            priority
+            quality={90}
+            sizes={`${MQ['xl']} 10vw, 7rem`}
+            {...pfp}
+          />
+        </m.div>
         <m.div
           animate={{
             scale: pfpPress ? 0.9 : 1,
           }}
-          className="Template-hero-pfp-svg"
+          className="Template-hero-pfp-avatar"
           drag
           dragConstraints={{
             bottom: 80,
@@ -71,7 +79,7 @@ export const HomeHero = () => {
             top: -80,
           }}
           dragControls={dragControls}
-          dragElastic={0.2}
+          dragElastic={0.3}
           dragSnapToOrigin
           dragTransition={TRANS_DRAG}
           onDragEnd={() => {
@@ -97,7 +105,7 @@ export const HomeHero = () => {
             if (!hasTouch) setPfpHover(true)
           }}
           onPointerLeave={() => {
-            if (!pfpDrag) setPfpActive(false)
+            if (!pfpDrag && !pfpPress) setPfpActive(false)
             if (!hasTouch) setPfpHover(false)
           }}
           onPointerUp={() => setPfpPress(false)}

@@ -26,12 +26,13 @@
   }
 
   .Template-hero-pfp {
-    --border-radius: calc(var(--border-radius-l) - #{rem($space-2xs)});
+    --padding: #{rem($space-2xs + $space-4xs)};
+    --border-radius: calc(var(--border-radius-l) - var(--padding));
     --size: #{rem($space-5xl)};
     border: var(--border-width) solid transparent;
     display: grid;
     height: var(--size);
-    padding: rem($space-2xs);
+    padding: var(--padding);
     position: relative;
     user-select: none;
     width: var(--size);
@@ -72,19 +73,9 @@
 
   .Template-hero-pfp-figure {
     grid-area: 1/1;
-    opacity: 0;
-    scale: 0.9;
-    transition:
-      scale var(--trans-primary-fastest),
-      opacity 0.2s var(--ease);
   }
 
-  .Template-hero.is-drag\:pfp .Template-hero-pfp-figure {
-    opacity: 1;
-    scale: 1;
-  }
-
-  .Template-hero-pfp-svg {
+  .Template-hero-pfp-avatar {
     border-radius: var(--border-radius);
     display: flex;
     grid-area: 1/1;
