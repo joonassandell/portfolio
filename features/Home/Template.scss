@@ -26,16 +26,30 @@
   .Template-hero-pfp {
     --border-radius: calc(var(--border-radius-l) - #{rem($space-2xs)});
     --size: #{rem($space-5xl)};
-    border: var(--border-width-dashed) dashed var(--border-200);
-    border-radius: var(--border-radius-l);
+    border: var(--border-width) solid transparent;
     display: grid;
     height: var(--size);
     padding: rem($space-2xs);
+    position: relative;
     user-select: none;
     width: var(--size);
 
-    > * {
-      grid-area: 1/1;
+    &:before,
+    &:after {
+      border-radius: var(--border-radius-l);
+      content: '';
+      position: absolute;
+    }
+
+    &:before {
+      border: var(--border-width) solid var(--border-950);
+      inset: 0;
+    }
+
+    &:after {
+      border: var(--border-width-dashed) dashed var(--border-950);
+      display: none;
+      inset: calc(var(--border-width) * -1);
     }
 
     @include mq(xl) {
@@ -43,28 +57,49 @@
     }
   }
 
+  .Template-hero.is-active\:pfp {
+    .Template-hero-pfp {
+      &:before {
+        display: none;
+      }
+      &:after {
+        display: block;
+      }
+    }
+  }
+
   .Template-hero-pfp-figure {
+    grid-area: 1/1;
     opacity: 0;
-    transform: scale(0.8);
+    scale: 0.9;
     transition:
-      transform var(--trans-primary-fastest),
+      scale var(--trans-primary-fastest),
       opacity 0.2s var(--ease);
   }
 
   .Template-hero.is-drag\:pfp .Template-hero-pfp-figure {
     opacity: 1;
-    transform: scale(1);
+    scale: 1;
   }
 
   .Template-hero-pfp-svg {
-    cursor: grab;
+    border-radius: var(--border-radius);
     display: flex;
+    grid-area: 1/1;
+    overflow: hidden;
     z-index: 1;
 
     svg {
-      border-radius: var(--border-radius);
       width: 100%;
     }
+  }
+
+  .Template-hero-pfp-boundary {
+    border-radius: var(--border-radius);
+    inset: 0;
+    position: absolute;
+    touch-action: none;
+    z-index: 2;
   }
 
   .Template-hero-now {

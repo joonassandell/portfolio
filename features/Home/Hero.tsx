@@ -5,10 +5,11 @@ import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
 import { LINK, SITEMAP } from '@/lib/sitemap'
 import { Link } from '@/components/Link'
-import { m } from 'motion/react'
+import { m, useDragControls } from 'motion/react'
 import { MQ, TRANS_DRAG, TRANS_TAP } from '@/lib/config'
 import { TemplateArea } from '@/components/Template'
 import { Text } from '@/components/Text'
+import { useApp } from '@/components/App'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import c from 'clsx'
@@ -17,24 +18,37 @@ import PfpAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.sv
 
 export const HomeHero = () => {
   const { pathname, replace } = useRouter()
+  const {
+    detect: { hasTouch },
+  } = useApp()
   const handleExcludeHash = (e: LinkEvent & ButtonEvent) => {
     e.preventDefault()
     replace(pathname, undefined, { shallow: true })
   }
-  const [dragPFP, setDragPFP] = useState(false)
+  const [pfpDrag, setPfpDrag] = useState(false)
+  const [pfpActive, setPfpActive] = useState(false)
+  const [pfpHover, setPfpHover] = useState(false)
+  const [pfpPress, setPfpPress] = useState(false)
+  const dragControls = useDragControls()
 
   return (
     <TemplateArea
       className={c(
         'Template-hero flex flex-direction:column justify-content:end@m',
         {
-          'is-drag:pfp': dragPFP,
+          'is-active:pfp': pfpActive,
+          'is-drag:pfp': pfpDrag,
         },
       )}
       grid={false}
       pt={false}
     >
-      <div className="Template-hero-pfp mb:m mb:ml@l">
+      <div
+        className="Template-hero-pfp mb:m mb:ml@l"
+        style={{
+          cursor: pfpPress || pfpDrag ? 'grabbing' : 'grab',
+        }}
+      >
         <Figure
           alt="Joonas Sandell profile picture"
           animate={false}
@@ -45,6 +59,9 @@ export const HomeHero = () => {
           {...pfp}
         />
         <m.div
+          animate={{
+            scale: pfpPress ? 0.9 : 1,
+          }}
           className="Template-hero-pfp-svg"
           drag
           dragConstraints={{
@@ -53,17 +70,38 @@ export const HomeHero = () => {
             right: 80,
             top: -80,
           }}
+          dragControls={dragControls}
           dragElastic={0.2}
           dragSnapToOrigin
           dragTransition={TRANS_DRAG}
-          onDragEnd={() => setDragPFP(false)}
-          onDragStart={() => setDragPFP(true)}
+          onDragEnd={() => {
+            setPfpDrag(false)
+            if (!pfpHover) setPfpActive(false)
+          }}
+          onDragStart={() => {
+            setPfpDrag(true)
+            setPfpPress(false)
+          }}
           transition={TRANS_TAP}
-          whileDrag={{ cursor: 'grabbing', scale: 1.2 }}
-          whileTap={{ cursor: 'grabbing', scale: 1.11 }}
         >
           <PfpAvatar aria-hidden />
         </m.div>
+        <div
+          className="Template-hero-pfp-boundary"
+          onPointerDown={e => {
+            dragControls.start(e)
+            setPfpPress(true)
+          }}
+          onPointerEnter={() => {
+            setPfpActive(true)
+            if (!hasTouch) setPfpHover(true)
+          }}
+          onPointerLeave={() => {
+            if (!pfpDrag) setPfpActive(false)
+            if (!hasTouch) setPfpHover(false)
+          }}
+          onPointerUp={() => setPfpPress(false)}
+        />
       </div>
       <div className="grid-col grid -gap -gap:row:0 align-items:start">
         <div className="grid-col grid-col:7@m grid-col:8@l grid-col:9@xl">
