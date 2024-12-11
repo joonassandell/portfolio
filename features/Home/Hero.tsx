@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import c from 'clsx'
 import pfp from '@/public/common/joonassandell/joonassandell-pfp-with-avatar.jpg'
-import PFPAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.svg'
+import PfpAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.svg'
 
 export const HomeHero = () => {
   const { pathname, replace } = useRouter()
@@ -62,7 +62,7 @@ export const HomeHero = () => {
           whileDrag={{ cursor: 'grabbing', scale: 1.2 }}
           whileTap={{ cursor: 'grabbing', scale: 1.11 }}
         >
-          <PFPAvatar aria-hidden />
+          <PfpAvatar aria-hidden />
         </m.div>
       </div>
       <div className="grid-col grid -gap -gap:row:0 align-items:start">

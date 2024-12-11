@@ -77,7 +77,7 @@ export const HomePage = () => {
       variant="unstyled"
     >
       <HomeHero />
-      <div className="Template-heros" id="selected-works">
+      <div id="selected-works">
         <BiocodeHero
           onClick={handleClick}
           transition="pre"

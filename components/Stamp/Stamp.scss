@@ -23,8 +23,8 @@
 }
 
 .Stamp-stamp {
-  cursor: pointer;
   display: block;
+  -webkit-touch-callout: none;
 
   svg {
     path {

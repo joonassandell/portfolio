@@ -26,12 +26,12 @@
   .Template-hero-pfp {
     --border-radius: calc(var(--border-radius-l) - #{rem($space-2xs)});
     --size: #{rem($space-5xl)};
-
     border: var(--border-width-dashed) dashed var(--border-200);
     border-radius: var(--border-radius-l);
     display: grid;
     height: var(--size);
     padding: rem($space-2xs);
+    user-select: none;
     width: var(--size);
 
     > * {
@@ -58,10 +58,12 @@
 
   .Template-hero-pfp-svg {
     cursor: grab;
+    display: flex;
     z-index: 1;
 
     svg {
       border-radius: var(--border-radius);
+      width: 100%;
     }
   }
 
