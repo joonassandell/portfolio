@@ -63,14 +63,8 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
   }, [transitionComplete])
 
   return (
-    <div className="Template-hero-pfp mb:m mb:ml@l">
-      <m.div
-        className="Template-hero-pfp-main"
-        style={{
-          x: moveX,
-          y: moveY,
-        }}
-      >
+    <div className="Template-hero-pfp relative user-select:none mb:m mb:ml@l">
+      <m.div className="Template-hero-pfp-main" style={{ x: moveX, y: moveY }}>
         <m.div
           className="Template-hero-pfp-figure"
           style={{ opacity: figureVal, scale: figureVal }}
@@ -80,7 +74,6 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
             alt="Joonas Sandell profile picture"
             animate={false}
             placeholder={false}
-            priority
             quality={90}
             sizes={`${MQ['xl']} 10vw, 7rem`}
             {...pfp}

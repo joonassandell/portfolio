@@ -127,7 +127,7 @@ export const TRANS_SPRING = {
 
 export const TRANS_MOVE = {
   fast: {
-    damping: 60,
+    damping: 80,
     stiffness: 600,
     type: 'spring',
   },
