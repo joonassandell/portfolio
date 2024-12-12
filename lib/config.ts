@@ -65,6 +65,7 @@ export const APP = {
  * easeInOutQuart: [0.76, 0, 0.24, 1]
  *
  * @link https://www.framer.com/motion/easing-functions
+ * @link https://github.com/motiondivision/motion/blob/main/packages/framer-motion/src/animation/utils/default-transitions.ts
  */
 
 export const EASE: BezierDefinition = [0.68, 0, 0.1, 1]
@@ -124,9 +125,24 @@ export const TRANS_SPRING = {
   },
 } as const
 
-/**
- * @link https://github.com/motiondivision/motion/blob/main/packages/framer-motion/src/animation/utils/default-transitions.ts
- */
+export const TRANS_MOVE = {
+  fast: {
+    damping: 60,
+    stiffness: 600,
+    type: 'spring',
+  },
+  medium: {
+    damping: 120,
+    stiffness: 800,
+    type: 'spring',
+  },
+  slow: {
+    damping: 100,
+    stiffness: 150,
+    type: 'spring',
+  },
+} as const
+
 export const TRANS_TAP = {
   damping: 20,
   stiffness: 450,

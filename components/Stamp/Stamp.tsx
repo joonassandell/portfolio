@@ -8,10 +8,12 @@ import {
   SVG_VARIANTS,
 } from './'
 import { type RefObject, useEffect, useRef } from 'react'
+import { TRANS_MOVE } from '@/lib/config'
 import { useInView } from '@/lib/useInView'
-import { useMeasure, useMouse } from 'react-use'
+import { useMouse } from 'react-use'
 import c from 'clsx'
 import StampSvg from './stamp.svg'
+import useMeasure from 'react-use-measure'
 
 export const Stamp = ({
   addVarsToParent = false,
@@ -23,7 +25,7 @@ export const Stamp = ({
   transitionStart,
   ...props
 }: StampProps) => {
-  const [ref, { height, width }] = useMeasure<HTMLDivElement>()
+  const [ref, { height, width }] = useMeasure()
   const innerRef = useRef<HTMLDivElement>(null)
   const inView = useInView(innerRef, 0, false)
   const x = useMotionValue(0)
@@ -31,17 +33,13 @@ export const Stamp = ({
   const { elX: mouseX, elY: mouseY } = useMouse(
     parentRef as RefObject<HTMLElement>,
   )
-  const springOpts = {
-    damping: 100,
-    stiffness: 150,
-  }
   const moveX = useSpring(
     useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
-    springOpts,
+    TRANS_MOVE.slow,
   )
   const moveY = useSpring(
     useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
-    springOpts,
+    TRANS_MOVE.slow,
   )
 
   // Stop animating on mount

@@ -3,14 +3,15 @@ import { Heading } from '@/components/Heading'
 import { LinkRoll } from '@/components/LinkRoll'
 import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { mapRange } from '@/lib/utils'
-import { MQ, TRANS_PRIMARY_FAST } from '@/lib/config'
+import { MQ, TRANS_MOVE, TRANS_PRIMARY_FAST } from '@/lib/config'
 import { type NextProjectProps } from './'
 import { type RefObject, useEffect, useRef, useState } from 'react'
 import { SITEMAP } from '@/lib/sitemap'
 import { useApp } from '@/components/App'
-import { useMeasure, useMedia, useMouseHovered } from 'react-use'
+import { useMedia, useMouseHovered } from 'react-use'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import useMeasure from 'react-use-measure'
 
 export const NextProject = ({ id }: NextProjectProps) => {
   const { setTransition } = useApp()
@@ -18,9 +19,8 @@ export const NextProject = ({ id }: NextProjectProps) => {
   const { title, url } = SITEMAP[id]
   const src = `/${kebabCase(id)}/joonassandell-${kebabCase(id)}-thumbnail.jpg`
   const ref = useRef<HTMLDivElement>(null)
-  const [innerRef, { height, width }] = useMeasure<HTMLDivElement>()
-  const [figureRef, { height: figureHeight, width: figureWidth }] =
-    useMeasure<HTMLDivElement>()
+  const [innerRef, { height, width }] = useMeasure()
+  const [figureRef, { height: figureHeight, width: figureWidth }] = useMeasure()
   const figureWidthHalf = figureWidth / 2
   const figureHeightHalf = figureHeight / 2
   const { elX: mousePosX, elY: mousePosY } = useMouseHovered(
@@ -30,20 +30,19 @@ export const NextProject = ({ id }: NextProjectProps) => {
       whenHovered: true,
     },
   )
-  const spring = { damping: 120, stiffness: 800 }
   const mqS = useMedia(MQ.s, false)
 
   /**
    * Move: Horizontal
    */
   const x = useMotionValue(0)
-  const moveX = useSpring(x, spring)
+  const moveX = useSpring(x, TRANS_MOVE.medium)
 
   /**
    * Move: Vertical
    */
   const y = useMotionValue(0)
-  const moveY = useSpring(y, spring)
+  const moveY = useSpring(y, TRANS_MOVE.medium)
 
   /**
    * Rotate
@@ -53,7 +52,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
   const direction = mousePosX < prevMousePosX ? 'left' : 'right'
   const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100)
   const rotateTrans = useTransform(r, [-1, 0, 1], [-30, 0, 30])
-  const rotate = useSpring(rotateTrans, spring)
+  const rotate = useSpring(rotateTrans, TRANS_MOVE.medium)
 
   /**
    * Transform figure
