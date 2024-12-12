@@ -11,14 +11,6 @@
   --Button-hover-shadow: var(--shadow-hover);
   --Button-hover-text: var(--text-950);
 
-  .Template-area {
-    position: relative;
-  }
-
-  .Template-headingArea {
-    position: relative;
-  }
-
   .Template-heading {
     background: linear-gradient(
         160deg,
@@ -114,7 +106,6 @@
   }
 
   .Template-box-content {
-    display: flex;
     flex: 1;
     min-height: rem($space * 24);
 
@@ -134,22 +125,16 @@
 
   .Template-box-footer {
     border-top: var(--border-width) solid var(--Template-box-border);
-    display: flex;
-    gap: rem($space-s);
     padding: rem($space-s) rem($space);
   }
 
   .Template-bg {
-    inset: 0;
     isolation: isolate;
-    pointer-events: none;
-    position: absolute;
   }
 
   .Template-bg-1,
   .Template-bg-2 {
     inset: 0 auto auto 0;
-    position: absolute;
     rotate: -45deg;
   }
 

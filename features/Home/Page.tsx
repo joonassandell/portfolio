@@ -36,7 +36,7 @@ export const HomePage = () => {
   const lockIos = (el: HTMLElement) => {
     if (!isIos) return
     const els = el.querySelectorAll('[data-lock-ios]')
-    els.forEach(el => el.classList.add('transform-none'))
+    els.forEach(el => el.classList.add('transform-none-important'))
   }
 
   const handleClick = (e: LinkEvent) => {

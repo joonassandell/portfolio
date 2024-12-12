@@ -25,13 +25,13 @@ export const UiLabPage = () => {
         enableSystem={false}
         value={{ dark: 'dark' }}
       >
-        <div className="Template-bg">
-          <div className="Template-bg-1" />
-          <div className="Template-bg-2" />
+        <div className="Template-bg absolute inset:0 pointer-events:none">
+          <div className="Template-bg-1 absolute" />
+          <div className="Template-bg-2 absolute" />
         </div>
-        <TemplateArea gridRowGap={false}>
+        <TemplateArea className="relative" gridRowGap={false}>
           <div className="grid-col">
-            <div className="Template-headingArea">
+            <div className="relative">
               <Heading className="Template-heading" size="xl">
                 UI Lab
               </Heading>
@@ -52,7 +52,7 @@ export const UiLabPage = () => {
             </Heading>
           </div>
         </TemplateArea>
-        <TemplateArea id="dynamic-pay-button">
+        <TemplateArea className="relative" id="dynamic-pay-button">
           <div className="grid-col grid-col:4@m">
             <Hr animate={false} className="mb:ml" />
             <Text className="mb" size="l" tag="h2">
@@ -73,7 +73,7 @@ export const UiLabPage = () => {
             />
           </div>
         </TemplateArea>
-        <TemplateArea id="tba" pb="2xl-5xl">
+        <TemplateArea className="relative" id="tba" pb="2xl-5xl">
           <div className="grid-col grid-col:4@m">
             <Hr animate={false} className="mb:ml" />
             <Text className="mb" size="l" tag="h2">

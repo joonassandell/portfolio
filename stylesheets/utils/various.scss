@@ -33,6 +33,10 @@
   justify-content: center;
 }
 
+.justify-content\:space-between {
+  justify-content: space-between;
+}
+
 .align-items\:start {
   align-items: start;
 }
@@ -79,14 +83,34 @@
   hyphens: auto;
 }
 
-.transform-none {
+.transform-none-important {
   transform: none !important;
 }
 
-.border-0 {
+.border\:0 {
   border: 0;
 }
 
 .max-w-unset {
   max-width: unset;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset\:0 {
+  inset: 0;
+}
+
+.pointer-events\:none {
+  pointer-events: none;
+}
+
+.user-select\:none {
+  user-select: none;
 }

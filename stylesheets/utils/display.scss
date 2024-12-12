@@ -1,13 +1,6 @@
 @use 'stylesheets/mixins' as *;
 
 /**
- * Hide visually and from screen readers, but maintain layout
- */
-.invisible {
-  visibility: hidden;
-}
-
-/**
  * Completely remove from the flow but leave available to screen readers
  */
 .hideVisually {

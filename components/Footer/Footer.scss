@@ -13,7 +13,6 @@
 
   background: var(--Footer-bg, var(--Template-bg, var(--bg-50)));
   color: var(--text-50);
-  user-select: none;
 
   // See Header.scss
   .is-windows & {
@@ -48,13 +47,7 @@
   }
 }
 
-.Footer-bottom {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.Footer-bottom-updated {
+.Footer-updated {
   --link: var(--text-900-blend);
   --link-hover-opacity: 1;
   --link-hover: var(--text-50);

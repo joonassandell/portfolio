@@ -26,13 +26,6 @@
   object-fit: cover;
 }
 
-.Figure-placeholder,
-.Figure-placeholder-glare,
-.Figure-glare {
-  inset: 0;
-  position: absolute;
-}
-
 .Figure-placeholder {
   background-color: var(--Figure-placeholder-bg, var(--bg-300));
   overflow: hidden;

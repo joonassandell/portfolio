@@ -140,7 +140,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
           <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
             {glare && !glareEnd && (
               <m.div
-                className="Figure-glare"
+                className="Figure-glare absolute inset:0"
                 onAnimationComplete={() => setGlareEnd(true)}
                 variants={GLARE_VARIANTS}
               />
@@ -149,13 +149,13 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
               <AnimatePresence>
                 {!imgLoaded && (
                   <m.div
-                    className="Figure-placeholder"
+                    className="Figure-placeholder absolute inset:0"
                     exit="exit"
                     variants={PLACEHOLDER_VARIANTS}
                   >
                     <m.div
                       animate={inView ? 'animate' : false}
-                      className="Figure-placeholder-glare"
+                      className="Figure-placeholder-glare absolute inset:0"
                       variants={PLACEHOLDER_GLARE_VARIANTS}
                     />
                   </m.div>

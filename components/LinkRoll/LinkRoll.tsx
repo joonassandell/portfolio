@@ -97,9 +97,9 @@ export const LinkRoll = ({
           {hover && (
             <m.span
               animate="in"
-              className="LinkRoll-text -hover"
+              aria-hidden
+              className="LinkRoll-text absolute inset:0"
               exit="out"
-              hidden
               initial="out"
               variants={LINK_VARIANTS}
             >

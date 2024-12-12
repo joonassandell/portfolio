@@ -84,9 +84,9 @@ export const Link = ({
           {hover && (
             <m.span
               animate="in"
-              className={c('Link-text -hover', { 'text:truncate': truncate })}
+              aria-hidden
+              className={c('Link-text absolute', { 'text:truncate': truncate })}
               exit="out"
-              hidden
               initial="initial"
               variants={IN_VARIANT}
             >

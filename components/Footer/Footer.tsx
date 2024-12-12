@@ -9,8 +9,10 @@ import { Text } from '@/components/Text'
 import c from 'clsx'
 
 export const Footer = ({ border = true, fullWidth }: FooterProps) => (
-  <footer className={c('Footer wrap', { '-width:full': fullWidth })}>
-    <div className={c('Footer-inner', { 'border-0': !border })}>
+  <footer
+    className={c('Footer wrap user-select:none', { '-width:full': fullWidth })}
+  >
+    <div className={c('Footer-inner', { 'border:0': !border })}>
       <div className="Footer-main">
         <div className="grid -gap:column:0">
           <div className="grid-col grid-col:9@l grid">
@@ -95,8 +97,12 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
             </Text>
           </div>
         </div>
-        <Text className="Footer-bottom" maxWidth={false} size="s">
-          <p className="Footer-bottom-updated mb:0">
+        <Text
+          className="flex align-items:center justify-content:space-between"
+          maxWidth={false}
+          size="s"
+        >
+          <p className="Footer-updated mb:0">
             © {new Date().getFullYear()} {APP.person.name}
             <span className="color:mute:blend visible@s">
               {' '}

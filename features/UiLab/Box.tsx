@@ -17,7 +17,7 @@ export const Box = ({ children, source, src, ...props }: BoxProps) => {
 
   return (
     <div className="Template-box">
-      <div className="Template-box-content">
+      <div className="Template-box-content flex">
         {children}
         {src && (
           <m.iframe
@@ -26,6 +26,7 @@ export const Box = ({ children, source, src, ...props }: BoxProps) => {
             className="Template-box-iframe"
             initial="initial"
             loading="lazy"
+            onError={err => console.info(err)}
             onLoad={() => setIframeLoaded(true)}
             ref={iframe}
             src={`${UI_LAB_URL}/${src}?scale=true`}
@@ -41,7 +42,7 @@ export const Box = ({ children, source, src, ...props }: BoxProps) => {
           />
         )}
       </div>
-      <div className="Template-box-footer">
+      <div className="Template-box-footer flex gap:s">
         <ThemeToggle />
         {source && (
           <Button href={source} icon={<Github />} radius="m" size="s">

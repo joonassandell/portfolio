@@ -26,11 +26,6 @@
   display: inline;
   pointer-events: none;
   position: relative;
-
-  &.-hover {
-    inset: 0;
-    position: absolute;
-  }
 }
 
 .LinkRoll-char {
