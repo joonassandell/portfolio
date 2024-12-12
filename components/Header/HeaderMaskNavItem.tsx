@@ -80,7 +80,7 @@ export const HeaderMaskNavItem = ({
       variants={MASK_ITEM_VARIANT}
     >
       <Link
-        className="Header-mask-nav-link"
+        className="Header-mask-nav-link flex align-items:center"
         href={href}
         onBlur={() => setHover('out')}
         onClick={e => {
@@ -100,8 +100,8 @@ export const HeaderMaskNavItem = ({
         }}
         ref={linkRef}
       >
-        <span className="Header-mask-nav-link-inner">
-          <span className="Header-mask-nav-link-text">{title}</span>
+        <span className="flex align-items:center">
+          {title}
           <EyeSvg className="Header-mask-nav-link-eye" />
         </span>
       </Link>
@@ -133,10 +133,10 @@ export const HeaderMaskNavItem = ({
         >
           {reveal && (
             <m.div
-              className="Header-mask-nav-marquee-inner-self"
+              className="Header-mask-nav-marquee-inner-self flex align-items:center"
               ref={marqueeRef}
             >
-              {[...Array(10)].map((x, i) => {
+              {[...Array(10)].map((_, i) => {
                 return (
                   <Fragment key={i}>
                     <span>{title}</span>

@@ -36,11 +36,6 @@
   }
 }
 
-.Header-wrap {
-  align-items: center;
-  display: flex;
-}
-
 .Header-logo,
 .Header-button-text-item {
   flex-shrink: 0;
@@ -78,20 +73,16 @@
 }
 
 .Header-separator {
-  display: none;
-
-  @include mq(m) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: rem($space-ml);
-    justify-content: center;
-    margin: 0 rem($space-xs);
-    overflow: hidden;
-    position: relative;
-    width: rem($space);
-    z-index: 1;
-  }
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: rem($space-ml);
+  justify-content: center;
+  margin: 0 rem($space-xs);
+  overflow: hidden;
+  position: relative;
+  width: rem($space);
+  z-index: 1;
 
   @include mq(ml) {
     margin: 0 rem($space-s);
@@ -115,10 +106,8 @@
  * ======================================= */
 
 .Header-button {
-  align-items: center;
   color: var(--text-50);
-  display: flex;
-  gap: rem($space-s);
+  flex: 1;
   margin: 0;
   z-index: 1;
 
@@ -128,47 +117,30 @@
       outline-offset: $space-3xs;
     }
   }
-
-  @include mq(ml) {
-    gap: rem($space);
-  }
-}
-
-.Header-button-textMobile {
-  display: block;
-  line-height: rem($space-ml);
-  overflow: hidden;
-  position: relative;
-
-  @include mq(m) {
-    display: none;
-  }
-}
-
-.Header-button-textMobile-reveal {
-  left: 0;
-  position: absolute;
-  top: 0;
 }
 
 .Header-button-text {
-  position: relative;
-
   @include mq($until: m) {
-    display: none;
+    flex: 1;
   }
 }
 
 .Header-button-text-item {
-  display: block;
   overflow: hidden;
+
+  @include mq($until: m) {
+    text-align: right;
+  }
 }
 
 .Header-button-text-item--reveal {
   bottom: 0;
-  left: 0;
-  position: absolute;
-  width: rem($space * 20);
+  right: 0;
+
+  @include mq(m) {
+    left: 0;
+    right: auto;
+  }
 }
 
 .Header-button-arrow {
@@ -185,7 +157,6 @@
   width: rem($space * 2.25);
 
   .Button-icon {
-    position: absolute;
     transition: var(--trans-primary-fast);
   }
 
@@ -212,7 +183,6 @@
 .Header-button-bg {
   background-color: var(--bg-50);
   border-radius: 50%;
-  display: block;
   height: 200%;
   left: -75%;
   position: absolute;
@@ -236,11 +206,11 @@
 
 .Header.is-open {
   .Header-button-bg {
-    animation: HeaderButtonBgIn var(--trans-primary-fast) both;
+    animation: Header-button-bg-in var(--trans-primary-fast) both;
   }
 
   .Header-button-icon--default {
-    animation: HeaderButtonIconOut var(--trans-primary-fast) both;
+    animation: Header-button-icon-out var(--trans-primary-fast) both;
   }
 
   .Header-button-icon--reveal {
@@ -248,28 +218,28 @@
   }
 
   .Header-button-icon--close {
-    animation: HeaderButtonIconCloseIn var(--trans-primary-fast) both;
+    animation: Header-button-icon-close-in var(--trans-primary-fast) both;
   }
 }
 
 .Header.is-animate\:close {
   .Header-button-bg {
-    animation: HeaderButtonBgOut var(--trans-primary) both;
+    animation: Header-button-bg-out var(--trans-primary) both;
     animation-delay: 0.6s;
   }
 
   .Header-button-icon--default {
-    animation: HeaderButtonIconIn var(--trans-primary) both;
+    animation: Header-button-icon-in var(--trans-primary) both;
     animation-delay: 0.3s;
   }
 
   .Header-button-icon--close {
-    animation: HeaderButtonIconCloseOut var(--trans-primary) both;
+    animation: Header-button-icon-close-out var(--trans-primary) both;
     animation-delay: 0.3s;
   }
 }
 
-@keyframes HeaderButtonIconIn {
+@keyframes Header-button-icon-in {
   0% {
     transform: scaleY(6) translateY(rem($space-xl));
   }
@@ -278,19 +248,19 @@
   }
 }
 
-@keyframes HeaderButtonIconOut {
+@keyframes Header-button-icon-out {
   100% {
     transform: scaleY(6) translateY(rem($space-xl));
   }
 }
 
-@keyframes HeaderButtonIconCloseIn {
+@keyframes Header-button-icon-close-in {
   100% {
     transform: scaleY(1) translateY(0);
   }
 }
 
-@keyframes HeaderButtonIconCloseOut {
+@keyframes Header-button-icon-close-out {
   0% {
     transform: scaleY(1) translateY(0);
   }
@@ -299,7 +269,7 @@
   }
 }
 
-@keyframes HeaderButtonBgIn {
+@keyframes Header-button-bg-in {
   0% {
     transform: translateY(77%);
   }
@@ -308,7 +278,7 @@
   }
 }
 
-@keyframes HeaderButtonBgOut {
+@keyframes Header-button-bg-out {
   0% {
     transform: translateY(0%);
   }
@@ -322,13 +292,6 @@
  * ======================================= */
 
 .Header-nav {
-  display: none;
-
-  @include mq(m) {
-    display: flex;
-    margin-left: auto;
-  }
-
   @include mq(ml) {
     @include text(l);
   }
@@ -336,7 +299,6 @@
 
 .Header-nav-item {
   overflow: hidden;
-  position: relative;
 
   &:not(:first-child) {
     margin-left: rem($space-s);
@@ -349,7 +311,6 @@
 
 .Header-nav-item-reveal {
   left: 0;
-  position: absolute;
   top: 0;
 }
 
@@ -429,9 +390,7 @@
 
 .Header-mask-nav-link {
   --focus-visible-bg: transparent;
-  align-items: center;
   color: var(--text-50);
-  display: flex;
   padding: rem($space-s) 0;
 
   &:before,
@@ -457,16 +416,6 @@
       border-color: var(--border-50);
     }
   }
-}
-
-.Header-mask-nav-link-inner {
-  align-items: center;
-  display: flex;
-  pointer-events: none;
-}
-
-.Header-mask-nav-link-text {
-  position: relative;
 }
 
 .Header-mask-nav-link-eye {
@@ -502,8 +451,6 @@
 }
 
 .Header-mask-nav-marquee-inner-self {
-  align-items: center;
-  display: flex;
   height: 100%;
   width: fit-content;
 }

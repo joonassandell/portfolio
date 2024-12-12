@@ -281,13 +281,13 @@ export const Header = ({
           onAnimationComplete={onOpenAnimationComplete}
           variants={MAIN_ITEM_VARIANT}
         >
-          <div className="Header-wrap wrap">
+          <div className="flex align-items:center wrap">
             <div className="Header-logo">
               <m.div variants={MAIN_ITEM_OUT_VARIANT}>
                 <LinkRoll
                   href="/"
                   onClick={handleLinkClick}
-                  {...(open && { hidden: true, tabIndex: -1 })}
+                  {...(open && { 'aria-hidden': true, tabIndex: -1 })}
                 >
                   Joonas Sandell
                 </LinkRoll>
@@ -307,7 +307,7 @@ export const Header = ({
                 </m.div>
               )}
             </div>
-            <div className="Header-separator">
+            <div className="Header-separator visible@m">
               <m.div
                 className="Header-separator-line"
                 variants={MAIN_ITEM_OUT_VARIANT}
@@ -332,7 +332,7 @@ export const Header = ({
               setFocusVisible={setBtnFocusVisible}
               toggleOpen={toggleOpen}
             />
-            <ul className="Header-nav">
+            <ul className="Header-nav flex visible@m">
               {header.nav.map(item => {
                 return (
                   <HeaderNavItem

@@ -29,35 +29,24 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
 
     return (
       <button
-        className="Header-button"
+        className="Header-button flex align-items:center gap:s"
         onClick={() => toggleOpen()}
         onKeyDown={() => setFocusVisible(true)}
         ref={forwardedRef}
       >
-        <div className="Header-button-textMobile" hidden>
-          <m.div variants={MAIN_ITEM_OUT_VARIANT}>Menu</m.div>
-          {openReveal && (
-            <m.div
-              className="Header-button-textMobile-reveal"
-              variants={MAIN_ITEM_IN_VARIANT}
-            >
-              Menu
-            </m.div>
-          )}
-        </div>
-        <div className="Header-button-text">
+        <div className="Header-button-text relative">
           <AnimatePresence initial={false} mode="wait">
             <m.div
               className="Header-button-text-item"
               key={!isDefaultNavTitle ? asPath : undefined}
               {...enterExit.text}
-              {...(open && { hidden: true })}
+              {...(open && { 'aria-hidden': true })}
             >
               <m.div variants={MAIN_ITEM_OUT_VARIANT}>{navTitle}</m.div>
             </m.div>
           </AnimatePresence>
           {openReveal && (
-            <div className="Header-button-text-item Header-button-text-item--reveal">
+            <div className="Header-button-text-item Header-button-text-item--reveal absolute">
               <m.div variants={MAIN_ITEM_IN_VARIANT}>{navRevealTitle}</m.div>
             </div>
           )}
@@ -70,16 +59,16 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
             ref={arrowRef}
             {...(mqM && { ...enterExit.arrow })}
           >
-            <span className="Header-button-bg" />
-            <span className="Header-button-icon--default Button-icon">
+            <div className="Header-button-bg" />
+            <div className="Header-button-icon--default Button-icon absolute">
               <ArrowDown />
-            </span>
-            <span className="Header-button-icon--reveal Button-icon">
+            </div>
+            <div className="Header-button-icon--reveal Button-icon absolute">
               <ArrowDown />
-            </span>
-            <span className="Header-button-icon--close Button-icon">
+            </div>
+            <div className="Header-button-icon--close Button-icon absolute">
               <ArrowUp />
-            </span>
+            </div>
           </m.div>
         </AnimatePresence>
       </button>
