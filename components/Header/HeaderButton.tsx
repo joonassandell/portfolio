@@ -29,6 +29,7 @@ export const HeaderButton = forwardRef<HTMLButtonElement, HeaderButtonProps>(
 
     return (
       <button
+        aria-label="Open menu"
         className="Header-button flex align-items:center gap:s"
         onClick={() => toggleOpen()}
         onKeyDown={() => setFocusVisible(true)}
