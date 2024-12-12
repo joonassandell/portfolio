@@ -4,6 +4,10 @@
 .Template--home {
   --Footer-bg: var(--tone-50);
 
+  /* =======================================
+   * Hero
+   * ======================================= */
+
   .Template-hero {
     --padding-top: #{rem($space-6xl + $space)};
     background: linear-gradient(to bottom, var(--bg-50) 50%, var(--tone-50));
@@ -13,6 +17,7 @@
 
     &.is-drag\:pfp {
       cursor: grabbing;
+      user-select: none;
     }
 
     @include mq(m) {
@@ -25,7 +30,16 @@
     }
   }
 
+  /* =======================================
+   * Hero: PFP
+   * ======================================= */
+
   .Template-hero-pfp {
+    position: relative;
+    width: fit-content;
+  }
+
+  .Template-hero-pfp-main {
     --padding: #{rem($space-2xs + $space-4xs)};
     --border-radius: calc(var(--border-radius-l) - var(--padding));
     --size: #{rem($space-5xl)};
@@ -33,9 +47,9 @@
     display: grid;
     height: var(--size);
     padding: var(--padding);
-    position: relative;
     user-select: none;
     width: var(--size);
+    will-change: transform;
 
     &:before,
     &:after {
@@ -61,7 +75,7 @@
   }
 
   .Template-hero.is-active\:pfp {
-    .Template-hero-pfp {
+    .Template-hero-pfp-main {
       &:before {
         display: none;
       }
@@ -87,13 +101,23 @@
     }
   }
 
-  .Template-hero-pfp-boundary {
-    border-radius: var(--border-radius);
-    inset: 0;
+  .Template-hero-pfp-dragBound {
+    cursor: grab;
+    inset: #{rem($space * -0.5)};
     position: absolute;
     touch-action: none;
-    z-index: 2;
+    z-index: 1;
   }
+
+  .Template-hero-pfp-mouseBound {
+    content: '';
+    inset: -15vw -25vw;
+    position: absolute;
+  }
+
+  /* =======================================
+   * Hero: Now
+   * ======================================= */
 
   .Template-hero-now {
     @include mq($until: m) {
@@ -103,6 +127,10 @@
       gap: rem($space);
     }
   }
+
+  /* =======================================
+   * Rest
+   * ======================================= */
 
   &.is-extraSpace {
     padding-bottom: 100lvh;
