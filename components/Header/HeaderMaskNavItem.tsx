@@ -100,7 +100,7 @@ export const HeaderMaskNavItem = ({
         }}
         ref={linkRef}
       >
-        <span className="flex align-items:center">
+        <span className="flex align-items:center pointer-events:none">
           {title}
           <EyeSvg className="Header-mask-nav-link-eye" />
         </span>
