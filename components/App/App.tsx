@@ -66,13 +66,11 @@ export const App = ({
     root: (isBrowser && document.documentElement) as AppContextProps['root'],
     templateRef: null,
     transition: false,
+    transitionComplete: false,
     transitionInitial: false,
   })
   const { loading, loadingEnd, root, templateRef, transition } = appState
   const { asPath, beforePopState, events, pathname, push } = useRouter()
-  const [animationComplete, setAnimationComplete] = useState<
-    string | undefined
-  >()
   const lenis = useLenis()
 
   /* =======================================
@@ -108,6 +106,9 @@ export const App = ({
       templateRef: value,
     }))
   }
+
+  const [transitionComplete, setTransitionComplete] =
+    useState<AppContextProps['transitionComplete']>(false)
 
   const [themeColor, setThemeColor] = useState<AppHeadProps['themeColor']>()
 
@@ -315,13 +316,13 @@ export const App = ({
   }, [transition, beforePopState, push, scrollTo, pathname])
 
   useEffect(() => {
-    if (!animationComplete) return
+    if (!transitionComplete) return
     if (lenis?.isStopped) lenis.start()
     resetFocusToBody()
     scrollIntoView(asPath)
     setTransition(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animationComplete, lenis])
+  }, [transitionComplete, lenis])
 
   return (
     <LazyMotion features={domMax} strict>
@@ -341,6 +342,7 @@ export const App = ({
           setThemeColor,
           setTransition,
           setTransitionInitial,
+          transitionComplete,
         }}
       >
         <ReactLenis options={{ autoRaf: true, smoothWheel: loadingEnd }} root>
@@ -350,7 +352,7 @@ export const App = ({
             <main id="skip-nav">
               <AnimatePresence
                 initial={false}
-                onExitComplete={() => setAnimationComplete(asPath)}
+                onExitComplete={() => setTransitionComplete(asPath)}
               >
                 <Component {...pageProps} key={asPath} />
               </AnimatePresence>

@@ -15,7 +15,7 @@ import {
   TRANS_TAP,
 } from '@/lib/config'
 import { useApp } from '@/components/App'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import pfp from '@/public/common/joonassandell/joonassandell-pfp-with-avatar.jpg'
 import PfpAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.svg'
 import useMeasure from 'react-use-measure'
@@ -23,6 +23,7 @@ import useMeasure from 'react-use-measure'
 export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
   const {
     detect: { hasTouch },
+    transitionComplete,
   } = useApp()
   const [hover, setHover] = useState(false)
   const [tap, setTap] = useState(false)
@@ -49,6 +50,17 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
     useTransform(mouseY, y => y / 10),
     TRANS_MOVE.fast,
   )
+
+  /**
+   * Fix bounds.y getting wrong values after template transition. Happens most
+   * likely because this component gets rendered immediately when the template
+   * transition starts and the measured bound.y is way larger.
+   *
+   * TODO: Figure out better way to fix this
+   */
+  useEffect(() => {
+    if (transitionComplete === '/') window.dispatchEvent(new Event('resize'))
+  }, [transitionComplete])
 
   return (
     <div className="Template-hero-pfp mb:m mb:ml@l">

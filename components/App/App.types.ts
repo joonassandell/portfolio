@@ -29,6 +29,7 @@ export interface AppContextProps {
   setTransitionInitial: (value: AppContextProps['transitionInitial']) => void
   templateRef: RefObject<HTMLDivElement | null> | null
   transition: boolean | 'template' | 'instant'
+  transitionComplete: string | false
   transitionInitial: boolean
 }
 
