@@ -55,7 +55,7 @@ export const AboutIntro = () => {
         <Link href={SITEMAP.resume.url}>experience</Link>, I have the skills to
         build high-quality{' '}
       </>,
-      'websites and products and assist clients in ',
+      'websites and products, and assist clients in ',
       'addressing practical business challenges.',
     ],
     mobile: [
@@ -65,7 +65,7 @@ export const AboutIntro = () => {
       </>,
       'I have the skills to build ',
       'high-quality websites and ',
-      'products and assist clients in ',
+      'products, and assist clients in ',
       'addressing practical ',
       'business challenges.',
     ],
@@ -83,7 +83,7 @@ export const AboutIntro = () => {
           </Heading>
           <Text animate>
             <Button href={SITEMAP.resume.url} icon={<ArrowRight />}>
-              View resume
+              View Resume
             </Button>
           </Text>
         </div>
@@ -131,18 +131,21 @@ export const AboutIntro = () => {
         <div className="grid-col grid-col:7@s -start:6@s grid-col:6@m grid-col:5@l -start:6@l">
           <Text animate tag="p">
             I’m Joonas — UI/UX Designer, Front-end Developer and sometimes even
-            a <Link href={LINK.soundcloud.url}>Music Producer</Link>. I have a
-            strong and great visual taste, broad understanding of front-end web
-            technologies and a genuine passion for all aspects of product and
-            visual design, including web services, design systems, touch
-            platforms and branding.
+            a <Link href={LINK.soundcloud.url}>Music Producer</Link>, currently
+            working on{' '}
+            <em>
+              <Link href={LINK.workPlace.url}>{LINK.workPlace.title}</Link>
+            </em>
+            . I have a strong and great visual taste and my field of interests
+            is quite extensive, ranging from product design to creative coding
+            and web development, branding, and design systems.
           </Text>
           <Text animate tag="p">
             I get excited about finding unique and elegant solutions for complex
-            user issues, and I love designing by code in the browser but I work
-            a lot with <em>Figma</em> and other design tools as well. Usually I
-            write applications with <em>TypeScript</em>, <em>React</em>,{' '}
-            <em>Sass</em> and other modern tools.
+            user issues, and I love designing in the browser but I work a lot
+            with <em>Figma</em> and other design tools as well. Usually I write
+            applications with <em>TypeScript</em>, <em>React</em>, <em>Sass</em>{' '}
+            and other modern tools.
           </Text>
           <Text animate tag="p">
             With a background in both design and code, I thrive in the space
@@ -151,7 +154,7 @@ export const AboutIntro = () => {
           </Text>
           <Text animate className="mb:l">
             <Button href="/approach" icon={<ArrowRight />}>
-              My approach
+              My Approach
             </Button>
           </Text>
         </div>

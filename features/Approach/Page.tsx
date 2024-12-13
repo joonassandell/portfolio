@@ -94,8 +94,8 @@ export const ApproachPage = () => {
             aim for invisibility, with every interaction feeling polished.
           </Text>
           <Text animate tag="p">
-            <q>Good design is invisible</q> like some say and I believe that’s a
-            good mindset to have when building successful products.
+            <q>Great design is transparent</q> like some say and I believe
+            that’s a good mindset to have when building successful products.
           </Text>
           <Text animate tag="p">
             In designing interfaces and end-to-end websites, I consider a
@@ -128,9 +128,9 @@ export const ApproachPage = () => {
             exceptional products.
           </Text>
           <Text animate>
-            <Hr />
             <p>
-              To put it simply, for me, it’s both how it works and how it looks.
+              To put it all simply, for me,{' '}
+              <em>it’s both how it works and how it looks</em>.
             </p>
             <Button href={SITEMAP.about.url} icon={<ArrowRight />}>
               About me

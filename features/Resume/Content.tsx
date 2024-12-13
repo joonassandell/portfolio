@@ -29,7 +29,8 @@ export const ResumeContent = () => (
         A designer and creative developer with a keen eye for good design and
         attention to detail. With more than 15 years of design engineering
         experience, I have the skills to build high-quality websites and
-        products and assist clients in addressing practical business challenges.
+        products, and assist clients in addressing practical business
+        challenges.
       </p>
     </Text>
     <Button
@@ -134,7 +135,7 @@ export const ResumeContent = () => (
             </li>
           </ul>
           <Button href={SITEMAP.biocode.url} icon={<ArrowRight />}>
-            Case study
+            Case Study
           </Button>
         </Text>
       </StepperItem>
@@ -222,7 +223,7 @@ export const ResumeContent = () => (
             </li>
           </ul>
           <Button href={SITEMAP.mediasignal.url} icon={<ArrowRight />}>
-            Case study
+            Case Study
           </Button>
         </Text>
       </StepperItem>

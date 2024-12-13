@@ -25,7 +25,7 @@ export const AboutMilestones = () => (
     </div>
     <div className="grid-col">
       <Button href="/milestones" icon={<ArrowRight />}>
-        Explore milestones
+        Explore Milestones
       </Button>
     </div>
   </TemplateArea>

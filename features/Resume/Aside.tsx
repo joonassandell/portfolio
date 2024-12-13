@@ -44,8 +44,8 @@ export const ResumeAside = () => (
         Design
       </Text>
       <p>
-        UI/UX design, Design systems, Design thinking, Figma expert,
-        User-centered design, Information architecture, Prototyping and
+        UI/UX design, Product design, Design systems, Design thinking, Figma
+        expert, User-centered design, Information architecture, Prototyping and
         wireframing, Visual and responsive design
       </p>
     </Text>
@@ -69,9 +69,8 @@ export const ResumeAside = () => (
         Relevant technologies
       </Text>
       <p>
-        React, Next.js, Tailwind CSS, GSAP, Motion, Git, Storybook, Supabase,
-        Firebase, Databases, GraphQL, WordPress, Bundlers, AWS, Apache, Unix,
-        Redux, Zustand
+        React, Next.js, Tailwind CSS, Motion, GSAP, Git, Storybook, Supabase,
+        Firebase, GraphQL, WordPress, Bundlers, AWS, Apache, Unix
       </p>
     </Text>
     <Text className="mb:l" size="s">
