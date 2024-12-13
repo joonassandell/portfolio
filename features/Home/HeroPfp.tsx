@@ -83,6 +83,7 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
           animate={{
             scale: tap ? 0.9 : 1,
           }}
+          aria-hidden
           className="Template-hero-pfp-avatar"
           drag
           dragConstraints={{
@@ -111,7 +112,7 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
           }}
           transition={TRANS_TAP}
         >
-          <PfpAvatar aria-hidden />
+          <PfpAvatar />
         </m.div>
       </m.div>
       <div
