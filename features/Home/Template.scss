@@ -101,7 +101,6 @@
   }
 
   .Template-hero-pfp-dragBound {
-    cursor: grab;
     inset: #{rem($space * -0.5)};
     position: absolute;
     touch-action: none;

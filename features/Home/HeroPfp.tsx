@@ -129,6 +129,9 @@ export const HomeHeroPfp = ({ drag, setActive, setDrag }: HomeHeroPfpProps) => {
           if (!hasTouch) setHover(false)
         }}
         onPointerUp={() => setTap(false)}
+        style={{
+          cursor: tap || drag ? 'grabbing' : 'grab',
+        }}
       />
       <div
         className="Template-hero-pfp-mouseBound"

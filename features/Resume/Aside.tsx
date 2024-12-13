@@ -1,23 +1,14 @@
 import { APP } from '@/lib/config'
-import { Figure } from '@/components/Figure'
 import { Heading } from '@/components/Heading'
 import { Link } from '@/components/Link'
 import { LINK, SITEMAP } from '@/lib/sitemap'
 import { stripUrl } from '@/lib/utils'
 import { Text } from '@/components/Text'
-import profile from '@/public/common/joonassandell/joonassandell-portrait-nature.jpg'
+import PfpAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.svg'
 
 export const ResumeAside = () => (
   <aside className="Template-aside grid-col grid-col:3@m text-wrap:balance">
-    <Figure
-      alt="Joonas Sandell profile picture"
-      animate={false}
-      borderRadius="var(--border-radius-full)"
-      className="Template-profile mb:l visible@m"
-      priority
-      sizes="15vw"
-      {...profile}
-    />
+    <PfpAvatar className="Template-pfp border-radius:l mb:m visible@m" />
     <Heading className="mb:s hidden@m" size="h6" tag="h4">
       Contact
     </Heading>

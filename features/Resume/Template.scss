@@ -56,17 +56,12 @@
     }
   }
 
-  .Template-profileMobile {
-    --Figure-height: #{rem($space * 8)};
-    --Figure-width: #{rem($space * 8)};
-
-    .Figure-img {
-      object-position: 0 20%;
-    }
+  .Template-pfp {
+    width: 66%;
   }
 
-  .Template-profile {
-    width: 66%;
+  .Template-pfpMobile {
+    width: rem($space * 8);
   }
 
   .Template-recommendations {

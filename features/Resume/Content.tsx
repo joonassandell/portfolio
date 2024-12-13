@@ -8,19 +8,11 @@ import { Stepper, StepperItem, StepperStep } from '@/components/Stepper'
 import { Text } from '@/components/Text'
 import biocodeLogomark from '@/public/biocode/hero/joonassandell-biocode-logomark.png'
 import mediasignalLogomark from '@/public/mediasignal/joonassandell-mediasignal-logomark.png'
-import profile from '@/public/common/joonassandell/joonassandell-portrait-nature.jpg'
+import PfpAvatar from '@/public/common/joonassandell/joonassandell-pfp-avatar.svg'
 
 export const ResumeContent = () => (
   <div className="Template-content grid-col grid-col:11@s grid-col:9@m">
-    <Figure
-      alt="Joonas Sandell profile picture"
-      animate={false}
-      borderRadius="var(--border-radius-full)"
-      className="Template-profileMobile mb:m hidden@m"
-      priority
-      sizes="25vw"
-      {...profile}
-    />
+    <PfpAvatar className="Template-pfpMobile border-radius:l mb:m hidden@m" />
     <Heading className="mb:2xs" size="h2" tag="h1">
       Joonas Sandell
     </Heading>
