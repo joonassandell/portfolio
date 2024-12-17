@@ -143,19 +143,19 @@ export const Header = ({
         setMask('closeReset')
       }
 
-      if (mask === 'openReset') {
+      if (mask === 'openReset' && !animating) {
         maskAnim.set({
           clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         })
       }
 
-      if (mask === 'closeReset') {
+      if (mask === 'closeReset' && !animating) {
         maskAnim.set({
           clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         })
       }
     })()
-  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim])
+  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim, animating])
 
   useEffect(() => {
     if (mask === 'closeReset' && !animating) setMaskOpen(false)
