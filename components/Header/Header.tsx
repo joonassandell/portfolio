@@ -46,7 +46,7 @@ export const Header = ({
   const mqM = useMedia(MQ.m, true)
 
   const [open, setOpen] = useState(false)
-  const [animating, setAnimating] = useState<'open' | 'close' | false>(false)
+  const [animate, setAnimate] = useState<'open' | 'close' | false>(false)
   const [openReveal, setOpenReveal] = useState(false)
   const [navRevealTitle, setNavRevealTitle] = useState<string>(navTitle)
   const isDefaultNavTitle = APP.header.defaultNavTitle === navTitle
@@ -97,7 +97,7 @@ export const Header = ({
     if (open && btnFocusVisible) setBtnFocusVisible(false)
     if (open && btnFocus) btnRef.current?.focus()
     !open ? lockRootScroll(true) : lockRootScroll(false)
-    !open ? setAnimating('open') : setAnimating('close')
+    !open ? setAnimate('open') : setAnimate('close')
     setNavRevealTitle(navTitle)
 
     if (mask === 'close' || mask === 'closeReset') setMask('open')
@@ -113,9 +113,9 @@ export const Header = ({
        * hover transitions doesn't conflict with the arrow button's
        * closing animations
        */
-      setTimeout(() => setAnimating(false), 700)
+      setTimeout(() => setAnimate(false), 700)
     } else {
-      setAnimating(false)
+      setAnimate(false)
     }
   }
 
@@ -124,7 +124,7 @@ export const Header = ({
    */
   useEffect(() => {
     ;(async () => {
-      if (mask === 'open' && animating) {
+      if (mask === 'open' && animate) {
         setMaskOpen(true)
         // Timeout because of display property (none/flex) change
         setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5)
@@ -143,23 +143,23 @@ export const Header = ({
         setMask('closeReset')
       }
 
-      if (mask === 'openReset' && !animating) {
+      if (mask === 'openReset' && !animate) {
         maskAnim.set({
           clipPath: `circle(150% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         })
       }
 
-      if (mask === 'closeReset' && !animating) {
+      if (mask === 'closeReset' && !animate) {
         maskAnim.set({
           clipPath: `circle(0% at ${btnArrowPos.x}px ${btnArrowPos.y}px)`,
         })
       }
     })()
-  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim, animating])
+  }, [mask, btnArrowPos.x, btnArrowPos.y, maskAnim, animate])
 
   useEffect(() => {
-    if (mask === 'closeReset' && !animating) setMaskOpen(false)
-  }, [mask, animating])
+    if (mask === 'closeReset' && !animate) setMaskOpen(false)
+  }, [mask, animate])
 
   /**
    * Handle closing if routes change
@@ -242,24 +242,24 @@ export const Header = ({
    * Handle closing with ESC key
    */
   useEffect(() => {
-    if (open && !animating) {
+    if (open && !animate) {
       const esc = (e: KeyboardEvent) => e.key === 'Escape' && toggleOpen()
       root.addEventListener('keydown', esc)
       return () => root.removeEventListener('keydown', esc)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open, animating, root])
+  }, [open, animate, root])
 
   /**
    * Disable keydowns if mask is animating
    */
   useEffect(() => {
-    if (animating) {
+    if (animate) {
       const keys = (e: KeyboardEvent) => e.preventDefault()
       root.addEventListener('keydown', keys)
       return () => root.removeEventListener('keydown', keys)
     }
-  }, [animating, root])
+  }, [animate, root])
 
   return (
     <FocusTrap
@@ -269,8 +269,8 @@ export const Header = ({
       <header
         className={c('Header', {
           'has-scrollbar': maskHasScrollbar,
-          'is-animate': animating,
-          'is-animate:close': animating === 'close',
+          'is-animate': animate,
+          'is-animate:close': animate === 'close',
           'is-open': maskOpen,
         })}
       >
