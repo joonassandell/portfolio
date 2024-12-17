@@ -124,7 +124,7 @@ export const Header = ({
    */
   useEffect(() => {
     ;(async () => {
-      if (mask === 'open') {
+      if (mask === 'open' && animating) {
         setMaskOpen(true)
         // Timeout because of display property (none/flex) change
         setTimeout(() => maskRef?.current?.scroll({ top: 0 }), 5)
