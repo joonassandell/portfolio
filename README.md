@@ -1,6 +1,6 @@
 <p>
   <a href="https://joonassandell.com">
-    <img width="96" src="public/static/logo.svg" alt="Joonas Sandell Logomark :D">
+    <img width="96" src="public/static/logo.svg" alt="Joonas Sandell logomark">
   </a>
 </p>
 
