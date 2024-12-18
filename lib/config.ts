@@ -33,12 +33,12 @@ export const APP = {
     appName: 'Joonas Sandell',
     description:
       'Portfolio of Joonas Sandell, UI/UX Designer and creative Front-end Developer based in Helsinki, Finland.',
-    favIcon: '/static/favicon.svg?v=2',
-    favIconIco: '/static/favicon.ico?v=2',
+    favIcon: '/static/favicon.svg?v=3',
+    favIconIco: '/static/favicon.ico?v=3',
     ogImage: `${APP_URL}/static/og.jpg`,
     title: 'Joonas Sandell — Designer & Developer',
     titlePrefix: 'Joonas Sandell',
-    touchIcon: '/static/apple-touch-icon.png?v=2',
+    touchIcon: '/static/apple-touch-icon.png?v=3',
   },
   person: {
     email: 'me@joonassandell.com',
