@@ -60,16 +60,23 @@ export const objectEntries = <T extends object>(object: T): Entries<T> => {
 }
 
 export const formatDate = (inputDate: string): string => {
-  const date = new Date(inputDate)
-
   const options: Intl.DateTimeFormatOptions = {
     day: '2-digit',
     month: 'short',
-    timeZone: 'UTC',
+    timeZone: 'Europe/Helsinki',
     year: 'numeric',
   }
 
-  return new Intl.DateTimeFormat('en-US', options).format(date)
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(inputDate))
+}
+
+export const formatDateYear = (inputDate: string): string => {
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'Europe/Helsinki',
+    year: 'numeric',
+  }
+
+  return new Intl.DateTimeFormat('en-US', options).format(new Date(inputDate))
 }
 
 export const getMilliSeconds = (number: number) => number * 1000

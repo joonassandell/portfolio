@@ -1,7 +1,7 @@
 import { APP, BUILD_DATE, GIT_COMMIT_SHA } from '@/lib/config'
 import { Badge } from '../Badge'
 import { type FooterProps } from './'
-import { formatDate } from '@/lib/utils'
+import { formatDate, formatDateYear } from '@/lib/utils'
 import { LINK, SITEMAP } from '@/lib/sitemap'
 import { Link } from '@/components/Link'
 import { LinkRoll } from '@/components/LinkRoll'
@@ -103,7 +103,7 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
           size="s"
         >
           <p className="Footer-updated mb:0">
-            © {new Date().getFullYear()} {APP.person.name}
+            © {formatDateYear(new Date().toISOString())} {APP.person.name}
             <span className="color:mute:blend visible@s">
               {' '}
               ✳︎ Last updated:{' '}
