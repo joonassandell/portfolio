@@ -63,7 +63,7 @@ export const formatDate = (inputDate: string): string => {
   const options: Intl.DateTimeFormatOptions = {
     day: '2-digit',
     month: 'short',
-    timeZone: 'Europe/Helsinki',
+    timeZone: 'UTC',
     year: 'numeric',
   }
 
@@ -72,7 +72,7 @@ export const formatDate = (inputDate: string): string => {
 
 export const formatDateYear = (inputDate: string): string => {
   const options: Intl.DateTimeFormatOptions = {
-    timeZone: 'Europe/Helsinki',
+    timeZone: 'UTC',
     year: 'numeric',
   }
 
