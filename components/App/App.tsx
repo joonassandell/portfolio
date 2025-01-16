@@ -142,9 +142,7 @@ export const App = ({
 
   useEffect(() => {
     if (PRODUCTION) {
-      console.info(
-        'Made by me with Next.js, TypeScript, Framer Motion and tears. 🥲',
-      )
+      console.info('Made by me with Next.js, TypeScript, Motion and tears. 🥲')
     }
 
     ;(async () => {

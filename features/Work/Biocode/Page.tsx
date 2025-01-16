@@ -36,7 +36,7 @@ export const BiocodePage = ({ images }: PageProps) => {
         }
         role={['Product design', 'Software development', 'Web development']}
         smallPrint="Built together with awesome co-workers from Biocode."
-        tech={['Next.js, Headless', 'React, GraphQL', 'Framer Motion']}
+        tech={['Next.js, Headless', 'React, GraphQL', 'Motion']}
         text={
           <p>
             I worked for <em>Biocode</em> as a Senior Product Designer and

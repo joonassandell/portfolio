@@ -46,7 +46,7 @@ export const AboutSkills = () => {
       >
         <TextReveal
           text={[
-            'HTML — CSS — Sass — Next.js — TypeScript — JavaScript — React — Node.js — Zustand — Framer Motion — Redux',
+            'HTML — CSS — Sass — Next.js — TypeScript — JavaScript — React — Node.js — Zustand — Motion — Redux',
           ]}
         />
       </Heading>
