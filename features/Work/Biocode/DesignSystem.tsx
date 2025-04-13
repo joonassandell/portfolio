@@ -334,7 +334,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
         <Text animate className="mb:0" color="mute" tag="small">
           Note that this case study showcases mainly dark themed elements for
           simplicity. Biocode's design system consists tokens for light theme as
-          well, <Link href="#software">see below</Link>.
+          well, <Link href="#application">see below</Link>.
         </Text>
       </div>
     </TemplateArea>

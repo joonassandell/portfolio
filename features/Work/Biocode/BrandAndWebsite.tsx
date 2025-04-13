@@ -131,7 +131,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
               <li>Strategically placed CTAs for user sign-up</li>
               <li>Feedback quotes from satisfied clients</li>
               <li>Logical navigation and content structure</li>
-              <li>Emphasis on software trustworthiness</li>
+              <li>Emphasis on application trustworthiness</li>
               <li>Targeted sections addressing user needs</li>
             </ul>
           </Text>
@@ -225,9 +225,9 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         <Text animate className="mb:0" color="mute" tag="p">
           The website was initially designed in dark mode for a modern look,
           then adapted to light mode for broader accessibility. We aimed for
-          global professional <q>software-like</q> feel and limited food imagery
-          to keep the brand versatile, reflecting the software's broad emission
-          calculation capabilities.
+          global professional <q>application-like</q> feel and limited food
+          imagery to keep the brand versatile, reflecting the application's
+          broad emission calculation capabilities.
         </Text>
       </div>
     </TemplateArea>
@@ -238,8 +238,8 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
         </Heading>
         <Text animate className="mb:0" color="mute" tag="p">
           Biocode was missing a logomark and an icon, which is a crucial piece
-          of any fully-fledged software product. We created a new logomark which
-          was also integrated as part of the wordmark for better recognition.
+          of any fully-fledged product. We created a new logomark which was also
+          integrated as part of the wordmark for better recognition.
         </Text>
       </div>
       <div className="grid-col grid-col:8@l grid">
@@ -370,7 +370,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
           </Heading>
           <Text animate className="mb:xs mb:0@m" color="mute" tag="p">
             Among emphasizing the core USPs we also planned detailed sections of
-            individual features of the software to gain a deeper insight into
+            individual features of the application to gain a deeper insight into
             the specific tools and capabilities.
           </Text>
         </div>

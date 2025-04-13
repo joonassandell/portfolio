@@ -110,7 +110,9 @@ export const ResumeContent = () => (
             </li>
             <li>
               Built the{' '}
-              <Link href={`${SITEMAP.biocode.url}/#software`}>software</Link>{' '}
+              <Link href={`${SITEMAP.biocode.url}/#application`}>
+                application
+              </Link>{' '}
               front-end together with the team including various features such
               as real time carbon footprint calculation
             </li>

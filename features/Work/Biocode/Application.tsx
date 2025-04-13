@@ -15,31 +15,28 @@ import profileLinda from '@/public/biocode/linda-forss.jpg'
 import profileNick from '@/public/biocode/nick-wols.jpg'
 import profileSari from '@/public/biocode/sari-torpstrom.jpg'
 
-export const BiocodeSoftware = ({ images }: PageProps) => {
+export const BiocodeApplication = ({ images }: PageProps) => {
   const { ref, value: y } = useParallax({ speed: 'slow' })
 
   return (
-    <section className="Template-software">
+    <section className="Template-app">
       <TemplateArea
-        className="Template-software-hero"
+        className="Template-app-hero"
         grid={false}
         pt="2xl-5xl"
         wrap={false}
       >
         <Figure
-          alt="Isometric Biocode software for producers"
+          alt="Isometric Biocode application for producers"
           animate={false}
           borderRadius={false}
           placeholder={false}
-          {...getImage(
-            'joonassandell-biocode-software-for-producers-hero',
-            images,
-          )}
+          {...getImage('joonassandell-biocode-app-for-producers-hero', images)}
         />
       </TemplateArea>
-      <TemplateArea grid={false} id="software" pt="2xl-5xl">
+      <TemplateArea grid={false} id="application" pt="2xl-5xl">
         <Subtitle animate center>
-          The Software
+          The Application
         </Subtitle>
         <Heading animate center size="h1" tag="h2">
           Simplifying the carbon footprint calculating
@@ -53,7 +50,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
       </TemplateArea>
       <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
         <Figure
-          alt="Biocode software collection"
+          alt="Biocode application collection"
           background="var(--biocode-light-bg-300)"
           border
           borderRadius="var(--border-radius-l)"
@@ -65,7 +62,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           scrollImageStartPositionMultiplier={2}
           scrollSpeed="slow"
           scrollStartPosition={0}
-          {...getImage('joonassandell-biocode-software-collection', images)}
+          {...getImage('joonassandell-biocode-app-collection', images)}
         />
         <m.div className="grid-col grid" ref={ref} style={{ y }}>
           <Text
@@ -119,8 +116,8 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           <Text animate color="mute" tag="p">
             Our UX processes begin with planning user interviews, in
             collaboration with the marketing team, to better understand user
-            needs and improve both the UX and UI of the software. As one part of
-            this effort, we are currently designing new UI and unifying the
+            needs and improve both the UX and UI of the application. As one part
+            of this effort, we are currently designing new UI and unifying the
             interfaces of the producer and product sections, with a focus on
             consistency across the platform.
           </Text>
@@ -134,7 +131,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           border
           className="grid-col grid-col:10@m grid-col:8@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage('joonassandell-biocode-software-overview', images)}
+          {...getImage('joonassandell-biocode-app-overview', images)}
         />
         <Figure
           alt="Biocode for producers overview"
@@ -142,7 +139,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           className="grid-col grid-col:10@m -start:3@m grid-col:8@l -start:1@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
           {...getImage(
-            'joonassandell-biocode-software-for-producers-overview',
+            'joonassandell-biocode-app-for-producers-overview',
             images,
           )}
         />
@@ -241,16 +238,13 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             border="#001A61"
             className="grid-col grid-col:6"
             sizes={`${MQ.l} 25vw, ${MQ.m} 33vw, 50vw`}
-            {...getImage('joonassandell-biocode-software-card-example', images)}
+            {...getImage('joonassandell-biocode-app-card-example', images)}
           />
           <Figure
             alt="Product results sidebar"
             className="grid-col grid-col:6"
             sizes={`${MQ.l} 25vw, ${MQ.m} 33vw, 50vw`}
-            {...getImage(
-              'joonassandell-biocode-software-product-sidebar',
-              images,
-            )}
+            {...getImage('joonassandell-biocode-app-product-sidebar', images)}
           />
         </div>
         <div className="grid-col grid-col:5@l grid -gap:row:l">
@@ -265,7 +259,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
               encouraged by the progress they’ve made, even after entering just
               a single input. Main actions, and other elements are placed for
               easy discovery, while onboarding includes example calculations and
-              instructions to help users getting started with the software.
+              instructions to help users getting started with the application.
             </Text>
           </div>
           <Figure
@@ -274,7 +268,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             className="grid-col grid-col:8@m grid-col:12@l -align:end"
             sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
             {...getImage(
-              'joonassandell-biocode-software-product-navigation',
+              'joonassandell-biocode-app-product-navigation',
               images,
             )}
           />
@@ -294,7 +288,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
             className="grid-col -align:end"
             sizes={`${MQ.l} 33vw, ${MQ.m} 70vw, 100vw`}
             {...getImage(
-              'joonassandell-biocode-software-product-sidebar-navigation',
+              'joonassandell-biocode-app-product-sidebar-navigation',
               images,
             )}
           />
@@ -305,7 +299,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           className="grid-col grid-col:7@l -align:end"
           sizes={`${MQ.l} 60vw, 100vw`}
           {...getImage(
-            'joonassandell-biocode-software-product-raw-materials',
+            'joonassandell-biocode-app-product-raw-materials',
             images,
           )}
         />
@@ -313,26 +307,20 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           alt="Welcome instructions after sign up"
           border
           className="grid-col"
-          {...getImage('joonassandell-biocode-software-signup-welcome', images)}
+          {...getImage('joonassandell-biocode-app-signup-welcome', images)}
         />
         <Figure
           alt="Product production LCA stage page"
           border
           className="grid-col"
-          {...getImage(
-            'joonassandell-biocode-software-product-production',
-            images,
-          )}
+          {...getImage('joonassandell-biocode-app-product-production', images)}
         />
         <Figure
           alt="Scope 2 LCA stage page"
           border
           className="grid-col grid-col:8@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
-          {...getImage(
-            'joonassandell-biocode-software-company-scope-2',
-            images,
-          )}
+          {...getImage('joonassandell-biocode-app-company-scope-2', images)}
         />
         <div className="grid-col grid-col:4@l">
           <Text animate className="mb:0" color="mute" tag="p">
@@ -390,7 +378,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           className="grid-col grid-col:10@m grid-col:8@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
           {...getImage(
-            'joonassandell-biocode-software-product-results-analytics',
+            'joonassandell-biocode-app-product-results-analytics',
             images,
           )}
         />
@@ -400,10 +388,7 @@ export const BiocodeSoftware = ({ images }: PageProps) => {
           borderRadius="var(--border-radius-app)"
           className="grid-col grid-col:10@m"
           sizes={`${MQ.m} 70vw, 100vw`}
-          {...getImage(
-            'joonassandell-biocode-software-product-results',
-            images,
-          )}
+          {...getImage('joonassandell-biocode-app-product-results', images)}
         />
       </TemplateArea>
     </section>

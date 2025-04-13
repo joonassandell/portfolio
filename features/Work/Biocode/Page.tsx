@@ -1,8 +1,8 @@
 import {
+  BiocodeApplication,
   BiocodeBrandAndWebsite,
   BiocodeDesignSystem,
   BiocodeHero,
-  BiocodeSoftware,
 } from './'
 import { Figure } from '@/components/Figure'
 import { getImage } from '@/lib/utils'
@@ -34,7 +34,7 @@ export const BiocodePage = ({ images }: PageProps) => {
             communicating environmental values to end customers.
           </>
         }
-        role={['Product design', 'Software development', 'Web development']}
+        role={['Product design', 'App development', 'Web development']}
         smallPrint="Built together with awesome co-workers from Biocode."
         tech={['Next.js, Headless', 'React, GraphQL', 'Motion']}
         text={
@@ -49,8 +49,8 @@ export const BiocodePage = ({ images }: PageProps) => {
               design system
             </Link>
             , developing our{' '}
-            <Link href="#software" underline={false}>
-              software
+            <Link href="#application" underline={false}>
+              application
             </Link>{' '}
             and enhancing the overall direction of our product.
           </p>
@@ -65,8 +65,8 @@ export const BiocodePage = ({ images }: PageProps) => {
             text: 'Design System',
           },
           {
-            href: '#software',
-            text: 'Software',
+            href: '#application',
+            text: 'Application',
           },
         ]}
         type={['SaaS', 'Website', 'Branding']}
@@ -75,7 +75,7 @@ export const BiocodePage = ({ images }: PageProps) => {
       <TemplateArea pt="2xl-5xl">
         <div className="grid-col grid-col:10@l -start:2@l">
           <Figure
-            alt="Biocode homepage with isometric Biocode software"
+            alt="Biocode homepage with isometric Biocode application"
             border
             borderRadius="var(--border-radius-app)"
             glare
@@ -88,7 +88,7 @@ export const BiocodePage = ({ images }: PageProps) => {
       </TemplateArea>
       <BiocodeBrandAndWebsite images={images} />
       <BiocodeDesignSystem images={images} />
-      <BiocodeSoftware images={images} />
+      <BiocodeApplication images={images} />
       <NextProject id={nextProjectId} />
     </Template>
   )

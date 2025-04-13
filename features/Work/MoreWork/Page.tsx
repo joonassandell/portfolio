@@ -29,7 +29,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         role={[
           'Product design',
           'UI/UX/Brand design',
-          'Software development',
+          'App development',
           'Web development',
         ]}
         smallPrint="Some projects may present initial designs and prototypes."
@@ -248,7 +248,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Luke' }}
           heading="Hukka 🥒"
-          role={['Product design', 'Software development']}
+          role={['Product design', 'App development']}
           text={
             <p>
               <em>Natural Resources Institute Finland</em> (<em>Luke</em>) is a
@@ -363,7 +363,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Mediasignal' }}
           heading="Rubik 📦"
-          role={['Product design', 'Software development']}
+          role={['Product design', 'App development']}
           text={
             <>
               <p>
@@ -444,7 +444,7 @@ export const MoreWorkPage = ({ images }: PageProps) => {
         <SubInfo
           client={{ name: 'Finnpark' }}
           heading="Parking Guidance App 🛞"
-          role={['Product design', 'Software development']}
+          role={['Product design', 'App development']}
           text={
             <p>
               <em>Finnpark</em> designs and produces smart parking services that
