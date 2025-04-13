@@ -131,6 +131,7 @@ export const BiocodeApplication = ({ images }: PageProps) => {
           border
           className="grid-col grid-col:10@m grid-col:8@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          text="1. Biocode for food brands"
           {...getImage('joonassandell-biocode-app-overview', images)}
         />
         <Figure
@@ -138,6 +139,7 @@ export const BiocodeApplication = ({ images }: PageProps) => {
           border
           className="grid-col grid-col:10@m -start:3@m grid-col:8@l -start:1@l"
           sizes={`${MQ.l} 60vw, ${MQ.m} 70vw, 100vw`}
+          text="2. Biocode for producers"
           {...getImage(
             'joonassandell-biocode-app-for-producers-overview',
             images,
@@ -155,16 +157,16 @@ export const BiocodeApplication = ({ images }: PageProps) => {
             <ul>
               <li>
                 Notice the subtle differences in spacings; currently spacings
-                are too big (latter image) and we need to reduce them to give
-                more space to essential elements such as inputs
+                are too big (2.) and we need to reduce them to give more space
+                to essential elements such as inputs
               </li>
               <li>
                 Better positioning and visibility for the main action button
-                (first image)
+                (1.)
               </li>
               <li>
                 Clear wording: <q>New calculation</q> is more understandable
-                than <q>New assessment</q>
+                than <q>New assessment</q> (1.)
               </li>
             </ul>
           </Text>
