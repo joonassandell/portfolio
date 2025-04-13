@@ -45,6 +45,10 @@
   align-items: center;
 }
 
+.align-items\:baseline {
+  align-items: baseline;
+}
+
 .place-content\:space-between {
   place-content: space-between;
 }
@@ -76,6 +80,12 @@
 
   &\:xs {
     gap: rem($space-xs);
+  }
+}
+
+.row-gap {
+  &\:2xs {
+    row-gap: rem($space-2xs);
   }
 }
 

@@ -8,8 +8,10 @@ import {
 } from './'
 import { forwardRef, type RefObject, useRef, useState } from 'react'
 import { isString } from '@/lib/utils'
+import { Link } from '@/components/Link'
 import { MOVE_IN_VARIANTS } from '@/lib/config'
 import { default as NextImage } from 'next/image'
+import { Text } from '@/components/Text'
 import { useInView, useInViewVideo } from '@/lib/useInView'
 import { useParallax } from '@/lib/useParallax'
 import c from 'clsx'
@@ -26,6 +28,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       className,
       fill,
       glare,
+      heading,
       height,
       id,
       inline,
@@ -47,8 +50,10 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
       scrollStartPositionMultiplier,
       sizes = '100vw',
       src,
+      text,
       transition = 'move',
       unoptimized,
+      url,
       width,
       ...props
     },
@@ -97,7 +102,7 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
     // process.env.NODE_ENV === 'development' && (src = `${src}?${Date.now()}`)
 
     return (
-      <m.div
+      <m.figure
         className={c(
           'Figure',
           {
@@ -137,64 +142,80 @@ export const Figure = forwardRef<HTMLDivElement, FigureProps>(
             ...(transition === 'move' && { custom: { skewYdelay: 0.1 } }),
           })}
         >
-          <m.figure className="Figure-figure" style={{ y: mask ? maskY : 0 }}>
-            {glare && !glareEnd && (
-              <m.div
-                className="Figure-glare absolute inset:0"
-                onAnimationComplete={() => setGlareEnd(true)}
-                variants={GLARE_VARIANTS}
-              />
-            )}
-            {!video && placeholder && (
-              <AnimatePresence>
-                {!imgLoaded && (
-                  <m.div
-                    className="Figure-placeholder absolute inset:0"
-                    exit="exit"
-                    variants={PLACEHOLDER_VARIANTS}
-                  >
+          <div className="Figure-inner">
+            <m.div style={{ y: mask ? maskY : 0 }}>
+              {glare && !glareEnd && (
+                <m.div
+                  className="Figure-glare absolute inset:0"
+                  onAnimationComplete={() => setGlareEnd(true)}
+                  variants={GLARE_VARIANTS}
+                />
+              )}
+              {!video && placeholder && (
+                <AnimatePresence>
+                  {!imgLoaded && (
                     <m.div
-                      animate={inView ? 'animate' : false}
-                      className="Figure-placeholder-glare absolute inset:0"
-                      variants={PLACEHOLDER_GLARE_VARIANTS}
-                    />
-                  </m.div>
-                )}
-              </AnimatePresence>
-            )}
-            {!video && (
-              <NextImage
-                alt={alt}
-                className="Figure-img"
-                draggable={false}
-                height={height}
-                loading={loading}
-                onLoad={() => setImgLoaded(true)}
-                priority={priority}
-                quality={quality}
-                sizes={sizes}
-                src={src}
-                unoptimized={unoptimized}
-                width={width}
-                // Fix possible leaking image under the placeholder
-                {...(!imgLoaded && { style: { opacity: 0 } })}
-              />
-            )}
-            {video && (
-              <video
-                className="Figure-video"
-                loop
-                muted
-                playsInline
-                ref={refVideo}
-              >
-                <source src={src} />
-              </video>
-            )}
-            {video && <figcaption className="hideVisually">{alt}</figcaption>}
-          </m.figure>
+                      className="Figure-placeholder absolute inset:0"
+                      exit="exit"
+                      variants={PLACEHOLDER_VARIANTS}
+                    >
+                      <m.div
+                        animate={inView ? 'animate' : false}
+                        className="Figure-placeholder-glare absolute inset:0"
+                        variants={PLACEHOLDER_GLARE_VARIANTS}
+                      />
+                    </m.div>
+                  )}
+                </AnimatePresence>
+              )}
+              {!video && (
+                <NextImage
+                  alt={alt}
+                  className="Figure-img"
+                  draggable={false}
+                  height={height}
+                  loading={loading}
+                  onLoad={() => setImgLoaded(true)}
+                  priority={priority}
+                  quality={quality}
+                  sizes={sizes}
+                  src={src}
+                  unoptimized={unoptimized}
+                  width={width}
+                  // Fix possible leaking image under the placeholder
+                  {...(!imgLoaded && { style: { opacity: 0 } })}
+                />
+              )}
+              {video && (
+                <video
+                  className="Figure-video"
+                  loop
+                  muted
+                  playsInline
+                  ref={refVideo}
+                >
+                  <source src={src} />
+                </video>
+              )}
+            </m.div>
+          </div>
+          {(heading ?? text) && (
+            <figcaption className="mt:s ml:s mr:s flex flex-wrap:wrap align-items:baseline gap:xs row-gap:2xs">
+              {heading && (
+                <Text>{url ? <Link href="#">{heading}</Link> : heading}</Text>
+              )}
+              {text && (
+                <Text color="mute" size="s">
+                  {text}
+                </Text>
+              )}
+            </figcaption>
+          )}
+          {video && !heading && !text && (
+            <figcaption className="hideVisually">{alt}</figcaption>
+          )}
         </m.div>
-      </m.div>
+      </m.figure>
     )
   },
 )

@@ -4,20 +4,23 @@
 .Figure {
   height: var(--Figure-height, auto);
   width: var(--Figure-width, fit-content);
-
-  * {
-    border-radius: var(--Figure-border-radius, var(--border-radius));
-  }
 }
 
 .Figure-main {
-  background-clip: padding-box;
-  overflow: hidden;
-  position: relative;
   transform-origin: top left;
 
   .Figure.-transition\:clip & {
     transform-origin: bottom center;
+  }
+}
+
+.Figure-inner {
+  overflow: hidden;
+  position: relative;
+
+  &,
+  * {
+    border-radius: var(--Figure-border-radius, var(--border-radius));
   }
 }
 
@@ -59,20 +62,20 @@
 
 .Figure {
   &.-bg {
-    .Figure-main {
+    .Figure-inner {
       background: var(--Figure-bg, var(--bg-200));
     }
   }
 
   &.-border {
-    .Figure-main {
+    .Figure-inner {
       border: var(--Figure-border-width, var(--border-width-s)) solid
         var(--Figure-border, var(--border-100));
     }
   }
 
   &.-border\:dashed {
-    .Figure-main {
+    .Figure-inner {
       border: var(--Figure-border-width, var(--border-width-dashed)) dashed
         var(--Figure-border, var(--border-100));
     }
@@ -98,7 +101,8 @@
       height: rem($space * 28);
     }
 
-    .Figure-main {
+    .Figure-main,
+    .Figure-inner {
       height: 100%;
     }
 

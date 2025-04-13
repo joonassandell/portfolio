@@ -19,6 +19,10 @@
   margin-top: rem($space-xs);
 }
 
+.mt\:s {
+  margin-top: rem($space-s);
+}
+
 .mt\:ml {
   margin-top: rem($space-ml);
 }
@@ -62,6 +66,10 @@
 /* =======================================
  * Margin right
  * ======================================= */
+
+.mr\:s {
+  margin-right: rem($space-s);
+}
 
 .mr\:auto {
   margin-right: auto;

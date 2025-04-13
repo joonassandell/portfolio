@@ -24,6 +24,7 @@ export interface FigureProps
   borderStyle?: 'solid' | 'dashed'
   fill?: 'large'
   glare?: boolean
+  heading?: string
   id?: string
   inViewOffset?: number
   inline?: boolean
@@ -41,5 +42,7 @@ export interface FigureProps
   scrollStartPositionMultiplier?: UseParallaxOptions['startPositionMultiplier']
   src: string
   style?: HTMLMotionProps<'div'>['style']
+  text?: string
   transition?: 'move' | 'clip'
+  url?: URL['href']
 }
