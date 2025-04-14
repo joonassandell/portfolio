@@ -1,0 +1,45 @@
+@use 'stylesheets/config' as *;
+@use 'stylesheets/mixins' as *;
+
+.Template--feed {
+  --Template-bg: var(--bg-950);
+  --Template-text: var(--text-50);
+
+  --Figure-border-width: var(--border-width-m);
+  --Figure-border-radius: var(--border-radius-l);
+  --Figure-placeholder-bg: var(--bg-940);
+  --Figure-glare-bg: hsl(var(--white-hsl) / 0.03);
+
+  --border-100: var(--border-900);
+  --border-950: var(--border-900);
+  --text-900: var(--text-100);
+  --link: var(--text-50);
+
+  .Template-grid {
+    display: grid;
+    gap: var(--grid-gap-m);
+    grid-template-columns: repeat(var(--columns, 1), 1fr);
+    justify-content: center;
+    row-gap: var(--row-gap, var(--grid-gap-row-l));
+
+    @include mq(s) {
+      --columns: 2;
+    }
+
+    @include mq(l) {
+      --columns: 3;
+    }
+  }
+
+  .Template-feedItem {
+    height: fit-content;
+
+    @include mq(l) {
+      --columns: 3;
+
+      &.-col\:2 {
+        grid-column: span 2;
+      }
+    }
+  }
+}

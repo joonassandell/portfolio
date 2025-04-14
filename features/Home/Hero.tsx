@@ -70,7 +70,7 @@ export const HomeHero = () => {
                 {LINK.workPlace.title}
               </Link>
             </em>
-            . Learn more <Link href={SITEMAP.about.url}>about me</Link> or
+            . Visit <Link href={SITEMAP.feed.url}>feed</Link> for latest work or
             explore{' '}
             <Link
               href="#selected-works"
@@ -88,7 +88,8 @@ export const HomeHero = () => {
                 {LINK.workPlace.title}
               </Link>
             </em>{' '}
-            and building various side projects.
+            and building various side projects. Visit{' '}
+            <Link href={SITEMAP.feed.url}>feed</Link> for latest work.
           </Text>
         </div>
       </div>
