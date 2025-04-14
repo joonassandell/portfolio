@@ -23,6 +23,7 @@
   --gray-700: #4d4d4d;
   --gray-800: #1a1a1a;
   --gray-900: #111111;
+  --gray-940: #050505;
   --gray-950: var(--black);
 
   --slate-50: #f8fafc;
@@ -47,6 +48,7 @@
   --bg-300: var(--gray-200);
   --bg-800: var(--gray-800);
   --bg-900: var(--gray-900);
+  --bg-940: var(--gray-940);
   --bg-950: var(--gray-950);
 
   --border-50: var(--white);
@@ -56,7 +58,7 @@
   --border-900: var(--gray-800);
   --border-950: var(--gray-950);
 
-  --border-width-s: 0.5px;
+  --border-width-s: 0.75px;
   --border-width-m: 1px;
   --border-width-l: 2px;
   --border-width-dashed: 1.5px;
@@ -102,7 +104,7 @@
   --focus-visible-bg: var(--bg-950);
   --focus-visible-bg-blend: var(--white);
   --focus-visible-fg: var(--text-50);
-  --focus-visible-fg-blend: var(--gray-900);
+  --focus-visible-fg-blend: var(--gray-950);
 
   --shadow: 0 0 0 1px hsl(var(--black-hsl) / 0.07),
     0 2px 2px hsl(var(--black-hsl) / 0.1);
@@ -159,6 +161,7 @@
     --grid-gap-row-l: #{rem($space-l)};
 
     --border-radius-app: var(--border-radius-m);
+    --border-width-s: var(--border-width-m);
 
     --wrap-space-left: max(env(safe-area-inset-left), #{rem($space-l)});
     --wrap-space-right: max(env(safe-area-inset-right), #{rem($space-l)});

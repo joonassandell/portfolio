@@ -3,6 +3,7 @@ import approach from '@/features/Approach/sitemap'
 import archive from '@/features/Work/Archive/sitemap'
 import biocode from '@/features/Work/Biocode/sitemap'
 import contact from '@/features/Contact/sitemap'
+import feed from '@/features/Feed/sitemap'
 import home from '@/features/Home/sitemap'
 import mediasignal from '@/features/Work/Mediasignal/sitemap'
 import milestones from '@/features/Milestones/sitemap'
@@ -17,15 +18,24 @@ import uiLab from '@/features/UiLab/sitemap'
  * ======================================= */
 
 const me = [about, resume, approach, contact]
-const projects = [home, uiLab, milestones, sandbox]
-const work = [biocode, oras, mediasignal, moreWork]
+const projects = [home, feed, uiLab, milestones]
+const work = [biocode, oras, mediasignal, moreWork, sandbox]
 const all = [...me, ...projects, ...work, archive]
 
 const header = {
-  nav: [about, uiLab, milestones, contact],
+  nav: [about, feed, uiLab, milestones, contact],
   navMask: [biocode, oras, mediasignal, moreWork, sandbox],
-  navMaskFooter: [home, about, uiLab, milestones, resume, approach, contact],
-  navMaskMobile: [about, uiLab, milestones, resume, approach, contact],
+  navMaskFooter: [
+    home,
+    about,
+    feed,
+    uiLab,
+    milestones,
+    resume,
+    approach,
+    contact,
+  ],
+  navMaskMobile: [about, feed, uiLab, milestones, resume, approach, contact],
 }
 
 export const SITEMAP = {
@@ -35,6 +45,7 @@ export const SITEMAP = {
   archive,
   biocode,
   contact,
+  feed,
   header,
   home,
   me,
