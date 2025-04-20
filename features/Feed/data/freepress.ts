@@ -5,7 +5,7 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
   {
     date: '2025-02-04',
     image: {
-      heading: 'Freepress Wordmark',
+      heading: 'Freepress wordmark',
       src: 'joonassandell-freepress-wordmark.png',
     },
   },
@@ -13,7 +13,7 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
     col: 2,
     date: '2025-02-10',
     image: {
-      heading: 'Freepress Brand Guidelines',
+      heading: 'Freepress brand guidelines',
       src: '/feed/joonassandell-freepress-brand-guidelines.mp4',
     },
   },
@@ -34,7 +34,7 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
   {
     date: '2025-02-04',
     image: {
-      heading: 'Freepress Icon',
+      heading: 'Freepress icon',
       src: 'joonassandell-freepress-icon.png',
     },
   },
@@ -49,7 +49,7 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
     col: 2,
     date: '2025-02-10',
     image: {
-      heading: 'Freepress Evolution in Detail',
+      heading: 'Freepress evolution chart',
       src: 'joonassandell-freepress-evolution.png',
     },
   },
