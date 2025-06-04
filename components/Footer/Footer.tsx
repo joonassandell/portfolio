@@ -39,10 +39,16 @@ export const Footer = ({ border = true, fullWidth }: FooterProps) => (
               <Text tag="ul">
                 {SITEMAP.projects.map(item => {
                   return (
-                    <li key={item.id}>
+                    <li
+                      className={c({
+                        'flex gap:xs align-items:center': item.new,
+                      })}
+                      key={item.id}
+                    >
                       <LinkRoll href={item.url} underline="active">
                         {item.title}
                       </LinkRoll>
+                      {item.new && <Badge beacon>New</Badge>}
                     </li>
                   )
                 })}

@@ -9,6 +9,7 @@ const sitemap: SitemapItem<'feed'> = {
     themeColor: '#000000',
     title: 'Feed',
   },
+  new: true,
   title: 'Feed',
   url: '/feed',
 }

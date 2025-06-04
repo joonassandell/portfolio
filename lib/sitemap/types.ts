@@ -12,13 +12,13 @@ export interface SitemapItem<Id = WithId> {
     themeColor?: AppHeadProps['themeColor']
     title: HeadProps['title']
   }
+  new?: boolean
   title: string
   url: `/${URL['href']}`
 }
 
 export interface SitemapItemWork<Id = WithId> extends SitemapItem<Id> {
   color: string
-  new?: boolean
   year: string | number
 }
 
