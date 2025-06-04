@@ -473,8 +473,6 @@
 }
 
 .Header-mask-nav-secondary-item {
-  --heading: var(--text-100);
-
   &:not(:last-child) {
     margin-bottom: rem($space-2xs + $space-4xs);
   }
@@ -482,6 +480,11 @@
   .Header-mask-nav-item + & {
     margin-top: rem($space-m);
   }
+}
+
+.Header-mask-nav-secondary-link {
+  --link: var(--text-100);
+  @include fontSize($h6-font-size-min, $h6-line-height, $h6-font-size-max);
 }
 
 /* =======================================

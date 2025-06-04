@@ -386,7 +386,7 @@ export const Header = ({
                           variants={MASK_ITEM_VARIANT}
                         >
                           <LinkRoll
-                            className="Header-mask-nav-secondary-link h6 mb:0"
+                            className="Header-mask-nav-secondary-link mb:0"
                             href={item.url}
                             onClick={handleLinkClick}
                             templateTransition={false}
