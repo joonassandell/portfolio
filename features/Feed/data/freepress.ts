@@ -10,10 +10,10 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
     },
   },
   {
-    col: 2,
+    colSpan: 2,
     date: '2025-02-10',
     image: {
-      heading: 'Freepress brand guidelines',
+      heading: 'Freepress brand guidelines draft',
       src: '/feed/joonassandell-freepress-brand-guidelines.mp4',
     },
   },
@@ -46,7 +46,15 @@ const data: Optional<FeedDataItemProps, 'category' | 'categoryName'>[] = [
     },
   },
   {
-    col: 2,
+    col: 3,
+    date: '2025-05-03',
+    image: {
+      heading: 'Freepress pre-launch event',
+      src: 'joonassandell-freepress-event.jpg',
+    },
+  },
+  {
+    colSpan: 2,
     date: '2025-02-10',
     image: {
       heading: 'Freepress evolution chart',

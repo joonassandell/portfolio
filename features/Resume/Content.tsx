@@ -250,7 +250,7 @@ export const ResumeContent = () => (
               visitors gain an enjoyable and insightful museum experiences
             </li>
             <li>
-              Built <em>Museum Guide</em> screen which featured inteactive maps
+              Built <em>Museum Guide</em> screen which featured interactive maps
               and other features integrated to the website CMS
             </li>
             <li>

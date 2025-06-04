@@ -7,7 +7,8 @@ export type Category = 'freepress'
 export interface FeedDataItemProps {
   category: Category
   categoryName: string
-  col?: 2
+  col?: 3
+  colSpan?: 2
   date: DateString
   image: Required<Optional<FigureProps, 'alt'>, 'heading'>
 }

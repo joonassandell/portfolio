@@ -21,6 +21,22 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   },
 
   /* =======================================
+   * Freepress
+   * ======================================= */
+
+  {
+    date: '2025-05-03',
+    event: 'Launched Freepress pre-launch landing website',
+    url: 'https://freepress.ai',
+  },
+  {
+    date: '2025-02-10',
+    event: 'Designed initial Freepress brand & design system',
+    highlight: true,
+    url: '/feed',
+  },
+
+  /* =======================================
    * Biocode
    * ======================================= */
 
@@ -34,7 +50,6 @@ const data: Optional<Milestone, 'category' | 'categoryName'>[] = [
   {
     date: '2022-08-01',
     event: 'Launched Biocode for producers',
-    highlight: true,
     major: true,
     url: 'https://biocode.io/producers-and-farmers',
   },

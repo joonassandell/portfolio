@@ -37,8 +37,12 @@
     @include mq(l) {
       --columns: 3;
 
-      &.-col\:2 {
+      &.-colSpan\:2 {
         grid-column: span 2;
+      }
+
+      &.-col\:3 {
+        grid-column: 3;
       }
     }
   }
