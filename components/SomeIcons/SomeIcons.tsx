@@ -3,7 +3,6 @@ import {
   Github,
   Instagram,
   LinkedIn,
-  ReadDotCv,
   SoundCloud,
   X,
 } from '@/components/Icon'
@@ -27,7 +26,6 @@ export const SomeIcons = ({ className, ...props }: SomeIconsProps) => (
           {title === 'Instagram' && <Instagram aria-hidden />}
           {title === 'LinkedIn' && <LinkedIn aria-hidden />}
           {title === 'Github' && <Github aria-hidden />}
-          {title === 'Read.cv' && <ReadDotCv aria-hidden />}
           {title === 'Dribbble' && <Dribbble aria-hidden />}
           <span className="hideVisually">{title}</span>
         </Link>

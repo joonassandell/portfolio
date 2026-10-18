@@ -99,11 +99,6 @@ const source = {
   url: 'https://github.com/joonassandell/portfolio',
 }
 
-const readDotCv = {
-  title: 'Read.cv',
-  url: 'https://read.cv/joonassandell',
-}
-
 const workPlace = {
   title: 'Freepress',
   url: 'https://freepress.ai',
@@ -114,16 +109,7 @@ export const LINK = {
   github,
   instagram,
   linkedIn,
-  readDotCv,
-  social: [
-    twitter,
-    github,
-    linkedIn,
-    dribbble,
-    readDotCv,
-    instagram,
-    soundcloud,
-  ],
+  social: [twitter, github, linkedIn, dribbble, instagram, soundcloud],
   soundcloud,
   source,
   twitter,
