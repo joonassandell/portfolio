@@ -29,7 +29,7 @@ export const MilestonesPage = () => {
           <Text size="l">
             <p>
               A compilation of milestones from my professional activities,
-              including project launches, feature releases, achievements, album
+              including project launches, feature releases, achievements, music
               releases, recognitions, and career progress.
             </p>
           </Text>
