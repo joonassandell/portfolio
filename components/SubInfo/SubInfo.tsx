@@ -39,7 +39,12 @@ export const SubInfo = ({
       >
         {heading && (
           <div className="grid-col">
-            <Heading className="mb:0" size="h4" variants={MOVE_IN_VARIANTS}>
+            <Heading
+              className="mb:0"
+              size="h4"
+              tag="h3"
+              variants={MOVE_IN_VARIANTS}
+            >
               {heading}
             </Heading>
           </div>
