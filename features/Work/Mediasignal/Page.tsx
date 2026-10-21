@@ -97,7 +97,7 @@ export const MediasignalPage = ({ images }: PageProps) => {
             animate={false}
             borderRadius="var(--border-radius-l)"
             scroll="mask"
-            scrollMaxClientHeight={mqM ? 1200 : 200}
+            scrollMaxClientHeight={mqM ? undefined : 200}
             scrollSpeed="slowest"
             {...getImage('joonassandell-mediasignal-business-card', images)}
           />
