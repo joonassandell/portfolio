@@ -12,8 +12,8 @@ import {
   TemplateArea,
   TemplateSectionHeader,
 } from '@/components/Template'
-import { useSetThemeColor } from '@/components/App'
 import { useMedia } from 'react-use'
+import { useSetThemeColor } from '@/components/App'
 
 export const OrasPage = ({ images }: PageProps) => {
   const { id, meta, title, year } = SITEMAP.oras
@@ -181,8 +181,8 @@ export const OrasPage = ({ images }: PageProps) => {
           alt="Oras sense faucet"
           animate={false}
           borderRadius={false}
-          scrollMaxClientHeight={mqM ? undefined : 200}
           scroll="mask"
+          scrollMaxClientHeight={mqM ? undefined : 200}
           {...getImage('joonassandell-oras-hero-sense', images)}
         />
       </TemplateArea>
