@@ -15,6 +15,7 @@ import c from 'clsx'
 import NextLink from 'next/link'
 
 export const LinkRoll = ({
+  animate = true,
   children,
   className,
   href,
@@ -74,8 +75,8 @@ export const LinkRoll = ({
           scrollToHash()
           if (onClick) onClick(e)
         }}
-        onFocus={() => setHover(true)}
-        onMouseEnter={() => setHover(true)}
+        onFocus={() => animate && setHover(true)}
+        onMouseEnter={() => animate && setHover(true)}
         onMouseLeave={() => setHover(false)}
         target={target ?? externalTarget}
         {...props}

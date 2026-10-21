@@ -1,8 +1,8 @@
 import { clamp, kebabCase } from 'es-toolkit'
+import { getPointerPosition, mapRange } from '@/lib/utils'
 import { Heading } from '@/components/Heading'
 import { LinkRoll } from '@/components/LinkRoll'
 import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
-import { mapRange } from '@/lib/utils'
 import { MQ, TRANS_MOVE, TRANS_PRIMARY_FAST } from '@/lib/config'
 import { type NextProjectProps } from './'
 import { type PointerEvent, useEffect, useRef, useState } from 'react'
@@ -14,11 +14,15 @@ import Image from 'next/image'
 import useMeasure from 'react-use-measure'
 
 export const NextProject = ({ id }: NextProjectProps) => {
-  const { setTransition } = useApp()
-  const { push } = useRouter()
+  const {
+    detect: { hasTouch },
+    setTransition,
+  } = useApp()
+  const { events, push } = useRouter()
   const { title, url } = SITEMAP[id]
   const src = `/${kebabCase(id)}/joonassandell-${kebabCase(id)}-thumbnail.jpg`
   const ref = useRef<HTMLDivElement>(null)
+  const leaving = useRef(false)
   const [innerRef, { height, width }] = useMeasure()
   const [figureRef, { height: figureHeight, width: figureWidth }] = useMeasure()
   const figureWidthHalf = figureWidth / 2
@@ -48,16 +52,18 @@ export const NextProject = ({ id }: NextProjectProps) => {
    * Transform figure
    */
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType === 'touch' || !ref.current) return
+    // Don't move the figure while navigating away, it competes with the page
+    // transition and causes jank (esp. on touch where pointerdown precedes click)
+    if (!ref.current || leaving.current) return
 
     const {
-      height: elH,
-      left,
-      top,
-      width: elW,
-    } = ref.current.getBoundingClientRect()
-    const mousePosX = clamp(e.clientX - left, 0, elW)
-    const mousePosY = clamp(e.clientY - top, 0, elH)
+      height,
+      width,
+      x: pointerX,
+      y: pointerY,
+    } = getPointerPosition(e, ref.current)
+    const mousePosX = clamp(pointerX, 0, width)
+    const mousePosY = clamp(pointerY, 0, height)
     const prevMousePosX = x.get() + figureWidthHalf
     const direction = mousePosX < prevMousePosX ? 'left' : 'right'
     const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100)
@@ -70,10 +76,22 @@ export const NextProject = ({ id }: NextProjectProps) => {
   }
 
   /**
+   * Allow the figure to move again if navigation doesn't happen
+   */
+  useEffect(() => {
+    leaving.current = false
+    const reset = () => (leaving.current = false)
+    events.on('routeChangeError', reset)
+    return () => events.off('routeChangeError', reset)
+  }, [events, id])
+
+  /**
    * Set initial figure position
    */
   const [initial, setInitial] = useState(false)
   useEffect(() => {
+    // Keep the figure in place while navigating away
+    if (leaving.current) return
     if (width && height && figureWidthHalf && figureHeightHalf) {
       x.set(width - figureWidthHalf * (mqS ? 2.5 : 1))
       y.set(height - figureHeightHalf * (mqS ? 0.8 : 0.3))
@@ -83,10 +101,19 @@ export const NextProject = ({ id }: NextProjectProps) => {
   }, [height, width, figureWidthHalf, figureHeightHalf, mqS])
 
   return (
-    <div className="NextProject" onPointerMove={onPointerMove} ref={ref}>
+    <div
+      className="NextProject"
+      onClickCapture={e => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey) return
+        if ((e.target as Element).closest('a, figure')) leaving.current = true
+      }}
+      onPointerDown={onPointerMove}
+      onPointerMove={onPointerMove}
+      ref={ref}
+    >
       <div className="NextProject-inner wrap" ref={innerRef}>
         <Heading className="mb:0" size="l" tag="div">
-          <LinkRoll className="NextProject-link" href={url}>
+          <LinkRoll animate={!hasTouch} className="NextProject-link" href={url}>
             Next project
           </LinkRoll>
         </Heading>
