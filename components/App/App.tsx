@@ -188,27 +188,6 @@ export const App = ({
   }, [root])
 
   /**
-   * Handle loading. Notes about the root scroll handling on load:
-   *
-   * - During load, scrolling is disabled with pre applied `:root.is-loading`
-   *   class and lenis is enabled but with disabled wheel events
-   * - During load, if there's `#hash` in the url, browser will natively scroll
-   *   to its target but scrolling is still disabled
-   * - After loading ends, obviously scrolling is enabled and lenis' wheel
-   *   events are enabled in <ReactLenis />
-   * - Although the `lockRootScroll` adds the `:root.is-lock` class, it has no
-   *   specific effect during load
-   */
-  useEffect(() => {
-    if (loadingEnd) {
-      lockRootScroll(false, { handleLenis: false })
-      root.classList.remove('is-loading')
-    } else {
-      lockRootScroll(true, { handleLenis: false })
-    }
-  }, [loadingEnd, lockRootScroll, root])
-
-  /**
    * Fix scrolling to hashlinks correctly on load. Note that the browser first
    * scrolls natively and this scrolls again slightly. Not really sure what
    * causes the altering scroll gaps on load, probably related to
@@ -343,7 +322,7 @@ export const App = ({
           transitionComplete,
         }}
       >
-        <ReactLenis options={{ autoRaf: true, smoothWheel: loadingEnd }} root>
+        <ReactLenis options={{ autoRaf: true }} root>
           <div className="App">
             <SkipNav href="#skip-nav">Skip to content</SkipNav>
             <Header navTitle={navTitle} />
