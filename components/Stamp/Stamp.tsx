@@ -7,10 +7,9 @@ import {
   type StampProps,
   SVG_VARIANTS,
 } from './'
-import { type RefObject, useEffect, useRef } from 'react'
 import { TRANS_MOVE } from '@/lib/config'
+import { useEffect, useRef } from 'react'
 import { useInView } from '@/lib/useInView'
-import { useMouse } from 'react-use'
 import c from 'clsx'
 import StampSvg from './stamp.svg'
 import useMeasure from 'react-use-measure'
@@ -30,9 +29,8 @@ export const Stamp = ({
   const inView = useInView(innerRef, 0, false)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const { elX: mouseX, elY: mouseY } = useMouse(
-    parentRef as RefObject<HTMLElement>,
-  )
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
   const moveX = useSpring(
     useTransform(x, [0, -32, width / 2, width], [0, -32, 0, 32]),
     TRANS_MOVE.slow,
@@ -41,10 +39,6 @@ export const Stamp = ({
     useTransform(y, [0, -32, height / 2, height], [0, -32, 0, 32]),
     TRANS_MOVE.slow,
   )
-
-  // Stop animating on mount
-  if (!mouseX && !mouseY) moveX.set(0)
-  if (!mouseY && !mouseX) moveY.set(0)
 
   const setParentAttributes = (moveX = 0, moveY = 0) => {
     if (!parentRef.current || !innerRef.current) return
@@ -64,19 +58,47 @@ export const Stamp = ({
     )
   }
 
+  /**
+   * Track pointer position relative to the parent without re-rendering
+   */
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (!parentRef.current) return
+      const { left, top } = parentRef.current.getBoundingClientRect()
+      mouseX.set(e.pageX - (left + window.scrollX))
+      mouseY.set(e.pageY - (top + window.scrollY))
+    }
+    document.addEventListener('pointermove', onMove)
+    return () => document.removeEventListener('pointermove', onMove)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   useEffect(() => {
     if (!inView || transitionStart) return
-    x.set(mouseX)
-    y.set(mouseY)
+    x.set(mouseX.get())
+    y.set(mouseY.get())
+    const unsubX = mouseX.on('change', v => x.set(v))
+    const unsubY = mouseY.on('change', v => y.set(v))
+    return () => {
+      unsubX()
+      unsubY()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mouseX, mouseY, inView, transitionStart])
+  }, [inView, transitionStart])
 
   useEffect(() => {
     if (!addVarsToParent) return
     if (!inView || transitionStart) return
-    setParentAttributes(moveX.get(), moveY.get())
+    const update = () => setParentAttributes(moveX.get(), moveY.get())
+    update()
+    const unsubX = moveX.on('change', update)
+    const unsubY = moveY.on('change', update)
+    return () => {
+      unsubX()
+      unsubY()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moveX.get(), moveY.get(), inView, transitionStart])
+  }, [inView, transitionStart])
 
   useEffect(() => {
     if (!addVarsToParent) return
