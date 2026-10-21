@@ -1,4 +1,8 @@
-import { type ComponentPropsWithRef, type PropsWithChildren } from 'react'
+import {
+  type ComponentPropsWithRef,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react'
 import { type FooterProps } from '@/components/Footer'
 import { type SitemapWithoutArrayKeys } from '@/lib/sitemap'
 
@@ -17,4 +21,15 @@ export interface TemplateAreaProps extends ComponentPropsWithRef<'div'> {
   pt?:
     'base' | 'm' | 'l' | 'l-2xl' | '2xl' | '2xl-5xl' | 'grid-gap-row-l' | false
   wrap?: boolean
+}
+
+export interface TemplateSectionHeaderProps extends Omit<
+  TemplateAreaProps,
+  'children' | 'ref'
+> {
+  center?: boolean
+  children: ReactNode
+  heading: ReactNode
+  rows?: { heading: ReactNode; text: ReactNode }[]
+  subtitle?: ReactNode
 }
