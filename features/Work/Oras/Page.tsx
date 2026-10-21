@@ -7,12 +7,18 @@ import { NextProject } from '@/components/NextProject'
 import { OrasHero } from './'
 import { type PageProps } from '@/types'
 import { SITEMAP } from '@/lib/sitemap'
-import { Template, TemplateArea } from '@/components/Template'
+import {
+  Template,
+  TemplateArea,
+  TemplateSectionHeader,
+} from '@/components/Template'
 import { useSetThemeColor } from '@/components/App'
+import { useMedia } from 'react-use'
 
 export const OrasPage = ({ images }: PageProps) => {
   const { id, meta, title, year } = SITEMAP.oras
   const { id: nextProjectId } = SITEMAP.mediasignal
+  const mqM = useMedia(MQ.m, false)
   useSetThemeColor(meta.themeColor)
 
   return (
@@ -21,26 +27,24 @@ export const OrasPage = ({ images }: PageProps) => {
       <OrasHero />
       <Info
         client={{ name: title }}
-        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. Each technical detail in the products is designed to promote the efficient use of water and energy. We were asked to create an extensive web service for Europe’s leading faucet manufacturer."
+        heading="Oras is a significant developer, manufacturer and marketer of kitchen and bathroom faucets. We were asked to create an extensive web service for Europe’s leading faucet manufacturer."
         role={['UI/UX design', 'Concept strategy', 'Web development']}
         smallPrint="Made together with wonderful people from Mediasignal and Hasan & Partners."
         tech={['HTML, CSS, JS, TYPO3']}
         text={
           <p>
-            After several iterations the Oras brand was modernised entirely in
-            connection with the web service overhaul. The web service was used
-            to create a bold and distinct image of Oras and to strongly
-            highlight the brand’s new promise.
+            After several iterations, the Oras brand was modernised alongside
+            the web service overhaul. The web service gave Oras a bold and
+            distinct image and highlighted the brand’s new promise.
           </p>
         }
         type={['Website', 'Web service']}
         year={year}
       />
-      <TemplateArea gridGap={false} pt="2xl" wrap={false}>
+      <TemplateArea gridGap={false} pt="l" wrap={false}>
         <div className="grid-col grid-col:6 grid-col:5@m grid-col:4@l">
           <Figure
             alt="Oras woman showering"
-            className="mt:-6xl@l"
             inViewOffset={-1}
             priority
             scroll="mask"
@@ -102,6 +106,22 @@ export const OrasPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
+      <TemplateSectionHeader
+        heading="Designing for products and inspiration"
+        rows={[
+          {
+            heading: 'Approach',
+            text: 'I designed the interface around large imagery, calm layouts and motion that echoes water. Product, blog and campaign pages share the same building blocks.',
+          },
+          {
+            heading: 'Details',
+            text: 'Lifestyle animation concepts show the faucets in use, and the product pages show how they look.',
+          },
+        ]}
+      >
+        A flexible design language that lets the products shine and guides
+        visitors from inspiration to the details
+      </TemplateSectionHeader>
       <TemplateArea className="bg:gradient-0-100-0 pt:5xl@m" pt="2xl-5xl">
         <div className="grid-col grid-col:9@m">
           <Figure
@@ -161,6 +181,7 @@ export const OrasPage = ({ images }: PageProps) => {
           alt="Oras sense faucet"
           animate={false}
           borderRadius={false}
+          scrollMaxClientHeight={mqM ? undefined : 200}
           scroll="mask"
           {...getImage('joonassandell-oras-hero-sense', images)}
         />
@@ -183,6 +204,26 @@ export const OrasPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
+      <TemplateSectionHeader
+        heading="Building a web service around the renewed brand"
+        rows={[
+          {
+            heading: 'Problems',
+            text: 'The previous web presence did not reflect the quality of the products or the direction of the brand. Information was hard to find and the experience felt disconnected from the physical products.',
+          },
+          {
+            heading: 'Challenges',
+            text: 'The service needed to work for different audiences and markets while staying consistent, and it had to be built alongside the brand renewal.',
+          },
+          {
+            heading: 'Solutions',
+            text: 'We defined a concept that puts the products and the feeling of water at the center, supported by a clear structure, inspiring content and a bold visual identity.',
+          },
+        ]}
+      >
+        A web service built to carry the renewed Oras brand and make the
+        products easier to discover, understand and choose
+      </TemplateSectionHeader>
       <TemplateArea grid={false} pb="2xl-5xl" pt="2xl-5xl" wrap={false}>
         <div className="grid -gap:l -gap:row:l">
           <div className="grid-col grid-col:10 grid-col:4@m -align:end">
