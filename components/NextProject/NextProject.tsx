@@ -5,10 +5,10 @@ import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { mapRange } from '@/lib/utils'
 import { MQ, TRANS_MOVE, TRANS_PRIMARY_FAST } from '@/lib/config'
 import { type NextProjectProps } from './'
-import { type RefObject, useEffect, useRef, useState } from 'react'
+import { type PointerEvent, useEffect, useRef, useState } from 'react'
 import { SITEMAP } from '@/lib/sitemap'
 import { useApp } from '@/components/App'
-import { useMedia, useMouseHovered } from 'react-use'
+import { useMedia } from 'react-use'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import useMeasure from 'react-use-measure'
@@ -23,13 +23,6 @@ export const NextProject = ({ id }: NextProjectProps) => {
   const [figureRef, { height: figureHeight, width: figureWidth }] = useMeasure()
   const figureWidthHalf = figureWidth / 2
   const figureHeightHalf = figureHeight / 2
-  const { elX: mousePosX, elY: mousePosY } = useMouseHovered(
-    ref as RefObject<HTMLDivElement>,
-    {
-      bound: true,
-      whenHovered: true,
-    },
-  )
   const mqS = useMedia(MQ.s, false)
 
   /**
@@ -48,30 +41,33 @@ export const NextProject = ({ id }: NextProjectProps) => {
    * Rotate
    */
   const r = useMotionValue(-0.5)
-  const prevMousePosX = x.get() + figureWidthHalf
-  const direction = mousePosX < prevMousePosX ? 'left' : 'right'
-  const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100)
   const rotateTrans = useTransform(r, [-1, 0, 1], [-30, 0, 30])
   const rotate = useSpring(rotateTrans, TRANS_MOVE.medium)
 
   /**
    * Transform figure
    */
-  useEffect(() => {
+  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === 'touch' || !ref.current) return
+
+    const {
+      height: elH,
+      left,
+      top,
+      width: elW,
+    } = ref.current.getBoundingClientRect()
+    const mousePosX = clamp(e.clientX - left, 0, elW)
+    const mousePosY = clamp(e.clientY - top, 0, elH)
+    const prevMousePosX = x.get() + figureWidthHalf
+    const direction = mousePosX < prevMousePosX ? 'left' : 'right'
+    const mouseDistanceX = clamp(Math.abs(prevMousePosX - mousePosX), 0, 100)
+
     if (mouseDistanceX && mousePosX && mousePosY) {
       x.set(mousePosX - figureWidthHalf)
       y.set(mousePosY - figureHeightHalf)
-      const rotateAmount = mapRange(
-        mouseDistanceX,
-        0,
-        100,
-        0,
-        direction === 'left' ? 1 : -1,
-      )
-      r.set(rotateAmount)
+      r.set(mapRange(mouseDistanceX, 0, 100, 0, direction === 'left' ? 1 : -1))
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mousePosX, mousePosY, mouseDistanceX])
+  }
 
   /**
    * Set initial figure position
@@ -87,7 +83,7 @@ export const NextProject = ({ id }: NextProjectProps) => {
   }, [height, width, figureWidthHalf, figureHeightHalf, mqS])
 
   return (
-    <div className="NextProject" ref={ref}>
+    <div className="NextProject" onPointerMove={onPointerMove} ref={ref}>
       <div className="NextProject-inner wrap" ref={innerRef}>
         <Heading className="mb:0" size="l" tag="div">
           <LinkRoll className="NextProject-link" href={url}>
