@@ -49,7 +49,7 @@ export const HomeHero = () => {
             <Button
               href="#selected-works"
               onClick={handleExcludeHash}
-              scrollTo={{ offset: 0 }}
+              scrollTo={{ flush: true }}
               variant="secondary"
             >
               Selected Works
@@ -75,7 +75,7 @@ export const HomeHero = () => {
             <Link
               href="#selected-works"
               onClick={handleExcludeHash}
-              scrollTo={{ offset: 0 }}
+              scrollTo={{ flush: true }}
             >
               selected works
             </Link>

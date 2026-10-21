@@ -179,7 +179,6 @@ export const SCROLL_TO_EASE = (x: number) => 1 - Math.pow(1 - x, 4)
  * ======================================= */
 
 export const SLOW_NETWORK_DELAY = 1000
-export const FONT_SIZE = 16
 
 /* =======================================
  * Variants
@@ -205,7 +204,9 @@ export const MOVE_IN_VARIANTS: Readonly<Variants> = {
       },
       skewY: {
         ...TRANS_SECONDARY,
-        ...((delay || skewYdelay) && { delay: skewYdelay ?? delay }),
+        ...((delay !== 0 || skewYdelay !== 0) && {
+          delay: skewYdelay ?? delay,
+        }),
       },
     },
     y: 0,

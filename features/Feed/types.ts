@@ -18,5 +18,4 @@ export interface PageProps {
 }
 
 export interface FeedItemProps
-  extends ComponentPropsWithoutRef<'div'>,
-    FeedDataItemProps {}
+  extends ComponentPropsWithoutRef<'div'>, FeedDataItemProps {}

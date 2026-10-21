@@ -2,21 +2,20 @@ import { type HTMLMotionProps } from 'motion/react'
 import { type ImageProps } from 'next/image'
 import { type UseParallaxOptions } from '@/lib/useParallax'
 
-export interface FigureProps
-  extends Omit<
-    ImageProps,
-    | 'src'
-    | 'placeholder'
-    | 'fill'
-    | 'blurDataURL'
-    | 'onLoadingComplete'
-    | 'layout'
-    | 'objectFit'
-    | 'objectPosition'
-    | 'lazyBoundary'
-    | 'lazyRoot'
-    | 'style'
-  > {
+export interface FigureProps extends Omit<
+  ImageProps,
+  | 'src'
+  | 'placeholder'
+  | 'fill'
+  | 'blurDataURL'
+  | 'onLoadingComplete'
+  | 'layout'
+  | 'objectFit'
+  | 'objectPosition'
+  | 'lazyBoundary'
+  | 'lazyRoot'
+  | 'style'
+> {
   animate?: boolean
   background?: string | boolean
   border?: string | boolean
