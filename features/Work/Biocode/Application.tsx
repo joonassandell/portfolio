@@ -7,7 +7,7 @@ import { MQ } from '@/lib/config'
 import { type PageProps } from '@/types'
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
 import { Subtitle } from '@/components/Subtitle'
-import { TemplateArea } from '@/components/Template'
+import { TemplateArea, TemplateSectionHeader } from '@/components/Template'
 import { Text } from '@/components/Text'
 import { useParallax } from '@/lib/useParallax'
 import profileHeidi from '@/public/biocode/heidi-kumpulainen.jpg'
@@ -34,20 +34,17 @@ export const BiocodeApplication = ({ images }: PageProps) => {
           {...getImage('joonassandell-biocode-app-for-producers-hero', images)}
         />
       </TemplateArea>
-      <TemplateArea grid={false} id="application" pt="2xl-5xl">
-        <Subtitle animate center>
-          The Application
-        </Subtitle>
-        <Heading animate center size="h1" tag="h2">
-          Simplifying the carbon footprint calculating
-        </Heading>
-        <Text animate center className="mb:0" color="mute" size="l" tag="p">
-          Biocode is designed to make calculations straightforward and
-          accessible. While the process may seem complex, our platform
-          simplifies each step, allowing users to easily track and reduce their
-          environmental impact with confidence and clarity.
-        </Text>
-      </TemplateArea>
+      <TemplateSectionHeader
+        center
+        heading="Simplifying the carbon footprint calculating"
+        id="application"
+        subtitle="The Application"
+      >
+        Biocode is designed to make calculations straightforward and accessible.
+        While the process may seem complex, our platform simplifies each step,
+        allowing users to easily track and reduce their environmental impact
+        with confidence and clarity.
+      </TemplateSectionHeader>
       <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl">
         <Figure
           alt="Biocode application collection"

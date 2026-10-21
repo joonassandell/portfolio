@@ -6,30 +6,26 @@ import { Link } from '@/components/Link'
 import { MQ } from '@/lib/config'
 import { type PageProps } from '@/types'
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
-import { Subtitle } from '@/components/Subtitle'
-import { TemplateArea } from '@/components/Template'
+import { TemplateArea, TemplateSectionHeader } from '@/components/Template'
 import { Text } from '@/components/Text'
 import profileAnnu from '@/public/biocode/annu-kuure.jpg'
 
 export const BiocodeDesignSystem = ({ images }: PageProps) => (
   <section className="Template-ds" id="design-system">
-    <TemplateArea className="Template-ds-heading" grid={false} pt="2xl-5xl">
-      <Subtitle animate center>
-        Design system
-      </Subtitle>
-      <Heading animate center size="h1" tag="h2">
-        Biocode Design System
-      </Heading>
-      <Text animate center className="mb:0" color="mute" size="l" tag="p">
-        The foundation of our design, hosted on{' '}
-        <em>
-          <Link href="https://github.com/joonassandell/bds">GitHub</Link>
-        </em>{' '}
-        and designed with <em>Figma</em>, serves as a comprehensive library used
-        across our entire ecosystem, providing a consistent look and
-        standardized approach in maintaining coherence throughout our products
-      </Text>
-    </TemplateArea>
+    <TemplateSectionHeader
+      center
+      className="Template-ds-heading"
+      heading="Biocode Design System"
+      subtitle="Design system"
+    >
+      The foundation of our design, hosted on{' '}
+      <em>
+        <Link href="https://github.com/joonassandell/bds">GitHub</Link>
+      </em>{' '}
+      and designed with <em>Figma</em>, serves as a comprehensive library used
+      across our entire ecosystem, providing a consistent look and standardized
+      approach in maintaining coherence throughout our products
+    </TemplateSectionHeader>
     <TemplateArea gridGap="m" gridRowGap="m" pt="l-2xl">
       <div className="grid-col grid-col:9@s grid align-items:start">
         <Figure

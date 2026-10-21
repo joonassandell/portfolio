@@ -2,115 +2,56 @@ import { Avatar } from '@/components/Avatar'
 import { Figure } from '@/components/Figure'
 import { getImage } from '@/lib/utils'
 import { Heading } from '@/components/Heading'
-import { Hr } from '@/components/Hr'
 import { Link } from '@/components/Link'
 import { MQ } from '@/lib/config'
 import { type PageProps } from '@/types'
 import { Quote, QuoteFooter, QuoteText } from '@/components/Quote'
 import { Subtitle } from '@/components/Subtitle'
-import { TemplateArea } from '@/components/Template'
+import { TemplateArea, TemplateSectionHeader } from '@/components/Template'
 import { Text } from '@/components/Text'
 import profileAnnu from '@/public/biocode/annu-kuure.jpg'
 
 export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
   <section id="brand-and-website">
-    <TemplateArea grid={false} pt="2xl-5xl">
-      <Subtitle animate center>
-        Brand & Website
-      </Subtitle>
-      <Heading animate center size="h1" tag="h2">
-        Understanding the positioning of Biocode
-      </Heading>
-      <Text
-        animate
-        balance
-        center
-        className="mb:0"
-        color="mute"
-        size="l"
-        tag="p"
-      >
-        The brand renewal began with a clear objective: to reposition Biocode,
-        initially perceived as a consulting service, into a scalable SaaS
-        product, aligning with our mission to provide food businesses with an
-        efficient carbon footprint calculator
-      </Text>
-    </TemplateArea>
-    <TemplateArea pt="l-2xl">
-      <div className="grid-col grid -gap:row:0">
-        <Hr animate className="grid-col mb:l mb:2xl@l" />
-        <Heading
-          animate
-          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
-          size="h5"
-          tag="h3"
-        >
-          Problems
-        </Heading>
-        <Text
-          animate
-          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
-          color="mute"
-          tag="p"
-        >
-          During the positioning project, we discovered that Biocode's brand and{' '}
-          <Link
-            href="/_next/image?url=%2Fsandbox%2Fjoonassandell-biocode-home.jpg&w=1080&q=100"
-            target="_blank"
-          >
-            old website
-          </Link>{' '}
-          were not effectively communicating its USPs and the{' '}
-          <em>real value</em> it provides to users. This misalignment created
-          confusion among potential customers, leading to lower engagement and a
-          lack of clarity.
-        </Text>
-      </div>
-      <div className="grid-col grid -gap:row:0">
-        <Heading
-          animate
-          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
-          maxWidth
-          size="h5"
-          tag="h3"
-        >
-          Challenges
-        </Heading>
-        <Text
-          animate
-          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
-          color="mute"
-          tag="p"
-        >
-          We needed to shift Biocode's positioning from a service-oriented brand
-          to a product-centric SaaS model and make sure that the website
-          communicated the value Biocode offers to its users. The main challenge
-          was translating this into a brand design that highlighted Biocode's
-          key advantages and set it apart from competitors.
-        </Text>
-      </div>
-      <div className="grid-col grid -gap:row:0">
-        <Heading
-          animate
-          className="grid-col grid-col:4@s grid-col:5@m grid-col:7@l"
-          size="h5"
-          tag="h3"
-        >
-          Solutions
-        </Heading>
-        <Text
-          animate
-          className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
-          color="mute"
-          tag="p"
-        >
-          We addressed these challenges by showcasing Biocode’s strengths, like
-          ease of use and credibility. The new design highlights the problems
-          Biocode solves, with clear messaging and interface that guides
-          potential customers through the product's benefits.
-        </Text>
-      </div>
-    </TemplateArea>
+    <TemplateSectionHeader
+      center
+      heading="Understanding the positioning of Biocode"
+      rows={[
+        {
+          heading: 'Problems',
+          text: (
+            <>
+              During the positioning project, we discovered that Biocode's brand
+              and{' '}
+              <Link
+                href="/_next/image?url=%2Fsandbox%2Fjoonassandell-biocode-home.jpg&w=1080&q=100"
+                target="_blank"
+              >
+                old website
+              </Link>{' '}
+              were not effectively communicating its USPs and the{' '}
+              <em>real value</em> it provides to users. This misalignment
+              created confusion among potential customers, leading to lower
+              engagement and a lack of clarity.
+            </>
+          ),
+        },
+        {
+          heading: 'Challenges',
+          text: "We needed to shift Biocode's positioning from a service-oriented brand to a product-centric SaaS model and make sure that the website communicated the value Biocode offers to its users. The main challenge was translating this into a brand design that highlighted Biocode's key advantages and set it apart from competitors.",
+        },
+        {
+          heading: 'Solutions',
+          text: "We addressed these challenges by showcasing Biocode’s strengths, like ease of use and credibility. The new design highlights the problems Biocode solves, with clear messaging and interface that guides potential customers through the product's benefits.",
+        },
+      ]}
+      subtitle="Brand & Website"
+    >
+      The brand renewal began with a clear objective: to reposition Biocode,
+      initially perceived as a consulting service, into a scalable SaaS product,
+      aligning with our mission to provide food businesses with an efficient
+      carbon footprint calculator
+    </TemplateSectionHeader>
     <TemplateArea pt="2xl-5xl">
       <Figure
         alt="'Who Biocode is for' cards and call to action to sign up for Biocode"
