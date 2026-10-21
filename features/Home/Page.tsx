@@ -17,8 +17,8 @@ export const HomePage = () => {
   const { id } = SITEMAP.home
   useSetThemeColor()
   const scrollTo = useScrollTo({
+    flush: true,
     lock: true,
-    offset: undefined,
     stopOnComplete: true,
   })
   const lenis = useLenis()
