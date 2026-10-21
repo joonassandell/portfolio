@@ -47,12 +47,6 @@
 
 .mt\:-6xl {
   margin-top: rem($space-6xl * -1);
-
-  @include mq(l) {
-    &\@l {
-      margin-top: rem($space-6xl * -1);
-    }
-  }
 }
 
 .mt\:6xl {
