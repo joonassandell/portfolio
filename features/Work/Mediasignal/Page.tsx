@@ -1,6 +1,7 @@
 import { Figure } from '@/components/Figure'
 import { getImage } from '@/lib/utils'
 import { Head } from '@/components/Head'
+import { Heading } from '@/components/Heading'
 import { Info } from '@/components/Info'
 import { MediasignalHero } from './'
 import { MQ } from '@/lib/config'
@@ -8,9 +9,12 @@ import { NextProject } from '@/components/NextProject'
 import { type PageProps } from '@/types'
 import { SITEMAP } from '@/lib/sitemap'
 import { Template, TemplateArea } from '@/components/Template'
+import { Text } from '@/components/Text'
+import { useMedia } from 'react-use'
 import { useSetThemeColor } from '@/components/App'
 
 export const MediasignalPage = ({ images }: PageProps) => {
+  const mqM = useMedia(MQ.m, false)
   const { id, meta, title, year } = SITEMAP.mediasignal
   const { id: nextProjectId } = SITEMAP.moreWork
   useSetThemeColor(meta.themeColor)
@@ -84,33 +88,51 @@ export const MediasignalPage = ({ images }: PageProps) => {
           />
         </div>
       </TemplateArea>
-      <TemplateArea gridRowGap={false}>
+      <TemplateArea>
         <div className="grid-col">
           <Figure
             alt="Mediasignal business card"
             animate={false}
             borderRadius="var(--border-radius-l)"
             scroll="mask"
+            scrollMaxClientHeight={mqM ? 1200 : 200}
+            scrollSpeed="slowest"
             {...getImage('joonassandell-mediasignal-business-card', images)}
           />
         </div>
-        <div className="grid-col grid-col:6">
+        <div className="grid-col grid-col:8 grid-col:6@m">
           <Figure
             alt="Mediasignal logomark in light background"
-            scroll
+            borderRadius="var(--border-radius-l)"
             sizes="50vw"
             {...getImage('joonassandell-mediasignal-logomark-bg', images)}
           />
         </div>
-        <div className="grid-col grid-col:6">
+        <div className="grid-col grid-col:8 grid-col:6@m -end">
           <Figure
             alt="Mediasignal logomark in dark background"
-            inViewOffset={0.5}
-            scroll
-            scrollSpeed="slow"
+            borderRadius="var(--border-radius-l)"
             sizes="50vw"
             {...getImage('joonassandell-mediasignal-logomark-bg-dark', images)}
           />
+        </div>
+        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
+          <Heading animate size="h4" tag="h3">
+            Logomark and guidelines for the new brand
+          </Heading>
+          <Text animate>
+            <p>
+              The logomark combines a bold letter M with a simple circle. It
+              stays recognisable at small sizes and works on both light and dark
+              backgrounds.
+            </p>
+            <p>
+              The brand book collects the guidelines in one place: logomark and
+              safe area, visual element, typography, imagery and colours. It
+              also covers identity and communications, so the people using the
+              brand have one reference.
+            </p>
+          </Text>
         </div>
       </TemplateArea>
       <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl" wrap={false}>
