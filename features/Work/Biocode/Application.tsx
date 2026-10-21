@@ -38,6 +38,7 @@ export const BiocodeApplication = ({ images }: PageProps) => {
         center
         heading="Simplifying the carbon footprint calculating"
         id="application"
+        mute
         subtitle="The Application"
       >
         Biocode is designed to make calculations straightforward and accessible.

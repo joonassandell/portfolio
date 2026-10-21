@@ -16,6 +16,7 @@ export const BiocodeBrandAndWebsite = ({ images }: PageProps) => (
     <TemplateSectionHeader
       center
       heading="Understanding the positioning of Biocode"
+      mute
       rows={[
         {
           heading: 'Problems',

@@ -16,6 +16,7 @@ export const BiocodeDesignSystem = ({ images }: PageProps) => (
       center
       className="Template-ds-heading"
       heading="Biocode Design System"
+      mute
       subtitle="Design system"
     >
       The foundation of our design, hosted on{' '}

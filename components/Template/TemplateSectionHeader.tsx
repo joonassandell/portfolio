@@ -10,6 +10,7 @@ export const TemplateSectionHeader = ({
   center,
   children,
   heading,
+  mute,
   rows,
   subtitle,
   ...props
@@ -29,7 +30,7 @@ export const TemplateSectionHeader = ({
         balance
         center={center}
         className="mb:0"
-        color="mute"
+        color={mute ? 'mute' : undefined}
         size="l"
         tag="p"
       >
@@ -59,7 +60,7 @@ export const TemplateSectionHeader = ({
             <Text
               animate
               className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l mb:0"
-              color="mute"
+              color={mute ? 'mute' : undefined}
               tag="p"
             >
               {text}

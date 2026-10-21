@@ -30,6 +30,7 @@ export interface TemplateSectionHeaderProps extends Omit<
   center?: boolean
   children: ReactNode
   heading: ReactNode
+  mute?: boolean
   rows?: { heading: ReactNode; text: ReactNode }[]
   subtitle?: ReactNode
 }
