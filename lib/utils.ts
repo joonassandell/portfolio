@@ -122,3 +122,16 @@ export const scrollIntoView = (
     el?.scrollIntoView(options)
   }
 }
+
+/**
+ * Pointer position relative to the top left corner of an element, plus the
+ * element size.
+ */
+export const getPointerPosition = (
+  e: { clientX: number; clientY: number },
+  el: HTMLElement,
+) => {
+  const { height, left, top, width } = el.getBoundingClientRect()
+
+  return { height, width, x: e.clientX - left, y: e.clientY - top }
+}

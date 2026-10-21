@@ -1,4 +1,5 @@
 import { debounce } from 'es-toolkit'
+import { getPointerPosition } from '@/lib/utils'
 import { m, useMotionValue, useSpring, useTransform } from 'motion/react'
 import {
   OVERLAY_VARIANTS,
@@ -64,9 +65,9 @@ export const Stamp = ({
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       if (!parentRef.current) return
-      const { left, top } = parentRef.current.getBoundingClientRect()
-      mouseX.set(e.pageX - (left + window.scrollX))
-      mouseY.set(e.pageY - (top + window.scrollY))
+      const { x, y } = getPointerPosition(e, parentRef.current)
+      mouseX.set(x)
+      mouseY.set(y)
     }
     document.addEventListener('pointermove', onMove)
     return () => document.removeEventListener('pointermove', onMove)
