@@ -1,15 +1,17 @@
 import { Figure } from '@/components/Figure'
 import { getImage } from '@/lib/utils'
 import { Head } from '@/components/Head'
-import { Heading } from '@/components/Heading'
 import { Info } from '@/components/Info'
 import { MediasignalHero } from './'
 import { MQ } from '@/lib/config'
 import { NextProject } from '@/components/NextProject'
 import { type PageProps } from '@/types'
 import { SITEMAP } from '@/lib/sitemap'
-import { Template, TemplateArea } from '@/components/Template'
-import { Text } from '@/components/Text'
+import {
+  Template,
+  TemplateArea,
+  TemplateSectionHeader,
+} from '@/components/Template'
 import { useMedia } from 'react-use'
 import { useSetThemeColor } from '@/components/App'
 
@@ -116,25 +118,23 @@ export const MediasignalPage = ({ images }: PageProps) => {
             {...getImage('joonassandell-mediasignal-logomark-bg-dark', images)}
           />
         </div>
-        <div className="grid-col grid-col:8@s grid-col:7@m grid-col:5@l">
-          <Heading animate size="h4" tag="h3">
-            Logomark and guidelines for the new brand
-          </Heading>
-          <Text animate>
-            <p>
-              The logomark combines a bold letter M with a simple circle. It
-              stays recognisable at small sizes and works on both light and dark
-              backgrounds.
-            </p>
-            <p>
-              The brand book collects the guidelines in one place: logomark and
-              safe area, visual element, typography, imagery and colours. It
-              also covers identity and communications, so the people using the
-              brand have one reference.
-            </p>
-          </Text>
-        </div>
       </TemplateArea>
+      <TemplateSectionHeader
+        heading="Refreshing the brand"
+        rows={[
+          {
+            heading: 'Logomark',
+            text: 'The logomark combines a bold letter M with a simple circle. It stays recognisable at small sizes and works on both light and dark backgrounds.',
+          },
+          {
+            heading: 'Brand book',
+            text: 'The brand book collects the guidelines in one place: logomark and safe area, visual element, typography, imagery and colours. It also covers identity and communications, so the people using the brand have one reference.',
+          },
+        ]}
+      >
+        A new logomark and a brand book that keep the identity consistent across
+        print and web
+      </TemplateSectionHeader>
       <TemplateArea gridGap="m" gridRowGap="m" pt="2xl-5xl" wrap={false}>
         <div className="grid-col grid-col:6 grid-col:4@m">
           <Figure
