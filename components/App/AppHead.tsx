@@ -1,6 +1,6 @@
 import { APP, APP_URL, GOOGLE_ANALYTICS, PRODUCTION_LIVE } from '@/lib/config'
 import { type AppHeadProps } from './'
-import { Partytown } from '@builder.io/partytown/react'
+import { Partytown } from '@qwik.dev/partytown/react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
@@ -106,7 +106,7 @@ export const AppHead = ({ themeColor }: AppHeadProps) => {
           name="viewport"
         />
         <meta
-          content={themeColor ? themeColor : '#000000'}
+          content={themeColor ?? '#000000'}
           key="theme-color"
           name="theme-color"
         />

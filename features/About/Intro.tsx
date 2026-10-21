@@ -61,7 +61,8 @@ export const AboutIntro = () => {
     mobile: [
       'With more than 15 years of ',
       <>
-        design engineering <Link href={SITEMAP.resume.url}>experience</Link>,{' '}
+        design engineering <Link href={SITEMAP.resume.url}>experience</Link>
+        ,{' '}
       </>,
       'I have the skills to build ',
       'high-quality websites and ',

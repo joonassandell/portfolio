@@ -1,6 +1,6 @@
 @use 'config';
 
-@forward 'sass-mq/mq' with (
+@forward 'sass-mq' with (
   $breakpoints: config.$breakpoints
 );
 @forward 'mixins/fontSize';

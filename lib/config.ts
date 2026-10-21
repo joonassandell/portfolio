@@ -205,7 +205,9 @@ export const MOVE_IN_VARIANTS: Readonly<Variants> = {
       },
       skewY: {
         ...TRANS_SECONDARY,
-        ...((delay || skewYdelay) && { delay: skewYdelay ?? delay }),
+        ...((delay !== 0 || skewYdelay !== 0) && {
+          delay: skewYdelay ?? delay,
+        }),
       },
     },
     y: 0,

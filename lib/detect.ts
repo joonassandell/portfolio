@@ -19,8 +19,7 @@ export const isSafari = ua.indexOf('Safari') > -1 && !isChrome
  * Brave
  */
 const nav: Navigator | any = navigator
-export const isBrave =
-  (nav.brave && (async () => await nav.brave.isBrave())) || false
+export const isBrave = nav.brave ? async () => await nav.brave.isBrave() : false
 
 /**
  * Android
