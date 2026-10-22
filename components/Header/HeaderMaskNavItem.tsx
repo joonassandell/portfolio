@@ -38,11 +38,12 @@ export const HeaderMaskNavItem = ({
 
   const findClosestEdge = (e: MouseEvent) => {
     if (!ref.current) return
-    const x = e.pageX - ref.current?.offsetLeft
-    const y = e.pageY - ref.current?.offsetTop
+    // Viewport coordinates, since the mask is fixed and pageX/Y would include
+    // the scroll position of the page below it
+    const { height, left, top, width } = ref.current.getBoundingClientRect()
 
     setClosestEdge(
-      getClosestEdge(x, y, ref.current.clientWidth, ref.current.clientHeight),
+      getClosestEdge(e.clientX - left, e.clientY - top, width, height),
     )
   }
 
