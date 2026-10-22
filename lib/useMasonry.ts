@@ -1,59 +1,53 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
+/**
+ * Pulls each item up under the previous item in the same column, so a grid
+ * with uneven item heights lays out like a masonry. The layout is measured
+ * again whenever an item changes size (image load, font load, resize), since
+ * item heights are usually not final on mount.
+ */
 export const useMasonry = () => {
   const masonryContainer = useRef<HTMLDivElement | null>(null)
-  const [items, setItems] = useState<ChildNode[]>([])
 
   useEffect(() => {
-    if (masonryContainer.current) {
-      const masonryItem = Array.from(masonryContainer.current.children)
-      setItems(masonryItem)
-    }
-  }, [])
+    const container = masonryContainer.current
+    if (!container) return
 
-  useEffect(() => {
-    const handleMasonry = () => {
-      if (!items || items.length < 1) return
-      let gapSize = 0
-      if (masonryContainer.current) {
-        gapSize = parseInt(
-          window
-            .getComputedStyle(masonryContainer.current)
-            .getPropertyValue('grid-row-gap'),
-        )
-      }
-      items.forEach(el => {
-        if (!(el instanceof HTMLElement)) return
-        let previous = el.previousSibling
-        while (previous) {
-          if (previous.nodeType === 1) {
-            el.style.marginTop = '0'
-            if (
-              previous instanceof HTMLElement &&
-              elementLeft(previous) === elementLeft(el)
-            ) {
-              el.style.marginTop =
-                -(elementTop(el) - elementBottom(previous) - gapSize) + 'px'
-              break
-            }
+    const layout = () => {
+      const items = Array.from(container.children).filter(
+        (el): el is HTMLElement => el instanceof HTMLElement,
+      )
+      const gap = parseInt(getComputedStyle(container).rowGap) || 0
+
+      // Reset first so every measurement is made from the plain grid layout
+      items.forEach(el => (el.style.marginTop = ''))
+
+      items.forEach((el, i) => {
+        const { left, top } = el.getBoundingClientRect()
+
+        for (let j = i - 1; j >= 0; j--) {
+          const prev = items[j].getBoundingClientRect()
+          if (prev.left === left) {
+            el.style.marginTop = `${-(top - prev.bottom - gap)}px`
+            break
           }
-          previous = previous.previousSibling
         }
       })
     }
 
-    handleMasonry()
-    window.addEventListener('resize', handleMasonry)
-    return () => window.removeEventListener('resize', handleMasonry)
-  }, [items])
+    let frame = 0
+    const observer = new ResizeObserver(() => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(layout)
+    })
 
-  const elementLeft = (el: HTMLElement) => el.getBoundingClientRect().left
+    Array.from(container.children).forEach(el => observer.observe(el))
 
-  const elementTop = (el: HTMLElement) =>
-    el.getBoundingClientRect().top + window.scrollY
-
-  const elementBottom = (el: HTMLElement) =>
-    el.getBoundingClientRect().bottom + window.scrollY
+    return () => {
+      cancelAnimationFrame(frame)
+      observer.disconnect()
+    }
+  }, [])
 
   return masonryContainer
 }
