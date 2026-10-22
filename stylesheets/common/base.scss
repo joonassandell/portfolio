@@ -25,8 +25,15 @@
     touch-action: none;
   }
 
+  /**
+   * Keep the scrollbar gutter while locked. Otherwise `vw` units (e.g. the root
+   * font-size) change when the scrollbar disappears and the page jumps. The
+   * gutter is painted with the root background, so match the Header mask.
+   */
   &.is-lock {
+    background: var(--bg-950);
     overflow: hidden;
+    scrollbar-gutter: stable;
   }
 }
 

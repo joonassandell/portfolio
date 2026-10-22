@@ -20,12 +20,7 @@ import {
   SLOW_NETWORK_DELAY,
 } from '@/lib/config'
 import { Header } from '@/components/Header'
-import {
-  isBrowser,
-  resetFocusToBody,
-  scrollbarWidth,
-  scrollIntoView,
-} from '@/lib/utils'
+import { isBrowser, resetFocusToBody, scrollIntoView } from '@/lib/utils'
 import { ReactLenis, useLenis } from 'lenis/react'
 import { SkipNav } from '@/components/SkipNav'
 import { Splash } from '@/components/Splash'
@@ -117,14 +112,9 @@ export const App = ({
       if (enable) {
         if (handleLenis) lenis?.stop()
         root.classList.add('is-lock')
-        root.style.setProperty(
-          '--root-scrollbar-width-lock',
-          `${scrollbarWidth}px`,
-        )
       } else {
         if (handleLenis) lenis?.start()
         root.classList.remove('is-lock')
-        root.style.removeProperty('--root-scrollbar-width-lock')
       }
     },
     [lenis, root],

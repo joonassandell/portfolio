@@ -91,20 +91,6 @@ export const hasScrollbar = (el: HTMLElement | null) => {
   return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth
 }
 
-export const scrollbarWidth = (() => {
-  if (!isBrowser) return
-  const scrollDiv = document.createElement('div')
-  scrollDiv.style.height = '100px'
-  scrollDiv.style.overflow = 'scroll'
-  scrollDiv.style.position = 'absolute'
-  scrollDiv.style.top = '-999px'
-  scrollDiv.style.width = '100px'
-  document.documentElement.appendChild(scrollDiv)
-  const scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-  document.documentElement.removeChild(scrollDiv)
-  return scrollBarWidth
-})()
-
 export const resetFocusToBody = () => {
   document.body.tabIndex = -1
   document.body.focus()
