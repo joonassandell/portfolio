@@ -1,5 +1,6 @@
 import { type AppHeadProps, useApp, useSetThemeColor } from '@/components/App'
 import { BiocodeHero } from '@/features/Work/Biocode'
+import { flushSync } from 'react-dom'
 import { HomeHero } from './'
 import { type LinkEvent } from '@/types'
 import { MediasignalHero } from '@/features/Work/Mediasignal'
@@ -46,27 +47,29 @@ export const HomePage = () => {
 
     const el = e.currentTarget.closest('[id]') as HTMLElement
 
-    const needsExtraSpace = lenis && lenis?.limit < el?.offsetTop
-    if (needsExtraSpace) {
-      setExtraSpace(true)
-      lenis?.resize()
+    /**
+     * The last heroes can't reach the top of the viewport without extra space
+     * below them. Commit it to the DOM synchronously so Lenis measures the new
+     * height right away, otherwise its limit is stale and the scroll has to
+     * wait for its debounced resize before it can start.
+     */
+    if (lenis && lenis.limit < el?.offsetTop) {
+      flushSync(() => setExtraSpace(true))
+      lenis.resize()
     }
 
     setThemeColor(el.dataset.themeColor as AppHeadProps['themeColor'])
     setCurrentHero(el.id as SitemapWithoutArrayKeys)
     setAnimation(true)
 
-    setTimeout(
-      () => {
-        scrollTo(el, () => {
-          setTimeout(() => {
-            lockIos(el)
-            lockTemplate()
-          }, 0)
-        })
-      },
-      needsExtraSpace ? 350 : 0,
-    )
+    setTimeout(() => {
+      scrollTo(el, () => {
+        setTimeout(() => {
+          lockIos(el)
+          lockTemplate()
+        }, 0)
+      })
+    }, 0)
   }
 
   return (
